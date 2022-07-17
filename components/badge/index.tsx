@@ -1,13 +1,13 @@
+import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import CSSMotion from 'rc-motion';
-import classNames from 'classnames';
-import ScrollNumber from './ScrollNumber';
-import Ribbon from './Ribbon';
-import { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
-import { LiteralUnion } from '../_util/type';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
+import Ribbon from './Ribbon';
+import ScrollNumber from './ScrollNumber';
 import { isPresetColor } from './utils';
 
 export { ScrollNumberProps } from './ScrollNumber';
@@ -34,6 +34,7 @@ export interface BadgeProps {
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
   title?: string;
+  children?: React.ReactNode;
 }
 
 const Badge: CompoundedComponent = ({
@@ -58,16 +59,16 @@ const Badge: CompoundedComponent = ({
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   // ================================ Misc ================================
-  const numberedDisplayCount = ((count as number) > (overflowCount as number)
-    ? `${overflowCount}+`
-    : count) as string | number | null;
+  const numberedDisplayCount = (
+    (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
+  ) as string | number | null;
 
   const hasStatus =
     (status !== null && status !== undefined) || (color !== null && color !== undefined);
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const showAsDot = (dot && !isZero) || hasStatus;
+  const showAsDot = dot && !isZero;
 
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
@@ -175,7 +176,12 @@ const Badge: CompoundedComponent = ({
   return (
     <span {...restProps} className={badgeClassName}>
       {children}
-      <CSSMotion visible={!isHidden} motionName={`${prefixCls}-zoom`} motionAppear={false}>
+      <CSSMotion
+        visible={!isHidden}
+        motionName={`${prefixCls}-zoom`}
+        motionAppear={false}
+        motionDeadline={1000}
+      >
         {({ className: motionClassName }) => {
           const scrollNumberPrefixCls = getPrefixCls(
             'scroll-number',

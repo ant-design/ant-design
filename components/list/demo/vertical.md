@@ -13,31 +13,29 @@ title:
 
 Set the `itemLayout` property to `vertical` to create a vertical list.
 
-```jsx
-import { List, Avatar, Space } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+```tsx
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import { Avatar, List, Space } from 'antd';
+import React from 'react';
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'https://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
+const data = Array.from({ length: 23 }).map((_, i) => ({
+  href: 'https://ant.design',
+  title: `ant design part ${i}`,
+  avatar: 'https://joeschmoe.io/api/v1/random',
+  description:
+    'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+  content:
+    'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+}));
 
-const IconText = ({ icon, text }) => (
+const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
     {React.createElement(icon)}
     {text}
   </Space>
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <List
     itemLayout="vertical"
     size="large"
@@ -47,7 +45,7 @@ ReactDOM.render(
       },
       pageSize: 3,
     }}
-    dataSource={listData}
+    dataSource={data}
     footer={
       <div>
         <b>ant design</b> footer part
@@ -77,7 +75,8 @@ ReactDOM.render(
         {item.content}
       </List.Item>
     )}
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

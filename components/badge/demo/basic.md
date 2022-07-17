@@ -13,24 +13,26 @@ title:
 
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
-```jsx
-import { Badge } from 'antd';
+```tsx
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
-  <div>
+const App: React.FC = () => (
+  <>
     <Badge count={5}>
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
     <Badge count={0} showZero>
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
     <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
-  </div>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```
 
 <style>
@@ -40,16 +42,5 @@ ReactDOM.render(
 .ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
   margin-right: 0;
   margin-left: 20px;
-}
-.head-example {
-  width: 42px;
-  height: 42px;
-  border-radius: 2px;
-  background: #eee;
-  display: inline-block;
-  vertical-align: middle;
-}
-[data-theme="dark"] .head-example {
-  background: rgba(255,255,255,.12);
 }
 </style>

@@ -1,14 +1,15 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
-import ConfirmDialog from './ConfirmDialog';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import * as React from 'react';
 import { globalConfig } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
+import ConfirmDialog from './ConfirmDialog';
+import destroyFns from './destroyFns';
+import { getConfirmLocale } from './locale';
+import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 
@@ -18,9 +19,7 @@ function getRootPrefixCls() {
 
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
+export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
   update: (configUpdate: ConfigUpdate) => void;
 };
@@ -28,16 +27,11 @@ export type ModalFunc = (
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
+  const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
@@ -50,6 +44,8 @@ export default function confirm(config: ModalFuncProps) {
         break;
       }
     }
+
+    reactUnmount(container);
   }
 
   function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
@@ -60,20 +56,22 @@ export default function confirm(config: ModalFuncProps) {
      */
     setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls } = globalConfig();
+      const { getPrefixCls, getIconPrefixCls } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+      const iconPrefixCls = getIconPrefixCls();
 
-      ReactDOM.render(
+      reactRender(
         <ConfirmDialog
           {...props}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
+          iconPrefixCls={iconPrefixCls}
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
-        div,
+        container,
       );
     });
   }
@@ -86,6 +84,7 @@ export default function confirm(config: ModalFuncProps) {
         if (typeof config.afterClose === 'function') {
           config.afterClose();
         }
+
         destroy.apply(this, args);
       },
     };
@@ -160,10 +159,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
 }
 
 export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
-  devWarning(
-    false,
-    'Modal',
-    'Modal.config is deprecated. Please use ConfigProvider.config instead.',
-  );
+  warning(false, 'Modal', 'Modal.config is deprecated. Please use ConfigProvider.config instead.');
   defaultRootPrefixCls = rootPrefixCls;
 }

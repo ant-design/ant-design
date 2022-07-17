@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Mentions from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -7,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 const { getMentions } = Mentions;
 
-function simulateInput(wrapper, text = '', keyEvent) {
+function simulateInput(wrapper, text, keyEvent) {
   const lastChar = text[text.length - 1];
   const myKeyEvent = keyEvent || {
     which: lastChar.charCodeAt(0),

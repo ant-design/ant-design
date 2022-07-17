@@ -13,43 +13,40 @@ title:
 
 A dynamic progress bar is better.
 
-```jsx
-import { Progress, Button } from 'antd';
+```tsx
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Progress } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    percent: 0,
-  };
+const App: React.FC = () => {
+  const [percent, setPercent] = useState(0);
 
-  increase = () => {
-    let percent = this.state.percent + 10;
-    if (percent > 100) {
-      percent = 100;
+  const increase = () => {
+    let newPercent = percent + 10;
+    if (newPercent > 100) {
+      newPercent = 100;
     }
-    this.setState({ percent });
+    setPercent(newPercent);
   };
 
-  decline = () => {
-    let percent = this.state.percent - 10;
-    if (percent < 0) {
-      percent = 0;
+  const decline = () => {
+    let newPercent = percent - 10;
+    if (newPercent < 0) {
+      newPercent = 0;
     }
-    this.setState({ percent });
+    setPercent(newPercent);
   };
 
-  render() {
-    return (
-      <>
-        <Progress type="circle" percent={this.state.percent} />
-        <Button.Group>
-          <Button onClick={this.decline} icon={<MinusOutlined />} />
-          <Button onClick={this.increase} icon={<PlusOutlined />} />
-        </Button.Group>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Progress type="circle" percent={percent} />
+      <Button.Group>
+        <Button onClick={decline} icon={<MinusOutlined />} />
+        <Button onClick={increase} icon={<PlusOutlined />} />
+      </Button.Group>
+    </>
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

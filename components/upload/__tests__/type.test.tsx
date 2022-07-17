@@ -1,4 +1,5 @@
 import React from 'react';
+import type { UploadProps } from '..';
 import Upload from '..';
 
 describe('Upload.typescript', () => {
@@ -8,6 +9,57 @@ describe('Upload.typescript', () => {
         <span>click to upload</span>
       </Upload>
     );
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange', () => {
+    const upload = (
+      <Upload<File> onChange={({ file }) => file}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange params', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const upload = (
+      <Upload<IFile> onChange={({ file }) => file.response?.customFile}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange fileList', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const upload = (
+      <Upload<IFile> onChange={({ fileList }) => fileList.map(file => file.response?.customFile)}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange in UploadProps', () => {
+    const uploadProps: UploadProps<File> = {
+      onChange: ({ file }) => file,
+    };
+    const upload = (
+      <Upload {...uploadProps}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
     expect(upload).toBeTruthy();
   });
 
@@ -99,11 +151,10 @@ describe('Upload.typescript', () => {
         status: 'error' as const,
       },
     ];
-    const upload = (
-      <Upload fileList={fileList} defaultFileList={fileList} />
-    )
+    const upload = <Upload fileList={fileList} defaultFileList={fileList} />;
     expect(upload).toBeTruthy();
   });
+
   it('itemRender', () => {
     const upload = (
       <Upload
@@ -122,5 +173,40 @@ describe('Upload.typescript', () => {
       </Upload>
     );
     expect(upload).toBeTruthy();
+  });
+
+  it('data', () => {
+    const upload1 = (
+      <Upload
+        data={() => ({
+          url: '',
+        })}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    const upload2 = (
+      <Upload
+        data={() =>
+          Promise.resolve({
+            url: '',
+          })
+        }
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    const upload3 = (
+      <Upload
+        data={{
+          url: '',
+        }}
+      >
+        <span>click to upload</span>
+      </Upload>
+    );
+    expect(upload1).toBeTruthy();
+    expect(upload2).toBeTruthy();
+    expect(upload3).toBeTruthy();
   });
 });

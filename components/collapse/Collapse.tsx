@@ -1,17 +1,21 @@
-import * as React from 'react';
-import RcCollapse from 'rc-collapse';
-import { CSSMotionProps } from 'rc-motion';
-import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import classNames from 'classnames';
+import RcCollapse from 'rc-collapse';
+import type { CSSMotionProps } from 'rc-motion';
+import * as React from 'react';
 
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import CollapsePanel, { CollapsibleType } from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import warning from '../_util/warning';
+import type { CollapsibleType } from './CollapsePanel';
+import CollapsePanel from './CollapsePanel';
 
-export type ExpandIconPosition = 'left' | 'right' | undefined;
+/** @deprecated Please use `start` | `end` instead */
+type ExpandIconPositionLegacy = 'left' | 'right';
+export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
 export interface CollapseProps {
   activeKey?: Array<string | number> | string | number;
@@ -28,6 +32,7 @@ export interface CollapseProps {
   expandIconPosition?: ExpandIconPosition;
   ghost?: boolean;
   collapsible?: CollapsibleType;
+  children?: React.ReactNode;
 }
 
 interface PanelProps {
@@ -49,35 +54,49 @@ interface CollapseInterface extends React.FC<CollapseProps> {
 
 const Collapse: CollapseInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', bordered = true, ghost } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className = '',
+    bordered = true,
+    ghost,
+    expandIconPosition = 'start',
+  } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
-  const getIconPosition = () => {
-    const { expandIconPosition } = props;
-    if (expandIconPosition !== undefined) {
-      return expandIconPosition;
+  // Warning if use legacy type `expandIconPosition`
+  warning(
+    expandIconPosition !== 'left' && expandIconPosition !== 'right',
+    'Collapse',
+    '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+  );
+
+  // Align with logic position
+  const mergedExpandIconPosition = React.useMemo(() => {
+    if (expandIconPosition === 'left') {
+      return 'start';
     }
-    return direction === 'rtl' ? 'right' : 'left';
-  };
+    return expandIconPosition === 'right' ? 'end' : expandIconPosition;
+  }, [expandIconPosition]);
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
     const { expandIcon } = props;
-    const icon = (expandIcon ? (
-      expandIcon(panelProps)
-    ) : (
-      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-    )) as React.ReactNode;
+    const icon = (
+      expandIcon ? (
+        expandIcon(panelProps)
+      ) : (
+        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+      )
+    ) as React.ReactNode;
 
     return cloneElement(icon, () => ({
       className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
     }));
   };
 
-  const iconPosition = getIconPosition();
   const collapseClassName = classNames(
+    `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
-      [`${prefixCls}-icon-position-${iconPosition}`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
     },
@@ -110,7 +129,6 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openMotion={openMotion}
       {...props}
-      bordered={bordered}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

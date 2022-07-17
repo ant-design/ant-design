@@ -13,8 +13,9 @@ title:
 
 Specify the trigger area of collapsible by `collapsible`.
 
-```jsx
+```tsx
 import { Collapse, Space } from 'antd';
+import React from 'react';
 
 const { Panel } = Collapse;
 
@@ -24,7 +25,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical">
     <Collapse collapsible="header" defaultActiveKey={['1']}>
       <Panel header="This panel can only be collapsed by clicking text" key="1">
@@ -36,9 +37,10 @@ ReactDOM.render(
         <p>{text}</p>
       </Panel>
     </Collapse>
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```
 
 <style>

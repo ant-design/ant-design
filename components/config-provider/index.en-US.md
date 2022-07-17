@@ -39,6 +39,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoInsertSpaceInButton | Set false to remove space between 2 chinese characters on Button | boolean | true |  |
+| componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
@@ -48,7 +49,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className (cooperated with [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106)) | string | `anticon` | 4.11.0 |
 | input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
-| locale | Language package setting, you can find the packages in [antd/lib/locale](http://unpkg.com/antd/lib/locale/) | object | - |  |
+| locale | Language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | - |  |
 | pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | prefixCls | Set prefix className (cooperated with [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)) | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
@@ -61,7 +62,8 @@ Setting `Modal`、`Message`、`Notification` rootPrefixCls.
 
 ```jsx
 ConfigProvider.config({
-  prefixCls: 'ant',
+  prefixCls: 'ant', // 4.13.0+
+  iconPrefixCls: 'anticon', // 4.17.0+
 });
 ```
 
@@ -79,6 +81,10 @@ Please make sure you set moment locale or that you don't have two different vers
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 ```
+
+#### Date-related components locale is not working?
+
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
 
 #### Modal throw error when setting `getPopupContainer`?
 

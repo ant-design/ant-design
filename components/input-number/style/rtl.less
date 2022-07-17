@@ -9,17 +9,33 @@
     direction: rtl;
   }
 
-  &-handler-wrap {
+  &-handler {
     .@{input-number-prefix-cls}-rtl & {
-      right: auto;
-      left: 0;
       border-right: @border-width-base @border-style-base @input-number-handler-border-color;
       border-left: 0;
-      border-radius: @border-radius-base 0 0 @border-radius-base;
     }
 
-    .@{input-number-prefix-cls}-rtl.@{input-number-prefix-cls}-borderless & {
-      border-right-width: 0;
+    &-wrap {
+      .@{input-number-prefix-cls}-rtl & {
+        right: auto;
+        left: 0;
+      }
+
+      .@{input-number-prefix-cls}-rtl.@{input-number-prefix-cls}-borderless & {
+        border-right-width: 0;
+      }
+    }
+
+    &-up {
+      .@{input-number-prefix-cls}-rtl & {
+        border-top-right-radius: 0;
+      }
+    }
+
+    &-down {
+      .@{input-number-prefix-cls}-rtl & {
+        border-bottom-right-radius: 0;
+      }
     }
   }
 
@@ -27,6 +43,29 @@
     .@{input-number-prefix-cls}-rtl & {
       direction: ltr;
       text-align: right;
+    }
+  }
+}
+
+// https://github.com/ant-design/ant-design/issues/35870
+.input-group(@input-number-prefix-cls) {
+  > .@{input-number-prefix-cls}-rtl:first-child {
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+  }
+  > .@{input-number-prefix-cls}-rtl:last-child {
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+  }
+
+  &-addon {
+    .@{input-number-prefix-cls}-group-rtl &:first-child {
+      border-right: @border-width-base @border-style-base @input-border-color;
+      border-left: 0;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+    .@{input-number-prefix-cls}-group-rtl &:last-child {
+      border-right: 0;
+      border-left: @border-width-base @border-style-base @input-border-color;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
     }
   }
 }

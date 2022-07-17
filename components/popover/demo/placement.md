@@ -13,8 +13,9 @@ title:
 
 There are 12 `placement` options available.
 
-```jsx
-import { Popover, Button } from 'antd';
+```tsx
+import { Button, Popover } from 'antd';
+import React from 'react';
 
 const text = <span>Title</span>;
 const content = (
@@ -26,7 +27,7 @@ const content = (
 
 const buttonWidth = 70;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
@@ -72,9 +73,10 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popover>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```
 
 <style>

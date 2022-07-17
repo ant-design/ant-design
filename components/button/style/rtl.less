@@ -10,6 +10,7 @@
         border-right-color: @btn-group-border;
         border-left-color: @btn-default-border;
       }
+
       &[disabled] {
         .@{btn-prefix-cls}-group-rtl& {
           border-right-color: @btn-default-border;
@@ -24,13 +25,6 @@
       .@{btn-prefix-cls}-rtl& {
         padding-right: 0;
         padding-left: @margin-xs;
-      }
-    }
-
-    &:only-child {
-      .@{iconfont-css-prefix} {
-        padding-right: 0;
-        padding-left: 0;
       }
     }
   }
@@ -67,20 +61,14 @@
   > .@{btnClassName}:first-child:not(:last-child),
   > span:first-child:not(:last-child) > .@{btnClassName} {
     .@{btnClassName}-group-rtl& {
-      border-top-left-radius: 0;
-      border-top-right-radius: @btn-border-radius-base;
-      border-bottom-right-radius: @btn-border-radius-base;
-      border-bottom-left-radius: 0;
+      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
     }
   }
 
   > .@{btnClassName}:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .@{btnClassName} {
     .@{btnClassName}-group-rtl& {
-      border-top-left-radius: @btn-border-radius-base;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: @btn-border-radius-base;
+      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
     }
   }
 
@@ -88,20 +76,14 @@
     > .@{btnClassName}:first-child:not(:last-child),
     > span:first-child:not(:last-child) > .@{btnClassName} {
       .@{btnClassName}-group-rtl& {
-        border-top-left-radius: 0;
-        border-top-right-radius: @btn-border-radius-sm;
-        border-bottom-right-radius: @btn-border-radius-sm;
-        border-bottom-left-radius: 0;
+        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
       }
     }
 
     > .@{btnClassName}:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .@{btnClassName} {
       .@{btnClassName}-group-rtl& {
-        border-top-left-radius: @btn-border-radius-sm;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: @btn-border-radius-sm;
+        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
       }
     }
   }

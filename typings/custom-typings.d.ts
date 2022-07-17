@@ -18,33 +18,11 @@ declare module 'jsonml.js/*';
 
 declare module 'rc-pagination/*';
 
-declare module 'rc-animate*';
-
 declare module 'rc-util*';
-
-declare module '@ant-design/css-animation*';
 
 declare module 'rc-checkbox';
 
-declare module 'rc-radio';
-
-declare module 'rc-editor-mention';
-
-declare module 'rc-tabs*';
-
-declare module 'rc-tree/lib/util';
-
-declare module 'rc-collapse';
-
-declare module 'rc-dialog';
-
 declare module 'rc-rate';
-
-declare module 'rc-queue-anim';
-
-declare module 'rc-steps';
-
-declare module 'rc-switch';
 
 declare module '*.json' {
   const value: any;
@@ -52,10 +30,10 @@ declare module '*.json' {
   export default value;
 }
 
-declare module '@docsearch/react/style/modal';
+declare module 'docsearch-react-fork/style/modal';
 
-declare module '@docsearch/react/modal' {
-  import { DocSearchModal as value } from '@docsearch/react';
+declare module 'docsearch-react-fork/modal' {
+  import { DocSearchModal as value } from 'docsearch-react-fork';
   export const DocSearchModal = value;
 }
 

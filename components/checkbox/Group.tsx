@@ -1,8 +1,9 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Checkbox, { CheckboxChangeEvent } from './Checkbox';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import type { CheckboxChangeEvent } from './Checkbox';
+import Checkbox from './Checkbox';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -17,7 +18,7 @@ export interface CheckboxOptionType {
 export interface AbstractCheckboxGroupProps {
   prefixCls?: string;
   className?: string;
-  options?: Array<CheckboxOptionType | string>;
+  options?: Array<CheckboxOptionType | string | number>;
   disabled?: boolean;
   style?: React.CSSProperties;
 }
@@ -69,7 +70,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
 
   const getOptions = () =>
     options.map(option => {
-      if (typeof option === 'string') {
+      if (typeof option === 'string' || typeof option === 'number') {
         return {
           label: option,
           value: option,
@@ -131,17 +132,16 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     ));
   }
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const context = {
     toggleOption,
     value,
     disabled: restProps.disabled,
     name: restProps.name,
-
     // https://github.com/ant-design/ant-design/issues/16376
     registerValue,
     cancelValue,
   };
-
   const classString = classNames(
     groupPrefixCls,
     {

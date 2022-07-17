@@ -2,7 +2,17 @@
 
 name: Preview Build
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   # Prepare node modules. Reuse cache if available
@@ -11,16 +21,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: cache package-lock.json
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only
+        run: npm i --package-lock-only --ignore-scripts
 
       - name: hack for single file
         run: |
@@ -30,7 +40,7 @@ jobs:
           cp package-lock.json package-temp-dir
       - name: cache node_modules
         id: node_modules_cache_id
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -45,16 +55,16 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -62,9 +72,11 @@ jobs:
       - name: npm run site
         id: site
         run: npm run site
+        env:
+          SITE_ENV: development
 
       - name: upload site artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: site
           path: _site/
@@ -77,7 +89,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pr
           path: ./pr-id.txt

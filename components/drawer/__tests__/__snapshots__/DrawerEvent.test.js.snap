@@ -1,42 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer render correctly 1`] = `
-<div>
-  <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      open
-    </span>
-  </button>
+<div
+  class=""
+>
   <div
-    class=""
+    class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
-      class="ant-drawer ant-drawer-right ant-drawer-open"
-      tabindex="-1"
+      class="ant-drawer-mask"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 378px; transform: translateX(100%);"
     >
       <div
-        class="ant-drawer-mask"
-      />
-      <div
-        class="ant-drawer-content-wrapper"
-        style="width: 256px;"
+        class="ant-drawer-content"
       >
         <div
-          class="ant-drawer-content"
+          class="ant-drawer-wrapper-body"
         >
           <div
-            class="ant-drawer-wrapper-body"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
             <div
-              class="ant-drawer-header-no-title"
+              class="ant-drawer-header-title"
             >
               <button
                 aria-label="Close"
                 class="ant-drawer-close"
-                style="--scroll-bar: 0px;"
                 type="button"
               >
                 <span
@@ -60,11 +53,11 @@ exports[`Drawer render correctly 1`] = `
                 </span>
               </button>
             </div>
-            <div
-              class="ant-drawer-body"
-            >
-              Here is content of Drawer
-            </div>
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            Here is content of Drawer
           </div>
         </div>
       </div>

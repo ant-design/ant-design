@@ -1,4 +1,19 @@
+.accessibility-focus-dark() {
+  box-shadow: 0 0 0 2px @primary-7;
+}
+
 .@{menu-prefix-cls} {
+  &&-root:focus-visible {
+    .accessibility-focus-dark();
+  }
+
+  &-dark &-item,
+  &-dark &-submenu-title {
+    &:focus-visible {
+      .accessibility-focus-dark();
+    }
+  }
+
   // dark theme
   &&-dark,
   &-dark &-sub,
@@ -8,6 +23,7 @@
     .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
       opacity: 0.45;
       transition: all 0.3s;
+
       &::after,
       &::before {
         background: @menu-dark-arrow-color;
@@ -65,6 +81,7 @@
     left: 0;
     margin-left: 0;
     border-right: 0;
+
     &::after {
       border-right: 0;
     }
@@ -83,6 +100,7 @@
   &-dark &-submenu-title:hover {
     color: @menu-dark-highlight-color;
     background-color: transparent;
+
     > a,
     > span > a {
       color: @menu-dark-highlight-color;
@@ -90,6 +108,7 @@
     > .@{menu-prefix-cls}-submenu-title {
       > .@{menu-prefix-cls}-submenu-arrow {
         opacity: 1;
+
         &::after,
         &::before {
           background: @menu-dark-highlight-color;
@@ -97,6 +116,7 @@
       }
     }
   }
+
   &-dark &-item:hover {
     background-color: @menu-dark-item-hover-bg;
   }
@@ -108,9 +128,11 @@
   &-dark &-item-selected {
     color: @menu-dark-highlight-color;
     border-right: 0;
+
     &::after {
       border-right: 0;
     }
+
     > a,
     > span > a,
     > a:hover,

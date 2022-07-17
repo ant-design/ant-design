@@ -1,4 +1,4 @@
-@import '../../../../../components/style/themes/default.less';
+@import (reference) '../../../../../components/style/themes/index.less';
 
 @home-color: #0170fe;
 
@@ -8,7 +8,7 @@
   overflow: hidden;
   // background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
   // linear-gradient(150deg, #fbfcfd, #f8fcff);
-  background: url(https://gw.alipayobjects.com/zos/basement_prod/a8cf2dfe-ff6a-4a2e-ab73-f72dced0df99.svg);
+  background: url('https://gw.alipayobjects.com/zos/basement_prod/a8cf2dfe-ff6a-4a2e-ab73-f72dced0df99.svg');
   background-size: cover;
 
   &-holder {
@@ -48,6 +48,7 @@
         width: 18px;
         margin-right: 8px;
         vertical-align: text-bottom;
+
         .rtl & {
           margin-right: 0;
           margin-left: 8px;
@@ -63,7 +64,7 @@
         margin: 0 8px;
       }
 
-      button {
+      button.ant-btn {
         height: auto;
         padding: 8px 24px;
         color: @home-color;
@@ -90,7 +91,7 @@
 
 .banner-qr-code {
   .ant-popover-inner-content {
-    padding: 12px 12px;
+    padding: 12px;
   }
 
   img {
@@ -99,7 +100,7 @@
   }
 
   p {
-    margin: 8px 0 0 0;
+    margin: 8px 0 0;
     color: #314659;
     text-align: center;
   }
@@ -127,7 +128,7 @@
       &-operations {
         margin-top: 40px;
 
-        button {
+        button.ant-btn {
           font-size: 16px;
         }
       }

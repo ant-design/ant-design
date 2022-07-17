@@ -1,48 +1,23 @@
-import * as React from 'react';
-import RcPagination from 'rc-pagination';
-import enUS from 'rc-pagination/lib/locale/en_US';
-import classNames from 'classnames';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
-
-import MiniSelect from './MiniSelect';
-import Select from '../select';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import classNames from 'classnames';
+import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
+import RcPagination, { PaginationLocale } from 'rc-pagination';
+import enUS from 'rc-pagination/lib/locale/en_US';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { MiddleSelect, MiniSelect } from './Select';
 
-export interface PaginationProps {
-  total?: number;
-  defaultCurrent?: number;
-  disabled?: boolean;
-  current?: number;
-  defaultPageSize?: number;
-  pageSize?: number;
-  onChange?: (page: number, pageSize?: number) => void;
-  hideOnSinglePage?: boolean;
-  showSizeChanger?: boolean;
-  pageSizeOptions?: string[];
-  onShowSizeChange?: (current: number, size: number) => void;
+export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  showTitle?: boolean;
-  showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: 'default' | 'small';
   responsive?: boolean;
-  simple?: boolean;
-  style?: React.CSSProperties;
-  locale?: Object;
-  className?: string;
-  prefixCls?: string;
-  selectPrefixCls?: string;
-  itemRender?: (
-    page: number,
-    type: 'page' | 'prev' | 'next' | 'jump-prev' | 'jump-next',
-    originalElement: React.ReactElement<HTMLElement>,
-  ) => React.ReactNode;
   role?: string;
-  showLessItems?: boolean;
+  totalBoundaryShowSizeChanger?: number;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -51,7 +26,7 @@ export interface PaginationConfig extends PaginationProps {
   position?: PaginationPosition;
 }
 
-export type PaginationLocale = any;
+export { PaginationLocale };
 
 const Pagination: React.FC<PaginationProps> = ({
   prefixCls: customizePrefixCls,
@@ -59,12 +34,17 @@ const Pagination: React.FC<PaginationProps> = ({
   className,
   size,
   locale: customLocale,
+  selectComponentClass,
+  responsive,
+  showSizeChanger,
   ...restProps
 }) => {
-  const { xs } = useBreakpoint();
+  const { xs } = useBreakpoint(responsive);
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
   const getIconsProps = () => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
@@ -111,11 +91,11 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const renderPagination = (contextLocale: PaginationLocale) => {
     const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || !!(xs && !size && restProps.responsive);
+    const isSmall = size === 'small' || !!(xs && !size && responsive);
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
     const extendedClassName = classNames(
       {
-        mini: isSmall,
+        [`${prefixCls}-mini`]: isSmall,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
@@ -123,13 +103,14 @@ const Pagination: React.FC<PaginationProps> = ({
 
     return (
       <RcPagination
+        {...getIconsProps()}
         {...restProps}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
-        {...getIconsProps()}
         className={extendedClassName}
-        selectComponentClass={isSmall ? MiniSelect : Select}
+        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
+        showSizeChanger={mergedShowSizeChanger}
       />
     );
   };

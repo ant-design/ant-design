@@ -1,5 +1,6 @@
 ---
 order: 15
+version: 4.18.0
 title:
   en-US: colSpan and rowSpan
   zh-CN: 表格行/列合并
@@ -17,79 +18,77 @@ Table column title supports `colSpan` that set in `column`.
 
 Table cell supports `colSpan` and `rowSpan` that set in render return object. When each of them is set to `0`, the cell will not be rendered.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import React from 'react';
+
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  tel: string;
+  phone: number;
+  address: string;
+}
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const renderContent = (value, row, index) => {
-  const obj = {
-    children: value,
-    props: {},
-  };
+const sharedOnCell = (_: DataType, index: number) => {
   if (index === 4) {
-    obj.props.colSpan = 0;
+    return { colSpan: 0 };
   }
-  return obj;
+
+  return {};
 };
 
-const columns = [
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text, row, index) => {
-      if (index < 4) {
-        return <a>{text}</a>;
-      }
-      return {
-        children: <a>{text}</a>,
-        props: {
-          colSpan: 5,
-        },
-      };
-    },
+    render: text => <a>{text}</a>,
+    onCell: (_, index) => ({
+      colSpan: (index as number) < 4 ? 1 : 5,
+    }),
   },
   {
     title: 'Age',
     dataIndex: 'age',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
   {
     title: 'Home phone',
     colSpan: 2,
     dataIndex: 'tel',
-    render: (value, row, index) => {
-      const obj = {
-        children: value,
-        props: {},
-      };
+    onCell: (_, index) => {
       if (index === 2) {
-        obj.props.rowSpan = 2;
+        return { rowSpan: 2 };
       }
       // These two are merged into above cell
       if (index === 3) {
-        obj.props.rowSpan = 0;
+        return { rowSpan: 0 };
       }
       if (index === 4) {
-        obj.props.colSpan = 0;
+        return { colSpan: 0 };
       }
-      return obj;
+
+      return {};
     },
   },
   {
     title: 'Phone',
     colSpan: 0,
     dataIndex: 'phone',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    render: renderContent,
+    onCell: sharedOnCell,
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -132,5 +131,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} bordered />, mountNode);
+const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;
+
+export default App;
 ```

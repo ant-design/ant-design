@@ -1,10 +1,11 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
-import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import classNames from 'classnames';
+import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import KeyCode from 'rc-util/lib/KeyCode';
+import * as React from 'react';
+import type { DirectionType } from '../config-provider';
 import TextArea from '../input/TextArea';
-import { DirectionType } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 
 interface EditableProps {
   prefixCls?: string;
@@ -18,6 +19,8 @@ interface EditableProps {
   direction?: DirectionType;
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
+  enterIcon?: React.ReactNode;
+  component?: string;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -32,6 +35,8 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
+  component,
+  enterIcon = <EnterOutlined />,
 }) => {
   const ref = React.useRef<any>();
 
@@ -105,6 +110,8 @@ const Editable: React.FC<EditableProps> = ({
     confirmChange();
   };
 
+  const textClassName = component ? `${prefixCls}-${component}` : '';
+
   const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
@@ -112,6 +119,7 @@ const Editable: React.FC<EditableProps> = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    textClassName,
   );
 
   return (
@@ -127,9 +135,12 @@ const Editable: React.FC<EditableProps> = ({
         onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
+        rows={1}
         autoSize={autoSize}
       />
-      <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
+      {enterIcon !== null
+        ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
+        : null}
     </div>
   );
 };

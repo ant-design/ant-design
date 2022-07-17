@@ -13,86 +13,83 @@ title:
 
 Search with remote data.
 
-```jsx
+```tsx
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
-import querystring from 'querystring';
+import qs from 'qs';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 
-let timeout;
-let currentValue;
+let timeout: ReturnType<typeof setTimeout> | null;
+let currentValue: string;
 
-function fetch(value, callback) {
+const fetch = (value: string, callback: (data: { value: string; text: string }[]) => void) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
   }
   currentValue = value;
 
-  function fake() {
-    const str = querystring.encode({
+  const fake = () => {
+    const str = qs.stringify({
       code: 'utf-8',
       q: value,
     });
     jsonp(`https://suggest.taobao.com/sug?${str}`)
-      .then(response => response.json())
-      .then(d => {
+      .then((response: any) => response.json())
+      .then((d: any) => {
         if (currentValue === value) {
           const { result } = d;
-          const data = [];
-          result.forEach(r => {
-            data.push({
-              value: r[0],
-              text: r[0],
-            });
-          });
+          const data = result.map((item: any) => ({
+            value: item[0],
+            text: item[0],
+          }));
           callback(data);
         }
       });
-  }
-
-  timeout = setTimeout(fake, 300);
-}
-
-class SearchInput extends React.Component {
-  state = {
-    data: [],
-    value: undefined,
   };
 
-  handleSearch = value => {
-    if (value) {
-      fetch(value, data => this.setState({ data }));
+  timeout = setTimeout(fake, 300);
+};
+
+const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = props => {
+  const [data, setData] = useState<any[]>([]);
+  const [value, setValue] = useState<string>();
+
+  const handleSearch = (newValue: string) => {
+    if (newValue) {
+      fetch(newValue, setData);
     } else {
-      this.setState({ data: [] });
+      setData([]);
     }
   };
 
-  handleChange = value => {
-    this.setState({ value });
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
   };
 
-  render() {
-    const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
-    return (
-      <Select
-        showSearch
-        value={this.state.value}
-        placeholder={this.props.placeholder}
-        style={this.props.style}
-        defaultActiveFirstOption={false}
-        showArrow={false}
-        filterOption={false}
-        onSearch={this.handleSearch}
-        onChange={this.handleChange}
-        notFoundContent={null}
-      >
-        {options}
-      </Select>
-    );
-  }
-}
+  const options = data.map(d => <Option key={d.value}>{d.text}</Option>);
 
-ReactDOM.render(<SearchInput placeholder="input search text" style={{ width: 200 }} />, mountNode);
+  return (
+    <Select
+      showSearch
+      value={value}
+      placeholder={props.placeholder}
+      style={props.style}
+      defaultActiveFirstOption={false}
+      showArrow={false}
+      filterOption={false}
+      onSearch={handleSearch}
+      onChange={handleChange}
+      notFoundContent={null}
+    >
+      {options}
+    </Select>
+  );
+};
+
+const App: React.FC = () => <SearchInput placeholder="input search text" style={{ width: 200 }} />;
+
+export default App;
 ```

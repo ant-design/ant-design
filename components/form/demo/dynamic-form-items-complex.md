@@ -13,9 +13,10 @@ title:
 
 This example demonstrates the case that a form contains multiple form controls.
 
-```jsx
-import { Form, Input, Button, Space, Select } from 'antd';
+```tsx
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Select, Space } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -29,10 +30,12 @@ const sights = {
   Shanghai: ['Oriental Pearl', 'The Bund'],
 };
 
-const Demo = () => {
+type SightsKeys = keyof typeof sights;
+
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
-  const onFinish = values => {
+  const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
 
@@ -61,11 +64,10 @@ const Demo = () => {
                       {...field}
                       label="Sight"
                       name={[field.name, 'sight']}
-                      fieldKey={[field.fieldKey, 'sight']}
                       rules={[{ required: true, message: 'Missing sight' }]}
                     >
                       <Select disabled={!form.getFieldValue('area')} style={{ width: 130 }}>
-                        {(sights[form.getFieldValue('area')] || []).map(item => (
+                        {(sights[form.getFieldValue('area') as SightsKeys] || []).map(item => (
                           <Option key={item} value={item}>
                             {item}
                           </Option>
@@ -78,7 +80,6 @@ const Demo = () => {
                   {...field}
                   label="Price"
                   name={[field.name, 'price']}
-                  fieldKey={[field.fieldKey, 'price']}
                   rules={[{ required: true, message: 'Missing price' }]}
                 >
                   <Input />
@@ -105,5 +106,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

@@ -98,12 +98,16 @@ module.exports = {
 另外一种方式是建立一个单独的 `less` 变量文件，引入这个文件覆盖 `antd.less` 里的变量。
 
 ```css
-@import '~antd/lib/style/themes/default.less';
+@import '~antd/es/style/themes/default.less';
 @import '~antd/dist/antd.less'; // 引入官方提供的 less 样式入口文件
 @import 'your-theme-file.less'; // 用于覆盖上面定义的变量
 ```
 
 注意，这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
+
+### 动态主题色
+
+在运行时调整主题色请[参考此处](/docs/react/customize-theme-variable)。
 
 ## 没有生效？
 

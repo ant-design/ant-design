@@ -1,6 +1,6 @@
 import * as React from 'react';
+import type { ColumnProps } from '..';
 import Table from '../Table';
-import { ColumnProps } from '..';
 
 const { Column, ColumnGroup } = Table;
 
@@ -26,6 +26,14 @@ describe('Table.typescript', () => {
   });
   it('selections', () => {
     const table = <Table rowSelection={{ selections: [Table.SELECTION_ALL] }} />;
+    expect(table).toBeTruthy();
+  });
+
+  it('generic', () => {
+    interface RecordType {
+      key: string;
+    }
+    const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
     expect(table).toBeTruthy();
   });
 });

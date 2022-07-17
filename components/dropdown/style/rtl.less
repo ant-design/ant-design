@@ -22,7 +22,8 @@
     }
 
     &-item-group-title {
-      .@{dropdown-prefix-cls}-rtl & {
+      .@{dropdown-prefix-cls}-rtl &,
+      .@{dropdown-prefix-cls}-menu-submenu-rtl & {
         direction: rtl;
         text-align: right;
       }
@@ -55,13 +56,13 @@
         }
       }
 
-      .@{dropdown-prefix-cls}-menu-submenu-arrow {
+      .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
         .@{dropdown-prefix-cls}-rtl & {
           right: auto;
           left: @padding-xs;
         }
 
-        &-icon {
+        .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
           .@{dropdown-prefix-cls}-rtl & {
             margin-left: 0 !important;
             transform: scaleX(-1);

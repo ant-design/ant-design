@@ -1,7 +1,7 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RowContext from './RowContext';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import RowContext from './RowContext';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -122,7 +122,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     // Hack for Firefox to avoid size issue
     // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
-    if (flex === 'auto' && wrap === false && !mergedStyle.minWidth) {
+    if (wrap === false && !mergedStyle.minWidth) {
       mergedStyle.minWidth = 0;
     }
   }
@@ -134,6 +134,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 });
 
-Col.displayName = 'Col';
+if (process.env.NODE_ENV !== 'production') {
+  Col.displayName = 'Col';
+}
 
 export default Col;

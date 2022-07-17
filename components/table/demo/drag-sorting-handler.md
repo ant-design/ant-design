@@ -13,15 +13,26 @@ title:
 
 Alternatively you can implement drag sorting with handler using [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc).
 
-```jsx
-import { Table } from 'antd';
-import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
+```tsx
 import { MenuOutlined } from '@ant-design/icons';
-import arrayMove from 'array-move';
+import { Table } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { arrayMoveImmutable } from 'array-move';
+import React, { useState } from 'react';
+import type { SortableContainerProps, SortEnd } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 
-const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+  index: number;
+}
 
-const columns = [
+const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Sort',
     dataIndex: 'sort',
@@ -44,7 +55,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -68,61 +79,59 @@ const data = [
   },
 ];
 
-const SortableItem = sortableElement(props => <tr {...props} />);
-const SortableContainer = sortableContainer(props => <tbody {...props} />);
+const SortableItem = SortableElement((props: React.HTMLAttributes<HTMLTableRowElement>) => (
+  <tr {...props} />
+));
+const SortableBody = SortableContainer((props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+  <tbody {...props} />
+));
 
-class SortableTable extends React.Component {
-  state = {
-    dataSource: data,
-  };
+const App: React.FC = () => {
+  const [dataSource, setDataSource] = useState(data);
 
-  onSortEnd = ({ oldIndex, newIndex }) => {
-    const { dataSource } = this.state;
+  const onSortEnd = ({ oldIndex, newIndex }: SortEnd) => {
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      const newData = arrayMoveImmutable(dataSource.slice(), oldIndex, newIndex).filter(
+        (el: DataType) => !!el,
+      );
       console.log('Sorted items: ', newData);
-      this.setState({ dataSource: newData });
+      setDataSource(newData);
     }
   };
 
-  DraggableContainer = props => (
-    <SortableContainer
+  const DraggableContainer = (props: SortableContainerProps) => (
+    <SortableBody
       useDragHandle
       disableAutoscroll
       helperClass="row-dragging"
-      onSortEnd={this.onSortEnd}
+      onSortEnd={onSortEnd}
       {...props}
     />
   );
 
-  DraggableBodyRow = ({ className, style, ...restProps }) => {
-    const { dataSource } = this.state;
+  const DraggableBodyRow: React.FC<any> = ({ className, style, ...restProps }) => {
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
 
-  render() {
-    const { dataSource } = this.state;
+  return (
+    <Table
+      pagination={false}
+      dataSource={dataSource}
+      columns={columns}
+      rowKey="index"
+      components={{
+        body: {
+          wrapper: DraggableContainer,
+          row: DraggableBodyRow,
+        },
+      }}
+    />
+  );
+};
 
-    return (
-      <Table
-        pagination={false}
-        dataSource={dataSource}
-        columns={columns}
-        rowKey="index"
-        components={{
-          body: {
-            wrapper: this.DraggableContainer,
-            row: this.DraggableBodyRow,
-          },
-        }}
-      />
-    );
-  }
-}
-
-ReactDOM.render(<SortableTable />, mountNode);
+export default App;
 ```
 
 ```css

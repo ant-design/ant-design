@@ -13,43 +13,38 @@ title:
 
 Setting `onChange` makes Steps clickable.
 
-```jsx
-import { Steps, Divider } from 'antd';
+```tsx
+import { Divider, Steps } from 'antd';
+import React, { useState } from 'react';
 
 const { Step } = Steps;
 
-class Demo extends React.Component {
-  state = {
-    current: 0,
-  };
+const App: React.FC = () => {
+  const [current, setCurrent] = useState(0);
 
-  onChange = current => {
+  const onChange = (value: number) => {
     console.log('onChange:', current);
-    this.setState({ current });
+    setCurrent(value);
   };
 
-  render() {
-    const { current } = this.state;
+  return (
+    <>
+      <Steps current={current} onChange={onChange}>
+        <Step title="Step 1" description="This is a description." />
+        <Step title="Step 2" description="This is a description." />
+        <Step title="Step 3" description="This is a description." />
+      </Steps>
 
-    return (
-      <>
-        <Steps current={current} onChange={this.onChange}>
-          <Step title="Step 1" description="This is a description." />
-          <Step title="Step 2" description="This is a description." />
-          <Step title="Step 3" description="This is a description." />
-        </Steps>
+      <Divider />
 
-        <Divider />
+      <Steps current={current} onChange={onChange} direction="vertical">
+        <Step title="Step 1" description="This is a description." />
+        <Step title="Step 2" description="This is a description." />
+        <Step title="Step 3" description="This is a description." />
+      </Steps>
+    </>
+  );
+};
 
-        <Steps current={current} onChange={this.onChange} direction="vertical">
-          <Step title="Step 1" description="This is a description." />
-          <Step title="Step 2" description="This is a description." />
-          <Step title="Step 3" description="This is a description." />
-        </Steps>
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

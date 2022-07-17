@@ -13,45 +13,36 @@ title:
 
 Search the options while expanded.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-function onChange(value) {
+const onChange = (value: string) => {
   console.log(`selected ${value}`);
-}
+};
 
-function onBlur() {
-  console.log('blur');
-}
+const onSearch = (value: string) => {
+  console.log('search:', value);
+};
 
-function onFocus() {
-  console.log('focus');
-}
-
-function onSearch(val) {
-  console.log('search:', val);
-}
-
-ReactDOM.render(
+const App: React.FC = () => (
   <Select
     showSearch
-    style={{ width: 200 }}
     placeholder="Select a person"
     optionFilterProp="children"
     onChange={onChange}
-    onFocus={onFocus}
-    onBlur={onBlur}
     onSearch={onSearch}
     filterOption={(input, option) =>
-      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())
     }
   >
     <Option value="jack">Jack</Option>
     <Option value="lucy">Lucy</Option>
     <Option value="tom">Tom</Option>
-  </Select>,
-  mountNode,
+  </Select>
 );
+
+export default App;
 ```

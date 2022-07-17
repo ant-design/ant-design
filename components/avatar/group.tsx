@@ -1,11 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import { cloneElement } from '../_util/reactNode';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import Avatar from './avatar';
 import Popover from '../popover';
-import { AvatarSize, SizeContextProvider } from './SizeContext';
+import { cloneElement } from '../_util/reactNode';
+import Avatar from './avatar';
+import type { AvatarSize } from './SizeContext';
+import { SizeContextProvider } from './SizeContext';
 
 export interface GroupProps {
   className?: string;
@@ -15,6 +16,7 @@ export interface GroupProps {
   maxCount?: number;
   maxStyle?: React.CSSProperties;
   maxPopoverPlacement?: 'top' | 'bottom';
+  maxPopoverTrigger?: 'hover' | 'focus' | 'click';
   /*
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size
@@ -36,7 +38,7 @@ const Group: React.FC<GroupProps> = props => {
     className,
   );
 
-  const { children, maxPopoverPlacement = 'top' } = props;
+  const { children, maxPopoverPlacement = 'top', maxPopoverTrigger = 'hover' } = props;
   const childrenWithProps = toArray(children).map((child, index) =>
     cloneElement(child, {
       key: `avatar-key-${index}`,
@@ -51,7 +53,7 @@ const Group: React.FC<GroupProps> = props => {
       <Popover
         key="avatar-popover-key"
         content={childrenHidden}
-        trigger="hover"
+        trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}
         overlayClassName={`${prefixCls}-popover`}
       >

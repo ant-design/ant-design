@@ -1,11 +1,15 @@
-import * as React from 'react';
-import { Item, MenuItemProps as RcMenuItemProps } from 'rc-menu';
-import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import MenuContext, { MenuContextProps } from './MenuContext';
-import Tooltip, { TooltipProps } from '../tooltip';
-import { SiderContext, SiderContextProps } from '../layout/Sider';
-import { isValidElement, cloneElement } from '../_util/reactNode';
+import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
+import { Item } from 'rc-menu';
+import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import type { SiderContextProps } from '../layout/Sider';
+import { SiderContext } from '../layout/Sider';
+import type { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { MenuContextProps } from './MenuContext';
+import MenuContext from './MenuContext';
 
 export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
@@ -34,7 +38,8 @@ export default class MenuItem extends React.Component<MenuItemProps> {
   }
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
-    const { prefixCls, firstLevel, inlineCollapsed, direction } = this.context;
+    const { prefixCls, firstLevel, inlineCollapsed, direction, disableMenuItemTitleTooltip } =
+      this.context;
     const { className, children } = this.props;
     const { title, icon, danger, ...rest } = this.props;
 
@@ -55,33 +60,42 @@ export default class MenuItem extends React.Component<MenuItemProps> {
       tooltipProps.visible = false;
     }
     const childrenLength = toArray(children).length;
-    return (
-      <Tooltip
-        {...tooltipProps}
-        placement={direction === 'rtl' ? 'left' : 'right'}
-        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+
+    let returnNode = (
+      <Item
+        {...rest}
+        className={classNames(
+          {
+            [`${prefixCls}-item-danger`]: danger,
+            [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
+          },
+          className,
+        )}
+        title={typeof title === 'string' ? title : undefined}
       >
-        <Item
-          {...rest}
-          className={classNames(
-            {
-              [`${prefixCls}-item-danger`]: danger,
-              [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
-            },
-            className,
-          )}
-          title={typeof title === 'string' ? title : undefined}
-        >
-          {cloneElement(icon, {
-            className: classNames(
-              isValidElement(icon) ? icon.props?.className : '',
-              `${prefixCls}-item-icon`,
-            ),
-          })}
-          {this.renderItemChildren(inlineCollapsed)}
-        </Item>
-      </Tooltip>
+        {cloneElement(icon, {
+          className: classNames(
+            isValidElement(icon) ? icon.props?.className : '',
+            `${prefixCls}-item-icon`,
+          ),
+        })}
+        {this.renderItemChildren(inlineCollapsed)}
+      </Item>
     );
+
+    if (!disableMenuItemTitleTooltip) {
+      returnNode = (
+        <Tooltip
+          {...tooltipProps}
+          placement={direction === 'rtl' ? 'left' : 'right'}
+          overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+        >
+          {returnNode}
+        </Tooltip>
+      );
+    }
+
+    return returnNode;
   };
 
   render() {

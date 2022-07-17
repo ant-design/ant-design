@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 10
 title:
   zh-CN: 缎带
   en-US: Ribbon
@@ -13,10 +13,11 @@ title:
 
 Use ribbon badge.
 
-```jsx
+```tsx
 import { Badge, Card } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">
@@ -58,9 +59,10 @@ ReactDOM.render(
         and raises the spyglass.
       </Card>
     </Badge.Ribbon>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```
 
 ```css

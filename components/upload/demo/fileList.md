@@ -21,31 +21,32 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 
 2. read from response and show file link.
 
-```jsx
-import { Upload, Button } from 'antd';
+```tsx
 import { UploadOutlined } from '@ant-design/icons';
+import type { UploadProps } from 'antd';
+import { Button, Upload } from 'antd';
+import type { UploadFile } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
-class MyUpload extends React.Component {
-  state = {
-    fileList: [
-      {
-        uid: '-1',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'http://www.baidu.com/xxx.png',
-      },
-    ],
-  };
+const App: React.FC = () => {
+  const [fileList, setFileList] = useState<UploadFile[]>([
+    {
+      uid: '-1',
+      name: 'xxx.png',
+      status: 'done',
+      url: 'http://www.baidu.com/xxx.png',
+    },
+  ]);
 
-  handleChange = info => {
-    let fileList = [...info.fileList];
+  const handleChange: UploadProps['onChange'] = info => {
+    let newFileList = [...info.fileList];
 
     // 1. Limit the number of uploaded files
     // Only to show two recent uploaded files, and old ones will be replaced by the new
-    fileList = fileList.slice(-2);
+    newFileList = fileList.slice(-2);
 
     // 2. Read from response and show file link
-    fileList = fileList.map(file => {
+    newFileList = fileList.map(file => {
       if (file.response) {
         // Component will show file.url as link
         file.url = file.response.url;
@@ -53,22 +54,20 @@ class MyUpload extends React.Component {
       return file;
     });
 
-    this.setState({ fileList });
+    setFileList(newFileList);
   };
 
-  render() {
-    const props = {
-      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-      onChange: this.handleChange,
-      multiple: true,
-    };
-    return (
-      <Upload {...props} fileList={this.state.fileList}>
-        <Button icon={<UploadOutlined />}>Upload</Button>
-      </Upload>
-    );
-  }
-}
+  const props = {
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    onChange: handleChange,
+    multiple: true,
+  };
+  return (
+    <Upload {...props} fileList={fileList}>
+      <Button icon={<UploadOutlined />}>Upload</Button>
+    </Upload>
+  );
+};
 
-ReactDOM.render(<MyUpload />, mountNode);
+export default App;
 ```

@@ -14,8 +14,10 @@ exports[`Transfer.List should render correctly 1`] = `
         class="ant-checkbox ant-checkbox-indeterminate"
       >
         <input
+          aria-checked="mixed"
           class="ant-checkbox-input"
           type="checkbox"
+          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -69,6 +71,7 @@ exports[`Transfer.List should render correctly 1`] = `
               checked=""
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -91,6 +94,7 @@ exports[`Transfer.List should render correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -114,6 +118,7 @@ exports[`Transfer.List should render correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"

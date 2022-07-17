@@ -13,13 +13,14 @@ title:
 
 Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function return a promise object to delay closing the dialog.
 
-```jsx
-import { Modal, Button, Space } from 'antd';
+```tsx
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Button, Modal, Space } from 'antd';
+import React from 'react';
 
 const { confirm } = Modal;
 
-function showConfirm() {
+const showConfirm = () => {
   confirm({
     title: 'Do you Want to delete these items?',
     icon: <ExclamationCircleOutlined />,
@@ -31,9 +32,9 @@ function showConfirm() {
       console.log('Cancel');
     },
   });
-}
+};
 
-function showPromiseConfirm() {
+const showPromiseConfirm = () => {
   confirm({
     title: 'Do you want to delete these items?',
     icon: <ExclamationCircleOutlined />,
@@ -45,9 +46,9 @@ function showPromiseConfirm() {
     },
     onCancel() {},
   });
-}
+};
 
-function showDeleteConfirm() {
+const showDeleteConfirm = () => {
   confirm({
     title: 'Are you sure delete this task?',
     icon: <ExclamationCircleOutlined />,
@@ -62,9 +63,9 @@ function showDeleteConfirm() {
       console.log('Cancel');
     },
   });
-}
+};
 
-function showPropsConfirm() {
+const showPropsConfirm = () => {
   confirm({
     title: 'Are you sure delete this task?',
     icon: <ExclamationCircleOutlined />,
@@ -82,10 +83,10 @@ function showPropsConfirm() {
       console.log('Cancel');
     },
   });
-}
+};
 
-ReactDOM.render(
-  <Space>
+const App: React.FC = () => (
+  <Space wrap>
     <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showPromiseConfirm}>With promise</Button>
     <Button onClick={showDeleteConfirm} type="dashed">
@@ -94,7 +95,8 @@ ReactDOM.render(
     <Button onClick={showPropsConfirm} type="dashed">
       With extra props
     </Button>
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

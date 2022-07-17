@@ -13,8 +13,11 @@ title:
 
 A simple loading status.
 
-```jsx
+```tsx
 import { Spin } from 'antd';
+import React from 'react';
 
-ReactDOM.render(<Spin />, mountNode);
+const App: React.FC = () => <Spin />;
+
+export default App;
 ```

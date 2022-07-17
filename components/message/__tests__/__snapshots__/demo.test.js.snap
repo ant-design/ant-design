@@ -2,7 +2,7 @@
 
 exports[`renders ./components/message/demo/custom-style.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -13,7 +13,7 @@ exports[`renders ./components/message/demo/custom-style.md correctly 1`] = `
 
 exports[`renders ./components/message/demo/duration.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -46,7 +46,7 @@ exports[`renders ./components/message/demo/info.md correctly 1`] = `
 
 exports[`renders ./components/message/demo/loading.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -64,7 +64,7 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -77,7 +77,7 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -89,7 +89,7 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -102,7 +102,7 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
 
 exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>

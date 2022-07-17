@@ -79,7 +79,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -101,7 +101,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-lg ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -195,7 +195,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+            class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -248,7 +248,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -257,7 +257,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
                   aria-haspopup="listbox"
@@ -343,7 +342,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -444,7 +442,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+            class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -537,7 +535,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -678,7 +675,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -755,7 +751,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -828,7 +824,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
@@ -905,7 +900,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -1038,6 +1033,79 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-select ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-select ant-select-status-warning ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
@@ -1050,7 +1118,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"

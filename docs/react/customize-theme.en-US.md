@@ -98,12 +98,16 @@ Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
 ```css
-@import '~antd/lib/style/themes/default.less';
+@import '~antd/es/style/themes/default.less';
 @import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
 @import 'your-theme-file.less'; // variables to override above
 ```
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
+
+### Dynamic theme
+
+Runtime update theme color please [ref this doc](/docs/react/customize-theme-variable).
 
 ## How to avoid modifying global styles?
 
@@ -118,7 +122,7 @@ It's possible to configure webpack to load an alternate less file:
 ```ts
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
-#antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
+#antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
 ```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.

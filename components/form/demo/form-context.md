@@ -14,10 +14,10 @@ title:
 Use `Form.Provider` to process data between forms. In this case, submit button is in the Modal which is out of Form. You can use `form.submit` to submit form. Besides, we recommend native `<Button htmlType="submit" />` to submit a form.
 
 ```tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { FormInstance } from 'antd/lib/form';
+import { Avatar, Button, Form, Input, InputNumber, Modal, Typography } from 'antd';
+import type { FormInstance } from 'antd/es/form';
+import React, { useEffect, useRef, useState } from 'react';
 
 const layout = {
   labelCol: { span: 8 },
@@ -49,7 +49,7 @@ const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visib
     if (!visible && prevVisible) {
       form.resetFields();
     }
-  }, [visible]);
+  }, [form, prevVisible, visible]);
 };
 
 const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
@@ -78,7 +78,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   );
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showUserModal = () => {
@@ -94,60 +94,58 @@ const Demo = () => {
   };
 
   return (
-    <>
-      <Form.Provider
-        onFormFinish={(name, { values, forms }) => {
-          if (name === 'userForm') {
-            const { basicForm } = forms;
-            const users = basicForm.getFieldValue('users') || [];
-            basicForm.setFieldsValue({ users: [...users, values] });
-            setVisible(false);
-          }
-        }}
-      >
-        <Form {...layout} name="basicForm" onFinish={onFinish}>
-          <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
-            <Input />
-          </Form.Item>
-          <Form.Item
-            label="User List"
-            shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}
-          >
-            {({ getFieldValue }) => {
-              const users: UserType[] = getFieldValue('users') || [];
-              return users.length ? (
-                <ul>
-                  {users.map((user, index) => (
-                    <li key={index} className="user">
-                      <Avatar icon={<UserOutlined />} />
-                      {user.name} - {user.age}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <Typography.Text className="ant-form-text" type="secondary">
-                  ( <SmileOutlined /> No user yet. )
-                </Typography.Text>
-              );
-            }}
-          </Form.Item>
-          <Form.Item {...tailLayout}>
-            <Button htmlType="submit" type="primary">
-              Submit
-            </Button>
-            <Button htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
-              Add User
-            </Button>
-          </Form.Item>
-        </Form>
+    <Form.Provider
+      onFormFinish={(name, { values, forms }) => {
+        if (name === 'userForm') {
+          const { basicForm } = forms;
+          const users = basicForm.getFieldValue('users') || [];
+          basicForm.setFieldsValue({ users: [...users, values] });
+          setVisible(false);
+        }
+      }}
+    >
+      <Form {...layout} name="basicForm" onFinish={onFinish}>
+        <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="User List"
+          shouldUpdate={(prevValues, curValues) => prevValues.users !== curValues.users}
+        >
+          {({ getFieldValue }) => {
+            const users: UserType[] = getFieldValue('users') || [];
+            return users.length ? (
+              <ul>
+                {users.map((user, index) => (
+                  <li key={index} className="user">
+                    <Avatar icon={<UserOutlined />} />
+                    {user.name} - {user.age}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <Typography.Text className="ant-form-text" type="secondary">
+                ( <SmileOutlined /> No user yet. )
+              </Typography.Text>
+            );
+          }}
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Button htmlType="submit" type="primary">
+            Submit
+          </Button>
+          <Button htmlType="button" style={{ margin: '0 8px' }} onClick={showUserModal}>
+            Add User
+          </Button>
+        </Form.Item>
+      </Form>
 
-        <ModalForm visible={visible} onCancel={hideUserModal} />
-      </Form.Provider>
-    </>
+      <ModalForm visible={visible} onCancel={hideUserModal} />
+    </Form.Provider>
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```
 
 ```css

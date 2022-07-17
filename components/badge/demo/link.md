@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 5
 title:
   zh-CN: 可点击
   en-US: Clickable
@@ -13,15 +13,17 @@ title:
 
 The badge can be wrapped with `a` tag to make it linkable.
 
-```jsx
-import { Badge } from 'antd';
+```tsx
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <a href="#">
     <Badge count={5}>
-      <span className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
-  </a>,
-  mountNode,
+  </a>
 );
+
+export default App;
 ```

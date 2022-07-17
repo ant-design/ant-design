@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
 import List from '..';
+import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('List Item Layout', () => {
@@ -9,7 +9,7 @@ describe('List Item Layout', () => {
       key: 1,
       href: 'https://ant.design',
       title: `ant design`,
-      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+      avatar: 'https://joeschmoe.io/api/v1/random',
       description:
         'Ant Design, a design language for background applications, is refined by Ant UED Team.',
       content:
@@ -19,7 +19,7 @@ describe('List Item Layout', () => {
   ];
 
   it('horizontal itemLayout List which contains string nodes should not be flex container', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         dataSource={data}
         renderItem={item => (
@@ -29,11 +29,13 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(true);
+    expect(
+      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
+    ).toBe(true);
   });
 
-  it('horizontal itemLayout List should be flex container defaultly', () => {
-    const wrapper = mount(
+  it('horizontal itemLayout List should be flex container by default', () => {
+    const { container: wrapper } = render(
       <List
         dataSource={data}
         renderItem={item => (
@@ -46,11 +48,13 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(false);
+    expect(
+      wrapper.querySelector('.ant-list-item').classList.contains('ant-list-item-no-flex'),
+    ).toBe(false);
   });
 
   it('vertical itemLayout List should be flex container when there is extra node', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         itemLayout="vertical"
         dataSource={data}
@@ -64,11 +68,13 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(false);
+    expect(
+      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
+    ).toBe(false);
   });
 
   it('vertical itemLayout List should not be flex container when there is not extra node', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         itemLayout="vertical"
         dataSource={data}
@@ -82,11 +88,13 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(wrapper.find('.ant-list-item').at(0).hasClass('ant-list-item-no-flex')).toBe(true);
+    expect(
+      wrapper.querySelectorAll('.ant-list-item')[0].classList.contains('ant-list-item-no-flex'),
+    ).toBe(true);
   });
 
   it('horizontal itemLayout List should accept extra node', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         dataSource={data}
         renderItem={item => (
@@ -103,11 +111,11 @@ describe('List Item Layout', () => {
         )}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('should render in RTL direction', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <ConfigProvider direction="rtl">
         <List
           dataSource={data}
@@ -126,7 +134,7 @@ describe('List Item Layout', () => {
         />
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('rowKey could be string', () => {
@@ -144,14 +152,14 @@ describe('List Item Layout', () => {
         title: `ant design`,
       },
     ];
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         dataSource={dataWithId}
         rowKey="id"
         renderItem={item => <List.Item>{item.title}</List.Item>}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('rowKey could be function', () => {
@@ -169,13 +177,31 @@ describe('List Item Layout', () => {
         title: `ant design`,
       },
     ];
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <List
         dataSource={dataWithId}
         rowKey={item => item.id}
         renderItem={item => <List.Item>{item.title}</List.Item>}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
+  it('should ref', () => {
+    const ref = React.createRef();
+
+    render(<List.Item ref={ref}>Item</List.Item>);
+    expect(ref.current).toHaveClass('ant-list-item');
+  });
+
+  it('should grid ref', () => {
+    const ref = React.createRef();
+
+    render(
+      <List grid>
+        <List.Item ref={ref}>Item</List.Item>,
+      </List>,
+    );
+    expect(ref.current).toHaveClass('ant-col');
   });
 });

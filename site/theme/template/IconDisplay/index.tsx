@@ -1,13 +1,14 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import { Radio, Input } from 'antd';
-import { RadioChangeEvent } from 'antd/es/radio/interface';
+import { Radio, Input, Empty } from 'antd';
+import type { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
-import { categories, Categories, CategoriesKeys } from './fields';
+import type { Categories, CategoriesKeys } from './fields';
+import { categories } from './fields';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -59,13 +60,16 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
   renderCategories() {
     const { searchKey = '', theme } = this.state;
 
-    return Object.keys(categories)
+    const categoriesResult = Object.keys(categories)
       .map((key: CategoriesKeys) => {
         let iconList = categories[key];
         if (searchKey) {
-          iconList = iconList.filter(iconName =>
-            iconName.toLowerCase().includes(searchKey.toLowerCase()),
-          );
+          const matchKey = searchKey
+            // eslint-disable-next-line prefer-regex-literals
+            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+            .replace(/(Filled|Outlined|TwoTone)$/, '')
+            .toLowerCase();
+          iconList = iconList.filter(iconName => iconName.toLowerCase().includes(matchKey));
         }
 
         // CopyrightCircle is same as Copyright, don't show it
@@ -86,6 +90,8 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
           newIcons={IconDisplay.newIconNames}
         />
       ));
+
+    return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
   }
 
   render() {

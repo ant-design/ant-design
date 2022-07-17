@@ -13,18 +13,19 @@ title:
 
 The `onChange` callback function will fire when the user changes the slider's value. The `onAfterChange` callback function will fire when `onmouseup` fired.
 
-```jsx
+```tsx
 import { Slider } from 'antd';
+import React from 'react';
 
-function onChange(value) {
+const onChange = (value: number | [number, number]) => {
   console.log('onChange: ', value);
-}
+};
 
-function onAfterChange(value) {
+const onAfterChange = (value: number | [number, number]) => {
   console.log('onAfterChange: ', value);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Slider defaultValue={30} onChange={onChange} onAfterChange={onAfterChange} />
     <Slider
@@ -34,7 +35,8 @@ ReactDOM.render(
       onChange={onChange}
       onAfterChange={onAfterChange}
     />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

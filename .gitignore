@@ -34,6 +34,8 @@ config/base.yaml
 /coverage
 yarn.lock
 package-lock.json
+pnpm-lock.yaml
+.pnpm-debug.log
 components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/**/*.js
@@ -58,6 +60,7 @@ site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
 components/version/version.tsx
+components/version/token.tsx
 
 # Image snapshot diff
 __diff_output__/
@@ -65,3 +68,5 @@ __image_snapshots__/
 /jest-stare
 /imageSnapshots
 /imageDiffSnapshots
+
+.devcontainer*

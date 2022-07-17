@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { UnorderedListOutlined } from '@ant-design/icons';
-import { Select, Row, Col, Popover, Button } from 'antd';
+import { Select, Row, Col, Popover, Button, Modal } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -11,6 +11,7 @@ import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
+import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
 import { AlgoliaConfig } from './algolia-config';
@@ -70,6 +71,16 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
   });
 }
 
+const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+
+function disableAntdMirrorModal() {
+  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
+}
+
+function shouldOpenAntdMirrorModal() {
+  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
+}
+
 interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
@@ -89,6 +100,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     showTechUIButton: false,
   };
 
+  context: SiteContextProps;
+
   componentDidMount() {
     const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
@@ -106,6 +119,26 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         this.setState({
           showTechUIButton: true,
         });
+        if (
+          process.env.NODE_ENV === 'production' &&
+          window.location.host !== 'ant-design.antgroup.com' &&
+          shouldOpenAntdMirrorModal()
+        ) {
+          Modal.confirm({
+            title: '提示',
+            content: '内网用户推荐访问国内镜像以获得极速体验～',
+            okText: '🚀 立刻前往',
+            onOk: () => {
+              window.open('https://ant-design.antgroup.com', '_self');
+              disableAntdMirrorModal();
+            },
+            cancelText: '不再弹出',
+            onCancel: () => {
+              disableAntdMirrorModal();
+            },
+            closable: true,
+          });
+        }
       }
     });
   }
@@ -173,6 +206,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -191,7 +225,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       location: { pathname, query },
     } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
-    const currentHref = window.location.href.substr(currentProtocol.length);
+    const currentHref = window.location.href.slice(currentProtocol.length);
 
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
@@ -337,7 +371,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   arrowPointAtCenter
                   onVisibleChange={this.onMenuVisibleChange}
                 >
-                  <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+                  <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
                 </Popover>
               )}
               <Row style={{ flexFlow: 'nowrap', height: 64 }}>

@@ -6,15 +6,23 @@
 
 name: Preview Start
 
-on: pull_request_target
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
 
 jobs:
   preview-start:
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start preview info
     runs-on: ubuntu-latest
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

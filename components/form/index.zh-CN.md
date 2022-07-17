@@ -21,11 +21,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |  |
+| disabled | 设置表单组件禁用，仅对 antd 组件有效 | boolean | false |
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |  |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
+| labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
@@ -85,7 +87,7 @@ const validateMessages = {
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
 | label | `label` 标签的文本 | ReactNode | - |  |
 | labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |  |
-| labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
+| labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |  |
 | messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
@@ -192,11 +194,11 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 
 Form.List 渲染表单相关操作函数。
 
-| 参数   | 说明       | 类型                                               | 默认值             |
-| ------ | ---------- | -------------------------------------------------- | ------------------ |
-| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move   | 移动表单项 | (from: number, to: number) => void                 | -                  |
-| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]: 4.5.0   |
+| 参数   | 说明       | 类型                                               | 默认值      | 版本  |
+| ------ | ---------- | -------------------------------------------------- | ----------- | ----- |
+| add    | 新增表单项 | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0 |
+| move   | 移动表单项 | (from: number, to: number) => void                 | -           |       |
+| remove | 删除表单项 | (index: number \| number\[]) => void               | number\[]   | 4.5.0 |
 
 ## Form.ErrorList
 
@@ -240,10 +242,10 @@ Form.List 渲染表单相关操作函数。
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | 检查对应字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | 设置表单的值 | (values) => void |  |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -277,6 +279,65 @@ validateFields()
   });
 ```
 
+## Hooks
+
+### Form.useForm
+
+`type Form.useForm = (): [FormInstance]`
+
+创建 Form 实例，用于管理所有数据状态。
+
+### Form.useFormInstance
+
+`type Form.useFormInstance = (): FormInstance`
+
+`4.20.0` 新增，获取当前上下文正在使用的 Form 实例，常见于封装子组件消费无需透传 Form 实例：
+
+```tsx
+const Sub = () => {
+  const form = Form.useFormInstance();
+
+  return <Button onClick={() => form.setFieldsValue({})} />;
+};
+
+export default () => {
+  const [form] = Form.useForm();
+
+  return (
+    <Form form={form}>
+      <Sub />
+    </Form>
+  );
+};
+```
+
+### Form.useWatch
+
+`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+
+`4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+  const userName = Form.useWatch('username', form);
+
+  const { data: options } = useSWR(`/api/user/${userName}`, fetcher);
+
+  return (
+    <Form form={form}>
+      <Form.Item name="username">
+        <AutoComplete options={options} />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+#### 与其他获取数据的方式的区别
+
+Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新可能引发的性能问题。因而你无法在 render 阶段通过 `form.getFieldsValue` 来实时获取字段值，而 `useWatch` 提供了一种特定字段访问的方式，从而使得在当前组件中可以直接消费字段的值。同时，如果为了更好的渲染性能，你可以通过 Field 的 renderProps 仅更新需要更新的部分。而当当前组件更新或者 effect 都不需要消费字段值时，则可以通过 `onValuesChange` 将数据抛出，从而避免组件更新。
+
 ### Interface
 
 #### NamePath
@@ -301,22 +362,23 @@ Rule 支持接收 object 进行配置，也支持 function 来动态获取 form 
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| 名称 | 说明 | 类型 |
-| --- | --- | --- |
-| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |
-| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |
-| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |
-| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |
-| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |
-| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |
-| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |
-| pattern | 正则表达式匹配 | RegExp |
-| required | 是否为必选字段 | boolean |
-| transform | 将字段值转换成目标值后进行校验 | (value) => any |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |
-| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |
-| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |
-| whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |
+| 名称 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| defaultField | 仅在 `type` 为 `array` 类型时有效，用于指定数组元素的校验规则 | [rule](#Rule) |  |
+| enum | 是否匹配枚举中的值（需要将 `type` 设置为 `enum`） | any\[] |  |
+| fields | 仅在 `type` 为 `array` 或 `object` 类型时有效，用于指定子元素的校验规则 | Record&lt;string, [rule](#Rule)> |  |
+| len | string 类型时为字符串长度；number 类型时为确定数字； array 类型时为数组长度 | number |  |
+| max | 必须设置 `type`：string 类型为字符串最大长度；number 类型时为最大值；array 类型时为数组最大长度 | number |  |
+| message | 错误信息，不设置时会通过[模板](#validateMessages)自动生成 | string |  |
+| min | 必须设置 `type`：string 类型为字符串最小长度；number 类型时为最小值；array 类型时为数组最小长度 | number |  |
+| pattern | 正则表达式匹配 | RegExp |  |
+| required | 是否为必选字段 | boolean |  |
+| transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/yiminghe/async-validator#type) | string |  |
+| validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
+| validator | 自定义校验，接收 Promise 作为返回值。[示例](#components-form-demo-register)参考 | ([rule](#Rule), value) => Promise |  |
+| warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
+| whitespace | 如果字段仅包含空格则校验不通过，只在 `type: 'string'` 时生效 | boolean |  |
 
 ## 从 v3 升级到 v4
 
@@ -437,8 +499,9 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 
-是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。
+是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
 
 ### 有更多参考文档吗？
 
 - 你可以阅读[《antd v4 Form 使用心得》](https://zhuanlan.zhihu.com/p/375753910)获得一些使用帮助以及建议。
+- 想在 DatePicker、Switch 也使用 before、after？可以参考[《如何优雅的对 Form.Item 的 children 增加 before、after》](https://zhuanlan.zhihu.com/p/422752055)。

@@ -1,8 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep, render, act } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -16,9 +16,17 @@ describe('Carousel', () => {
     jest.useRealTimers();
   });
 
+  function runAllTimersWithAct(times = 1) {
+    for (let i = 0; i < times; i++) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+  }
+
   it('should has innerSlider', () => {
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel ref={ref}>
         <div />
       </Carousel>,
@@ -27,9 +35,9 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
-  it('should has prev, next and go function', () => {
+  it('should has prev, next and go function', async () => {
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel ref={ref}>
         <div>1</div>
         <div>2</div>
@@ -42,20 +50,23 @@ describe('Carousel', () => {
     expect(typeof goTo).toBe('function');
     expect(ref.current.innerSlider.state.currentSlide).toBe(0);
     ref.current.goTo(2);
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(2);
+    // wait for animation to be finished
+    runAllTimersWithAct(2);
     ref.current.prev();
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(1);
+    runAllTimersWithAct(2);
     ref.current.next();
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(2);
   });
 
   it('should trigger autoPlay after window resize', async () => {
     jest.useRealTimers();
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel autoplay ref={ref}>
         <div>1</div>
         <div>2</div>
@@ -63,14 +74,14 @@ describe('Carousel', () => {
       </Carousel>,
     );
     const spy = jest.spyOn(ref.current.innerSlider, 'autoPlay');
-    window.resizeTo(1000);
+    window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await sleep(500);
     expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
-    const wrapper = mount(
+    const { unmount } = render(
       <Carousel autoplay>
         <div>1</div>
         <div>2</div>
@@ -78,7 +89,7 @@ describe('Carousel', () => {
       </Carousel>,
     );
     const spy = jest.spyOn(window, 'removeEventListener');
-    wrapper.unmount();
+    unmount();
     expect(spy).toHaveBeenCalled();
   });
 
@@ -86,52 +97,54 @@ describe('Carousel', () => {
     ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
       // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
-        const wrapper = mount(
+        const { container } = render(
           <Carousel dotPosition={dotPosition}>
             <div />
           </Carousel>,
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        container.normalize();
+        expect(container.firstChild).toMatchSnapshot();
       });
     });
   });
 
   describe('should active when children change', () => {
     it('should active', () => {
-      const wrapper = mount(<Carousel />);
-      wrapper.setProps({
-        children: <div />,
-      });
-      wrapper.update();
-      expect(wrapper.find('.slick-active').length).toBeTruthy();
+      const { rerender, container } = render(<Carousel />);
+      expect(container.querySelector('.slick-active')).toBeFalsy();
+
+      // Update children
+      rerender(
+        <Carousel>
+          <div />
+        </Carousel>,
+      );
+      expect(container.querySelector('.slick-active')).toBeTruthy();
     });
 
     it('should keep initialSlide', () => {
-      // react unsafe lifecycle don't works in React 15
-      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
-      if (process.env.REACT === '15') {
-        return;
-      }
-      const wrapper = mount(<Carousel initialSlide={1} />);
-      wrapper.setProps({
-        children: [<div key="1" />, <div key="2" />, <div key="3" />],
-      });
-      wrapper.update();
-      expect(wrapper.find('.slick-dots li').at(1).hasClass('slick-active')).toBeTruthy();
+      const { rerender, container } = render(<Carousel initialSlide={1} />);
+      rerender(
+        <Carousel initialSlide={1}>
+          <div key="1" />
+          <div key="2" />
+          <div key="3" />
+        </Carousel>,
+      );
+      expect(container.querySelectorAll('.slick-dots li')[1]).toHaveClass('slick-active');
     });
   });
 
   describe('dots precise control by plain object', () => {
     it('use dots to provide dotsClasse', () => {
-      const wrapper = mount(
+      const { container } = render(
         <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>
           <div>2</div>
           <div>3</div>
         </Carousel>,
       );
-      wrapper.update();
-      expect(wrapper.find('.slick-dots').hasClass('customDots')).toBeTruthy();
+      expect(container.querySelector('.slick-dots')).toHaveClass('customDots');
     });
   });
 });

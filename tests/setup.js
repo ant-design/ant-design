@@ -1,4 +1,8 @@
 const React = require('react');
+const util = require('util');
+
+const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
+const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
@@ -30,8 +34,19 @@ if (typeof window !== 'undefined') {
   // Fix css-animation or rc-motion deps on these
   // https://github.com/react-component/motion/blob/9c04ef1a210a4f3246c9becba6e33ea945e00669/src/util/motion.ts#L27-L35
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
-  window.AnimationEvent = window.AnimationEvent || (() => {});
-  window.TransitionEvent = window.TransitionEvent || (() => {});
+  window.AnimationEvent = window.AnimationEvent || window.Event;
+  window.TransitionEvent = window.TransitionEvent || window.Event;
+
+  // ref: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+  // ref: https://github.com/jsdom/jsdom/issues/2524
+  Object.defineProperty(window, 'TextEncoder', {
+    writable: true,
+    value: util.TextEncoder,
+  });
+  Object.defineProperty(window, 'TextDecoder', {
+    writable: true,
+    value: util.TextDecoder,
+  });
 }
 
 const Enzyme = require('enzyme');
@@ -44,11 +59,42 @@ const Adapter =
 Enzyme.configure({ adapter: new Adapter() });
 
 Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
+  findObserver(index = 0) {
+    return this.find('ResizeObserver').at(index);
   },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  triggerResize(index = 0) {
+    const target = this.findObserver(index).getDOMNode();
+    const originGetBoundingClientRect = target.getBoundingClientRect;
+
+    target.getBoundingClientRect = () => ({ width: 510, height: 903 });
+    onLibResize([{ target }]);
+    onEsResize([{ target }]);
+
+    target.getBoundingClientRect = originGetBoundingClientRect;
   },
+});
+
+// React.StrictMode wrapper
+jest.mock('enzyme', () => {
+  const enzyme = jest.requireActual('enzyme');
+  const { StrictMode, cloneElement } = jest.requireActual('react');
+  const { mount, render } = enzyme;
+
+  function EnzymeWrapper({ strictMode, children, ...props }) {
+    // Not wrap StrictMode for some test case need count render times
+    if (strictMode === false) {
+      return cloneElement(children, props);
+    }
+
+    return <StrictMode>{cloneElement(children, props)}</StrictMode>;
+  }
+
+  return {
+    ...enzyme,
+    mount: (ui, { strictMode, ...config } = {}, ...args) =>
+      mount(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    render: (ui, { strictMode, ...config } = {}, ...args) =>
+      render(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    originMount: mount,
+  };
 });

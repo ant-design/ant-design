@@ -208,6 +208,7 @@ exports[`List.pagination should change page size work 1`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
@@ -220,7 +221,9 @@ exports[`List.pagination should change page size work 1`] = `
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -355,6 +358,7 @@ exports[`List.pagination should change page size work 2`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-open"
     >
       <div
@@ -369,6 +373,7 @@ exports[`List.pagination should change page size work 2`] = `
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="true"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -391,7 +396,7 @@ exports[`List.pagination should change page size work 2`] = `
       <div>
         <div
           class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up"
-          style="pointer-events: none; min-width: 0; opacity: 0;"
+          style="min-width: 0; opacity: 0;"
         >
           <div>
             <div
@@ -533,18 +538,6 @@ exports[`List.pagination should change page size work 2`] = `
       <div
         style="position: absolute; top: 0px; left: 0px; width: 100%;"
       />
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
   </li>
 </ul>
@@ -645,6 +638,7 @@ exports[`List.pagination should default work 1`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
@@ -657,7 +651,9 @@ exports[`List.pagination should default work 1`] = `
             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"

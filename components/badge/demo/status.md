@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 8
 title:
   zh-CN: 状态点
   en-US: Status
@@ -13,11 +13,12 @@ title:
 
 Standalone badge with status.
 
-```jsx
+```tsx
 import { Badge } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
-  <div>
+const App: React.FC = () => (
+  <>
     <Badge status="success" />
     <Badge status="error" />
     <Badge status="default" />
@@ -33,7 +34,8 @@ ReactDOM.render(
     <Badge status="processing" text="Processing" />
     <br />
     <Badge status="warning" text="Warning" />
-  </div>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

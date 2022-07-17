@@ -14,17 +14,18 @@ debug: true
 
 Config component and icon prefixCls.
 
-```jsx
-import { ConfigProvider, Select, Button } from 'antd';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, Select } from 'antd';
 import React, { useState } from 'react';
 
 // Ant Design site use `es` module for view
 // but do not replace related lib `lib` with `es`
 // which do not show correct in site.
 // We may need do convert in site also.
-const FormSizeDemo = () => {
+const App: React.FC = () => {
   const [prefixCls, setPrefixCls] = useState('light');
+
   return (
     <div>
       <Button style={{ marginBottom: '12px' }} type="primary" onClick={() => setPrefixCls('dark')}>
@@ -39,5 +40,6 @@ const FormSizeDemo = () => {
     </div>
   );
 };
-ReactDOM.render(<FormSizeDemo />, mountNode);
+
+export default App;
 ```

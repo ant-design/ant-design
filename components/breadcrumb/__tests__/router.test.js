@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Switch, Link, withRouter, MemoryRouter } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Breadcrumb from '../index';
+import { render, fireEvent } from '../../../tests/utils';
 
 const Apps = () => (
   <ul className="app-list">
@@ -32,12 +32,10 @@ describe('react router', () => {
   });
 
   // https://github.com/airbnb/enzyme/issues/875
-  it('react router 4', () => {
-    if (process.env.REACT === '15') {
-      return;
-    }
-    const Home = withRouter(props => {
-      const { location, history } = props;
+  it('react router 6', () => {
+    const Home = () => {
+      const location = useLocation();
+      const navigate = useNavigate();
       const pathSnippets = location.pathname.split('/').filter(i => i);
       const extraBreadcrumbItems = pathSnippets.map((_, index) => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
@@ -55,27 +53,29 @@ describe('react router', () => {
       return (
         <div className="demo">
           <div className="demo-nav">
-            <a onClick={() => history.push('/')}>Home</a>
-            <a onClick={() => history.push('/apps')}>Application List</a>
+            <a onClick={() => navigate('/')}>Home</a>
+            <a onClick={() => navigate('/apps')}>Application List</a>
           </div>
-          <Switch>
+          <Routes>
             <Route path="/apps" component={Apps} />
             <Route render={() => <span>Home Page</span>} />
-          </Switch>
+          </Routes>
           <Breadcrumb>{breadcrumbItems}</Breadcrumb>
         </div>
       );
-    });
-    const wrapper = mount(
+    };
+    const { container } = render(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Home />
       </MemoryRouter>,
     );
-    expect(wrapper.find('BreadcrumbItem').length).toBe(1);
-    expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(0).text()).toBe('Home');
-    wrapper.find('.demo-nav a').at(1).simulate('click');
-    expect(wrapper.find('BreadcrumbItem').length).toBe(2);
-    expect(wrapper.find('BreadcrumbItem .ant-breadcrumb-link').at(1).text()).toBe(
+    expect(container.querySelectorAll('.ant-breadcrumb-link').length).toBe(1);
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('Home');
+
+    fireEvent.click(container.querySelectorAll('.demo-nav a')[1]);
+
+    expect(container.querySelectorAll('.ant-breadcrumb-link').length).toBe(2);
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe(
       'Application List',
     );
   });
@@ -145,7 +145,7 @@ describe('react router', () => {
         path: 'detail',
       },
     ];
-    const wrapper = mount(<Breadcrumb routes={routes} params={{ id: 1 }} />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Breadcrumb routes={routes} params={{ id: 1 }} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

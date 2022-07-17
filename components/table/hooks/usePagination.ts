@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { PaginationProps } from '../../pagination';
-import { TablePaginationConfig } from '../interface';
+import type { PaginationProps } from '../../pagination';
+import type { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
@@ -75,9 +75,9 @@ export default function usePagination(
     mergedPagination.current = maxPage || 1;
   }
 
-  const refreshPagination = (current: number = 1, pageSize?: number) => {
+  const refreshPagination = (current?: number, pageSize?: number) => {
     setInnerPagination({
-      current,
+      current: current ?? 1,
       pageSize: pageSize || mergedPagination.pageSize,
     });
   };

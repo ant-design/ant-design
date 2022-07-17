@@ -20,14 +20,16 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | --- | --- | --- | --- | --- |
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
-| allowClear | If allow to remove input content with clear icon | boolean | false |  |
+| allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
 | bordered | Whether has border style | boolean | true | 4.5.0 |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | id | The ID for input | string | - |  |
 | maxLength | The max length | number | - |  |
+| showCount | Whether show text count | boolean \| { formatter: ({ count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | The prefix icon for the Input | ReactNode | - |  |
-| size | The size of the input box. Note: in the context of a form, the `large` size is used | `large` \| `middle` \| `small` | - |  |
+| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
@@ -94,9 +96,9 @@ Supports all props of `Input`.
 
 ## FAQ
 
-### Why Input lose focus when change `prefix/suffix`
+### Why Input lose focus when change `prefix/suffix/showCount`
 
-When Input dynamic add or remove `prefix/suffix` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
+When Input dynamic add or remove `prefix/suffix/showCount` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
 
 ```jsx
 const suffix = condition ? <Icon type="smile" /> : <span />;

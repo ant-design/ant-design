@@ -121,6 +121,7 @@
       color: @disabled-color;
       font-size: 30px;
       transition: all 0.3s;
+
       &:hover {
         color: @text-color-secondary;
       }
@@ -149,6 +150,7 @@
     height: @line-height-base * @font-size-base;
     margin-top: @margin-xs;
     font-size: @font-size-base;
+
     &-name {
       display: inline-block;
       width: 100%;
@@ -166,9 +168,11 @@
       &-btn {
         opacity: 0;
       }
+
       &-btn.@{ant-prefix}-btn-sm {
-        height: 20px;
+        height: @line-height-base * @font-size-base;
         line-height: 1;
+        vertical-align: top;
       }
 
       &.picture {
@@ -183,12 +187,16 @@
 
       .@{iconfont-css-prefix} {
         color: @upload-actions-color;
+        transition: all 0.3s;
+      }
+
+      &:hover .@{iconfont-css-prefix} {
+        color: @text-color;
       }
     }
 
     &-info {
       height: 100%;
-      padding: 0 4px;
       transition: background-color 0.3s;
 
       > span {
@@ -208,28 +216,8 @@
       }
     }
 
-    .@{iconfont-css-prefix}-close {
-      position: absolute;
-      top: 6px;
-      right: 4px;
-      color: @text-color-secondary;
-      font-size: 10px;
-      line-height: 0;
-      cursor: pointer;
-      opacity: 0;
-      transition: all 0.3s;
-
-      &:hover {
-        color: @text-color;
-      }
-    }
-
     &:hover &-info {
       background-color: @item-hover-bg;
-    }
-
-    &:hover .@{iconfont-css-prefix}-close {
-      opacity: 1;
     }
 
     &:hover &-card-actions-btn {
@@ -246,6 +234,7 @@
       .@{iconfont-css-prefix} {
         color: @error-color;
       }
+
       &-btn {
         opacity: 1;
       }
@@ -295,7 +284,7 @@
     .@{upload-item}-thumbnail {
       width: 48px;
       height: 48px;
-      line-height: 54px;
+      line-height: 60px;
       text-align: center;
       opacity: 0.8;
 
@@ -309,7 +298,7 @@
       .@{iconfont-css-prefix} {
         svg path {
           &[fill='#e6f7ff'] {
-            fill: color(~`colorPalette('@{error-color}', 1) `);
+            fill: @error-color-deprecated-bg;
           }
 
           &[fill='#1890ff'] {
@@ -357,7 +346,7 @@
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
-      line-height: 28px;
+      margin-bottom: 12px;
     }
 
     .@{upload-item}-progress {
@@ -365,14 +354,6 @@
       width: ~'calc(100% - 24px)';
       margin-top: 0;
       padding-left: 56px;
-    }
-
-    .@{iconfont-css-prefix}-close {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      line-height: 1;
-      opacity: 1;
     }
   }
 
@@ -384,10 +365,6 @@
       height: @upload-picture-card-size;
       margin: 0 @margin-xs @margin-xs 0;
       vertical-align: top;
-    }
-
-    &.@{upload-prefix-cls}-list::after {
-      display: none;
     }
 
     .@{upload-item} {
@@ -527,6 +504,7 @@
 
     .@{upload-item}-name {
       flex: auto;
+      margin: 0;
       padding: 0 @padding-xs;
     }
 
@@ -549,7 +527,7 @@
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
     animation-duration: @animation-duration-slow;
-    animation-fill-mode: @ease-in-out-circ;
+    animation-timing-function: @ease-in-out-circ;
   }
 
   .@{upload-prefix-cls}-animate-inline-appear,

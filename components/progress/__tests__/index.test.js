@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Progress from '..';
-import { handleGradient, sortGradient } from '../Line';
-import ProgressSteps from '../Steps';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { handleGradient, sortGradient } from '../Line';
+import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -62,14 +62,14 @@ describe('Progress', () => {
       },
       type: 'line',
     });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({
       strokeColor: {
         '0%': '#108ee9',
         '100%': '#87d068',
       },
     });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
@@ -85,6 +85,20 @@ describe('Progress', () => {
   it('render successColor progress', () => {
     const wrapper = mount(
       <Progress percent={60} success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress type="circle"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="circle" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress type="dashboard"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="dashboard" success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -144,7 +158,7 @@ describe('Progress', () => {
 
   it('should support steps', () => {
     const wrapper = mount(<Progress steps={3} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('steps should be changable', () => {

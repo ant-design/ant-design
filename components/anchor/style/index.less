@@ -21,6 +21,7 @@
     top: 0;
     left: 0;
     height: 100%;
+
     &::before {
       position: relative;
       display: block;
@@ -30,6 +31,7 @@
       background-color: @anchor-border-color;
       content: ' ';
     }
+
     &-ball {
       position: absolute;
       left: 50%;
@@ -41,24 +43,24 @@
       border-radius: 8px;
       transform: translateX(-50%);
       transition: top 0.3s ease-in-out;
+
       &.visible {
         display: inline-block;
       }
     }
   }
 
-  &.fixed &-ink &-ink-ball {
+  &-fixed &-ink &-ink-ball {
     display: none;
   }
 
   &-link {
     padding: @anchor-link-padding;
-    line-height: 1.143;
 
     &-title {
       position: relative;
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 3px;
       overflow: hidden;
       color: @text-color;
       white-space: nowrap;
@@ -76,8 +78,8 @@
   }
 
   &-link &-link {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }
 

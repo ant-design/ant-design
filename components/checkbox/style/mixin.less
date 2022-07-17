@@ -48,7 +48,7 @@
       direction: ltr;
       background-color: @checkbox-check-bg;
       border: @checkbox-border-width @border-style-base @border-color-base;
-      border-radius: @border-radius-base;
+      border-radius: @checkbox-border-radius;
       // Fix IE checked style
       // https://github.com/ant-design/ant-design/issues/12597
       border-collapse: separate;
@@ -60,7 +60,9 @@
 
         position: absolute;
         top: 50%;
-        left: 22%;
+        // https://github.com/ant-design/ant-design/pull/19452
+        // https://github.com/ant-design/ant-design/pull/31726
+        left: 21.5%;
         display: table;
         width: @check-width;
         height: @check-height;
@@ -120,11 +122,13 @@
 
     .@{checkbox-prefix-cls}-input {
       cursor: not-allowed;
+      pointer-events: none;
     }
 
     .@{checkbox-inner-prefix-cls} {
       background-color: @input-disabled-bg;
       border-color: @border-color-base !important;
+
       &::after {
         border-color: @input-disabled-bg;
         border-collapse: separate;
@@ -165,6 +169,13 @@
     & + & {
       margin-left: 8px;
     }
+
+    &&-in-form-item {
+      input[type='checkbox'] {
+        width: 14px;
+        height: 14px;
+      }
+    }
   }
 
   .@{checkbox-prefix-cls} + span {
@@ -178,10 +189,12 @@
 
     &-item {
       margin-right: @checkbox-group-item-margin-right;
+
       &:last-child {
         margin-right: 0;
       }
     }
+
     &-item + &-item {
       margin-left: 0;
     }
@@ -220,6 +233,7 @@
     transform: scale(1);
     opacity: 0.5;
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;

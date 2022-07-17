@@ -13,15 +13,16 @@ title:
 
 Displaying a series of comments using the `antd` List Component.
 
-```jsx
-import { Comment, Tooltip, List } from 'antd';
+```tsx
+import { Comment, List, Tooltip } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
 const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     content: (
       <p>
         We supply a series of design principles, practical patterns and high quality design
@@ -38,7 +39,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     content: (
       <p>
         We supply a series of design principles, practical patterns and high quality design
@@ -54,7 +55,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+const App: React.FC = () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}
@@ -71,7 +72,8 @@ ReactDOM.render(
         />
       </li>
     )}
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

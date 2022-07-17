@@ -32,6 +32,7 @@
           margin-left: 4px;
         }
       }
+
       &::after {
         .@{form-prefix-cls}-rtl & {
           margin: 0 @form-item-label-colon-margin-left 0 @form-item-label-colon-margin-right;
@@ -79,6 +80,14 @@
       }
     }
 
+    .@{ant-prefix}-input-number-affix-wrapper {
+      .@{ant-prefix}-input-number {
+        .@{form-prefix-cls}-rtl & {
+          padding: 0;
+        }
+      }
+    }
+
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
         .@{form-prefix-cls}-rtl & {
@@ -97,7 +106,13 @@
     > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
     > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
     :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear {
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-clear,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-number-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-clear {
       .@{form-prefix-cls}-rtl & {
         right: auto;
         left: 32px;
@@ -106,6 +121,9 @@
 
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-number-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection-selected-value {
       .@{form-prefix-cls}-rtl & {
@@ -121,6 +139,7 @@
           margin-left: 19px;
         }
       }
+
       &-clear {
         .@{form-prefix-cls}-rtl & {
           right: auto;

@@ -1,19 +1,21 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
 import FileOutlined from '@ant-design/icons/FileOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
-import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
-import { AntTreeNodeProps } from '../Tree';
-import { isValidElement, cloneElement } from '../../_util/reactNode';
+import classNames from 'classnames';
+import * as React from 'react';
+import { cloneElement, isValidElement } from '../../_util/reactNode';
+import type { AntTreeNodeProps, SwitcherIcon } from '../Tree';
 
 export default function renderSwitcherIcon(
   prefixCls: string,
-  switcherIcon: React.ReactNode | null | undefined,
+  switcherIcon: SwitcherIcon,
   showLine: boolean | { showLeafIcon: boolean } | undefined,
-  { isLeaf, expanded, loading }: AntTreeNodeProps,
-) {
+  treeNodeProps: AntTreeNodeProps,
+): React.ReactNode {
+  const { isLeaf, expanded, loading } = treeNodeProps;
+
   if (loading) {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
@@ -30,15 +32,20 @@ export default function renderSwitcherIcon(
     }
     return null;
   }
+
   const switcherCls = `${prefixCls}-switcher-icon`;
-  if (isValidElement(switcherIcon)) {
-    return cloneElement(switcherIcon, {
-      className: classNames(switcherIcon.props.className || '', switcherCls),
+
+  const switcher =
+    typeof switcherIcon === 'function' ? switcherIcon({ expanded: !!expanded }) : switcherIcon;
+
+  if (isValidElement(switcher)) {
+    return cloneElement(switcher, {
+      className: classNames(switcher.props.className || '', switcherCls),
     });
   }
 
-  if (switcherIcon) {
-    return switcherIcon;
+  if (switcher) {
+    return switcher;
   }
 
   if (showLine) {

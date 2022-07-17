@@ -14,9 +14,10 @@ title:
 Basic Form data control. Includes layout, initial values, validation and submit.
 
 ```tsx
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Button, Checkbox, Form, Input } from 'antd';
+import React from 'react';
 
-const Demo = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -33,6 +34,7 @@ const Demo = () => {
       initialValues={{ remember: true }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      autoComplete="off"
     >
       <Form.Item
         label="Username"
@@ -63,5 +65,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

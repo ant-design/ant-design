@@ -1,13 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import Menu from '../menu';
+import { cloneElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
-import Menu from '../menu';
-import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import { Omit } from '../_util/type';
-import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
   path: string;
@@ -28,6 +27,7 @@ export interface BreadcrumbProps {
   ) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  children?: React.ReactNode;
 }
 
 function getBreadcrumbName(route: Route, params: any) {
@@ -56,9 +56,9 @@ const getPath = (path: string, params: any) => {
   return path;
 };
 
-const addChildPath = (paths: string[], childPath: string = '', params: any) => {
+const addChildPath = (paths: string[], childPath: string, params: any) => {
   const originalPaths = [...paths];
-  const path = getPath(childPath, params);
+  const path = getPath(childPath || '', params);
   if (path) {
     originalPaths.push(path);
   }
@@ -98,13 +98,12 @@ const Breadcrumb: BreadcrumbInterface = ({
       let overlay;
       if (route.children && route.children.length) {
         overlay = (
-          <Menu>
-            {route.children.map(child => (
-              <Menu.Item key={child.path || child.breadcrumbName}>
-                {itemRender(child, params, routes, addChildPath(paths, child.path, params))}
-              </Menu.Item>
-            ))}
-          </Menu>
+          <Menu
+            items={route.children.map(child => ({
+              key: child.path || child.breadcrumbName,
+              label: itemRender(child, params, routes, addChildPath(paths, child.path, params)),
+            }))}
+          />
         );
       }
 
@@ -120,7 +119,7 @@ const Breadcrumb: BreadcrumbInterface = ({
         return element;
       }
 
-      devWarning(
+      warning(
         element.type &&
           (element.type.__ANT_BREADCRUMB_ITEM === true ||
             element.type.__ANT_BREADCRUMB_SEPARATOR === true),
@@ -144,9 +143,9 @@ const Breadcrumb: BreadcrumbInterface = ({
   );
 
   return (
-    <div className={breadcrumbClassName} style={style} {...restProps}>
-      {crumbs}
-    </div>
+    <nav className={breadcrumbClassName} style={style} {...restProps}>
+      <ol>{crumbs}</ol>
+    </nav>
   );
 };
 

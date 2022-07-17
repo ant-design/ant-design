@@ -1,14 +1,14 @@
-import * as React from 'react';
-import CSSMotion from 'rc-motion';
-import classNames from 'classnames';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
-import Tooltip from '../../tooltip';
-import Progress from '../../progress';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
+import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
+import Progress from '../../progress';
+import Tooltip from '../../tooltip';
 
-import {
+import type {
   ItemRender,
   UploadFile,
   UploadListProgressProps,
@@ -30,6 +30,7 @@ export interface ListItemProps {
   showPreviewIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
+  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   iconRender: (file: UploadFile) => React.ReactNode;
   actionIconRender: (
     customIcon: React.ReactNode,
@@ -62,6 +63,7 @@ const ListItem = React.forwardRef(
       showPreviewIcon,
       showRemoveIcon,
       showDownloadIcon,
+      previewIcon: customPreviewIcon,
       removeIcon: customRemoveIcon,
       downloadIcon: customDownloadIcon,
       onPreview,
@@ -102,6 +104,7 @@ const ListItem = React.forwardRef(
             src={file.thumbUrl || file.url}
             alt={file.name}
             className={`${prefixCls}-list-item-image`}
+            crossOrigin={file.crossOrigin}
           />
         ) : (
           iconNode
@@ -206,7 +209,9 @@ const ListItem = React.forwardRef(
         onClick={e => onPreview(file, e)}
         title={locale.previewFile}
       >
-        <EyeOutlined />
+        {typeof customPreviewIcon === 'function'
+          ? customPreviewIcon(file)
+          : customPreviewIcon || <EyeOutlined />}
       </a>
     ) : null;
 

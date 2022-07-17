@@ -24,7 +24,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | Display ellipsis when text overflows | boolean | false |  |
+| ellipsis | Display ellipsis when text overflows，can't configure expandable、rows and onExpand by using object | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
@@ -71,13 +71,15 @@ Basic text writing, including headings, body text, lists, and more.
 
     {
       text: string,
-      onCopy: function,
+      onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
+      format: 'text/plain' | 'text/html',
     }
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
@@ -95,6 +97,8 @@ Basic text writing, including headings, body text, lists, and more.
       onChange: function(string),
       onCancel: function,
       onEnd: function,
+      triggerType: ('icon' | 'text')[],
+      enterIcon: ReactNode,
     }
 
 | Property | Description | Type | Default | Version |
@@ -104,11 +108,12 @@ Basic text writing, including headings, body text, lists, and more.
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
 | tooltip | Custom tooltip text, hide when it is false | boolean \| ReactNode | `Edit` | 4.6.0 |
-| onCancel | Called when type ESC to exit editable state | function | - |  |
-| onChange | Called when input at textarea | function(event) | - |  |
-| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
 | onStart | Called when enter editable state | function | - |  |
-
+| onChange | Called when input at textarea | function(value: string) | - |  |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
 
@@ -141,3 +146,5 @@ Basic text writing, including headings, body text, lists, and more.
 ```tsx
 <Link to="/" component={Typography.Link} />
 ```
+
+**Note：** This is not equivalent to the execution logic of react-router's Link [reference](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)

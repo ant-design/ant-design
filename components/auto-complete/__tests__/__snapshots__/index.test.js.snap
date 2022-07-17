@@ -11,14 +11,15 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         role="combobox"
         type="search"
         value=""
@@ -30,19 +31,19 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
   </div>
   <div>
     <div
-      class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0; min-width: 0; width: 0px;"
     >
       <div>
         <div
-          id="undefined_list"
+          id="rc_select_TEST_OR_SSR_list"
           role="listbox"
-          style="height:0;width:0;overflow:hidden"
+          style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-label="ReactNode"
             aria-selected="false"
-            id="undefined_list_0"
+            id="rc_select_TEST_OR_SSR_list_0"
             role="option"
           >
             key
@@ -50,20 +51,20 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
         </div>
         <div
           class="rc-virtual-list"
-          style="position:relative"
+          style="position: relative;"
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+            style="max-height: 256px; overflow-y: auto;"
           >
             <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display:flex;flex-direction:column"
+                style="display: flex; flex-direction: column;"
               >
                 <div
                   aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  class="ant-select-item ant-select-item-option"
                   title="ReactNode"
                 >
                   <div
@@ -74,7 +75,7 @@ exports[`AutoComplete legacy dataSource should accept react element option 1`] =
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select:none;-webkit-user-select:none"
+                    style="user-select: none;"
                     unselectable="on"
                   />
                 </div>
@@ -99,13 +100,14 @@ exports[`AutoComplete rtl render component should be rendered correctly in RTL d
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         role="combobox"
         type="search"
         value=""

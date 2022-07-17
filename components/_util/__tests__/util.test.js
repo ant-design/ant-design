@@ -1,17 +1,17 @@
-import raf from 'rc-util/lib/raf';
-import React from 'react';
+/* eslint-disable class-methods-use-this */
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import raf from 'rc-util/lib/raf';
+import React from 'react';
+import { sleep } from '../../../tests/utils';
+import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
+import { isStyleSupport } from '../styleChecker';
 import {
   throttleByAnimationFrame,
   throttleByAnimationFrameDecorator,
 } from '../throttleByAnimationFrame';
-import getDataOrAriaProps from '../getDataOrAriaProps';
-import Wave from '../wave';
 import TransButton from '../transButton';
-import { isStyleSupport } from '../styleChecker';
-import { sleep } from '../../../tests/utils';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -43,7 +43,6 @@ describe('Test utils function', () => {
       const callbackFn = jest.fn();
       class Test {
         @throttleByAnimationFrameDecorator()
-        // eslint-disable-next-line class-methods-use-this
         callback() {
           callbackFn();
         }
@@ -137,54 +136,6 @@ describe('Test utils function', () => {
           });
         });
       });
-    });
-  });
-
-  describe('wave', () => {
-    it('bindAnimationEvent should return when node is null', () => {
-      const wrapper = mount(
-        <Wave>
-          <button type="button" disabled>
-            button
-          </button>
-        </Wave>,
-      ).instance();
-      expect(wrapper.bindAnimationEvent()).toBe(undefined);
-    });
-
-    it('bindAnimationEvent.onClick should return when children is hidden', () => {
-      const wrapper = mount(
-        <Wave>
-          <button type="button" style={{ display: 'none' }}>
-            button
-          </button>
-        </Wave>,
-      ).instance();
-      expect(wrapper.bindAnimationEvent()).toBe(undefined);
-    });
-
-    it('bindAnimationEvent.onClick should return when children is input', () => {
-      const wrapper = mount(
-        <Wave>
-          <input />
-        </Wave>,
-      ).instance();
-      expect(wrapper.bindAnimationEvent()).toBe(undefined);
-    });
-
-    it('should not throw when click it', () => {
-      expect(() => {
-        const wrapper = mount(
-          <Wave>
-            <div />
-          </Wave>,
-        );
-        wrapper.simulate('click');
-      }).not.toThrow();
-    });
-
-    it('should not throw when no children', () => {
-      expect(() => mount(<Wave />)).not.toThrow();
     });
   });
 

@@ -13,65 +13,62 @@ title:
 
 Make it pop up under some conditions.
 
-```jsx
-import { Popconfirm, Switch, message } from 'antd';
+```tsx
+import { message, Popconfirm, Switch } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    visible: false,
-    condition: true, // Whether meet the condition, if not show popconfirm.
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+  const [condition, setCondition] = useState(true);
+
+  const changeCondition = (checked: boolean) => {
+    setCondition(checked);
   };
 
-  changeCondition = value => {
-    this.setState({ condition: value });
-  };
-
-  confirm = () => {
-    this.setState({ visible: false });
+  const confirm = () => {
+    setVisible(false);
     message.success('Next step.');
   };
 
-  cancel = () => {
-    this.setState({ visible: false });
+  const cancel = () => {
+    setVisible(false);
     message.error('Click on cancel.');
   };
 
-  handleVisibleChange = visible => {
-    if (!visible) {
-      this.setState({ visible });
+  const handleVisibleChange = (newVisible: boolean) => {
+    if (!newVisible) {
+      setVisible(newVisible);
       return;
     }
     // Determining condition before show the popconfirm.
-    console.log(this.state.condition);
-    if (this.state.condition) {
-      this.confirm(); // next step
+    console.log(condition);
+    if (condition) {
+      confirm(); // next step
     } else {
-      this.setState({ visible }); // show the popconfirm
+      setVisible(newVisible);
     }
   };
 
-  render() {
-    return (
-      <div>
-        <Popconfirm
-          title="Are you sure delete this task?"
-          visible={this.state.visible}
-          onVisibleChange={this.handleVisibleChange}
-          onConfirm={this.confirm}
-          onCancel={this.cancel}
-          okText="Yes"
-          cancelText="No"
-        >
-          <a href="#">Delete a task</a>
-        </Popconfirm>
-        <br />
-        <br />
-        Whether directly execute：
-        <Switch defaultChecked onChange={this.changeCondition} />
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Popconfirm
+        title="Are you sure delete this task?"
+        visible={visible}
+        onVisibleChange={handleVisibleChange}
+        onConfirm={confirm}
+        onCancel={cancel}
+        okText="Yes"
+        cancelText="No"
+      >
+        <a href="#">Delete a task</a>
+      </Popconfirm>
+      <br />
+      <br />
+      Whether directly execute：
+      <Switch defaultChecked onChange={changeCondition} />
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

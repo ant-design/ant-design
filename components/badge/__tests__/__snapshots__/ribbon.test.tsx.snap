@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-ribbon-wrapper"
+>
+  <div
+    class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
+  >
+    <span
+      class="ant-ribbon-text"
+    />
+    <div
+      class="ant-ribbon-corner"
+    />
+  </div>
+</div>
+`;

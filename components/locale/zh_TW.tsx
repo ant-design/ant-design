@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
-import DatePicker from '../date-picker/locale/zh_TW';
-import TimePicker from '../time-picker/locale/zh_TW';
 import Calendar from '../calendar/locale/zh_TW';
-import { Locale } from '../locale-provider';
+import DatePicker from '../date-picker/locale/zh_TW';
+import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
 
@@ -45,6 +45,12 @@ const localeValues: Locale = {
     searchPlaceholder: '搜尋資料',
     itemUnit: '項目',
     itemsUnit: '項目',
+    remove: '删除',
+    selectCurrent: '全選當頁',
+    removeCurrent: '删除當頁',
+    selectAll: '全選所有',
+    removeAll: '删除全部',
+    selectInvert: '反選當頁',
   },
   Upload: {
     uploading: '正在上傳...',
@@ -69,6 +75,7 @@ const localeValues: Locale = {
     back: '返回',
   },
   Form: {
+    optional: '（可選）',
     defaultValidateMessages: {
       default: '字段驗證錯誤${label}',
       required: '請輸入${label}',

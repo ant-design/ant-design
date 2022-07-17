@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Form, { FormInstance } from '..';
+import type { FormInstance } from '..';
+import Form from '..';
 import Input from '../../input';
 
 interface FormValues {
@@ -82,6 +83,18 @@ describe('Form.typescript', () => {
         </Form.Item>
       </Form>
     );
+
+    expect(Demo).toBeTruthy();
+  });
+
+  // TODO: @crazyair fix for value types
+  it('useWatch', () => {
+    const Demo = () => {
+      const [form] = Form.useForm<FormValues>();
+      const value = Form.useWatch('username', form);
+
+      return <Form form={form}>{value}</Form>;
+    };
 
     expect(Demo).toBeTruthy();
   });

@@ -8,8 +8,15 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+
 jobs:
   deploy-site:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: deploy preview
     runs-on: ubuntu-latest
     if: >
@@ -21,6 +28,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
       # Save PR id to output
@@ -33,7 +41,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
+          run_id: ${{ github.event.workflow_run.id }}
           name: site
 
       - name: upload surge service
@@ -43,7 +51,7 @@ jobs:
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -54,7 +62,7 @@ jobs:
 
       - name: The job has failed
         if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -64,6 +72,10 @@ jobs:
           number: ${{ steps.pr.outputs.id }}
 
   build-site-failed:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: build preview failed
     runs-on: ubuntu-latest
     if: >
@@ -75,6 +87,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
       # Save PR id to output
@@ -83,7 +96,7 @@ jobs:
         run: echo "::set-output name=id::$(<pr-id.txt)"
 
       - name: The job has failed
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

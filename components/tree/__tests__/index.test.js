@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import Tree from '../index';
 
 const { TreeNode } = Tree;
 
 describe('Tree', () => {
   it('icon and switcherIcon of Tree with showLine should render correctly', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Tree showLine showIcon>
         <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0">
           <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
@@ -28,11 +28,11 @@ describe('Tree', () => {
         </TreeNode>
       </Tree>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('switcherIcon in Tree should not render at leaf nodes', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
@@ -40,11 +40,11 @@ describe('Tree', () => {
         </TreeNode>
       </Tree>,
     );
-    expect(wrapper.find('.switcherIcon').length).toBe(1);
+    expect(container.querySelectorAll('.switcherIcon').length).toBe(1);
   });
 
   it('switcherIcon in Tree could be string', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
@@ -52,18 +52,17 @@ describe('Tree', () => {
         </TreeNode>
       </Tree>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('switcherIcon should be loading icon when loadData', () => {
-    function onLoadData() {
-      return new Promise(resolve => {
+    const onLoadData = () =>
+      new Promise(resolve => {
         setTimeout(() => {
           resolve();
         }, 1000);
       });
-    }
-    const wrapper = mount(
+    const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
@@ -71,12 +70,29 @@ describe('Tree', () => {
         </TreeNode>
       </Tree>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('switcherIcon in Tree could be render prop function', () => {
+    const { container } = render(
+      <Tree
+        switcherIcon={expanded =>
+          expanded ? <span className="open" /> : <span className="close" />
+        }
+        defaultExpandAll
+      >
+        <TreeNode icon="icon">
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          <TreeNode id="node2" title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(container.querySelectorAll('.open').length).toBe(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/23261
   it('showLine is object type should render correctly', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Tree showLine={{ showLeafIcon: false }} defaultExpandedKeys={['0-0-0']}>
         <TreeNode title="parent 1" key="0-0">
           <TreeNode title="parent 1-0" key="0-0-0">
@@ -94,6 +110,39 @@ describe('Tree', () => {
         </TreeNode>
       </Tree>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  describe('draggable', () => {
+    const dragTreeData = [
+      {
+        title: 'bamboo',
+        key: 'bamboo',
+      },
+    ];
+
+    it('hide icon', () => {
+      const { container } = render(<Tree treeData={dragTreeData} draggable={{ icon: false }} />);
+      expect(container.querySelector('.anticon-holder')).toBeFalsy();
+    });
+
+    it('customize icon', () => {
+      const { container } = render(
+        <Tree treeData={dragTreeData} draggable={{ icon: <span className="little" /> }} />,
+      );
+      expect(container.querySelector('.little')).toBeTruthy();
+    });
+
+    it('nodeDraggable', () => {
+      const nodeDraggable = jest.fn(() => false);
+      render(<Tree treeData={dragTreeData} draggable={{ nodeDraggable }} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+
+    it('nodeDraggable func', () => {
+      const nodeDraggable = jest.fn(() => false);
+      render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
+      expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
   });
 });

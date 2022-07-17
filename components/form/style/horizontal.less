@@ -1,4 +1,7 @@
-@import './index';
+@import (reference) '../../style/themes/index';
+
+@form-prefix-cls: ~'@{ant-prefix}-form';
+@form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 
 .@{form-prefix-cls}-horizontal {
   .@{form-item-prefix-cls}-label {
@@ -6,5 +9,14 @@
   }
   .@{form-item-prefix-cls}-control {
     flex: 1 1 0;
+    // https://github.com/ant-design/ant-design/issues/32777
+    // https://github.com/ant-design/ant-design/issues/33773
+    min-width: 0;
+  }
+  // https://github.com/ant-design/ant-design/issues/32980
+  // https://github.com/ant-design/ant-design/issues/34903
+  .@{form-item-prefix-cls}-label[class$='-24'] + .@{form-item-prefix-cls}-control,
+  .@{form-item-prefix-cls}-label[class*='-24 '] + .@{form-item-prefix-cls}-control {
+    min-width: unset;
   }
 }

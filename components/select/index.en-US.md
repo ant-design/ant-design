@@ -37,6 +37,7 @@ Select component to select value from options.
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
+| fieldNames | Customize node label, value, options field name | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -54,15 +55,17 @@ Select component to select value from options.
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | Placeholder of select | ReactNode | - |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
-| showSearch | Whether show search input in single mode | boolean | false |  |
+| showSearch | Whether select is searchable | boolean | single: false, multple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
-| tagRender | Customize tag render | (props) => ReactNode | - |  |
-| tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
-| value | Current selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
+| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
+| value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -81,36 +84,36 @@ Select component to select value from options.
 
 ### Select Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### Option props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The additional class to option | string | - |  |
-| disabled | Disable this option | boolean | false |  |
-| title | `title` of Select after select this Option | string | - |  |
-| value | Default to filter with this property | string \| number | - |  |
+| Property  | Description                          | Type             | Default | Version |
+| --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| className | The additional class to option       | string           | -       |         |
+| disabled  | Disable this option                  | boolean          | false   |         |
+| title     | `title` attribute of Select Option   | string           | -       |         |
+| value     | Default to filter with this property | string \| number | -       |         |
 
 ### OptGroup props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| key | Group key | string | - |  |
-| label | Group label | string \| React.Element | - |  |
+| Property | Description | Type                    | Default | Version |
+| -------- | ----------- | ----------------------- | ------- | ------- |
+| key      | Group key   | string                  | -       |         |
+| label    | Group label | string \| React.Element | -       |         |
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tag` mode?
+### Why sometime search will show 2 same option when in `tags` mode?
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
 ### The dropdown is closed when click `dropdownRender` area?
 
-See the instruction in [dropdownRender example](#components-select-demo-custom-dropdown-menu).
+Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
 ### Why sometime customize Option cause scroll break?
 

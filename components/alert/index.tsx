@@ -1,20 +1,20 @@
-import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CSSMotion from 'rc-motion';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import classNames from 'classnames';
-
+import CSSMotion from 'rc-motion';
+import type { ReactElement } from 'react';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
-import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
+import ErrorBoundary from './ErrorBoundary';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -24,7 +24,7 @@ export interface AlertProps {
   /** Close text to show */
   closeText?: React.ReactNode;
   /** Content of Alert */
-  message: React.ReactNode;
+  message?: React.ReactNode;
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
@@ -40,6 +40,8 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  /** Custome closeIcon */
+  closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -60,6 +62,43 @@ const iconMapOutlined = {
   warning: ExclamationCircleOutlined,
 };
 
+interface IconNodeProps {
+  type: AlertProps['type'];
+  icon: AlertProps['icon'];
+  prefixCls: AlertProps['prefixCls'];
+  description: AlertProps['description'];
+}
+
+const IconNode: React.FC<IconNodeProps> = props => {
+  const { description, icon, prefixCls, type } = props;
+  const iconType = (description ? iconMapOutlined : iconMapFilled)[type!] || null;
+  if (icon) {
+    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
+      className: classNames(`${prefixCls}-icon`, {
+        [(icon as ReactElement).props.className]: (icon as ReactElement).props.className,
+      }),
+    })) as ReactElement;
+  }
+  return React.createElement(iconType, { className: `${prefixCls}-icon` });
+};
+
+interface CloseIconProps {
+  isClosable: boolean;
+  prefixCls: AlertProps['prefixCls'];
+  closeText: AlertProps['closeText'];
+  closeIcon: AlertProps['closeIcon'];
+  handleClose: AlertProps['onClose'];
+}
+
+const CloseIcon: React.FC<CloseIconProps> = props => {
+  const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
+  return isClosable ? (
+    <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
+      {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
+    </button>
+  ) : null;
+};
+
 interface AlertInterface extends React.FC<AlertProps> {
   ErrorBoundary: typeof ErrorBoundary;
 }
@@ -78,6 +117,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
+  closeIcon = <CloseOutlined />,
   action,
   ...props
 }) => {
@@ -104,36 +144,6 @@ const Alert: AlertInterface = ({
   // closeable when closeText is assigned
   const isClosable = closeText ? true : closable;
   const type = getType();
-
-  const renderIconNode = () => {
-    const { icon } = props;
-    // use outline icon in alert with description
-    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
-    if (icon) {
-      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-        className: classNames(`${prefixCls}-icon`, {
-          [(icon as any).props.className]: (icon as any).props.className,
-        }),
-      }));
-    }
-    return React.createElement(iconType, { className: `${prefixCls}-icon` });
-  };
-
-  const renderCloseIcon = () =>
-    isClosable ? (
-      <button
-        type="button"
-        onClick={handleClose}
-        className={`${prefixCls}-close-icon`}
-        tabIndex={0}
-      >
-        {closeText ? (
-          <span className={`${prefixCls}-close-text`}>{closeText}</span>
-        ) : (
-          <CloseOutlined />
-        )}
-      </button>
-    ) : null;
 
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -175,15 +185,26 @@ const Alert: AlertInterface = ({
           role="alert"
           {...dataOrAriaProps}
         >
-          {isShowIcon ? renderIconNode() : null}
+          {isShowIcon ? (
+            <IconNode
+              description={description}
+              icon={props.icon}
+              prefixCls={prefixCls}
+              type={type}
+            />
+          ) : null}
           <div className={`${prefixCls}-content`}>
-            <div className={`${prefixCls}-message`}>{message}</div>
-            <div className={`${prefixCls}-description`}>{description}</div>
+            {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
+            {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
           </div>
-
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
-
-          {renderCloseIcon()}
+          <CloseIcon
+            isClosable={!!isClosable}
+            closeText={closeText}
+            prefixCls={prefixCls}
+            closeIcon={closeIcon}
+            handleClose={handleClose}
+          />
         </div>
       )}
     </CSSMotion>

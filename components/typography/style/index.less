@@ -22,10 +22,14 @@
 
   &&-danger {
     color: @error-color;
+
     a&:active,
-    a&:focus,
+    a&:focus {
+      color: @error-color-active;
+    }
+
     a&:hover {
-      color: ~`colorPalette('@{error-color}', 5) `;
+      color: @error-color-hover;
     }
   }
 
@@ -42,22 +46,36 @@
   }
 
   h1&,
+  div&-h1,
+  div&-h1 > textarea,
   h1 {
     .typography-title-1();
   }
+
   h2&,
+  div&-h2,
+  div&-h2 > textarea,
   h2 {
     .typography-title-2();
   }
+
   h3&,
+  div&-h3,
+  div&-h3 > textarea,
   h3 {
     .typography-title-3();
   }
+
   h4&,
+  div&-h4,
+  div&-h4 > textarea,
   h4 {
     .typography-title-4();
   }
+
   h5&,
+  div&-h5,
+  div&-h5 > textarea,
   h5 {
     .typography-title-5();
   }
@@ -185,7 +203,6 @@
     div& {
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
-      // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 1px);
     }
 
@@ -194,11 +211,19 @@
       right: 10px;
       bottom: 8px;
       color: @text-color-secondary;
+      // default style
+      font-weight: normal;
+      font-size: @font-size-base;
+      font-style: normal;
       pointer-events: none;
     }
 
     // Fix Editable Textarea flash in Firefox
     textarea {
+      // https://stackoverflow.com/a/7695964/3040605
+      height: 1em;
+      margin: 0 !important;
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
     }
   }
@@ -206,7 +231,7 @@
   // list
   ul,
   ol {
-    margin: 0 0 1em 0;
+    margin: 0 0 1em;
     padding: 0;
 
     li {
@@ -276,9 +301,11 @@
   }
 
   &-ellipsis-multiple-line {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 3;
+
     /*! autoprefixer: ignore next */
     -webkit-box-orient: vertical;
   }

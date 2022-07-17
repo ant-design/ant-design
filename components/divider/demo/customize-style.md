@@ -14,10 +14,11 @@ debug: true
 
 Use `style` to change default style.
 
-```jsx
+```tsx
 import { Divider } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Divider style={{ borderWidth: 2, borderColor: '#7cb305' }} />
     <Divider style={{ borderColor: '#7cb305' }} dashed />
@@ -26,7 +27,8 @@ ReactDOM.render(
     </Divider>
     <Divider type="vertical" style={{ height: 60, borderColor: '#7cb305' }} />
     <Divider type="vertical" style={{ height: 60, borderColor: '#7cb305' }} dashed />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

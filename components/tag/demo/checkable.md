@@ -17,43 +17,38 @@ title:
 
 > it is an absolute controlled component and has no uncontrolled mode.
 
-```jsx
+```tsx
 import { Tag } from 'antd';
+import React, { useState } from 'react';
 
 const { CheckableTag } = Tag;
 
 const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
-class HotTags extends React.Component {
-  state = {
-    selectedTags: ['Books'],
-  };
+const App: React.FC = () => {
+  const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
-  handleChange(tag, checked) {
-    const { selectedTags } = this.state;
+  const handleChange = (tag: string, checked: boolean) => {
     const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter(t => t !== tag);
     console.log('You are interested in: ', nextSelectedTags);
-    this.setState({ selectedTags: nextSelectedTags });
-  }
+    setSelectedTags(nextSelectedTags);
+  };
 
-  render() {
-    const { selectedTags } = this.state;
-    return (
-      <>
-        <span style={{ marginRight: 8 }}>Categories:</span>
-        {tagsData.map(tag => (
-          <CheckableTag
-            key={tag}
-            checked={selectedTags.indexOf(tag) > -1}
-            onChange={checked => this.handleChange(tag, checked)}
-          >
-            {tag}
-          </CheckableTag>
-        ))}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <span style={{ marginRight: 8 }}>Categories:</span>
+      {tagsData.map(tag => (
+        <CheckableTag
+          key={tag}
+          checked={selectedTags.indexOf(tag) > -1}
+          onChange={checked => handleChange(tag, checked)}
+        >
+          {tag}
+        </CheckableTag>
+      ))}
+    </>
+  );
+};
 
-ReactDOM.render(<HotTags />, mountNode);
+export default App;
 ```

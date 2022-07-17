@@ -1,6 +1,5 @@
 # Upload 📷 UI snapshots to argos server, help visual regression testing.
-
-name: UI Upload
+name: 📷 UI Upload
 
 on:
   workflow_run:
@@ -8,13 +7,22 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+
 jobs:
   upload-ui:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      pull-requests: read  # for dawidd6/action-download-artifact to query commit hash
     name: deploy preview
     runs-on: ubuntu-latest
     if: >
       github.event.workflow_run.conclusion == 'success'
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
       - name: Download commit artifact
         uses: dawidd6/action-download-artifact@v2
         with:
@@ -41,8 +49,15 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           workflow_conclusion: success
           name: snapshots
+          path: imageSnapshots
+
+      - name: Install
+        run: npm i fast-glob lodash argos-cli
 
       - name: Upload argos-ci
         id: deploy
-        run: |
-          npx argos-cli upload ./ --token ${{ secrets.ARGOS_TOKEN }} --branch ${{ steps.branch.outputs.id }} --commit ${{ steps.commit.outputs.id }}
+        run: npm run argos
+        env:
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+          ARGOS_GITHUB_BRANCH: ${{ steps.branch.outputs.id }}
+          ARGOS_GITHUB_COMMIT: ${{ steps.commit.outputs.id }}

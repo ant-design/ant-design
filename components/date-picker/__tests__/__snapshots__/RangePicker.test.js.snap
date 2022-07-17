@@ -118,7 +118,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
+      style="left: 0px; width: 0px; position: absolute;"
     />
     <span
       class="ant-picker-suffix"
@@ -146,20 +146,20 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0;pointer-events:none"
+      class="ant-picker-dropdown ant-picker-dropdown-range ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
-        style="min-width:0"
+        style="min-width: 0;"
       >
         <div
           class="ant-picker-range-arrow"
-          style="left:0"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container"
-          style="margin-left:0"
+          style="margin-left: 0px;"
         >
           <div
             class="ant-picker-panels"
@@ -212,7 +212,7 @@ Array [
                   </div>
                   <button
                     class="ant-picker-header-next-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -222,7 +222,7 @@ Array [
                   </button>
                   <button
                     class="ant-picker-header-super-next-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -712,7 +712,7 @@ Array [
                 >
                   <button
                     class="ant-picker-header-super-prev-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -722,7 +722,7 @@ Array [
                   </button>
                   <button
                     class="ant-picker-header-prev-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >

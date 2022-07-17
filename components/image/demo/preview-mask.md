@@ -15,29 +15,27 @@ debug: true
 Custom preview mask.
 
 ```tsx
-import React from 'react';
-import { Image, Space } from 'antd';
 import { ZoomInOutlined } from '@ant-design/icons';
+import { Image, Space } from 'antd';
+import React from 'react';
 
-function ImageDemo() {
-  return (
-    <Image
-      width={96}
-      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      preview={{
-        maskClassName: 'customize-mask',
-        mask: (
-          <Space direction="vertical" align="center">
-            <ZoomInOutlined />
-            示例
-          </Space>
-        ),
-      }}
-    />
-  );
-}
+const App: React.FC = () => (
+  <Image
+    width={96}
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    preview={{
+      maskClassName: 'customize-mask',
+      mask: (
+        <Space direction="vertical" align="center">
+          <ZoomInOutlined />
+          示例
+        </Space>
+      ),
+    }}
+  />
+);
 
-ReactDOM.render(<ImageDemo />, mountNode);
+export default App;
 ```
 
 ```css

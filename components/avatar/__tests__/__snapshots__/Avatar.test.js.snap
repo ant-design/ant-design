@@ -86,11 +86,14 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 
 exports[`Avatar Render fallback 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-image"
+  class="ant-avatar ant-avatar-circle"
 >
-  <img
-    src="http://error.url"
-  />
+  <span
+    class="ant-avatar-string"
+    style="transform: scale(1) translateX(-50%);"
+  >
+    A
+  </span>
 </span>
 `;
 
@@ -100,21 +103,15 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 >
   <span
     class="ant-avatar-string"
-    style="opacity:0"
+    style="transform: scale(0.72) translateX(-50%);"
   />
 </span>
 `;
 
 exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
 <span
-  className="ant-avatar-string"
-  style={
-    Object {
-      "WebkitTransform": "scale(0.72) translateX(-50%)",
-      "msTransform": "scale(0.72) translateX(-50%)",
-      "transform": "scale(0.72) translateX(-50%)",
-    }
-  }
+  class="ant-avatar-string"
+  style="transform: scale(0.72) translateX(-50%);"
 >
   Avatar
 </span>
@@ -122,14 +119,8 @@ exports[`Avatar Render should calculate scale of avatar children correctly 1`] =
 
 exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
 <span
-  className="ant-avatar-string"
-  style={
-    Object {
-      "WebkitTransform": "scale(0.72) translateX(-50%)",
-      "msTransform": "scale(0.72) translateX(-50%)",
-      "transform": "scale(0.72) translateX(-50%)",
-    }
-  }
+  class="ant-avatar-string"
+  style="transform: scale(0.72) translateX(-50%);"
 >
   xx
 </span>
@@ -137,96 +128,54 @@ exports[`Avatar Render should calculate scale of avatar children correctly 2`] =
 
 exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
 <span
-  className="ant-avatar-string"
-  style={
-    Object {
-      "WebkitTransform": "scale(0.36) translateX(-50%)",
-      "msTransform": "scale(0.36) translateX(-50%)",
-      "transform": "scale(0.36) translateX(-50%)",
-    }
-  }
+  class="ant-avatar-string"
+  style="transform: scale(0.36) translateX(-50%);"
 >
   Avatar
 </span>
 `;
 
 exports[`Avatar Render should handle onError correctly 1`] = `
-<Foo>
-  <Avatar
-    onError={[Function]}
-    shape="circle"
-    size="default"
-    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-  >
-    <span
-      className="ant-avatar ant-avatar-circle ant-avatar-image"
-      style={Object {}}
-    >
-      <img
-        onError={[Function]}
-        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-      />
-    </span>
-  </Avatar>
-</Foo>
+<span
+  class="ant-avatar ant-avatar-circle ant-avatar-image"
+>
+  <img
+    src="https://joeschmoe.io/api/v1/random"
+  />
+</span>
 `;
 
 exports[`Avatar Render should show image on success after a failure state 1`] = `
-<Avatar
-  shape="circle"
-  size="default"
-  src="http://error.url"
+<span
+  class="ant-avatar ant-avatar-circle"
 >
   <span
-    className="ant-avatar ant-avatar-circle"
-    style={Object {}}
+    class="ant-avatar-string"
+    style="transform: scale(1) translateX(-50%);"
   >
-    <ResizeObserver
-      onResize={[Function]}
-    >
-      <span
-        className="ant-avatar-string"
-        style={
-          Object {
-            "WebkitTransform": "scale(1) translateX(-50%)",
-            "msTransform": "scale(1) translateX(-50%)",
-            "transform": "scale(1) translateX(-50%)",
-          }
-        }
-      >
-        Fallback
-      </span>
-    </ResizeObserver>
+    Fallback
   </span>
-</Avatar>
+</span>
 `;
 
 exports[`Avatar Render should show image on success after a failure state 2`] = `
-<Avatar
-  shape="circle"
-  size="default"
-  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+<span
+  class="ant-avatar ant-avatar-circle ant-avatar-image"
 >
-  <span
-    className="ant-avatar ant-avatar-circle ant-avatar-image"
-    style={Object {}}
-  >
-    <img
-      onError={[Function]}
-      src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-    />
-  </span>
-</Avatar>
+  <img
+    src="https://joeschmoe.io/api/v1/random"
+  />
+</span>
 `;
 
 exports[`Avatar Render support size is number 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
-  style="width:100px;height:100px;line-height:100px;font-size:18px"
+  style="width: 100px; height: 100px; line-height: 100px; font-size: 18px;"
 >
   <span
     class="ant-avatar-string"
-    style="opacity:0"
+    style="line-height: 100px; transform: scale(0.32) translateX(-50%);"
   >
     TestString
   </span>

@@ -30,7 +30,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode | (确定取消按钮) |  |
 | forceRender | 强制渲染 Modal | boolean | false |  |
-| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| getContainer | 指定 Modal 挂载的节点，但依旧为全局展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
@@ -79,7 +79,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
-| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> | 3.12.0 |
+| icon | 自定义图标 | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
@@ -90,6 +90,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | width | 宽度 | string \| number | 416 |  |
+| wrapClassName | 对话框外层容器的类名 | string | - | 4.18.0 |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
 | onOk | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭 | function(close) | - |  |
@@ -128,7 +129,7 @@ browserHistory.listen(() => {
 
 ### Modal.useModal()
 
-当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](#Modal.method()) 相同的创建通知方法。
+当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](<#Modal.method()>) 相同的创建通知方法。
 
 ```jsx
 const [modal, contextHolder] = Modal.useModal();
@@ -143,6 +144,10 @@ return <div>{contextHolder}</div>;
 ```
 
 ## FAQ
+
+### 为什么 Modal 关闭时，内容不会更新？
+
+Modal 在关闭时会将内容进行 memo 从而避免关闭过程中的内容跳跃。也因此如果你在配合使用 Form 有关闭时重置 `initialValues` 的操作，请通过在 effect 中调用 `resetFields` 来重置。
 
 ### 为什么 Modal 方法不能获取 context、redux、的内容和 ConfigProvider `locale/prefixCls` 配置？
 
@@ -172,4 +177,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。

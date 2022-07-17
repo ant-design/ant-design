@@ -13,16 +13,18 @@ title:
 
 The input box comes in three sizes. large is used in the form, while the medium size is the default.
 
-```jsx
+```tsx
 import { TimePicker } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

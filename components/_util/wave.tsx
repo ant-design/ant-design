@@ -1,8 +1,10 @@
-import * as React from 'react';
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
-import { supportRef, composeRef } from 'rc-util/lib/ref';
+import { composeRef, supportRef } from 'rc-util/lib/ref';
+import * as React from 'react';
+import { forwardRef } from 'react';
+import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 import raf from './raf';
-import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
 import { cloneElement } from './reactNode';
 
 let styleForPseudo: HTMLStyleElement | null;
@@ -24,7 +26,13 @@ function isNotGrey(color: string) {
   return true;
 }
 
-export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
+export interface WaveProps {
+  insertExtraNode?: boolean;
+  disabled?: boolean;
+  children?: React.ReactNode;
+}
+
+class InternalWave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -48,6 +56,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   context: ConfigConsumerProps;
 
   componentDidMount() {
+    this.destroyed = false;
     const node = this.containerRef.current as HTMLDivElement;
     if (!node || node.nodeType !== 1) {
       return;
@@ -67,10 +76,12 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
-    if (!node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
+    const { insertExtraNode, disabled } = this.props;
+
+    if (disabled || !node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
       return;
     }
-    const { insertExtraNode } = this.props;
+
     this.extraNode = document.createElement('div');
     const { extraNode } = this;
     const { getPrefixCls } = this.context;
@@ -216,3 +227,9 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
   }
 }
+
+const Wave = forwardRef<InternalWave, WaveProps>((props, ref) => (
+  <InternalWave ref={ref} {...props} />
+));
+
+export default Wave;

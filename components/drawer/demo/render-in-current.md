@@ -7,56 +7,51 @@ title:
 
 ## zh-CN
 
-渲染在当前 dom 里。自定义容器，查看 getContainer。
+渲染在当前 dom 里。自定义容器，查看 `getContainer`。
 
 ## en-US
 
-Render in current dom. custom container, check getContainer.
+Render in current dom. custom container, check `getContainer`.
 
-```jsx
-import { Drawer, Button } from 'antd';
+```tsx
+import { Button, Drawer } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = { visible: false };
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
-  showDrawer = () => {
-    this.setState({
-      visible: true,
-    });
+  const showDrawer = () => {
+    setVisible(true);
   };
 
-  onClose = () => {
-    this.setState({
-      visible: false,
-    });
+  const onClose = () => {
+    setVisible(false);
   };
 
-  render() {
-    return (
-      <div className="site-drawer-render-in-current-wrapper">
-        Render in this
-        <div style={{ marginTop: 16 }}>
-          <Button type="primary" onClick={this.showDrawer}>
-            Open
-          </Button>
-        </div>
-        <Drawer
-          title="Basic Drawer"
-          placement="right"
-          closable={false}
-          onClose={this.onClose}
-          visible={this.state.visible}
-          getContainer={false}
-          style={{ position: 'absolute' }}
-        >
-          <p>Some contents...</p>
-        </Drawer>
+  return (
+    <div className="site-drawer-render-in-current-wrapper">
+      Render in this
+      <div style={{ marginTop: 16 }}>
+        <Button type="primary" onClick={showDrawer}>
+          Open
+        </Button>
       </div>
-    );
-  }
-}
+      <Drawer
+        title="Basic Drawer"
+        placement="right"
+        closable={false}
+        onClose={onClose}
+        visible={visible}
+        getContainer={false}
+        style={{ position: 'absolute' }}
+      >
+        <p>Some contents...</p>
+      </Drawer>
+    </div>
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```
 
 ```css

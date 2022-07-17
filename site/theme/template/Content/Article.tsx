@@ -1,10 +1,10 @@
 import React, { Children, cloneElement } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Helmet } from 'react-helmet-async';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
 import { getMetaDescription } from '../utils';
+import WrapHelmet from '../Components/Helmet';
 
 interface LocaleString {
   [locale: string]: string;
@@ -45,8 +45,9 @@ class Article extends React.Component<ArticleProps> {
     return true;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   onResourceClick: React.MouseEventHandler<HTMLAnchorElement> = event => {
-    const { target } = (event as unknown) as { target: HTMLAnchorElement };
+    const { target } = event as unknown as { target: HTMLAnchorElement };
     if (!window.gtag) {
       return;
     }
@@ -110,11 +111,11 @@ class Article extends React.Component<ArticleProps> {
 
     return (
       <article className="markdown" onClick={this.onResourceClick}>
-        <Helmet encodeSpecialCharacters={false}>
+        <WrapHelmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
           {metaDesc && <meta name="description" content={metaDesc} />}
-        </Helmet>
+        </WrapHelmet>
         {isNotTranslated && (
           <Alert
             type="warning"
@@ -130,7 +131,7 @@ class Article extends React.Component<ArticleProps> {
         )}
         <div className={titleRegionClassName}>
           <h1>
-            {(title as LocaleString)[locale] || title}
+            {typeof title === 'object' && title ? title[locale] : title}
             {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
             <EditButton
               title={<FormattedMessage id="app.content.edit-page" />}
@@ -166,4 +167,4 @@ class Article extends React.Component<ArticleProps> {
   }
 }
 
-export default (injectIntl(Article as any) as any) as React.ComponentClass<ArticleProps>;
+export default injectIntl(Article as any) as any as React.ComponentClass<ArticleProps>;

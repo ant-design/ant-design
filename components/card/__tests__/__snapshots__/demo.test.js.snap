@@ -430,112 +430,21 @@ Array [
       class="ant-card-body"
     >
       <div
-        class="ant-card-loading-content"
+        class="ant-skeleton ant-skeleton-active"
       >
         <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          class="ant-skeleton-content"
         >
-          <div
-            class="ant-col ant-col-22"
-            style="padding-left:4px;padding-right:4px"
+          <ul
+            class="ant-skeleton-paragraph"
           >
-            <div
-              class="ant-card-loading-block"
+            <li />
+            <li />
+            <li />
+            <li
+              style="width:61%"
             />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-8"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-15"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-6"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-18"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-13"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-9"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-4"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-3"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-16"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -682,7 +591,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            src="https://joeschmoe.io/api/v1/random"
           />
         </span>
       </div>

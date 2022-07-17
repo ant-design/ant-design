@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
 
@@ -167,10 +168,16 @@ describe('message.hooks', () => {
 
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
-    jest.runAllTimers();
+
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    hide();
-    jest.runAllTimers();
+
+    act(() => {
+      hide();
+      jest.runAllTimers();
+    });
     expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
@@ -191,5 +198,41 @@ describe('message.hooks', () => {
     };
 
     mount(<Demo />);
+  });
+
+  it("should use ConfigProvider's getPopupContainer as message container", () => {
+    const containerId = 'container';
+    const getPopupContainer = () => {
+      const div = document.createElement('div');
+      div.id = containerId;
+      document.body.appendChild(div);
+      return div;
+    };
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      return (
+        <ConfigProvider getPopupContainer={getPopupContainer} prefixCls="my-test">
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              api.success({
+                content: <span className="hook-content">happy</span>,
+                duration: 0,
+              });
+            }}
+          />
+        </ConfigProvider>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+
+    wrapper.find('button').simulate('click');
+    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
+    expect(document.querySelector('.hook-content').innerHTML).toEqual('happy');
+    expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
+    expect(wrapper.find(`#${containerId}`).children.length).toBe(1);
   });
 });

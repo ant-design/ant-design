@@ -29,6 +29,7 @@ function getStyle() {
 interface BlockContentProps {
   title: React.ReactNode;
   extra?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) => (
@@ -52,7 +53,7 @@ const Home = (props: { location: any }) => {
       zhCN: '文章',
       enUS: 'Articles',
     });
-    const { pathname, query } = path;
+    const { pathname, query = {} } = path;
     const pathnames = pathname.split('#');
     if ('direction' in query) {
       return `${pathnames[0]}?direction=rtl#${pathnames[1]}`;

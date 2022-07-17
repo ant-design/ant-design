@@ -1,4 +1,5 @@
-@import './index';
+@import (reference) '../../style/themes/index';
+@select-prefix-cls: ~'@{ant-prefix}-select';
 
 @selection-item-padding: ceil(@font-size-base * 1.25);
 
@@ -24,13 +25,6 @@
       padding: 0;
       line-height: @select-height-without-border;
       transition: all 0.3s;
-
-      // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-      @supports (-moz-appearance: meterbar) {
-        & {
-          line-height: @select-height-without-border;
-        }
-      }
     }
 
     .@{select-prefix-cls}-selection-item {
@@ -39,14 +33,15 @@
     }
 
     .@{select-prefix-cls}-selection-placeholder {
+      transition: none;
       pointer-events: none;
     }
 
     // For common baseline align
     &::after,
-    // For '' value baseline align
+    /* For '' value baseline align */
     .@{select-prefix-cls}-selection-item::after,
-    // For undefined value baseline align
+    /* For undefined value baseline align */
     .@{select-prefix-cls}-selection-placeholder::after {
       display: inline-block;
       width: 0;

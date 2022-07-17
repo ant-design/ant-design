@@ -41,6 +41,7 @@
     &:not(.@{steps-prefix-cls}-item-active) {
       .@{steps-prefix-cls}-item-container[role='button'] {
         cursor: pointer;
+
         &:hover {
           opacity: 0.85;
         }
@@ -49,6 +50,7 @@
 
     &:last-child {
       flex: 1;
+
       &::after {
         display: none;
       }
@@ -93,6 +95,7 @@
 .@{steps-prefix-cls}-navigation.@{steps-prefix-cls}-vertical {
   > .@{steps-prefix-cls}-item {
     margin-right: 0 !important;
+
     &::before {
       display: none;
     }
@@ -104,6 +107,7 @@
       width: 3px;
       height: calc(100% - 24px);
     }
+
     &::after {
       position: relative;
       top: -2px;
@@ -118,5 +122,13 @@
     > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
       visibility: hidden;
     }
+  }
+}
+
+.@{steps-prefix-cls}-navigation.@{steps-prefix-cls}-horizontal {
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
+    visibility: hidden;
   }
 }

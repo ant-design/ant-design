@@ -15,22 +15,25 @@ Advanced Usage of Transfer.
 
 You can customize the labels of the transfer buttons, the width and height of the columns, and what should be displayed in the footer.
 
-```jsx
-import { Transfer, Button } from 'antd';
+```tsx
+import { Button, Transfer } from 'antd';
+import type { TransferDirection, TransferListProps } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    mockData: [],
-    targetKeys: [],
-  };
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
+  chosen: boolean;
+}
 
-  componentDidMount() {
-    this.getMock();
-  }
+const App: React.FC = () => {
+  const [mockData, setMockData] = useState<RecordType[]>([]);
+  const [targetKeys, setTargetKeys] = useState<string[]>([]);
 
-  getMock = () => {
-    const targetKeys = [];
-    const mockData = [];
+  const getMock = () => {
+    const tempTargetKeys = [];
+    const tempMockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i.toString(),
@@ -39,41 +42,60 @@ class App extends React.Component {
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
-        targetKeys.push(data.key);
+        tempTargetKeys.push(data.key);
       }
-      mockData.push(data);
+      tempMockData.push(data);
     }
-    this.setState({ mockData, targetKeys });
+    setMockData(tempMockData);
+    setTargetKeys(tempTargetKeys);
   };
 
-  handleChange = targetKeys => {
-    this.setState({ targetKeys });
+  useEffect(() => {
+    getMock();
+  }, []);
+
+  const handleChange = (newTargetKeys: string[]) => {
+    setTargetKeys(newTargetKeys);
   };
 
-  renderFooter = () => (
-    <Button size="small" style={{ float: 'right', margin: 5 }} onClick={this.getMock}>
-      reload
-    </Button>
-  );
-
-  render() {
+  const renderFooter = (
+    _: TransferListProps<any>,
+    {
+      direction,
+    }: {
+      direction: TransferDirection;
+    },
+  ) => {
+    if (direction === 'left') {
+      return (
+        <Button size="small" style={{ float: 'left', margin: 5 }} onClick={getMock}>
+          Left button reload
+        </Button>
+      );
+    }
     return (
-      <Transfer
-        dataSource={this.state.mockData}
-        showSearch
-        listStyle={{
-          width: 250,
-          height: 300,
-        }}
-        operations={['to right', 'to left']}
-        targetKeys={this.state.targetKeys}
-        onChange={this.handleChange}
-        render={item => `${item.title}-${item.description}`}
-        footer={this.renderFooter}
-      />
+      <Button size="small" style={{ float: 'right', margin: 5 }} onClick={getMock}>
+        Right button reload
+      </Button>
     );
-  }
-}
+  };
 
-ReactDOM.render(<App />, mountNode);
+  return (
+    <Transfer
+      dataSource={mockData}
+      showSearch
+      listStyle={{
+        width: 250,
+        height: 300,
+      }}
+      operations={['to right', 'to left']}
+      targetKeys={targetKeys}
+      onChange={handleChange}
+      render={item => `${item.title}-${item.description}`}
+      footer={renderFooter}
+    />
+  );
+};
+
+export default App;
 ```
