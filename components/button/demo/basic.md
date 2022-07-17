@@ -13,11 +13,10 @@ title:
 
 There are `primary` button, `default` button, `dashed` button, `text` button and `link` button in antd.
 
-```tsx
+```jsx
 import { Button } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>
@@ -25,8 +24,7 @@ const App: React.FC = () => (
     <br />
     <Button type="text">Text Button</Button>
     <Button type="link">Link Button</Button>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

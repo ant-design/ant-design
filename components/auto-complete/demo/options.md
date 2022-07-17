@@ -14,14 +14,13 @@ title:
 You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `options`。
 
 ```tsx
-import { AutoComplete } from 'antd';
 import React, { useState } from 'react';
+import { AutoComplete } from 'antd';
 
 const { Option } = AutoComplete;
 
-const App: React.FC = () => {
+const Complete: React.FC = () => {
   const [result, setResult] = useState<string[]>([]);
-
   const handleSearch = (value: string) => {
     let res: string[] = [];
     if (!value || value.indexOf('@') >= 0) {
@@ -31,7 +30,6 @@ const App: React.FC = () => {
     }
     setResult(res);
   };
-
   return (
     <AutoComplete style={{ width: 200 }} onSearch={handleSearch} placeholder="input here">
       {result.map((email: string) => (
@@ -43,5 +41,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Complete />, mountNode);
 ```

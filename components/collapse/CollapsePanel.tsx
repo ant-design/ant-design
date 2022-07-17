@@ -1,8 +1,8 @@
-import classNames from 'classnames';
-import RcCollapse from 'rc-collapse';
 import * as React from 'react';
+import RcCollapse from 'rc-collapse';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 export type CollapsibleType = 'header' | 'disabled';
 
@@ -19,11 +19,10 @@ export interface CollapsePanelProps {
   id?: string;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  children?: React.ReactNode;
 }
 
 const CollapsePanel: React.FC<CollapsePanelProps> = props => {
-  warning(
+  devWarning(
     !('disabled' in props),
     'Collapse.Panel',
     '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',

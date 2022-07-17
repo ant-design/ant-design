@@ -13,19 +13,17 @@ title:
 
 A circular progress bar.
 
-```tsx
+```jsx
 import { Progress } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Progress type="circle" percent={75} />
     <Progress type="circle" percent={70} status="exception" />
     <Progress type="circle" percent={100} />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

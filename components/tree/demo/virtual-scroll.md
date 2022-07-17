@@ -13,16 +13,14 @@ title:
 
 Use virtual list through `height` prop.
 
-```tsx
+```jsx
 import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
-import React from 'react';
 
-const dig = (path = '0', level = 3) => {
+function dig(path = '0', level = 3) {
   const list = [];
   for (let i = 0; i < 10; i += 1) {
     const key = `${path}-${i}`;
-    const treeNode: DataNode = {
+    const treeNode = {
       title: key,
       key,
     };
@@ -34,11 +32,9 @@ const dig = (path = '0', level = 3) => {
     list.push(treeNode);
   }
   return list;
-};
+}
 
 const treeData = dig();
 
-const App: React.FC = () => <Tree treeData={treeData} height={233} defaultExpandAll />;
-
-export default App;
+ReactDOM.render(<Tree treeData={treeData} height={233} defaultExpandAll />, mountNode);
 ```

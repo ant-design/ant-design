@@ -1,17 +1,16 @@
-import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import ResizeObserver from 'rc-resize-observer';
+import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 import {
   addObserveTarget,
-  getFixedBottom,
-  getFixedTop,
-  getTargetRect,
   removeObserveTarget,
+  getTargetRect,
+  getFixedTop,
+  getFixedBottom,
 } from './utils';
 
 function getDefaultTarget() {
@@ -34,10 +33,6 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-interface InternalAffixProps extends AffixProps {
-  affixPrefixCls: string;
-}
-
 enum AffixStatus {
   None,
   Prepare,
@@ -52,7 +47,7 @@ export interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-class Affix extends React.Component<InternalAffixProps, AffixState> {
+class Affix extends React.Component<AffixProps, AffixState> {
   static contextType = ConfigContext;
 
   state: AffixState = {
@@ -97,7 +92,10 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   componentDidUpdate(prevProps: AffixProps) {
     const { prevTarget } = this.state;
     const targetFunc = this.getTargetFunc();
-    const newTarget = targetFunc?.() || null;
+    let newTarget = null;
+    if (targetFunc) {
+      newTarget = targetFunc() || null;
+    }
 
     if (prevTarget !== newTarget) {
       removeObserveTarget(this);
@@ -130,8 +128,12 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   }
 
   getOffsetTop = () => {
-    const { offsetBottom, offsetTop } = this.props;
-    return offsetBottom === undefined && offsetTop === undefined ? 0 : offsetTop;
+    const { offsetBottom } = this.props;
+    let { offsetTop } = this.props;
+    if (offsetBottom === undefined && offsetTop === undefined) {
+      offsetTop = 0;
+    }
+    return offsetTop;
   };
 
   getOffsetBottom = () => this.props.offsetBottom;
@@ -254,21 +256,15 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   }
 
   // =================== Render ===================
-  render() {
+  render = () => {
+    const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
-    const { affixPrefixCls, children } = this.props;
+    const { prefixCls, children } = this.props;
     const className = classNames({
-      [affixPrefixCls]: !!affixStyle,
+      [getPrefixCls('affix', prefixCls)]: !!affixStyle,
     });
 
-    let props = omit(this.props, [
-      'prefixCls',
-      'offsetTop',
-      'offsetBottom',
-      'target',
-      'onChange',
-      'affixPrefixCls',
-    ]);
+    let props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
       props = omit(props as typeof props & { onTestUpdatePosition: any }, ['onTestUpdatePosition']);
@@ -294,28 +290,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
         </div>
       </ResizeObserver>
     );
-  }
-}
-// just use in test
-export type InternalAffixClass = Affix;
-
-const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
-
-  const affixProps: InternalAffixProps = {
-    ...props,
-
-    affixPrefixCls,
   };
-
-  return <Affix {...affixProps} ref={ref} />;
-});
-
-if (process.env.NODE_ENV !== 'production') {
-  AffixFC.displayName = 'Affix';
 }
 
-export default AffixFC;
+export default Affix;

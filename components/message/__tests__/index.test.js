@@ -1,10 +1,7 @@
-import { SmileOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
+import { SmileOutlined } from '@ant-design/icons';
 import message, { getInstance } from '..';
-
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('message', () => {
   beforeEach(() => {
@@ -12,80 +9,42 @@ describe('message', () => {
   });
 
   afterEach(() => {
+    message.destroy();
     jest.useRealTimers();
-
-    act(() => {
-      message.destroy();
-    });
   });
 
-  it('should be able to hide manually', async () => {
-    let hide1;
-    let hide2;
-
-    act(() => {
-      hide1 = message.info('whatever', 0);
-    });
-    act(() => {
-      hide2 = message.info('whatever', 0);
-    });
-
+  it('should be able to hide manually', () => {
+    const hide1 = message.info('whatever', 0);
+    const hide2 = message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-
     hide1();
-    act(() => {
-      jest.runAllTimers();
-    });
+    jest.runAllTimers();
     expect(getInstance().component.state.notices).toHaveLength(1);
-
     hide2();
-    act(() => {
-      jest.runAllTimers();
-    });
+    jest.runAllTimers();
     expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should be able to remove manually with a unique key', () => {
     const key1 = 'key1';
     const key2 = 'key2';
-
-    act(() => {
-      message.info({ content: 'Message1', key: 'key1', duration: 0 });
-    });
-    act(() => {
-      message.info({ content: 'Message2', key: 'key2', duration: 0 });
-    });
-
+    message.info({ content: 'Message1', key: 'key1', duration: 0 });
+    message.info({ content: 'Message2', key: 'key2', duration: 0 });
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-
-    act(() => {
-      message.destroy(key1);
-      jest.runAllTimers();
-    });
+    message.destroy(key1);
+    jest.runAllTimers();
     expect(getInstance().component.state.notices).toHaveLength(1);
-
-    act(() => {
-      message.destroy(key2);
-      jest.runAllTimers();
-    });
+    message.destroy(key2);
+    jest.runAllTimers();
     expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should be able to destroy globally', () => {
-    act(() => {
-      message.info('whatever', 0);
-    });
-    act(() => {
-      message.info('whatever', 0);
-    });
-
+    message.info('whatever', 0);
+    message.info('whatever', 0);
     expect(document.querySelectorAll('.ant-message').length).toBe(1);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-
-    act(() => {
-      message.destroy();
-      jest.runAllTimers();
-    });
+    message.destroy();
     expect(document.querySelectorAll('.ant-message').length).toBe(0);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
@@ -144,9 +103,7 @@ describe('message', () => {
     let hide;
     class Test extends React.Component {
       componentDidMount() {
-        act(() => {
-          hide = message.loading('Action in progress..', 0);
-        });
+        hide = message.loading('Action in progress..', 0);
       }
 
       render() {
@@ -155,18 +112,13 @@ describe('message', () => {
     }
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-
-    act(() => {
-      hide();
-      jest.runAllTimers();
-    });
+    hide();
+    jest.runAllTimers();
     expect(getInstance().component.state.notices).toHaveLength(0);
   });
 
   it('should allow custom icon', () => {
-    act(() => {
-      message.open({ content: 'Message', icon: <SmileOutlined /> });
-    });
+    message.open({ content: 'Message', icon: <SmileOutlined /> });
     expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
   });
 
@@ -225,16 +177,9 @@ describe('message', () => {
     const key = 'updatable';
     class Test extends React.Component {
       componentDidMount() {
-        let hideLoading;
-        act(() => {
-          hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
-        });
+        const hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
         // Testing that content of the message should be cancel manually.
-        setTimeout(() => {
-          act(() => {
-            hideLoading();
-          });
-        }, 1000);
+        setTimeout(hideLoading, 1000);
       }
 
       render() {
@@ -244,7 +189,6 @@ describe('message', () => {
 
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-
     jest.advanceTimersByTime(1500);
     expect(getInstance().component.state.notices).toHaveLength(0);
   });

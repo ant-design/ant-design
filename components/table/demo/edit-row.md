@@ -16,8 +16,8 @@ title:
 Table with editable rows.
 
 ```tsx
-import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import React, { useState } from 'react';
+import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
 
 interface Item {
   key: string;
@@ -79,7 +79,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   );
 };
 
-const App: React.FC = () => {
+const EditableTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -145,9 +145,9 @@ const App: React.FC = () => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <Typography.Link onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+            <a href="javascript:;" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
               Save
-            </Typography.Link>
+            </a>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
               <a>Cancel</a>
             </Popconfirm>
@@ -197,7 +197,7 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<EditableTable />, mountNode);
 ```
 
 ```css

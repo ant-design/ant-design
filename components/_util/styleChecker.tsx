@@ -1,9 +1,16 @@
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import { isStyleSupport } from 'rc-util/lib/Dom/styleChecker';
 
 export const canUseDocElement = () => canUseDom() && window.document.documentElement;
 
-export { isStyleSupport };
+export const isStyleSupport = (styleName: string | Array<string>): boolean => {
+  if (canUseDocElement()) {
+    const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
+    const { documentElement } = window.document;
+
+    return styleNameList.some(name => name in documentElement.style);
+  }
+  return false;
+};
 
 let flexGapSupported: boolean | undefined;
 export const detectFlexGapSupported = () => {

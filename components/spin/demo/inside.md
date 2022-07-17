@@ -13,17 +13,15 @@ title:
 
 Spin in a container.
 
-```tsx
+```jsx
 import { Spin } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div className="example">
     <Spin />
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

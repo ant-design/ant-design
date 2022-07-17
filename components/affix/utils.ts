@@ -1,14 +1,20 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import Affix from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
+export type Rect = ClientRect | DOMRect;
 
-export function getTargetRect(target: BindElement): DOMRect {
+export function getTargetRect(target: BindElement): ClientRect {
   return target !== window
     ? (target as HTMLElement).getBoundingClientRect()
-    : ({ top: 0, bottom: window.innerHeight } as DOMRect);
+    : ({ top: 0, bottom: window.innerHeight } as ClientRect);
 }
 
-export function getFixedTop(placeholderReact: DOMRect, targetRect: DOMRect, offsetTop?: number) {
+export function getFixedTop(
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetTop: number | undefined,
+) {
   if (offsetTop !== undefined && targetRect.top > placeholderReact.top - offsetTop) {
     return offsetTop + targetRect.top;
   }
@@ -16,9 +22,9 @@ export function getFixedTop(placeholderReact: DOMRect, targetRect: DOMRect, offs
 }
 
 export function getFixedBottom(
-  placeholderReact: DOMRect,
-  targetRect: DOMRect,
-  offsetBottom?: number,
+  placeholderReact: Rect,
+  targetRect: Rect,
+  offsetBottom: number | undefined,
 ) {
   if (offsetBottom !== undefined && targetRect.bottom < placeholderReact.bottom + offsetBottom) {
     const targetBottomOffset = window.innerHeight - targetRect.bottom;
@@ -40,7 +46,7 @@ const TRIGGER_EVENTS = [
 
 interface ObserverEntity {
   target: HTMLElement | Window;
-  affixList: any[];
+  affixList: Affix[];
   eventHandlers: { [eventName: string]: any };
 }
 
@@ -51,7 +57,7 @@ export function getObserverEntities() {
   return observerEntities;
 }
 
-export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: T): void {
+export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
   if (!target) return;
 
   let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
@@ -77,7 +83,7 @@ export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: 
   }
 }
 
-export function removeObserveTarget<T>(affix: T): void {
+export function removeObserveTarget(affix: Affix): void {
   const observerEntity = observerEntities.find(oriObserverEntity => {
     const hasAffix = oriObserverEntity.affixList.some(item => item === affix);
     if (hasAffix) {

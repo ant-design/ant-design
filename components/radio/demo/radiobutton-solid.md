@@ -13,11 +13,10 @@ title:
 
 Solid radio button style.
 
-```tsx
+```jsx
 import { Radio } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Radio.Group defaultValue="a" buttonStyle="solid">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -33,8 +32,7 @@ const App: React.FC = () => (
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

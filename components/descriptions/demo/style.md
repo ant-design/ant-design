@@ -15,17 +15,16 @@ debug: true
 Customize label & wrapper style
 
 ```tsx
-import { Descriptions, Divider, Radio, Switch } from 'antd';
-import React, { useState } from 'react';
+import { Descriptions, Divider, Switch, Radio } from 'antd';
 
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
 
-const App: React.FC = () => {
-  const [border, setBorder] = useState(true);
-  const [layout, setLayout] = useState('horizontal' as LayoutType);
+const Demo = () => {
+  const [border, setBorder] = React.useState(true);
+  const [layout, setLayout] = React.useState('horizontal' as LayoutType);
 
   return (
     <>
@@ -70,5 +69,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

@@ -13,20 +13,19 @@ value 和 onChange 需要配合使用。
 
 `value` and `onChange` should be used together,
 
-```tsx
-import { TimePicker } from 'antd';
-import type { Moment } from 'moment';
+```jsx
 import React, { useState } from 'react';
+import { TimePicker } from 'antd';
 
-const App: React.FC = () => {
-  const [value, setValue] = useState<Moment | null>(null);
+const Demo = () => {
+  const [value, setValue] = useState(null);
 
-  const onChange = (time: Moment) => {
+  const onChange = time => {
     setValue(time);
   };
 
   return <TimePicker value={value} onChange={onChange} />;
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

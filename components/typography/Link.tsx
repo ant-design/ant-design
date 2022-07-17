@@ -1,7 +1,6 @@
 import * as React from 'react';
-import warning from '../_util/warning';
-import type { BlockProps } from './Base';
-import Base from './Base';
+import devWarning from '../_util/devWarning';
+import Base, { BlockProps } from './Base';
 
 export interface LinkProps
   extends BlockProps,
@@ -13,15 +12,15 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
   { ellipsis, rel, ...restProps },
   ref,
 ) => {
-  warning(
+  devWarning(
     typeof ellipsis !== 'object',
     'Typography.Link',
     '`ellipsis` only supports boolean value.',
   );
 
-  const baseRef = React.useRef<any>(null);
+  const baseRef = React.useRef<Base>(null);
 
-  React.useImperativeHandle(ref, () => baseRef.current);
+  React.useImperativeHandle(ref, () => baseRef.current?.contentRef.current!);
 
   const mergedProps = {
     ...restProps,

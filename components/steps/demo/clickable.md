@@ -13,38 +13,43 @@ title:
 
 Setting `onChange` makes Steps clickable.
 
-```tsx
-import { Divider, Steps } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;
 
-const App: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-
-  const onChange = (value: number) => {
-    console.log('onChange:', current);
-    setCurrent(value);
+class Demo extends React.Component {
+  state = {
+    current: 0,
   };
 
-  return (
-    <>
-      <Steps current={current} onChange={onChange}>
-        <Step title="Step 1" description="This is a description." />
-        <Step title="Step 2" description="This is a description." />
-        <Step title="Step 3" description="This is a description." />
-      </Steps>
+  onChange = current => {
+    console.log('onChange:', current);
+    this.setState({ current });
+  };
 
-      <Divider />
+  render() {
+    const { current } = this.state;
 
-      <Steps current={current} onChange={onChange} direction="vertical">
-        <Step title="Step 1" description="This is a description." />
-        <Step title="Step 2" description="This is a description." />
-        <Step title="Step 3" description="This is a description." />
-      </Steps>
-    </>
-  );
-};
+    return (
+      <>
+        <Steps current={current} onChange={this.onChange}>
+          <Step title="Step 1" description="This is a description." />
+          <Step title="Step 2" description="This is a description." />
+          <Step title="Step 3" description="This is a description." />
+        </Steps>
 
-export default App;
+        <Divider />
+
+        <Steps current={current} onChange={this.onChange} direction="vertical">
+          <Step title="Step 1" description="This is a description." />
+          <Step title="Step 2" description="This is a description." />
+          <Step title="Step 3" description="This is a description." />
+        </Steps>
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
 ```

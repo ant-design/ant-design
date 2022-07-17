@@ -1,11 +1,11 @@
-import { mount, render } from 'enzyme';
 import React from 'react';
+import { render, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
+import ResponsiveObserve from '../../_util/responsiveObserve';
 
 describe('Grid', () => {
   mountTest(Row);

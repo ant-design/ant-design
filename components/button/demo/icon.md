@@ -17,12 +17,11 @@ title:
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
-```tsx
-import { SearchOutlined } from '@ant-design/icons';
+```jsx
 import { Button, Tooltip } from 'antd';
-import React from 'react';
+import { SearchOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Tooltip title="search">
       <Button type="primary" shape="circle" icon={<SearchOutlined />} />
@@ -48,40 +47,7 @@ const App: React.FC = () => (
     <Button type="dashed" icon={<SearchOutlined />}>
       Search
     </Button>
-    <Button icon={<SearchOutlined />} href="https://www.google.com" />
-    <br />
-    <br />
-    <Tooltip title="search">
-      <Button type="primary" shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button type="primary" shape="circle" size="large">
-      A
-    </Button>
-    <Button type="primary" icon={<SearchOutlined />} size="large">
-      Search
-    </Button>
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button icon={<SearchOutlined />} size="large">
-      Search
-    </Button>
-    <br />
-    <Tooltip title="search">
-      <Button shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button icon={<SearchOutlined />} size="large">
-      Search
-    </Button>
-    <Tooltip title="search">
-      <Button type="dashed" shape="circle" icon={<SearchOutlined />} size="large" />
-    </Tooltip>
-    <Button type="dashed" icon={<SearchOutlined />} size="large">
-      Search
-    </Button>
-    <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

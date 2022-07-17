@@ -1,16 +1,13 @@
-import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
-import classNames from 'classnames';
 import * as React from 'react';
-import type { ColProps } from '../grid/col';
-import Col from '../grid/col';
+import classNames from 'classnames';
+import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
+import Col, { ColProps } from '../grid/col';
+import { FormLabelAlign } from './interface';
+import { FormContext, FormContextProps } from './context';
+import { RequiredMark } from './Form';
 import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import type { TooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
-import type { FormContextProps } from './context';
-import { FormContext } from './context';
-import type { RequiredMark } from './Form';
-import type { FormLabelAlign } from './interface';
+import Tooltip, { TooltipProps } from '../tooltip';
 
 export type WrapperTooltipProps = TooltipProps & {
   icon?: React.ReactElement;
@@ -63,7 +60,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         vertical,
         labelAlign: contextLabelAlign,
         labelCol: contextLabelCol,
-        labelWrap,
         colon: contextColon,
       }: FormContextProps) => {
         const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
@@ -75,9 +71,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelClsBasic,
           mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
           mergedLabelCol.className,
-          {
-            [`${labelClsBasic}-wrap`]: !!labelWrap,
-          },
         );
 
         let labelChildren = label;
@@ -95,7 +88,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
           const tooltipNode = (
             <Tooltip {...restTooltipProps}>
-              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
+              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip` })}
             </Tooltip>
           );
 
@@ -112,7 +105,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelChildren = (
             <>
               {labelChildren}
-              <span className={`${prefixCls}-item-optional`} title="">
+              <span className={`${prefixCls}-item-optional`}>
                 {formLocale?.optional || defaultLocale.Form?.optional}
               </span>
             </>

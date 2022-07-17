@@ -13,11 +13,11 @@ title:
 
 Basic modal.
 
-```tsx
-import { Button, Modal } from 'antd';
+```jsx
 import React, { useState } from 'react';
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -46,5 +46,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

@@ -21,20 +21,10 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 > 2. Make sure `sortOrder` is assigned for only one column.
 > 3. `column.key` is required.
 
-```tsx
-import type { TableProps } from 'antd';
-import { Button, Space, Table } from 'antd';
-import type { ColumnsType, FilterValue, SorterResult } from 'antd/es/table/interface';
-import React, { useState } from 'react';
+```jsx
+import { Table, Button, Space } from 'antd';
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -61,82 +51,94 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => {
-  const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
-  const [sortedInfo, setSortedInfo] = useState<SorterResult<DataType>>({});
+class App extends React.Component {
+  state = {
+    filteredInfo: null,
+    sortedInfo: null,
+  };
 
-  const handleChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
+  handleChange = (pagination, filters, sorter) => {
     console.log('Various parameters', pagination, filters, sorter);
-    setFilteredInfo(filters);
-    setSortedInfo(sorter as SorterResult<DataType>);
-  };
-
-  const clearFilters = () => {
-    setFilteredInfo({});
-  };
-
-  const clearAll = () => {
-    setFilteredInfo({});
-    setSortedInfo({});
-  };
-
-  const setAgeSort = () => {
-    setSortedInfo({
-      order: 'descend',
-      columnKey: 'age',
+    this.setState({
+      filteredInfo: filters,
+      sortedInfo: sorter,
     });
   };
 
-  const columns: ColumnsType<DataType> = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      filters: [
-        { text: 'Joe', value: 'Joe' },
-        { text: 'Jim', value: 'Jim' },
-      ],
-      filteredValue: filteredInfo.name || null,
-      onFilter: (value: string, record) => record.name.includes(value),
-      sorter: (a, b) => a.name.length - b.name.length,
-      sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
-      ellipsis: true,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-      sorter: (a, b) => a.age - b.age,
-      sortOrder: sortedInfo.columnKey === 'age' ? sortedInfo.order : null,
-      ellipsis: true,
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-      filters: [
-        { text: 'London', value: 'London' },
-        { text: 'New York', value: 'New York' },
-      ],
-      filteredValue: filteredInfo.address || null,
-      onFilter: (value: string, record) => record.address.includes(value),
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortOrder: sortedInfo.columnKey === 'address' ? sortedInfo.order : null,
-      ellipsis: true,
-    },
-  ];
+  clearFilters = () => {
+    this.setState({ filteredInfo: null });
+  };
 
-  return (
-    <>
-      <Space style={{ marginBottom: 16 }}>
-        <Button onClick={setAgeSort}>Sort age</Button>
-        <Button onClick={clearFilters}>Clear filters</Button>
-        <Button onClick={clearAll}>Clear filters and sorters</Button>
-      </Space>
-      <Table columns={columns} dataSource={data} onChange={handleChange} />
-    </>
-  );
-};
+  clearAll = () => {
+    this.setState({
+      filteredInfo: null,
+      sortedInfo: null,
+    });
+  };
 
-export default App;
+  setAgeSort = () => {
+    this.setState({
+      sortedInfo: {
+        order: 'descend',
+        columnKey: 'age',
+      },
+    });
+  };
+
+  render() {
+    let { sortedInfo, filteredInfo } = this.state;
+    sortedInfo = sortedInfo || {};
+    filteredInfo = filteredInfo || {};
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [
+          { text: 'Joe', value: 'Joe' },
+          { text: 'Jim', value: 'Jim' },
+        ],
+        filteredValue: filteredInfo.name || null,
+        onFilter: (value, record) => record.name.includes(value),
+        sorter: (a, b) => a.name.length - b.name.length,
+        sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
+        ellipsis: true,
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+        sorter: (a, b) => a.age - b.age,
+        sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
+        ellipsis: true,
+      },
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+        filters: [
+          { text: 'London', value: 'London' },
+          { text: 'New York', value: 'New York' },
+        ],
+        filteredValue: filteredInfo.address || null,
+        onFilter: (value, record) => record.address.includes(value),
+        sorter: (a, b) => a.address.length - b.address.length,
+        sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
+        ellipsis: true,
+      },
+    ];
+    return (
+      <>
+        <Space style={{ marginBottom: 16 }}>
+          <Button onClick={this.setAgeSort}>Sort age</Button>
+          <Button onClick={this.clearFilters}>Clear filters</Button>
+          <Button onClick={this.clearAll}>Clear filters and sorters</Button>
+        </Space>
+        <Table columns={columns} dataSource={data} onChange={this.handleChange} />
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

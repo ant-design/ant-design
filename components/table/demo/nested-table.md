@@ -13,41 +13,20 @@ title:
 
 Showing more detailed info of every row.
 
-```tsx
+```jsx
+import { Table, Badge, Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Menu, Space, Table } from 'antd';
-import React from 'react';
-
-interface DataType {
-  key: React.Key;
-  name: string;
-  platform: string;
-  version: string;
-  upgradeNum: number;
-  creator: string;
-  createdAt: string;
-}
-
-interface ExpandedDataType {
-  key: React.Key;
-  date: string;
-  name: string;
-  upgradeNum: string;
-}
 
 const menu = (
-  <Menu
-    items={[
-      { key: '1', label: 'Action 1' },
-      { key: '2', label: 'Action 2' },
-    ]}
-  />
+  <Menu>
+    <Menu.Item>Action 1</Menu.Item>
+    <Menu.Item>Action 2</Menu.Item>
+  </Menu>
 );
 
-const App: React.FC = () => {
+function NestedTable() {
   const expandedRowRender = () => {
-    const columns: TableColumnsType<ExpandedDataType> = [
+    const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
       {
@@ -82,7 +61,7 @@ const App: React.FC = () => {
     const data = [];
     for (let i = 0; i < 3; ++i) {
       data.push({
-        key: i.toString(),
+        key: i,
         date: '2014-12-24 23:12:00',
         name: 'This is production name',
         upgradeNum: 'Upgraded: 56',
@@ -91,7 +70,7 @@ const App: React.FC = () => {
     return <Table columns={columns} dataSource={data} pagination={false} />;
   };
 
-  const columns: TableColumnsType<DataType> = [
+  const columns = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform' },
     { title: 'Version', dataIndex: 'version', key: 'version' },
@@ -101,10 +80,10 @@ const App: React.FC = () => {
     { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
   ];
 
-  const data: DataType[] = [];
+  const data = [];
   for (let i = 0; i < 3; ++i) {
     data.push({
-      key: i.toString(),
+      key: i,
       name: 'Screem',
       platform: 'iOS',
       version: '10.3.4.5654',
@@ -115,27 +94,14 @@ const App: React.FC = () => {
   }
 
   return (
-    <>
-      <Table
-        columns={columns}
-        expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-        dataSource={data}
-      />
-      <Table
-        columns={columns}
-        expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-        dataSource={data}
-        size="middle"
-      />
-      <Table
-        columns={columns}
-        expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
-        dataSource={data}
-        size="small"
-      />
-    </>
+    <Table
+      className="components-table-demo-nested"
+      columns={columns}
+      expandable={{ expandedRowRender }}
+      dataSource={data}
+    />
   );
-};
+}
 
-export default App;
+ReactDOM.render(<NestedTable />, mountNode);
 ```

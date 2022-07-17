@@ -1,16 +1,18 @@
 import Tree from './Tree';
 
-export { DataNode, EventDataNode } from 'rc-tree/lib/interface';
-export { DirectoryTreeProps, ExpandAction as DirectoryTreeExpandAction } from './DirectoryTree';
+export { EventDataNode, DataNode } from 'rc-tree/lib/interface';
+
 export {
-  AntdTreeNodeAttribute,
-  AntTreeNode,
-  AntTreeNodeCheckedEvent,
-  AntTreeNodeExpandedEvent,
-  AntTreeNodeMouseEvent,
-  AntTreeNodeProps,
-  AntTreeNodeSelectedEvent,
   TreeProps,
+  AntTreeNode,
+  AntTreeNodeMouseEvent,
+  AntTreeNodeExpandedEvent,
+  AntTreeNodeCheckedEvent,
+  AntTreeNodeSelectedEvent,
+  AntdTreeNodeAttribute,
+  AntTreeNodeProps,
 } from './Tree';
+
+export { ExpandAction as DirectoryTreeExpandAction, DirectoryTreeProps } from './DirectoryTree';
 
 export default Tree;

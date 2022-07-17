@@ -14,19 +14,10 @@ debug: true
 
 There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -41,7 +32,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
+const data = [];
 
 for (let i = 0; i < 200; i += 1) {
   data.push({
@@ -52,11 +43,10 @@ for (let i = 0; i < 200; i += 1) {
   });
 }
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div style={{ width: 300 }}>
     <Table columns={columns} dataSource={data} size="small" pagination={{ defaultCurrent: 13 }} />
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

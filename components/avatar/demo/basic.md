@@ -14,11 +14,10 @@ title:
 Three sizes and two shapes are available.
 
 ```tsx
-import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
-import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <div>
       <Avatar size={64} icon={<UserOutlined />} />
@@ -32,10 +31,9 @@ const App: React.FC = () => (
       <Avatar shape="square" icon={<UserOutlined />} />
       <Avatar shape="square" size="small" icon={<UserOutlined />} />
     </div>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

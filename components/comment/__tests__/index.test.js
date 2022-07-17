@@ -1,8 +1,8 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
+import Comment from '../index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Comment from '../index';
 
 describe('Comment', () => {
   mountTest(Comment);
@@ -23,6 +23,6 @@ describe('Comment', () => {
         datetime="YYYY-MM-DD HH:mm:ss"
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

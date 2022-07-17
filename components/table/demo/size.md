@@ -13,19 +13,10 @@ title:
 
 There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -39,8 +30,7 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'address',
   },
 ];
-
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -61,16 +51,15 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div>
     <h4>Middle size table</h4>
     <Table columns={columns} dataSource={data} size="middle" />
     <h4>Small size table</h4>
     <Table columns={columns} dataSource={data} size="small" />
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>

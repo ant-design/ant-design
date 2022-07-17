@@ -2,8 +2,8 @@ import * as React from 'react';
 import { message } from 'antd';
 import { injectIntl } from 'react-intl';
 import CopyableIcon from './CopyableIcon';
-import type { ThemeType } from './index';
-import type { CategoriesKeys } from './fields';
+import { ThemeType } from './index';
+import { CategoriesKeys } from './fields';
 
 interface CategoryProps {
   title: CategoriesKeys;

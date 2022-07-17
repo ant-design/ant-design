@@ -13,47 +13,54 @@ title:
 
 Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and cancel button props.
 
-```tsx
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+class App extends React.Component {
+  state = { visible: false };
 
-  const showModal = () => {
-    setVisible(true);
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
   };
 
-  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
+  handleOk = e => {
     console.log(e);
-    setVisible(false);
+    this.setState({
+      visible: false,
+    });
   };
 
-  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
+  handleCancel = e => {
     console.log(e);
-    setVisible(false);
+    this.setState({
+      visible: false,
+    });
   };
 
-  return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal with customized button props
-      </Button>
-      <Modal
-        title="Basic Modal"
-        visible={visible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        okButtonProps={{ disabled: true }}
-        cancelButtonProps={{ disabled: true }}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
-    </>
-  );
-};
+  render() {
+    return (
+      <>
+        <Button type="primary" onClick={this.showModal}>
+          Open Modal with customized button props
+        </Button>
+        <Modal
+          title="Basic Modal"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          okButtonProps={{ disabled: true }}
+          cancelButtonProps={{ disabled: true }}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

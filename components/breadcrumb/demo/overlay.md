@@ -13,42 +13,30 @@ title:
 
 Breadcrumbs support drop down menu.
 
-```tsx
+```jsx
 import { Breadcrumb, Menu } from 'antd';
-import React from 'react';
 
 const menu = (
-  <Menu
-    items={[
-      {
-        key: '1',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-            General
-          </a>
-        ),
-      },
-      {
-        key: '2',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            Layout
-          </a>
-        ),
-      },
-      {
-        key: '3',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-            Navigation
-          </a>
-        ),
-      },
-    ]}
-  />
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        General
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        Layout
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        Navigation
+      </a>
+    </Menu.Item>
+  </Menu>
 );
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -58,8 +46,7 @@ const App: React.FC = () => (
       <a href="">General</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>Button</Breadcrumb.Item>
-  </Breadcrumb>
+  </Breadcrumb>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -13,9 +13,8 @@ title:
 
 A borderless style of Collapse.
 
-```tsx
+```jsx
 import { Collapse } from 'antd';
-import React from 'react';
 
 const { Panel } = Collapse;
 
@@ -26,7 +25,7 @@ const text = (
   </p>
 );
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Collapse bordered={false} defaultActiveKey={['1']}>
     <Panel header="This is panel header 1" key="1">
       {text}
@@ -37,8 +36,7 @@ const App: React.FC = () => (
     <Panel header="This is panel header 3" key="3">
       {text}
     </Panel>
-  </Collapse>
+  </Collapse>,
+  mountNode,
 );
-
-export default App;
 ```

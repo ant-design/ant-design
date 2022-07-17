@@ -1,6 +1,6 @@
 import CalendarLocale from 'rc-picker/lib/locale/en_US';
 import TimePickerLocale from '../../time-picker/locale/en_US';
-import type { PickerLocale } from '../generatePicker';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {
@@ -12,7 +12,6 @@ const locale: PickerLocale = {
     weekPlaceholder: 'Select week',
     rangePlaceholder: ['Start date', 'End date'],
     rangeYearPlaceholder: ['Start year', 'End year'],
-    rangeQuarterPlaceholder: ['Start quarter', 'End quarter'],
     rangeMonthPlaceholder: ['Start month', 'End month'],
     rangeWeekPlaceholder: ['Start week', 'End week'],
     ...CalendarLocale,

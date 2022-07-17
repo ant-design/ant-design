@@ -1,12 +1,12 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { mount } from 'enzyme';
 import Upload from '..';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
-import Form from '../../form';
 import UploadList from '../UploadList';
-import { previewImage } from '../utils';
-import { setup, teardown } from './mock';
+import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
+import { setup, teardown } from './mock';
+import { sleep } from '../../../tests/utils';
 
 const fileList = [
   {
@@ -93,24 +93,22 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/4653
   it('should use file.thumbUrl for <img /> in priority', () => {
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload defaultFileList={fileList} listType="picture">
         <button type="button">upload</button>
       </Upload>,
     );
     fileList.forEach((file, i) => {
-      const linkNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail')[i];
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img')[i];
-      expect(linkNode.getAttribute('href')).toBe(file.url);
-      expect(imgNode.getAttribute('src')).toBe(file.thumbUrl);
+      const linkNode = wrapper.find('.ant-upload-list-item-thumbnail').at(i);
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img').at(i);
+      expect(linkNode.prop('href')).toBe(file.url);
+      expect(imgNode.prop('src')).toBe(file.thumbUrl);
     });
-    unmount();
+    wrapper.unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
-    jest.useFakeTimers();
-
     const list = [
       {
         uid: '0',
@@ -127,63 +125,48 @@ describe('Upload List', () => {
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
       },
     ];
-    const { container, unmount } = render(
+    const wrapper = mount(
       <Upload defaultFileList={list}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(container.querySelectorAll('.ant-upload-list-item').length).toBe(2);
-    fireEvent.click(
-      container.querySelectorAll('.ant-upload-list-item')[0].querySelector('.anticon-delete'),
-    );
+    expect(wrapper.find('.ant-upload-list-item').length).toBe(2);
+    wrapper.find('.ant-upload-list-item').at(0).find('.anticon-delete').simulate('click');
 
-    // Upload use Promise to wait remove action. Let's wait this also.
     await act(async () => {
-      for (let i = 0; i < 10; i += 1) {
-        // eslint-disable-next-line no-await-in-loop
-        await Promise.resolve();
-      }
+      await sleep(1000);
+      wrapper.update();
+
+      const domNode = wrapper.find('.ant-upload-list-text-container').at(0).hostNodes().instance();
+      const transitionEndEvent = new Event('transitionend');
+      domNode.dispatchEvent(transitionEndEvent);
+      wrapper.update();
     });
 
-    // Progress motion to active
-    act(() => {
-      jest.runAllTimers();
-    });
+    // console.log(wrapper.html());
 
-    // Progress motion to done
-    // React 17 will reach deadline, so we need check if already done
-    if (container.querySelector('.ant-upload-animate-leave-active')) {
-      fireEvent.animationEnd(container.querySelector('.ant-upload-animate-leave-active'));
-    }
-    act(() => {
-      jest.runAllTimers();
-    });
+    expect(wrapper.find('.ant-upload-list-text-container').hostNodes().length).toBe(1);
 
-    expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
-
-    unmount();
-
-    jest.useRealTimers();
+    wrapper.unmount();
   });
 
-  it('should be uploading when upload a file', async () => {
-    jest.useFakeTimers();
-    const done = jest.fn();
+  it('should be uploading when upload a file', done => {
     let wrapper;
     let latestFileList = null;
-    const onChange = async ({ file, fileList: eventFileList }) => {
+    const onChange = ({ file, fileList: eventFileList }) => {
       expect(eventFileList === latestFileList).toBeFalsy();
       if (file.status === 'uploading') {
-        await Promise.resolve();
-        expect(wrapper.container.firstChild).toMatchSnapshot();
+        expect(wrapper.render()).toMatchSnapshot();
       }
       if (file.status === 'done') {
+        expect(wrapper.render()).toMatchSnapshot();
+        wrapper.unmount();
         done();
       }
 
       latestFileList = eventFileList;
     };
-    wrapper = render(
+    wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         onChange={onChange}
@@ -192,35 +175,17 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.change(wrapper.container.querySelector('input'), {
+    wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
-    await act(async () => {
-      await Promise.resolve();
-      await Promise.resolve();
-    });
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    expect(done).toHaveBeenCalled();
-
-    wrapper.unmount();
-
-    jest.useRealTimers();
   });
 
   it('handle error', async () => {
-    jest.useFakeTimers();
     const onChange = jest.fn();
 
-    const {
-      container: wrapper,
-      unmount,
-      baseElement,
-    } = render(
+    const wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         onChange={onChange}
@@ -229,19 +194,16 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.change(wrapper.querySelector('input'), {
+    wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
 
-    await act(async () => {
-      await Promise.resolve();
-    });
-
     // Wait twice since `errorRequest` also use timeout for mock
-    act(() => {
-      jest.runAllTimers();
+    await act(async () => {
+      await sleep();
+      await sleep();
     });
 
     expect(onChange).toHaveBeenLastCalledWith(
@@ -251,32 +213,33 @@ describe('Upload List', () => {
         }),
       }),
     );
-    if (wrapper.querySelector('.ant-upload-animate-appear-active')) {
-      fireEvent.animationEnd(wrapper.querySelector('.ant-upload-animate-appear-active'));
-    }
+
+    await act(async () => {
+      await sleep(1000);
+      wrapper.update();
+    });
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    // Error message
+    jest.useFakeTimers();
+    wrapper.find('.ant-upload-list-item').simulate('mouseEnter');
 
     act(() => {
       jest.runAllTimers();
     });
-    expect(wrapper.firstChild).toMatchSnapshot();
-
-    // Error message
-    fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item'));
-
-    await act(() => {
-      jest.runAllTimers();
-    });
-
-    expect(baseElement.querySelector('.ant-tooltip')).not.toHaveClass('.ant-tooltip-hidden');
 
     jest.useRealTimers();
-    unmount();
+
+    expect(wrapper.find('Trigger').state().popupVisible).toBeTruthy();
+
+    wrapper.unmount();
   });
 
   it('does concat fileList when beforeUpload returns false', async () => {
     const handleChange = jest.fn();
     const ref = React.createRef();
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         ref={ref}
         listType="picture"
@@ -287,7 +250,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.change(wrapper.querySelector('input'), {
+    wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
@@ -298,72 +261,72 @@ describe('Upload List', () => {
     expect(ref.current.fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('In the case of listType=picture, the error status does not show the download.', () => {
     global.testName =
       'In the case of listType=picture, the error status does not show the download.';
     const file = { status: 'error', uid: 'file' };
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload listType="picture" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
 
     // Has error item className
-    fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item-error'));
+    wrapper.find('.ant-upload-list-item-error').simulate('mouseenter');
 
-    expect(wrapper.querySelectorAll('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('In the case of listType=picture-card, the error status does not show the download.', () => {
     global.testName =
       'In the case of listType=picture-card, the error status does not show the download.';
     const file = { status: 'error', uid: 'file' };
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload listType="picture-card" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.querySelectorAll('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('In the case of listType=text, the error status does not show the download.', () => {
     const file = { status: 'error', uid: 'file' };
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload listType="text" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.querySelectorAll('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload listType="picture-card" defaultFileList={fileList} onPreview={handlePreview}>
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.anticon-eye')[0]);
+    wrapper.find('.anticon-eye').at(0).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
-    fireEvent.click(wrapper.querySelectorAll('.anticon-eye')[1]);
+    wrapper.find('.anticon-eye').at(1).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support onRemove', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture-card"
         defaultFileList={fileList}
@@ -373,19 +336,19 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.anticon-delete')[0]);
+    wrapper.find('.anticon-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-    fireEvent.click(wrapper.querySelectorAll('.anticon-delete')[1]);
+    wrapper.find('.anticon-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support onDownload', async () => {
     const handleDownload = jest.fn();
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture-card"
         defaultFileList={[
@@ -404,13 +367,13 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
+    wrapper.find('.anticon-download').at(0).simulate('click');
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support no onDownload', async () => {
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture-card"
         defaultFileList={[
@@ -428,9 +391,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
+    wrapper.find('.anticon-download').at(0).simulate('click');
 
-    unmount();
+    wrapper.unmount();
   });
 
   describe('should generate thumbUrl from file', () => {
@@ -453,7 +416,7 @@ describe('Upload List', () => {
         delete newFile.thumbUrl;
         newFileList.push(newFile);
         const ref = React.createRef();
-        const { unmount } = render(
+        const wrapper = mount(
           <Upload
             ref={ref}
             listType="picture-card"
@@ -463,6 +426,7 @@ describe('Upload List', () => {
             <button type="button">upload</button>
           </Upload>,
         );
+        wrapper.update();
         await sleep();
 
         expect(ref.current.fileList[2].thumbUrl).not.toBe(undefined);
@@ -476,7 +440,7 @@ describe('Upload List', () => {
           expect(offsetY === 0).toBeTruthy();
         }
 
-        unmount();
+        wrapper.unmount();
       });
     });
   });
@@ -544,25 +508,26 @@ describe('Upload List', () => {
         name: 'image',
         status: 'done',
         uid: '-12',
-        url: 'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
+        url:
+          'https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152',
         type: 'image/png',
       },
     ];
 
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload listType="picture" defaultFileList={list}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('not crash when uploading not provides percent', async () => {
     jest.useFakeTimers();
 
-    const { unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture"
         defaultFileList={[
@@ -575,8 +540,9 @@ describe('Upload List', () => {
     );
 
     jest.runAllTimers();
+    wrapper.update();
 
-    unmount();
+    wrapper.unmount();
 
     jest.useRealTimers();
   });
@@ -597,7 +563,7 @@ describe('Upload List', () => {
       },
     ];
 
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture"
         defaultFileList={list}
@@ -609,16 +575,16 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
     const myClick = jest.fn();
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture-card"
         defaultFileList={fileList}
@@ -636,16 +602,16 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.custom-delete')[0]);
+    wrapper.find('.custom-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     expect(myClick).toHaveBeenCalled();
-    fireEvent.click(wrapper.querySelectorAll('.custom-delete')[1]);
+    wrapper.find('.custom-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     expect(myClick).toHaveBeenCalled();
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('should support removeIcon and downloadIcon', () => {
@@ -664,43 +630,40 @@ describe('Upload List', () => {
       },
     ];
 
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <Upload
         listType="picture"
         defaultFileList={list}
         showUploadList={{
           showRemoveIcon: true,
           showDownloadIcon: true,
-          showPreviewIcon: true,
-          removeIcon: <i>RM</i>,
-          downloadIcon: <i>DL</i>,
-          previewIcon: <i>PV</i>,
-        }}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    expect(wrapper.firstChild).toMatchSnapshot();
-    unmount();
-
-    const { container: wrapper2, unmount: unmount2 } = render(
-      <Upload
-        listType="picture"
-        defaultFileList={list}
-        showUploadList={{
-          showRemoveIcon: true,
-          showDownloadIcon: true,
-          showPreviewIcon: true,
           removeIcon: () => <i>RM</i>,
-          downloadIcon: () => <i>DL</i>,
-          previewIcon: () => <i>PV</i>,
+          downloadIcon: <i>DL</i>,
         }}
       >
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper2.firstChild).toMatchSnapshot();
-    unmount2();
+    expect(wrapper.render()).toMatchSnapshot();
+
+    const wrapper2 = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: <i>RM</i>,
+          downloadIcon: () => <i>DL</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper2.render()).toMatchSnapshot();
+
+    wrapper.unmount();
+    wrapper2.unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/7762
@@ -738,37 +701,37 @@ describe('Upload List', () => {
       );
     };
 
-    const { container, unmount } = render(<TestForm />);
+    const wrapper = mount(<TestForm />);
 
-    fireEvent.submit(container.querySelector('form'));
+    wrapper.find(Form).simulate('submit');
     await sleep();
     expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
-    fireEvent.change(container.querySelector('input'), {
+    wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
 
-    fireEvent.submit(container.querySelector('form'));
+    wrapper.find(Form).simulate('submit');
     await sleep();
     expect(formRef.getFieldError(['file'])).toEqual([]);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('return when prop onPreview not exists', () => {
     const ref = React.createRef();
-    const { unmount } = render(<UploadList ref={ref} />);
+    const wrapper = mount(<UploadList ref={ref} />);
     expect(ref.current.handlePreview()).toBe(undefined);
-    unmount();
+    wrapper.unmount();
   });
 
   it('return when prop onDownload not exists', () => {
     const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];
     const ref = React.createRef();
-    const { unmount } = render(
+    const wrapper = mount(
       <UploadList
         ref={ref}
         items={items}
@@ -777,74 +740,56 @@ describe('Upload List', () => {
       />,
     );
     expect(ref.current.handleDownload(file)).toBe(undefined);
-    unmount();
+    wrapper.unmount();
   });
 
   it('previewFile should work correctly', async () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];
-    const previewFunc = jest.fn(previewImage);
-    const { container: wrapper, unmount } = render(
-      <Upload
-        fileList={items}
-        previewFile={previewFunc}
-        locale={{ previewFile: '' }}
-        listType="picture-card"
-      />,
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
+    expect(wrapper.props().previewFile(file)).toBeTruthy();
 
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [{ name: 'foo.png' }],
-      },
-    });
-
-    await sleep();
-    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail').getAttribute('href')).toBe(
-      null,
-    );
-
-    unmount();
+    wrapper.unmount();
   });
 
   it('downloadFile should work correctly', async () => {
-    const downloadFunc = jest.fn();
-    const items = [{ uid: 'upload-list-item', name: 'test', url: '', status: 'done' }];
-    const { container: wrapper, unmount } = render(
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
       <UploadList
-        showDownloadIcon
         listType="picture-card"
         items={items}
-        onDownload={downloadFunc}
-        locale={{ downloadFile: 'Download file' }}
+        onDownload={() => {}}
+        locale={{ downloadFile: '' }}
+        showUploadList={{ showDownloadIcon: true }}
       />,
     );
 
     // Not throw
-    const btn = wrapper.querySelector('.ant-btn');
-    expect(btn.getAttribute('title')).toBe('Download file');
-    fireEvent.click(btn);
-    expect(downloadFunc).toBeCalled();
+    wrapper.props().onDownload(file);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('extname should work correctly when url not exists', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
-    expect(wrapper.querySelectorAll('.ant-upload-list-item-thumbnail').length).toBe(1);
-    unmount();
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
+    wrapper.unmount();
   });
 
   it('extname should work correctly when url exists', done => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <UploadList
         listType="picture"
         onDownload={file => {
           expect(file.url).toBe('/example');
-          unmount();
+          wrapper.unmount();
           done();
         }}
         items={items}
@@ -852,28 +797,24 @@ describe('Upload List', () => {
         showDownloadIcon
       />,
     );
-    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download'));
+    wrapper.find('div.ant-upload-list-item .anticon-download').simulate('click');
   });
 
   it('when picture-card is loading, icon should render correctly', () => {
     const items = [{ status: 'uploading', uid: 'upload-list-item' }];
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
     );
-    expect(wrapper.querySelectorAll('.ant-upload-list-item-thumbnail').length).toBe(1);
-    expect(wrapper.querySelector('.ant-upload-list-item-thumbnail').textContent).toBe('uploading');
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').text()).toBe('uploading');
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('onPreview should be called, when url exists', () => {
     const onPreview = jest.fn();
     const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
-    const {
-      container: wrapper,
-      rerender,
-      unmount,
-    } = render(
+    const wrapper = mount(
       <UploadList
         listType="picture-card"
         items={items}
@@ -881,22 +822,15 @@ describe('Upload List', () => {
         onPreview={onPreview}
       />,
     );
-    fireEvent.click(wrapper.querySelector('.ant-upload-list-item-thumbnail'));
+    wrapper.find('.ant-upload-list-item-thumbnail').simulate('click');
     expect(onPreview).toHaveBeenCalled();
-    fireEvent.click(wrapper.querySelector('.ant-upload-list-item-name'));
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
     expect(onPreview).toHaveBeenCalled();
-    rerender(
-      <UploadList
-        listType="picture-card"
-        items={[{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }]}
-        locale={{ uploading: 'uploading' }}
-        onPreview={onPreview}
-      />,
-    );
-    fireEvent.click(wrapper.querySelector('.ant-upload-list-item-name'));
+    wrapper.setProps({ items: [{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] });
+    wrapper.find('.ant-upload-list-item-name').simulate('click');
     expect(onPreview).toHaveBeenCalled();
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('upload image file should be converted to the base64', async () => {
@@ -904,86 +838,35 @@ describe('Upload List', () => {
       type: 'image/png',
     });
 
-    const previewFunc = jest.fn(previewImage);
-
-    const { unmount } = render(
-      <Upload
-        fileList={[
-          {
-            originFileObj: mockFile,
-          },
-        ]}
-        previewFile={previewFunc}
-        locale={{ uploading: 'uploading' }}
-        listType="picture-card"
-      />,
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
+    await wrapper
+      .props()
+      .previewFile(mockFile)
+      .then(dataUrl => {
+        expect(dataUrl).toEqual('data:image/png;base64,');
+      });
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
-    await previewFunc(mockFile).then(dataUrl => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
-    });
-    unmount();
-  });
-
-  it('upload svg file with <foreignObject> should not have CORS error', async () => {
-    const mockFile = new File(
-      [
-        '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
-      ],
-      'bar.svg',
-      { type: 'image/svg+xml' },
-    );
-
-    const previewFunc = jest.fn(previewImage);
-
-    const { unmount } = render(
-      <Upload
-        fileList={[{ originFileObj: mockFile }]}
-        previewFile={previewFunc}
-        locale={{ uploading: 'uploading' }}
-        listType="picture-card"
-      />,
-    );
-
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
-    await previewFunc(mockFile).then(dataUrl => {
-      expect(dataUrl).toEqual('data:image/png;base64,');
-    });
-    unmount();
+    wrapper.unmount();
   });
 
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
     });
-    const previewFunc = jest.fn(previewImage);
 
-    const { unmount } = render(
-      <Upload
-        fileList={[
-          {
-            originFileObj: mockFile,
-          },
-        ]}
-        previewFile={previewFunc}
-        locale={{ uploading: 'uploading' }}
-        listType="picture-card"
-      />,
+    const wrapper = mount(
+      <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
+    await wrapper
+      .props()
+      .previewFile(mockFile)
+      .then(dataUrl => {
+        expect(dataUrl).toBe('');
+      });
 
-    await waitFor(() => {
-      expect(previewFunc).toHaveBeenCalled();
-    });
-    await previewFunc(mockFile).then(dataUrl => {
-      expect(dataUrl).toBe('');
-    });
-
-    unmount();
+    wrapper.unmount();
   });
 
   describe('customize previewFile support', () => {
@@ -997,19 +880,19 @@ describe('Upload List', () => {
         };
         delete file.thumbUrl;
         const ref = React.createRef();
-        const { container: wrapper, unmount } = render(
+        const wrapper = mount(
           <Upload ref={ref} listType="picture" defaultFileList={[file]} previewFile={previewFile}>
             <button type="button">button</button>
           </Upload>,
         );
+        wrapper.update();
         expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
         await sleep(100);
+        wrapper.update();
 
-        expect(
-          wrapper.querySelector('.ant-upload-list-item-thumbnail img').getAttribute('src'),
-        ).toBe(mockThumbnail);
+        expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
 
-        unmount();
+        wrapper.unmount();
       });
     }
     test('File', () => new File([], 'xxx.png'));
@@ -1030,41 +913,41 @@ describe('Upload List', () => {
       },
     ];
     it('should not render <img /> when file.thumbUrl use "!" as separator', () => {
-      const { container: wrapper, unmount } = render(
+      const wrapper = mount(
         <Upload listType="picture-card" fileList={list}>
           <button type="button">button</button>
         </Upload>,
       );
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
       expect(imgNode.length).toBe(2);
 
-      unmount();
+      wrapper.unmount();
     });
     it('should render <img /> when custom imageUrl return true', () => {
       const isImageUrl = jest.fn(() => true);
-      const { container: wrapper, unmount } = render(
+      const wrapper = mount(
         <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>
         </Upload>,
       );
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
       expect(isImageUrl).toHaveBeenCalled();
       expect(imgNode.length).toBe(3);
 
-      unmount();
+      wrapper.unmount();
     });
     it('should not render <img /> when custom imageUrl return false', () => {
       const isImageUrl = jest.fn(() => false);
-      const { container: wrapper, unmount } = render(
+      const wrapper = mount(
         <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>
         </Upload>,
       );
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
       expect(isImageUrl).toHaveBeenCalled();
       expect(imgNode.length).toBe(0);
 
-      unmount();
+      wrapper.unmount();
     });
   });
 
@@ -1096,20 +979,10 @@ describe('Upload List', () => {
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         }));
 
-        wrapper.rerender(
-          <Upload
-            action="http://jsonplaceholder.typicode.com/posts/"
-            listType="picture-card"
-            fileList={newFileList}
-            onChange={onChange}
-            customRequest={successRequest}
-          >
-            <button type="button">upload</button>
-          </Upload>,
-        );
+        wrapper.setProps({ fileList: newFileList });
       });
 
-      wrapper = render(
+      wrapper = mount(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"
           listType="picture-card"
@@ -1120,13 +993,11 @@ describe('Upload List', () => {
           <button type="button">upload</button>
         </Upload>,
       );
-      const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
-      expect(imgNode.length).toBe(0);
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
+      expect(imgNode.length).toBeFalsy();
 
       // Simulate change is a timeout change
-      fireEvent.change(wrapper.container.querySelector('input'), {
-        target: { files: [nonImageFile] },
-      });
+      wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
 
       // Wait for `rc-upload` process file
       await waitPromise();
@@ -1138,12 +1009,11 @@ describe('Upload List', () => {
       expect(onChange).toHaveBeenCalled();
 
       // Check for images
-      await act(() => {
+      act(() => {
         jest.runAllTimers();
+        wrapper.update();
       });
-      const afterImgNode = wrapper.container.querySelectorAll(
-        '.ant-upload-list-item-thumbnail img',
-      );
+      const afterImgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
       expect(afterImgNode.length).toBeTruthy();
 
       wrapper.unmount();
@@ -1154,25 +1024,15 @@ describe('Upload List', () => {
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
       let wrapper;
       const onChange = async ({ fileList: files }) => {
-        wrapper.rerender(
-          <Upload
-            action="http://jsonplaceholder.typicode.com/posts/"
-            listType="picture-card"
-            fileList={files}
-            onChange={onChange}
-            customRequest={successRequest}
-          >
-            <button type="button">upload</button>
-          </Upload>,
-        );
+        wrapper.setProps({ fileList: files });
 
         await sleep();
-        const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
+        const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
         expect(imgNode.length).toBe(0);
 
         done();
       };
-      wrapper = render(
+      wrapper = mount(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"
           listType="picture-card"
@@ -1183,11 +1043,9 @@ describe('Upload List', () => {
           <button type="button">upload</button>
         </Upload>,
       );
-      const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img');
       expect(imgNode.length).toBe(0);
-      fireEvent.change(wrapper.container.querySelector('input'), {
-        target: { files: [nonImageFile] },
-      });
+      wrapper.find('input').simulate('change', { target: { files: [nonImageFile] } });
     });
   });
 
@@ -1206,7 +1064,7 @@ describe('Upload List', () => {
 
       lastFile = file;
     };
-    wrapper = render(
+    wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         transformFile={handleTransformFile}
@@ -1216,7 +1074,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.change(wrapper.container.querySelector('input'), {
+    wrapper.find('input').simulate('change', {
       target: {
         files: [{ name: 'foo.png' }],
       },
@@ -1224,11 +1082,7 @@ describe('Upload List', () => {
   });
 
   it('should render button inside UploadList when listStyle is picture-card', () => {
-    const {
-      container: wrapper,
-      rerender,
-      unmount,
-    } = render(
+    const wrapper = mount(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         listType="picture-card"
@@ -1245,27 +1099,11 @@ describe('Upload List', () => {
         </button>
       </Upload>,
     );
-    expect(wrapper.querySelectorAll('.ant-upload-list button.trigger').length).toBeGreaterThan(0);
-    rerender(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        listType="picture-card"
-        fileList={[
-          {
-            uid: '0',
-            name: 'xxx.png',
-          },
-        ]}
-        showUploadList={false}
-      >
-        <button className="trigger" type="button">
-          upload
-        </button>
-      </Upload>,
-    );
-    expect(wrapper.querySelectorAll('.ant-upload-list button.trigger').length).toBe(0);
+    expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(true);
+    wrapper.setProps({ showUploadList: false });
+    expect(wrapper.exists('.ant-upload-list button.trigger')).toBe(false);
 
-    unmount();
+    wrapper.unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/26536
@@ -1292,12 +1130,12 @@ describe('Upload List', () => {
       );
     };
 
-    const { unmount } = render(<MyUpload />);
+    const wrapper = mount(<MyUpload />);
 
     // Mock async update in a frame
     const fileNames = ['light', 'bamboo', 'little'];
 
-    await act(() => {
+    act(() => {
       uploadRef.current.onBatchStart(
         fileNames.map(fileName => {
           const file = new File([], fileName);
@@ -1313,12 +1151,12 @@ describe('Upload List', () => {
 
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
-    unmount();
+    wrapper.unmount();
 
     jest.useRealTimers();
   });
@@ -1349,7 +1187,7 @@ describe('Upload List', () => {
         </div>
       );
     };
-    const { container: wrapper, unmount } = render(
+    const wrapper = mount(
       <UploadList
         onDownload={onDownload}
         onPreview={onPreview}
@@ -1359,26 +1197,26 @@ describe('Upload List', () => {
         itemRender={itemRender}
       />,
     );
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
 
-    fireEvent.click(wrapper.querySelectorAll('.custom-item-render-action-remove')[0]);
+    wrapper.find('.custom-item-render-action-remove').first().simulate('click');
     expect(onRemove.mock.calls[0][0]).toEqual(fileList[0]);
 
-    fireEvent.click(wrapper.querySelectorAll('.custom-item-render-action-download')[0]);
+    wrapper.find('.custom-item-render-action-download').first().simulate('click');
     expect(onDownload.mock.calls[0][0]).toEqual(fileList[0]);
 
-    fireEvent.click(wrapper.querySelectorAll('.custom-item-render-action-preview')[0]);
+    wrapper.find('.custom-item-render-action-preview').first().simulate('click');
     expect(onPreview.mock.calls[0][0]).toEqual(fileList[0]);
 
-    unmount();
+    wrapper.unmount();
   });
 
   it('LIST_IGNORE should not add in list', async () => {
     const beforeUpload = jest.fn(() => Upload.LIST_IGNORE);
-    const { container: wrapper, unmount } = render(<Upload beforeUpload={beforeUpload} />);
+    const wrapper = mount(<Upload beforeUpload={beforeUpload} />);
 
-    await act(() => {
-      fireEvent.change(wrapper.querySelector('input'), {
+    act(() => {
+      wrapper.find('input').simulate('change', {
         target: {
           files: [{ file: 'foo.png' }],
         },
@@ -1388,183 +1226,16 @@ describe('Upload List', () => {
     await sleep();
 
     expect(beforeUpload).toHaveBeenCalled();
-    expect(wrapper.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(0);
+    expect(wrapper.find('UploadList').props().items).toHaveLength(0);
 
-    unmount();
-  });
-
-  it('Not crash when fileList is null', () => {
-    const defaultWrapper = render(<Upload defaultFileList={null} />);
-    defaultWrapper.unmount();
-
-    const wrapper = render(<Upload fileList={null} />);
     wrapper.unmount();
   });
 
-  it('should not exist crossorigin attribute when does not set file.crossorigin in case of listType="picture"', () => {
-    const list = [
-      {
-        uid: '0',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-      },
-    ];
+  it('Not crash when fileList is null', () => {
+    const defaultWrapper = mount(<Upload defaultFileList={null} />);
+    defaultWrapper.unmount();
 
-    const { container: wrapper, unmount } = render(
-      <Upload fileList={list} listType="picture">
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    list.forEach((file, i) => {
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img')[i];
-      expect(imgNode.getAttribute('crossOrigin')).toBe(null);
-    });
-    unmount();
-  });
-
-  it('should exist crossorigin attribute when set file.crossorigin in case of listType="picture"', () => {
-    const list = [
-      {
-        uid: '0',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: '',
-      },
-      {
-        uid: '1',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: 'anonymous',
-      },
-      {
-        uid: '2',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: 'use-credentials',
-      },
-    ];
-
-    const { container: wrapper, unmount } = render(
-      <Upload fileList={list} listType="picture">
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    list.forEach((file, i) => {
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img')[i];
-      expect(imgNode.getAttribute('crossOrigin')).not.toBe(undefined);
-      expect(imgNode.getAttribute('crossOrigin')).toBe(file.crossOrigin);
-    });
-    unmount();
-  });
-
-  it('should not exist crossorigin attribute when does not set file.crossorigin in case of listType="picture-card"', () => {
-    const list = [
-      {
-        uid: '0',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-      },
-    ];
-
-    const { container: wrapper, unmount } = render(
-      <Upload fileList={list} listType="picture">
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    list.forEach((file, i) => {
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img')[i];
-      expect(imgNode.getAttribute('crossOrigin')).toBe(null);
-    });
-    unmount();
-  });
-
-  it('should exist crossorigin attribute when set file.crossorigin in case of listType="picture-card"', () => {
-    const list = [
-      {
-        uid: '0',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: '',
-      },
-      {
-        uid: '1',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: 'anonymous',
-      },
-      {
-        uid: '2',
-        name: 'xxx.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        crossOrigin: 'use-credentials',
-      },
-    ];
-
-    const { container: wrapper, unmount } = render(
-      <Upload fileList={list} listType="picture">
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    list.forEach((file, i) => {
-      const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img')[i];
-      expect(imgNode.getAttribute('crossOrigin')).not.toBe(undefined);
-      expect(imgNode.getAttribute('crossOrigin')).toBe(file.crossOrigin);
-    });
-    unmount();
-  });
-
-  describe('should not display upload file-select button when listType is picture-card and children is empty', () => {
-    it('when showUploadList is true', () => {
-      const list = [
-        {
-          uid: '0',
-          name: 'xxx.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        },
-      ];
-      const { container: wrapper, unmount } = render(
-        <Upload fileList={list} listType="picture-card" />,
-      );
-      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
-      unmount();
-    });
-
-    // https://github.com/ant-design/ant-design/issues/36183
-    it('when showUploadList is false', () => {
-      const list = [
-        {
-          uid: '0',
-          name: 'xxx.png',
-          status: 'done',
-          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-        },
-      ];
-      const { container: wrapper, unmount } = render(
-        <Upload fileList={list} showUploadList={false} listType="picture-card" />,
-      );
-      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
-      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
-      unmount();
-    });
+    const wrapper = mount(<Upload fileList={null} />);
+    wrapper.unmount();
   });
 });

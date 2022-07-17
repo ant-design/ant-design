@@ -1,7 +1,7 @@
+import React from 'react';
+import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { mount } from 'enzyme';
-import React from 'react';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Icon', () => {
@@ -16,30 +16,17 @@ describe('ConfigProvider.Icon', () => {
     });
   });
 
-  describe('csp', () => {
-    it('raw', () => {
-      mount(
-        <ConfigProvider csp={{ nonce: 'little' }}>
-          <SmileOutlined />
-        </ConfigProvider>,
-      );
+  it('basic', () => {
+    const wrapper = mount(
+      <ConfigProvider iconPrefixCls="bamboo" csp={{ nonce: 'light' }}>
+        <SmileOutlined />
+      </ConfigProvider>,
+    );
 
-      const styleNode = document.querySelector('style');
-      expect(styleNode.nonce).toEqual('little');
-    });
+    const styleNode = document.querySelector('style');
 
-    it('mix with iconPrefixCls', () => {
-      const wrapper = mount(
-        <ConfigProvider iconPrefixCls="bamboo" csp={{ nonce: 'light' }}>
-          <SmileOutlined />
-        </ConfigProvider>,
-      );
-
-      const styleNode = document.querySelector('style');
-
-      expect(wrapper.exists('.bamboo-smile')).toBeTruthy();
-      expect(styleNode.nonce).toEqual('light');
-    });
+    expect(wrapper.exists('.bamboo-smile')).toBeTruthy();
+    expect(styleNode.nonce).toEqual('light');
   });
 
   it('nest', () => {

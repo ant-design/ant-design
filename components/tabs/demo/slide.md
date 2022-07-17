@@ -13,38 +13,43 @@ title:
 
 In order to fit in more tabs, they can slide left and right (or up and down).
 
-```tsx
-import type { RadioChangeEvent } from 'antd';
-import { Radio, Tabs } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Tabs, Radio } from 'antd';
 
 const { TabPane } = Tabs;
 
-type TabPosition = 'left' | 'right' | 'top' | 'bottom';
+class SlidingTabsDemo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mode: 'top',
+    };
+  }
 
-const App: React.FC = () => {
-  const [mode, setMode] = useState<TabPosition>('top');
-
-  const handleModeChange = (e: RadioChangeEvent) => {
-    setMode(e.target.value);
+  handleModeChange = e => {
+    const mode = e.target.value;
+    this.setState({ mode });
   };
 
-  return (
-    <div>
-      <Radio.Group onChange={handleModeChange} value={mode} style={{ marginBottom: 8 }}>
-        <Radio.Button value="top">Horizontal</Radio.Button>
-        <Radio.Button value="left">Vertical</Radio.Button>
-      </Radio.Group>
-      <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
-        {[...Array.from({ length: 30 }, (_, i) => i)].map(i => (
-          <TabPane tab={`Tab-${i}`} key={i} disabled={i === 28}>
-            Content of tab {i}
-          </TabPane>
-        ))}
-      </Tabs>
-    </div>
-  );
-};
+  render() {
+    const { mode } = this.state;
+    return (
+      <div>
+        <Radio.Group onChange={this.handleModeChange} value={mode} style={{ marginBottom: 8 }}>
+          <Radio.Button value="top">Horizontal</Radio.Button>
+          <Radio.Button value="left">Vertical</Radio.Button>
+        </Radio.Group>
+        <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
+          {[...Array.from({ length: 30 }, (v, i) => i)].map(i => (
+            <TabPane tab={`Tab-${i}`} key={i} disabled={i === 28}>
+              Content of tab {i}
+            </TabPane>
+          ))}
+        </Tabs>
+      </div>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<SlidingTabsDemo />, mountNode);
 ```

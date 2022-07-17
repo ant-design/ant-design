@@ -7,27 +7,28 @@ title:
 
 ## zh-CN
 
-配合 [react-text-loop-next](https://npmjs.com/package/react-text-loop-next) 或 [react-fast-marquee](https://npmjs.com/package/react-fast-marquee) 实现消息轮播通知栏。
+配合 [react-text-loop](https://npmjs.com/package/react-text-loop) 实现消息轮播通知栏。
 
 ## en-US
 
-Show a loop banner by using with [react-text-loop-next](https://npmjs.com/package/react-text-loop-next) or [react-fast-marquee](https://npmjs.com/package/react-fast-marquee).
+Show a loop banner by using with [react-text-loop](https://npmjs.com/package/react-text-loop).
 
 ```tsx
 import { Alert } from 'antd';
-import React from 'react';
-import Marquee from 'react-fast-marquee';
+import TextLoop from 'react-text-loop';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Alert
     banner
     message={
-      <Marquee pauseOnHover gradient={false}>
-        I can be a React component, multiple React components, or just some text.
-      </Marquee>
+      <TextLoop mask>
+        <div>Notice message one</div>
+        <div>Notice message two</div>
+        <div>Notice message three</div>
+        <div>Notice message four</div>
+      </TextLoop>
     }
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

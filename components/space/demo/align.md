@@ -13,11 +13,10 @@ title:
 
 Config item align.
 
-```tsx
-import { Button, Space } from 'antd';
-import React from 'react';
+```jsx
+import { Space, Button } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div className="space-align-container">
     <div className="space-align-block">
       <Space align="center">
@@ -47,10 +46,9 @@ const App: React.FC = () => (
         <span className="mock-block">Block</span>
       </Space>
     </div>
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

@@ -21,7 +21,6 @@
   &-rtl {
     direction: rtl;
   }
-
   &-item-list-type-text {
     &:hover {
       .@{upload-prefix-cls}-list-item-name-icon-count-1 {
@@ -38,7 +37,6 @@
       }
     }
   }
-
   &-item {
     &-name {
       .@{upload-prefix-cls}-list-rtl & {
@@ -69,6 +67,13 @@
     &-info {
       .@{upload-prefix-cls}-list-rtl & {
         padding: 0 4px 0 12px;
+      }
+    }
+
+    .@{iconfont-css-prefix}-close {
+      .@{upload-prefix-cls}-list-rtl & {
+        right: auto;
+        left: 4px;
       }
     }
 
@@ -136,6 +141,13 @@
       .@{upload-prefix-cls}-list-rtl& {
         padding-right: 0;
         padding-left: 0;
+      }
+    }
+
+    .@{iconfont-css-prefix}-close {
+      .@{upload-prefix-cls}-list-rtl& {
+        right: auto;
+        left: 8px;
       }
     }
   }

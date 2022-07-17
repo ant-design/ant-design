@@ -17,67 +17,72 @@ A more complex example which define a customized footer button bar. The dialog w
 
 You could set `footer` to `null` if you don't need default footer buttons.
 
-```tsx
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  const showModal = () => {
-    setVisible(true);
+class App extends React.Component {
+  state = {
+    loading: false,
+    visible: false,
   };
 
-  const handleOk = () => {
-    setLoading(true);
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = () => {
+    this.setState({ loading: true });
     setTimeout(() => {
-      setLoading(false);
-      setVisible(false);
+      this.setState({ loading: false, visible: false });
     }, 3000);
   };
 
-  const handleCancel = () => {
-    setVisible(false);
+  handleCancel = () => {
+    this.setState({ visible: false });
   };
 
-  return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal with customized footer
-      </Button>
-      <Modal
-        visible={visible}
-        title="Title"
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={[
-          <Button key="back" onClick={handleCancel}>
-            Return
-          </Button>,
-          <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
-            Submit
-          </Button>,
-          <Button
-            key="link"
-            href="https://google.com"
-            type="primary"
-            loading={loading}
-            onClick={handleOk}
-          >
-            Search on Google
-          </Button>,
-        ]}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
-    </>
-  );
-};
+  render() {
+    const { visible, loading } = this.state;
+    return (
+      <>
+        <Button type="primary" onClick={this.showModal}>
+          Open Modal with customized footer
+        </Button>
+        <Modal
+          visible={visible}
+          title="Title"
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={[
+            <Button key="back" onClick={this.handleCancel}>
+              Return
+            </Button>,
+            <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
+              Submit
+            </Button>,
+            <Button
+              key="link"
+              href="https://google.com"
+              type="primary"
+              loading={loading}
+              onClick={this.handleOk}
+            >
+              Search on Google
+            </Button>,
+          ]}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+      </>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
@@ -60,7 +60,7 @@ const Cell: React.FC<CellProps> = ({
       colSpan={span}
     >
       <div className={`${itemPrefixCls}-item-container`}>
-        {(label || label === 0) && (
+        {label && (
           <span
             className={classNames(`${itemPrefixCls}-item-label`, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
@@ -70,7 +70,7 @@ const Cell: React.FC<CellProps> = ({
             {label}
           </span>
         )}
-        {(content || content === 0) && (
+        {content && (
           <span className={classNames(`${itemPrefixCls}-item-content`)} style={contentStyle}>
             {content}
           </span>

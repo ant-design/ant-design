@@ -13,19 +13,17 @@ title:
 
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
-```tsx
+```jsx
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
-import React, { useState } from 'react';
 
 const x = 3;
 const y = 2;
 const z = 1;
-const defaultData: DataNode[] = [];
+const gData = [];
 
-const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) => {
+const generateData = (_level, _preKey, _tns) => {
   const preKey = _preKey || '0';
-  const tns = _tns || defaultData;
+  const tns = _tns || gData;
 
   const children = [];
   for (let i = 0; i < x; i++) {
@@ -46,41 +44,41 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
 };
 generateData(z);
 
-const App: React.FC = () => {
-  const [gData, setGData] = useState(defaultData);
-  const [expandedKeys] = useState(['0-0', '0-0-0', '0-0-0-0']);
-
-  const onDragEnter: TreeProps['onDragEnter'] = info => {
-    console.log(info);
-    // expandedKeys 需要受控时设置
-    // setExpandedKeys(info.expandedKeys)
+class Demo extends React.Component {
+  state = {
+    gData,
+    expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
   };
 
-  const onDrop: TreeProps['onDrop'] = info => {
+  onDragEnter = info => {
+    console.log(info);
+    // expandedKeys 需要受控时设置
+    // this.setState({
+    //   expandedKeys: info.expandedKeys,
+    // });
+  };
+
+  onDrop = info => {
     console.log(info);
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
-    const loop = (
-      data: DataNode[],
-      key: React.Key,
-      callback: (node: DataNode, i: number, data: DataNode[]) => void,
-    ) => {
+    const loop = (data, key, callback) => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
           return callback(data[i], i, data);
         }
         if (data[i].children) {
-          loop(data[i].children!, key, callback);
+          loop(data[i].children, key, callback);
         }
       }
     };
-    const data = [...gData];
+    const data = [...this.state.gData];
 
     // Find dragObject
-    let dragObj: DataNode;
+    let dragObj;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
@@ -94,8 +92,8 @@ const App: React.FC = () => {
         item.children.unshift(dragObj);
       });
     } else if (
-      ((info.node as any).props.children || []).length > 0 && // Has children
-      (info.node as any).props.expanded && // Is expanded
+      (info.node.props.children || []).length > 0 && // Has children
+      info.node.props.expanded && // Is expanded
       dropPosition === 1 // On the bottom gap
     ) {
       loop(data, dropKey, item => {
@@ -106,33 +104,38 @@ const App: React.FC = () => {
         // item to the tail of the children
       });
     } else {
-      let ar: DataNode[] = [];
-      let i: number;
-      loop(data, dropKey, (_item, index, arr) => {
+      let ar;
+      let i;
+      loop(data, dropKey, (item, index, arr) => {
         ar = arr;
         i = index;
       });
       if (dropPosition === -1) {
-        ar.splice(i!, 0, dragObj!);
+        ar.splice(i, 0, dragObj);
       } else {
-        ar.splice(i! + 1, 0, dragObj!);
+        ar.splice(i + 1, 0, dragObj);
       }
     }
-    setGData(data);
+
+    this.setState({
+      gData: data,
+    });
   };
 
-  return (
-    <Tree
-      className="draggable-tree"
-      defaultExpandedKeys={expandedKeys}
-      draggable
-      blockNode
-      onDragEnter={onDragEnter}
-      onDrop={onDrop}
-      treeData={gData}
-    />
-  );
-};
+  render() {
+    return (
+      <Tree
+        className="draggable-tree"
+        defaultExpandedKeys={this.state.expandedKeys}
+        draggable
+        blockNode
+        onDragEnter={this.onDragEnter}
+        onDrop={this.onDrop}
+        treeData={this.state.gData}
+      />
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

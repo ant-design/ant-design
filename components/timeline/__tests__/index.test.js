@@ -1,13 +1,13 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
 
 const { Item } = TimeLine;
 
-const renderFactory = (timeLineProps = {}, labelItems = null) =>
-  render(
+const wrapperFactory = (timeLineProps = {}, labelItems) =>
+  mount(
     <TimeLine type="editable-card" {...timeLineProps}>
       <Item key="1">foo</Item>
       <Item key="2">bar</Item>
@@ -22,19 +22,22 @@ describe('TimeLine', () => {
   rtlTest(TimeLine);
   rtlTest(TimeLine.Item);
 
-  it('renders items without passing any props correctly', () => {
-    const { container } = renderFactory();
+  describe('renders items without passing any props correctly', () => {
+    const wrapper = wrapperFactory();
 
-    // has 3 timeline item
-    expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
+    it('has 3 timeline item', () => {
+      expect(wrapper.find('li.ant-timeline-item')).toHaveLength(3);
+    });
 
-    // has only 1 timeline item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
+    it('has only 1 timeline item is marked as the last item', () => {
+      expect(wrapper.find('li.ant-timeline-item-last')).toHaveLength(1);
+    });
 
-    // its last item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-      'ant-timeline-item-last',
-    );
+    it('its last item is marked as the last item', () => {
+      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+        true,
+      );
+    });
   });
 
   describe('renders pending item', () => {
@@ -42,69 +45,66 @@ describe('TimeLine', () => {
     const pendingDot = <i>dot</i>;
 
     it('has one extra timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(4);
+      const wrapper = wrapperFactory({ pending });
+      expect(wrapper.find('li.ant-timeline-item')).toHaveLength(4);
     });
 
     it('has extra pending timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
+      const wrapper = wrapperFactory({ pending });
+      expect(wrapper.find('li.ant-timeline-item-pending')).toHaveLength(1);
     });
 
     it("renders the pending timeline item as long as it receive a truthy prop value to 'pending'", () => {
-      const { container } = renderFactory({ pending: true });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toBeTruthy();
+      const wrapper = wrapperFactory({ pending: true });
+      expect(wrapper.find('li.ant-timeline-item-pending')).toBeTruthy();
     });
 
     it('its last item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-pending');
+      const wrapper = wrapperFactory({ pending });
+      expect(
+        wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-pending'),
+      ).toBe(true);
     });
 
     it('its second to last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 2]).toHaveClass('ant-timeline-item-last');
+      const wrapper = wrapperFactory({ pending });
+      const items = wrapper.find('li.ant-timeline-item');
+      expect(items.at(items.length - 2).hasClass('ant-timeline-item-last')).toBe(true);
     });
 
     it('has the correct pending node', () => {
-      const { container, getByText } = renderFactory({ pending });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('pending...'),
-      );
+      const wrapper = wrapperFactory({ pending });
+      expect(wrapper.find('li.ant-timeline-item-pending').contains(pending)).toBe(true);
     });
 
     it('has the correct pending dot node', () => {
-      const { container, getByText } = renderFactory({ pending, pendingDot });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('dot'),
-      );
+      const wrapper = wrapperFactory({ pending, pendingDot });
+      expect(wrapper.find('li.ant-timeline-item-pending').contains(pendingDot)).toBe(true);
     });
 
     it("has no pending dot if without passing a truthy 'pending' prop", () => {
-      const { queryByText } = renderFactory({ pendingDot });
-      expect(queryByText('dot')).toBeFalsy();
+      const wrapper = wrapperFactory({ pendingDot });
+      expect(wrapper.find('li.ant-timeline-item-pending').contains(pendingDot)).toBe(false);
     });
   });
 
   describe('the item rendering sequence is controlled by reverse', () => {
-    const getTextContents = nodeList => Array.from(nodeList).map(node => node.textContent);
-
     it('items is in order when prop reverse is false', () => {
-      const { container } = renderFactory({ reverse: false });
-      const textContents = getTextContents(
-        container.querySelectorAll('.ant-timeline-item-content'),
-      );
-      expect(textContents).toEqual(['foo', 'bar', 'baz']);
+      const wrapper = wrapperFactory({ reverse: false });
+      expect(wrapper.find('.ant-timeline-item-content').map(w => w.text())).toEqual([
+        'foo',
+        'bar',
+        'baz',
+      ]);
     });
 
     it('items is reversed when prop reverse is true', () => {
-      const { container } = renderFactory({ reverse: true });
-      const textContents = getTextContents(
-        container.querySelectorAll('.ant-timeline-item-content'),
-      );
-      expect(textContents).toEqual(['baz', 'bar', 'foo']);
+      const wrapper = wrapperFactory({ reverse: true });
+      expect(wrapper.find('.ant-timeline-item-content').map(w => w.text())).toEqual([
+        'baz',
+        'bar',
+        'foo',
+      ]);
     });
   });
 
@@ -112,28 +112,29 @@ describe('TimeLine', () => {
     const pending = <div>pending...</div>;
 
     it('its last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-last');
+      const wrapper = wrapperFactory({ pending, reverse: true });
+      expect(wrapper.find('li.ant-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+        true,
+      );
     });
 
     it('its first item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      expect(container.querySelector('li.ant-timeline-item')).toHaveClass(
-        'ant-timeline-item-pending',
-      );
+      const wrapper = wrapperFactory({ pending, reverse: true });
+      expect(
+        wrapper.find('li.ant-timeline-item').first().hasClass('ant-timeline-item-pending'),
+      ).toBe(true);
     });
   });
 
   it('renders Timeline item with label correctly', () => {
     const label = '2020-01-01';
-    const { container } = renderFactory(
+    const wrapper = wrapperFactory(
       {},
       <Item key="1" label={label}>
         foo
       </Item>,
     );
-    expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
-    expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
+    expect(wrapper.find('.ant-timeline-label')).toHaveLength(1);
+    expect(wrapper.find('.ant-timeline-item-label').text()).toBe(label);
   });
 });

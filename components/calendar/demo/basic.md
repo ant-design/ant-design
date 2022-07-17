@@ -13,19 +13,12 @@ title:
 
 A basic calendar component with Year/Month switch.
 
-```tsx
+```jsx
 import { Calendar } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
-import type { Moment } from 'moment';
-import React from 'react';
 
-const App: React.FC = () => {
-  const onPanelChange = (value: Moment, mode: CalendarMode) => {
-    console.log(value.format('YYYY-MM-DD'), mode);
-  };
+function onPanelChange(value, mode) {
+  console.log(value.format('YYYY-MM-DD'), mode);
+}
 
-  return <Calendar onPanelChange={onPanelChange} />;
-};
-
-export default App;
+ReactDOM.render(<Calendar onPanelChange={onPanelChange} />, mountNode);
 ```

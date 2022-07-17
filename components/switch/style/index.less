@@ -17,8 +17,7 @@
   height: @switch-height;
   line-height: @switch-height;
   vertical-align: middle;
-  background-image: linear-gradient(to right, @disabled-color, @disabled-color),
-    linear-gradient(to right, @component-background, @component-background);
+  background-color: @disabled-color;
   border: 0;
   border-radius: 100px;
   cursor: pointer;
@@ -31,7 +30,7 @@
   }
 
   &-checked:focus {
-    box-shadow: 0 0 0 2px @primary-1;
+    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
   }
 
   &:focus:hover {
@@ -39,14 +38,13 @@
   }
 
   &-checked {
-    background: @switch-color;
+    background-color: @switch-color;
   }
 
   &-loading,
   &-disabled {
     cursor: not-allowed;
     opacity: @switch-disabled-opacity;
-
     * {
       box-shadow: none;
       cursor: not-allowed;
@@ -108,7 +106,7 @@
   }
 
   // ======================== Loading =========================
-  &-loading-icon.@{iconfont-css-prefix} {
+  &-loading-icon {
     position: relative;
     top: ((@switch-pin-size - @font-size-base) / 2);
     color: rgba(0, 0, 0, 0.65);

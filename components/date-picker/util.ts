@@ -1,7 +1,5 @@
-import type { PickerMode } from 'rc-picker/lib/interface';
-import type { DirectionType } from '../config-provider';
-import type { SelectCommonPlacement } from '../_util/motion';
-import type { PickerLocale } from './generatePicker';
+import { PickerMode } from 'rc-picker/lib/interface';
+import { PickerLocale } from './generatePicker';
 
 export function getPlaceholder(
   picker: PickerMode | undefined,
@@ -42,9 +40,6 @@ export function getRangePlaceholder(
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.rangeYearPlaceholder;
   }
-  if (picker === 'quarter' && locale.lang.quarterPlaceholder) {
-    return locale.lang.rangeQuarterPlaceholder;
-  }
   if (picker === 'month' && locale.lang.monthPlaceholder) {
     return locale.lang.rangeMonthPlaceholder;
   }
@@ -55,57 +50,4 @@ export function getRangePlaceholder(
     return locale!.timePickerLocale.rangePlaceholder;
   }
   return locale.lang.rangePlaceholder;
-}
-
-export function transPlacement2DropdownAlign(
-  direction: DirectionType,
-  placement?: SelectCommonPlacement,
-) {
-  const overflow = {
-    adjustX: 1,
-    adjustY: 1,
-  };
-  switch (placement) {
-    case 'bottomLeft': {
-      return {
-        points: ['tl', 'bl'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-    case 'bottomRight': {
-      return {
-        points: ['tr', 'br'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-    case 'topLeft': {
-      return {
-        points: ['bl', 'tl'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    case 'topRight': {
-      return {
-        points: ['br', 'tr'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    default: {
-      return direction === 'rtl'
-        ? {
-            points: ['tr', 'br'],
-            offset: [0, 4],
-            overflow,
-          }
-        : {
-            points: ['tl', 'bl'],
-            offset: [0, 4],
-            overflow,
-          };
-    }
-  }
 }

@@ -13,11 +13,10 @@ title:
 
 The result of the warning.
 
-```tsx
-import { Button, Result } from 'antd';
-import React from 'react';
+```jsx
+import { Result, Button } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Result
     status="warning"
     title="There are some problems with your operation."
@@ -26,8 +25,7 @@ const App: React.FC = () => (
         Go Console
       </Button>
     }
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

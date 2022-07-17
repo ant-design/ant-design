@@ -13,10 +13,9 @@ title:
 
 The icon can be customized to any react node.
 
-```tsx
-import { SmileOutlined } from '@ant-design/icons';
+```jsx
 import { Button, notification } from 'antd';
-import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 const openNotification = () => {
   notification.open({
@@ -27,11 +26,10 @@ const openNotification = () => {
   });
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>
+  </Button>,
+  mountNode,
 );
-
-export default App;
 ```

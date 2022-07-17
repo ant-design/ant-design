@@ -1,10 +1,9 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
-import Form from '../../form';
 import zhCN from '../../locale/zh_CN';
+import Form from '../../form';
 
 describe('ConfigProvider.Form', () => {
   beforeAll(() => {
@@ -16,10 +15,10 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form validateMessages', () => {
-    const renderComponent = ({ validateMessages }) => {
+    const wrapperComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
 
-      const { container } = render(
+      const wrapper = mount(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>
             <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
@@ -32,11 +31,11 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
 
-      return [container, formRef];
+      return [wrapper, formRef];
     };
 
     it('set locale zhCN', async () => {
-      const [container, formRef] = renderComponent({});
+      const [wrapper, formRef] = wrapperComponent({});
 
       await act(async () => {
         try {
@@ -48,18 +47,15 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         jest.runAllTimers();
+        wrapper.update();
         await Promise.resolve();
       });
 
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入姓名');
     });
 
     it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
-      const [container, formRef] = renderComponent({ validateMessages: { required: '必须' } });
+      const [wrapper, formRef] = wrapperComponent({ validateMessages: { required: '必须' } });
 
       await act(async () => {
         try {
@@ -71,17 +67,12 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         jest.runAllTimers();
+        wrapper.update();
         await Promise.resolve();
       });
 
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));
-
-      expect(explains[0]).toHaveTextContent('必须');
-      expect(explains[explains.length - 1]).toHaveTextContent('年龄必须等于17');
+      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
+      expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
     });
   });
 
@@ -97,37 +88,7 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
 
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-  });
-
-  describe('form colon', () => {
-    it('set colon false', async () => {
-      const wrapper = mount(
-        <ConfigProvider form={{ colon: false }}>
-          <Form>
-            <Form.Item label="没有冒号">
-              <input />
-            </Form.Item>
-          </Form>
-        </ConfigProvider>,
-      );
-
-      expect(wrapper.exists('.ant-form-item-no-colon')).toBeTruthy();
-    });
-
-    it('set colon default', async () => {
-      const wrapper = mount(
-        <ConfigProvider>
-          <Form>
-            <Form.Item label="姓名">
-              <input />
-            </Form.Item>
-          </Form>
-        </ConfigProvider>,
-      );
-
-      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+      expect(wrapper).toMatchRenderedSnapshot();
     });
   });
 });

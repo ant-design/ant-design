@@ -1,8 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { useContext, useMemo } from 'react';
-import { ConfigContext } from '../config-provider';
-import { FormItemInputContext } from '../form/context';
+import classNames from 'classnames';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface GroupProps {
   className?: string;
@@ -17,44 +15,35 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction } = useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '' } = props;
-  const prefixCls = getPrefixCls('input-group', customizePrefixCls);
-  const cls = classNames(
-    prefixCls,
-    {
-      [`${prefixCls}-lg`]: props.size === 'large',
-      [`${prefixCls}-sm`]: props.size === 'small',
-      [`${prefixCls}-compact`]: props.compact,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
-  );
-
-  const formItemContext = useContext(FormItemInputContext);
-  const groupFormItemContext = useMemo(
-    () => ({
-      ...formItemContext,
-      isFormItemInput: false,
-    }),
-    [formItemContext],
-  );
-
-  return (
-    <span
-      className={cls}
-      style={props.style}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
-      <FormItemInputContext.Provider value={groupFormItemContext}>
-        {props.children}
-      </FormItemInputContext.Provider>
-    </span>
-  );
-};
+const Group: React.FC<GroupProps> = props => (
+  <ConfigConsumer>
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
+      const { prefixCls: customizePrefixCls, className = '' } = props;
+      const prefixCls = getPrefixCls('input-group', customizePrefixCls);
+      const cls = classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-lg`]: props.size === 'large',
+          [`${prefixCls}-sm`]: props.size === 'small',
+          [`${prefixCls}-compact`]: props.compact,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        },
+        className,
+      );
+      return (
+        <span
+          className={cls}
+          style={props.style}
+          onMouseEnter={props.onMouseEnter}
+          onMouseLeave={props.onMouseLeave}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
+        >
+          {props.children}
+        </span>
+      );
+    }}
+  </ConfigConsumer>
+);
 
 export default Group;

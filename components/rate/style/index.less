@@ -17,8 +17,7 @@
 
   &-disabled &-star {
     cursor: default;
-
-    > div:hover {
+    &:hover {
       transform: scale(1);
     }
   }
@@ -36,7 +35,8 @@
     > div {
       transition: all 0.3s, outline 0s;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         transform: @rate-star-hover-scale;
       }
 
@@ -46,7 +46,6 @@
 
       &:focus-visible {
         outline: 1px dashed @rate-star-color;
-        transform: @rate-star-hover-scale;
       }
     }
 

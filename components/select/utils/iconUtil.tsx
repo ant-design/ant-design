@@ -1,13 +1,10 @@
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import type { ReactNode } from 'react';
-import * as React from 'react';
-
-type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
 export default function getIcons({
   suffixIcon,
@@ -16,21 +13,15 @@ export default function getIcons({
   removeIcon,
   loading,
   multiple,
-  hasFeedback,
   prefixCls,
-  showArrow,
-  feedbackIcon,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: RenderNode;
-  menuItemSelectedIcon?: RenderNode;
-  removeIcon?: RenderNode;
+  clearIcon?: React.ReactNode;
+  menuItemSelectedIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode;
   loading?: boolean;
   multiple?: boolean;
-  hasFeedback?: boolean;
-  feedbackIcon?: ReactNode;
   prefixCls: string;
-  showArrow?: boolean;
 }) {
   // Clear Icon
   let mergedClearIcon = clearIcon;
@@ -38,27 +29,19 @@ export default function getIcons({
     mergedClearIcon = <CloseCircleFilled />;
   }
 
-  // Validation Feedback Icon
-  const getSuffixIconNode = (arrowIcon?: ReactNode) => (
-    <>
-      {showArrow !== false && arrowIcon}
-      {hasFeedback && feedbackIcon}
-    </>
-  );
-
   // Arrow item icon
   let mergedSuffixIcon = null;
   if (suffixIcon !== undefined) {
-    mergedSuffixIcon = getSuffixIconNode(suffixIcon);
+    mergedSuffixIcon = suffixIcon;
   } else if (loading) {
-    mergedSuffixIcon = getSuffixIconNode(<LoadingOutlined spin />);
+    mergedSuffixIcon = <LoadingOutlined spin />;
   } else {
     const iconCls = `${prefixCls}-suffix`;
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
-        return getSuffixIconNode(<SearchOutlined className={iconCls} />);
+        return <SearchOutlined className={iconCls} />;
       }
-      return getSuffixIconNode(<DownOutlined className={iconCls} />);
+      return <DownOutlined className={iconCls} />;
     };
   }
 

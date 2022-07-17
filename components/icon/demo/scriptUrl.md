@@ -13,10 +13,8 @@ title:
 
 You can use `scriptUrl` as an array after `@ant-design/icons@4.1.0`, manage icons in one `<Icon />` from multiple [iconfont.cn](http://iconfont.cn/) resources. If icon with a duplicate name in resources, it will overrided in array order.
 
-```tsx
+```jsx
 import { createFromIconfontCN } from '@ant-design/icons';
-import { Space } from 'antd';
-import React from 'react';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: [
@@ -25,14 +23,13 @@ const IconFont = createFromIconfontCN({
   ],
 });
 
-const App: React.FC = () => (
-  <Space>
+ReactDOM.render(
+  <div className="icons-list">
     <IconFont type="icon-javascript" />
     <IconFont type="icon-java" />
     <IconFont type="icon-shoppingcart" />
     <IconFont type="icon-python" />
-  </Space>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

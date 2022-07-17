@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/cs_CZ';
-import Calendar from '../calendar/locale/cs_CZ';
 import DatePicker from '../date-picker/locale/cs_CZ';
-import type { Locale } from '../locale-provider';
 import TimePicker from '../time-picker/locale/cs_CZ';
+import Calendar from '../calendar/locale/cs_CZ';
+import { Locale } from '../locale-provider';
 
 const localeValues: Locale = {
   locale: 'cs',
@@ -29,12 +29,12 @@ const localeValues: Locale = {
     cancelSort: 'Klikni pro zrušení řazení',
   },
   Modal: {
-    okText: 'OK',
+    okText: 'Ok',
     cancelText: 'Storno',
-    justOkText: 'OK',
+    justOkText: 'Ok',
   },
   Popconfirm: {
-    okText: 'OK',
+    okText: 'Ok',
     cancelText: 'Storno',
   },
   Transfer: {

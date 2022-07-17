@@ -13,27 +13,12 @@ title:
 
 Set summary content by `summary` prop. Sync column fixed status with `Table.Summary.Cell`. You can fixed it by set `Table.Summary` `fixed` prop(since `4.16.0`).
 
-```tsx
+```jsx
 import { Table, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 const { Text } = Typography;
 
-interface DataType {
-  key: string;
-  name: string;
-  borrow: number;
-  repayment: number;
-}
-
-interface FixedDataType {
-  key: React.Key;
-  name: string;
-  description: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -48,7 +33,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -75,7 +60,7 @@ const data: DataType[] = [
   },
 ];
 
-const fixedColumns: ColumnsType<FixedDataType> = [
+const fixedColumns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -88,7 +73,7 @@ const fixedColumns: ColumnsType<FixedDataType> = [
   },
 ];
 
-const fixedData: FixedDataType[] = [];
+const fixedData = [];
 for (let i = 0; i < 20; i += 1) {
   fixedData.push({
     key: i,
@@ -97,7 +82,7 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Table
       columns={columns}
@@ -116,17 +101,17 @@ const App: React.FC = () => (
         return (
           <>
             <Table.Summary.Row>
-              <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
-              <Table.Summary.Cell index={1}>
+              <Table.Summary.Cell>Total</Table.Summary.Cell>
+              <Table.Summary.Cell>
                 <Text type="danger">{totalBorrow}</Text>
               </Table.Summary.Cell>
-              <Table.Summary.Cell index={2}>
+              <Table.Summary.Cell>
                 <Text>{totalRepayment}</Text>
               </Table.Summary.Cell>
             </Table.Summary.Row>
             <Table.Summary.Row>
-              <Table.Summary.Cell index={0}>Balance</Table.Summary.Cell>
-              <Table.Summary.Cell index={1} colSpan={2}>
+              <Table.Summary.Cell>Balance</Table.Summary.Cell>
+              <Table.Summary.Cell colSpan={2}>
                 <Text type="danger">{totalBorrow - totalRepayment}</Text>
               </Table.Summary.Cell>
             </Table.Summary.Row>
@@ -152,10 +137,9 @@ const App: React.FC = () => (
         </Table.Summary>
       )}
     />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

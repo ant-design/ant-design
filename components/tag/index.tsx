@@ -1,14 +1,18 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import { ConfigContext } from '../config-provider';
-import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
-import Wave from '../_util/wave';
 import CheckableTag from './CheckableTag';
+import { ConfigContext } from '../config-provider';
+import {
+  PresetColorTypes,
+  PresetStatusColorTypes,
+  PresetColorType,
+  PresetStatusColorType,
+} from '../_util/colors';
+import Wave from '../_util/wave';
+import { LiteralUnion } from '../_util/type';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -131,9 +135,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
 const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;
 
-if (process.env.NODE_ENV !== 'production') {
-  Tag.displayName = 'Tag';
-}
+Tag.displayName = 'Tag';
 
 Tag.CheckableTag = CheckableTag;
 

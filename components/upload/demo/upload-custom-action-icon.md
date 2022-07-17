@@ -13,13 +13,11 @@ title:
 
 Use `showUploadList` for custom action icons of files.
 
-```tsx
-import { StarOutlined, UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, Upload } from 'antd';
-import React from 'react';
+```jsx
+import { Upload, Button } from 'antd';
+import { UploadOutlined, StarOutlined } from '@ant-design/icons';
 
-const props: UploadProps = {
+const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   onChange({ file, fileList }) {
     if (file.status !== 'uploading') {
@@ -50,17 +48,16 @@ const props: UploadProps = {
   ],
   showUploadList: {
     showDownloadIcon: true,
-    downloadIcon: 'Download',
+    downloadIcon: 'download ',
     showRemoveIcon: true,
     removeIcon: <StarOutlined onClick={e => console.log(e, 'custom removeIcon event')} />,
   },
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
+  </Upload>,
+  mountNode,
 );
-
-export default App;
 ```

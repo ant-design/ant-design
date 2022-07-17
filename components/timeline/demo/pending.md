@@ -13,30 +13,33 @@ title:
 
 When the timeline is incomplete and ongoing, put a ghost node at last. Set `pending` as truthy value to enable displaying pending item. You can customize the pending content by passing a React Element. Meanwhile, `pendingDot={a React Element}` is used to customize the dot of the pending item. `reverse={true}` is used for reversing nodes.
 
-```tsx
-import { Button, Timeline } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Timeline, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [reverse, setReverse] = useState(false);
-
-  const handleClick = () => {
-    setReverse(!reverse);
+class PendingTimeLine extends React.Component {
+  state = {
+    reverse: false,
   };
 
-  return (
-    <div>
-      <Timeline pending="Recording..." reverse={reverse}>
-        <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-        <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-        <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-      </Timeline>
-      <Button type="primary" style={{ marginTop: 16 }} onClick={handleClick}>
-        Toggle Reverse
-      </Button>
-    </div>
-  );
-};
+  handleClick = () => {
+    this.setState({ reverse: !this.state.reverse });
+  };
 
-export default App;
+  render() {
+    return (
+      <div>
+        <Timeline pending="Recording..." reverse={this.state.reverse}>
+          <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+          <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+          <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
+        </Timeline>
+        <Button type="primary" style={{ marginTop: 16 }} onClick={this.handleClick}>
+          Toggle Reverse
+        </Button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<PendingTimeLine />, mountNode);
 ```

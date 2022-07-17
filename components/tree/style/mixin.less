@@ -1,6 +1,7 @@
 @import '../../style/mixins/index';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
+@tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
 @tree-node-padding: (@padding-xs / 2);
@@ -12,7 +13,6 @@
     display: inline-block;
     font-size: 10px;
     vertical-align: baseline;
-
     svg {
       transition: transform 0.3s;
     }
@@ -28,7 +28,6 @@
     background-color: @primary-color;
     border-radius: 1px;
     pointer-events: none;
-
     &::after {
       position: absolute;
       top: -3px;
@@ -67,26 +66,6 @@
       .@{custom-tree-prefix-cls}-node-content-wrapper {
         flex: auto;
       }
-
-      // >>> Drag
-      .@{custom-tree-node-prefix-cls}.dragging {
-        position: relative;
-
-        &::after {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: @tree-node-padding;
-          left: 0;
-          border: 1px solid @primary-color;
-          opacity: 0;
-          animation: ant-tree-node-fx-do-not-use 0.3s;
-          animation-play-state: running;
-          animation-fill-mode: forwards;
-          content: '';
-          pointer-events: none;
-        }
-      }
     }
   }
 
@@ -117,21 +96,6 @@
       color: @tree-node-hightlight-color;
       font-weight: 500;
     }
-
-    &-draggable {
-      .@{custom-tree-prefix-cls}-draggable-icon {
-        width: @tree-title-height;
-        line-height: @tree-title-height;
-        text-align: center;
-        visibility: visible;
-        opacity: 0.2;
-        transition: opacity @animation-duration-slow;
-
-        .@{custom-tree-node-prefix-cls}:hover & {
-          opacity: 0.45;
-        }
-      }
-    }
   }
 
   // >>> Indent
@@ -144,11 +108,6 @@
       display: inline-block;
       width: @tree-title-height;
     }
-  }
-
-  // >>> Drag Handler
-  &-draggable-icon {
-    visibility: hidden;
   }
 
   // >>> Switcher
@@ -186,21 +145,19 @@
       display: inline-block;
       width: 100%;
       height: 100%;
-      // https://github.com/ant-design/ant-design/issues/31884
       &::before {
         position: absolute;
         top: 0;
-        right: 12px;
         bottom: -@tree-node-padding;
         margin-left: -1px;
-        border-right: 1px solid @normal-color;
+        border-left: 1px solid @normal-color;
         content: ' ';
       }
-
       &::after {
         position: absolute;
         width: @tree-title-height - 14px;
         height: @tree-title-height - 10px;
+        margin-left: -1px;
         border-bottom: 1px solid @normal-color;
         content: ' ';
       }
@@ -243,7 +200,6 @@
       line-height: @tree-title-height;
       text-align: center;
       vertical-align: top;
-
       &:empty {
         display: none;
       }
@@ -256,7 +212,7 @@
   }
 
   // ==================== Draggable =====================
-  &-node-content-wrapper {
+  &-node-content-wrapper[draggable='true'] {
     line-height: @tree-title-height;
     user-select: none;
 
@@ -299,31 +255,20 @@
       background: @component-background;
 
       &-line-icon {
-        // https://github.com/ant-design/ant-design/issues/32813
-        vertical-align: -0.15em;
-      }
-    }
-  }
-
-  .@{custom-tree-node-prefix-cls}-leaf-last {
-    .@{custom-tree-prefix-cls}-switcher {
-      &-leaf-line {
-        &::before {
-          top: auto !important;
-          bottom: auto !important;
-          height: @tree-title-height - 10px !important;
-        }
+        vertical-align: -0.225em;
       }
     }
   }
 }
 
-@keyframes ant-tree-node-fx-do-not-use {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
+.@{tree-node-prefix-cls}-leaf-last {
+  .@{tree-prefix-cls}-switcher {
+    &-leaf-line {
+      &::before {
+        top: auto !important;
+        bottom: auto !important;
+        height: @tree-title-height - 10px !important;
+      }
+    }
   }
 }

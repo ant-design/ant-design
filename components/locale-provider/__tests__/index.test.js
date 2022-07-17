@@ -1,30 +1,29 @@
 /* eslint-disable react/no-multi-comp */
-import { mount } from 'enzyme';
-import MockDate from 'mockdate';
-import moment from 'moment';
 import React from 'react';
-import LocaleProvider from '..';
+import { mount } from 'enzyme';
+import moment from 'moment';
+import MockDate from 'mockdate';
+import mountTest from '../../../tests/shared/mountTest';
 import {
-  Calendar,
-  DatePicker,
-  Modal,
   Pagination,
-  Popconfirm,
-  Select,
-  Table,
+  DatePicker,
   TimePicker,
+  Calendar,
+  Popconfirm,
+  Table,
+  Modal,
+  Select,
   Transfer,
 } from '../..';
-import mountTest from '../../../tests/shared/mountTest';
+import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
-import bnBD from '../bn_BD';
 import byBY from '../by_BY';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
-import daDK from '../da_DK';
 import deDE from '../de_DE';
+import daDK from '../da_DK';
 import elGR from '../el_GR';
 import enGB from '../en_GB';
 import enUS from '../en_US';
@@ -46,17 +45,14 @@ import idID from '../id_ID';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
-import kaGE from '../ka_GE';
 import kkKZ from '../kk_KZ';
-import kmrIQ from '../kmr_IQ';
-import kmKH from '../km_KH';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
+import kmrIQ from '../kmr_IQ';
 import kuIQ from '../ku_IQ';
-import ltLT from '../lt_LT';
 import lvLV from '../lv_LV';
+import ltLT from '../lt_LT';
 import mkMK from '../mk_MK';
-import mlIN from '../ml_IN';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
@@ -74,10 +70,8 @@ import srRS from '../sr_RS';
 import svSE from '../sv_SE';
 import taIN from '../ta_IN';
 import thTH from '../th_TH';
-import tkTK from '../tk_TK';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
-import urPK from '../ur_PK';
 import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
@@ -87,7 +81,6 @@ const locales = [
   azAZ,
   arEG,
   bgBG,
-  bnBD,
   byBY,
   caES,
   csCZ,
@@ -113,16 +106,13 @@ const locales = [
   isIS,
   itIT,
   jaJP,
-  kaGE,
   kkKZ,
   knIN,
   koKR,
-  kmKH,
   kmrIQ,
   kuIQ,
   ltLT,
   mkMK,
-  mlIN,
   msMY,
   mnMN,
   nbNO,
@@ -141,7 +131,6 @@ const locales = [
   taIN,
   thTH,
   trTR,
-  tkTK,
   ukUA,
   viVN,
   idID,
@@ -149,7 +138,6 @@ const locales = [
   zhCN,
   zhHK,
   zhTW,
-  urPK,
 ];
 
 const { Option } = Select;
@@ -241,10 +229,9 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>,
       );
-      const currentConfirmNode =
-        document.querySelectorAll('.ant-modal-confirm')[
-          document.querySelectorAll('.ant-modal-confirm').length - 1
-        ];
+      const currentConfirmNode = document.querySelectorAll('.ant-modal-confirm')[
+        document.querySelectorAll('.ant-modal-confirm').length - 1
+      ];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;
@@ -259,19 +246,27 @@ describe('Locale Provider', () => {
   });
 
   it('set moment locale when locale changes', () => {
-    const Test = ({ locale }) => (
-      <LocaleProvider locale={locale}>
-        <div>
-          <DatePicker defaultValue={moment()} open />
-        </div>
-      </LocaleProvider>
-    );
+    class Test extends React.Component {
+      state = {
+        locale: zhCN,
+      };
 
-    const wrapper = mount(<Test locale={zhCN} />);
+      render() {
+        const { locale } = this.state;
+        return (
+          <LocaleProvider locale={locale}>
+            <div>
+              <DatePicker defaultValue={moment()} open />
+            </div>
+          </LocaleProvider>
+        );
+      }
+    }
+    const wrapper = mount(<Test />);
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: frFR });
+    wrapper.setState({ locale: frFR });
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: null });
+    wrapper.setState({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

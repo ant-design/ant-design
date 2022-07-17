@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 
 export interface CheckableTagProps {
@@ -12,7 +12,6 @@ export interface CheckableTagProps {
    * .zh-cn 该组件为完全受控组件，不支持非受控用法。
    */
   checked: boolean;
-  children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }

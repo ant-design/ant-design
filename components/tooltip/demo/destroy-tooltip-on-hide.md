@@ -14,15 +14,13 @@ title:
 
 Setting `destroyTooltipOnHide` to control whether destroy dom node of tooltip when hidden.
 
-```tsx
+```jsx
 import { Tooltip } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Tooltip destroyTooltipOnHide={{ keepParent: false }} title="prompt text">
     <span>Tooltip will destroy when hidden.</span>
-  </Tooltip>
+  </Tooltip>,
+  mountNode,
 );
-
-export default App;
 ```

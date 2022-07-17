@@ -1,9 +1,8 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 
@@ -11,60 +10,49 @@ describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
   it('Image preview props set false', () => {
-    const { container: wrapper } = render(<Image src={src} preview={false} />);
+    const wrapper = mount(<Image src={src} preview={false} />);
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-    expect(wrapper.querySelector('.ant-image-preview-root')).toBe(null);
+    expect(wrapper.find('Image').at(0).prop('preview')).toBe(false);
+    expect(wrapper.find('Image').at(1).prop('preview')).toBe(false);
   });
   it('Group preview props set false', () => {
-    const { container: wrapper } = render(
+    const wrapper = mount(
       <Image.PreviewGroup preview={false}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
-
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-
-    expect(wrapper.querySelector('.ant-image-preview-root')).toBe(null);
+    expect(wrapper.find('Group').prop('preview')).toBe(false);
   });
 
   it('Default preview props', () => {
-    const { container: wrapper, baseElement } = render(
-      <Image src={src} preview={{ visible: true }} />,
-    );
+    const wrapper = mount(<Image src={src} preview={{ visible: true }} />);
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    expect(wrapper.find('Preview').prop('transitionName')).toBe('ant-zoom');
+    expect(wrapper.find('Preview').prop('maskTransitionName')).toBe('ant-fade');
   });
   it('Default Group preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const wrapper = mount(
       <Image.PreviewGroup preview={{ visible: true }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    expect(wrapper.find('Preview').prop('transitionName')).toBe('ant-zoom');
+    expect(wrapper.find('Preview').prop('maskTransitionName')).toBe('ant-fade');
   });
   it('Customize preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const wrapper = mount(
       <Image
         src={src}
         preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
       />,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+    expect(wrapper.find('Preview').prop('transitionName')).toBe('abc');
+    expect(wrapper.find('Preview').prop('maskTransitionName')).toBe('def');
   });
   it('Customize Group preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const wrapper = mount(
       <Image.PreviewGroup
         preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
       >
@@ -72,22 +60,7 @@ describe('Image', () => {
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-
-    expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
-    expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
-  });
-  it('ConfigProvider getPopupContainer', () => {
-    const { container: wrapper, baseElement } = render(
-      <>
-        <div className="container" />
-        <ConfigProvider getPopupContainer={() => document.querySelector('.container')}>
-          <Image src={src} />
-        </ConfigProvider>
-      </>,
-    );
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-    const containerElement = baseElement.querySelector('.container');
-    expect(containerElement.children.length).not.toBe(0);
+    expect(wrapper.find('Preview').prop('transitionName')).toBe('abc');
+    expect(wrapper.find('Preview').prop('maskTransitionName')).toBe('def');
   });
 });

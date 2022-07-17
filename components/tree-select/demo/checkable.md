@@ -13,9 +13,8 @@ title:
 
 Multiple and checkable.
 
-```tsx
+```jsx
 import { TreeSelect } from 'antd';
-import React, { useState } from 'react';
 
 const { SHOW_PARENT } = TreeSelect;
 
@@ -56,28 +55,31 @@ const treeData = [
   },
 ];
 
-const App: React.FC = () => {
-  const [value, setValue] = useState(['0-0-0']);
+class Demo extends React.Component {
+  state = {
+    value: ['0-0-0'],
+  };
 
-  const onChange = (newValue: string[]) => {
+  onChange = value => {
     console.log('onChange ', value);
-    setValue(newValue);
+    this.setState({ value });
   };
 
-  const tProps = {
-    treeData,
-    value,
-    onChange,
-    treeCheckable: true,
-    showCheckedStrategy: SHOW_PARENT,
-    placeholder: 'Please select',
-    style: {
-      width: '100%',
-    },
-  };
+  render() {
+    const tProps = {
+      treeData,
+      value: this.state.value,
+      onChange: this.onChange,
+      treeCheckable: true,
+      showCheckedStrategy: SHOW_PARENT,
+      placeholder: 'Please select',
+      style: {
+        width: '100%',
+      },
+    };
+    return <TreeSelect {...tProps} />;
+  }
+}
 
-  return <TreeSelect {...tProps} />;
-};
-
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

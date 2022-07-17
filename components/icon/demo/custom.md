@@ -13,11 +13,8 @@ title:
 
 Create a reusable React component by using `<Icon component={...} />`. The property `component` takes a React component that renders to `svg` element.
 
-```tsx
-import Icon, { HomeOutlined } from '@ant-design/icons';
-import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-import { Space } from 'antd';
-import React from 'react';
+```jsx
+import Icon from '@ant-design/icons';
 
 const HeartSvg = () => (
   <svg width="1em" height="1em" fill="currentColor" viewBox="0 0 1024 1024">
@@ -70,22 +67,25 @@ const PandaSvg = () => (
   </svg>
 );
 
-const HeartIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={HeartSvg} {...props} />
-);
+const HeartIcon = props => <Icon component={HeartSvg} {...props} />;
 
-const PandaIcon = (props: Partial<CustomIconComponentProps>) => (
-  <Icon component={PandaSvg} {...props} />
-);
+const PandaIcon = props => <Icon component={PandaSvg} {...props} />;
 
-const App: React.FC = () => (
-  <Space>
+ReactDOM.render(
+  <div className="custom-icons-list">
     <HeartIcon style={{ color: 'hotpink' }} />
     <PandaIcon style={{ fontSize: '32px' }} />
-    <Icon component={HomeOutlined as React.ForwardRefExoticComponent<any>} />
-    <HomeOutlined />
-  </Space>
+  </div>,
+  mountNode,
 );
+```
 
-export default App;
+```css
+.custom-icons-list > .anticon {
+  margin-right: 6px;
+}
+.ant-row-rtl .custom-icons-list > .anticon {
+  margin-right: 0;
+  margin-left: 6px;
+}
 ```

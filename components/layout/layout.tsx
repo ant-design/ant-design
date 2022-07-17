@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 
 export interface GeneratorProps {
@@ -31,27 +31,25 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
+    const Adapter: React.FC<BasicProps> = props => {
       const { getPrefixCls } = React.useContext(ConfigContext);
       const { prefixCls: customizePrefixCls } = props;
       const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-      return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
-    });
-    if (process.env.NODE_ENV !== 'production') {
-      Adapter.displayName = displayName;
-    }
+      return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...props} />;
+    };
+    Adapter.displayName = displayName;
     return Adapter;
   };
 }
 
-const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const Basic = (props: BasicPropsWithTagName) => {
   const { prefixCls, className, children, tagName, ...others } = props;
   const classString = classNames(prefixCls, className);
-  return React.createElement(tagName, { className: classString, ...others, ref }, children);
-});
+  return React.createElement(tagName, { className: classString, ...others }, children);
+};
 
-const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
@@ -66,28 +64,25 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     className,
   );
 
-  const contextValue = React.useMemo(
-    () => ({
-      siderHook: {
-        addSider: (id: string) => {
-          setSiders(prev => [...prev, id]);
-        },
-        removeSider: (id: string) => {
-          setSiders(prev => prev.filter(currentId => currentId !== id));
-        },
-      },
-    }),
-    [],
-  );
-
   return (
-    <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...others}>
+    <LayoutContext.Provider
+      value={{
+        siderHook: {
+          addSider: (id: string) => {
+            setSiders(prev => [...prev, id]);
+          },
+          removeSider: (id: string) => {
+            setSiders(prev => prev.filter(currentId => currentId !== id));
+          },
+        },
+      }}
+    >
+      <Tag className={classString} {...others}>
         {children}
       </Tag>
     </LayoutContext.Provider>
   );
-});
+};
 
 const Layout = generator({
   suffixCls: 'layout',

@@ -13,13 +13,11 @@ title:
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
-```tsx
+```jsx
+import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, Upload } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
-import React from 'react';
 
-const fileList: UploadFile[] = [
+const fileList = [
   {
     uid: '-1',
     name: 'xxx.png',
@@ -34,7 +32,7 @@ const fileList: UploadFile[] = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Upload
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -53,10 +51,9 @@ const App: React.FC = () => (
     >
       <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

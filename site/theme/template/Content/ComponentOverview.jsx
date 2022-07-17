@@ -9,11 +9,11 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import { getMetaDescription, getLocalizedPathname, getThemeConfig, getMenuItems } from '../utils';
 import './ComponentOverview.less';
 
-const onClickCard = pathname => {
+const onClickCard = href => {
   if (window.gtag) {
     window.gtag('event', '点击', {
       event_category: '组件总览卡片',
-      event_label: pathname,
+      event_label: href,
     });
   }
 };
@@ -104,28 +104,11 @@ const ComponentOverview = ({
                     const url = `${component.filename
                       .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                       .toLowerCase()}/`;
-
-                    // 如果是 https 就不用处理了
-                    const href = url.startsWith('http')
-                      ? url
-                      : getLocalizedPathname(url, locale === 'zh-CN', location.query);
-
-                    /** Link 不能跳转到外链 */
-                    const ComponentLink = !url.startsWith('http') ? Link : 'a';
-
+                    const href = getLocalizedPathname(url, locale === 'zh-CN', location.query);
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
-                        <ComponentLink
-                          to={href}
-                          href={href}
-                          onClick={() => onClickCard(href.onClickCard)}
-                        >
+                        <Link to={href} onClick={() => onClickCard(href)}>
                           <Card
-                            bodyStyle={{
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${component.tag})`,
-                            }}
                             size="small"
                             className="components-overview-card"
                             title={
@@ -138,7 +121,7 @@ const ComponentOverview = ({
                               <img src={component.cover} alt={component.title} />
                             </div>
                           </Card>
-                        </ComponentLink>
+                        </Link>
                       </Col>
                     );
                   })}

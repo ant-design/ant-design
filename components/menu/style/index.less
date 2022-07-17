@@ -6,7 +6,7 @@
 @menu-animation-duration-normal: 0.15s;
 
 .accessibility-focus() {
-  box-shadow: 0 0 0 2px @primary-2;
+  box-shadow: 0 0 0 2px fade(@primary-color, 20%);
 }
 
 // TODO: Should remove icon style compatible in v5
@@ -67,7 +67,6 @@
     transition: border-color @animation-duration-slow @ease-in-out,
       background @animation-duration-slow @ease-in-out;
   }
-
   &-submenu,
   &-submenu-inline {
     transition: border-color @animation-duration-slow @ease-in-out,
@@ -96,11 +95,9 @@
 
   &-item a {
     color: @menu-item-color;
-
     &:hover {
       color: @menu-highlight-color;
     }
-
     &::before {
       position: absolute;
       top: 0;
@@ -115,22 +112,16 @@
   // https://github.com/ant-design/ant-design/issues/19809
   &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
-
     &:hover {
       color: @menu-highlight-color;
     }
   }
 
   &-item-divider {
+    height: 1px;
     overflow: hidden;
     line-height: 0;
-    border-color: @border-color-split;
-    border-style: solid;
-    border-width: 1px 0 0;
-  }
-
-  &-item-divider-dashed {
-    border-style: dashed;
+    background-color: @border-color-split;
   }
 
   &-horizontal &-item,
@@ -146,7 +137,6 @@
 
   &-item-selected {
     color: @menu-highlight-color;
-
     a,
     a:hover {
       color: @menu-highlight-color;
@@ -187,7 +177,6 @@
       left: 0;
       margin-left: 0;
       border-right: 0;
-
       &::after {
         border-right: 0;
       }
@@ -224,7 +213,6 @@
       font-size: @menu-icon-size;
       transition: font-size @menu-animation-duration-normal @ease-out,
         margin @animation-duration-slow @ease-in-out, color @animation-duration-slow;
-
       + span {
         margin-left: @menu-icon-margin-right;
         opacity: 1;
@@ -250,8 +238,12 @@
   }
 
   & > &-item-divider {
+    height: 1px;
     margin: 1px 0;
     padding: 0;
+    overflow: hidden;
+    line-height: 0;
+    background-color: @border-color-split;
   }
 
   &-submenu {
@@ -287,7 +279,6 @@
     > .@{menu-prefix-cls} {
       background-color: @menu-bg;
       border-radius: @border-radius-base;
-
       &-submenu-title::after {
         transition: transform @animation-duration-slow @ease-in-out;
       }
@@ -315,18 +306,16 @@
         position: absolute;
         width: 6px;
         height: 1.5px;
-        background-color: currentcolor;
+        background-color: currentColor;
         border-radius: 2px;
         transition: background @animation-duration-slow @ease-in-out,
           transform @animation-duration-slow @ease-in-out, top @animation-duration-slow @ease-in-out,
           color @animation-duration-slow @ease-in-out;
         content: '';
       }
-
       &::before {
         transform: rotate(45deg) translateY(-2.5px);
       }
-
       &::after {
         transform: rotate(-45deg) translateY(2.5px);
       }
@@ -343,7 +332,6 @@
       &::before {
         transform: rotate(-45deg) translateX(2.5px);
       }
-
       &::after {
         transform: rotate(45deg) translateX(-2.5px);
       }
@@ -356,11 +344,9 @@
     &-open&-inline > &-title > &-arrow {
       // ↑
       transform: translateY(-2px);
-
       &::after {
         transform: rotate(-45deg) translateX(-2.5px);
       }
-
       &::before {
         transform: rotate(45deg) translateX(2.5px);
       }
@@ -424,16 +410,13 @@
     > .@{menu-prefix-cls}-item {
       a {
         color: @menu-item-color;
-
         &:hover {
           color: @menu-highlight-color;
         }
-
         &::before {
           bottom: -2px;
         }
       }
-
       &-selected a {
         color: @menu-highlight-color;
       }
@@ -453,7 +436,6 @@
   &-inline {
     .@{menu-prefix-cls}-item {
       position: relative;
-
       &::after {
         position: absolute;
         top: 0;
@@ -572,7 +554,6 @@
         margin: 0;
         font-size: @menu-icon-size-lg;
         line-height: @menu-item-height;
-
         + span {
           display: inline-block;
           opacity: 0;
@@ -592,7 +573,6 @@
       .@{iconfont-css-prefix} {
         display: none;
       }
-
       a {
         color: @text-color-dark;
       }
@@ -684,14 +664,6 @@
 .@{ant-prefix}-layout-header {
   .@{menu-prefix-cls} {
     line-height: inherit;
-  }
-}
-
-// https://github.com/ant-design/ant-design/issues/32950
-.@{ant-prefix}-menu-inline-collapsed-tooltip {
-  a,
-  a:hover {
-    color: @white;
   }
 }
 

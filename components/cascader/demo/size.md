@@ -13,17 +13,10 @@ title:
 
 Cascade selection box of different sizes.
 
-```tsx
+```jsx
 import { Cascader } from 'antd';
-import React from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-  children?: Option[];
-}
-
-const options: Option[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -58,11 +51,11 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+function onChange(value) {
   console.log(value);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Cascader size="large" options={options} onChange={onChange} />
     <br />
@@ -73,8 +66,7 @@ const App: React.FC = () => (
     <Cascader size="small" options={options} onChange={onChange} />
     <br />
     <br />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

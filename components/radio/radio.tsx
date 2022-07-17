@@ -1,56 +1,35 @@
-import classNames from 'classnames';
-import RcCheckbox from 'rc-checkbox';
-import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { useContext } from 'react';
+import RcCheckbox from 'rc-checkbox';
+import classNames from 'classnames';
+import { composeRef } from 'rc-util/lib/ref';
+import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import { FormItemInputContext } from '../form/context';
-import warning from '../_util/warning';
-import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type { RadioChangeEvent, RadioProps } from './interface';
+import RadioGroupContext from './context';
+import devWarning from '../_util/devWarning';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
-  const groupContext = React.useContext(RadioGroupContext);
-  const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
-
+  const context = React.useContext(RadioGroupContext);
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
-  const { isFormItemInput } = useContext(FormItemInputContext);
 
-  warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  React.useEffect(() => {
+    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  }, []);
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);
-    groupContext?.onChange?.(e);
+    context?.onChange?.(e);
   };
 
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    children,
-    style,
-    disabled: customDisabled,
-    ...restProps
-  } = props;
-  const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
-  const prefixCls =
-    (groupContext?.optionType || radioOptionTypeContext) === 'button'
-      ? `${radioPrefixCls}-button`
-      : radioPrefixCls;
-
+  const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const radioProps: RadioProps = { ...restProps };
-
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  radioProps.disabled = customDisabled || disabled;
-
-  if (groupContext) {
-    radioProps.name = groupContext.name;
+  if (context) {
+    radioProps.name = context.name;
     radioProps.onChange = onChange;
-    radioProps.checked = props.value === groupContext.value;
-    radioProps.disabled = radioProps.disabled || groupContext.disabled;
+    radioProps.checked = props.value === context.value;
+    radioProps.disabled = props.disabled || context.disabled;
   }
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
@@ -58,7 +37,6 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
   );
@@ -71,7 +49,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
     >
-      <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
+      <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}
     </label>
   );
@@ -79,8 +57,10 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
 
 const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
 
-if (process.env.NODE_ENV !== 'production') {
-  Radio.displayName = 'Radio';
-}
+Radio.displayName = 'Radio';
+
+Radio.defaultProps = {
+  type: 'radio',
+};
 
 export default Radio;

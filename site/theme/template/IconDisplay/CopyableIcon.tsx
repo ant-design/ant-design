@@ -3,7 +3,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { Badge, message } from 'antd';
 import classNames from 'classnames';
 import * as AntdIcons from '@ant-design/icons';
-import type { ThemeType } from './index';
+import { ThemeType } from './index';
 
 const allIcons: {
   [key: string]: any;

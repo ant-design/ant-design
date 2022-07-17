@@ -17,21 +17,10 @@ Display tree structure data in Table when there is field key `children` in dataS
 
 You can control the indent width by setting `indentSize`.
 
-```tsx
-import { Space, Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
-import React, { useState } from 'react';
+```jsx
+import { Table, Switch, Space } from 'antd';
 
-interface DataType {
-  key: React.ReactNode;
-  name: string;
-  age: number;
-  address: string;
-  children?: DataType[];
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -51,7 +40,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: 1,
     name: 'John Brown sr.',
@@ -117,7 +106,7 @@ const data: DataType[] = [
 ];
 
 // rowSelection objects indicates the need for row selection
-const rowSelection: TableRowSelection<DataType> = {
+const rowSelection = {
   onChange: (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
@@ -129,9 +118,8 @@ const rowSelection: TableRowSelection<DataType> = {
   },
 };
 
-const App: React.FC = () => {
-  const [checkStrictly, setCheckStrictly] = useState(false);
-
+function TreeData() {
+  const [checkStrictly, setCheckStrictly] = React.useState(false);
   return (
     <>
       <Space align="center" style={{ marginBottom: 16 }}>
@@ -144,7 +132,7 @@ const App: React.FC = () => {
       />
     </>
   );
-};
+}
 
-export default App;
+ReactDOM.render(<TreeData />, mountNode);
 ```

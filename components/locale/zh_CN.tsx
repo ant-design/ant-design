@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_CN';
-import Calendar from '../calendar/locale/zh_CN';
 import DatePicker from '../date-picker/locale/zh_CN';
-import type { Locale } from '../locale-provider';
 import TimePicker from '../time-picker/locale/zh_CN';
+import Calendar from '../calendar/locale/zh_CN';
+import { Locale } from '../locale-provider';
 
 const typeTemplate = '${label}不是一个有效的${type}';
 
@@ -22,8 +22,6 @@ const localeValues: Locale = {
     filterConfirm: '确定',
     filterReset: '重置',
     filterEmptyText: '无筛选项',
-    filterCheckall: '全选',
-    filterSearchPlaceholder: '在筛选项中搜索',
     selectAll: '全选当页',
     selectInvert: '反选当页',
     selectNone: '清空所有',

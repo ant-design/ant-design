@@ -4,15 +4,12 @@
 @import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@tree-prefix-cls: ~'@{ant-prefix}-tree';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
-@table-sticky-zindex: calc(@zindex-table-fixed + 1);
+@table-sticky-zindex: (@zindex-table-fixed + 1);
 @table-sticky-scroll-bar-active-bg: fade(@table-sticky-scroll-bar-bg, 80%);
-@table-filter-dropdown-max-height: 264px;
-@table-expand-column-width: 48px;
 
 .@{table-prefix-cls}-wrapper {
   clear: both;
@@ -131,8 +128,8 @@
         > .@{table-prefix-cls}-wrapper:only-child,
         > .@{table-prefix-cls}-expanded-row-fixed > .@{table-prefix-cls}-wrapper:only-child {
           .@{table-prefix-cls} {
-            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-expand-column-width -
-                  @table-padding-horizontal);
+            margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+                  ceil(@font-size-sm * 1.4));
 
             &-tbody > tr:last-child > td {
               border-bottom: 0;
@@ -146,9 +143,10 @@
         }
       }
 
-      &.@{table-prefix-cls}-row:hover > td,
-      > td.@{table-prefix-cls}-cell-row-hover {
-        background: @table-row-hover-bg;
+      &.@{table-prefix-cls}-row:hover {
+        > td {
+          background: @table-row-hover-bg;
+        }
       }
 
       &.@{table-prefix-cls}-row-selected {
@@ -217,7 +215,6 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
-    outline: none;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -227,10 +224,6 @@
       &::before {
         background-color: transparent !important;
       }
-    }
-
-    &:focus-visible {
-      color: @primary-color;
     }
 
     // https://github.com/ant-design/ant-design/issues/30969
@@ -277,7 +270,6 @@
   }
 
   &-column-sorter {
-    margin-left: 4px;
     color: @table-header-icon-color;
     font-size: 0;
     transition: color 0.3s;
@@ -338,64 +330,21 @@
   &-filter-dropdown {
     .reset-component();
 
-    min-width: 120px;
-    background-color: @table-filter-dropdown-bg;
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
-
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
       // https://github.com/ant-design/ant-design/issues/4916
       // https://github.com/ant-design/ant-design/issues/19542
-      max-height: @table-filter-dropdown-max-height;
+      max-height: 264px;
       overflow-x: hidden;
       border: 0;
       box-shadow: none;
-
-      &:empty::after {
-        display: block;
-        padding: 8px 0;
-        color: @disabled-color;
-        font-size: @font-size-sm;
-        text-align: center;
-        content: 'Not Found';
-      }
     }
 
-    &-tree {
-      padding: 8px 8px 0;
+    min-width: 120px;
+    background-color: @table-filter-dropdown-bg;
 
-      .@{tree-prefix-cls}-treenode .@{tree-prefix-cls}-node-content-wrapper:hover {
-        background-color: @tree-node-hover-bg;
-      }
-
-      .@{tree-prefix-cls}-treenode-checkbox-checked .@{tree-prefix-cls}-node-content-wrapper {
-        &,
-        &:hover {
-          background-color: @tree-node-selected-bg;
-        }
-      }
-    }
-
-    &-search {
-      padding: 8px;
-      border-bottom: @border-width-base @border-color-split @border-style-base;
-
-      &-input {
-        input {
-          min-width: 140px;
-        }
-        .@{iconfont-css-prefix} {
-          color: @disabled-color;
-        }
-      }
-    }
-
-    &-checkall {
-      width: 100%;
-      margin-bottom: 4px;
-      margin-left: 4px;
-    }
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
 
     &-submenu > ul {
       max-height: calc(100vh - 130px);
@@ -415,7 +364,7 @@
     &-btns {
       display: flex;
       justify-content: space-between;
-      padding: 7px 8px;
+      padding: 7px 8px 7px 3px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @table-border-color;
@@ -442,10 +391,6 @@
     }
   }
 
-  table tr th&-selection-column&-cell-fix-left {
-    z-index: 3;
-  }
-
   table tr th&-selection-column::after {
     background-color: transparent !important;
   }
@@ -462,7 +407,7 @@
       cursor: pointer;
       transition: all 0.3s;
       margin-inline-start: 100%;
-      padding-inline-start: (@table-padding-horizontal / 4);
+      padding-inline-start: @padding-xss;
 
       .@{iconfont-css-prefix} {
         color: @table-header-icon-color;
@@ -477,7 +422,7 @@
 
   // ========================== Expandable ==========================
   &-expand-icon-col {
-    width: @table-expand-column-width;
+    width: 48px;
   }
 
   &-row-expand-icon-cell {
@@ -493,6 +438,7 @@
     .operation-unit();
     position: relative;
     display: inline-flex;
+    float: left;
     box-sizing: border-box;
     width: @expand-icon-size;
     height: @expand-icon-size;
@@ -500,7 +446,6 @@
     color: inherit;
     line-height: ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2)) * 2 + @border-width-base *
       3;
-    vertical-align: -2.5px;
     background: @table-expand-icon-bg;
     border: @border-width-base @border-style-base @table-border-color;
     border-radius: @border-radius-base;
@@ -514,13 +459,13 @@
     &:focus,
     &:hover,
     &:active {
-      border-color: currentcolor;
+      border-color: currentColor;
     }
 
     &::before,
     &::after {
       position: absolute;
-      background: currentcolor;
+      background: currentColor;
       transition: transform 0.3s ease-out;
       content: '';
     }
@@ -544,7 +489,6 @@
     &-collapsed::before {
       transform: rotate(-180deg);
     }
-
     &-collapsed::after {
       transform: rotate(0deg);
     }
@@ -561,13 +505,9 @@
     }
 
     .@{table-prefix-cls}-row-indent + & {
+      margin-top: ((@font-size-base * @line-height-base - @border-width-base * 3) / 2) -
+        ceil(((@font-size-sm * 1.4 - @border-width-base * 3) / 2));
       margin-right: @padding-xs;
-    }
-
-    + .@{table-prefix-cls}-cell-content {
-      display: inline-block !important;
-      width: calc(100% - (@expand-icon-size + @padding-xs));
-      vertical-align: top;
     }
   }
 
@@ -603,7 +543,6 @@
     .@{table-prefix-cls}-empty & {
       color: @disabled-color;
     }
-
     &:hover {
       > td {
         background: @component-background;
@@ -614,6 +553,7 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
+    position: -webkit-sticky !important;
     position: sticky !important;
     z-index: @zindex-table-fixed;
     background: @table-bg;
@@ -651,7 +591,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      z-index: @zindex-table-fixed;
+      z-index: 1;
       width: 30px;
       transition: box-shadow 0.3s;
       content: '';
@@ -661,14 +601,13 @@
     &::before {
       left: 0;
     }
-
     &::after {
       right: 0;
     }
   }
 
   &-ping-left {
-    &:not(.@{table-prefix-cls}-has-fix-left) > .@{table-prefix-cls}-container {
+    &:not(.@{table-prefix-cls}-has-fix-left) .@{table-prefix-cls}-container {
       position: relative;
 
       &::before {
@@ -687,7 +626,7 @@
   }
 
   &-ping-right {
-    &:not(.@{table-prefix-cls}-has-fix-right) > .@{table-prefix-cls}-container {
+    &:not(.@{table-prefix-cls}-has-fix-right) .@{table-prefix-cls}-container {
       position: relative;
 
       &::after {
@@ -700,7 +639,6 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
-
   &-sticky {
     &-holder {
       position: sticky;
@@ -717,20 +655,16 @@
       background: lighten(@table-border-color, 80%);
       border-top: 1px solid @table-border-color;
       opacity: 0.6;
-
       &:hover {
         transform-origin: center bottom;
       }
-
       &-bar {
         height: 8px;
         background-color: @table-sticky-scroll-bar-bg;
         border-radius: @table-sticky-scroll-bar-radius;
-
         &:hover {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
-
         &-active {
           background-color: @table-sticky-scroll-bar-active-bg;
         }
@@ -746,7 +680,6 @@
         box-shadow: none !important;
       }
     }
-
     &-ping-right {
       .@{table-prefix-cls}-cell-fix-right-first::after {
         box-shadow: none !important;

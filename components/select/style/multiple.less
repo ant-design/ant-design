@@ -1,5 +1,4 @@
-@import (reference) '../../style/themes/index';
-@select-prefix-cls: ~'@{ant-prefix}-select';
+@import './index';
 
 @select-overflow-prefix-cls: ~'@{select-prefix-cls}-selection-overflow';
 @select-multiple-item-border-width: 1px;
@@ -110,7 +109,7 @@
         cursor: pointer;
 
         > .@{iconfont-css-prefix} {
-          vertical-align: middle;
+          vertical-align: -0.2em;
         }
 
         &:hover {
@@ -129,6 +128,8 @@
     .@{select-prefix-cls}-selection-search {
       position: relative;
       max-width: 100%;
+      margin-top: @select-multiple-item-spacing-half;
+      margin-bottom: @select-multiple-item-spacing-half;
       margin-inline-start: @input-padding-horizontal-base - @input-padding-vertical-base;
 
       &-input,

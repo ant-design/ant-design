@@ -7,42 +7,23 @@ title:
 
 ## zh-CN
 
-使用自定义元素，我们可以集成 [react-dnd](https://github.com/react-dnd/react-dnd) 来实现拖拽排序。
+使用自定义元素，我们可以集成 react-dnd 来实现拖拽排序。
 
 ## en-US
 
-By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
+By using custom components, we can integrate table with react-dnd to implement drag sorting.
 
-```tsx
+```jsx
+import React, { useState, useCallback, useRef } from 'react';
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import update from 'immutability-helper';
-import React, { useCallback, useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import update from 'immutability-helper';
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+const type = 'DragableBodyRow';
 
-interface DraggableBodyRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
-  index: number;
-  moveRow: (dragIndex: number, hoverIndex: number) => void;
-}
-
-const type = 'DraggableBodyRow';
-
-const DraggableBodyRow = ({
-  index,
-  moveRow,
-  className,
-  style,
-  ...restProps
-}: DraggableBodyRowProps) => {
-  const ref = useRef<HTMLTableRowElement>(null);
+const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+  const ref = useRef();
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
     collect: monitor => {
@@ -55,7 +36,7 @@ const DraggableBodyRow = ({
         dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
       };
     },
-    drop: (item: { index: number }) => {
+    drop: item => {
       moveRow(item.index, index);
     },
   });
@@ -78,7 +59,7 @@ const DraggableBodyRow = ({
   );
 };
 
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -96,7 +77,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const App: React.FC = () => {
+const DragSortingTable: React.FC = () => {
   const [data, setData] = useState([
     {
       key: '1',
@@ -120,12 +101,12 @@ const App: React.FC = () => {
 
   const components = {
     body: {
-      row: DraggableBodyRow,
+      row: DragableBodyRow,
     },
   };
 
   const moveRow = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
+    (dragIndex, hoverIndex) => {
       const dragRow = data[dragIndex];
       setData(
         update(data, {
@@ -145,19 +126,16 @@ const App: React.FC = () => {
         columns={columns}
         dataSource={data}
         components={components}
-        onRow={(_, index) => {
-          const attr = {
-            index,
-            moveRow,
-          };
-          return attr as React.HTMLAttributes<any>;
-        }}
+        onRow={(record, index) => ({
+          index,
+          moveRow,
+        })}
       />
     </DndProvider>
   );
 };
 
-export default App;
+ReactDOM.render(<DragSortingTable />, mountNode);
 ```
 
 ```css

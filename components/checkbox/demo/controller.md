@@ -13,48 +13,62 @@ title:
 
 Communicated with other components.
 
-```tsx
-import { Button, Checkbox } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import React, { useState } from 'react';
+```jsx
+import { Checkbox, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [checked, setChecked] = useState(true);
-  const [disabled, setDisabled] = useState(false);
-
-  const toggleChecked = () => {
-    setChecked(!checked);
+class App extends React.Component {
+  state = {
+    checked: true,
+    disabled: false,
   };
 
-  const toggleDisable = () => {
-    setDisabled(!disabled);
+  toggleChecked = () => {
+    this.setState({ checked: !this.state.checked });
   };
 
-  const onChange = (e: CheckboxChangeEvent) => {
+  toggleDisable = () => {
+    this.setState({ disabled: !this.state.disabled });
+  };
+
+  onChange = e => {
     console.log('checked = ', e.target.checked);
-    setChecked(e.target.checked);
+    this.setState({
+      checked: e.target.checked,
+    });
   };
 
-  const label = `${checked ? 'Checked' : 'Unchecked'}-${disabled ? 'Disabled' : 'Enabled'}`;
+  render() {
+    const label = `${this.state.checked ? 'Checked' : 'Unchecked'}-${
+      this.state.disabled ? 'Disabled' : 'Enabled'
+    }`;
+    return (
+      <>
+        <p style={{ marginBottom: '20px' }}>
+          <Checkbox
+            checked={this.state.checked}
+            disabled={this.state.disabled}
+            onChange={this.onChange}
+          >
+            {label}
+          </Checkbox>
+        </p>
+        <p>
+          <Button type="primary" size="small" onClick={this.toggleChecked}>
+            {!this.state.checked ? 'Check' : 'Uncheck'}
+          </Button>
+          <Button
+            style={{ margin: '0 10px' }}
+            type="primary"
+            size="small"
+            onClick={this.toggleDisable}
+          >
+            {!this.state.disabled ? 'Disable' : 'Enable'}
+          </Button>
+        </p>
+      </>
+    );
+  }
+}
 
-  return (
-    <>
-      <p style={{ marginBottom: '20px' }}>
-        <Checkbox checked={checked} disabled={disabled} onChange={onChange}>
-          {label}
-        </Checkbox>
-      </p>
-      <p>
-        <Button type="primary" size="small" onClick={toggleChecked}>
-          {!checked ? 'Check' : 'Uncheck'}
-        </Button>
-        <Button style={{ margin: '0 10px' }} type="primary" size="small" onClick={toggleDisable}>
-          {!disabled ? 'Disable' : 'Enable'}
-        </Button>
-      </p>
-    </>
-  );
-};
-
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

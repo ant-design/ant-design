@@ -13,22 +13,20 @@ title:
 
 Basic usage.
 
-```tsx
+```jsx
 import { Mentions } from 'antd';
-import type { OptionProps } from 'antd/es/mentions';
-import React from 'react';
 
 const { Option } = Mentions;
 
-const onChange = (value: string) => {
+function onChange(value) {
   console.log('Change:', value);
-};
+}
 
-const onSelect = (option: OptionProps) => {
+function onSelect(option) {
   console.log('select', option);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Mentions
     style={{ width: '100%' }}
     onChange={onChange}
@@ -38,8 +36,7 @@ const App: React.FC = () => (
     <Option value="afc163">afc163</Option>
     <Option value="zombieJ">zombieJ</Option>
     <Option value="yesmeck">yesmeck</Option>
-  </Mentions>
+  </Mentions>,
+  mountNode,
 );
-
-export default App;
 ```

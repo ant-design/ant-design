@@ -14,37 +14,28 @@
 }
 
 // input status
-// == when focus or active
-.active(@borderColor: @primary-color; @hoverBorderColor: @primary-color-hover; @outlineColor: @primary-color-outline) {
+// == when focus or actived
+.active(@color: @outline-color) {
   & when (@theme = dark) {
-    border-color: @borderColor;
+    border-color: @color;
   }
-  & when (not (@theme = dark) and not (@theme = variable)) {
-    border-color: @hoverBorderColor;
+  & when not (@theme = dark) {
+    border-color: ~`colorPalette('@{color}', 5) `;
   }
-  & when not (@theme = variable) {
-    box-shadow: @input-outline-offset @outline-blur-size @outline-width
-      fade(@borderColor, @outline-fade);
-  }
-  & when (@theme = variable) {
-    border-color: @hoverBorderColor;
-    box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
-  }
-  border-right-width: @border-width-base;
+  border-right-width: @border-width-base !important;
   outline: 0;
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
 }
 
-// == when hover
+// == when hoverd
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
-  border-right-width: @border-width-base;
+  border-right-width: @border-width-base !important;
 }
 
 .disabled() {
   color: @input-disabled-color;
   background-color: @input-disabled-bg;
-  border-color: @input-border-color;
-  box-shadow: none;
   cursor: not-allowed;
   opacity: 1;
 
@@ -66,7 +57,7 @@
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
-  border-radius: @control-border-radius;
+  border-radius: @border-radius-base;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
 
@@ -193,7 +184,7 @@
     text-align: center;
     background-color: @input-addon-bg;
     border: @border-width-base @border-style-base @input-border-color;
-    border-radius: @control-border-radius;
+    border-radius: @border-radius-base;
     transition: all 0.3s;
 
     // Reset Select's style in addon
@@ -293,19 +284,18 @@
   }
 
   .@{inputClass}-affix-wrapper {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       .@{ant-prefix}-input-search & {
-        border-top-left-radius: @control-border-radius;
-        border-bottom-left-radius: @control-border-radius;
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
       }
-    }
-
-    &:not(:first-child),
-    .@{ant-prefix}-input-search &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
     }
   }
 
@@ -384,8 +374,8 @@
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
-      border-top-left-radius: @control-border-radius;
-      border-bottom-left-radius: @control-border-radius;
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
     }
 
     & > *:last-child,
@@ -393,8 +383,8 @@
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
       border-right-width: @border-width-base;
-      border-top-right-radius: @control-border-radius;
-      border-bottom-right-radius: @control-border-radius;
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -416,55 +406,9 @@
         }
 
         & > .@{ant-prefix}-input {
-          border-radius: @control-border-radius 0 0 @control-border-radius;
+          border-radius: @border-radius-base 0 0 @border-radius-base;
         }
       }
     }
-  }
-}
-
-.status-color(
-  @prefix-cls: @input-prefix-cls;
-  @text-color: @input-color;
-  @border-color: @input-border-color;
-  @background-color: @input-bg;
-  @hoverBorderColor: @primary-color-hover;
-  @outlineColor: @primary-color-outline;
-) {
-  &:not(.@{prefix-cls}-disabled):not(.@{prefix-cls}-borderless).@{prefix-cls} {
-    &,
-    &:hover {
-      background: @background-color;
-      border-color: @border-color;
-    }
-
-    &:focus,
-    &-focused {
-      .active(@text-color, @hoverBorderColor, @outlineColor);
-    }
-  }
-}
-
-.status-color-common(
-  @prefix-cls: @input-prefix-cls;
-  @text-color: @input-color;
-  @border-color: @input-border-color;
-  @background-color: @input-bg;
-  @hoverBorderColor: @primary-color-hover;
-  @outlineColor: @primary-color-outline;
-) {
-  .@{prefix-cls}-prefix {
-    color: @text-color;
-  }
-}
-
-.group-status-color(
-  @prefix-cls: @input-prefix-cls;
-  @text-color: @input-color;
-  @border-color: @input-border-color;
-) {
-  .@{prefix-cls}-group-addon {
-    color: @text-color;
-    border-color: @border-color;
   }
 }

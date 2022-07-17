@@ -13,12 +13,11 @@ title:
 
 Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 
-```tsx
-import { Button, Modal, Space } from 'antd';
-import React, { createContext } from 'react';
+```jsx
+import { Modal, Button, Space } from 'antd';
 
-const ReachableContext = createContext<string | null>(null);
-const UnreachableContext = createContext<string | null>(null);
+const ReachableContext = React.createContext();
+const UnreachableContext = React.createContext();
 
 const config = {
   title: 'Use Hook!',
@@ -31,7 +30,7 @@ const config = {
   ),
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   return (
@@ -66,7 +65,7 @@ const App: React.FC = () => {
           Error
         </Button>
       </Space>
-      {/* `contextHolder` should always be placed under the context you want to access */}
+      {/* `contextHolder` should always under the context you want to access */}
       {contextHolder}
 
       {/* Can not access this context since `contextHolder` is not in it */}
@@ -75,5 +74,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

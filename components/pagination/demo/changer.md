@@ -13,16 +13,14 @@ title:
 
 Change `pageSize`.
 
-```tsx
-import type { PaginationProps } from 'antd';
+```jsx
 import { Pagination } from 'antd';
-import React from 'react';
 
-const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize) => {
+function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Pagination
       showSizeChanger
@@ -38,8 +36,7 @@ const App: React.FC = () => (
       total={500}
       disabled
     />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

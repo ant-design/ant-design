@@ -13,9 +13,8 @@ title:
 
 Basic list.
 
-```tsx
-import { Avatar, List } from 'antd';
-import React from 'react';
+```jsx
+import { List, Avatar } from 'antd';
 
 const data = [
   {
@@ -32,21 +31,20 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <List
     itemLayout="horizontal"
     dataSource={data}
     renderItem={item => (
       <List.Item>
         <List.Item.Meta
-          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
           title={<a href="https://ant.design">{item.title}</a>}
           description="Ant Design, a design language for background applications, is refined by Ant UED Team"
         />
       </List.Item>
     )}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

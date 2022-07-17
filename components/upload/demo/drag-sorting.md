@@ -13,31 +13,18 @@ title:
 
 By using `itemRender`, we can integrate upload with react-dnd to implement drag sorting of uploadList.
 
-```tsx
-import { UploadOutlined } from '@ant-design/icons';
-import { Button, Tooltip, Upload } from 'antd';
-import type { UploadFile, UploadProps } from 'antd/es/upload/interface';
-import update from 'immutability-helper';
-import React, { useCallback, useRef, useState } from 'react';
+```jsx
+import React, { useState, useCallback, useRef } from 'react';
+import { Upload, Button, Tooltip } from 'antd';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import update from 'immutability-helper';
+import { UploadOutlined } from '@ant-design/icons';
 
 const type = 'DragableUploadList';
 
-interface DragableUploadListItemProps {
-  originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-  file: UploadFile;
-  fileList: UploadFile[];
-  moveRow: (dragIndex: any, hoverIndex: any) => void;
-}
-
-const DragableUploadListItem = ({
-  originNode,
-  moveRow,
-  file,
-  fileList,
-}: DragableUploadListItemProps) => {
-  const ref = useRef<HTMLDivElement>(null);
+const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
+  const ref = React.useRef();
   const index = fileList.indexOf(file);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
@@ -51,7 +38,7 @@ const DragableUploadListItem = ({
         dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
       };
     },
-    drop: (item: any) => {
+    drop: item => {
       moveRow(item.index, index);
     },
   });
@@ -75,8 +62,8 @@ const DragableUploadListItem = ({
   );
 };
 
-const App: React.FC = () => {
-  const [fileList, setFileList] = useState<UploadFile[]>([
+const DragSortingUpload: React.FC = () => {
+  const [fileList, setFileList] = useState([
     {
       uid: '-1',
       name: 'image1.png',
@@ -109,7 +96,7 @@ const App: React.FC = () => {
   ]);
 
   const moveRow = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
+    (dragIndex, hoverIndex) => {
       const dragRow = fileList[dragIndex];
       setFileList(
         update(fileList, {
@@ -123,7 +110,7 @@ const App: React.FC = () => {
     [fileList],
   );
 
-  const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {
+  const onChange = ({ fileList: newFileList }) => {
     setFileList(newFileList);
   };
 
@@ -148,7 +135,7 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<DragSortingUpload />, mountNode);
 ```
 
 ```css

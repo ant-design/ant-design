@@ -15,12 +15,10 @@ Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` sel
 
 ```tsx
 import { Tree } from 'antd';
-import type { DataNode, DirectoryTreeProps } from 'antd/es/tree';
-import React from 'react';
 
 const { DirectoryTree } = Tree;
 
-const treeData: DataNode[] = [
+const treeData = [
   {
     title: 'parent 0',
     key: '0-0',
@@ -39,13 +37,13 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
-  const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
+const Demo: React.FC<{}> = () => {
+  const onSelect = (keys: React.Key[], info: any) => {
     console.log('Trigger Select', keys, info);
   };
 
-  const onExpand: DirectoryTreeProps['onExpand'] = (keys, info) => {
-    console.log('Trigger Expand', keys, info);
+  const onExpand = () => {
+    console.log('Trigger Expand');
   };
 
   return (
@@ -59,5 +57,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

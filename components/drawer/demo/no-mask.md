@@ -15,20 +15,17 @@ debug: true
 Remove mask.
 
 ```tsx
-import { Button, Drawer } from 'antd';
 import React, { useState } from 'react';
+import { Drawer, Button } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
-
   const showDrawer = () => {
     setVisible(true);
   };
-
   const onClose = () => {
     setVisible(false);
   };
-
   return (
     <>
       <Button type="primary" onClick={showDrawer}>
@@ -49,5 +46,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

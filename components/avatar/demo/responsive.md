@@ -14,16 +14,14 @@ title:
 Avatar size can be automatically adjusted based on the screen size.
 
 ```tsx
-import { AntDesignOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
-import React from 'react';
+import { AntDesignOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Avatar
     size={{ xs: 24, sm: 32, md: 40, lg: 64, xl: 80, xxl: 100 }}
     icon={<AntDesignOutlined />}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

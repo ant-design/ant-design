@@ -1,9 +1,8 @@
-import raf from 'rc-util/lib/raf';
-import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { useRef } from 'react';
-import type { TooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
+import { composeRef } from 'rc-util/lib/ref';
+import raf from 'rc-util/lib/raf';
+import Tooltip, { TooltipProps } from '../tooltip';
 
 const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const { visible } = props;

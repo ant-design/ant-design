@@ -13,19 +13,10 @@ title:
 
 Responsive columns.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name (all screens)',
     dataIndex: 'name',
@@ -46,7 +37,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -55,7 +46,5 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
-
-export default App;
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ```

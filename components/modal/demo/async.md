@@ -11,16 +11,15 @@ title:
 
 ## en-US
 
-Asynchronously close a modal dialog when the OK button is pressed. For example, you can use this pattern when you submit a form.
+Asynchronously close a modal dialog when a the OK button is pressed. For example, you can use this pattern when you submit a form.
 
-```tsx
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState('Content of the modal');
+const App = () => {
+  const [visible, setVisible] = React.useState(false);
+  const [confirmLoading, setConfirmLoading] = React.useState(false);
+  const [modalText, setModalText] = React.useState('Content of the modal');
 
   const showModal = () => {
     setVisible(true);
@@ -58,5 +57,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

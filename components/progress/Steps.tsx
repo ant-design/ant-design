@@ -1,42 +1,41 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import type { ProgressProps, ProgressSize } from './progress';
+import classNames from 'classnames';
+import { ProgressProps, ProgressSize } from './progress';
 
-interface ProgressStepsProps extends ProgressProps {
+interface StepsProps extends ProgressProps {
   steps: number;
   size?: ProgressSize;
-  strokeColor?: string | string[];
+  strokeColor?: string;
   trailColor?: string;
 }
 
-const Steps: React.FC<ProgressStepsProps> = props => {
+const Steps: React.FC<StepsProps> = props => {
   const {
     size,
     steps,
     percent = 0,
     strokeWidth = 8,
     strokeColor,
-    trailColor = null as any,
+    trailColor,
     prefixCls,
     children,
   } = props;
   const current = Math.round(steps * (percent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
-  const styledSteps: React.ReactNode[] = new Array(steps);
-  for (let i = 0; i < steps; i++) {
-    const color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
-    styledSteps[i] = (
+  const styledSteps = [];
+  for (let i = 0; i < steps; i += 1) {
+    styledSteps.push(
       <div
         key={i}
         className={classNames(`${prefixCls}-steps-item`, {
           [`${prefixCls}-steps-item-active`]: i <= current - 1,
         })}
         style={{
-          backgroundColor: i <= current - 1 ? color : trailColor,
+          backgroundColor: i <= current - 1 ? strokeColor : trailColor,
           width: stepWidth,
           height: strokeWidth,
         }}
-      />
+      />,
     );
   }
   return (

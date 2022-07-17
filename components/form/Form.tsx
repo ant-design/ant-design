@@ -1,19 +1,16 @@
-import classNames from 'classnames';
-import FieldForm, { List, useWatch } from 'rc-field-form';
-import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import { useMemo } from 'react';
-import type { Options } from 'scroll-into-view-if-needed';
+import classNames from 'classnames';
+import FieldForm, { List } from 'rc-field-form';
+import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import { Options } from 'scroll-into-view-if-needed';
+import { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
-import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
-import type { ColProps } from '../grid/col';
-import type { FormContextProps } from './context';
-import { FormContext } from './context';
+import { FormContext, FormContextProps } from './context';
+import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
-import type { FormLabelAlign } from './interface';
+import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -24,12 +21,10 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   name?: string;
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
-  labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
   size?: SizeType;
-  disabled?: boolean;
   scrollToFirstError?: Options | boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
@@ -38,18 +33,15 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
-  const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
     className = '',
     size = contextSize,
-    disabled = contextDisabled,
     form,
     colon,
     labelAlign,
-    labelWrap,
     labelCol,
     wrapperCol,
     hideRequiredMark,
@@ -77,8 +69,6 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     return true;
   }, [hideRequiredMark, requiredMark, contextForm]);
 
-  const mergedColon = colon ?? contextForm?.colon;
-
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   const formClassName = classNames(
@@ -101,15 +91,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       name,
       labelAlign,
       labelCol,
-      labelWrap,
       wrapperCol,
       vertical: layout === 'vertical',
-      colon: mergedColon,
+      colon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
-      form: wrapForm,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark, wrapForm],
+    [name, labelAlign, labelCol, wrapperCol, layout, colon, mergedRequiredMark],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);
@@ -128,20 +116,18 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   };
 
   return (
-    <DisabledContextProvider disabled={disabled}>
-      <SizeContextProvider size={size}>
-        <FormContext.Provider value={formContextValue}>
-          <FieldForm
-            id={name}
-            {...restFormProps}
-            name={name}
-            onFinishFailed={onInternalFinishFailed}
-            form={wrapForm}
-            className={formClassName}
-          />
-        </FormContext.Provider>
-      </SizeContextProvider>
-    </DisabledContextProvider>
+    <SizeContextProvider size={size}>
+      <FormContext.Provider value={formContextValue}>
+        <FieldForm
+          id={name}
+          {...restFormProps}
+          name={name}
+          onFinishFailed={onInternalFinishFailed}
+          form={wrapForm}
+          className={formClassName}
+        />
+      </FormContext.Provider>
+    </SizeContextProvider>
   );
 };
 
@@ -149,6 +135,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, FormInstance, useWatch };
+export { useForm, List, FormInstance };
 
 export default Form;

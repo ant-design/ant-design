@@ -1,9 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { Modal } from '../..';
-import { sleep } from '../../../tests/utils';
+import { mount } from 'enzyme';
 import ConfigProvider from '../../config-provider';
+import { Modal } from '../..';
 import zhCN from '../zh_CN';
 
 class Demo extends React.Component {
@@ -21,7 +19,7 @@ class Demo extends React.Component {
 }
 
 describe('Locale Provider demo', () => {
-  it('change type', async () => {
+  it('change type', () => {
     jest.useFakeTimers();
 
     const BasicExample = () => {
@@ -50,19 +48,10 @@ describe('Locale Provider demo', () => {
       );
     };
     const wrapper = mount(<BasicExample />);
-
     wrapper.find('.about').at(0).simulate('click');
-    await act(async () => {
-      jest.runAllTimers();
-      await sleep();
-    });
-
+    jest.runAllTimers();
     wrapper.find('.dashboard').at(0).simulate('click');
-    await act(async () => {
-      jest.runAllTimers();
-      await sleep();
-    });
-
+    jest.runAllTimers();
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0].textContent).toBe('确 定');
     Modal.destroyAll();
     jest.useRealTimers();

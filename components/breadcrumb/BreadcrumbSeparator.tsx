@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
-interface BreadcrumbSeparatorInterface extends React.FC<{ children?: React.ReactNode }> {
+interface BreadcrumbSeparatorInterface extends React.FC {
   __ANT_BREADCRUMB_SEPARATOR: boolean;
 }
 

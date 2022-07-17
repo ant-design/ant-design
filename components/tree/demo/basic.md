@@ -15,10 +15,8 @@ The most basic usage, tell you how to use checkable, selectable, disabled, defau
 
 ```tsx
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
-import React from 'react';
 
-const treeData: DataNode[] = [
+const treeData = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -48,12 +46,12 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
-  const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
+const Demo = () => {
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
+  const onCheck = (checkedKeys: React.Key[], info: any) => {
     console.log('onCheck', checkedKeys, info);
   };
 
@@ -70,5 +68,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

@@ -3,6 +3,12 @@
     direction: rtl;
   }
 
+  &&-no-icon {
+    .@{alert-prefix-cls}-rtl& {
+      padding: @alert-no-icon-padding-vertical 15px;
+    }
+  }
+
   &-icon {
     .@{alert-prefix-cls}-rtl & {
       margin-right: auto;
@@ -24,17 +30,10 @@
     }
   }
 
-  &-with-description {
+  &-with-description &-icon {
     .@{alert-prefix-cls}-rtl& {
-      padding-right: @alert-with-description-icon-size;
-      padding-left: @alert-with-description-padding-vertical;
-    }
-
-    .@{alert-prefix-cls}-icon {
-      .@{alert-prefix-cls}-rtl& {
-        margin-right: auto;
-        margin-left: @alert-with-description-padding-vertical;
-      }
+      margin-right: auto;
+      margin-left: @alert-with-description-padding-vertical;
     }
   }
 }

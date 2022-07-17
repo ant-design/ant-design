@@ -1,12 +1,12 @@
+import * as React from 'react';
+import classNames from 'classnames';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
-import classNames from 'classnames';
-import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
+import devWarning from '../_util/devWarning';
 
 import noFound from './noFound';
 import serverError from './serverError';
@@ -37,7 +37,6 @@ export interface ResultProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
 }
 
 // ExceptionImageMap keys
@@ -49,17 +48,10 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  * @param prefixCls
  * @param {status, icon}
  */
-
-interface IconProps {
-  prefixCls: string;
-  icon: React.ReactNode;
-  status: ResultStatusType;
-}
-
-const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
+const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classNames(`${prefixCls}-icon`);
 
-  warning(
+  devWarning(
     !(typeof icon === 'string' && icon.length > 2),
     'Result',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
@@ -80,22 +72,13 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
   return <div className={className}>{icon || iconNode}</div>;
 };
 
-interface ExtraProps {
-  prefixCls: string;
-  extra: React.ReactNode;
-}
-
-const Extra: React.FC<ExtraProps> = ({ prefixCls, extra }) => {
-  if (!extra) {
-    return null;
-  }
-  return <div className={`${prefixCls}-extra`}>{extra}</div>;
-};
+const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
+  extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
 export interface ResultType extends React.FC<ResultProps> {
-  PRESENTED_IMAGE_404: React.FC;
-  PRESENTED_IMAGE_403: React.FC;
-  PRESENTED_IMAGE_500: React.FC;
+  PRESENTED_IMAGE_404: React.ReactNode;
+  PRESENTED_IMAGE_403: React.ReactNode;
+  PRESENTED_IMAGE_500: React.ReactNode;
 }
 
 const Result: ResultType = ({
@@ -117,10 +100,10 @@ const Result: ResultType = ({
   });
   return (
     <div className={className} style={style}>
-      <Icon prefixCls={prefixCls} status={status} icon={icon} />
+      {renderIcon(prefixCls, { status, icon })}
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      <Extra prefixCls={prefixCls} extra={extra} />
+      {renderExtra(prefixCls, { extra })}
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   );

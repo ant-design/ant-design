@@ -39,7 +39,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/es/locale/zh_CN';
+import locale from 'antd/lib/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
@@ -64,20 +64,14 @@ The following APIs are shared by DatePicker, RangePicker.
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
-| nextIcon | The custom next icon | ReactNode | - | 4.17.0 |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
-| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
-| prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
-| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | To customize the style of the input box | CSSProperties | {} |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
-| superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
-| superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 
@@ -187,16 +181,9 @@ Please refer [replace moment](/docs/react/replace-moment#DatePicker)
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
-#### Date-related components locale is not working?
-
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
-
 ### How to modify start day of week?
 
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config:
-
-- Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
-- Alternate example: <https://stackblitz.com/edit/react-9aegkj>
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config: <https://codesandbox.io/s/moment-day-of-week-6dby5>
 
 ### Why origin panel don't switch when using `panelRender`?
 

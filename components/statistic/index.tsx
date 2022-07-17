@@ -1,5 +1,5 @@
-import Countdown from './Countdown';
 import Statistic, { StatisticProps } from './Statistic';
+import Countdown from './Countdown';
 
 Statistic.Countdown = Countdown;
 

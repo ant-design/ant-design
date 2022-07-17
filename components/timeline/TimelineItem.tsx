@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 
 export interface TimelineItemProps {
@@ -11,10 +11,9 @@ export interface TimelineItemProps {
   position?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
-  children?: React.ReactNode;
 }
 
-// for compatibility
+// for compatibililty
 // https://github.com/ant-design/ant-design/pull/26832
 export interface TimeLineItemProps extends TimelineItemProps {
   __deprecated_do_not_use_it__?: any; // eslint-disable-line camelcase
@@ -48,13 +47,14 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     [`${prefixCls}-item-head-${color}`]: true,
   });
 
-  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
-
   return (
     <li {...restProps} className={itemClassName}>
       {label && <div className={`${prefixCls}-item-label`}>{label}</div>}
       <div className={`${prefixCls}-item-tail`} />
-      <div className={dotClassName} style={{ borderColor: customColor, color: customColor }}>
+      <div
+        className={dotClassName}
+        style={{ borderColor: /blue|red|green|gray/.test(color || '') ? undefined : color }}
+      >
         {dot}
       </div>
       <div className={`${prefixCls}-item-content`}>{children}</div>

@@ -1,8 +1,7 @@
 import * as React from 'react';
-import type { DescriptionsContextProps } from '.';
-import { DescriptionsContext } from '.';
+import { DescriptionsItemProps } from './Item';
 import Cell from './Cell';
-import type { DescriptionsItemProps } from './Item';
+import { DescriptionsContext, DescriptionsContextProps } from '.';
 
 interface CellConfig {
   component: string | [string, string];
@@ -93,7 +92,6 @@ export interface RowProps {
   bordered?: boolean;
   colon: boolean;
   index: number;
-  children?: React.ReactNode;
 }
 
 const Row: React.FC<RowProps> = props => {

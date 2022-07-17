@@ -1,14 +1,13 @@
-import { presetPrimaryColors } from '@ant-design/colors';
 import * as React from 'react';
-import type { DirectionType } from '../config-provider';
-import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { getSuccessPercent, validProgress } from './utils';
+import { presetPrimaryColors } from '@ant-design/colors';
+import { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import { validProgress, getSuccessPercent } from './utils';
+import { DirectionType } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
   children: React.ReactNode;
-  strokeColor?: string | ProgressGradient;
 }
 
 /**
@@ -71,9 +70,9 @@ const Line: React.FC<LineProps> = props => {
     strokeWidth,
     size,
     strokeColor,
-    strokeLinecap = 'round',
+    strokeLinecap,
     children,
-    trailColor = null,
+    trailColor,
     success,
   } = props;
 
@@ -84,27 +83,27 @@ const Line: React.FC<LineProps> = props => {
           background: strokeColor,
         };
 
-  const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-  const trailStyle = {
-    backgroundColor: trailColor || undefined,
-    borderRadius,
-  };
+  const trailStyle = trailColor
+    ? {
+        backgroundColor: trailColor,
+      }
+    : undefined;
 
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius,
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
-  };
+  } as React.CSSProperties;
 
   const successPercent = getSuccessPercent(props);
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius,
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
     backgroundColor: success?.strokeColor,
-  };
+  } as React.CSSProperties;
 
   const successSegment =
     successPercent !== undefined ? (

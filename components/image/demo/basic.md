@@ -13,16 +13,17 @@ title:
 
 Click the image to zoom in.
 
-```tsx
+```jsx
 import { Image } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
-  <Image
-    width={200}
-    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-  />
-);
+function ImageDemo() {
+  return (
+    <Image
+      width={200}
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    />
+  );
+}
 
-export default App;
+ReactDOM.render(<ImageDemo />, mountNode);
 ```

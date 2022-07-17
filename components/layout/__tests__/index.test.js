@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
+import { mount, render } from 'enzyme';
 import Layout from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import Icon from '../../icon';
 import Menu from '../../menu';
-import { fireEvent, render } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
-const { Sider, Content, Footer, Header } = Layout;
+const { Sider, Content } = Layout;
 
 describe('Layout', () => {
   mountTest(Layout);
@@ -25,16 +24,14 @@ describe('Layout', () => {
   rtlTest(Sider);
 
   it('detect the sider as children', () => {
-    const { container, unmount } = render(
+    const wrapper = mount(
       <Layout>
         <Sider>Sider</Sider>
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      true,
-    );
-    unmount();
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.unmount();
   });
 
   it('umount from multiple siders', async () => {
@@ -56,22 +53,16 @@ describe('Layout', () => {
         </Layout>
       );
     };
-    const { container } = render(<App />);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      true,
-    );
-    fireEvent.click(container.querySelectorAll('button')[0]);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      true,
-    );
-    fireEvent.click(container.querySelectorAll('button')[1]);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      false,
-    );
+    const wrapper = mount(<App />);
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.find('button').at(0).simulate('click');
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    wrapper.find('button').at(1).simulate('click');
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
   });
 
   it('detect the sider inside the children', async () => {
-    const { container } = render(
+    const wrapper = mount(
       <Layout>
         <div>
           <Sider>Sider</Sider>
@@ -79,13 +70,11 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      true,
-    );
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
   });
 
   it('detect ant-layout-sider-has-trigger class in sider when ant-layout-sider-trigger div tag exists', async () => {
-    const { container } = render(
+    const wrapper = mount(
       <Layout>
         <div>
           <Sider collapsible>Sider</Sider>
@@ -93,15 +82,11 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(
-      container
-        .querySelector('.ant-layout-sider')
-        .className.includes('ant-layout-sider-has-trigger'),
-    ).toBe(true);
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-has-trigger')).toBe(true);
   });
 
   it('should have 50% width of sidebar', async () => {
-    const { container } = render(
+    const wrapper = mount(
       <Layout>
         <div>
           <Sider width="50%">Sider</Sider>
@@ -109,13 +94,13 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout-sider').style.width).toBe('50%');
-    expect(container.querySelector('.ant-layout-sider').style.flex).toBe('0 0 50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
+    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
   describe('zeroWidth', () => {
     it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
-      const { container } = render(
+      const wrapper = mount(
         <Layout>
           <div>
             <Sider width="0%">Sider</Sider>
@@ -123,18 +108,14 @@ describe('Layout', () => {
           <Content>Content</Content>
         </Layout>,
       );
-      expect(
-        container
-          .querySelector('.ant-layout-sider')
-          .className.includes('ant-layout-sider-zero-width'),
-      ).toBe(true);
+      expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
     });
 
     describe('should collapsible', () => {
       it('uncontrolled', () => {
         const onCollapse = jest.fn();
 
-        const { container } = render(
+        const wrapper = mount(
           <Layout>
             <Sider collapsible breakpoint="lg" collapsedWidth="0" onCollapse={onCollapse}>
               Sider
@@ -144,7 +125,8 @@ describe('Layout', () => {
         );
 
         onCollapse.mockReset();
-        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger'));
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
         expect(onCollapse).toHaveBeenCalledTimes(1);
       });
 
@@ -168,54 +150,50 @@ describe('Layout', () => {
           );
         };
 
-        const { container } = render(<Demo />);
-        expect(container.querySelector('.ant-layout-sider-collapsed')).toBeTruthy();
-        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger'));
-        expect(container.querySelector('.ant-layout-sider-collapsed')).toBeFalsy();
+        const wrapper = mount(<Demo />);
+        expect(wrapper.find(Sider).prop('collapsed')).toBeTruthy();
+
+        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        expect(wrapper.find(Sider).prop('collapsed')).toBeFalsy();
       });
     });
   });
 
   it('detect ant-layout-sider-dark as default theme', async () => {
-    const { container } = render(<Sider>Sider</Sider>);
-    expect(
-      container.querySelector('.ant-layout-sider').className.includes('ant-layout-sider-dark'),
-    ).toBe(true);
+    const wrapper = mount(<Sider>Sider</Sider>);
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark')).toBe(true);
   });
 
   it('detect ant-layout-sider-light when set light theme', async () => {
-    const { container } = render(<Sider theme="light">Sider</Sider>);
-    expect(
-      container.querySelector('.ant-layout-sider').className.includes('ant-layout-sider-light'),
-    ).toBe(true);
+    const wrapper = mount(<Sider theme="light">Sider</Sider>);
+    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light')).toBe(true);
   });
 
   it('renders string width correctly', () => {
-    const { asFragment } = render(<Sider width="200">Sider</Sider>);
-    expect(asFragment().firstChild).toMatchSnapshot();
+    const wrapper = render(<Sider width="200">Sider</Sider>);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should be controlled by collapsed', () => {
-    const { asFragment, rerender } = render(<Sider>Sider</Sider>);
-    expect(asFragment().firstChild).toMatchSnapshot();
-    rerender(<Sider collapsed>Sider</Sider>);
-    expect(asFragment().firstChild).toMatchSnapshot();
+    const wrapper = mount(<Sider>Sider</Sider>);
+    expect(wrapper).toMatchSnapshot();
+    wrapper.setProps({ collapsed: true });
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Layout hasSider={false}>
         <Sider>Sider</Sider>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
-      false,
-    );
+    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
   });
 
   it('render correct with Tooltip', () => {
     jest.useFakeTimers();
-    const { container, rerender } = render(
+    const wrapper = mount(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
           <Menu.Item key="1">
@@ -226,27 +204,19 @@ describe('Layout', () => {
       </Sider>,
     );
 
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseout');
+    jest.runAllTimers();
+    wrapper.update();
 
-    rerender(
-      <Sider collapsible collapsed>
-        <Menu mode="inline">
-          <Menu.Item key="1">
-            <Icon type="user" />
-            <span>Light</span>
-          </Menu.Item>
-        </Menu>
-      </Sider>,
-    );
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeTruthy();
+    wrapper.setProps({ collapsed: true });
+    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();
 
     jest.useRealTimers();
   });
@@ -266,7 +236,7 @@ describe('Sider', () => {
   it('should trigger onBreakpoint', async () => {
     const onBreakpoint = jest.fn();
 
-    render(
+    mount(
       <Sider breakpoint="md" onBreakpoint={onBreakpoint}>
         Sider
       </Sider>,
@@ -275,7 +245,7 @@ describe('Sider', () => {
   });
 
   it('should warning if use `inlineCollapsed` with menu', () => {
-    render(
+    mount(
       <Sider collapsible>
         <Menu mode="inline" inlineCollapsed />
       </Sider>,
@@ -286,7 +256,7 @@ describe('Sider', () => {
   });
 
   it('zeroWidthTriggerStyle should work', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
@@ -296,13 +266,13 @@ describe('Sider', () => {
         </Menu>
       </Sider>,
     );
-    expect(
-      container.querySelector('.ant-layout-sider-zero-width-trigger').style.background,
-    ).toEqual('rgb(255, 153, 102)');
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').props().style).toEqual({
+      background: '#F96',
+    });
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
@@ -312,24 +282,18 @@ describe('Sider', () => {
         </Menu>
       </Sider>,
     );
-    expect(
-      container.querySelector('.ant-layout-sider-zero-width-trigger').querySelector('.my-trigger'),
-    ).toBeTruthy();
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 
-  ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
-    const ComponentMap = { Layout, Header, Footer, Sider };
-    it(`should get ${tag} element from ref`, () => {
-      const ref = React.createRef();
-      const onSelect = jest.fn();
-      const Component = ComponentMap[tag];
+  it('should get aside element from ref', () => {
+    const ref = React.createRef();
+    const onSelect = jest.fn();
 
-      render(
-        <Component onSelect={onSelect} ref={ref}>
-          {tag}
-        </Component>,
-      );
-      expect(ref.current instanceof HTMLElement).toBe(true);
-    });
+    mount(
+      <Sider onSelect={onSelect} ref={ref}>
+        Sider
+      </Sider>,
+    );
+    expect(ref.current instanceof HTMLElement).toBe(true);
   });
 });

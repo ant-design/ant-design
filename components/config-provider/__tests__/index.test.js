@@ -1,12 +1,11 @@
-import { SmileOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import React, { useState } from 'react';
+import { mount } from 'enzyme';
+import { SmileOutlined } from '@ant-design/icons';
 import ConfigProvider, { ConfigContext } from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
-import Input from '../../input';
 import Table from '../../table';
+import Input from '../../input';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -23,7 +22,7 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(wrapper.find('InternalWave').instance().csp).toBe(csp);
+    expect(wrapper.find('Wave').instance().csp).toBe(csp);
   });
 
   it('autoInsertSpaceInButton', () => {
@@ -55,7 +54,7 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(wrapper.exists('button.bamboo-btn')).toBeTruthy();
+    expect(wrapper.find('button').props().className).toEqual('bamboo-btn');
   });
 
   it('dynamic prefixCls', () => {
@@ -75,11 +74,11 @@ describe('ConfigProvider', () => {
       );
     };
 
-    const { container } = render(<DynamicPrefixCls />);
+    const wrapper = mount(<DynamicPrefixCls />);
 
-    expect(container.querySelector('button.bamboo-btn')).toBeTruthy();
-    fireEvent.click(container.querySelector('.toggle-button'));
-    expect(container.querySelector('button.light-btn')).toBeTruthy();
+    expect(wrapper.find('button').last().props().className).toEqual('bamboo-btn');
+    wrapper.find('.toggle-button').first().simulate('click');
+    expect(wrapper.find('button').last().props().className).toEqual('light-btn');
   });
 
   it('iconPrefixCls', () => {
@@ -104,23 +103,16 @@ describe('ConfigProvider', () => {
   });
 
   it('render empty', () => {
-    let rendered = false;
-    let cacheRenderEmpty;
-
     const App = () => {
       const { renderEmpty } = React.useContext(ConfigContext);
-      rendered = true;
-      cacheRenderEmpty = renderEmpty;
-      return null;
+      return renderEmpty();
     };
-
-    render(
+    const wrapper = mount(
       <ConfigProvider>
         <App />
       </ConfigProvider>,
     );
 
-    expect(rendered).toBeTruthy();
-    expect(cacheRenderEmpty).toBeFalsy();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 });

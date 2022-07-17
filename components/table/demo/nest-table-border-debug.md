@@ -14,40 +14,19 @@ debug: true
 
 To see if bordered style applied to other tables.
 
-```tsx
+```jsx
+import { Table, Badge, Menu, Dropdown, Switch, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'antd';
-import React, { useState } from 'react';
-
-interface DataType {
-  key: React.Key;
-  name: string;
-  platform: string;
-  version: string;
-  upgradeNum: number;
-  creator: string;
-  createdAt: string;
-}
-
-interface ExpandedDataType {
-  key: React.Key;
-  date: string;
-  name: string;
-  upgradeNum: string;
-}
 
 const menu = (
-  <Menu
-    items={[
-      { key: '1', label: 'Action 1' },
-      { key: '2', label: 'Action 2' },
-    ]}
-  />
+  <Menu>
+    <Menu.Item>Action 1</Menu.Item>
+    <Menu.Item>Action 2</Menu.Item>
+  </Menu>
 );
 
-const App: React.FC = () => {
-  const createExpandedRowRender = (bordered: boolean) => () => {
+function NestedTable() {
+  const createExpandedRowRender = bordered => () => {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -80,7 +59,7 @@ const App: React.FC = () => {
       },
     ];
 
-    const data: ExpandedDataType[] = [];
+    const data = [];
     for (let i = 0; i < 3; ++i) {
       data.push({
         key: i,
@@ -89,11 +68,10 @@ const App: React.FC = () => {
         upgradeNum: 'Upgraded: 56',
       });
     }
-
     return <Table columns={columns} dataSource={data} pagination={false} bordered={bordered} />;
   };
 
-  const columns: TableColumnsType<DataType> = [
+  const columns = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform' },
     { title: 'Version', dataIndex: 'version', key: 'version' },
@@ -103,7 +81,7 @@ const App: React.FC = () => {
     { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
   ];
 
-  const data: DataType[] = [];
+  const data = [];
   for (let i = 0; i < 3; ++i) {
     data.push({
       key: i,
@@ -116,8 +94,8 @@ const App: React.FC = () => {
     });
   }
 
-  const [rootTableBordered, setRootTableBordered] = useState(true);
-  const [childTableBordered, setChildTableBordered] = useState(true);
+  const [rootTableBordered, setRootTableBordered] = React.useState(true);
+  const [childTableBordered, setChildTableBordered] = React.useState(true);
   return (
     <>
       <Form
@@ -135,6 +113,7 @@ const App: React.FC = () => {
       <Table
         title={() => 'cool'}
         footer={() => 'cool'}
+        className="components-table-demo-nested"
         columns={columns}
         expandable={{ expandedRowRender: createExpandedRowRender(childTableBordered) }}
         dataSource={data}
@@ -142,7 +121,7 @@ const App: React.FC = () => {
       />
     </>
   );
-};
+}
 
-export default App;
+ReactDOM.render(<NestedTable />, mountNode);
 ```

@@ -13,19 +13,10 @@ title:
 
 Ellipsis cell content via setting `column.ellipsis.showTitle`, use `Tooltip` instead of the html title attribute.
 
-```tsx
+```jsx
 import { Table, Tooltip } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -93,7 +84,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -114,7 +105,5 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
-
-export default App;
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ```

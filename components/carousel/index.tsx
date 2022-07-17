@@ -1,7 +1,6 @@
-import type { Settings } from '@ant-design/react-slick';
-import SlickCarousel from '@ant-design/react-slick';
-import classNames from 'classnames';
 import * as React from 'react';
+import SlickCarousel, { Settings } from '@ant-design/react-slick';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 
 export type CarouselEffect = 'scrollx' | 'fade';
@@ -26,22 +25,12 @@ export interface CarouselRef {
   goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
   prev: () => void;
-  autoPlay: (palyType?: 'update' | 'leave' | 'blur') => void;
+  autoPlay: boolean;
   innerSlider: any;
 }
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
-  (
-    {
-      dots = true,
-      arrows = false,
-      draggable = false,
-      dotPosition = 'bottom',
-      vertical = dotPosition === 'left' || dotPosition === 'right',
-      ...props
-    },
-    ref,
-  ) => {
+  ({ dots = true, arrows = false, draggable = false, dotPosition = 'bottom', ...props }, ref) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();
 
@@ -71,7 +60,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
     }, [props.children]);
 
     const newProps = {
-      vertical,
       ...props,
     };
 
@@ -81,6 +69,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
 
     const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
     const dotsClass = 'slick-dots';
+    newProps.vertical = dotPosition === 'left' || dotPosition === 'right';
 
     const enableDots = !!dots;
     const dsClass = classNames(
@@ -91,7 +80,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
 
     const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
+      [`${prefixCls}-vertical`]: newProps.vertical,
     });
 
     return (

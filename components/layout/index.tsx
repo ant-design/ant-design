@@ -1,12 +1,10 @@
-import InternalLayout, { Content, Footer, Header } from './layout';
+import InternalLayout, { BasicProps, Content, Footer, Header } from './layout';
 import Sider from './Sider';
 
 export { BasicProps as LayoutProps } from './layout';
 export { SiderProps } from './Sider';
 
-type InternalLayoutType = typeof InternalLayout;
-
-interface LayoutType extends InternalLayoutType {
+interface LayoutType extends React.FC<BasicProps> {
   Header: typeof Header;
   Footer: typeof Footer;
   Content: typeof Content;

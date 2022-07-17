@@ -14,22 +14,21 @@ title:
 Demonstration of validation configuration for form controls which are not shown in the demos above.
 
 ```tsx
-import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 import {
-  Button,
-  Checkbox,
-  Col,
   Form,
-  InputNumber,
-  Radio,
-  Rate,
-  Row,
   Select,
-  Slider,
+  InputNumber,
   Switch,
+  Radio,
+  Slider,
+  Button,
   Upload,
+  Rate,
+  Checkbox,
+  Row,
+  Col,
 } from 'antd';
-import React from 'react';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -43,10 +42,10 @@ const normFile = (e: any) => {
   if (Array.isArray(e)) {
     return e;
   }
-  return e?.fileList;
+  return e && e.fileList;
 };
 
-const App: React.FC = () => {
+const Demo = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -207,5 +206,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

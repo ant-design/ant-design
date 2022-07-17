@@ -3,11 +3,11 @@
 exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -39,9 +39,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -89,9 +87,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -143,9 +139,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -180,9 +174,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -217,9 +209,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -271,9 +261,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -321,11 +309,11 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -357,9 +345,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -407,9 +393,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -461,9 +445,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -498,9 +480,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -535,9 +515,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -572,9 +550,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -626,9 +602,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -663,9 +637,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -700,9 +672,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -737,9 +707,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -771,9 +739,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -821,9 +787,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -860,11 +824,11 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 <div
   class="ant-tree"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -896,9 +860,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -962,9 +924,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1012,9 +972,7 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1071,11 +1029,11 @@ exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
 exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -1107,9 +1065,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1173,9 +1129,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1223,9 +1177,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1273,9 +1225,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1339,9 +1289,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1389,9 +1337,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -1499,11 +1445,11 @@ Array [
   </div>,
   <div
     class="ant-tree ant-tree-block-node draggable-tree ant-tree-show-line"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
-        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -1535,37 +1481,12 @@ Array [
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
             >
               <span
                 aria-hidden="true"
                 class="ant-tree-indent"
               />
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
-              </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher_open"
               >
@@ -1593,7 +1514,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+                draggable="true"
                 title="0-0"
               >
                 <span
@@ -1627,9 +1550,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
             >
               <span
                 aria-hidden="true"
@@ -1638,29 +1559,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher_open"
@@ -1689,7 +1587,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+                draggable="true"
                 title="0-0-0"
               >
                 <span
@@ -1723,9 +1623,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-open"
             >
               <span
                 aria-hidden="true"
@@ -1737,29 +1635,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1785,7 +1660,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
                 title="0-0-0-0"
               >
                 <span
@@ -1819,9 +1696,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
             >
               <span
                 aria-hidden="true"
@@ -1833,29 +1708,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1881,7 +1733,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
                 title="0-0-0-1"
               >
                 <span
@@ -1915,9 +1769,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
               <span
                 aria-hidden="true"
@@ -1929,29 +1781,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
@@ -1977,7 +1806,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
                 title="0-0-0-2"
               >
                 <span
@@ -2011,9 +1842,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
             >
               <span
                 aria-hidden="true"
@@ -2022,29 +1851,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher_close"
@@ -2073,7 +1879,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+                draggable="true"
                 title="0-0-1"
               >
                 <span
@@ -2107,9 +1915,7 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
               <span
                 aria-hidden="true"
@@ -2118,29 +1924,6 @@ Array [
                 <span
                   class="ant-tree-indent-unit ant-tree-indent-unit-start"
                 />
-              </span>
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
@@ -2166,7 +1949,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
                 title="0-0-2"
               >
                 <span
@@ -2200,37 +1985,12 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close"
             >
               <span
                 aria-hidden="true"
                 class="ant-tree-indent"
               />
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
-              </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher_close"
               >
@@ -2258,7 +2018,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+                draggable="true"
                 title="0-1"
               >
                 <span
@@ -2292,37 +2054,12 @@ Array [
               </span>
             </div>
             <div
-              aria-grabbed="false"
-              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-              draggable="true"
+              class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             >
               <span
                 aria-hidden="true"
                 class="ant-tree-indent"
               />
-              <span
-                class="ant-tree-draggable-icon"
-              >
-                <span
-                  aria-label="holder"
-                  class="anticon anticon-holder"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="holder"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                    />
-                  </svg>
-                </span>
-              </span>
               <span
                 class="ant-tree-switcher ant-tree-switcher-noop"
               >
@@ -2347,7 +2084,9 @@ Array [
                 </span>
               </span>
               <span
-                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                aria-grabbed="true"
+                class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+                draggable="true"
                 title="0-2"
               >
                 <span
@@ -2391,11 +2130,11 @@ Array [
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -2427,37 +2166,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
               aria-hidden="true"
               class="ant-tree-indent"
             />
-            <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
             >
@@ -2482,7 +2196,9 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+              draggable="true"
               title="0-0"
             >
               <span
@@ -2493,9 +2209,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
               aria-hidden="true"
@@ -2504,29 +2218,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
-            </span>
-            <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_open"
@@ -2552,7 +2243,9 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
+              draggable="true"
               title="0-0-0"
             >
               <span
@@ -2563,9 +2256,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
           >
             <span
               aria-hidden="true"
@@ -2579,33 +2270,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+              draggable="true"
               title="0-0-0-0"
             >
               <span
@@ -2616,9 +2286,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
               aria-hidden="true"
@@ -2632,33 +2300,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+              draggable="true"
               title="0-0-0-1"
             >
               <span
@@ -2669,9 +2316,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -2685,33 +2330,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+              draggable="true"
               title="0-0-0-2"
             >
               <span
@@ -2722,9 +2346,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
               aria-hidden="true"
@@ -2733,29 +2355,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               <span
                 class="ant-tree-indent-unit ant-tree-indent-unit-start"
               />
-            </span>
-            <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
             </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
@@ -2781,7 +2380,9 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+              draggable="true"
               title="0-0-1"
             >
               <span
@@ -2792,9 +2393,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
@@ -2805,33 +2404,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               />
             </span>
             <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+              draggable="true"
               title="0-0-2"
             >
               <span
@@ -2842,37 +2420,12 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
               aria-hidden="true"
               class="ant-tree-indent"
             />
-            <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
             <span
               class="ant-tree-switcher ant-tree-switcher_close"
             >
@@ -2897,7 +2450,9 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
+              draggable="true"
               title="0-1"
             >
               <span
@@ -2908,42 +2463,19 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
-            draggable="true"
+            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
           >
             <span
               aria-hidden="true"
               class="ant-tree-indent"
             />
             <span
-              class="ant-tree-draggable-icon"
-            >
-              <span
-                aria-label="holder"
-                class="anticon anticon-holder"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="holder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                  />
-                </svg>
-              </span>
-            </span>
-            <span
               class="ant-tree-switcher ant-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              aria-grabbed="true"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
+              draggable="true"
               title="0-2"
             >
               <span
@@ -2963,11 +2495,11 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
 exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -2999,9 +2531,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -3042,9 +2572,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -3085,9 +2613,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -3168,11 +2694,11 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
   </div>
   <div
     class="ant-tree ant-tree-icon-hide ant-tree-show-line"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
-        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -3204,9 +2730,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3250,9 +2774,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3300,9 +2822,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3350,9 +2870,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3405,9 +2923,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3455,9 +2971,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3505,9 +3019,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3555,9 +3067,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3627,7 +3137,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+          class="ant-btn ant-btn-icon-only ant-input-search-button"
           type="button"
         >
           <span
@@ -3655,11 +3165,11 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
   </span>
   <div
     class="ant-tree ant-tree-icon-hide"
-    role="tree"
   >
-    <div>
+    <div
+      role="tree"
+    >
       <input
-        aria-label="for screen reader"
         style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
         tabindex="0"
         value=""
@@ -3691,9 +3201,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3739,9 +3247,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3787,9 +3293,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-grabbed="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-              draggable="false"
             >
               <span
                 aria-hidden="true"
@@ -3825,11 +3329,11 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
-  role="tree"
 >
-  <div>
+  <div
+    role="tree"
+  >
     <input
-      aria-label="for screen reader"
       style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
       value=""
@@ -3861,9 +3365,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -3904,9 +3406,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -3951,9 +3451,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -4001,9 +3499,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -4051,9 +3547,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -4101,9 +3595,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
-            draggable="false"
           >
             <span
               aria-hidden="true"
@@ -4148,9 +3640,7 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
             </span>
           </div>
           <div
-            aria-grabbed="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
-            draggable="false"
           >
             <span
               aria-hidden="true"

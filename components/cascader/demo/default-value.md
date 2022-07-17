@@ -13,17 +13,10 @@ title:
 
 Specifies default value by an array.
 
-```tsx
+```jsx
 import { Cascader } from 'antd';
-import React from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-  children?: Option[];
-}
-
-const options: Option[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -58,13 +51,16 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+function onChange(value) {
   console.log(value);
-};
+}
 
-const App: React.FC = () => (
-  <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={onChange} />
+ReactDOM.render(
+  <Cascader
+    defaultValue={['zhejiang', 'hangzhou', 'xihu']}
+    options={options}
+    onChange={onChange}
+  />,
+  mountNode,
 );
-
-export default App;
 ```

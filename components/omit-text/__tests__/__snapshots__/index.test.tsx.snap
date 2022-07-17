@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`OmitText rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="omitText"
-  style="max-width: 120px;"
-/>
-`;

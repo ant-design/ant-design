@@ -1,6 +1,6 @@
 import CalendarLocale from 'rc-picker/lib/locale/by_BY';
 import TimePickerLocale from '../../time-picker/locale/by_BY';
-import type { PickerLocale } from '../generatePicker';
+import { PickerLocale } from '../generatePicker';
 
 const locale: PickerLocale = {
   lang: {
@@ -9,11 +9,10 @@ const locale: PickerLocale = {
     quarterPlaceholder: 'Выберыце квартал',
     monthPlaceholder: 'Выберыце месяц',
     weekPlaceholder: 'Выберыце тыдзень',
-    rangePlaceholder: ['Дата пачатку', 'Дата заканчэння'],
-    rangeYearPlaceholder: ['Год пачатку', 'Год заканчэння'],
-    rangeQuarterPlaceholder: ['Квартал пачатку', 'Квартал заканчэння'],
-    rangeMonthPlaceholder: ['Месяц пачатку', 'Месяц заканчэння'],
-    rangeWeekPlaceholder: ['Тыдзень пачаку', 'Тыдзень заканчэння'],
+    rangePlaceholder: ['Пачатковая дата', 'Канчатковая дата'],
+    rangeYearPlaceholder: ['Пачатковы год', 'Год заканчэння'],
+    rangeMonthPlaceholder: ['Пачатковы месяц', 'Канчатковы месяц'],
+    rangeWeekPlaceholder: ['Пачатковы тыдзень', 'Канчатковы тыдзень'],
     ...CalendarLocale,
   },
   timePickerLocale: {

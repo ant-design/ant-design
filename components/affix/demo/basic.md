@@ -14,10 +14,10 @@ title:
 The simplest usage.
 
 ```tsx
-import { Affix, Button } from 'antd';
 import React, { useState } from 'react';
+import { Affix, Button } from 'antd';
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
   const [top, setTop] = useState(10);
   const [bottom, setBottom] = useState(10);
 
@@ -38,5 +38,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

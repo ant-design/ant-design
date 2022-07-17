@@ -13,9 +13,8 @@ title:
 
 Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
-```tsx
+```jsx
 import { Mentions } from 'antd';
-import React, { useState } from 'react';
 
 const { Option } = Mentions;
 
@@ -24,30 +23,34 @@ const MOCK_DATA = {
   '#': ['1.0', '2.0', '3.0'],
 };
 
-type PrefixType = keyof typeof MOCK_DATA;
-
-const App: React.FC = () => {
-  const [prefix, setPrefix] = useState<PrefixType>('@');
-
-  const onSearch = (_: string, newPrefix: PrefixType) => {
-    setPrefix(newPrefix);
+class App extends React.Component {
+  state = {
+    prefix: '@',
   };
 
-  return (
-    <Mentions
-      style={{ width: '100%' }}
-      placeholder="input @ to mention people, # to mention tag"
-      prefix={['@', '#']}
-      onSearch={onSearch}
-    >
-      {(MOCK_DATA[prefix] || []).map(value => (
-        <Option key={value} value={value}>
-          {value}
-        </Option>
-      ))}
-    </Mentions>
-  );
-};
+  onSearch = (_, prefix) => {
+    this.setState({ prefix });
+  };
 
-export default App;
+  render() {
+    const { prefix } = this.state;
+
+    return (
+      <Mentions
+        style={{ width: '100%' }}
+        placeholder="input @ to mention people, # to mention tag"
+        prefix={['@', '#']}
+        onSearch={this.onSearch}
+      >
+        {(MOCK_DATA[prefix] || []).map(value => (
+          <Option key={value} value={value}>
+            {value}
+          </Option>
+        ))}
+      </Mentions>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

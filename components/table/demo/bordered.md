@@ -13,19 +13,10 @@ title:
 
 Add border, title and footer for table.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: string;
-  name: string;
-  money: string;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -43,7 +34,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -64,15 +55,14 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Table
     columns={columns}
     dataSource={data}
     bordered
     title={() => 'Header'}
     footer={() => 'Footer'}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

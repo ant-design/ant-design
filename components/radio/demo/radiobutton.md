@@ -13,16 +13,14 @@ title:
 
 The combination of radio button style.
 
-```tsx
-import type { RadioChangeEvent } from 'antd';
+```jsx
 import { Radio } from 'antd';
-import React from 'react';
 
-const onChange = (e: RadioChangeEvent) => {
+function onChange(e) {
   console.log(`radio checked:${e.target.value}`);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Radio.Group onChange={onChange} defaultValue="a">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -44,8 +42,7 @@ const App: React.FC = () => (
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

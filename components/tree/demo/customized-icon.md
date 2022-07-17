@@ -13,19 +13,17 @@ title:
 
 You can customize icons for different nodes.
 
-```tsx
+```jsx
+import { Tree } from 'antd';
 import {
   DownOutlined,
-  FrownFilled,
   FrownOutlined,
-  MehOutlined,
   SmileOutlined,
+  MehOutlined,
+  FrownFilled,
 } from '@ant-design/icons';
-import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
-import React from 'react';
 
-const treeData: DataNode[] = [
+const treeData = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -45,15 +43,14 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Tree
     showIcon
     defaultExpandAll
     defaultSelectedKeys={['0-0-0']}
     switcherIcon={<DownOutlined />}
     treeData={treeData}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

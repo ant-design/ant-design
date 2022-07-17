@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
 import notification from '..';
 import ConfigProvider from '../../config-provider';
 

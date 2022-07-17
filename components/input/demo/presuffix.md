@@ -13,12 +13,11 @@ title:
 
 Add a prefix or suffix icons inside input.
 
-```tsx
-import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+```jsx
 import { Input, Tooltip } from 'antd';
-import React from 'react';
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Input
       placeholder="Enter your username"
@@ -35,8 +34,7 @@ const App: React.FC = () => (
     <br />
     <br />
     <Input prefix="￥" suffix="RMB" disabled />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

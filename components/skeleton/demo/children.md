@@ -13,41 +13,43 @@ title:
 
 Skeleton contains sub component.
 
-```tsx
-import { Button, Skeleton } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Skeleton, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [loading, setLoading] = useState(false);
+class Demo extends React.Component {
+  state = {
+    loading: false,
+  };
 
-  const showSkeleton = () => {
-    setLoading(true);
-
+  showSkeleton = () => {
+    this.setState({ loading: true });
     setTimeout(() => {
-      setLoading(false);
+      this.setState({ loading: false });
     }, 3000);
   };
 
-  return (
-    <div className="article">
-      <Skeleton loading={loading}>
-        <div>
-          <h4>Ant Design, a design language</h4>
-          <p>
-            We supply a series of design principles, practical patterns and high quality design
-            resources (Sketch and Axure), to help people create their product prototypes beautifully
-            and efficiently.
-          </p>
-        </div>
-      </Skeleton>
-      <Button onClick={showSkeleton} disabled={loading}>
-        Show Skeleton
-      </Button>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="article">
+        <Skeleton loading={this.state.loading}>
+          <div>
+            <h4>Ant Design, a design language</h4>
+            <p>
+              We supply a series of design principles, practical patterns and high quality design
+              resources (Sketch and Axure), to help people create their product prototypes
+              beautifully and efficiently.
+            </p>
+          </div>
+        </Skeleton>
+        <Button onClick={this.showSkeleton} disabled={this.state.loading}>
+          Show Skeleton
+        </Button>
+      </div>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```
 
 <style>

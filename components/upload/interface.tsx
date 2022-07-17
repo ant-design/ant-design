@@ -1,16 +1,15 @@
-import type {
+import * as React from 'react';
+import {
   RcFile as OriRcFile,
-  UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
-import type * as React from 'react';
-import type { ProgressProps } from '../progress';
+import { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
 }
 
-export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading';
+export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;
@@ -27,7 +26,6 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  crossOrigin?: React.ImgHTMLAttributes<HTMLImageElement>['crossOrigin'];
   originFileObj?: RcFile;
   response?: T;
   error?: any;
@@ -41,10 +39,10 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
   originFileObj: RcFile;
 }
 
-export interface UploadChangeParam<T = UploadFile> {
+export interface UploadChangeParam<T extends object = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
-  fileList: T[];
+  fileList: UploadFile[];
   event?: { percent: number };
 }
 
@@ -54,7 +52,6 @@ export interface ShowUploadListInterface {
   showDownloadIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
 }
 
 export interface UploadLocale {
@@ -86,16 +83,14 @@ type TransformFileHandler = (
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
+export interface UploadProps<T = any> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
   fileList?: Array<UploadFile<T>>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
-  data?:
-    | Record<string, unknown>
-    | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
+  data?: object | ((file: UploadFile<T>) => object);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
@@ -105,7 +100,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
     file: RcFile,
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
-  onChange?: (info: UploadChangeParam<UploadFile<T>>) => void;
+  onChange?: (info: UploadChangeParam) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
@@ -130,7 +125,6 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
-  children?: React.ReactNode;
 }
 
 export interface UploadState<T = any> {
@@ -151,12 +145,10 @@ export interface UploadListProps<T = any> {
   showPreviewIcon?: boolean;
   removeIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   downloadIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
-  previewIcon?: React.ReactNode | ((file: UploadFile) => React.ReactNode);
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
   iconRender?: (file: UploadFile<T>, listType?: UploadListType) => React.ReactNode;
   isImageUrl?: (file: UploadFile) => boolean;
   appendAction?: React.ReactNode;
-  appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
 }

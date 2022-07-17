@@ -1,8 +1,9 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { sleep } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -32,7 +33,7 @@ describe('Table', () => {
       },
     ];
 
-    const { asFragment } = render(
+    const wrapper = mount(
       <Table dataSource={data} pagination={false}>
         <ColumnGroup title="Name">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
@@ -44,7 +45,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('updates columns when receiving props', () => {
@@ -55,8 +56,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    const { container, rerender } = render(<Table columns={columns} />);
-
+    const wrapper = mount(<Table columns={columns} />);
     const newColumns = [
       {
         title: 'Title',
@@ -64,8 +64,9 @@ describe('Table', () => {
         dataIndex: 'title',
       },
     ];
-    rerender(<Table columns={newColumns} />);
-    expect(container.querySelector('th').textContent).toEqual('Title');
+    wrapper.setProps({ columns: newColumns });
+
+    expect(wrapper.find('th').text()).toEqual('Title');
   });
 
   it('loading with Spin', async () => {
@@ -73,34 +74,32 @@ describe('Table', () => {
       spinning: false,
       delay: 500,
     };
-    const { container, rerender } = render(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    expect(container.querySelector('.ant-table-placeholder').textContent).not.toEqual('');
+    const wrapper = mount(<Table loading={loading} />);
+    expect(wrapper.find('.ant-spin')).toHaveLength(0);
+    expect(wrapper.find('.ant-table-placeholder').hostNodes().text()).not.toEqual('');
 
     loading.spinning = true;
-    rerender(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
+    wrapper.setProps({ loading });
+    expect(wrapper.find('.ant-spin')).toHaveLength(0);
     await sleep(500);
-    rerender(<Table loading />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    wrapper.update();
+    expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/22733
   it('support loading tip', async () => {
-    const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
+    const wrapper = mount(<Table loading={{ tip: 'loading...' }} />);
     await sleep(500);
-    rerender(<Table loading={{ tip: 'loading...', loading: true }} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    wrapper.update();
+    expect(wrapper.find('.ant-spin')).toHaveLength(1);
   });
 
   it('renders custom components correctly when it changes', () => {
     const BodyWrapper1 = props => <tbody id="wrapper1" {...props} />;
     const BodyWrapper2 = props => <tbody id="wrapper2" {...props} />;
-    const { container, rerender } = render(
-      <Table components={{ body: { wrapper: BodyWrapper1 } }} />,
-    );
-    rerender(<Table components={{ body: { wrapper: BodyWrapper2 } }} />);
-    expect(container.querySelector('tbody').id).toBe('wrapper2');
+    const wrapper = mount(<Table components={{ body: { wrapper: BodyWrapper1 } }} />);
+    wrapper.setProps({ components: { body: { wrapper: BodyWrapper2 } } });
+    expect(wrapper.find('tbody').props().id).toBe('wrapper2');
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
@@ -119,7 +118,7 @@ describe('Table', () => {
 
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
-    render(
+    mount(
       <Table
         dataSource={data}
         rowkey="key"
@@ -140,15 +139,15 @@ describe('Table', () => {
 
   it('support onHeaderCell', () => {
     const onClick = jest.fn();
-    const { container } = render(
+    const wrapper = mount(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
     );
-    fireEvent.click(container.querySelector('th'));
+    wrapper.find('th').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
 
   it('should not crash when column children is empty', () => {
-    render(
+    mount(
       <Table
         columns={[
           {
@@ -162,7 +161,7 @@ describe('Table', () => {
   });
 
   it('should not crash when dataSource is array with none-object items', () => {
-    render(
+    mount(
       <Table
         columns={[
           {
@@ -175,9 +174,7 @@ describe('Table', () => {
   });
 
   it('prevent touch event', () => {
-    // prevent touch event, 原来的用例感觉是少了 touchmove 调用判断
-    const touchmove = jest.fn();
-    const { container } = render(
+    const wrapper = mount(
       <Table
         columns={[
           {
@@ -188,8 +185,7 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
-    fireEvent.touchMove(container.querySelector('.ant-table'));
-    expect(touchmove).not.toHaveBeenCalled();
+    wrapper.simulate('touchmove');
   });
 
   it('renders ellipsis by showTitle option', () => {
@@ -207,9 +203,9 @@ describe('Table', () => {
       { title: 'id', dataKey: 'id', ellipsis: { showTitle: false } },
       { title: 'age', dataKey: 'age', ellipsis: { showTitle: false } },
     ];
-    const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll('td').forEach(td => {
-      expect(td.className.includes('ant-table-cell-ellipsis')).toBe(true);
+    const wrapper = mount(<Table columns={columns} dataSource={data} />);
+    wrapper.find('td').forEach(td => {
+      expect(td.hasClass('ant-table-cell-ellipsis')).toBeTruthy();
     });
   });
 
@@ -228,13 +224,14 @@ describe('Table', () => {
       { title: 'id', dataKey: 'id', ellipsis: { showTitle: true } },
       { title: 'age', dataKey: 'age', ellipsis: { showTitle: true } },
     ];
+    const wrapper = mount(<Table columns={columns} dataSource={data} />);
 
-    const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll('.ant-table-thead th').forEach(td => {
-      expect(td.attributes.title).toBeTruthy();
+    wrapper.find('.ant-table-thead th').forEach(td => {
+      expect(td.getDOMNode().attributes.getNamedItem('title')).toBeTruthy();
     });
-    container.querySelectorAll('.ant-table-tbody td').forEach(td => {
-      expect(td.attributes.title).toBeFalsy();
+
+    wrapper.find('.ant-table-tbody td').forEach(td => {
+      expect(td.getDOMNode().attributes.getNamedItem('title')).toBeFalsy();
     });
   });
 
@@ -247,7 +244,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    mount(<Table columns={columns} rowKey={(record, index) => record + index} />);
     expect(warnSpy).toBeCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
@@ -261,24 +258,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={record => record.key} />);
-    expect(warnSpy).not.toBeCalled();
-  });
-
-  it('should support ref', () => {
-    warnSpy.mockReset();
-    const columns = [
-      {
-        title: 'Name',
-        key: 'name',
-        dataIndex: 'name',
-      },
-    ];
-    const Wrapper = () => {
-      const ref = React.useRef();
-      return <Table ref={ref} columns={columns} />;
-    };
-    render(<Wrapper />);
+    mount(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
 });

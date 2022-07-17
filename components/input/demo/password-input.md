@@ -13,20 +13,18 @@ title:
 
 Input type of password.
 
-```tsx
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+```jsx
 import { Input, Space } from 'antd';
-import React from 'react';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space direction="vertical">
     <Input.Password placeholder="input password" />
     <Input.Password
       placeholder="input password"
       iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
     />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -1,6 +1,6 @@
 import CalendarLocale from 'rc-picker/lib/locale/et_EE';
 import TimePickerLocale from '../../time-picker/locale/et_EE';
-import type { PickerLocale } from '../generatePicker';
+import { PickerLocale } from '../generatePicker';
 
 // 统一合并为完整的 Locale
 const locale: PickerLocale = {

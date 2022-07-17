@@ -13,20 +13,10 @@ title:
 
 Use `rowSelection.selections` custom selections, default no select dropdown, show default selections via setting to `true`.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
-import React, { useState } from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -41,7 +31,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
+const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
@@ -51,54 +41,58 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App: React.FC = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+class App extends React.Component {
+  state = {
+    selectedRowKeys: [], // Check here to configure the default column
+  };
 
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+  onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
+    this.setState({ selectedRowKeys });
   };
 
-  const rowSelection: TableRowSelection<DataType> = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-    selections: [
-      Table.SELECTION_ALL,
-      Table.SELECTION_INVERT,
-      Table.SELECTION_NONE,
-      {
-        key: 'odd',
-        text: 'Select Odd Row',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          newSelectedRowKeys = changableRowKeys.filter((_, index) => {
-            if (index % 2 !== 0) {
-              return false;
-            }
-            return true;
-          });
-          setSelectedRowKeys(newSelectedRowKeys);
-        },
-      },
-      {
-        key: 'even',
-        text: 'Select Even Row',
-        onSelect: changableRowKeys => {
-          let newSelectedRowKeys = [];
-          newSelectedRowKeys = changableRowKeys.filter((_, index) => {
-            if (index % 2 !== 0) {
+  render() {
+    const { selectedRowKeys } = this.state;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange,
+      selections: [
+        Table.SELECTION_ALL,
+        Table.SELECTION_INVERT,
+        Table.SELECTION_NONE,
+        {
+          key: 'odd',
+          text: 'Select Odd Row',
+          onSelect: changableRowKeys => {
+            let newSelectedRowKeys = [];
+            newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+              if (index % 2 !== 0) {
+                return false;
+              }
               return true;
-            }
-            return false;
-          });
-          setSelectedRowKeys(newSelectedRowKeys);
+            });
+            this.setState({ selectedRowKeys: newSelectedRowKeys });
+          },
         },
-      },
-    ],
-  };
+        {
+          key: 'even',
+          text: 'Select Even Row',
+          onSelect: changableRowKeys => {
+            let newSelectedRowKeys = [];
+            newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+              if (index % 2 !== 0) {
+                return true;
+              }
+              return false;
+            });
+            this.setState({ selectedRowKeys: newSelectedRowKeys });
+          },
+        },
+      ],
+    };
+    return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
+  }
+}
 
-  return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
-};
-
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

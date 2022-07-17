@@ -1,6 +1,6 @@
 import CalendarLocale from 'rc-picker/lib/locale/pt_PT';
 import TimePickerLocale from '../../time-picker/locale/pt_PT';
-import type { PickerLocale } from '../generatePicker';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {
@@ -11,7 +11,7 @@ const locale: PickerLocale = {
     today: 'Hoje',
     now: 'Agora',
     backToToday: 'Hoje',
-    ok: 'OK',
+    ok: 'Ok',
     clear: 'Limpar',
     month: 'Mês',
     year: 'Ano',

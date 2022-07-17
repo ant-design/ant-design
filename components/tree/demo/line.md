@@ -14,12 +14,11 @@ title:
 Tree with connected line between nodes, turn on by `showLine`, customize the preseted icon by `switcherIcon`.
 
 ```tsx
-import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
-import { Switch, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
 import React, { useState } from 'react';
+import { Tree, Switch } from 'antd';
+import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
 
-const treeData: DataNode[] = [
+const treeData = [
   {
     title: 'parent 1',
     key: '0-0',
@@ -84,7 +83,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
+const Demo: React.FC<{}> = () => {
   const [showLine, setShowLine] = useState<boolean | { showLeafIcon: boolean }>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
@@ -124,5 +123,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

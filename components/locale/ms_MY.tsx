@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/ms_MY';
-import Calendar from '../calendar/locale/ms_MY';
 import DatePicker from '../date-picker/locale/ms_MY';
-import type { Locale } from '../locale-provider';
 import TimePicker from '../time-picker/locale/ms_MY';
+import Calendar from '../calendar/locale/ms_MY';
+import { Locale } from '../locale-provider';
 
 const localeValues: Locale = {
   locale: 'ms-my',
@@ -27,7 +27,7 @@ const localeValues: Locale = {
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',
-    filterConfirm: 'OK',
+    filterConfirm: 'Ok',
     filterReset: 'Menetapkan semula',
     emptyText: 'Tiada data',
     selectAll: 'Pilih semua',

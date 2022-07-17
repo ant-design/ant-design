@@ -13,26 +13,24 @@ title:
 
 `${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
 
-```tsx
-import { Avatar, Badge } from 'antd';
-import React from 'react';
+```jsx
+import { Badge } from 'antd';
 
-const App: React.FC = () => (
-  <>
+ReactDOM.render(
+  <div>
     <Badge count={99}>
-      <Avatar shape="square" size="large" />
+      <a href="#" className="head-example" />
     </Badge>
     <Badge count={100}>
-      <Avatar shape="square" size="large" />
+      <a href="#" className="head-example" />
     </Badge>
     <Badge count={99} overflowCount={10}>
-      <Avatar shape="square" size="large" />
+      <a href="#" className="head-example" />
     </Badge>
     <Badge count={1000} overflowCount={999}>
-      <Avatar shape="square" size="large" />
+      <a href="#" className="head-example" />
     </Badge>
-  </>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

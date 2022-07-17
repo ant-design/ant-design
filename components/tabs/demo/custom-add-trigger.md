@@ -13,65 +13,82 @@ title:
 
 Hide default plus icon, and bind event for customized trigger.
 
-```tsx
-import { Button, Tabs } from 'antd';
-import React, { useRef, useState } from 'react';
+```jsx
+import { Tabs, Button } from 'antd';
 
 const { TabPane } = Tabs;
 
-const defaultPanes = Array.from({ length: 2 }).map((_, index) => {
-  const id = String(index + 1);
-  return { title: `Tab ${id}`, content: `Content of Tab Pane ${index + 1}`, key: id };
-});
+class Demo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.newTabIndex = 0;
+    const panes = [
+      { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' },
+    ];
+    this.state = {
+      activeKey: panes[0].key,
+      panes,
+    };
+  }
 
-const App: React.FC = () => {
-  const [activeKey, setActiveKey] = useState(defaultPanes[0].key);
-  const [panes, setPanes] = useState(defaultPanes);
-  const newTabIndex = useRef(0);
-
-  const onChange = (key: string) => {
-    setActiveKey(key);
+  onChange = activeKey => {
+    this.setState({ activeKey });
   };
 
-  const add = () => {
-    const newActiveKey = `newTab${newTabIndex.current++}`;
-    setPanes([...panes, { title: 'New Tab', content: 'New Tab Pane', key: newActiveKey }]);
-    setActiveKey(newActiveKey);
+  onEdit = (targetKey, action) => {
+    this[action](targetKey);
   };
 
-  const remove = (targetKey: string) => {
-    const targetIndex = panes.findIndex((pane) => pane.key === targetKey);
-    const newPanes = panes.filter((pane) => pane.key !== targetKey);
-    if (newPanes.length && targetKey === activeKey) {
-      const { key } = newPanes[targetIndex === newPanes.length ? targetIndex - 1 : targetIndex];
-      setActiveKey(key);
+  add = () => {
+    const { panes } = this.state;
+    const activeKey = `newTab${this.newTabIndex++}`;
+    panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey });
+    this.setState({ panes, activeKey });
+  };
+
+  remove = targetKey => {
+    let { activeKey } = this.state;
+    let lastIndex;
+    this.state.panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
+        lastIndex = i - 1;
+      }
+    });
+    const panes = this.state.panes.filter(pane => pane.key !== targetKey);
+    if (panes.length && activeKey === targetKey) {
+      if (lastIndex >= 0) {
+        activeKey = panes[lastIndex].key;
+      } else {
+        activeKey = panes[0].key;
+      }
     }
-    setPanes(newPanes);
+    this.setState({ panes, activeKey });
   };
 
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
-    if (action === 'add') {
-      add();
-    } else {
-      remove(targetKey);
-    }
-  };
-
-  return (
-    <div>
-      <div style={{ marginBottom: 16 }}>
-        <Button onClick={add}>ADD</Button>
+  render() {
+    return (
+      <div>
+        <div style={{ marginBottom: 16 }}>
+          <Button onClick={this.add}>ADD</Button>
+        </div>
+        <Tabs
+          hideAdd
+          onChange={this.onChange}
+          activeKey={this.state.activeKey}
+          type="editable-card"
+          onEdit={this.onEdit}
+        >
+          {this.state.panes.map(pane => (
+            <TabPane tab={pane.title} key={pane.key}>
+              {pane.content}
+            </TabPane>
+          ))}
+        </Tabs>
       </div>
-      <Tabs hideAdd onChange={onChange} activeKey={activeKey} type="editable-card" onEdit={onEdit}>
-        {panes.map(pane => (
-          <TabPane tab={pane.title} key={pane.key}>
-            {pane.content}
-          </TabPane>
-        ))}
-      </Tabs>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

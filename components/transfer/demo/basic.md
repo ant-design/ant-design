@@ -13,43 +13,38 @@ title:
 
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
-```tsx
-import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+```jsx
 import React, { useState } from 'react';
+import { Transfer } from 'antd';
 
-interface RecordType {
-  key: string;
-  title: string;
-  description: string;
+const mockData = [];
+for (let i = 0; i < 20; i++) {
+  mockData.push({
+    key: i.toString(),
+    title: `content${i + 1}`,
+    description: `description of content${i + 1}`,
+  });
 }
 
-const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
-  key: i.toString(),
-  title: `content${i + 1}`,
-  description: `description of content${i + 1}`,
-}));
+const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => item.key);
 
-const initialTargetKeys = mockData.filter(item => Number(item.key) > 10).map(item => item.key);
-
-const App: React.FC = () => {
+const App = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
-
-  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const onChange = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
     setTargetKeys(nextTargetKeys);
   };
 
-  const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+  const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
     console.log('sourceSelectedKeys:', sourceSelectedKeys);
     console.log('targetSelectedKeys:', targetSelectedKeys);
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
+  const onScroll = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };
@@ -68,5 +63,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

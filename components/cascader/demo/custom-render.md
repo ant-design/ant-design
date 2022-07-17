@@ -13,19 +13,10 @@ title:
 
 For instance, add an external link after the selected value.
 
-```tsx
+```jsx
 import { Cascader } from 'antd';
-import type { DefaultOptionType } from 'antd/es/cascader';
-import React from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-  children?: Option[];
-  code?: number;
-}
-
-const options: Option[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -62,16 +53,12 @@ const options: Option[] = [
   },
 ];
 
-const handleAreaClick = (
-  e: React.MouseEvent<HTMLAnchorElement>,
-  label: string,
-  option: DefaultOptionType,
-) => {
+function handleAreaClick(e, label, option) {
   e.stopPropagation();
   console.log('clicked', label, option);
-};
+}
 
-const displayRender = (labels: string[], selectedOptions: DefaultOptionType[]) =>
+const displayRender = (labels, selectedOptions) =>
   labels.map((label, i) => {
     const option = selectedOptions[i];
     if (i === labels.length - 1) {
@@ -84,14 +71,13 @@ const displayRender = (labels: string[], selectedOptions: DefaultOptionType[]) =
     return <span key={option.value}>{label} / </span>;
   });
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Cascader
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
     displayRender={displayRender}
     style={{ width: '100%' }}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

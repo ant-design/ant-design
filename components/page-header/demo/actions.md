@@ -13,11 +13,10 @@ title:
 
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
-```tsx
-import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
-import React from 'react';
+```jsx
+import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <PageHeader
       className="site-page-header"
@@ -71,10 +70,9 @@ const App: React.FC = () => (
         <Statistic title="Balance" prefix="$" value={3345.08} />
       </Row>
     </PageHeader>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

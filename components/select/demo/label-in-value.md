@@ -17,27 +17,25 @@ As a default behavior, the `onChange` callback can only get the `value` of the s
 
 The `label` of the selected item will be packed as an object for passing to the `onChange` callback.
 
-```tsx
+```jsx
 import { Select } from 'antd';
-import React from 'react';
 
 const { Option } = Select;
 
-const handleChange = (value: { value: string; label: React.ReactNode }) => {
+function handleChange(value) {
   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Select
     labelInValue
-    defaultValue={{ value: 'lucy', label: 'Lucy (101)' }}
+    defaultValue={{ value: 'lucy' }}
     style={{ width: 120 }}
     onChange={handleChange}
   >
     <Option value="jack">Jack (100)</Option>
     <Option value="lucy">Lucy (101)</Option>
-  </Select>
+  </Select>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -1,33 +1,25 @@
-import type { ModalStaticFunctions } from './confirm';
+import OriginModal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm, {
-  modalGlobalConfig,
-  withConfirm,
-  withError,
+  withWarn,
   withInfo,
   withSuccess,
-  withWarn,
+  withError,
+  withConfirm,
+  ModalStaticFunctions,
+  modalGlobalConfig,
 } from './confirm';
-import destroyFns from './destroyFns';
-import type { ModalFuncProps } from './Modal';
-import OriginModal from './Modal';
-import useModal from './useModal';
 
-export { ModalFuncProps, ModalProps } from './Modal';
+export { ActionButtonProps } from './ActionButton';
+export { ModalProps, ModalFuncProps } from './Modal';
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
 }
 
 type ModalType = typeof OriginModal &
-  ModalStaticFunctions & {
-    useModal: typeof useModal;
-    destroyAll: () => void;
-    config: typeof modalGlobalConfig;
-  };
+  ModalStaticFunctions & { destroyAll: () => void; config: typeof modalGlobalConfig };
 
 const Modal = OriginModal as ModalType;
-
-Modal.useModal = useModal;
 
 Modal.info = function infoFn(props: ModalFuncProps) {
   return confirm(withInfo(props));

@@ -1,16 +1,13 @@
-import HolderOutlined from '@ant-design/icons/HolderOutlined';
-import classNames from 'classnames';
-import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
-import RcTree, { TreeNode } from 'rc-tree';
-import type { DataNode, Key } from 'rc-tree/lib/interface';
 import * as React from 'react';
+import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
+import classNames from 'classnames';
+import { DataNode, Key } from 'rc-tree/lib/interface';
+
+import DirectoryTree from './DirectoryTree';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
-import DirectoryTree from './DirectoryTree';
-import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
-
-export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+import dropIndicatorRender from './utils/dropIndicator';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -95,17 +92,7 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-type DraggableFn = (node: AntTreeNode) => boolean;
-interface DraggableConfig {
-  icon?: React.ReactNode | false;
-  nodeDraggable?: DraggableFn;
-}
-
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
-  > {
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls' | 'showLine' | 'direction'> {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
@@ -139,26 +126,21 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   loadedKeys?: Key[];
   /** 设置节点可拖拽（IE>8） */
-  draggable?: DraggableFn | boolean | DraggableConfig;
+  draggable?: ((node: DataNode) => boolean) | boolean;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?:
-    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
-    | React.ReactNode
-    | RcTreeProps<T>['icon'];
-  switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
+  icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
+  switcherIcon?: React.ReactElement<any>;
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
 }
 
-type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
-  props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
-) => React.ReactElement) & {
-  defaultProps: Partial<React.PropsWithChildren<TreeProps<any>>>;
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<TreeProps & React.RefAttributes<RcTree>> {
   TreeNode: typeof TreeNode;
   DirectoryTree: typeof DirectoryTree;
-};
+}
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
@@ -172,7 +154,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     children,
     checkable,
     selectable,
-    draggable,
   } = props;
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const newProps = {
@@ -180,33 +161,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
-
-  const draggableConfig = React.useMemo(() => {
-    if (!draggable) {
-      return false;
-    }
-
-    let mergedDraggable: DraggableConfig = {};
-    switch (typeof draggable) {
-      case 'function':
-        mergedDraggable.nodeDraggable = draggable;
-        break;
-
-      case 'object':
-        mergedDraggable = { ...draggable };
-        break;
-
-      default:
-      // Do nothing
-    }
-
-    if (mergedDraggable.icon !== false) {
-      mergedDraggable.icon = mergedDraggable.icon || <HolderOutlined />;
-    }
-
-    return mergedDraggable;
-  }, [draggable]);
-
   return (
     <RcTree
       itemHeight={20}
@@ -229,12 +183,11 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
       }
-      draggable={draggableConfig as any}
     >
       {children}
     </RcTree>
   );
-}) as unknown as CompoundedComponent;
+}) as CompoundedComponent;
 
 Tree.TreeNode = TreeNode;
 

@@ -1,26 +1,20 @@
 import raf from 'rc-util/lib/raf';
 
-export function throttleByAnimationFrame<T extends unknown[]>(fn: (...args: T) => void) {
+export function throttleByAnimationFrame(fn: (...args: any[]) => void) {
   let requestId: number | null;
 
-  const later = (args: T) => () => {
+  const later = (args: any[]) => () => {
     requestId = null;
     fn(...args);
   };
 
-  const throttled: {
-    (...args: T): void;
-    cancel: () => void;
-  } = (...args: T) => {
+  const throttled = (...args: any[]) => {
     if (requestId == null) {
       requestId = raf(later(args));
     }
   };
 
-  throttled.cancel = () => {
-    raf.cancel(requestId!);
-    requestId = null;
-  };
+  (throttled as any).cancel = () => raf.cancel(requestId!);
 
   return throttled;
 }

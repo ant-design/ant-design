@@ -13,9 +13,8 @@ title:
 
 Only card type Tabs support adding & closable. +Use `closable={false}` to disable close.
 
-```tsx
+```jsx
 import { Tabs } from 'antd';
-import React, { useRef, useState } from 'react';
 
 const { TabPane } = Tabs;
 
@@ -30,26 +29,37 @@ const initialPanes = [
   },
 ];
 
-const App: React.FC = () => {
-  const [activeKey, setActiveKey] = useState(initialPanes[0].key);
-  const [panes, setPanes] = useState(initialPanes);
-  const newTabIndex = useRef(0);
+class Demo extends React.Component {
+  newTabIndex = 0;
 
-  const onChange = (newActiveKey: string) => {
-    setActiveKey(newActiveKey);
+  state = {
+    activeKey: initialPanes[0].key,
+    panes: initialPanes,
   };
 
-  const add = () => {
-    const newActiveKey = `newTab${newTabIndex.current++}`;
+  onChange = activeKey => {
+    this.setState({ activeKey });
+  };
+
+  onEdit = (targetKey, action) => {
+    this[action](targetKey);
+  };
+
+  add = () => {
+    const { panes } = this.state;
+    const activeKey = `newTab${this.newTabIndex++}`;
     const newPanes = [...panes];
-    newPanes.push({ title: 'New Tab', content: 'Content of new Tab', key: newActiveKey });
-    setPanes(newPanes);
-    setActiveKey(newActiveKey);
+    newPanes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
+    this.setState({
+      panes: newPanes,
+      activeKey,
+    });
   };
 
-  const remove = (targetKey: string) => {
+  remove = targetKey => {
+    const { panes, activeKey } = this.state;
     let newActiveKey = activeKey;
-    let lastIndex = -1;
+    let lastIndex;
     panes.forEach((pane, i) => {
       if (pane.key === targetKey) {
         lastIndex = i - 1;
@@ -63,28 +73,30 @@ const App: React.FC = () => {
         newActiveKey = newPanes[0].key;
       }
     }
-    setPanes(newPanes);
-    setActiveKey(newActiveKey);
+    this.setState({
+      panes: newPanes,
+      activeKey: newActiveKey,
+    });
   };
 
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
-    if (action === 'add') {
-      add();
-    } else {
-      remove(targetKey);
-    }
-  };
+  render() {
+    const { panes, activeKey } = this.state;
+    return (
+      <Tabs
+        type="editable-card"
+        onChange={this.onChange}
+        activeKey={activeKey}
+        onEdit={this.onEdit}
+      >
+        {panes.map(pane => (
+          <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>
+            {pane.content}
+          </TabPane>
+        ))}
+      </Tabs>
+    );
+  }
+}
 
-  return (
-    <Tabs type="editable-card" onChange={onChange} activeKey={activeKey} onEdit={onEdit}>
-      {panes.map(pane => (
-        <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>
-          {pane.content}
-        </TabPane>
-      ))}
-    </Tabs>
-  );
-};
-
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

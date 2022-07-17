@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ColumnsType, ColumnTitleProps, TransformColumns } from '../interface';
+import { TransformColumns, ColumnTitleProps, ColumnsType } from '../interface';
 import { renderColumnTitle } from '../util';
 
 function fillTitle<RecordType>(

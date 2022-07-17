@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ko_KR';
-import Calendar from '../calendar/locale/ko_KR';
 import DatePicker from '../date-picker/locale/ko_KR';
-import type { Locale } from '../locale-provider';
 import TimePicker from '../time-picker/locale/ko_KR';
+import Calendar from '../calendar/locale/ko_KR';
+import { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} 유효하지 않은 ${type}';
 
@@ -48,7 +48,7 @@ const localeValues: Locale = {
   },
   Form: {
     defaultValidateMessages: {
-      default: '필드 유효성 검사 오류 ${label}',
+      default: '필드 유효성 검사 요류 ${label}',
       required: '${label} 입력해 주세요',
       enum: '${label} [${enum}] 중에 하나여야 합니다',
       whitespace: '${label} 비워둘 수 없습니다',

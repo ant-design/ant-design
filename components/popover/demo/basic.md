@@ -13,9 +13,8 @@ title:
 
 The most basic example. The size of the floating layer depends on the contents region.
 
-```tsx
-import { Button, Popover } from 'antd';
-import React from 'react';
+```jsx
+import { Popover, Button } from 'antd';
 
 const content = (
   <div>
@@ -24,13 +23,12 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
-  </Popover>
+  </Popover>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

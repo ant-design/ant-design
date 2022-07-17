@@ -6,22 +6,21 @@ title:
 debug: true
 ---
 
-```tsx
+```jsx
 import {
-  AutoComplete,
-  Button,
-  Cascader,
-  DatePicker,
-  Input,
-  InputNumber,
-  Mentions,
-  Radio,
-  Select,
-  TimePicker,
-  TreeSelect,
   Typography,
+  Button,
+  Input,
+  Select,
+  Cascader,
+  TreeSelect,
+  DatePicker,
+  TimePicker,
+  InputNumber,
+  Radio,
+  AutoComplete,
+  Mentions,
 } from 'antd';
-import React from 'react';
 
 const { Text } = Typography;
 const { Option } = Select;
@@ -66,7 +65,7 @@ const options = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />
@@ -100,8 +99,7 @@ const App: React.FC = () => (
     <Input style={narrowStyle} suffix="Y" />
     <Input style={narrowStyle} />
     <Input style={narrowStyle} defaultValue="1" suffix="Y" />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

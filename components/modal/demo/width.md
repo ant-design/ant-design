@@ -13,13 +13,12 @@ title:
 
 Use `width` to set the width of the modal dialog.
 
-```tsx
-import { Button, Modal } from 'antd';
+```jsx
 import React, { useState } from 'react';
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [visible, setVisible] = useState(false);
-
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
@@ -41,5 +40,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

@@ -15,13 +15,12 @@ Use `stringMode` to support high precision decimals support. `onChange` will ret
 
 ```tsx
 import { InputNumber } from 'antd';
-import React from 'react';
 
-const onChange = (value: string) => {
+function onChange(value: string) {
   console.log('changed', value);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <InputNumber<string>
     style={{ width: 200 }}
     defaultValue="1"
@@ -30,8 +29,7 @@ const App: React.FC = () => (
     step="0.00000000000001"
     onChange={onChange}
     stringMode
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

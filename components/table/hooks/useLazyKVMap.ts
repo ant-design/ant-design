@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { GetRowKey, Key } from '../interface';
+import { Key, GetRowKey } from '../interface';
 
 interface MapCache<RecordType> {
   data?: readonly RecordType[];

@@ -13,35 +13,34 @@ title:
 
 Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
-```tsx
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
+```jsx
 import moment from 'moment';
-import React from 'react';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-const range = (start: number, end: number) => {
+function range(start, end) {
   const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
   return result;
-};
+}
 
-// eslint-disable-next-line arrow-body-style
-const disabledDate: RangePickerProps['disabledDate'] = current => {
+function disabledDate(current) {
   // Can not select days before today and today
   return current && current < moment().endOf('day');
-};
+}
 
-const disabledDateTime = () => ({
-  disabledHours: () => range(0, 24).splice(4, 20),
-  disabledMinutes: () => range(30, 60),
-  disabledSeconds: () => [55, 56],
-});
+function disabledDateTime() {
+  return {
+    disabledHours: () => range(0, 24).splice(4, 20),
+    disabledMinutes: () => range(30, 60),
+    disabledSeconds: () => [55, 56],
+  };
+}
 
-const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
+function disabledRangeTime(_, type) {
   if (type === 'start') {
     return {
       disabledHours: () => range(0, 60).splice(4, 20),
@@ -54,9 +53,9 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
     disabledMinutes: () => range(0, 31),
     disabledSeconds: () => [55, 56],
   };
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
@@ -75,8 +74,7 @@ const App: React.FC = () => (
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

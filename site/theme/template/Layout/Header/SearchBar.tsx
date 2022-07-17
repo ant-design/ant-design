@@ -2,16 +2,14 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'bisheng/router';
 import classNames from 'classnames';
+import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import type { DocSearchProps, DocSearchModalProps } from 'docsearch-react-fork';
-import { useDocSearchKeyboardEvents } from 'docsearch-react-fork';
+import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
 import '@docsearch/css';
-import type { SharedProps } from './interface';
-import type { IAlgoliaConfig } from './algolia-config';
-import { transformHitUrl } from './algolia-config';
-import WrapHelmet from '../../Components/Helmet';
+import { SharedProps } from './interface';
+import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
 
 import './SearchBar.less';
 
@@ -64,7 +62,7 @@ const SearchBar = ({
       return Promise.resolve();
     }
 
-    return import('docsearch-react-fork/modal').then(({ DocSearchModal }) => {
+    return import('@docsearch/react/modal').then(({ DocSearchModal }) => {
       SearchModal = DocSearchModal;
     });
   }, []);
@@ -129,14 +127,14 @@ const SearchBar = ({
         focused: isInputFocus,
       })}
     >
-      <WrapHelmet>
+      <Helmet>
         {/* pre-connect to algolia server */}
         <link
           rel="preconnect"
           href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
           crossOrigin="anonymous"
         />
-      </WrapHelmet>
+      </Helmet>
 
       <Input
         placeholder={searchInputPlaceholder}
@@ -187,7 +185,6 @@ const SearchBar = ({
             initialQuery={searchModalQuery}
             placeholder={searchPlaceholder}
             hitComponent={Hit}
-            appId={algoliaConfig.appId}
             apiKey={algoliaConfig.apiKey}
             indexName={algoliaConfig.indexName}
             transformItems={algoliaConfig.transformData}

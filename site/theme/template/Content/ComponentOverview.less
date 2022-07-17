@@ -1,4 +1,4 @@
-@import (reference) '../../../../components/style/themes/index.less';
+@import '../../../../components/style/themes/default.less';
 
 .components-overview {
   padding: 0;
@@ -12,18 +12,15 @@
     color: @text-color;
     text-overflow: ellipsis;
   }
-
   &-img {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 152px;
   }
-
   &-card {
     cursor: pointer;
-    transition: all 0.5s;
-
+    transition: all @animation-duration-base @ease-in-out;
     &:hover {
       box-shadow: @shadow-1-down;
     }

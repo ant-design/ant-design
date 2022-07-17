@@ -7,26 +7,22 @@ title:
 
 ## zh-CN
 
-使用 `placement` 可以配置通知从右上角、右下角、左下角、左上角弹出。
+通知从右上角、右下角、左下角、左上角弹出。
 
 ## en-US
 
-A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport via `placement`.
+A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
-```tsx
+```jsx
+import { Button, notification, Divider, Space } from 'antd';
 import {
-  BorderBottomOutlined,
-  BorderTopOutlined,
-  RadiusBottomleftOutlined,
-  RadiusBottomrightOutlined,
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
+  RadiusBottomleftOutlined,
+  RadiusBottomrightOutlined,
 } from '@ant-design/icons';
-import { Button, Divider, notification, Space } from 'antd';
-import type { NotificationPlacement } from 'antd/es/notification';
-import React from 'react';
 
-const openNotification = (placement: NotificationPlacement) => {
+const openNotification = placement => {
   notification.info({
     message: `Notification ${placement}`,
     description:
@@ -35,56 +31,30 @@ const openNotification = (placement: NotificationPlacement) => {
   });
 };
 
-const App: React.FC = () => (
-  <>
+ReactDOM.render(
+  <div>
     <Space>
-      <Button type="primary" onClick={() => openNotification('top')} icon={<BorderTopOutlined />}>
-        top
-      </Button>
-      <Button
-        type="primary"
-        onClick={() => openNotification('bottom')}
-        icon={<BorderBottomOutlined />}
-      >
-        bottom
-      </Button>
-    </Space>
-    <Divider />
-    <Space>
-      <Button
-        type="primary"
-        onClick={() => openNotification('topLeft')}
-        icon={<RadiusUpleftOutlined />}
-      >
+      <Button type="primary" onClick={() => openNotification('topLeft')}>
+        <RadiusUpleftOutlined />
         topLeft
       </Button>
-      <Button
-        type="primary"
-        onClick={() => openNotification('topRight')}
-        icon={<RadiusUprightOutlined />}
-      >
+      <Button type="primary" onClick={() => openNotification('topRight')}>
+        <RadiusUprightOutlined />
         topRight
       </Button>
     </Space>
     <Divider />
     <Space>
-      <Button
-        type="primary"
-        onClick={() => openNotification('bottomLeft')}
-        icon={<RadiusBottomleftOutlined />}
-      >
+      <Button type="primary" onClick={() => openNotification('bottomLeft')}>
+        <RadiusBottomleftOutlined />
         bottomLeft
       </Button>
-      <Button
-        type="primary"
-        onClick={() => openNotification('bottomRight')}
-        icon={<RadiusBottomrightOutlined />}
-      >
+      <Button type="primary" onClick={() => openNotification('bottomRight')}>
+        <RadiusBottomrightOutlined />
         bottomRight
       </Button>
     </Space>
-  </>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -13,11 +13,10 @@ title:
 
 `danger` is a property of button after antd 4.0.
 
-```tsx
+```jsx
 import { Button } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Button type="primary" danger>
       Primary
@@ -32,8 +31,7 @@ const App: React.FC = () => (
     <Button type="link" danger>
       Link
     </Button>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

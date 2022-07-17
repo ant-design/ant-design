@@ -13,18 +13,10 @@ title:
 
 Disable option by specifying the `disabled` property in `options`.
 
-```tsx
+```jsx
 import { Cascader } from 'antd';
-import React from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-  disabled?: boolean;
-  children?: Option[];
-}
-
-const options: Option[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -60,11 +52,9 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+function onChange(value) {
   console.log(value);
-};
+}
 
-const App: React.FC = () => <Cascader options={options} onChange={onChange} />;
-
-export default App;
+ReactDOM.render(<Cascader options={options} onChange={onChange} />, mountNode);
 ```

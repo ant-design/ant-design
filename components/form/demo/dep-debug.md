@@ -16,11 +16,10 @@ Buggy!
 
 ```tsx
 import { Form, Input } from 'antd';
-import React from 'react';
 
 let acc = 0;
 
-const App: React.FC = () => {
+const Demo = () => {
   const [form] = Form.useForm();
   return (
     <Form
@@ -47,5 +46,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

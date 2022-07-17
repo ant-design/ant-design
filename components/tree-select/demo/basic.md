@@ -13,19 +13,17 @@ title:
 
 The most basic usage.
 
-```tsx
-import { TreeSelect } from 'antd';
+```jsx
 import React, { useState } from 'react';
+import { TreeSelect } from 'antd';
 
 const { TreeNode } = TreeSelect;
 
-const App: React.FC = () => {
-  const [value, setValue] = useState<string | undefined>(undefined);
-
-  const onChange = (newValue: string) => {
-    setValue(newValue);
+const Demo = () => {
+  const [value, setValue] = useState(undefined);
+  const onChange = () => {
+    setValue(value);
   };
-
   return (
     <TreeSelect
       showSearch
@@ -50,5 +48,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

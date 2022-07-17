@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-rtl"
+>
+  <div
+    class="ant-card-body"
+  />
+</div>
+`;
+
+exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
+<div
+  class="ant-card ant-card-loading ant-card-bordered"
+>
+  <div
+    class="ant-card-body"
+    style="padding: 0px;"
+  >
+    <div
+      class="ant-card-loading-content"
+      style="padding: 24px;"
+    >
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-22"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-8"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-15"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-6"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-18"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-13"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-9"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-4"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-3"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-16"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card title should be vertically aligned 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+      <div
+        class="ant-card-extra"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
+  </div>
+</div>
+`;

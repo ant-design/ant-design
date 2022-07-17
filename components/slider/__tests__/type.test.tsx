@@ -4,7 +4,9 @@ import Slider from '..';
 describe('Slider.typescript', () => {
   it('single value', () => {
     const value = 0;
-    const onChange = (v: number) => v;
+    function onChange(v: number) {
+      return v;
+    }
     const result = (
       <Slider defaultValue={value} value={value} onChange={onChange} onAfterChange={onChange} />
     );
@@ -13,7 +15,9 @@ describe('Slider.typescript', () => {
 
   it('range value', () => {
     const value: [number, number] = [0, 1];
-    const onChange = (v: [number, number]) => v;
+    function onChange(v: [number, number]) {
+      return v;
+    }
     const result = (
       <Slider
         range
@@ -28,7 +32,9 @@ describe('Slider.typescript', () => {
 
   it('step can be null value', () => {
     const value = 0;
-    const onChange = (v: number) => v;
+    function onChange(v: number) {
+      return v;
+    }
     const result = (
       <Slider
         defaultValue={value}

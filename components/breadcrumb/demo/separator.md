@@ -13,18 +13,16 @@ title:
 
 The separator can be customized by setting the separator property: `separator=">"`.
 
-```tsx
+```jsx
 import { Breadcrumb } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Breadcrumb separator=">">
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
     <Breadcrumb.Item href="">Application List</Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>
+  </Breadcrumb>,
+  mountNode,
 );
-
-export default App;
 ```

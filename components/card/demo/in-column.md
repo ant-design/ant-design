@@ -13,11 +13,10 @@ title:
 
 Cards usually cooperate with grid column layout in overview page.
 
-```tsx
+```jsx
 import { Card, Col, Row } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div className="site-card-wrapper">
     <Row gutter={16}>
       <Col span={8}>
@@ -36,10 +35,9 @@ const App: React.FC = () => (
         </Card>
       </Col>
     </Row>
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

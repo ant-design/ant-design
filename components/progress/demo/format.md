@@ -13,18 +13,16 @@ title:
 
 You can set a custom text by setting the `format` prop.
 
-```tsx
+```jsx
 import { Progress } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Progress type="circle" percent={75} format={percent => `${percent} Days`} />
     <Progress type="circle" percent={100} format={() => 'Done'} />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

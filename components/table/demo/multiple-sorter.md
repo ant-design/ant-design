@@ -13,20 +13,10 @@ title:
 
 `column.sorter` support `multiple` to config the priority of sort columns. Though `sorter.compare` to customize compare function. You can also leave it empty to use the interactive only.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  chinese: number;
-  math: number;
-  english: number;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -57,7 +47,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -88,11 +78,9 @@ const data: DataType[] = [
   },
 ];
 
-const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
+function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
-};
+}
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
-
-export default App;
+ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);
 ```

@@ -14,6 +14,27 @@
       left: auto;
     }
   }
+
+  &-dot {
+    .@{slider-prefix-cls}-rtl & {
+      margin-right: -4px;
+      margin-left: 0;
+    }
+
+    &:first-child {
+      .@{slider-prefix-cls}-rtl & {
+        margin-right: -4px;
+        margin-left: 0;
+      }
+    }
+
+    &:last-child {
+      .@{slider-prefix-cls}-rtl & {
+        margin-right: -4px;
+        margin-left: 0;
+      }
+    }
+  }
 }
 
 .vertical() {

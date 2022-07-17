@@ -13,21 +13,19 @@ title:
 
 Searchable Tree.
 
-```tsx
-import { Input, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
-import React, { useMemo, useState } from 'react';
+```jsx
+import { Tree, Input } from 'antd';
 
 const { Search } = Input;
 
 const x = 3;
 const y = 2;
 const z = 1;
-const defaultData: DataNode[] = [];
+const gData = [];
 
-const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) => {
+const generateData = (_level, _preKey, _tns) => {
   const preKey = _preKey || '0';
-  const tns = _tns || defaultData;
+  const tns = _tns || gData;
 
   const children = [];
   for (let i = 0; i < x; i++) {
@@ -48,21 +46,21 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
 };
 generateData(z);
 
-const dataList: { key: React.Key; title: string }[] = [];
-const generateList = (data: DataNode[]) => {
+const dataList = [];
+const generateList = data => {
   for (let i = 0; i < data.length; i++) {
     const node = data[i];
     const { key } = node;
-    dataList.push({ key, title: key as string });
+    dataList.push({ key, title: key });
     if (node.children) {
       generateList(node.children);
     }
   }
 };
-generateList(defaultData);
+generateList(gData);
 
-const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
-  let parentKey: React.Key;
+const getParentKey = (key, tree) => {
+  let parentKey;
   for (let i = 0; i < tree.length; i++) {
     const node = tree[i];
     if (node.children) {
@@ -73,41 +71,47 @@ const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
       }
     }
   }
-  return parentKey!;
+  return parentKey;
 };
 
-const App: React.FC = () => {
-  const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([]);
-  const [searchValue, setSearchValue] = useState('');
-  const [autoExpandParent, setAutoExpandParent] = useState(true);
-
-  const onExpand = (newExpandedKeys: string[]) => {
-    setExpandedKeys(newExpandedKeys);
-    setAutoExpandParent(false);
+class SearchTree extends React.Component {
+  state = {
+    expandedKeys: [],
+    searchValue: '',
+    autoExpandParent: true,
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  onExpand = expandedKeys => {
+    this.setState({
+      expandedKeys,
+      autoExpandParent: false,
+    });
+  };
+
+  onChange = e => {
     const { value } = e.target;
-    const newExpandedKeys = dataList
+    const expandedKeys = dataList
       .map(item => {
         if (item.title.indexOf(value) > -1) {
-          return getParentKey(item.key, defaultData);
+          return getParentKey(item.key, gData);
         }
         return null;
       })
       .filter((item, i, self) => item && self.indexOf(item) === i);
-    setExpandedKeys(newExpandedKeys as React.Key[]);
-    setSearchValue(value);
-    setAutoExpandParent(true);
+    this.setState({
+      expandedKeys,
+      searchValue: value,
+      autoExpandParent: true,
+    });
   };
 
-  const treeData = useMemo(() => {
-    const loop = (data: DataNode[]): DataNode[] =>
+  render() {
+    const { searchValue, expandedKeys, autoExpandParent } = this.state;
+    const loop = data =>
       data.map(item => {
-        const strTitle = item.title as string;
-        const index = strTitle.indexOf(searchValue);
-        const beforeStr = strTitle.substring(0, index);
-        const afterStr = strTitle.slice(index + searchValue.length);
+        const index = item.title.indexOf(searchValue);
+        const beforeStr = item.title.substr(0, index);
+        const afterStr = item.title.substr(index + searchValue.length);
         const title =
           index > -1 ? (
             <span>
@@ -116,7 +120,7 @@ const App: React.FC = () => {
               {afterStr}
             </span>
           ) : (
-            <span>{strTitle}</span>
+            <span>{item.title}</span>
           );
         if (item.children) {
           return { title, key: item.key, children: loop(item.children) };
@@ -127,24 +131,21 @@ const App: React.FC = () => {
           key: item.key,
         };
       });
+    return (
+      <div>
+        <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
+        <Tree
+          onExpand={this.onExpand}
+          expandedKeys={expandedKeys}
+          autoExpandParent={autoExpandParent}
+          treeData={loop(gData)}
+        />
+      </div>
+    );
+  }
+}
 
-    return loop(defaultData);
-  }, [searchValue]);
-
-  return (
-    <div>
-      <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={onChange} />
-      <Tree
-        onExpand={onExpand}
-        expandedKeys={expandedKeys}
-        autoExpandParent={autoExpandParent}
-        treeData={treeData}
-      />
-    </div>
-  );
-};
-
-export default App;
+ReactDOM.render(<SearchTree />, mountNode);
 ```
 
 ```css

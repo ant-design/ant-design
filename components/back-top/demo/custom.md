@@ -10,19 +10,14 @@ title:
 
 可以自定义回到顶部按钮的样式，限制宽高：`40px * 40px`。
 
-> 注意：`BackTop` 需要一个可接受 `onClick` 事件的元素作为 `children`。 如果您直接将文本作为子项放置，则该组件将无法正常运行。
-
 ## en-US
 
 You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
 
-> Note: `BackTop` expects a element could accept `onClick` propety as children. If you put a text directly as children the component will not function properly.
-
-```tsx
+```jsx
 import { BackTop } from 'antd';
-import React from 'react';
 
-const style: React.CSSProperties = {
+const style = {
   height: 40,
   width: 40,
   lineHeight: '40px',
@@ -33,7 +28,7 @@ const style: React.CSSProperties = {
   fontSize: 14,
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div style={{ height: '600vh', padding: 8 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
@@ -45,8 +40,7 @@ const App: React.FC = () => (
     <BackTop>
       <div style={style}>UP</div>
     </BackTop>
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

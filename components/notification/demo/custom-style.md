@@ -13,9 +13,8 @@ title:
 
 The style and className are available to customize Notification.
 
-```tsx
+```jsx
 import { Button, notification } from 'antd';
-import React from 'react';
 
 const openNotification = () => {
   notification.open({
@@ -29,11 +28,10 @@ const openNotification = () => {
   });
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>
+  </Button>,
+  mountNode,
 );
-
-export default App;
 ```

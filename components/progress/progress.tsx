@@ -1,17 +1,17 @@
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
-import warning from '../_util/warning';
-import Circle from './Circle';
+import devWarning from '../_util/devWarning';
 import Line from './Line';
+import Circle from './Circle';
 import Steps from './Steps';
-import { getSuccessPercent, validProgress } from './utils';
+import { validProgress, getSuccessPercent } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
@@ -38,7 +38,7 @@ export interface ProgressProps {
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
-  strokeColor?: string | string[] | ProgressGradient;
+  strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
   success?: SuccessProps;
@@ -49,41 +49,40 @@ export interface ProgressProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
-  children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    steps,
-    strokeColor,
-    percent = 0,
-    size = 'default',
-    showInfo = true,
-    type = 'line',
-    ...restProps
-  } = props;
+export default class Progress extends React.Component<ProgressProps> {
+  static defaultProps = {
+    type: 'line' as ProgressProps['type'],
+    percent: 0,
+    showInfo: true,
+    // null for different theme definition
+    trailColor: null,
+    size: 'default' as ProgressProps['size'],
+    gapDegree: undefined,
+    strokeLinecap: 'round' as ProgressProps['strokeLinecap'],
+  };
 
-  function getPercentNumber() {
-    const successPercent = getSuccessPercent(props);
+  getPercentNumber() {
+    const { percent = 0 } = this.props;
+    const successPercent = getSuccessPercent(this.props);
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
     );
   }
 
-  function getProgressStatus() {
-    const { status } = props;
-    if (ProgressStatuses.indexOf(status!) < 0 && getPercentNumber() >= 100) {
+  getProgressStatus() {
+    const { status } = this.props;
+    if (ProgressStatuses.indexOf(status!) < 0 && this.getPercentNumber() >= 100) {
       return 'success';
     }
     return status || 'normal';
   }
 
-  function renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { format } = props;
-    const successPercent = getSuccessPercent(props);
+  renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
+    const { showInfo, format, type, percent } = this.props;
+    const successPercent = getSuccessPercent(this.props);
     if (!showInfo) {
       return null;
     }
@@ -104,82 +103,88 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     );
   }
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  renderProgress = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { props } = this;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      size,
+      type,
+      steps,
+      showInfo,
+      strokeColor,
+      ...restProps
+    } = props;
+    const prefixCls = getPrefixCls('progress', customizePrefixCls);
+    const progressStatus = this.getProgressStatus();
+    const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
 
-  const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const progressStatus = getProgressStatus();
-  const progressInfo = renderProcessInfo(prefixCls, progressStatus);
-
-  warning(
-    !('successPercent' in props),
-    'Progress',
-    '`successPercent` is deprecated. Please use `success.percent` instead.',
-  );
-
-  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
-  const strokeColorNotGradient =
-    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
-  let progress;
-  // Render progress shape
-  if (type === 'line') {
-    progress = steps ? (
-      <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
-        {progressInfo}
-      </Steps>
-    ) : (
-      <Line
-        {...props}
-        strokeColor={strokeColorNotArray}
-        prefixCls={prefixCls}
-        direction={direction}
-      >
-        {progressInfo}
-      </Line>
+    devWarning(
+      !('successPercent' in props),
+      'Progress',
+      '`successPercent` is deprecated. Please use `success.percent` instead.',
     );
-  } else if (type === 'circle' || type === 'dashboard') {
-    progress = (
-      <Circle
-        {...props}
-        strokeColor={strokeColorNotArray}
-        prefixCls={prefixCls}
-        progressStatus={progressStatus}
-      >
-        {progressInfo}
-      </Circle>
+
+    let progress;
+    // Render progress shape
+    if (type === 'line') {
+      progress = steps ? (
+        <Steps
+          {...this.props}
+          strokeColor={typeof strokeColor === 'string' ? strokeColor : undefined}
+          prefixCls={prefixCls}
+          steps={steps}
+        >
+          {progressInfo}
+        </Steps>
+      ) : (
+        <Line {...this.props} prefixCls={prefixCls} direction={direction}>
+          {progressInfo}
+        </Line>
+      );
+    } else if (type === 'circle' || type === 'dashboard') {
+      progress = (
+        <Circle {...this.props} prefixCls={prefixCls} progressStatus={progressStatus}>
+          {progressInfo}
+        </Circle>
+      );
+    }
+
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
+        [`${prefixCls}-status-${progressStatus}`]: true,
+        [`${prefixCls}-show-info`]: showInfo,
+        [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
     );
+
+    return (
+      <div
+        {...omit(restProps, [
+          'status',
+          'format',
+          'trailColor',
+          'strokeWidth',
+          'width',
+          'gapDegree',
+          'gapPosition',
+          'strokeLinecap',
+          'percent',
+          'success',
+          'successPercent',
+        ])}
+        className={classString}
+      >
+        {progress}
+      </div>
+    );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderProgress}</ConfigConsumer>;
   }
-
-  const classString = classNames(
-    prefixCls,
-    {
-      [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
-      [`${prefixCls}-status-${progressStatus}`]: true,
-      [`${prefixCls}-show-info`]: showInfo,
-      [`${prefixCls}-${size}`]: size,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
-  );
-
-  return (
-    <div
-      {...omit(restProps, [
-        'status',
-        'format',
-        'trailColor',
-        'strokeWidth',
-        'width',
-        'gapDegree',
-        'gapPosition',
-        'strokeLinecap',
-        'success',
-        'successPercent',
-      ])}
-      className={classString}
-    >
-      {progress}
-    </div>
-  );
-};
-
-export default Progress;
+}

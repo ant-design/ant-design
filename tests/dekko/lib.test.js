@@ -8,8 +8,6 @@ function getFileName(filePath) {
 
 $('lib').isDirectory().hasFile('index.js').hasFile('index.d.ts');
 
-$('lib/style').isDirectory().hasFile('index.css').hasFile('default.css');
-
 $('lib/*')
   .filter(
     filename =>

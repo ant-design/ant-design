@@ -1,15 +1,16 @@
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { mount } from 'enzyme';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Tooltip from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 import Button from '../../button';
+import Switch from '../../switch';
+import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
-import Switch from '../../switch';
-import Radio from '../../radio';
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -25,7 +26,7 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
-    const { container, rerender } = render(
+    const wrapper = mount(
       <Tooltip
         title=""
         mouseEnterDelay={0}
@@ -38,70 +39,43 @@ describe('Tooltip', () => {
     );
 
     // `title` is empty.
-    const divElement = container.querySelector('#hello');
-    fireEvent.mouseEnter(divElement);
+    const div = wrapper.find('#hello').at(0);
+    div.simulate('mouseenter');
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
-    fireEvent.mouseLeave(divElement);
+    div.simulate('mouseleave');
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // update `title` value.
-    rerender(
-      <Tooltip
-        title="Have a nice day!"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-        ref={ref}
-      >
-        <div id="hello">Hello world!</div>
-      </Tooltip>,
-    );
-    fireEvent.mouseEnter(divElement);
+    wrapper.setProps({ title: 'Have a nice day!' });
+    wrapper.find('#hello').simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-    fireEvent.mouseLeave(divElement);
+    wrapper.find('#hello').simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // add `visible` props.
-    rerender(
-      <Tooltip
-        title="Have a nice day!"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-        ref={ref}
-        visible={false}
-      >
-        <div id="hello">Hello world!</div>
-      </Tooltip>,
-    );
-    fireEvent.mouseEnter(divElement);
+    wrapper.setProps({ visible: false });
+    wrapper.find('#hello').simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // always trigger onVisibleChange
-    fireEvent.mouseLeave(divElement);
+    wrapper.simulate('mouseleave');
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   it('should hide when mouse leave native disabled button', () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
-    const { container } = render(
+    const wrapper = mount(
       <Tooltip
         title="xxxxx"
         mouseEnterDelay={0}
@@ -115,18 +89,15 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(container.getElementsByTagName('span')).toHaveLength(1);
-    const button = container.getElementsByTagName('span')[0];
-
-    fireEvent.mouseEnter(button);
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-    fireEvent.mouseLeave(button);
+    button.simulate('mouseleave');
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   describe('should hide when mouse leave antd disabled component', () => {
@@ -134,7 +105,7 @@ describe('Tooltip', () => {
       it(name, () => {
         const onVisibleChange = jest.fn();
         const ref = React.createRef();
-        const { container } = render(
+        const wrapper = mount(
           <Tooltip
             title="xxxxx"
             mouseEnterDelay={0}
@@ -146,40 +117,38 @@ describe('Tooltip', () => {
           </Tooltip>,
         );
 
-        expect(container.children[0]).toMatchSnapshot();
-        const button = container.getElementsByTagName('span')[0];
-
-        fireEvent.mouseEnter(button);
+        expect(wrapper.render()).toMatchSnapshot();
+        const button = wrapper.find('span').at(0);
+        button.simulate('mouseenter');
         expect(onVisibleChange).toHaveBeenCalledWith(true);
         expect(ref.current.props.visible).toBe(true);
-        expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-        fireEvent.mouseLeave(button);
+        button.simulate('mouseleave');
         expect(onVisibleChange).toHaveBeenCalledWith(false);
         expect(ref.current.props.visible).toBe(false);
-        expect(container.querySelector('.ant-tooltip-open')).toBeNull();
       });
     }
 
     testComponent('Button', Button);
     testComponent('Switch', Switch);
+    testComponent('Checkbox', Checkbox);
   });
 
   it('should render disabled Button style properly', () => {
-    const { container: containerInline } = render(
+    const wrapper1 = mount(
       <Tooltip title="xxxxx">
         <Button disabled>Hello world!</Button>
       </Tooltip>,
     );
-    const { container: containerBlock } = render(
+    const wrapper2 = mount(
       <Tooltip title="xxxxx">
         <Button disabled style={{ display: 'block' }}>
           Hello world!
         </Button>
       </Tooltip>,
     );
-    expect(containerInline.getElementsByTagName('span')[0].style.display).toBe('inline-block');
-    expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
+    expect(wrapper1.find('span').first().getDOMNode().style.display).toBe('inline-block');
+    expect(wrapper2.find('span').first().getDOMNode().style.display).toBe('block');
   });
 
   it('should works for arrowPointAtCenter', () => {
@@ -188,24 +157,23 @@ describe('Tooltip', () => {
     const triggerWidth = 200;
 
     const suit = () => {
-      const { container } = render(
+      const wrapper = mount(
         <Tooltip
           title="xxxxx"
           trigger="click"
           mouseEnterDelay={0}
           mouseLeaveDelay={0}
           placement="bottomLeft"
-          overlayClassName="default-element"
         >
           <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
         </Tooltip>,
       );
-      fireEvent.click(container.getElementsByTagName('button')[0]);
-      const popupLeftDefault = parseInt(container.querySelector('.default-element').style.left, 10);
+      wrapper.find('button').at(0).simulate('click');
+      const popupLeftDefault = parseInt(wrapper.instance().getPopupDomNode().style.left, 10);
 
-      const { container: container2 } = render(
+      const wrapper2 = mount(
         <Tooltip
           title="xxxxx"
           trigger="click"
@@ -213,19 +181,17 @@ describe('Tooltip', () => {
           mouseLeaveDelay={0}
           placement="bottomLeft"
           arrowPointAtCenter
-          overlayClassName="point-center-element"
         >
           <button type="button" style={{ width: triggerWidth }}>
             Hello world!
           </button>
         </Tooltip>,
       );
-      fireEvent.click(container2.getElementsByTagName('button')[0]);
+      wrapper2.find('button').at(0).simulate('click');
       const popupLeftArrowPointAtCenter = parseInt(
-        container.querySelector('.point-center-element').style.left,
+        wrapper2.instance().getPopupDomNode().style.left,
         10,
       );
-
       expect(popupLeftArrowPointAtCenter - popupLeftDefault).toBe(
         triggerWidth / 2 - horizontalArrowShift - arrowWidth,
       );
@@ -238,32 +204,29 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
-    const { container } = render(
+    const wrapper = mount(
       <Tooltip title="date picker" onVisibleChange={onVisibleChange} ref={ref}>
         <DatePicker />
       </Tooltip>,
     );
 
-    expect(container.getElementsByClassName('ant-picker')).toHaveLength(1);
-    const picker = container.getElementsByClassName('ant-picker')[0];
-
-    fireEvent.mouseEnter(picker);
+    expect(wrapper.find('.ant-picker')).toHaveLength(1);
+    const picker = wrapper.find('.ant-picker').at(0);
+    picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-    fireEvent.mouseLeave(picker);
+    picker.simulate('mouseleave');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   it('should works for input group', async () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
-    const { container } = render(
+    const wrapper = mount(
       <Tooltip title="hello" onVisibleChange={onVisibleChange} ref={ref}>
         <Group>
           <Input style={{ width: '50%' }} />
@@ -272,34 +235,32 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(container.getElementsByClassName('ant-input-group')).toHaveLength(1);
-    const inputGroup = container.getElementsByClassName('ant-input-group')[0];
-    fireEvent.mouseEnter(inputGroup);
+    expect(wrapper.find('Group')).toHaveLength(1);
+    const picker = wrapper.find('Group').at(0);
+    picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-    fireEvent.mouseLeave(inputGroup);
+    picker.simulate('mouseleave');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
-    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
   it('should display zero', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Tooltip title={0} visible>
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip-inner').innerHTML).toBe('0');
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
   });
 
   it('autoAdjustOverflow should be object or undefined', () => {
     expect(() => {
-      render(
+      mount(
         <Tooltip title={0} visible autoAdjustOverflow={{ adjustX: 0, adjustY: 0 }}>
           <div />
         </Tooltip>,
@@ -307,7 +268,7 @@ describe('Tooltip', () => {
     }).not.toThrow();
 
     expect(() => {
-      render(
+      mount(
         <Tooltip title={0} visible autoAdjustOverflow={undefined}>
           <div />
         </Tooltip>,
@@ -315,111 +276,76 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
-  describe('support other placement when mouse enter', () => {
-    const placementList = [
-      'top',
-      'left',
-      'right',
-      'bottom',
-      'topLeft',
-      'topRight',
-      'bottomLeft',
-      'bottomRight',
-      'leftTop',
-      'leftBottom',
-      'rightTop',
-      'rightBottom',
-    ];
-    const testPlacement = (name, placement) => {
-      it(name, async () => {
-        const { container } = render(
-          <Tooltip
-            title="xxxxx"
-            transitionName=""
-            popupTransitionName=""
-            mouseEnterDelay={0}
-            placement={placement}
-          >
-            <span>Hello world!</span>
-          </Tooltip>,
-        );
+  it('support other placement', done => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="bottomLeft"
+        transitionName=""
+        mouseEnterDelay={0}
+        afterVisibleChange={visible => {
+          if (visible) {
+            expect(wrapper.find('Trigger').props().popupPlacement).toBe('bottomLeft');
+          }
+          done();
+        }}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+  });
 
-        expect(container.getElementsByTagName('span')).toHaveLength(1);
-        const element = container.getElementsByTagName('span')[0];
-        fireEvent.mouseEnter(element);
-        await sleep(500);
+  it('other placement when mouse enter', async () => {
+    const ref = React.createRef();
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="topRight"
+        transitionName=""
+        popupTransitionName=""
+        mouseEnterDelay={0}
+        ref={ref}
+      >
+        <span>Hello world!</span>
+      </Tooltip>,
+    );
 
-        await waitFor(() => {
-          expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
-        });
-      });
-    };
-
-    placementList.forEach(placement => testPlacement(`Placement ${placement}`, placement));
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(500);
+    expect(ref.current.getPopupDomNode().className).toContain('placement-topRight');
   });
 
   it('should works for mismatch placement', async () => {
-    const { container } = render(
+    const ref = React.createRef();
+    const wrapper = mount(
       <Tooltip
         title="xxxxx"
         align={{
           points: ['bc', 'tl'],
         }}
         mouseEnterDelay={0}
+        ref={ref}
       >
         <span>Hello world!</span>
       </Tooltip>,
     );
-    const button = container.getElementsByTagName('span')[0];
-    fireEvent.mouseEnter(button);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
     await sleep(600);
-    expect(document.querySelector('.ant-tooltip')).not.toBeNull();
+    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
   });
 
   it('should pass overlayInnerStyle through to the inner component', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Tooltip overlayInnerStyle={{ color: 'red' }} title="xxxxx" visible>
         <div />
       </Tooltip>,
     );
-    expect(container.querySelector('.ant-tooltip-inner').style.color).toBe('red');
-  });
-
-  it('should work with loading switch', () => {
-    const onVisibleChange = jest.fn();
-    const { container } = render(
-      <Tooltip
-        title="loading tips"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-      >
-        <Switch loading defaultChecked />
-      </Tooltip>,
-    );
-    const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
-    expect(wrapperEl).toHaveLength(1);
-    fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
-    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
-  });
-
-  it('should work with disabled Radio', () => {
-    const onVisibleChange = jest.fn();
-    const { container } = render(
-      <Tooltip
-        title="loading tips"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-      >
-        <Radio disabled />
-      </Tooltip>,
-    );
-    const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
-    expect(wrapperEl).toHaveLength(1);
-    fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
-    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
   });
 });

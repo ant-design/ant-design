@@ -1,13 +1,10 @@
 import * as React from 'react';
-import type { BlockProps } from './Base';
-import Base from './Base';
+import Base, { BlockProps } from './Base';
 
 export interface ParagraphProps extends BlockProps {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Paragraph: React.ForwardRefRenderFunction<HTMLDivElement, ParagraphProps> = (props, ref) => (
-  <Base ref={ref} {...props} component="div" />
-);
+const Paragraph: React.FC<ParagraphProps> = props => <Base {...props} component="div" />;
 
-export default React.forwardRef(Paragraph);
+export default Paragraph;

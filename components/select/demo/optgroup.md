@@ -13,17 +13,16 @@ title:
 
 Using `OptGroup` to group the options.
 
-```tsx
+```jsx
 import { Select } from 'antd';
-import React from 'react';
 
 const { Option, OptGroup } = Select;
 
-const handleChange = (value: string) => {
+function handleChange(value) {
   console.log(`selected ${value}`);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Select defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
     <OptGroup label="Manager">
       <Option value="jack">Jack</Option>
@@ -32,8 +31,7 @@ const App: React.FC = () => (
     <OptGroup label="Engineer">
       <Option value="Yiminghe">yiminghe</Option>
     </OptGroup>
-  </Select>
+  </Select>,
+  mountNode,
 );
-
-export default App;
 ```

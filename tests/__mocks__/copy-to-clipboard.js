@@ -1,6 +1,5 @@
-function copy(str, options = {}) {
+function copy(str) {
   copy.lastStr = str;
-  copy.lastOptions = options;
 }
 
 export default copy;

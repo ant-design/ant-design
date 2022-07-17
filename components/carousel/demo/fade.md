@@ -13,11 +13,10 @@ title:
 
 Slides use fade for transition.
 
-```tsx
+```jsx
 import { Carousel } from 'antd';
-import React from 'react';
 
-const contentStyle: React.CSSProperties = {
+const contentStyle = {
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
@@ -25,7 +24,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Carousel effect="fade">
     <div>
       <h3 style={contentStyle}>1</h3>
@@ -39,8 +38,7 @@ const App: React.FC = () => (
     <div>
       <h3 style={contentStyle}>4</h3>
     </div>
-  </Carousel>
+  </Carousel>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -34,6 +34,9 @@ Array [
       >
         Success Tips
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <div
       class="ant-alert-action"
@@ -118,7 +121,7 @@ Array [
       class="ant-alert-action"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-sm ant-btn-dangerous"
+        class="ant-btn ant-btn-sm ant-btn-dangerous"
         type="button"
       >
         <span>
@@ -140,6 +143,9 @@ Array [
       >
         Warning Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <div
       class="ant-alert-action"
@@ -302,6 +308,9 @@ Array [
       >
         Warning text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <br />,
@@ -337,6 +346,9 @@ Array [
       >
         Very long warning text warning text text text text text text text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <button
       class="ant-alert-close-icon"
@@ -378,6 +390,9 @@ Array [
       >
         Warning text without icon
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <br />,
@@ -413,6 +428,9 @@ Array [
       >
         Error text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
 ]
@@ -432,6 +450,9 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
     >
       Success Text
     </div>
+    <div
+      class="ant-alert-description"
+    />
   </div>
 </div>
 `;
@@ -451,6 +472,9 @@ Array [
       >
         Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <button
       class="ant-alert-close-icon"
@@ -540,6 +564,9 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
     >
       Info Text
     </div>
+    <div
+      class="ant-alert-description"
+    />
   </div>
   <button
     class="ant-alert-close-icon"
@@ -570,6 +597,9 @@ Array [
       >
         showIcon = false
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -604,6 +634,9 @@ Array [
       >
         Success Tips
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -638,6 +671,9 @@ Array [
       >
         Informational Notes
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -672,6 +708,9 @@ Array [
       >
         Warning
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -706,6 +745,9 @@ Array [
       >
         Error
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -954,7 +996,7 @@ Array [
 
 exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
+  class="ant-btn ant-btn-dangerous"
   type="button"
 >
   <span>
@@ -997,6 +1039,9 @@ Array [
       >
         Success Tips
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1031,6 +1076,9 @@ Array [
       >
         Informational Notes
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1065,6 +1113,9 @@ Array [
       >
         Warning
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <button
       class="ant-alert-close-icon"
@@ -1124,6 +1175,9 @@ Array [
       >
         Error
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1352,6 +1406,26 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
   >
     <div
       class="ant-alert-message"
+    >
+      <div
+        class="x0 x1 x2 x3 "
+      >
+        <div
+          style="transition:width 150ms linear;height:auto;width:auto"
+        >
+          <div
+            class="x1 x4 x5 x6"
+            style="opacity:1;transform:translateY(0px);position:relative"
+          >
+            <div>
+              Notice message one
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-alert-description"
     />
   </div>
 </div>
@@ -1372,6 +1446,9 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
       >
         Alert Message Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
     <button
       class="ant-alert-close-icon"
@@ -1420,6 +1497,9 @@ Array [
       >
         Success Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1435,6 +1515,9 @@ Array [
       >
         Info Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1450,6 +1533,9 @@ Array [
       >
         Warning Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
   <div
@@ -1465,6 +1551,9 @@ Array [
       >
         Error Text
       </div>
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>,
 ]

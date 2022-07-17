@@ -53,14 +53,13 @@ This demo shows three typical usages:
 
 See the `Customized Form Controls` demo below for more advanced usage.
 
-```tsx
-import { Button, Form, Input, Select, Space, Tooltip, Typography } from 'antd';
-import React from 'react';
+```jsx
+import { Form, Input, Select, Tooltip, Button, Space, Typography } from 'antd';
 
 const { Option } = Select;
 
-const App: React.FC = () => {
-  const onFinish = (values: any) => {
+const Demo = () => {
+  const onFinish = values => {
     console.log('Received values of form: ', values);
   };
 
@@ -126,5 +125,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

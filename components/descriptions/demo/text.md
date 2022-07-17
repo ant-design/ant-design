@@ -14,9 +14,8 @@ title:
 
 Descriptions with border and background color.
 
-```tsx
-import { Badge, Descriptions, Table } from 'antd';
-import React from 'react';
+```jsx
+import { Descriptions, Badge, Table } from 'antd';
 
 const dataSource = [
   {
@@ -50,8 +49,7 @@ const columns = [
     key: 'address',
   },
 ];
-
-const App: React.FC = () => (
+ReactDOM.render(
   <Descriptions title="User Info" column={2}>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label={<div style={{ display: 'flex' }}>Billing Mode</div>}>
@@ -85,8 +83,7 @@ const App: React.FC = () => (
     <Descriptions.Item label="Config Info">
       <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />
     </Descriptions.Item>
-  </Descriptions>
+  </Descriptions>,
+  mountNode,
 );
-
-export default App;
 ```

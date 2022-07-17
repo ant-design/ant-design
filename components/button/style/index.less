@@ -18,7 +18,7 @@
   // Fixing https://github.com/ant-design/ant-design/issues/18107
   // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
-  // 0.001px solution works and I don't know why
+  // 0.001px solution works and I don't why
   line-height: @btn-line-height;
   .btn();
   .btn-default();
@@ -101,25 +101,7 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
-    vertical-align: -3px;
-
-    > .@{iconfont-css-prefix} {
-      display: flex;
-      justify-content: center;
-    }
-
-    .@{iconfont-css-prefix}-loading {
-      padding: 0 !important;
-    }
-  }
-
-  // https://github.com/ant-design/ant-design/issues/32365
-  a&-icon-only {
     vertical-align: -1px;
-
-    > .@{iconfont-css-prefix} {
-      display: inline;
-    }
   }
 
   &-round {
@@ -157,14 +139,16 @@
     &.@{iconfont-css-prefix}-plus,
     &.@{iconfont-css-prefix}-minus {
       > svg {
-        shape-rendering: optimizespeed;
+        shape-rendering: optimizeSpeed;
       }
     }
   }
 
   &&-loading {
     position: relative;
-    cursor: default;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
 
     &::before {
       display: block;
@@ -172,7 +156,7 @@
   }
 
   & > &-loading-icon {
-    transition: width 0.3s @ease-in-out, opacity 0.3s @ease-in-out;
+    transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
       padding-right: @padding-xs;
@@ -180,6 +164,12 @@
       // for smooth button padding transition
       svg {
         animation: loadingCircle 1s infinite linear;
+      }
+    }
+
+    &:only-child {
+      .@{iconfont-css-prefix} {
+        padding-right: 0;
       }
     }
   }
@@ -200,49 +190,26 @@
     margin-left: @margin-xs;
   }
 
-  &&-background-ghost {
+  &-background-ghost {
     color: @btn-default-ghost-color;
+    background: @btn-default-ghost-bg !important;
     border-color: @btn-default-ghost-border;
-
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-      background: @btn-default-ghost-bg;
-    }
-
-    &:hover,
-    &:focus {
-      color: @primary-color-hover;
-      border-color: @primary-color-hover;
-    }
-
-    &:active {
-      color: @primary-color-active;
-      border-color: @primary-color-active;
-    }
-
-    &[disabled] {
-      color: @disabled-color;
-      background: @btn-default-ghost-bg;
-      border-color: @btn-default-border;
-    }
   }
 
   &-background-ghost&-primary {
-    .button-variant-ghost(@btn-primary-bg, @btn-primary-bg, @primary-color-hover, @primary-color-active);
+    .button-variant-ghost(@btn-primary-bg);
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
+    .button-variant-ghost(@btn-danger-border);
   }
 
   &-background-ghost&-dangerous {
-    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
+    .button-variant-ghost(@btn-danger-border);
   }
 
   &-background-ghost&-dangerous&-link {
-    .button-variant-ghost(@btn-danger-border, transparent, @error-color-hover, @error-color-active);
+    .button-variant-ghost(@btn-danger-border, transparent);
   }
 
   &-two-chinese-chars::first-letter {
@@ -254,7 +221,7 @@
     letter-spacing: 0.34em;
   }
 
-  &&-block {
+  &-block {
     width: 100%;
   }
 
@@ -276,14 +243,9 @@ a.@{btn-prefix-cls} {
   padding-top: 0.01px !important;
   line-height: @btn-height-base - 2px;
 
-  &-disabled {
-    .btn-href-disabled();
-  }
-
   &-lg {
     line-height: @btn-height-lg - 2px;
   }
-
   &-sm {
     line-height: @btn-height-sm - 2px;
   }

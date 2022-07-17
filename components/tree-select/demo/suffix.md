@@ -14,46 +14,49 @@ title:
 
 The most basic usage.
 
-```tsx
-import { SmileOutlined } from '@ant-design/icons';
+```jsx
 import { TreeSelect } from 'antd';
-import React, { useState } from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 const { TreeNode } = TreeSelect;
 const icon = <SmileOutlined />;
 
-const App: React.FC = () => {
-  const [value, setValue] = useState<string>();
-
-  const onChange = (newValue: string) => {
-    console.log(newValue);
-    setValue(newValue);
+class Demo extends React.Component {
+  state = {
+    value: undefined,
   };
 
-  return (
-    <TreeSelect
-      showSearch
-      suffixIcon={icon}
-      style={{ width: '100%' }}
-      value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-      placeholder="Please select"
-      allowClear
-      treeDefaultExpandAll
-      onChange={onChange}
-    >
-      <TreeNode value="parent 1" title="parent 1">
-        <TreeNode value="parent 1-0" title="parent 1-0">
-          <TreeNode value="leaf1" title="my leaf" />
-          <TreeNode value="leaf2" title="your leaf" />
-        </TreeNode>
-        <TreeNode value="parent 1-1" title="parent 1-1">
-          <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} />
-        </TreeNode>
-      </TreeNode>
-    </TreeSelect>
-  );
-};
+  onChange = value => {
+    console.log(value);
+    this.setState({ value });
+  };
 
-export default App;
+  render() {
+    return (
+      <TreeSelect
+        showSearch
+        suffixIcon={icon}
+        style={{ width: '100%' }}
+        value={this.state.value}
+        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        placeholder="Please select"
+        allowClear
+        treeDefaultExpandAll
+        onChange={this.onChange}
+      >
+        <TreeNode value="parent 1" title="parent 1">
+          <TreeNode value="parent 1-0" title="parent 1-0">
+            <TreeNode value="leaf1" title="my leaf" />
+            <TreeNode value="leaf2" title="your leaf" />
+          </TreeNode>
+          <TreeNode value="parent 1-1" title="parent 1-1">
+            <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} />
+          </TreeNode>
+        </TreeNode>
+      </TreeSelect>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
 ```

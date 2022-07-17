@@ -15,19 +15,24 @@ title:
 
 Used in standalone when children is empty.
 
-```tsx
-import { ClockCircleOutlined } from '@ant-design/icons';
+```jsx
 import { Badge, Space, Switch } from 'antd';
-import React, { useState } from 'react';
+import { ClockCircleOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => {
-  const [show, setShow] = useState(true);
+const Demo = () => {
+  const [show, setShow] = React.useState(true);
 
   return (
     <Space>
-      <Switch checked={show} onChange={() => setShow(!show)} />
+      <Switch
+        checked={show}
+        onChange={() => {
+          setShow(!show);
+        }}
+      />
       <Badge count={show ? 25 : 0} />
       <Badge count={show ? <ClockCircleOutlined style={{ color: '#f5222d' }} /> : 0} />
+      <Badge count={show ? 4 : 0} className="site-badge-count-4" />
       <Badge
         className="site-badge-count-109"
         count={show ? 109 : 0}
@@ -37,5 +42,20 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```
+
+```css
+.site-badge-count-4 .ant-badge-count {
+  color: #999;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #d9d9d9 inset;
+}
+```
+
+<style>
+[data-theme="dark"] .site-badge-count-4 .ant-badge-count {
+  background-color: #141414;
+  box-shadow: 0 0 0 1px #434343 inset;
+}
+</style>

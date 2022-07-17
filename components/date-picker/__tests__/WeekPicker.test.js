@@ -1,8 +1,8 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
+import { setMockDate, resetMockDate } from '../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { resetMockDate, setMockDate } from '../../../tests/utils';
 
 const { WeekPicker } = DatePicker;
 

@@ -118,10 +118,10 @@ export function isZhCN(pathname: string) {
 export function getLocalizedPathname(
   path: string,
   zhCN?: boolean,
-  query?: { [key: string]: any },
+  query = {},
   hash?: {
-    zhCN?: string;
-    enUS?: string;
+    zhCN: string;
+    enUS: string;
   },
 ) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
@@ -212,7 +212,7 @@ export function getMetaDescription(jml?: any[] | null) {
           .join('');
         return [tag, content];
       }),
-  ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p)) as string;
+  ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p));
   return paragraph;
 }
 

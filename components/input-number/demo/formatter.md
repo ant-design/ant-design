@@ -17,20 +17,19 @@ Display value within it's situation with `formatter`, and we usually use `parser
 
 > Here is a Intl.NumberFormat InputNumber implementation: [https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo](https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo)
 
-```tsx
-import { InputNumber, Space } from 'antd';
-import React from 'react';
+```jsx
+import { InputNumber } from 'antd';
 
-const onChange = (value: number | string) => {
+function onChange(value) {
   console.log('changed', value);
-};
+}
 
-const App: React.FC = () => (
-  <Space>
+ReactDOM.render(
+  <>
     <InputNumber
       defaultValue={1000}
       formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-      parser={value => value!.replace(/\$\s?|(,*)/g, '')}
+      parser={value => value.replace(/\$\s?|(,*)/g, '')}
       onChange={onChange}
     />
     <InputNumber
@@ -38,11 +37,10 @@ const App: React.FC = () => (
       min={0}
       max={100}
       formatter={value => `${value}%`}
-      parser={value => value!.replace('%', '')}
+      parser={value => value.replace('%', '')}
       onChange={onChange}
     />
-  </Space>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

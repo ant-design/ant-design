@@ -8,15 +8,14 @@ title:
 
 ## zh-CN
 
-在不同大小的屏幕下，应该有不同的表现。
+在不同大小的屏幕下，应该有不同的表现
 
 ## en-US
 
 Under different screen sizes, there should be different performance
 
-```tsx
-import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
-import React from 'react';
+```jsx
+import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -53,41 +52,39 @@ const extraContent = (
   </div>
 );
 
-const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
-  children,
-  extra,
-}) => (
+const Content = ({ children, extra }) => (
   <div className="content">
     <div className="main">{children}</div>
     <div className="extra">{extra}</div>
   </div>
 );
 
-const App: React.FC = () => (
-  <PageHeader
-    className="site-page-header-responsive"
-    onBack={() => window.history.back()}
-    title="Title"
-    subTitle="This is a subtitle"
-    extra={[
-      <Button key="3">Operation</Button>,
-      <Button key="2">Operation</Button>,
-      <Button key="1" type="primary">
-        Primary
-      </Button>,
-    ]}
-    footer={
-      <Tabs defaultActiveKey="1">
-        <TabPane tab="Details" key="1" />
-        <TabPane tab="Rule" key="2" />
-      </Tabs>
-    }
-  >
-    <Content extra={extraContent}>{renderContent()}</Content>
-  </PageHeader>
+ReactDOM.render(
+  <>
+    <PageHeader
+      className="site-page-header-responsive"
+      onBack={() => window.history.back()}
+      title="Title"
+      subTitle="This is a subtitle"
+      extra={[
+        <Button key="3">Operation</Button>,
+        <Button key="2">Operation</Button>,
+        <Button key="1" type="primary">
+          Primary
+        </Button>,
+      ]}
+      footer={
+        <Tabs defaultActiveKey="1">
+          <TabPane tab="Details" key="1" />
+          <TabPane tab="Rule" key="2" />
+        </Tabs>
+      }
+    >
+      <Content extra={extraContent}>{renderContent()}</Content>
+    </PageHeader>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

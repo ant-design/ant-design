@@ -13,16 +13,14 @@ title:
 
 Set `icon` props to customize the icon.
 
-```tsx
-import { QuestionCircleOutlined } from '@ant-design/icons';
+```jsx
 import { Popconfirm } from 'antd';
-import React from 'react';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Popconfirm title="Are you sure？" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
     <a href="#">Delete</a>
-  </Popconfirm>
+  </Popconfirm>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -1,4 +1,5 @@
-import { toHaveNoViolations } from 'jest-axe';
-import '@testing-library/jest-dom';
+import toMatchRenderedSnapshot from './matchers/rendered-snapshot';
 
-expect.extend(toHaveNoViolations);
+expect.extend({
+  toMatchRenderedSnapshot,
+});

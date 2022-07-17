@@ -13,13 +13,11 @@ title:
 
 Customize local preview. Can handle with non-image format files such as video.
 
-```tsx
+```jsx
+import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, Upload } from 'antd';
-import React from 'react';
 
-const props: UploadProps = {
+const props = {
   action: '//jsonplaceholder.typicode.com/posts/',
   listType: 'picture',
   previewFile(file) {
@@ -34,11 +32,10 @@ const props: UploadProps = {
   },
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
+  </Upload>,
+  mountNode,
 );
-
-export default App;
 ```

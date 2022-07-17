@@ -13,17 +13,10 @@ title:
 
 Allow only select parent options.
 
-```tsx
+```jsx
 import { Cascader } from 'antd';
-import React from 'react';
 
-interface Option {
-  value: string;
-  label: string;
-  children?: Option[];
-}
-
-const options: Option[] = [
+const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -58,11 +51,9 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+function onChange(value) {
   console.log(value);
-};
+}
 
-const App: React.FC = () => <Cascader options={options} onChange={onChange} changeOnSelect />;
-
-export default App;
+ReactDOM.render(<Cascader options={options} onChange={onChange} changeOnSelect />, mountNode);
 ```

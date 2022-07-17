@@ -5,12 +5,10 @@ import './index.less';
 // deps-lint-skip: menu
 // deps-lint-skip: grid
 import '../../button/style';
+import '../../empty/style';
+import '../../radio/style';
 import '../../checkbox/style';
 import '../../dropdown/style';
-import '../../empty/style';
-import '../../input/style';
-import '../../pagination/style';
-import '../../radio/style';
 import '../../spin/style';
+import '../../pagination/style';
 import '../../tooltip/style';
-import '../../tree/style';

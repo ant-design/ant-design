@@ -1,28 +1,22 @@
+import * as React from 'react';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import * as React from 'react';
-import type { RequiredMark } from '../form/Form';
-import type { Locale } from '../locale-provider';
-import LocaleProvider, { ANT_MARK } from '../locale-provider';
+import { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
-import message from '../message';
-import notification from '../notification';
-import type { Theme } from './context';
 import {
   ConfigConsumer,
-  ConfigConsumerProps,
   ConfigContext,
   CSPConfig,
   DirectionType,
+  ConfigConsumerProps,
 } from './context';
-import { registerTheme } from './cssVariables';
-import { RenderEmptyHandler } from './defaultRenderEmpty';
-import { DisabledContextProvider } from './DisabledContext';
-import type { SizeType } from './SizeContext';
-import SizeContext, { SizeContextProvider } from './SizeContext';
+import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
+import message from '../message';
+import notification from '../notification';
+import { RequiredMark } from '../form/Form';
 
 export {
   RenderEmptyHandler,
@@ -52,13 +46,12 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'renderEmpty',
   'pageHeader',
   'input',
-  'pagination',
   'form',
 ];
 
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   iconPrefixCls?: string;
   children?: React.ReactNode;
@@ -68,20 +61,15 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
-    colon?: boolean;
   };
   input?: {
     autoComplete?: string;
-  };
-  pagination?: {
-    showSizeChanger?: boolean;
   };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
   componentSize?: SizeType;
-  componentDisabled?: boolean;
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
@@ -96,41 +84,23 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 export const defaultPrefixCls = 'ant';
-export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
-let globalIconPrefixCls: string;
+
+const setGlobalConfig = (params: Pick<ConfigProviderProps, 'prefixCls'>) => {
+  if (params.prefixCls !== undefined) {
+    globalPrefixCls = params.prefixCls;
+  }
+};
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
 }
-
-function getGlobalIconPrefixCls() {
-  return globalIconPrefixCls || defaultIconPrefixCls;
-}
-
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-  theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
-  if (prefixCls !== undefined) {
-    globalPrefixCls = prefixCls;
-  }
-  if (iconPrefixCls !== undefined) {
-    globalIconPrefixCls = iconPrefixCls;
-  }
-
-  if (theme) {
-    registerTheme(getGlobalPrefixCls(), theme);
-  }
-};
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
-  getIconPrefixCls: getGlobalIconPrefixCls,
   getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
     // Customize rootPrefixCls is first priority
     if (rootPrefixCls) {
@@ -167,7 +137,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
-    componentDisabled,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -218,18 +187,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     },
   );
 
-  const memoIconContextValue = React.useMemo(
-    () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls, csp],
-  );
+  const memoIconContextValue = React.useMemo(() => ({ prefixCls: iconPrefixCls, csp }), [
+    iconPrefixCls,
+  ]);
 
   let childNode = children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
-  if (locale) {
-    validateMessages =
-      locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages || {};
+  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
+    validateMessages = locale.Form.defaultValidateMessages;
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
@@ -247,7 +214,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  if (iconPrefixCls || csp) {
+  if (iconPrefixCls) {
     childNode = (
       <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
     );
@@ -255,12 +222,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   if (componentSize) {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
-  }
-
-  if (componentDisabled !== undefined) {
-    childNode = (
-      <DisabledContextProvider disabled={componentDisabled}>{childNode}</DisabledContextProvider>
-    );
   }
 
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;

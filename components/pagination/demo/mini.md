@@ -13,14 +13,14 @@ title:
 
 Mini size pagination.
 
-```tsx
-import type { PaginationProps } from 'antd';
+```jsx
 import { Pagination } from 'antd';
-import React from 'react';
 
-const showTotal: PaginationProps['showTotal'] = total => `Total ${total} items`;
+function showTotal(total) {
+  return `Total ${total} items`;
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Pagination size="small" total={50} />
     <Pagination size="small" total={50} showSizeChanger showQuickJumper />
@@ -33,10 +33,9 @@ const App: React.FC = () => (
       showSizeChanger
       showQuickJumper
     />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>

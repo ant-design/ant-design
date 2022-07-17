@@ -13,46 +13,28 @@ title:
 
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
-```tsx
+```jsx
+import { Menu, Dropdown, message } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Dropdown, Menu, message, Space } from 'antd';
-import React from 'react';
 
-const onClick: MenuProps['onClick'] = ({ key }) => {
+const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
 const menu = (
-  <Menu
-    onClick={onClick}
-    items={[
-      {
-        label: '1st menu item',
-        key: '1',
-      },
-      {
-        label: '2nd menu item',
-        key: '2',
-      },
-      {
-        label: '3rd menu item',
-        key: '3',
-      },
-    ]}
-  />
+  <Menu onClick={onClick}>
+    <Menu.Item key="1">1st menu item</Menu.Item>
+    <Menu.Item key="2">2nd menu item</Menu.Item>
+    <Menu.Item key="3">3rd menu item</Menu.Item>
+  </Menu>
 );
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Dropdown overlay={menu}>
-    <a onClick={e => e.preventDefault()}>
-      <Space>
-        Hover me, Click menu item
-        <DownOutlined />
-      </Space>
+    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Hover me, Click menu item <DownOutlined />
     </a>
-  </Dropdown>
+  </Dropdown>,
+  mountNode,
 );
-
-export default App;
 ```

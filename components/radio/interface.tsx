@@ -1,8 +1,7 @@
-import type * as React from 'react';
-import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
-import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
-import type { DisabledType } from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
+import * as React from 'react';
+import { AbstractCheckboxGroupProps } from '../checkbox/Group';
+import { AbstractCheckboxProps } from '../checkbox/Checkbox';
+import { SizeType } from '../config-provider/SizeContext';
 
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 export type RadioGroupOptionType = 'default' | 'button';
@@ -12,7 +11,6 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   value?: any;
   onChange?: (e: RadioChangeEvent) => void;
   size?: SizeType;
-  disabled?: DisabledType;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   name?: string;
@@ -27,13 +25,6 @@ export interface RadioGroupContextProps {
   value: any;
   disabled?: boolean;
   name?: string;
-  /**
-   * Control the appearance for Radio to display as button or not
-   *
-   * @default 'default'
-   * @internal
-   */
-  optionType?: RadioGroupOptionType;
 }
 
 export type RadioProps = AbstractCheckboxProps<RadioChangeEvent>;
@@ -48,5 +39,3 @@ export interface RadioChangeEvent {
   preventDefault: () => void;
   nativeEvent: MouseEvent;
 }
-
-export type RadioOptionTypeContextProps = RadioGroupOptionType;

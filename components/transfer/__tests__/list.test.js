@@ -1,7 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import Checkbox from '../../checkbox';
+import { mount } from 'enzyme';
 import List from '../list';
+import Checkbox from '../../checkbox';
 
 const listCommonProps = {
   prefixCls: 'ant-transfer-list',
@@ -28,7 +28,7 @@ describe('Transfer.List', () => {
   it('should render correctly', () => {
     const wrapper = mount(<List {...listCommonProps} />);
     wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchRenderedSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {
@@ -38,7 +38,7 @@ describe('Transfer.List', () => {
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
     const wrapper = mount(<List {...listCommonProps} />);
-    const willUnmount = jest.spyOn(wrapper.find(List).instance(), 'componentWillUnmount');
+    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
     wrapper.unmount();
     expect(willUnmount).toHaveBeenCalled();
   });
@@ -46,7 +46,7 @@ describe('Transfer.List', () => {
   it('when value is not exists, handleFilter should return', () => {
     const handleFilter = jest.fn();
     const wrapper = mount(<List {...listCommonProps} handleFilter={handleFilter} />);
-    expect(wrapper.find(List).instance().handleFilter({ target: 'test' })).toBe(undefined);
+    expect(wrapper.instance().handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
   });
 });

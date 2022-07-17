@@ -13,17 +13,15 @@ title:
 
 A small `Spin` is used for loading text, default sized `Spin` for loading a card-level block, and large `Spin` used for loading a **page**.
 
-```tsx
-import { Space, Spin } from 'antd';
-import React from 'react';
+```jsx
+import { Spin, Space } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space size="middle">
     <Spin size="small" />
     <Spin />
     <Spin size="large" />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

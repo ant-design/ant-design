@@ -13,17 +13,15 @@ title:
 
 Use `message.useMessage` to get `contextHolder` with context accessible issue.
 
-```tsx
-import { Button, message } from 'antd';
-import React from 'react';
+```jsx
+import { message, Button } from 'antd';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App: React.FC = () => {
-  const [messageApi, contextHolder] = message.useMessage();
-
+function Demo() {
+  const [messsageApi, contextHolder] = message.useMessage();
   const info = () => {
-    messageApi.open({
+    messsageApi.open({
       type: 'info',
       content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       duration: 1,
@@ -38,7 +36,7 @@ const App: React.FC = () => {
       </Button>
     </Context.Provider>
   );
-};
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

@@ -1,9 +1,9 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import mountTest from '../../../tests/shared/mountTest';
-import { render, sleep } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import { mount } from 'enzyme';
 import Wave from '../wave';
+import ConfigProvider from '../../config-provider';
+import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Wave component', () => {
   mountTest(Wave);
@@ -147,54 +147,5 @@ describe('Wave component', () => {
     const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
     wrapper.unmount();
-  });
-
-  it('bindAnimationEvent should return when node is null', () => {
-    const ref = React.createRef();
-    render(
-      <Wave ref={ref}>
-        <button type="button" disabled>
-          button
-        </button>
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
-  });
-
-  it('bindAnimationEvent.onClick should return when children is hidden', () => {
-    const ref = React.createRef();
-    render(
-      <Wave ref={ref}>
-        <button type="button" style={{ display: 'none' }}>
-          button
-        </button>
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
-  });
-
-  it('bindAnimationEvent.onClick should return when children is input', () => {
-    const ref = React.createRef();
-    render(
-      <Wave ref={ref}>
-        <input />
-      </Wave>,
-    );
-    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
-  });
-
-  it('should not throw when click it', () => {
-    expect(() => {
-      const wrapper = mount(
-        <Wave>
-          <div />
-        </Wave>,
-      );
-      wrapper.simulate('click');
-    }).not.toThrow();
-  });
-
-  it('should not throw when no children', () => {
-    expect(() => mount(<Wave />)).not.toThrow();
   });
 });

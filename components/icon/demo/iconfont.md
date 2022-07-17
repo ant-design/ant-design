@@ -13,22 +13,19 @@ title:
 
 If you are using [iconfont.cn](http://iconfont.cn/), you can use the icons in your project gracefully.
 
-```tsx
+```jsx
 import { createFromIconfontCN } from '@ant-design/icons';
-import { Space } from 'antd';
-import React from 'react';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
 });
 
-const App: React.FC = () => (
-  <Space>
+ReactDOM.render(
+  <div className="icons-list">
     <IconFont type="icon-tuichu" />
     <IconFont type="icon-facebook" />
     <IconFont type="icon-twitter" />
-  </Space>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```

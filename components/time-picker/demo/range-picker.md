@@ -13,11 +13,8 @@ title:
 
 Use time range picker with `TimePicker.RangePicker`.
 
-```tsx
+```jsx
 import { TimePicker } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => <TimePicker.RangePicker />;
-
-export default App;
+ReactDOM.render(<TimePicker.RangePicker />, mountNode);
 ```

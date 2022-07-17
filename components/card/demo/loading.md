@@ -13,51 +13,60 @@ title:
 
 Shows a loading indicator while the contents of the card is being fetched.
 
-```tsx
+```jsx
+import { Skeleton, Switch, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card, Skeleton, Switch } from 'antd';
-import React, { useState } from 'react';
 
 const { Meta } = Card;
 
-const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  const onChange = (checked: boolean) => {
-    setLoading(!checked);
+class App extends React.Component {
+  state = {
+    loading: true,
   };
 
-  return (
-    <>
-      <Switch checked={!loading} onChange={onChange} />
+  onChange = checked => {
+    this.setState({ loading: !checked });
+  };
 
-      <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
-        <Meta
-          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          title="Card title"
-          description="This is the description"
-        />
-      </Card>
+  render() {
+    const { loading } = this.state;
 
-      <Card
-        style={{ width: 300, marginTop: 16 }}
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
-      >
-        <Skeleton loading={loading} avatar active>
+    return (
+      <>
+        <Switch checked={!loading} onChange={this.onChange} />
+
+        <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
           <Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+            avatar={
+              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+            }
             title="Card title"
             description="This is the description"
           />
-        </Skeleton>
-      </Card>
-    </>
-  );
-};
+        </Card>
 
-export default App;
+        <Card
+          style={{ width: 300, marginTop: 16 }}
+          actions={[
+            <SettingOutlined key="setting" />,
+            <EditOutlined key="edit" />,
+            <EllipsisOutlined key="ellipsis" />,
+          ]}
+        >
+          <Skeleton loading={loading} avatar active>
+            <Meta
+              avatar={
+                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              }
+              title="Card title"
+              description="This is the description"
+            />
+          </Skeleton>
+        </Card>
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

@@ -13,26 +13,8 @@ title:
 
 Table pagination settings.
 
-```tsx
-import { Radio, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React, { useState } from 'react';
-
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
-
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
+```jsx
+import { Table, Tag, Radio, Space } from 'antd';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
@@ -48,7 +30,7 @@ const bottomOptions = [
   { label: 'none', value: 'none' },
 ];
 
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -69,7 +51,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (tags: string[]) => (
+    render: tags => (
       <span>
         {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
@@ -88,7 +70,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
+    render: (text, record) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
         <a>Delete</a>
@@ -97,7 +79,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -121,34 +103,42 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => {
-  const [top, setTop] = useState<TablePaginationPosition>('topLeft');
-  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
+class Demo extends React.Component {
+  state = {
+    top: 'topLeft',
+    bottom: 'bottomRight',
+  };
 
-  return (
-    <div>
+  render() {
+    return (
       <div>
+        <div>
+          <Radio.Group
+            style={{ marginBottom: 10 }}
+            options={topOptions}
+            value={this.state.top}
+            onChange={e => {
+              this.setState({ top: e.target.value });
+            }}
+          />
+        </div>
         <Radio.Group
           style={{ marginBottom: 10 }}
-          options={topOptions}
-          value={top}
+          options={bottomOptions}
+          value={this.state.bottom}
           onChange={e => {
-            setTop(e.target.value);
+            this.setState({ bottom: e.target.value });
           }}
         />
+        <Table
+          columns={columns}
+          pagination={{ position: [this.state.top, this.state.bottom] }}
+          dataSource={data}
+        />
       </div>
-      <Radio.Group
-        style={{ marginBottom: 10 }}
-        options={bottomOptions}
-        value={bottom}
-        onChange={e => {
-          setBottom(e.target.value);
-        }}
-      />
-      <Table columns={columns} pagination={{ position: [top, bottom] }} dataSource={data} />
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

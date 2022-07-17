@@ -14,27 +14,11 @@ debug: true
 
 Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable). When sort needed, you can use [additional mark](https://codesandbox.io/s/zrj8xvyzxx) to prevent resize trigger sort.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType, ColumnType } from 'antd/es/table';
-import React, { useState } from 'react';
-import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
 
-interface DataType {
-  key: React.Key;
-  date: string;
-  amount: number;
-  type: string;
-  note: string;
-}
-
-const ResizableTitle = (
-  props: React.HTMLAttributes<any> & {
-    onResize: (e: React.SyntheticEvent<Element>, data: ResizeCallbackData) => void;
-    width: number;
-  },
-) => {
+const ResizableTitle = props => {
   const { onResize, width, ...restProps } = props;
 
   if (!width) {
@@ -61,36 +45,45 @@ const ResizableTitle = (
   );
 };
 
-const App: React.FC = () => {
-  const [columns, setColumns] = useState<ColumnsType<DataType>>([
-    {
-      title: 'Date',
-      dataIndex: 'date',
-      width: 200,
+class Demo extends React.Component {
+  state = {
+    columns: [
+      {
+        title: 'Date',
+        dataIndex: 'date',
+        width: 200,
+      },
+      {
+        title: 'Amount',
+        dataIndex: 'amount',
+        width: 100,
+        sorter: (a, b) => a.amount - b.amount,
+      },
+      {
+        title: 'Type',
+        dataIndex: 'type',
+        width: 100,
+      },
+      {
+        title: 'Note',
+        dataIndex: 'note',
+        width: 100,
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        render: () => <a>Delete</a>,
+      },
+    ],
+  };
+
+  components = {
+    header: {
+      cell: ResizableTitle,
     },
-    {
-      title: 'Amount',
-      dataIndex: 'amount',
-      width: 100,
-      sorter: (a, b) => a.amount - b.amount,
-    },
-    {
-      title: 'Type',
-      dataIndex: 'type',
-      width: 100,
-    },
-    {
-      title: 'Note',
-      dataIndex: 'note',
-      width: 100,
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: () => <a>Delete</a>,
-    },
-  ]);
-  const data: DataType[] = [
+  };
+
+  data = [
     {
       key: 0,
       date: '2018-02-11',
@@ -114,40 +107,31 @@ const App: React.FC = () => {
     },
   ];
 
-  const handleResize =
-    (index: number) =>
-    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
-      const newColumns = [...columns];
-      newColumns[index] = {
-        ...newColumns[index],
+  handleResize = index => (e, { size }) => {
+    this.setState(({ columns }) => {
+      const nextColumns = [...columns];
+      nextColumns[index] = {
+        ...nextColumns[index],
         width: size.width,
       };
-      setColumns(newColumns);
-    };
+      return { columns: nextColumns };
+    });
+  };
 
-  const mergeColumns: ColumnsType<DataType> = columns.map((col, index) => ({
-    ...col,
-    onHeaderCell: column => ({
-      width: (column as ColumnType<DataType>).width,
-      onResize: handleResize(index),
-    }),
-  }));
+  render() {
+    const columns = this.state.columns.map((col, index) => ({
+      ...col,
+      onHeaderCell: column => ({
+        width: column.width,
+        onResize: this.handleResize(index),
+      }),
+    }));
 
-  return (
-    <Table
-      bordered
-      components={{
-        header: {
-          cell: ResizableTitle,
-        },
-      }}
-      columns={mergeColumns}
-      dataSource={data}
-    />
-  );
-};
+    return <Table bordered components={this.components} columns={columns} dataSource={this.data} />;
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css

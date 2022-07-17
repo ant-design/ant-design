@@ -13,13 +13,10 @@ title:
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
-```tsx
-import type { BadgeProps } from 'antd';
-import { Badge, Calendar } from 'antd';
-import type { Moment } from 'moment';
-import React from 'react';
+```jsx
+import { Calendar, Badge } from 'antd';
 
-const getListData = (value: Moment) => {
+function getListData(value) {
   let listData;
   switch (value.date()) {
     case 8:
@@ -48,42 +45,41 @@ const getListData = (value: Moment) => {
     default:
   }
   return listData || [];
-};
+}
 
-const getMonthData = (value: Moment) => {
+function dateCellRender(value) {
+  const listData = getListData(value);
+  return (
+    <ul className="events">
+      {listData.map(item => (
+        <li key={item.content}>
+          <Badge status={item.type} text={item.content} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function getMonthData(value) {
   if (value.month() === 8) {
     return 1394;
   }
-};
+}
 
-const App: React.FC = () => {
-  const monthCellRender = (value: Moment) => {
-    const num = getMonthData(value);
-    return num ? (
-      <div className="notes-month">
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null;
-  };
+function monthCellRender(value) {
+  const num = getMonthData(value);
+  return num ? (
+    <div className="notes-month">
+      <section>{num}</section>
+      <span>Backlog number</span>
+    </div>
+  ) : null;
+}
 
-  const dateCellRender = (value: Moment) => {
-    const listData = getListData(value);
-    return (
-      <ul className="events">
-        {listData.map(item => (
-          <li key={item.content}>
-            <Badge status={item.type as BadgeProps['status']} text={item.content} />
-          </li>
-        ))}
-      </ul>
-    );
-  };
-
-  return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />;
-};
-
-export default App;
+ReactDOM.render(
+  <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
+  mountNode,
+);
 ```
 
 ```css

@@ -14,13 +14,13 @@ title:
 Switch required or optional style with `requiredMark`.
 
 ```tsx
-import { InfoCircleOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Radio } from 'antd';
 import React, { useState } from 'react';
+import { Form, Input, Button, Radio } from 'antd';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 type RequiredMark = boolean | 'optional';
 
-const App: React.FC = () => {
+const FormLayoutDemo = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
 
@@ -59,5 +59,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<FormLayoutDemo />, mountNode);
 ```

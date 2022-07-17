@@ -13,17 +13,18 @@ title:
 
 Crowded components split.
 
-```tsx
-import { Divider, Space, Typography } from 'antd';
-import React from 'react';
+```jsx
+import { Space, Typography, Divider } from 'antd';
 
-const App: React.FC = () => (
-  <Space split={<Divider type="vertical" />}>
-    <Typography.Link>Link</Typography.Link>
-    <Typography.Link>Link</Typography.Link>
-    <Typography.Link>Link</Typography.Link>
-  </Space>
-);
+function SpaceSplit() {
+  return (
+    <Space split={<Divider type="vertical" />}>
+      <Typography.Link>Link</Typography.Link>
+      <Typography.Link>Link</Typography.Link>
+      <Typography.Link>Link</Typography.Link>
+    </Space>
+  );
+}
 
-export default App;
+ReactDOM.render(<SpaceSplit />, mountNode);
 ```

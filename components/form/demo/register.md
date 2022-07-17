@@ -14,19 +14,8 @@ title:
 Fill in this form to create a new account for you.
 
 ```tsx
-import {
-  AutoComplete,
-  Button,
-  Cascader,
-  Checkbox,
-  Col,
-  Form,
-  Input,
-  InputNumber,
-  Row,
-  Select,
-} from 'antd';
 import React, { useState } from 'react';
+import { Form, Input, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 
 const { Option } = Select;
 
@@ -88,7 +77,7 @@ const tailFormItemLayout = {
   },
 };
 
-const App: React.FC = () => {
+const RegistrationForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
@@ -100,15 +89,6 @@ const App: React.FC = () => {
       <Select style={{ width: 70 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
-
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="USD">$</Option>
-        <Option value="CNY">¥</Option>
       </Select>
     </Form.Item>
   );
@@ -222,14 +202,6 @@ const App: React.FC = () => {
       </Form.Item>
 
       <Form.Item
-        name="donation"
-        label="Donation"
-        rules={[{ required: true, message: 'Please input donation amount!' }]}
-      >
-        <InputNumber addonAfter={suffixSelector} style={{ width: '100%' }} />
-      </Form.Item>
-
-      <Form.Item
         name="website"
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
@@ -237,14 +209,6 @@ const App: React.FC = () => {
         <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />
         </AutoComplete>
-      </Form.Item>
-
-      <Form.Item
-        name="intro"
-        label="Intro"
-        rules={[{ required: true, message: 'Please input Intro' }]}
-      >
-        <Input.TextArea showCount maxLength={100} />
       </Form.Item>
 
       <Form.Item
@@ -300,5 +264,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<RegistrationForm />, mountNode);
 ```

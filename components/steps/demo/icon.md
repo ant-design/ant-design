@@ -13,21 +13,19 @@ title:
 
 You can use your own custom icons by setting the property `icon` for `Steps.Step`.
 
-```tsx
-import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
+```jsx
 import { Steps } from 'antd';
-import React from 'react';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 
 const { Step } = Steps;
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Steps>
     <Step status="finish" title="Login" icon={<UserOutlined />} />
     <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
     <Step status="process" title="Pay" icon={<LoadingOutlined />} />
     <Step status="wait" title="Done" icon={<SmileOutlined />} />
-  </Steps>
+  </Steps>,
+  mountNode,
 );
-
-export default App;
 ```

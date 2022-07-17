@@ -8,7 +8,6 @@
       direction: rtl;
     }
   }
-
   &-rtl {
     direction: rtl;
   }
@@ -48,10 +47,10 @@
 
 // allow-clear
 .@{ant-prefix}-input-clear-icon {
-  &-has-suffix {
+  &:last-child {
     .@{ant-prefix}-input-affix-wrapper-rtl & {
-      margin-right: 0;
-      margin-left: @input-affix-margin;
+      margin-right: @input-affix-margin;
+      margin-left: 0;
     }
   }
 
@@ -102,7 +101,6 @@
     .@{inputClass}-group-rtl & {
       border-right: 0;
       border-left: @border-width-base @border-style-base @input-border-color;
-      border-radius: @border-radius-base 0 0 @border-radius-base;
     }
   }
 

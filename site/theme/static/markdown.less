@@ -57,15 +57,12 @@
 .markdown h3 {
   font-size: 18px;
 }
-
 .markdown h4 {
   font-size: 16px;
 }
-
 .markdown h5 {
   font-size: 14px;
 }
-
 .markdown h6 {
   font-size: 12px;
 }
@@ -81,7 +78,6 @@
 .markdown p,
 .markdown pre {
   margin: 1em 0;
-
   .ant-row-rtl & {
     direction: rtl;
     text-align: right;
@@ -99,7 +95,6 @@
     padding-right: 4px;
     padding-left: 0;
   }
-
   &:empty {
     display: none;
   }
@@ -181,7 +176,6 @@
 
 .markdown table td > a:not(:last-child) {
   margin-right: 0 !important;
-
   &::after {
     position: relative !important;
   }
@@ -289,12 +283,11 @@
 
     th {
       padding-top: 14px;
-      border-width: 1px 0 2px;
+      border-width: 1px 0 2px 0;
     }
 
     tbody tr {
       transition: all 0.3s;
-
       &:hover {
         background: rgba(60, 90, 100, 0.04);
       }
@@ -307,31 +300,25 @@
         font-weight: 600;
         white-space: nowrap;
       }
-
       &:nth-child(2) {
         width: 55%;
       }
-
       &:nth-child(3) {
         width: 22%;
         color: @magenta-7;
         font-size: max(@font-size-base - 1px, 12px);
       }
-
       &:nth-child(4) {
         width: 15%;
         font-size: max(@font-size-base - 1px, 12px);
       }
-
       &:nth-child(5) {
         width: 8%;
         font-size: max(@font-size-base - 1px, 12px);
       }
-
       &:nth-last-child(3):first-child {
         width: 38%;
       }
-
       &:nth-last-child(3):first-child ~ td:nth-last-child(2) {
         width: 70%;
       }
@@ -401,7 +388,6 @@
       transparent 95.83333333%
     );
   }
-
   .ant-row > div,
   .code-box-demo .ant-row > div {
     min-height: 30px;
@@ -411,16 +397,13 @@
     text-align: center;
     border-radius: 0;
   }
-
   .code-box-demo .ant-row > div:not(.gutter-row) {
     padding: 16px 0;
     background: @demo-grid-color;
-
     &:nth-child(2n + 1) {
       background: fade(@demo-grid-color, 75%);
     }
   }
-
   .ant-row .demo-col,
   .code-box-demo .ant-row .demo-col {
     margin-top: 0;
@@ -431,48 +414,39 @@
     text-align: center;
     border: none;
   }
-
   .ant-row .demo-col-1 {
     background: fade(@demo-grid-color, 75%);
   }
-
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
     background: fade(@demo-grid-color, 50%);
   }
-
   .ant-row .demo-col-3,
   .code-box-demo .ant-row .demo-col-3 {
     color: #999;
     background: rgba(255, 255, 255, 0.2);
   }
-
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
     background: fade(@demo-grid-color, 60%);
   }
-
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
     color: #999;
     background: rgba(255, 255, 255, 0.2);
   }
-
   .code-box-demo .height-100 {
     height: 100px;
     line-height: 100px;
   }
-
   .code-box-demo .height-50 {
     height: 50px;
     line-height: 50px;
   }
-
   .code-box-demo .height-120 {
     height: 120px;
     line-height: 120px;
   }
-
   .code-box-demo .height-80 {
     height: 80px;
     line-height: 80px;
@@ -490,23 +464,19 @@
 // For Changelog
 .markdown ul.ant-timeline {
   line-height: 2;
-
   li.ant-timeline-item {
     margin: 0;
     padding: 0 0 30px;
     list-style: none;
-
     .ant-timeline-item-content {
       position: relative;
       top: -14px;
       padding-left: 32px;
       font-size: 14px;
-
       > h2 {
         margin-top: 0;
         padding-top: 4px;
         direction: ltr;
-
         span {
           .ant-row-rtl & {
             float: right;
@@ -515,7 +485,6 @@
       }
     }
   }
-
   li.ant-timeline-item:first-child {
     margin-top: 40px;
   }

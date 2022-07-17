@@ -3,7 +3,6 @@
 @import './mixin';
 @import './affix';
 @import './allow-clear';
-@import './status';
 
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
@@ -16,7 +15,6 @@
   &-group {
     .reset-component();
     .input-group(~'@{input-prefix-cls}');
-
     &-wrapper {
       display: inline-block;
       width: 100%;
@@ -25,7 +23,7 @@
     }
   }
 
-  &-password-icon.@{iconfont-css-prefix} {
+  &-password-icon {
     color: @text-color-secondary;
     cursor: pointer;
     transition: all 0.3s;
@@ -48,36 +46,14 @@
     }
   }
 
-  &-textarea-show-count {
-    // https://github.com/ant-design/ant-design/issues/33049
-    > .@{input-prefix-cls} {
-      height: 100%;
-    }
-
-    &::after {
+  &-textarea {
+    &-show-count::after {
       float: right;
       color: @text-color-secondary;
       white-space: nowrap;
       content: attr(data-count);
       pointer-events: none;
     }
-
-    &.@{input-prefix-cls}-textarea-in-form-item {
-      &::after {
-        margin-bottom: -22px;
-      }
-    }
-  }
-
-  &-textarea-suffix {
-    position: absolute;
-    top: 0;
-    right: @input-padding-horizontal-base;
-    bottom: 0;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    margin: auto;
   }
 }
 

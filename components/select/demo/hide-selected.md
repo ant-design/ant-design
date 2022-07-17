@@ -13,33 +13,40 @@ title:
 
 Hide already selected options in the dropdown.
 
-```tsx
+```jsx
 import { Select } from 'antd';
-import React, { useState } from 'react';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 
-const App: React.FC = () => {
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+class SelectWithHiddenSelectedOptions extends React.Component {
+  state = {
+    selectedItems: [],
+  };
 
-  const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+  handleChange = selectedItems => {
+    this.setState({ selectedItems });
+  };
 
-  return (
-    <Select
-      mode="multiple"
-      placeholder="Inserted are removed"
-      value={selectedItems}
-      onChange={setSelectedItems}
-      style={{ width: '100%' }}
-    >
-      {filteredOptions.map(item => (
-        <Select.Option key={item} value={item}>
-          {item}
-        </Select.Option>
-      ))}
-    </Select>
-  );
-};
+  render() {
+    const { selectedItems } = this.state;
+    const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+    return (
+      <Select
+        mode="multiple"
+        placeholder="Inserted are removed"
+        value={selectedItems}
+        onChange={this.handleChange}
+        style={{ width: '100%' }}
+      >
+        {filteredOptions.map(item => (
+          <Select.Option key={item} value={item}>
+            {item}
+          </Select.Option>
+        ))}
+      </Select>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<SelectWithHiddenSelectedOptions />, mountNode);
 ```

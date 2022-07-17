@@ -13,13 +13,12 @@ title:
 
 Search loading when onSearch.
 
-```tsx
+```jsx
 import { Input } from 'antd';
-import React from 'react';
 
 const { Search } = Input;
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Search placeholder="input search loading default" loading />
     <br />
@@ -28,8 +27,7 @@ const App: React.FC = () => (
     <br />
     <br />
     <Search placeholder="input search text" enterButton="Search" size="large" loading />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

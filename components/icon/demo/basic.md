@@ -13,27 +13,35 @@ title:
 
 Import icons from `@ant-design/icons`, component name of icons with different theme is the icon name suffixed by the theme name. Specify the `spin` property to show spinning animation.
 
-```tsx
+```jsx
 import {
   HomeOutlined,
-  LoadingOutlined,
   SettingFilled,
   SmileOutlined,
   SyncOutlined,
+  LoadingOutlined,
 } from '@ant-design/icons';
-import { Space } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
-  <Space>
+ReactDOM.render(
+  <div className="icons-list">
     <HomeOutlined />
     <SettingFilled />
     <SmileOutlined />
     <SyncOutlined spin />
     <SmileOutlined rotate={180} />
     <LoadingOutlined />
-  </Space>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
+
+<style>
+.icons-list > .anticon {
+  margin-right: 6px;
+  font-size: 24px;
+}
+.ant-row-rtl .icons-list > .anticon {
+  margin-right: 0;
+  margin-left: 6px;
+}
+</style>

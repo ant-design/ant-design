@@ -13,18 +13,18 @@ title:
 
 Show all configured prop.
 
-```tsx
+```jsx
 import { Pagination } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
-  <Pagination
-    total={85}
-    showSizeChanger
-    showQuickJumper
-    showTotal={total => `Total ${total} items`}
-  />
+ReactDOM.render(
+  <>
+    <Pagination
+      total={85}
+      showSizeChanger
+      showQuickJumper
+      showTotal={total => `Total ${total} items`}
+    />
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

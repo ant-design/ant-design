@@ -1,14 +1,18 @@
-import type {
-  HolderReadyCallback as RCHolderReadyCallback,
-  NoticeContent as RCNoticeContent,
-  NotificationInstance as RCNotificationInstance,
-} from 'rc-notification/lib/Notification';
-import useRCNotification from 'rc-notification/lib/useNotification';
 import * as React from 'react';
-import type { ArgsProps, MessageInstance, ThenableArgument } from '..';
-import { attachTypeApi, getKeyThenIncreaseKey, typeList } from '..';
-import type { ConfigConsumerProps } from '../../config-provider';
-import { ConfigConsumer } from '../../config-provider';
+import useRCNotification from 'rc-notification/lib/useNotification';
+import {
+  NotificationInstance as RCNotificationInstance,
+  NoticeContent as RCNoticeContent,
+  HolderReadyCallback as RCHolderReadyCallback,
+} from 'rc-notification/lib/Notification';
+import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
+import {
+  MessageInstance,
+  ArgsProps,
+  attachTypeApi,
+  ThenableArgument,
+  getKeyThenIncreaseKey,
+} from '..';
 
 export default function createUseMessage(
   getRcNotificationInstance: (
@@ -20,7 +24,6 @@ export default function createUseMessage(
   const useMessage = (): [MessageInstance, React.ReactElement] => {
     // We can only get content by render
     let getPrefixCls: ConfigConsumerProps['getPrefixCls'];
-    let getPopupContainer: ConfigConsumerProps['getPopupContainer'];
 
     // We create a proxy to handle delay created instance
     let innerInstance: RCNotificationInstance | null = null;
@@ -49,7 +52,6 @@ export default function createUseMessage(
             ...args,
             prefixCls: mergedPrefixCls,
             rootPrefixCls,
-            getPopupContainer,
           },
           ({ prefixCls, instance }) => {
             innerInstance = instance;
@@ -73,13 +75,15 @@ export default function createUseMessage(
 
     hookApiRef.current.open = notify;
 
-    typeList.forEach(type => attachTypeApi(hookApiRef.current, type));
+    ['success', 'info', 'warning', 'error', 'loading'].forEach(type =>
+      attachTypeApi(hookApiRef.current, type),
+    );
 
     return [
       hookApiRef.current,
       <ConfigConsumer key="holder">
         {(context: ConfigConsumerProps) => {
-          ({ getPrefixCls, getPopupContainer } = context);
+          ({ getPrefixCls } = context);
           return holder;
         }}
       </ConfigConsumer>,

@@ -1,19 +1,14 @@
+import * as React from 'react';
+import classNames from 'classnames';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import useState from 'rc-util/lib/hooks/useState';
-import * as React from 'react';
-import type { AvatarProps } from '../avatar';
-import Avatar from '../avatar';
-import type { BreadcrumbProps } from '../breadcrumb';
-import Breadcrumb from '../breadcrumb';
-import type { ConfigConsumerProps, DirectionType } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import Space from '../space';
-import type { TagType } from '../tag';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
+import { TagType } from '../tag';
+import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
+import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -30,7 +25,6 @@ export interface PageHeaderProps {
   onBack?: (e?: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
   ghost?: boolean;
-  children?: React.ReactNode;
 }
 
 const renderBack = (
@@ -109,11 +103,7 @@ const renderTitle = (
           {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
         </div>
       )}
-      {extra && (
-        <span className={`${headingPrefixCls}-extra`}>
-          <Space>{extra}</Space>
-        </span>
-      )}
+      {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
     </div>
   );
 };
@@ -130,9 +120,9 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => (
 );
 
 const PageHeader: React.FC<PageHeaderProps> = props => {
-  const [compact, updateCompact] = useState(false);
+  const [compact, updateCompact] = React.useState(false);
   const onResize = ({ width }: { width: number }) => {
-    updateCompact(width < 768, true);
+    updateCompact(width < 768);
   };
   return (
     <ConfigConsumer>
@@ -167,9 +157,9 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
 
         const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
-        // support breadcrumbRender function
+        //  support breadcrumbRender function
         const breadcrumbRenderDomFromProps =
-          breadcrumbRender?.(props, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
+          breadcrumbRender?.(props, defaultBreadcrumbDom) || defaultBreadcrumbDom;
 
         const breadcrumbDom = isBreadcrumbComponent ? breadcrumb : breadcrumbRenderDomFromProps;
 

@@ -23,33 +23,22 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 
 ```tsx
 import { SmileOutlined } from '@ant-design/icons';
-import {
-  Cascader,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Mentions,
-  Select,
-  TimePicker,
-  TreeSelect,
-} from 'antd';
-import React from 'react';
+import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const { Option } = Select;
 
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 6 },
+    sm: { span: 5 },
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 14 },
+    sm: { span: 12 },
   },
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -98,11 +87,7 @@ const App: React.FC = () => (
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <DatePicker.RangePicker style={{ width: '100%' }} />
-    </Form.Item>
-
-    <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Select placeholder="I'm Select" allowClear>
+      <Select allowClear>
         <Option value="1">Option 1</Option>
         <Option value="2">Option 2</Option>
         <Option value="3">Option 3</Option>
@@ -112,24 +97,16 @@ const App: React.FC = () => (
     <Form.Item
       label="Validating"
       hasFeedback
-      validateStatus="error"
-      help="Something breaks the rule."
+      validateStatus="validating"
+      help="The information is being validated..."
     >
-      <Cascader placeholder="I'm Cascader" options={[{ value: 'xx', label: 'xx' }]} allowClear />
-    </Form.Item>
-
-    <Form.Item label="Warning" hasFeedback validateStatus="warning" help="Need to be checked">
-      <TreeSelect
-        placeholder="I'm TreeSelect"
-        treeData={[{ value: 'xx', label: 'xx' }]}
-        allowClear
-      />
+      <Cascader options={[{ value: 'xx', label: 'xx' }]} allowClear />
     </Form.Item>
 
     <Form.Item label="inline" style={{ marginBottom: 0 }}>
       <Form.Item
         validateStatus="error"
-        help="Please select right date"
+        help="Please select the correct date"
         style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
       >
         <DatePicker />
@@ -159,16 +136,7 @@ const App: React.FC = () => (
     <Form.Item label="Error" hasFeedback validateStatus="error">
       <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
-
-    <Form.Item label="Fail" validateStatus="error" hasFeedback>
-      <Mentions />
-    </Form.Item>
-
-    <Form.Item label="Fail" validateStatus="error" hasFeedback help="Should have something">
-      <Input.TextArea allowClear showCount />
-    </Form.Item>
-  </Form>
+  </Form>,
+  mountNode,
 );
-
-export default App;
 ```

@@ -1,12 +1,11 @@
-import classNames from 'classnames';
-import memoizeOne from 'memoize-one';
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as React from 'react';
+import classNames from 'classnames';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
-import getScroll from '../_util/getScroll';
+import AnchorLink from './AnchorLink';
+import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
+import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
 
 export type AnchorContainer = HTMLElement | Window;
@@ -33,7 +32,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-const sharpMatcherRegx = /#([\S ]+)$/;
+const sharpMatcherRegx = /#(\S+)$/;
 
 type Section = {
   link: string;
@@ -51,7 +50,7 @@ export interface AnchorProps {
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
   /** Return customize highlight anchor */
-  getCurrentAnchor?: (activeLink: string) => string;
+  getCurrentAnchor?: () => string;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
@@ -60,10 +59,6 @@ export interface AnchorProps {
   targetOffset?: number;
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
-}
-
-interface InternalAnchorProps extends AnchorProps {
-  anchorPrefixCls: string;
 }
 
 export interface AnchorState {
@@ -88,7 +83,9 @@ export interface AntAnchor {
   ) => void;
 }
 
-class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
+export default class Anchor extends React.Component<AnchorProps, AnchorState, ConfigConsumerProps> {
+  static Link: typeof AnchorLink;
+
   static defaultProps = {
     affix: true,
     showInkInFixed: false,
@@ -100,7 +97,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     activeLink: null,
   };
 
-  context: ConfigConsumerProps;
+  content: ConfigConsumerProps;
 
   private wrapperRef = React.createRef<HTMLDivElement>();
 
@@ -232,7 +229,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     }
     // https://github.com/ant-design/ant-design/issues/30584
     this.setState({
-      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link,
+      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor() : link,
     });
     onChange?.(link);
   };
@@ -259,29 +256,21 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     }
   };
 
-  getMemoizedContextValue = memoizeOne(
-    (link: AntAnchor['activeLink'], onClickFn: AnchorProps['onClick']): AntAnchor => ({
-      registerLink: this.registerLink,
-      unregisterLink: this.unregisterLink,
-      scrollTo: this.handleScrollTo,
-      activeLink: link,
-      onClick: onClickFn,
-    }),
-  );
+  render = () => {
+    const { getPrefixCls, direction } = this.context;
 
-  render() {
-    const { direction } = this.context;
     const {
-      anchorPrefixCls: prefixCls,
+      prefixCls: customizePrefixCls,
       className = '',
       style,
       offsetTop,
       affix,
       showInkInFixed,
       children,
-      onClick,
     } = this.props;
     const { activeLink } = this.state;
+
+    const prefixCls = getPrefixCls('anchor', customizePrefixCls);
 
     // To support old version react.
     // Have to add prefixCls on the instance.
@@ -301,7 +290,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     );
 
     const anchorClass = classNames(prefixCls, {
-      [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
+      fixed: !affix && !showInkInFixed,
     });
 
     const wrapperStyle = {
@@ -320,10 +309,16 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       </div>
     );
 
-    const contextValue = this.getMemoizedContextValue(activeLink, onClick);
-
     return (
-      <AnchorContext.Provider value={contextValue}>
+      <AnchorContext.Provider
+        value={{
+          registerLink: this.registerLink,
+          unregisterLink: this.unregisterLink,
+          activeLink: this.state.activeLink,
+          scrollTo: this.handleScrollTo,
+          onClick: this.props.onClick,
+        }}
+      >
         {!affix ? (
           anchorContent
         ) : (
@@ -333,24 +328,5 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
         )}
       </AnchorContext.Provider>
     );
-  }
-}
-// just use in test
-export type InternalAnchorClass = Anchor;
-
-const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
-
-  const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
-
-  const anchorProps: InternalAnchorProps = {
-    ...props,
-
-    anchorPrefixCls,
   };
-
-  return <Anchor {...anchorProps} ref={ref} />;
-});
-
-export default AnchorFC;
+}

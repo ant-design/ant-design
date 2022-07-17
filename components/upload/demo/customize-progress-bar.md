@@ -13,13 +13,11 @@ title:
 
 Use `progress` for customize progress bar.
 
-```tsx
+```jsx
+import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, message, Upload } from 'antd';
-import React from 'react';
 
-const props: UploadProps = {
+const props = {
   name: 'file',
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   headers: {
@@ -41,15 +39,14 @@ const props: UploadProps = {
       '100%': '#87d068',
     },
     strokeWidth: 3,
-    format: percent => percent && `${parseFloat(percent.toFixed(2))}%`,
+    format: percent => `${parseFloat(percent.toFixed(2))}%`,
   },
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Click to Upload</Button>
-  </Upload>
+  </Upload>,
+  mountNode,
 );
-
-export default App;
 ```

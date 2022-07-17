@@ -1,10 +1,9 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount } from 'enzyme';
 import ConfigProvider from '..';
-import Cascader from '../../cascader';
 import DatePicker from '../../date-picker';
-import Drawer from '../../drawer';
 import Slider from '../../slider';
+import Drawer from '../../drawer';
 
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {
@@ -28,7 +27,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
-  it('Drawer', () => {
+  it('drawer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
     const Demo = ({ visible }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
@@ -36,12 +35,6 @@ describe('ConfigProvider.GetPopupContainer', () => {
       </ConfigProvider>
     );
     mount(<Demo visible />);
-    expect(getPopupContainer).toHaveBeenCalled();
-  });
-
-  it('Cascader', () => {
-    const getPopupContainer = jest.fn(node => node.parentNode);
-    mount(<Cascader getPopupContainer={getPopupContainer} open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 });

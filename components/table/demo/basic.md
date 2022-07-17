@@ -13,20 +13,10 @@ title:
 
 Simple table with actions.
 
-```tsx
-import { Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
+```jsx
+import { Table, Tag, Space } from 'antd';
 
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -47,7 +37,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: (_, { tags }) => (
+    render: tags => (
       <>
         {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
@@ -66,7 +56,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: 'Action',
     key: 'action',
-    render: (_, record) => (
+    render: (text, record) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
         <a>Delete</a>
@@ -75,7 +65,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     name: 'John Brown',
@@ -99,7 +89,5 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} />;
-
-export default App;
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ```

@@ -13,25 +13,19 @@ title:
 
 Nested inside a container element for rendering in limited space.
 
-```tsx
+```jsx
 import { Calendar } from 'antd';
-import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
-import type { Moment } from 'moment';
-import React from 'react';
 
-const App: React.FC = () => {
-  const onPanelChange = (value: Moment, mode: CalendarMode) => {
-    console.log(value.format('YYYY-MM-DD'), mode);
-  };
+function onPanelChange(value, mode) {
+  console.log(value, mode);
+}
 
-  return (
-    <div className="site-calendar-demo-card">
-      <Calendar fullscreen={false} onPanelChange={onPanelChange} />
-    </div>
-  );
-};
-
-export default App;
+ReactDOM.render(
+  <div className="site-calendar-demo-card">
+    <Calendar fullscreen={false} onPanelChange={onPanelChange} />
+  </div>,
+  mountNode,
+);
 ```
 
 ```css

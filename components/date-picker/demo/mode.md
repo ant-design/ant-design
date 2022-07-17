@@ -14,70 +14,73 @@ debug: true
 
 Determing which panel to show with `mode` and `onPanelChange`.
 
-```tsx
-import type { DatePickerProps } from 'antd';
+```jsx
 import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import type { Moment } from 'moment';
-import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-type RangeValue = [Moment | null, Moment | null] | null;
+class ControlledDatePicker extends React.Component {
+  state = { mode: 'time' };
 
-const ControlledDatePicker = () => {
-  const [mode, setMode] = useState<DatePickerProps['mode']>('time');
-
-  const handleOpenChange = (open: boolean) => {
+  handleOpenChange = open => {
     if (open) {
-      setMode('time');
+      this.setState({ mode: 'time' });
     }
   };
 
-  const handlePanelChange: DatePickerProps['onPanelChange'] = (_, newMode) => {
-    setMode(newMode);
+  handlePanelChange = (value, mode) => {
+    this.setState({ mode });
   };
 
-  return (
-    <DatePicker
-      mode={mode}
-      showTime
-      onOpenChange={handleOpenChange}
-      onPanelChange={handlePanelChange}
-    />
-  );
-};
+  render() {
+    return (
+      <DatePicker
+        mode={this.state.mode}
+        showTime
+        onOpenChange={this.handleOpenChange}
+        onPanelChange={this.handlePanelChange}
+      />
+    );
+  }
+}
 
-const ControlledRangePicker = () => {
-  const [mode, setMode] = useState<RangePickerProps['mode']>(['month', 'month']);
-  const [value, setValue] = useState<RangeValue>([null, null]);
-
-  const handlePanelChange: RangePickerProps['onPanelChange'] = (newValue, newModes) => {
-    setValue(newValue);
-    setMode([
-      newModes[0] === 'date' ? 'month' : newModes[0],
-      newModes[1] === 'date' ? 'month' : newModes[1],
-    ]);
+class ControlledRangePicker extends React.Component {
+  state = {
+    mode: ['month', 'month'],
+    value: [],
   };
 
-  return (
-    <RangePicker
-      placeholder={['Start month', 'End month']}
-      format="YYYY-MM"
-      value={value}
-      mode={mode}
-      onChange={setValue}
-      onPanelChange={handlePanelChange}
-    />
-  );
-};
+  handlePanelChange = (value, mode) => {
+    this.setState({
+      value,
+      mode: [mode[0] === 'date' ? 'month' : mode[0], mode[1] === 'date' ? 'month' : mode[1]],
+    });
+  };
 
-const App: React.FC = () => (
+  handleChange = value => {
+    this.setState({ value });
+  };
+
+  render() {
+    const { value, mode } = this.state;
+    return (
+      <RangePicker
+        placeholder={['Start month', 'End month']}
+        format="YYYY-MM"
+        value={value}
+        mode={mode}
+        onChange={this.handleChange}
+        onPanelChange={this.handlePanelChange}
+      />
+    );
+  }
+}
+
+ReactDOM.render(
   <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

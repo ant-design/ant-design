@@ -13,19 +13,10 @@ title:
 
 To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
 
-```tsx
-import { Button, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React, { useState } from 'react';
+```jsx
+import { Table, Button } from 'antd';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -40,7 +31,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
+const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
@@ -50,44 +41,50 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App: React.FC = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const [loading, setLoading] = useState(false);
+class App extends React.Component {
+  state = {
+    selectedRowKeys: [], // Check here to configure the default column
+    loading: false,
+  };
 
-  const start = () => {
-    setLoading(true);
+  start = () => {
+    this.setState({ loading: true });
     // ajax request after empty completing
     setTimeout(() => {
-      setSelectedRowKeys([]);
-      setLoading(false);
+      this.setState({
+        selectedRowKeys: [],
+        loading: false,
+      });
     }, 1000);
   };
 
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+  onSelectChange = selectedRowKeys => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
+    this.setState({ selectedRowKeys });
   };
 
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-  const hasSelected = selectedRowKeys.length > 0;
-
-  return (
-    <div>
-      <div style={{ marginBottom: 16 }}>
-        <Button type="primary" onClick={start} disabled={!hasSelected} loading={loading}>
-          Reload
-        </Button>
-        <span style={{ marginLeft: 8 }}>
-          {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
-        </span>
+  render() {
+    const { loading, selectedRowKeys } = this.state;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange: this.onSelectChange,
+    };
+    const hasSelected = selectedRowKeys.length > 0;
+    return (
+      <div>
+        <div style={{ marginBottom: 16 }}>
+          <Button type="primary" onClick={this.start} disabled={!hasSelected} loading={loading}>
+            Reload
+          </Button>
+          <span style={{ marginLeft: 8 }}>
+            {hasSelected ? `Selected ${selectedRowKeys.length} items` : ''}
+          </span>
+        </div>
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

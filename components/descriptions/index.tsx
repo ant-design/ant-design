@@ -1,14 +1,17 @@
 /* eslint-disable react/no-array-index-key */
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
+import ResponsiveObserve, {
+  Breakpoint,
+  ScreenMap,
+  responsiveArray,
+} from '../_util/responsiveObserve';
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import warning from '../_util/warning';
-import DescriptionsItem from './Item';
 import Row from './Row';
+import DescriptionsItem from './Item';
+import { cloneElement } from '../_util/reactNode';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -54,7 +57,7 @@ function getFilledItem(
     clone = cloneElement(node, {
       span: rowRestCol,
     });
-    warning(
+    devWarning(
       span === undefined,
       'Descriptions',
       'Sum of column `span` in a line not match `column` of Descriptions.',
@@ -148,13 +151,9 @@ function Descriptions({
 
   // Children
   const rows = getRows(children, mergedColumn);
-  const contextValue = React.useMemo(
-    () => ({ labelStyle, contentStyle }),
-    [labelStyle, contentStyle],
-  );
 
   return (
-    <DescriptionsContext.Provider value={contextValue}>
+    <DescriptionsContext.Provider value={{ labelStyle, contentStyle }}>
       <div
         className={classNames(
           prefixCls,

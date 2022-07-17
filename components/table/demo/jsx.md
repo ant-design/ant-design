@@ -17,22 +17,12 @@ Using JSX style API (introduced in 2.5.0)
 
 > Since this is just a syntax sugar for the prop `columns`, you can't compose `Column` and `ColumnGroup` with other Components.
 
-```tsx
-import { Space, Table, Tag } from 'antd';
-import React from 'react';
+```jsx
+import { Table, Tag, Space } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
-interface DataType {
-  key: React.Key;
-  firstName: string;
-  lastName: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
-
-const data: DataType[] = [
+const data = [
   {
     key: '1',
     firstName: 'John',
@@ -59,7 +49,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Table dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
@@ -71,7 +61,7 @@ const App: React.FC = () => (
       title="Tags"
       dataIndex="tags"
       key="tags"
-      render={(tags: string[]) => (
+      render={tags => (
         <>
           {tags.map(tag => (
             <Tag color="blue" key={tag}>
@@ -84,15 +74,14 @@ const App: React.FC = () => (
     <Column
       title="Action"
       key="action"
-      render={(_: any, record: DataType) => (
+      render={(text, record) => (
         <Space size="middle">
           <a>Invite {record.lastName}</a>
           <a>Delete</a>
         </Space>
       )}
     />
-  </Table>
+  </Table>,
+  mountNode,
 );
-
-export default App;
 ```

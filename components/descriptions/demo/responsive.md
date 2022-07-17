@@ -13,11 +13,10 @@ title:
 
 Responsive configuration enables perfect presentation on small screen devices.
 
-```tsx
+```jsx
 import { Descriptions } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+const Demo = () => (
   <div>
     <Descriptions
       title="Responsive Descriptions"
@@ -47,5 +46,5 @@ const App: React.FC = () => (
   </div>
 );
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

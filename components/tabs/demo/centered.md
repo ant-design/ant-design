@@ -13,13 +13,12 @@ title:
 
 Centered tabs.
 
-```tsx
+```jsx
 import { Tabs } from 'antd';
-import React from 'react';
 
 const { TabPane } = Tabs;
 
-const App: React.FC = () => (
+const Demo = () => (
   <Tabs defaultActiveKey="1" centered>
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
@@ -33,5 +32,5 @@ const App: React.FC = () => (
   </Tabs>
 );
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

@@ -13,16 +13,14 @@ title:
 
 Allows for custom rendering of tags.
 
-```tsx
+```jsx
 import { Select, Tag } from 'antd';
-import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
-import React from 'react';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 
-const tagRender = (props: CustomTagProps) => {
+function tagRender(props) {
   const { label, value, closable, onClose } = props;
-  const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
+  const onPreventMouseDown = event => {
     event.preventDefault();
     event.stopPropagation();
   };
@@ -37,9 +35,9 @@ const tagRender = (props: CustomTagProps) => {
       {label}
     </Tag>
   );
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Select
     mode="multiple"
     showArrow
@@ -47,8 +45,7 @@ const App: React.FC = () => (
     defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}
     options={options}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

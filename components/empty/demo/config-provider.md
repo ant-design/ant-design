@@ -13,20 +13,19 @@ title:
 
 Use ConfigProvider set global Empty style.
 
-```tsx
-import { SmileOutlined } from '@ant-design/icons';
+```jsx
 import {
-  Cascader,
   ConfigProvider,
-  Divider,
-  List,
-  Select,
   Switch,
-  Table,
-  Transfer,
+  Divider,
   TreeSelect,
+  Select,
+  Cascader,
+  Transfer,
+  Table,
+  List,
 } from 'antd';
-import React, { useState } from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>
@@ -37,62 +36,67 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-const App: React.FC = () => {
-  const [customize, setCustomize] = useState(false);
+class Demo extends React.Component {
+  state = {
+    customize: false,
+  };
 
-  return (
-    <div>
-      <Switch
-        unCheckedChildren="default"
-        checkedChildren="customize"
-        checked={customize}
-        onChange={val => {
-          setCustomize(val);
-        }}
-      />
+  render() {
+    const { customize } = this.state;
+    return (
+      <div>
+        <Switch
+          unCheckedChildren="default"
+          checkedChildren="customize"
+          checked={customize}
+          onChange={val => {
+            this.setState({ customize: val });
+          }}
+        />
 
-      <Divider />
+        <Divider />
 
-      <ConfigProvider renderEmpty={customize ? customizeRenderEmpty : undefined}>
-        <div className="config-provider">
-          <h4>Select</h4>
-          <Select style={style} />
+        <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+          <div className="config-provider">
+            <h4>Select</h4>
+            <Select style={style} />
 
-          <h4>TreeSelect</h4>
-          <TreeSelect style={style} treeData={[]} />
+            <h4>TreeSelect</h4>
+            <TreeSelect style={style} treeData={[]} />
 
-          <h4>Cascader</h4>
-          <Cascader style={style} options={[]} showSearch />
+            <h4>Cascader</h4>
+            <Cascader style={style} options={[]} showSearch />
 
-          <h4>Transfer</h4>
-          <Transfer />
+            <h4>Transfer</h4>
+            <Transfer />
 
-          <h4>Table</h4>
-          <Table
-            style={{ marginTop: 8 }}
-            columns={[
-              {
-                title: 'Name',
-                dataIndex: 'name',
-                key: 'name',
-              },
-              {
-                title: 'Age',
-                dataIndex: 'age',
-                key: 'age',
-              },
-            ]}
-          />
+            <h4>Table</h4>
+            <Table
+              style={{ marginTop: 8 }}
+              columns={[
+                {
+                  title: 'Name',
+                  dataIndex: 'name',
+                  key: 'name',
+                },
+                {
+                  title: 'Age',
+                  dataIndex: 'age',
+                  key: 'age',
+                },
+              ]}
+            />
 
-          <h4>List</h4>
-          <List />
-        </div>
-      </ConfigProvider>
-    </div>
-  );
-};
+            <h4>List</h4>
+            <List />
+          </div>
+        </ConfigProvider>
+      </div>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```
 
 <style>

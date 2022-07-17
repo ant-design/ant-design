@@ -7,51 +7,56 @@ title:
 
 ## zh-CN
 
-渲染在当前 dom 里。自定义容器，查看 `getContainer`。
+渲染在当前 dom 里。自定义容器，查看 getContainer。
 
 ## en-US
 
-Render in current dom. custom container, check `getContainer`.
+Render in current dom. custom container, check getContainer.
 
-```tsx
-import { Button, Drawer } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Drawer, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+class App extends React.Component {
+  state = { visible: false };
 
-  const showDrawer = () => {
-    setVisible(true);
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
   };
 
-  const onClose = () => {
-    setVisible(false);
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
   };
 
-  return (
-    <div className="site-drawer-render-in-current-wrapper">
-      Render in this
-      <div style={{ marginTop: 16 }}>
-        <Button type="primary" onClick={showDrawer}>
-          Open
-        </Button>
+  render() {
+    return (
+      <div className="site-drawer-render-in-current-wrapper">
+        Render in this
+        <div style={{ marginTop: 16 }}>
+          <Button type="primary" onClick={this.showDrawer}>
+            Open
+          </Button>
+        </div>
+        <Drawer
+          title="Basic Drawer"
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+          getContainer={false}
+          style={{ position: 'absolute' }}
+        >
+          <p>Some contents...</p>
+        </Drawer>
       </div>
-      <Drawer
-        title="Basic Drawer"
-        placement="right"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        getContainer={false}
-        style={{ position: 'absolute' }}
-      >
-        <p>Some contents...</p>
-      </Drawer>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```
 
 ```css

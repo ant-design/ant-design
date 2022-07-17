@@ -13,12 +13,10 @@ title:
 
 Set the color of circles. `green` means completed or success status, `red` means warning or error, and `blue` means ongoing or other default status, `gray` for unfinished or disabled status.
 
-```tsx
-import { SmileOutlined } from '@ant-design/icons';
+```jsx
 import { Timeline } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Timeline>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
@@ -42,11 +40,7 @@ const App: React.FC = () => (
       <p>Technical testing 2</p>
       <p>Technical testing 3 2015-09-01</p>
     </Timeline.Item>
-    <Timeline.Item color="#00CCFF" dot={<SmileOutlined />}>
-      <p>Custom color testing</p>
-    </Timeline.Item>
-  </Timeline>
+  </Timeline>,
+  mountNode,
 );
-
-export default App;
 ```

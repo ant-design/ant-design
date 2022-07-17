@@ -8,17 +8,16 @@ debug: true
 
 ## zh-CN
 
-图片不存在时，如果 `src` 本身是个 ReactElement，会尝试回退到 `src`，否则尝试回退到 `icon`，最后回退到显示 `children`。
+图片不存在时，会回退到 `src`。
 
 ## en-US
 
-图片不存在时，如果 `src` 本身是个 ReactElement，会尝试回退到 `src`，否则尝试回退到 `icon`，最后回退到显示 `children`。
+图片不存在时，会回退到 `src`。
 
 ```tsx
 import { Avatar } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       A
@@ -26,8 +25,7 @@ const App: React.FC = () => (
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       ABC
     </Avatar>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

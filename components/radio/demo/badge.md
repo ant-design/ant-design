@@ -14,11 +14,10 @@ title:
 
 Test Badge style.
 
-```tsx
-import { Badge, Radio } from 'antd';
-import React from 'react';
+```jsx
+import { Radio, Badge } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Radio.Group buttonStyle="solid">
     <Badge count={1}>
       <Radio.Button value={1}>Click Me</Radio.Button>
@@ -26,8 +25,7 @@ const App: React.FC = () => (
     <Badge count={2}>
       <Radio.Button value={2}>Not Me</Radio.Button>
     </Badge>
-  </Radio.Group>
+  </Radio.Group>,
+  mountNode,
 );
-
-export default App;
 ```

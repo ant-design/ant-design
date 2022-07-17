@@ -13,28 +13,13 @@ title:
 
 Comment can be used as an editor, so the user can customize the contents of the component.
 
-```tsx
-import { Avatar, Button, Comment, Form, Input, List } from 'antd';
+```jsx
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
-import React, { useState } from 'react';
 
 const { TextArea } = Input;
 
-interface CommentItem {
-  author: string;
-  avatar: string;
-  content: React.ReactNode;
-  datetime: string;
-}
-
-interface EditorProps {
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onSubmit: () => void;
-  submitting: boolean;
-  value: string;
-}
-
-const CommentList = ({ comments }: { comments: CommentItem[] }) => (
+const CommentList = ({ comments }) => (
   <List
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
@@ -43,7 +28,7 @@ const CommentList = ({ comments }: { comments: CommentItem[] }) => (
   />
 );
 
-const Editor = ({ onChange, onSubmit, submitting, value }: EditorProps) => (
+const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <>
     <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
@@ -56,52 +41,71 @@ const Editor = ({ onChange, onSubmit, submitting, value }: EditorProps) => (
   </>
 );
 
-const App: React.FC = () => {
-  const [comments, setComments] = useState<CommentItem[]>([]);
-  const [submitting, setSubmitting] = useState(false);
-  const [value, setValue] = useState('');
+class App extends React.Component {
+  state = {
+    comments: [],
+    submitting: false,
+    value: '',
+  };
 
-  const handleSubmit = () => {
-    if (!value) return;
+  handleSubmit = () => {
+    if (!this.state.value) {
+      return;
+    }
 
-    setSubmitting(true);
+    this.setState({
+      submitting: true,
+    });
 
     setTimeout(() => {
-      setSubmitting(false);
-      setValue('');
-      setComments([
-        ...comments,
-        {
-          author: 'Han Solo',
-          avatar: 'https://joeschmoe.io/api/v1/random',
-          content: <p>{value}</p>,
-          datetime: moment().fromNow(),
-        },
-      ]);
+      this.setState({
+        submitting: false,
+        value: '',
+        comments: [
+          ...this.state.comments,
+          {
+            author: 'Han Solo',
+            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            content: <p>{this.state.value}</p>,
+            datetime: moment().fromNow(),
+          },
+        ],
+      });
     }, 1000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(e.target.value);
+  handleChange = e => {
+    this.setState({
+      value: e.target.value,
+    });
   };
 
-  return (
-    <>
-      {comments.length > 0 && <CommentList comments={comments} />}
-      <Comment
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
-        content={
-          <Editor
-            onChange={handleChange}
-            onSubmit={handleSubmit}
-            submitting={submitting}
-            value={value}
-          />
-        }
-      />
-    </>
-  );
-};
+  render() {
+    const { comments, submitting, value } = this.state;
 
-export default App;
+    return (
+      <>
+        {comments.length > 0 && <CommentList comments={comments} />}
+        <Comment
+          avatar={
+            <Avatar
+              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              alt="Han Solo"
+            />
+          }
+          content={
+            <Editor
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              submitting={submitting}
+              value={value}
+            />
+          }
+        />
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

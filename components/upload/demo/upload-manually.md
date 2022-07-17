@@ -13,72 +13,90 @@ title:
 
 Upload files manually after `beforeUpload` returns `false`.
 
-```tsx
+```jsx
+import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, message, Upload } from 'antd';
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
-import React, { useState } from 'react';
+import reqwest from 'reqwest';
 
-const App: React.FC = () => {
-  const [fileList, setFileList] = useState<UploadFile[]>([]);
-  const [uploading, setUploading] = useState(false);
+class Demo extends React.Component {
+  state = {
+    fileList: [],
+    uploading: false,
+  };
 
-  const handleUpload = () => {
+  handleUpload = () => {
+    const { fileList } = this.state;
     const formData = new FormData();
     fileList.forEach(file => {
-      formData.append('files[]', file as RcFile);
+      formData.append('files[]', file);
     });
-    setUploading(true);
+
+    this.setState({
+      uploading: true,
+    });
+
     // You can use any AJAX library you like
-    fetch('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(res => res.json())
-      .then(() => {
-        setFileList([]);
+    reqwest({
+      url: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      method: 'post',
+      processData: false,
+      data: formData,
+      success: () => {
+        this.setState({
+          fileList: [],
+          uploading: false,
+        });
         message.success('upload successfully.');
-      })
-      .catch(() => {
+      },
+      error: () => {
+        this.setState({
+          uploading: false,
+        });
         message.error('upload failed.');
-      })
-      .finally(() => {
-        setUploading(false);
-      });
+      },
+    });
   };
 
-  const props: UploadProps = {
-    onRemove: file => {
-      const index = fileList.indexOf(file);
-      const newFileList = fileList.slice();
-      newFileList.splice(index, 1);
-      setFileList(newFileList);
-    },
-    beforeUpload: file => {
-      setFileList([...fileList, file]);
+  render() {
+    const { uploading, fileList } = this.state;
+    const props = {
+      onRemove: file => {
+        this.setState(state => {
+          const index = state.fileList.indexOf(file);
+          const newFileList = state.fileList.slice();
+          newFileList.splice(index, 1);
+          return {
+            fileList: newFileList,
+          };
+        });
+      },
+      beforeUpload: file => {
+        this.setState(state => ({
+          fileList: [...state.fileList, file],
+        }));
+        return false;
+      },
+      fileList,
+    };
 
-      return false;
-    },
-    fileList,
-  };
+    return (
+      <>
+        <Upload {...props}>
+          <Button icon={<UploadOutlined />}>Select File</Button>
+        </Upload>
+        <Button
+          type="primary"
+          onClick={this.handleUpload}
+          disabled={fileList.length === 0}
+          loading={uploading}
+          style={{ marginTop: 16 }}
+        >
+          {uploading ? 'Uploading' : 'Start Upload'}
+        </Button>
+      </>
+    );
+  }
+}
 
-  return (
-    <>
-      <Upload {...props}>
-        <Button icon={<UploadOutlined />}>Select File</Button>
-      </Upload>
-      <Button
-        type="primary"
-        onClick={handleUpload}
-        disabled={fileList.length === 0}
-        loading={uploading}
-        style={{ marginTop: 16 }}
-      >
-        {uploading ? 'Uploading' : 'Start Upload'}
-      </Button>
-    </>
-  );
-};
-
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

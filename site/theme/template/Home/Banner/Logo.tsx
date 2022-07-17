@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Hitu from '@ant-design/hitu';
-import type { HiTuRefObject } from '@ant-design/hitu/lib/HiTu';
+import { HiTuRefObject } from '@ant-design/hitu/lib/HiTu';
 import './Logo.less';
 import { preLoad } from '../util';
 

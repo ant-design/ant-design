@@ -18,7 +18,6 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
         年龄
         <span
           class="ant-form-item-optional"
-          title=""
         >
           (optional)
         </span>

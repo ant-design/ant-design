@@ -13,20 +13,18 @@ title:
 
 Standard header, suitable for use in scenarios that require a brief description.
 
-```tsx
+```jsx
 import { PageHeader } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <PageHeader
     className="site-page-header"
     onBack={() => null}
     title="Title"
     subTitle="This is a subtitle"
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

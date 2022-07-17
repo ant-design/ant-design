@@ -13,15 +13,13 @@ title:
 
 A group of radio components.
 
-```tsx
-import type { RadioChangeEvent } from 'antd';
+```jsx
 import { Radio } from 'antd';
-import React, { useState } from 'react';
 
-const App: React.FC = () => {
-  const [value, setValue] = useState(1);
+const App = () => {
+  const [value, setValue] = React.useState(1);
 
-  const onChange = (e: RadioChangeEvent) => {
+  const onChange = e => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
@@ -36,5 +34,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<App />, mountNode);
 ```

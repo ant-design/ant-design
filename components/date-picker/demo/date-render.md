@@ -13,17 +13,16 @@ title:
 
 We can customize the rendering of date cells in the calendar by providing a `dateRender` function to `DatePicker`.
 
-```tsx
+```jsx
 import { DatePicker, Space } from 'antd';
-import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space direction="vertical" size={12}>
     <DatePicker
       dateRender={current => {
-        const style: React.CSSProperties = {};
+        const style = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';
           style.borderRadius = '50%';
@@ -37,7 +36,7 @@ const App: React.FC = () => (
     />
     <RangePicker
       dateRender={current => {
-        const style: React.CSSProperties = {};
+        const style = {};
         if (current.date() === 1) {
           style.border = '1px solid #1890ff';
           style.borderRadius = '50%';
@@ -49,8 +48,7 @@ const App: React.FC = () => (
         );
       }}
     />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

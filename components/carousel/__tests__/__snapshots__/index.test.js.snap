@@ -12,7 +12,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="width:0%;left:NaN%"
       />
     </div>
   </div>

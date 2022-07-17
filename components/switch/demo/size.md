@@ -13,17 +13,15 @@ title:
 
 `size="small"` represents a small sized switch.
 
-```tsx
+```jsx
 import { Switch } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Switch defaultChecked />
     <br />
     <Switch size="small" defaultChecked />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

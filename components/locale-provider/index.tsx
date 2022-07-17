@@ -1,17 +1,15 @@
-import memoizeOne from 'memoize-one';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
-import warning from '../_util/warning';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
+import devWarning from '../_util/devWarning';
 
-import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
-import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
-import type { ModalLocale } from '../modal/locale';
-import { changeConfirmLocale } from '../modal/locale';
-import type { PaginationLocale } from '../pagination/Pagination';
-import type { PopconfirmLocale } from '../popconfirm/PurePanel';
-import type { TableLocale } from '../table/interface';
-import type { TransferLocale } from '../transfer';
-import type { UploadLocale } from '../upload/interface';
+import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import { PaginationLocale } from '../pagination/Pagination';
+import { TableLocale } from '../table/interface';
+import { PopconfirmLocale } from '../popconfirm';
+import { UploadLocale } from '../upload/interface';
+import { TransferLocale } from '../transfer';
+import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';
@@ -32,12 +30,7 @@ export interface Locale {
   global?: Record<string, any>;
   PageHeader?: { back: string };
   Icon?: Record<string, any>;
-  Text?: {
-    edit?: any;
-    copy?: any;
-    copied?: any;
-    expand?: any;
-  };
+  Text?: Record<string, any>;
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
@@ -62,7 +55,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     super(props);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
-    warning(
+    devWarning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
@@ -84,14 +77,11 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     changeConfirmLocale();
   }
 
-  getMemoizedContextValue = memoizeOne((localeValue: Locale): Locale & { exist?: boolean } => ({
-    ...localeValue,
-    exist: true,
-  }));
-
   render() {
     const { locale, children } = this.props;
-    const contextValue = this.getMemoizedContextValue(locale);
-    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
+
+    return (
+      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
+    );
   }
 }

@@ -14,15 +14,13 @@ debug: true
 
 Plenty of tree nodes.
 
-```tsx
+```jsx
 import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
-import React from 'react';
 
-const treeData: DataNode[] = [];
+const treeData = [];
 
 for (let i = 0; i < 100; i += 1) {
-  const children: DataNode[] = [];
+  const children = [];
 
   for (let j = 0; j < 100; j += 1) {
     children.push({
@@ -38,7 +36,7 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-const App: React.FC = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
+const Demo = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

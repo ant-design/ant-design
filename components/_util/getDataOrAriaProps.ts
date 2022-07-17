@@ -1,8 +1,8 @@
 export default function getDataOrAriaProps(props: any) {
   return Object.keys(props).reduce((prev: any, key: string) => {
     if (
-      (key.startsWith('data-') || key.startsWith('aria-') || key === 'role') &&
-      !key.startsWith('data-__')
+      (key.substr(0, 5) === 'data-' || key.substr(0, 5) === 'aria-' || key === 'role') &&
+      key.substr(0, 7) !== 'data-__'
     ) {
       prev[key] = props[key];
     }

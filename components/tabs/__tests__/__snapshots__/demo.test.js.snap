@@ -518,7 +518,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
     style="margin-bottom:16px"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn"
       type="button"
     >
       <span>
@@ -831,54 +831,39 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         style="transform:translate(0px, 0px)"
       >
         <div
-          class=""
-          style="margin-right:24px"
+          class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
-            class="ant-tabs-tab ant-tabs-tab-active"
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="true"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 1
-            </div>
+            tab 1
           </div>
         </div>
         <div
-          class=""
-          style="margin-right:24px"
+          class="ant-tabs-tab"
         >
           <div
-            class="ant-tabs-tab"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 2
-            </div>
+            tab 2
           </div>
         </div>
         <div
-          class=""
-          style="margin-right:24px"
+          class="ant-tabs-tab"
         >
           <div
-            class="ant-tabs-tab"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
           >
-            <div
-              aria-selected="false"
-              class="ant-tabs-tab-btn"
-              role="tab"
-              tabindex="0"
-            >
-              tab 3
-            </div>
+            tab 3
           </div>
         </div>
         <div
@@ -1411,7 +1396,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn"
           type="button"
         >
           <span>
@@ -1518,7 +1503,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default tabs-extra-demo-button"
+          class="ant-btn tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -1613,7 +1598,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn"
           type="button"
         >
           <span>
@@ -2843,14 +2828,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
-          value="middle"
+          value="default"
         />
         <span
           class="ant-radio-button-inner"
         />
       </span>
       <span>
-        Middle
+        Default
       </span>
     </label>
     <label

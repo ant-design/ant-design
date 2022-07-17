@@ -14,11 +14,10 @@ title:
 Usually used for reminders and notifications.
 
 ```tsx
-import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Badge } from 'antd';
-import React from 'react';
+import { UserOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <span className="avatar-item">
       <Badge count={1}>
@@ -30,10 +29,9 @@ const App: React.FC = () => (
         <Avatar shape="square" icon={<UserOutlined />} />
       </Badge>
     </span>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

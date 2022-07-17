@@ -14,17 +14,14 @@ title:
 `Form` will collect and validate form data automatically. But if you don't need this feature or the default behavior cannot satisfy your business, you can handle form data manually.
 
 ```tsx
-import { Form, InputNumber } from 'antd';
 import React, { useState } from 'react';
+import { Form, InputNumber } from 'antd';
 
 type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
-const validatePrimeNumber = (
+function validatePrimeNumber(
   number: number,
-): {
-  validateStatus: ValidateStatus;
-  errorMsg: string | null;
-} => {
+): { validateStatus: ValidateStatus; errorMsg: string | null } {
   if (number === 11) {
     return {
       validateStatus: 'success',
@@ -35,14 +32,14 @@ const validatePrimeNumber = (
     validateStatus: 'error',
     errorMsg: 'The prime between 8 and 12 is 11!',
   };
-};
+}
 
 const formItemLayout = {
   labelCol: { span: 7 },
   wrapperCol: { span: 12 },
 };
 
-const App: React.FC = () => {
+const RawForm = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;
@@ -75,5 +72,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<RawForm />, mountNode);
 ```

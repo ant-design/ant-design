@@ -39,7 +39,6 @@
   &-small {
     .formSize(@input-height-sm);
   }
-
   &-large {
     .formSize(@input-height-lg);
   }
@@ -62,12 +61,9 @@
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
-  // We delay one frame (0.017s) here to let CSSMotion goes
-  transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
     margin-bottom: 0;
-    transition: none;
   }
 
   &-hidden,
@@ -91,17 +87,11 @@
       text-align: left;
     }
 
-    &-wrap {
-      overflow: unset;
-      line-height: (@line-height-base - 0.25em);
-      white-space: unset;
-    }
-
     > label {
       position: relative;
+      // display: inline;
       display: inline-flex;
       align-items: center;
-      max-width: 100%;
       height: @form-item-label-height;
       color: @label-color;
       font-size: @form-item-label-font-size;
@@ -189,12 +179,10 @@
     }
   }
 
-  // ==============================================================
-  // =                           Explain                          =
-  // ==============================================================
   &-explain,
   &-extra {
     clear: both;
+    min-height: @form-item-margin-bottom;
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
@@ -202,85 +190,43 @@
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
-  &-explain-connected {
-    height: 0;
-    min-height: 0;
+  .@{ant-prefix}-input-textarea-show-count {
+    &::after {
+      margin-bottom: -22px;
+    }
+  }
+}
+
+.show-help-motion(@className, @keyframeName, @duration: @animation-duration-slow) {
+  @name: ~'@{ant-prefix}-@{className}';
+  .make-motion(@name, @keyframeName, @duration);
+  .@{name}-enter,
+  .@{name}-appear {
+    opacity: 0;
+    animation-timing-function: @ease-in-out;
+  }
+  .@{name}-leave {
+    animation-timing-function: @ease-in-out;
+  }
+}
+
+.show-help-motion(show-help, antShowHelp, 0.3s);
+
+@keyframes antShowHelpIn {
+  0% {
+    transform: translateY(-5px);
     opacity: 0;
   }
-
-  &-extra {
-    min-height: @form-item-margin-bottom;
-  }
-
-  &-with-help &-explain {
-    height: auto;
-    min-height: @form-item-margin-bottom;
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
-
-  // ==============================================================
-  // =                        Feedback Icon                       =
-  // ==============================================================
-  &-feedback-icon {
-    font-size: @font-size-base;
-    text-align: center;
-    visibility: visible;
-    animation: zoomIn 0.3s @ease-out-back;
-    pointer-events: none;
-
-    &-success {
-      color: @success-color;
-    }
-
-    &-error {
-      color: @error-color;
-    }
-
-    &-warning {
-      color: @warning-color;
-    }
-
-    &-validating {
-      color: @primary-color;
-    }
-  }
 }
 
-// >>>>>>>>>> Motion <<<<<<<<<<
-// Explain holder
-.@{ant-prefix}-show-help {
-  transition: height @animation-duration-slow linear, min-height @animation-duration-slow linear,
-    margin-bottom @animation-duration-slow @ease-in-out,
-    opacity @animation-duration-slow @ease-in-out;
-
-  &-leave {
-    min-height: @form-item-margin-bottom;
-
-    &-active {
-      min-height: 0;
-    }
-  }
-}
-
-// Explain
-.@{ant-prefix}-show-help-item {
-  overflow: hidden;
-  transition: height @animation-duration-slow @ease-in-out,
-    opacity @animation-duration-slow @ease-in-out, transform @animation-duration-slow @ease-in-out !important;
-
-  &-appear,
-  &-enter {
+@keyframes antShowHelpOut {
+  to {
     transform: translateY(-5px);
     opacity: 0;
-
-    &-active {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  &-leave-active {
-    transform: translateY(-5px);
   }
 }
 
@@ -291,7 +237,6 @@
     transform: scale(0);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;
@@ -303,7 +248,6 @@
     transform: scale(0);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;
@@ -315,7 +259,6 @@
     transform: scale(0);
     opacity: 0;
   }
-
   100% {
     transform: scale(1);
     opacity: 1;

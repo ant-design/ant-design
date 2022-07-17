@@ -13,36 +13,13 @@ title:
 
 Customize render list with Table component.
 
-```tsx
-import { Switch, Table, Tag, Transfer } from 'antd';
-import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
-import type { TransferItem, TransferProps } from 'antd/es/transfer';
+```jsx
+import { Transfer, Switch, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
-import React, { useState } from 'react';
-
-interface RecordType {
-  key: string;
-  title: string;
-  description: string;
-  disabled: boolean;
-  tag: string;
-}
-
-interface DataType {
-  title: string;
-  tag: string;
-  description: string;
-}
-
-interface TableTransferProps extends TransferProps<TransferItem> {
-  dataSource: DataType[];
-  leftColumns: ColumnsType<DataType>;
-  rightColumns: ColumnsType<DataType>;
-}
 
 // Customize Table Transfer
-const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransferProps) => (
-  <Transfer {...restProps}>
+const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
+  <Transfer {...restProps} showSelectAll={false}>
     {({
       direction,
       filteredItems,
@@ -53,7 +30,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
     }) => {
       const columns = direction === 'left' ? leftColumns : rightColumns;
 
-      const rowSelection: TableRowSelection<TransferItem> = {
+      const rowSelection = {
         getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
         onSelectAll(selected, selectedRows) {
           const treeSelectedKeys = selectedRows
@@ -62,10 +39,10 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           const diffKeys = selected
             ? difference(treeSelectedKeys, listSelectedKeys)
             : difference(listSelectedKeys, treeSelectedKeys);
-          onItemSelectAll(diffKeys as string[], selected);
+          onItemSelectAll(diffKeys, selected);
         },
         onSelect({ key }, selected) {
-          onItemSelect(key as string, selected);
+          onItemSelect(key, selected);
         },
         selectedRowKeys: listSelectedKeys,
       };
@@ -76,11 +53,11 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           columns={columns}
           dataSource={filteredItems}
           size="small"
-          style={{ pointerEvents: listDisabled ? 'none' : undefined }}
+          style={{ pointerEvents: listDisabled ? 'none' : null }}
           onRow={({ key, disabled: itemDisabled }) => ({
             onClick: () => {
               if (itemDisabled || listDisabled) return;
-              onItemSelect(key as string, !listSelectedKeys.includes(key as string));
+              onItemSelect(key, !listSelectedKeys.includes(key));
             },
           })}
         />
@@ -91,17 +68,20 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
 
 const mockTags = ['cat', 'dog', 'bird'];
 
-const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
-  key: i.toString(),
-  title: `content${i + 1}`,
-  description: `description of content${i + 1}`,
-  disabled: i % 4 === 0,
-  tag: mockTags[i % 3],
-}));
+const mockData = [];
+for (let i = 0; i < 20; i++) {
+  mockData.push({
+    key: i.toString(),
+    title: `content${i + 1}`,
+    description: `description of content${i + 1}`,
+    disabled: i % 4 === 0,
+    tag: mockTags[i % 3],
+  });
+}
 
-const originTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key);
+const originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
-const leftTableColumns: ColumnsType<DataType> = [
+const leftTableColumns = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -116,64 +96,68 @@ const leftTableColumns: ColumnsType<DataType> = [
     title: 'Description',
   },
 ];
-
-const rightTableColumns: ColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns = [
   {
     dataIndex: 'title',
     title: 'Name',
   },
 ];
 
-const App: React.FC = () => {
-  const [targetKeys, setTargetKeys] = useState<string[]>(originTargetKeys);
-  const [disabled, setDisabled] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
-
-  const onChange = (nextTargetKeys: string[]) => {
-    setTargetKeys(nextTargetKeys);
+class App extends React.Component {
+  state = {
+    targetKeys: originTargetKeys,
+    disabled: false,
+    showSearch: false,
   };
 
-  const triggerDisable = (checked: boolean) => {
-    setDisabled(checked);
+  onChange = nextTargetKeys => {
+    this.setState({ targetKeys: nextTargetKeys });
   };
 
-  const triggerShowSearch = (checked: boolean) => {
-    setShowSearch(checked);
+  triggerDisable = disabled => {
+    this.setState({ disabled });
   };
 
-  return (
-    <>
-      <TableTransfer
-        dataSource={mockData}
-        targetKeys={targetKeys}
-        disabled={disabled}
-        showSearch={showSearch}
-        onChange={onChange}
-        filterOption={(inputValue, item) =>
-          item.title!.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
-        }
-        leftColumns={leftTableColumns}
-        rightColumns={rightTableColumns}
-      />
-      <Switch
-        unCheckedChildren="disabled"
-        checkedChildren="disabled"
-        checked={disabled}
-        onChange={triggerDisable}
-        style={{ marginTop: 16 }}
-      />
-      <Switch
-        unCheckedChildren="showSearch"
-        checkedChildren="showSearch"
-        checked={showSearch}
-        onChange={triggerShowSearch}
-        style={{ marginTop: 16 }}
-      />
-    </>
-  );
-};
+  triggerShowSearch = showSearch => {
+    this.setState({ showSearch });
+  };
 
-export default App;
+  render() {
+    const { targetKeys, disabled, showSearch } = this.state;
+    return (
+      <>
+        <TableTransfer
+          dataSource={mockData}
+          targetKeys={targetKeys}
+          disabled={disabled}
+          showSearch={showSearch}
+          onChange={this.onChange}
+          filterOption={(inputValue, item) =>
+            item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+          }
+          leftColumns={leftTableColumns}
+          rightColumns={rightTableColumns}
+        />
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={this.triggerDisable}
+          style={{ marginTop: 16 }}
+        />
+        <Switch
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
+          checked={showSearch}
+          onChange={this.triggerShowSearch}
+          style={{ marginTop: 16 }}
+        />
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```
 
 ```css

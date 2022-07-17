@@ -13,11 +13,10 @@ title:
 
 Simplest Usage.
 
-```tsx
+```jsx
 import { Descriptions } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Descriptions title="User Info">
     <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
     <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
@@ -26,8 +25,7 @@ const App: React.FC = () => (
     <Descriptions.Item label="Address">
       No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
     </Descriptions.Item>
-  </Descriptions>
+  </Descriptions>,
+  mountNode,
 );
-
-export default App;
 ```

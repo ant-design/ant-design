@@ -13,13 +13,11 @@ title:
 
 Use `defaultFileList` for uploaded files when page init.
 
-```tsx
+```jsx
+import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, Upload } from 'antd';
-import React from 'react';
 
-const props: UploadProps = {
+const props = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   onChange({ file, fileList }) {
     if (file.status !== 'uploading') {
@@ -50,11 +48,10 @@ const props: UploadProps = {
   ],
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>
+  </Upload>,
+  mountNode,
 );
-
-export default App;
 ```

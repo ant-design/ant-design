@@ -1,19 +1,15 @@
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import classNames from 'classnames';
-import RcSwitch from 'rc-switch';
 import * as React from 'react';
+import RcSwitch from 'rc-switch';
+import classNames from 'classnames';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
-import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import SizeContext from '../config-provider/SizeContext';
-import warning from '../_util/warning';
 import Wave from '../_util/wave';
+import { ConfigContext } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
+import devWarning from '../_util/devWarning';
 
 export type SwitchSize = 'small' | 'default';
-export type SwitchChangeEventHandler = (
-  checked: boolean,
-  event: React.MouseEvent<HTMLButtonElement>,
-) => void;
+export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
 export type SwitchClickEventHandler = SwitchChangeEventHandler;
 
 export interface SwitchProps {
@@ -32,7 +28,6 @@ export interface SwitchProps {
   style?: React.CSSProperties;
   title?: string;
   tabIndex?: number;
-  id?: string;
 }
 
 interface CompoundedComponent
@@ -40,19 +35,19 @@ interface CompoundedComponent
   __ANT_SWITCH: boolean;
 }
 
-const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+const Switch = React.forwardRef<unknown, SwitchProps>(
   (
     {
       prefixCls: customizePrefixCls,
       size: customizeSize,
-      disabled: customDisabled,
       loading,
       className = '',
+      disabled,
       ...props
     },
     ref,
   ) => {
-    warning(
+    devWarning(
       'checked' in props || !('value' in props),
       'Switch',
       '`value` is not a valid prop, do you mean `checked`?',
@@ -60,11 +55,6 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
 
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
-
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled || loading;
-
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (
       <div className={`${prefixCls}-handle`}>
@@ -87,7 +77,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
           {...props}
           prefixCls={prefixCls}
           className={classes}
-          disabled={mergedDisabled}
+          disabled={disabled || loading}
           ref={ref}
           loadingIcon={loadingIcon}
         />
@@ -97,8 +87,6 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
 ) as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
-if (process.env.NODE_ENV !== 'production') {
-  Switch.displayName = 'Switch';
-}
+Switch.displayName = 'Switch';
 
 export default Switch;

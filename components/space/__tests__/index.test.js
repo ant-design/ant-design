@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
+import { render, mount } from 'enzyme';
+import { act } from 'react-test-renderer';
 import Space from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 
 describe('Space', () => {
   mountTest(Space);
   rtlTest(Space);
 
   it('should render width empty children', () => {
-    const { container } = render(<Space />);
+    const wrapper = mount(<Space />);
 
-    expect(container.children.length).toBe(0);
+    expect(wrapper.instance()).toBe(null);
   });
 
   it('should render width ConfigProvider', () => {
-    const { container } = render(
+    const wrapper = mount(
       <ConfigProvider space={{ size: 'large' }}>
         <Space>
           <span>1</span>
@@ -33,11 +34,11 @@ describe('Space', () => {
       </ConfigProvider>,
     );
 
-    expect(container.children).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 
   it('should render width rtl', () => {
-    const { container } = render(
+    const wrapper = mount(
       <ConfigProvider direction="rtl">
         <Space>
           <span>1</span>
@@ -54,65 +55,64 @@ describe('Space', () => {
       </ConfigProvider>,
     );
 
-    expect(container.children).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 
   it('should render width customize size', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space size={10}>
         <span>1</span>
         <span>2</span>
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginRight).toBe('10px');
-    expect(container.querySelectorAll('div.ant-space-item')[1].style.marginRight).toBe('');
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(10);
+    expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginRight).toBeUndefined();
   });
 
   it('should render width size 0', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space size={NaN}>
         <span>1</span>
         <span>2</span>
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginRight).toBe('0px');
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginRight).toBe(0);
   });
 
   it('should render vertical space width customize size', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginBottom).toBe('10px');
-    expect(container.querySelectorAll('div.ant-space-item')[1].style.marginBottom).toBe('');
+    expect(wrapper.find('div.ant-space-item').at(0).prop('style').marginBottom).toBe(10);
+    expect(wrapper.find('div.ant-space-item').at(1).prop('style').marginBottom).toBeUndefined();
   });
 
   it('should render correct with children', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space>
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
 
-    expect(container.children[0]).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 
   it('should render with invalidElement', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space>
         text1<span>text1</span>
         text1
       </Space>,
     );
 
-    expect(container.querySelectorAll('div.ant-space-item').length).toBe(3);
+    expect(wrapper.find('div.ant-space-item').length).toBe(3);
   });
 
   it('should be keep store', () => {
@@ -143,49 +143,31 @@ describe('Space', () => {
         </Space>
       );
     }
-    const { container } = render(<SpaceDemo />);
+    const wrapper = mount(<SpaceDemo />);
 
-    expect(container.querySelector('#demo')).toHaveTextContent('1');
+    expect(wrapper.find('#demo').text()).toBe('1');
 
-    fireEvent.click(container.querySelector('#demo'));
+    act(() => {
+      wrapper.find('#demo').simulate('click');
+    });
 
-    expect(container.querySelector('#demo')).toHaveTextContent('2');
+    expect(wrapper.find('#demo').text()).toBe('2');
 
-    fireEvent.click(container.querySelector('p'));
+    act(() => {
+      wrapper.find('p').simulate('click');
+    });
 
-    expect(container.querySelector('#demo')).toHaveTextContent('2');
+    expect(wrapper.find('#demo').text()).toBe('2');
   });
 
   it('split', () => {
-    const { container } = render(
+    const wrapper = mount(
       <Space split="-">
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
 
-    expect(container.children[0]).toMatchSnapshot();
-  });
-
-  // https://github.com/ant-design/ant-design/issues/35305
-  it('should not throw duplicated key warning', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    render(
-      <Space>
-        <div key="1" />
-        <div />
-        <div key="3" />
-        <div />
-      </Space>,
-    );
-    // eslint-disable-next-line no-console
-    expect(console.error).not.toHaveBeenCalledWith(
-      expect.stringContaining('Encountered two children with the same key'),
-      expect.anything(),
-      expect.anything(),
-    );
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });

@@ -13,33 +13,34 @@ title:
 
 Use Aliyun OSS upload example.
 
-```tsx
+```jsx
+import { Form, Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd';
-import { Button, Form, message, Upload } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
-import React, { useEffect, useState } from 'react';
 
-interface OSSDataType {
-  dir: string;
-  expire: string;
-  host: string;
-  accessId: string;
-  policy: string;
-  signature: string;
-}
+class AliyunOSSUpload extends React.Component {
+  state = {
+    OSSData: {},
+  };
 
-interface AliyunOSSUploadProps {
-  value?: UploadFile[];
-  onChange?: (fileList: UploadFile[]) => void;
-}
+  async componentDidMount() {
+    await this.init();
+  }
 
-const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
-  const [OSSData, setOSSData] = useState<OSSDataType>();
+  init = async () => {
+    try {
+      const OSSData = await this.mockGetOSSData();
+
+      this.setState({
+        OSSData,
+      });
+    } catch (error) {
+      message.error(error);
+    }
+  };
 
   // Mock get OSS api
   // https://help.aliyun.com/document_detail/31988.html
-  const mockGetOSSData = () => ({
+  mockGetOSSData = () => ({
     dir: 'user-dir/',
     expire: '1577811661',
     host: '//www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -48,74 +49,70 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
     signature: 'ZGFob25nc2hhbw==',
   });
 
-  const init = async () => {
-    try {
-      const result = await mockGetOSSData();
-      setOSSData(result);
-    } catch (error) {
-      message.error(error);
+  onChange = ({ fileList }) => {
+    const { onChange } = this.props;
+    console.log('Aliyun OSS:', fileList);
+    if (onChange) {
+      onChange([...fileList]);
     }
   };
 
-  useEffect(() => {
-    init();
-  }, []);
+  onRemove = file => {
+    const { value, onChange } = this.props;
 
-  const handleChange: UploadProps['onChange'] = ({ fileList }) => {
-    console.log('Aliyun OSS:', fileList);
-    onChange?.([...fileList]);
-  };
-
-  const onRemove = (file: UploadFile) => {
-    const files = (value || []).filter(v => v.url !== file.url);
+    const files = value.filter(v => v.url !== file.url);
 
     if (onChange) {
       onChange(files);
     }
   };
 
-  const getExtraData: UploadProps['data'] = file => ({
-    key: file.url,
-    OSSAccessKeyId: OSSData?.accessId,
-    policy: OSSData?.policy,
-    Signature: OSSData?.signature,
-  });
+  getExtraData = file => {
+    const { OSSData } = this.state;
 
-  const beforeUpload: UploadProps['beforeUpload'] = async file => {
-    if (!OSSData) return false;
+    return {
+      key: file.url,
+      OSSAccessKeyId: OSSData.accessId,
+      policy: OSSData.policy,
+      Signature: OSSData.signature,
+    };
+  };
 
-    const expire = Number(OSSData.expire) * 1000;
+  beforeUpload = async file => {
+    const { OSSData } = this.state;
+    const expire = OSSData.expire * 1000;
 
     if (expire < Date.now()) {
-      await init();
+      await this.init();
     }
 
     const suffix = file.name.slice(file.name.lastIndexOf('.'));
     const filename = Date.now() + suffix;
-    // @ts-ignore
     file.url = OSSData.dir + filename;
 
     return file;
   };
 
-  const uploadProps: UploadProps = {
-    name: 'file',
-    fileList: value,
-    action: OSSData?.host,
-    onChange: handleChange,
-    onRemove,
-    data: getExtraData,
-    beforeUpload,
-  };
+  render() {
+    const { value } = this.props;
+    const props = {
+      name: 'file',
+      fileList: value,
+      action: this.state.OSSData.host,
+      onChange: this.onChange,
+      onRemove: this.onRemove,
+      data: this.getExtraData,
+      beforeUpload: this.beforeUpload,
+    };
+    return (
+      <Upload {...props}>
+        <Button icon={<UploadOutlined />}>Click to Upload</Button>
+      </Upload>
+    );
+  }
+}
 
-  return (
-    <Upload {...uploadProps}>
-      <Button icon={<UploadOutlined />}>Click to Upload</Button>
-    </Upload>
-  );
-};
-
-const App: React.FC = () => (
+const FormPage = () => (
   <Form labelCol={{ span: 4 }}>
     <Form.Item label="Photos" name="photos">
       <AliyunOSSUpload />
@@ -123,5 +120,5 @@ const App: React.FC = () => (
   </Form>
 );
 
-export default App;
+ReactDOM.render(<FormPage />, mountNode);
 ```

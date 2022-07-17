@@ -13,11 +13,10 @@ title:
 
 Simplest Usage.
 
-```tsx
-import { Button, Col, Row, Statistic } from 'antd';
-import React from 'react';
+```jsx
+import { Statistic, Row, Col, Button } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Active Users" value={112893} />
@@ -31,8 +30,7 @@ const App: React.FC = () => (
     <Col span={12}>
       <Statistic title="Active Users" value={112893} loading />
     </Col>
-  </Row>
+  </Row>,
+  mountNode,
 );
-
-export default App;
 ```

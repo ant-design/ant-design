@@ -13,11 +13,10 @@ Col 提供 `flex` 属性以支持填充。
 
 Col provides `flex` prop to support fill rest.
 
-```tsx
-import { Col, Divider, Row } from 'antd';
-import React from 'react';
+```jsx
+import { Row, Col, Divider } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Divider orientation="left">Percentage columns</Divider>
     <Row>
@@ -41,8 +40,7 @@ const App: React.FC = () => (
       </Col>
       <Col flex="auto">auto with no-wrap</Col>
     </Row>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

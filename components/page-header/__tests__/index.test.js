@@ -1,10 +1,10 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { mount, render } from 'enzyme';
 import PageHeader from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import Breadcrumb from '../../breadcrumb';
 import ConfigProvider from '../../config-provider';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('PageHeader', () => {
   mountTest(PageHeader);
@@ -73,11 +73,6 @@ describe('PageHeader', () => {
     expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
   });
 
-  it('pageHeader support breadcrumbRender return false', () => {
-    const wrapper = mount(<PageHeader title="Page Title" breadcrumbRender={() => false} />);
-    expect(wrapper.find('.ant-page-header-back')).toHaveLength(0);
-  });
-
   it('pageHeader do not has title', () => {
     const routes = [
       {
@@ -109,13 +104,15 @@ describe('PageHeader', () => {
   });
 
   it('pageHeader should support className', () => {
-    const wrapper = mount(<PageHeader title="Page Title" className="not-works" backIcon={false} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(
+      <PageHeader title="Page Title" className="not-works" backIcon={false} />,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('pageHeader should not render blank dom', () => {
-    const wrapper = mount(<PageHeader title={false} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(<PageHeader title={false} />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('breadcrumbs and back icon can coexist', () => {
@@ -147,7 +144,7 @@ describe('PageHeader', () => {
       </ConfigProvider>,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 
   it('change container width', async () => {
@@ -155,6 +152,6 @@ describe('PageHeader', () => {
     wrapper.triggerResize();
     await Promise.resolve();
     wrapper.update();
-    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBeTruthy();
+    expect(wrapper.find('.ant-page-header').hasClass('ant-page-header-compact')).toBe(true);
   });
 });

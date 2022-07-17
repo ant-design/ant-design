@@ -1,5 +1,5 @@
 import TimePickerLocale from '../../time-picker/locale/sl_SI';
-import type { PickerLocale } from '../generatePicker';
+import { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {
@@ -10,7 +10,7 @@ const locale: PickerLocale = {
     today: 'Danes',
     now: 'Trenutno',
     backToToday: 'Nazaj na trenutni datum',
-    ok: 'OK',
+    ok: 'Ok',
     clear: 'Počisti',
     month: 'Mesec',
     year: 'Leto',

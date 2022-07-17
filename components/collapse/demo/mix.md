@@ -13,11 +13,14 @@ title:
 
 `Collapse` is nested inside the `Collapse`.
 
-```tsx
+```jsx
 import { Collapse } from 'antd';
-import React from 'react';
 
 const { Panel } = Collapse;
+
+function callback(key) {
+  console.log(key);
+}
 
 const text = `
   A dog is a type of domesticated animal.
@@ -25,29 +28,22 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App: React.FC = () => {
-  const onChange = (key: string | string[]) => {
-    console.log(key);
-  };
-
-  return (
-    <Collapse onChange={onChange}>
-      <Panel header="This is panel header 1" key="1">
-        <Collapse defaultActiveKey="1">
-          <Panel header="This is panel nest panel" key="1">
-            <p>{text}</p>
-          </Panel>
-        </Collapse>
-      </Panel>
-      <Panel header="This is panel header 2" key="2">
-        <p>{text}</p>
-      </Panel>
-      <Panel header="This is panel header 3" key="3">
-        <p>{text}</p>
-      </Panel>
-    </Collapse>
-  );
-};
-
-export default App;
+ReactDOM.render(
+  <Collapse onChange={callback}>
+    <Panel header="This is panel header 1" key="1">
+      <Collapse defaultActiveKey="1">
+        <Panel header="This is panel nest panel" key="1">
+          <p>{text}</p>
+        </Panel>
+      </Collapse>
+    </Panel>
+    <Panel header="This is panel header 2" key="2">
+      <p>{text}</p>
+    </Panel>
+    <Panel header="This is panel header 3" key="3">
+      <p>{text}</p>
+    </Panel>
+  </Collapse>,
+  mountNode,
+);
 ```

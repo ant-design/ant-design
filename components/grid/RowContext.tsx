@@ -1,5 +1,4 @@
-import type { Context } from 'react';
-import { createContext } from 'react';
+import { createContext, Context } from 'react';
 
 export interface RowContextState {
   gutter?: [number, number];

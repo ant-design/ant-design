@@ -1,10 +1,15 @@
 import * as React from 'react';
+import { ModalFuncProps } from '../Modal';
 import usePatchElement from '../../_util/hooks/usePatchElement';
-import type { ModalStaticFunctions } from '../confirm';
-import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
-import type { ModalFuncProps } from '../Modal';
-import type { HookModalRef } from './HookModal';
-import HookModal from './HookModal';
+import HookModal, { HookModalRef } from './HookModal';
+import {
+  withConfirm,
+  ModalStaticFunctions,
+  withInfo,
+  withSuccess,
+  withError,
+  withWarn,
+} from '../confirm';
 
 let uuid = 0;
 
@@ -22,7 +27,6 @@ const ElementsHolder = React.memo(
       }),
       [],
     );
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{elements}</>;
   }),
 );

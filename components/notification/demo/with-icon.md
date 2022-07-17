@@ -13,13 +13,10 @@ title:
 
 A notification box with a icon at the left side.
 
-```tsx
+```jsx
 import { Button, notification, Space } from 'antd';
-import React from 'react';
 
-type NotificationType = 'success' | 'info' | 'warning' | 'error';
-
-const openNotificationWithIcon = (type: NotificationType) => {
+const openNotificationWithIcon = type => {
   notification[type]({
     message: 'Notification Title',
     description:
@@ -27,14 +24,13 @@ const openNotificationWithIcon = (type: NotificationType) => {
   });
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space>
     <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
     <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
     <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
     <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

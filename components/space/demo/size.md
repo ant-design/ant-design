@@ -17,13 +17,12 @@ title:
 
 Set the size to `large` and `middle` by setting size to large and middle respectively. If `size` is not set, the spacing is `small`.
 
-```tsx
-import { Button, Radio, Space } from 'antd';
-import type { SpaceSize } from 'antd/es/space';
+```jsx
 import React, { useState } from 'react';
+import { Space, Radio, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [size, setSize] = useState<SpaceSize | [SpaceSize, SpaceSize]>('small');
+function SpaceSize() {
+  const [size, setSize] = useState('small');
 
   return (
     <>
@@ -42,7 +41,7 @@ const App: React.FC = () => {
       </Space>
     </>
   );
-};
+}
 
-export default App;
+ReactDOM.render(<SpaceSize />, mountNode);
 ```

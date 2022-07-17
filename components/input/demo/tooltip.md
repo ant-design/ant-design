@@ -13,64 +13,91 @@ title:
 
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
-```tsx
+```jsx
 import { Input, Tooltip } from 'antd';
-import React, { useState } from 'react';
 
-interface NumericInputProps {
-  style: React.CSSProperties;
-  value: string;
-  onChange: (value: string) => void;
+function formatNumber(value) {
+  value += '';
+  const list = value.split('.');
+  const prefix = list[0].charAt(0) === '-' ? '-' : '';
+  let num = prefix ? list[0].slice(1) : list[0];
+  let result = '';
+  while (num.length > 3) {
+    result = `,${num.slice(-3)}${result}`;
+    num = num.slice(0, num.length - 3);
+  }
+  if (num) {
+    result = num + result;
+  }
+  return `${prefix}${result}${list[1] ? `.${list[1]}` : ''}`;
 }
 
-const formatNumber = (value: number) => new Intl.NumberFormat().format(value);
-
-const NumericInput = (props: NumericInputProps) => {
-  const { value, onChange } = props;
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value: inputValue } = e.target;
+class NumericInput extends React.Component {
+  onChange = e => {
+    const { value } = e.target;
     const reg = /^-?\d*(\.\d*)?$/;
-    if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
-      onChange(inputValue);
+    if ((!isNaN(value) && reg.test(value)) || value === '' || value === '-') {
+      this.props.onChange(value);
     }
   };
 
   // '.' at the end or only '-' in the input box.
-  const handleBlur = () => {
+  onBlur = () => {
+    const { value, onBlur, onChange } = this.props;
     let valueTemp = value;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
       valueTemp = value.slice(0, -1);
     }
     onChange(valueTemp.replace(/0*(\d+)/, '$1'));
+    if (onBlur) {
+      onBlur();
+    }
   };
 
-  const title = value ? (
-    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
-  ) : (
-    'Input a number'
-  );
+  render() {
+    const { value } = this.props;
+    const title = value ? (
+      <span className="numeric-input-title">{value !== '-' ? formatNumber(value) : '-'}</span>
+    ) : (
+      'Input a number'
+    );
+    return (
+      <Tooltip
+        trigger={['focus']}
+        title={title}
+        placement="topLeft"
+        overlayClassName="numeric-input"
+      >
+        <Input
+          {...this.props}
+          onChange={this.onChange}
+          onBlur={this.onBlur}
+          placeholder="Input a number"
+          maxLength={25}
+        />
+      </Tooltip>
+    );
+  }
+}
 
-  return (
-    <Tooltip trigger={['focus']} title={title} placement="topLeft" overlayClassName="numeric-input">
-      <Input
-        {...props}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        placeholder="Input a number"
-        maxLength={25}
-      />
-    </Tooltip>
-  );
-};
+class NumericInputDemo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+  }
 
-const App: React.FC = () => {
-  const [value, setValue] = useState('');
+  onChange = value => {
+    this.setState({ value });
+  };
 
-  return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;
-};
+  render() {
+    return (
+      <NumericInput style={{ width: 120 }} value={this.state.value} onChange={this.onChange} />
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<NumericInputDemo />, mountNode);
 ```
 
 ```css

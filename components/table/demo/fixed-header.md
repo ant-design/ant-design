@@ -17,19 +17,10 @@ Display large amounts of data in scrollable view.
 
 > Specify width of columns if header and cell do not align properly. If specified width is not working or have gutter between columns, please try to leave one column at least without width to fit fluid layout, or make sure no [long word to break table layout](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241).
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -46,7 +37,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
+const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
@@ -56,9 +47,8 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App: React.FC = () => (
-  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />
+ReactDOM.render(
+  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />,
+  mountNode,
 );
-
-export default App;
 ```

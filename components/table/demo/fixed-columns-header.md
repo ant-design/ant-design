@@ -21,19 +21,10 @@ A Solution for displaying large amounts of data with long columns.
 >
 > A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
-```tsx
+```jsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-const columns: ColumnsType<DataType> = [
+const columns = [
   {
     title: 'Full Name',
     width: 100,
@@ -100,7 +91,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
+const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
@@ -110,9 +101,8 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App: React.FC = () => (
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />
+ReactDOM.render(
+  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />,
+  mountNode,
 );
-
-export default App;
 ```

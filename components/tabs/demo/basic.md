@@ -13,18 +13,17 @@ title:
 
 Default activate first tab.
 
-```tsx
+```jsx
 import { Tabs } from 'antd';
-import React from 'react';
 
 const { TabPane } = Tabs;
 
-const onChange = (key: string) => {
+function callback(key) {
   console.log(key);
-};
+}
 
-const App: React.FC = () => (
-  <Tabs defaultActiveKey="1" onChange={onChange}>
+const Demo = () => (
+  <Tabs defaultActiveKey="1" onChange={callback}>
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
     </TabPane>
@@ -37,5 +36,5 @@ const App: React.FC = () => (
   </Tabs>
 );
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

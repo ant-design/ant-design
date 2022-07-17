@@ -1,18 +1,18 @@
 import * as React from 'react';
-import warning from '../../../_util/warning';
-import type {
-  ColumnFilterItem,
+import devWarning from '../../../_util/devWarning';
+import {
+  TransformColumns,
   ColumnsType,
-  ColumnTitleProps,
   ColumnType,
-  FilterKey,
-  FilterValue,
-  GetPopupContainer,
+  ColumnTitleProps,
   Key,
   TableLocale,
-  TransformColumns,
+  FilterValue,
+  FilterKey,
+  GetPopupContainer,
+  ColumnFilterItem,
 } from '../../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
+import { getColumnPos, renderColumnTitle, getColumnKey } from '../../util';
 import FilterDropdown from './FilterDropdown';
 
 export interface FilterState<RecordType> {
@@ -78,7 +78,7 @@ function injectFilter<RecordType>(
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
-    const { filterMultiple = true, filterMode, filterSearch } = column as ColumnType<RecordType>;
+    const { filterMultiple = true } = column as ColumnType<RecordType>;
 
     let newColumn: ColumnsType<RecordType>[number] = column;
 
@@ -97,8 +97,6 @@ function injectFilter<RecordType>(
             columnKey={columnKey}
             filterState={filterState}
             filterMultiple={filterMultiple}
-            filterMode={filterMode}
-            filterSearch={filterSearch}
             triggerFilter={triggerFilter}
             locale={locale}
             getPopupContainer={getPopupContainer}
@@ -129,7 +127,7 @@ function injectFilter<RecordType>(
   });
 }
 
-export function flattenKeys(filters?: ColumnFilterItem[]) {
+function flattenKeys(filters?: ColumnFilterItem[]) {
   let keys: FilterValue = [];
   (filters || []).forEach(({ value, children }) => {
     keys.push(value);
@@ -211,25 +209,24 @@ function useFilter<RecordType>({
 
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
-    let filteredKeysIsAllNotControlled = true;
-    let filteredKeysIsAllControlled = true;
-    collectedStates.forEach(({ filteredKeys }) => {
-      if (filteredKeys !== undefined) {
-        filteredKeysIsAllNotControlled = false;
-      } else {
-        filteredKeysIsAllControlled = false;
-      }
-    });
+
+    const filteredKeysIsNotControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys === undefined,
+    );
 
     // Return if not controlled
-    if (filteredKeysIsAllNotControlled) {
+    if (filteredKeysIsNotControlled) {
       return filterStates;
     }
 
-    warning(
-      filteredKeysIsAllControlled,
+    const filteredKeysIsAllControlled = collectedStates.every(
+      ({ filteredKeys }) => filteredKeys !== undefined,
+    );
+
+    devWarning(
+      filteredKeysIsNotControlled || filteredKeysIsAllControlled,
       'Table',
-      'Columns should all contain `filteredValue` or not contain `filteredValue`.',
+      '`FilteredKeys` should all be controlled or not controlled.',
     );
 
     return collectedStates;

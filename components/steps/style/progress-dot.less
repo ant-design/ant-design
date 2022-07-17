@@ -4,7 +4,6 @@
     &-title {
       line-height: @line-height-base;
     }
-
     &-tail {
       top: @steps-dot-top;
       width: 100%;
@@ -20,7 +19,6 @@
     &:first-child .@{steps-prefix-cls}-icon-dot {
       left: 2px;
     }
-
     &-icon {
       width: @steps-dot-size;
       height: @steps-dot-size;
@@ -37,7 +35,6 @@
         height: 100%;
         border-radius: 100px;
         transition: all 0.3s;
-
         /* expand hover area */
         &::after {
           position: absolute;
@@ -50,7 +47,6 @@
         }
       }
     }
-
     &-content {
       width: @steps-description-max-width;
     }
@@ -72,31 +68,17 @@
 
 .@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-dot {
   .@{steps-prefix-cls}-item-icon {
-    margin-top: 13px;
+    margin-top: 8px;
     margin-left: 0;
     background: none;
   }
-
   // https://github.com/ant-design/ant-design/issues/18354
   .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
-    top: 6.5px;
+    top: 2px;
     left: -9px;
     margin: 0;
     padding: 22px 0 4px;
   }
-
-  &.@{steps-prefix-cls}-small {
-    .@{steps-prefix-cls}-item-icon {
-      margin-top: 10px;
-    }
-
-    .@{steps-prefix-cls}-item
-      > .@{steps-prefix-cls}-item-container
-      > .@{steps-prefix-cls}-item-tail {
-      top: 3.5px;
-    }
-  }
-
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
   }
@@ -107,7 +89,6 @@
     .@{steps-prefix-cls}-item-container
     .@{steps-prefix-cls}-item-icon
     .@{steps-prefix-cls}-icon-dot {
-    top: -1px;
-    left: -1px;
+    left: -2px;
   }
 }

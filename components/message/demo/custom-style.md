@@ -13,9 +13,8 @@ title:
 
 The `style` and `className` are available to customize Message.
 
-```tsx
-import { Button, message } from 'antd';
-import React from 'react';
+```jsx
+import { message, Button } from 'antd';
 
 const success = () => {
   message.success({
@@ -27,7 +26,5 @@ const success = () => {
   });
 };
 
-const App: React.FC = () => <Button onClick={success}>Customized style</Button>;
-
-export default App;
+ReactDOM.render(<Button onClick={success}>Customized style</Button>, mountNode);
 ```

@@ -1,17 +1,13 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { AvatarProps } from './Avatar';
-import SkeletonAvatar from './Avatar';
-import SkeletonButton from './Button';
-import SkeletonNode from './Node';
+import classNames from 'classnames';
+import Title, { SkeletonTitleProps } from './Title';
+import Paragraph, { SkeletonParagraphProps } from './Paragraph';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Element from './Element';
-import SkeletonImage from './Image';
+import SkeletonAvatar, { AvatarProps } from './Avatar';
+import SkeletonButton from './Button';
 import SkeletonInput from './Input';
-import type { SkeletonParagraphProps } from './Paragraph';
-import Paragraph from './Paragraph';
-import type { SkeletonTitleProps } from './Title';
-import Title from './Title';
+import SkeletonImage from './Image';
 
 /* This only for skeleton internal. */
 interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
@@ -21,7 +17,6 @@ export interface SkeletonProps {
   loading?: boolean;
   prefixCls?: string;
   className?: string;
-  style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
@@ -76,96 +71,98 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 }
 
 const Skeleton = (props: SkeletonProps) => {
-  const {
-    prefixCls: customizePrefixCls,
-    loading,
-    className,
-    style,
-    children,
-    avatar,
-    title,
-    paragraph,
-    active,
-    round,
-  } = props;
-
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-
-  if (loading || !('loading' in props)) {
-    const hasAvatar = !!avatar;
-    const hasTitle = !!title;
-    const hasParagraph = !!paragraph;
-
-    // Avatar
-    let avatarNode;
-    if (hasAvatar) {
-      const avatarProps: SkeletonAvatarProps = {
-        prefixCls: `${prefixCls}-avatar`,
-        ...getAvatarBasicProps(hasTitle, hasParagraph),
-        ...getComponentProps(avatar),
-      };
-      // We direct use SkeletonElement as avatar in skeleton internal.
-      avatarNode = (
-        <div className={`${prefixCls}-header`}>
-          <Element {...avatarProps} />
-        </div>
-      );
-    }
-
-    let contentNode;
-    if (hasTitle || hasParagraph) {
-      // Title
-      let $title;
-      if (hasTitle) {
-        const titleProps: SkeletonTitleProps = {
-          prefixCls: `${prefixCls}-title`,
-          ...getTitleBasicProps(hasAvatar, hasParagraph),
-          ...getComponentProps(title),
-        };
-
-        $title = <Title {...titleProps} />;
-      }
-
-      // Paragraph
-      let paragraphNode;
-      if (hasParagraph) {
-        const paragraphProps: SkeletonParagraphProps = {
-          prefixCls: `${prefixCls}-paragraph`,
-          ...getParagraphBasicProps(hasAvatar, hasTitle),
-          ...getComponentProps(paragraph),
-        };
-
-        paragraphNode = <Paragraph {...paragraphProps} />;
-      }
-
-      contentNode = (
-        <div className={`${prefixCls}-content`}>
-          {$title}
-          {paragraphNode}
-        </div>
-      );
-    }
-
-    const cls = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-with-avatar`]: hasAvatar,
-        [`${prefixCls}-active`]: active,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-round`]: round,
-      },
+  const renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      loading,
       className,
-    );
+      children,
+      avatar,
+      title,
+      paragraph,
+      active,
+      round,
+    } = props;
 
-    return (
-      <div className={cls} style={style}>
-        {avatarNode}
-        {contentNode}
-      </div>
-    );
-  }
-  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
+    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+
+    if (loading || !('loading' in props)) {
+      const hasAvatar = !!avatar;
+      const hasTitle = !!title;
+      const hasParagraph = !!paragraph;
+
+      // Avatar
+      let avatarNode;
+      if (hasAvatar) {
+        const avatarProps: SkeletonAvatarProps = {
+          prefixCls: `${prefixCls}-avatar`,
+          ...getAvatarBasicProps(hasTitle, hasParagraph),
+          ...getComponentProps(avatar),
+        };
+        // We direct use SkeletonElement as avatar in skeleton internal.
+        avatarNode = (
+          <div className={`${prefixCls}-header`}>
+            <Element {...avatarProps} />
+          </div>
+        );
+      }
+
+      let contentNode;
+      if (hasTitle || hasParagraph) {
+        // Title
+        let $title;
+        if (hasTitle) {
+          const titleProps: SkeletonTitleProps = {
+            prefixCls: `${prefixCls}-title`,
+            ...getTitleBasicProps(hasAvatar, hasParagraph),
+            ...getComponentProps(title),
+          };
+
+          $title = <Title {...titleProps} />;
+        }
+
+        // Paragraph
+        let paragraphNode;
+        if (hasParagraph) {
+          const paragraphProps: SkeletonParagraphProps = {
+            prefixCls: `${prefixCls}-paragraph`,
+            ...getParagraphBasicProps(hasAvatar, hasTitle),
+            ...getComponentProps(paragraph),
+          };
+
+          paragraphNode = <Paragraph {...paragraphProps} />;
+        }
+
+        contentNode = (
+          <div className={`${prefixCls}-content`}>
+            {$title}
+            {paragraphNode}
+          </div>
+        );
+      }
+
+      const cls = classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-with-avatar`]: hasAvatar,
+          [`${prefixCls}-active`]: active,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-round`]: round,
+        },
+        className,
+      );
+
+      return (
+        <div className={cls}>
+          {avatarNode}
+          {contentNode}
+        </div>
+      );
+    }
+
+    return children;
+  };
+  return <ConfigConsumer>{renderSkeleton}</ConfigConsumer>;
 };
 
 Skeleton.defaultProps = {
@@ -178,6 +175,5 @@ Skeleton.Button = SkeletonButton;
 Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
 Skeleton.Image = SkeletonImage;
-Skeleton.Node = SkeletonNode;
 
 export default Skeleton;

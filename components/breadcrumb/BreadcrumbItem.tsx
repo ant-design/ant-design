@@ -1,19 +1,17 @@
-import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 
+import DropDown, { DropDownProps } from '../dropdown/dropdown';
 import { ConfigContext } from '../config-provider';
-import type { DropdownProps } from '../dropdown/dropdown';
-import Dropdown from '../dropdown/dropdown';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
-  overlay?: DropdownProps['overlay'];
-  dropdownProps?: DropdownProps;
+  overlay?: DropDownProps['overlay'];
+  dropdownProps?: DropDownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
-  children?: React.ReactNode;
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
@@ -28,16 +26,16 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  /** If overlay is have Wrap a Dropdown */
+  /** If overlay is have Wrap a DropDown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <Dropdown overlay={overlay} placement="bottom" {...dropdownProps}>
+        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
           </span>
-        </Dropdown>
+        </DropDown>
       );
     }
     return breadcrumbItem;
@@ -62,10 +60,12 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   link = renderBreadcrumbNode(link);
   if (children) {
     return (
-      <li>
+      <span>
         {link}
-        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
-      </li>
+        {separator && (
+          <span className={`${prefixCls}-separator`}>{separator}</span>
+        )}
+      </span>
     );
   }
   return null;

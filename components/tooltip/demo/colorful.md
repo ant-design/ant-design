@@ -13,9 +13,8 @@ title:
 
 We preset a series of colorful Tooltip styles for use in different situations.
 
-```tsx
-import { Button, Divider, Tooltip } from 'antd';
-import React from 'react';
+```jsx
+import { Tooltip, Button, Divider } from 'antd';
 
 const colors = [
   'pink',
@@ -34,7 +33,7 @@ const colors = [
 ];
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -52,10 +51,9 @@ const App: React.FC = () => (
         </Tooltip>
       ))}
     </div>
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

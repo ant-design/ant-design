@@ -13,17 +13,15 @@ title:
 
 A simple card only containing a content area.
 
-```tsx
+```jsx
 import { Card } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Card style={{ width: 300 }}>
     <p>Card content</p>
     <p>Card content</p>
     <p>Card content</p>
-  </Card>
+  </Card>,
+  mountNode,
 );
-
-export default App;
 ```

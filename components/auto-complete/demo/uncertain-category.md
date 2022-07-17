@@ -14,11 +14,13 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 
 ```tsx
-import { AutoComplete, Input } from 'antd';
-import type { SelectProps } from 'antd/es/select';
 import React, { useState } from 'react';
+import { Input, AutoComplete } from 'antd';
+import { SelectProps } from 'antd/es/select';
 
-const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
+function getRandomInt(max: number, min: number = 0) {
+  return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
+}
 
 const searchResult = (query: string) =>
   new Array(getRandomInt(5))
@@ -51,7 +53,7 @@ const searchResult = (query: string) =>
       };
     });
 
-const App: React.FC = () => {
+const Complete: React.FC = () => {
   const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
   const handleSearch = (value: string) => {
@@ -75,5 +77,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Complete />, mountNode);
 ```

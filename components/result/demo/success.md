@@ -13,11 +13,10 @@ title:
 
 Show successful results.
 
-```tsx
-import { Button, Result } from 'antd';
-import React from 'react';
+```jsx
+import { Result, Button } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Result
     status="success"
     title="Successfully Purchased Cloud Server ECS!"
@@ -28,8 +27,7 @@ const App: React.FC = () => (
       </Button>,
       <Button key="buy">Buy Again</Button>,
     ]}
-  />
+  />,
+  mountNode,
 );
-
-export default App;
 ```

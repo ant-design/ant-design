@@ -1,10 +1,10 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Upload from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
 import { setup, teardown } from './mock';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Upload.Dragger', () => {
   mountTest(Upload.Dragger);
@@ -12,47 +12,44 @@ describe('Upload.Dragger', () => {
   beforeEach(() => setup());
   afterEach(() => teardown());
 
-  it('support drag file with over style', async () => {
+  it('support drag file with over style', () => {
     jest.useFakeTimers();
-    const { container: wrapper } = render(
+    const wrapper = mount(
       <Upload.Dragger action="http://upload.com">
         <div />
       </Upload.Dragger>,
     );
 
-    fireEvent.dragOver(wrapper.querySelector('.ant-upload-drag-container'), {
+    wrapper.find('.ant-upload-drag-container').simulate('dragover', {
       target: {
         files: [{ file: 'foo.png' }],
       },
     });
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
+    wrapper.update();
 
-    await waitFor(() => {
-      expect(wrapper.querySelector('.ant-upload-drag')).toHaveClass('ant-upload-drag-hover');
-    });
+    expect(wrapper.find('.ant-upload-drag').hasClass('ant-upload-drag-hover')).toBe(true);
 
     jest.useRealTimers();
   });
 
-  it('support onDrop when files are dropped onto upload area', async () => {
+  it('support onDrop when files are dropped onto upload area', () => {
     const onDrop = jest.fn();
-    const { container: wrapper } = render(
+    const wrapper = mount(
       <Upload.Dragger onDrop={onDrop}>
         <div />
       </Upload.Dragger>,
     );
 
-    fireEvent.drop(wrapper.querySelector('.ant-upload-drag-container'), {
+    wrapper.find('.ant-upload-drag-container').simulate('drop', {
       dataTransfer: {
         files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
       },
     });
 
-    await waitFor(() => {
-      expect(onDrop).toHaveBeenCalled();
-    });
+    expect(onDrop).toHaveBeenCalled();
   });
 });

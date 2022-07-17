@@ -1,32 +1,32 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { render, mount } from 'enzyme';
 import Slider from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import focusTest from '../../../tests/shared/focusTest';
 import SliderTooltip from '../SliderTooltip';
+import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, { testLib: true });
+  focusTest(Slider, { refFocus: true });
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
-    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
-    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('should show correct placement tooltip when set tooltipPlacement', () => {
     const wrapper = mount(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
-    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
-    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
+    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
@@ -51,7 +51,7 @@ describe('Slider', () => {
     const wrapper = mount(
       <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
     );
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 48);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 48);
   });
 
   it('when step is not null, thumb can be slided to the multiples of step', () => {
@@ -62,7 +62,7 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(<Slider marks={marks} defaultValue={49} step={1} tooltipVisible />);
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
   });
 
   it('when step is undefined, thumb can be slided to the multiples of step', () => {
@@ -75,7 +75,7 @@ describe('Slider', () => {
     const wrapper = mount(
       <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
     );
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
   });
 
   it('should render in RTL direction', () => {
@@ -84,7 +84,7 @@ describe('Slider', () => {
         <Slider defaultValue={30} tooltipVisible />
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {

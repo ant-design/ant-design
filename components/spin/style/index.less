@@ -99,6 +99,7 @@
 
   &-blur {
     clear: both;
+    overflow: hidden;
     opacity: 0.5;
     user-select: none;
     pointer-events: none;
@@ -141,19 +142,16 @@
         top: 0;
         left: 0;
       }
-
       &:nth-child(2) {
         top: 0;
         right: 0;
         animation-delay: 0.4s;
       }
-
       &:nth-child(3) {
         right: 0;
         bottom: 0;
         animation-delay: 0.8s;
       }
-
       &:nth-child(4) {
         bottom: 0;
         left: 0;
@@ -162,7 +160,7 @@
     }
 
     &-spin {
-      transform: rotate(0deg);
+      transform: rotate(45deg);
       animation: antRotate 1.2s infinite linear;
     }
   }
@@ -211,7 +209,7 @@
 
 @keyframes antRotate {
   to {
-    transform: rotate(360deg);
+    transform: rotate(405deg);
   }
 }
 

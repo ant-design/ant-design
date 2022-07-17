@@ -1,17 +1,19 @@
-import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import copy from 'copy-to-clipboard';
+import React from 'react';
+import { mount } from 'enzyme';
+import { SmileOutlined, LikeOutlined, HighlightOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
-import Base from '../Base';
+import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import copy from 'copy-to-clipboard';
+import Title from '../Title';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
-import Title from '../Title';
+import Base from '../Base';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
+import { sleep } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -77,7 +79,7 @@ describe('Typography', () => {
 
   describe('Title', () => {
     it('warning if `level` not correct', () => {
-      render(<Title level={false} />);
+      mount(<Title level={false} />);
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
@@ -86,62 +88,247 @@ describe('Typography', () => {
   });
 
   describe('Base', () => {
+    describe('trigger ellipsis update', () => {
+      const fullStr =
+        'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
+
+      it('should trigger update', async () => {
+        const onEllipsis = jest.fn();
+        const wrapper = mount(
+          <Base ellipsis={{ onEllipsis }} component="p" editable>
+            {fullStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.text()).toEqual('Bamboo is Little ...');
+        expect(onEllipsis).toHaveBeenCalledWith(true);
+        onEllipsis.mockReset();
+
+        wrapper.setProps({ ellipsis: { rows: 2, onEllipsis } });
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
+        expect(onEllipsis).not.toHaveBeenCalled();
+
+        wrapper.setProps({ ellipsis: { rows: 99, onEllipsis } });
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual(fullStr);
+        expect(onEllipsis).toHaveBeenCalledWith(false);
+
+        wrapper.unmount();
+      });
+
+      it('string with parentheses', async () => {
+        const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`;
+        const onEllipsis = jest.fn();
+        const wrapper = mount(
+          <Base ellipsis={{ onEllipsis }} component="p" editable>
+            {parenthesesStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.text()).toEqual('Ant Design, a des...');
+        const ellipsisSpan = wrapper.find('span[title]');
+        expect(ellipsisSpan.text()).toEqual('...');
+        expect(ellipsisSpan.props().title)
+          .toEqual(`ign language (for background applications, is refined by
+          Ant UED Team. Ant Design, a design language for background applications,
+          is refined by Ant UED Team. Ant Design, a design language for background
+          applications, is refined by Ant UED Team. Ant Design, a design language
+          for background applications, is refined by Ant UED Team. Ant Design, a
+          design language for background applications, is refined by Ant UED Team.
+          Ant Design, a design language for background applications, is refined by
+          Ant UED Team.`);
+        onEllipsis.mockReset();
+
+        wrapper.unmount();
+      });
+
+      it('should middle ellipsis', async () => {
+        const suffix = '--suffix';
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('Bamboo is...--suffix');
+        wrapper.unmount();
+      });
+
+      it('should front or middle ellipsis', async () => {
+        const suffix = '--The information is very important';
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('...--The information is very important');
+
+        wrapper.setProps({ ellipsis: { rows: 2, suffix } });
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('Ba...--The information is very important');
+
+        wrapper.setProps({ ellipsis: { rows: 99, suffix } });
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual(fullStr + suffix);
+
+        wrapper.unmount();
+      });
+
+      it('connect children', async () => {
+        const bamboo = 'Bamboo';
+        const is = ' is ';
+
+        const wrapper = mount(
+          <Base ellipsis component="p" editable>
+            {bamboo}
+            {is}
+            <code>Little</code>
+            <code>Light</code>
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+
+        expect(wrapper.text()).toEqual('Bamboo is Little...');
+      });
+
+      it('should expandable work', async () => {
+        const onExpand = jest.fn();
+        const wrapper = mount(
+          <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
+            {fullStr}
+          </Base>,
+        );
+
+        await sleep(20);
+        wrapper.update();
+
+        wrapper.find('.ant-typography-expand').simulate('click');
+        expect(onExpand).toHaveBeenCalled();
+        await sleep(20);
+        wrapper.update();
+
+        expect(wrapper.find('p').text()).toEqual(fullStr);
+      });
+
+      it('should have custom expand style', async () => {
+        const symbol = 'more';
+        const wrapper = mount(
+          <Base ellipsis={{ expandable: true, symbol }} component="p">
+            {fullStr}
+          </Base>,
+        );
+        await sleep(20);
+        wrapper.update();
+        expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
+      });
+
+      it('can use css ellipsis', () => {
+        const wrapper = mount(<Base ellipsis component="p" />);
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
+      it('should calculate padding', () => {
+        const wrapper = mount(
+          <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+        );
+        expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+      });
+
+      describe('should tooltip support', () => {
+        function getWrapper(tooltip) {
+          return mount(
+            <Base ellipsis={{ tooltip }} component="p">
+              {fullStr}
+            </Base>,
+          );
+        }
+
+        it('boolean', async () => {
+          const wrapper = getWrapper(true);
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual(fullStr);
+        });
+
+        it('customize', async () => {
+          const wrapper = getWrapper('Bamboo is Light');
+          await sleep(20);
+          wrapper.update();
+
+          expect(wrapper.find('Tooltip').prop('title')).toEqual('Bamboo is Light');
+        });
+      });
+    });
+
     describe('copyable', () => {
-      function copyTest(name, text, target, icon, tooltips, format) {
+      function copyTest(name, text, target, icon, tooltips) {
         it(name, async () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
-          const { container: wrapper, unmount } = render(
-            <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
+          const wrapper = mount(
+            <Base component="p" copyable={{ text, onCopy, icon, tooltips }}>
               test copy
             </Base>,
           );
 
           if (icon) {
-            expect(wrapper.querySelectorAll('.anticon-smile').length).toBeGreaterThan(0);
+            expect(wrapper.find('.anticon-smile').length).toBeTruthy();
           } else {
-            expect(wrapper.querySelectorAll('.anticon-copy').length).toBeGreaterThan(0);
+            expect(wrapper.find('.anticon-copy').length).toBeTruthy();
           }
 
-          fireEvent.mouseEnter(wrapper.querySelector('.ant-typography-copy'));
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
           jest.runAllTimers();
+          wrapper.update();
 
           if (tooltips === undefined || tooltips === true) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copy');
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copy');
           } else if (tooltips === false) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else if (tooltips[1] === '' && tooltips[0]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
           } else {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
           }
 
-          fireEvent.click(wrapper.querySelector('.ant-typography-copy'));
+          wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.useRealTimers();
-          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mouseEnterDelay 的时长
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mousenEnterDelay 的时长
           if (tooltips && tooltips[0] === '' && tooltips[1]) {
             await sleep(150);
           }
 
           expect(copy.lastStr).toEqual(target);
-          expect(copy.lastOptions.format).toEqual(format);
+          wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
           let copiedIcon = '.anticon-check';
@@ -151,65 +338,37 @@ describe('Typography', () => {
             copiedIcon = '.anticon-check';
           }
 
-          expect(wrapper.querySelectorAll(copiedIcon).length).toBeGreaterThan(0);
-          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+          expect(wrapper.find(copiedIcon).length).toBeTruthy();
+          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
 
           if (tooltips === undefined || tooltips === true) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copied');
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copied');
           } else if (tooltips === false) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
           } else if (tooltips[1] === '' && tooltips[0]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('');
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('');
           } else {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
-            });
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
           }
 
           jest.useFakeTimers();
-          fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+          wrapper.find('.ant-typography-copy').first().simulate('click');
           jest.runAllTimers();
+          wrapper.update();
 
           // Will set back when 3 seconds pass
-          await sleep(3000);
-          expect(wrapper.querySelectorAll(copiedIcon).length).toBe(0);
-          unmount();
+          expect(wrapper.find(copiedIcon).length).toBeFalsy();
+          wrapper.unmount();
           jest.useRealTimers();
         });
       }
 
       copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
-      copyTest(
-        'costomize copy with plain text',
-        'bamboo',
-        'bamboo',
-        undefined,
-        undefined,
-        'text/plain',
-      );
-      copyTest(
-        'costomize copy with html text',
-        'bamboo',
-        'bamboo',
-        undefined,
-        undefined,
-        'text/html',
-      );
       copyTest('customize copy icon', 'bamboo', 'bamboo', <SmileOutlined />);
       copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
         <SmileOutlined key="copy-icon" />,
@@ -236,22 +395,18 @@ describe('Typography', () => {
     });
 
     describe('editable', () => {
-      function testStep(
-        { name = '', icon, tooltip, triggerType, enterIcon },
-        submitFunc,
-        expectFunc,
-      ) {
-        it(name, async () => {
+      function testStep({ name = '', icon, tooltip } = {}, submitFunc, expectFunc) {
+        it(name, () => {
           jest.useFakeTimers();
           const onStart = jest.fn();
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = { padding: 'unset' };
+          const style = {};
 
-          const { container: wrapper } = render(
+          const wrapper = mount(
             <Paragraph
-              editable={{ onChange, onStart, icon, tooltip, triggerType, enterIcon }}
+              editable={{ onChange, onStart, icon, tooltip }}
               className={className}
               style={style}
             >
@@ -259,75 +414,36 @@ describe('Typography', () => {
             </Paragraph>,
           );
 
-          if (triggerType === undefined || triggerType.indexOf('icon') !== -1) {
-            if (icon) {
-              expect(wrapper.querySelectorAll('.anticon-highlight').length).toBeGreaterThan(0);
-            } else {
-              expect(wrapper.querySelectorAll('.anticon-edit').length).toBeGreaterThan(0);
-            }
-
-            if (triggerType === undefined || triggerType.indexOf('text') === -1) {
-              fireEvent.click(wrapper.firstChild);
-              expect(onStart).not.toHaveBeenCalled();
-            }
-            fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-            jest.runAllTimers();
-
-            if (tooltip === undefined || tooltip === true) {
-              await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Edit');
-              });
-            } else if (tooltip === false) {
-              await waitFor(() => {
-                expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-              });
-            } else {
-              await waitFor(() => {
-                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltip);
-              });
-            }
-
-            fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-
-            expect(onStart).toHaveBeenCalled();
-            if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
-              fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
-              fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
-              expect(onChange).not.toHaveBeenCalled();
-            }
+          if (icon) {
+            expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
+          } else {
+            expect(wrapper.find('.anticon-edit').length).toBeTruthy();
           }
 
-          if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
-            if (triggerType.indexOf('icon') === -1) {
-              expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
-              expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
-            }
-            fireEvent.click(wrapper.firstChild);
-            expect(onStart).toHaveBeenCalled();
+          wrapper.find('.ant-typography-edit').first().simulate('mouseenter');
+          jest.runAllTimers();
+          wrapper.update();
+
+          if (tooltip === undefined || tooltip === true) {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Edit');
+          } else if (tooltip === false) {
+            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+          } else {
+            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltip);
           }
+
+          wrapper.find('.ant-typography-edit').first().simulate('click');
+
+          expect(onStart).toHaveBeenCalled();
 
           // Should have className
-          const props = wrapper.querySelectorAll('div')[0];
-          expect(props.getAttribute('style')).toContain('padding: unset');
+          const props = wrapper.find('div').first().props();
+          expect(props.style).toEqual(style);
           expect(props.className.includes(className)).toBeTruthy();
 
-          fireEvent.change(wrapper.querySelector('textarea'), {
+          wrapper.find('textarea').simulate('change', {
             target: { value: 'Bamboo' },
           });
-
-          if (enterIcon === undefined) {
-            expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
-            ).toContain('anticon-enter');
-          } else if (enterIcon === null) {
-            expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm').length,
-            ).toBe(0);
-          } else {
-            expect(
-              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
-            ).not.toContain('anticon-enter');
-          }
 
           if (submitFunc) {
             submitFunc(wrapper);
@@ -346,21 +462,21 @@ describe('Typography', () => {
 
       testStep({ name: 'by key up' }, wrapper => {
         // Not trigger when inComposition
-        fireEvent.compositionStart(wrapper.querySelector('textarea'));
-        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
-        fireEvent.compositionEnd(wrapper.querySelector('textarea'));
-        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('compositionStart');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('compositionEnd');
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
 
         // Now trigger
-        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
-        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
       });
 
       testStep(
         { name: 'by esc key' },
         wrapper => {
-          fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
-          fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
+          wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
+          wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
           // eslint-disable-next-line jest/no-standalone-expect
@@ -369,76 +485,66 @@ describe('Typography', () => {
       );
 
       testStep({ name: 'by blur' }, wrapper => {
-        fireEvent.blur(wrapper.querySelector('textarea'));
+        wrapper.find('textarea').simulate('blur');
       });
 
       testStep({ name: 'customize edit icon', icon: <HighlightOutlined /> });
       testStep({ name: 'customize edit show tooltip', tooltip: true });
       testStep({ name: 'customize edit hide tooltip', tooltip: false });
       testStep({ name: 'customize edit tooltip text', tooltip: 'click to edit text' });
-      testStep({ name: 'enter icon - default', enterIcon: undefined });
-      testStep({ name: 'enter icon - null', enterIcon: null });
-      testStep({ name: 'enter icon - custom', enterIcon: <CheckOutlined /> });
-
-      testStep({ name: 'trigger by icon', triggerType: ['icon'] });
-      testStep({ name: 'trigger by text', triggerType: ['text'] });
-      testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();
-        const { container: wrapper } = render(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
-        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
-        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        const wrapper = mount(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
         expect(onEnd).toHaveBeenCalledTimes(1);
       });
 
       it('should trigger onCancel when type ESC', () => {
         const onCancel = jest.fn();
-        const { container: wrapper } = render(
-          <Paragraph editable={{ onCancel }}>Bamboo</Paragraph>,
-        );
-        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
-        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
+        const wrapper = mount(<Paragraph editable={{ onCancel }}>Bamboo</Paragraph>);
+        wrapper.find('.ant-typography-edit').first().simulate('click');
+        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
+        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
         expect(onCancel).toHaveBeenCalledTimes(1);
       });
 
       it('should only trigger focus on the first time', () => {
         let triggerTimes = 0;
-        const { container: wrapper } = render(<Paragraph editable>Bamboo</Paragraph>);
-        const editIcon = wrapper.querySelectorAll('.ant-typography-edit')[0];
-
-        editIcon.addEventListener('focus', () => {
+        const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {
           triggerTimes += 1;
         });
 
-        fireEvent.focus(editIcon);
+        const wrapper = mount(<Paragraph editable>Bamboo</Paragraph>);
+
+        wrapper.find('.ant-typography-edit').first().simulate('click');
         expect(triggerTimes).toEqual(1);
 
-        fireEvent.click(editIcon);
-        expect(triggerTimes).toEqual(1);
-
-        fireEvent.change(wrapper.querySelector('textarea'), {
+        wrapper.find('textarea').simulate('change', {
           target: { value: 'good' },
         });
 
         expect(triggerTimes).toEqual(1);
+
+        mockFocus.mockRestore();
       });
     });
 
     it('should focus at the end of textarea', () => {
-      const { container: wrapper } = render(<Paragraph editable>content</Paragraph>);
-      fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-      const textareaNode = wrapper.querySelector('textarea');
+      const wrapper = mount(<Paragraph editable>content</Paragraph>);
+      wrapper.find('.ant-typography-edit').first().simulate('click');
+      const textareaNode = wrapper.find('textarea').getDOMNode();
       expect(textareaNode.selectionStart).toBe(7);
       expect(textareaNode.selectionEnd).toBe(7);
     });
   });
 
   it('warning if use setContentRef', () => {
-    const refFunc = () => {};
-    render(<Typography setContentRef={refFunc} />);
+    function refFunc() {}
+    mount(<Typography setContentRef={refFunc} />);
+
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
@@ -446,29 +552,8 @@ describe('Typography', () => {
 
   it('no italic warning', () => {
     resetWarned();
-    render(<Text italic>Little</Text>);
+    mount(<Text italic>Little</Text>);
 
     expect(errorSpy).not.toHaveBeenCalled();
-  });
-
-  it('should get HTMLHeadingElement ref from Title', () => {
-    const ref = React.createRef();
-
-    render(<Title level={1} ref={ref} />);
-    expect(ref.current instanceof HTMLHeadingElement).toBe(true);
-  });
-
-  it('should get HTMLDivElement ref from Paragraph', () => {
-    const ref = React.createRef();
-
-    render(<Paragraph ref={ref} />);
-    expect(ref.current instanceof HTMLDivElement).toBe(true);
-  });
-
-  it('should get HTMLSpanElement ref from Text', () => {
-    const ref = React.createRef();
-
-    render(<Text ref={ref} />);
-    expect(ref.current instanceof HTMLSpanElement).toBe(true);
   });
 });

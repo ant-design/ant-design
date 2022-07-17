@@ -13,11 +13,8 @@ title:
 
 The simplest usage.
 
-```tsx
+```jsx
 import { Rate } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => <Rate />;
-
-export default App;
+ReactDOM.render(<Rate />, mountNode);
 ```

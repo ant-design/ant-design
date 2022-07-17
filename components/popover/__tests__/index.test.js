@@ -1,8 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { render, mount } from 'enzyme';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
@@ -55,35 +54,21 @@ describe('Popover', () => {
     popover.find('span').simulate('click');
 
     const popup = ref.current.getPopupDomNode();
-    expect(popup).toBe(null);
-  });
-
-  it('should not render popover when the title & content props is empty', () => {
-    const ref = React.createRef();
-
-    const popover = mount(
-      <Popover trigger="click" ref={ref} content="">
-        <span>show me your code</span>
-      </Popover>,
-    );
-
-    popover.find('span').simulate('click');
-    const popup = ref.current.getPopupDomNode();
-
-    expect(popup).toBe(null);
+    expect(popup).not.toBe(null);
+    expect(popup.innerHTML).toMatchSnapshot();
   });
 
   it('props#overlay do not warn anymore', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const overlay = jest.fn();
-    render(
+    mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
 
-    expect(errorSpy).not.toHaveBeenCalled();
+    expect(errorSpy.mock.calls.length).toBe(0);
     expect(overlay).not.toHaveBeenCalled();
   });
 
@@ -95,6 +80,6 @@ describe('Popover', () => {
         </Popover>
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });

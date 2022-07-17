@@ -15,9 +15,8 @@ Additional description for alert message.
 
 ```tsx
 import { Alert } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Alert
       message="Success Text"
@@ -39,8 +38,7 @@ const App: React.FC = () => (
       description="Error Description Error Description Error Description Error Description"
       type="error"
     />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```

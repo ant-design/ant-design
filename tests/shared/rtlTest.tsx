@@ -16,7 +16,7 @@ export default function rtlTest(Component: React.ComponentType, mockDate?: boole
           <Component />
         </ConfigProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper).toMatchRenderedSnapshot();
       if (mockDate) {
         MockDate.reset();
       }

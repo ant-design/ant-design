@@ -13,12 +13,11 @@ title:
 
 Display statistic data in Card.
 
-```tsx
-import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { Card, Col, Row, Statistic } from 'antd';
-import React from 'react';
+```jsx
+import { Statistic, Card, Row, Col } from 'antd';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <div className="site-statistic-demo-card">
     <Row gutter={16}>
       <Col span={12}>
@@ -46,10 +45,9 @@ const App: React.FC = () => (
         </Card>
       </Col>
     </Row>
-  </div>
+  </div>,
+  mountNode,
 );
-
-export default App;
 ```
 
 ```css

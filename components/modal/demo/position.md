@@ -13,49 +13,60 @@ title:
 
 You can use `centered`,`style.top` or other styles to set position of modal dialog.
 
-```tsx
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+```jsx
+import { Modal, Button } from 'antd';
 
-const App: React.FC = () => {
-  const [modal1Visible, setModal1Visible] = useState(false);
-  const [modal2Visible, setModal2Visible] = useState(false);
+class App extends React.Component {
+  state = {
+    modal1Visible: false,
+    modal2Visible: false,
+  };
 
-  return (
-    <>
-      <Button type="primary" onClick={() => setModal1Visible(true)}>
-        Display a modal dialog at 20px to Top
-      </Button>
-      <Modal
-        title="20px to Top"
-        style={{ top: 20 }}
-        visible={modal1Visible}
-        onOk={() => setModal1Visible(false)}
-        onCancel={() => setModal1Visible(false)}
-      >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
-      </Modal>
-      <br />
-      <br />
-      <Button type="primary" onClick={() => setModal2Visible(true)}>
-        Vertically centered modal dialog
-      </Button>
-      <Modal
-        title="Vertically centered modal dialog"
-        centered
-        visible={modal2Visible}
-        onOk={() => setModal2Visible(false)}
-        onCancel={() => setModal2Visible(false)}
-      >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
-      </Modal>
-    </>
-  );
-};
+  setModal1Visible(modal1Visible) {
+    this.setState({ modal1Visible });
+  }
 
-export default App;
+  setModal2Visible(modal2Visible) {
+    this.setState({ modal2Visible });
+  }
+
+  render() {
+    return (
+      <>
+        <Button type="primary" onClick={() => this.setModal1Visible(true)}>
+          Display a modal dialog at 20px to Top
+        </Button>
+        <Modal
+          title="20px to Top"
+          style={{ top: 20 }}
+          visible={this.state.modal1Visible}
+          onOk={() => this.setModal1Visible(false)}
+          onCancel={() => this.setModal1Visible(false)}
+        >
+          <p>some contents...</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
+        </Modal>
+        <br />
+        <br />
+        <Button type="primary" onClick={() => this.setModal2Visible(true)}>
+          Vertically centered modal dialog
+        </Button>
+        <Modal
+          title="Vertically centered modal dialog"
+          centered
+          visible={this.state.modal2Visible}
+          onOk={() => this.setModal2Visible(false)}
+          onCancel={() => this.setModal2Visible(false)}
+        >
+          <p>some contents...</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
+        </Modal>
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

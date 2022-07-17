@@ -101,7 +101,7 @@
       display: inline-block;
       width: @picker-arrow-size;
       height: @picker-arrow-size;
-      border: 0 solid currentcolor;
+      border: 0 solid currentColor;
       border-width: 1.5px 0 0 1.5px;
       content: '';
     }
@@ -116,7 +116,7 @@
       display: inline-block;
       width: @picker-arrow-size;
       height: @picker-arrow-size;
-      border: 0 solid currentcolor;
+      border: 0 solid currentColor;
       border-width: 1.5px 0 0 1.5px;
       content: '';
     }
@@ -161,7 +161,6 @@
       z-index: 1;
       height: @picker-panel-cell-height;
       transform: translateY(-50%);
-      transition: all @animation-duration-slow;
       content: '';
     }
 
@@ -248,7 +247,6 @@
         border-top: @border-width-base dashed @picker-date-hover-range-border-color;
         border-bottom: @border-width-base dashed @picker-date-hover-range-border-color;
         transform: translateY(-50%);
-        transition: all @animation-duration-slow;
         content: '';
       }
     }
@@ -280,7 +278,6 @@
     &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
-
     // range end border-radius
     &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
       border-radius: 0 @border-radius-base @border-radius-base 0;
@@ -295,18 +292,15 @@
         bottom: 0;
         z-index: -1;
         background: @picker-date-hover-range-color;
-        transition: all @animation-duration-slow;
         content: '';
       }
     }
-
     .@{picker-prefix-cls}-date-panel
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
       right: -5px - @border-width-base;
       left: 0;
     }
-
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
       left: -5px - @border-width-base;
@@ -316,7 +310,6 @@
     &-range-hover&-range-start::after {
       right: 50%;
     }
-
     &-range-hover&-range-end::after {
       left: 50%;
     }
@@ -614,7 +607,7 @@
       }
 
       &-active {
-        background: @calendar-column-active-bg;
+        background: fade(@calendar-item-active-bg, 20%);
       }
 
       &:hover {
@@ -665,7 +658,7 @@
 // Fix IE11 render bug by css hacks
 // https://github.com/ant-design/ant-design/issues/21559
 // https://codepen.io/afc163-1472555193/pen/mdJRaNj?editors=0110
-/* stylelint-disable selector-type-no-unknown,selector-no-vendor-prefix */
+/* stylelint-disable-next-line */
 _:-ms-fullscreen,
 :root {
   .@{picker-prefix-cls}-range-wrapper {

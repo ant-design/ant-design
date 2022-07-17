@@ -13,12 +13,11 @@ title:
 
 Alternate timeline.
 
-```tsx
-import { ClockCircleOutlined } from '@ant-design/icons';
+```jsx
 import { Timeline } from 'antd';
-import React from 'react';
+import { ClockCircleOutlined } from '@ant-design/icons';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Timeline mode="alternate">
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item color="green">Solve initial network problems 2015-09-01</Timeline.Item>
@@ -32,8 +31,7 @@ const App: React.FC = () => (
     <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
       Technical testing 2015-09-01
     </Timeline.Item>
-  </Timeline>
+  </Timeline>,
+  mountNode,
 );
-
-export default App;
 ```

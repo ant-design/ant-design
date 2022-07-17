@@ -13,18 +13,17 @@ title:
 
 Another type of Tabs, which doesn't support vertical mode.
 
-```tsx
+```jsx
 import { Tabs } from 'antd';
-import React from 'react';
 
 const { TabPane } = Tabs;
 
-const onChange = (key: string) => {
+function callback(key) {
   console.log(key);
-};
+}
 
-const App: React.FC = () => (
-  <Tabs onChange={onChange} type="card">
+ReactDOM.render(
+  <Tabs onChange={callback} type="card">
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
     </TabPane>
@@ -34,8 +33,7 @@ const App: React.FC = () => (
     <TabPane tab="Tab 3" key="3">
       Content of Tab Pane 3
     </TabPane>
-  </Tabs>
+  </Tabs>,
+  mountNode,
 );
-
-export default App;
 ```

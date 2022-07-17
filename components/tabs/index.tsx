@@ -1,16 +1,14 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
+import RcTabs, { TabPane, TabsProps as RcTabsProps, TabPaneProps } from 'rc-tabs';
+import { EditableConfig } from 'rc-tabs/lib/interface';
+import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import classNames from 'classnames';
-import type { TabsProps as RcTabsProps } from 'rc-tabs';
-import RcTabs, { TabPane, TabPaneProps } from 'rc-tabs';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
+import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import warning from '../_util/warning';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -53,7 +51,7 @@ function Tabs({
   }
   const rootPrefixCls = getPrefixCls();
 
-  warning(
+  devWarning(
     !('onPrevClick' in props) && !('onNextClick' in props),
     'Tabs',
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',

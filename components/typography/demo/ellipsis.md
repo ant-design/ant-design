@@ -14,13 +14,12 @@ title:
 Multiple line ellipsis support. You can use `tooltip` to config ellipsis tooltip. Recommend `expandable` when have lots of content.
 
 ```tsx
-import { Switch, Typography } from 'antd';
-import React, { useState } from 'react';
+import { Typography, Switch } from 'antd';
 
 const { Paragraph, Text } = Typography;
 
-const App: React.FC = () => {
-  const [ellipsis, setEllipsis] = useState(true);
+const Demo = () => {
+  const [ellipsis, setEllipsis] = React.useState(true);
 
   return (
     <>
@@ -59,5 +58,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

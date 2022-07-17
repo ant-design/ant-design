@@ -1,20 +1,14 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import { FormItemInputContext } from '../form/context';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
-import type { InputStatus } from '../_util/statusUtils';
-import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
-import type { PaginationType } from './interface';
-import type { TransferListProps } from './list';
-import List from './list';
-import type { TransferListBodyProps } from './ListBody';
+import classNames from 'classnames';
+import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { TransferListBodyProps } from './ListBody';
+import { PaginationType } from './interface';
+import devWarning from '../_util/devWarning';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -53,7 +47,7 @@ export type SelectAllLabel =
 
 export interface TransferLocale {
   titles: React.ReactNode[];
-  notFoundContent?: React.ReactNode | React.ReactNode[];
+  notFoundContent?: React.ReactNode;
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
@@ -83,12 +77,7 @@ export interface TransferProps<RecordType> {
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (
-    props: TransferListProps<RecordType>,
-    info?: {
-      direction: TransferDirection;
-    },
-  ) => React.ReactNode;
+  footer?: (props: TransferListProps<RecordType>) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
@@ -97,7 +86,6 @@ export interface TransferProps<RecordType> {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
-  status?: InputStatus;
 }
 
 interface TransferState {
@@ -137,7 +125,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    warning(
+    devWarning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',
@@ -312,7 +300,6 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   handleListStyle = (
     listStyle: TransferProps<RecordType>['listStyle'],
     direction: TransferDirection,
@@ -354,119 +341,112 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
-        <FormItemInputContext.Consumer>
-          {({ hasFeedback, status: contextStatus }) => {
-            const {
-              prefixCls: customizePrefixCls,
-              className,
-              disabled,
-              operations = [],
-              showSearch,
-              footer,
-              style,
-              listStyle,
-              operationStyle,
-              filterOption,
-              render,
-              children,
-              showSelectAll,
-              oneWay,
-              pagination,
-              status: customStatus,
-            } = this.props;
-            const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
-            const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-            const mergedStatus = getMergedStatus(contextStatus, customStatus);
+      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
+        const {
+          prefixCls: customizePrefixCls,
+          className,
+          disabled,
+          operations = [],
+          showSearch,
+          footer,
+          style,
+          listStyle,
+          operationStyle,
+          filterOption,
+          render,
+          children,
+          showSelectAll,
+          oneWay,
+          pagination,
+        } = this.props;
+        const prefixCls = getPrefixCls('transfer', customizePrefixCls);
+        const locale = this.getLocale(transferLocale, renderEmpty);
+        const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
-            const mergedPagination = !children && pagination;
+        const mergedPagination = !children && pagination;
 
-            const { leftDataSource, rightDataSource } = this.separateDataSource();
-            const leftActive = targetSelectedKeys.length > 0;
-            const rightActive = sourceSelectedKeys.length > 0;
+        const { leftDataSource, rightDataSource } = this.separateDataSource();
+        const leftActive = targetSelectedKeys.length > 0;
+        const rightActive = sourceSelectedKeys.length > 0;
 
-            const cls = classNames(
-              prefixCls,
-              {
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-customize-list`]: !!children,
-                [`${prefixCls}-rtl`]: direction === 'rtl',
-              },
-              getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-              className,
-            );
+        const cls = classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-customize-list`]: !!children,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+        );
 
-            const titles = this.getTitles(locale);
-            const selectAllLabels = this.props.selectAllLabels || [];
-            return (
-              <div className={cls} style={style}>
-                <List<KeyWise<RecordType>>
-                  prefixCls={`${prefixCls}-list`}
-                  titleText={titles[0]}
-                  dataSource={leftDataSource}
-                  filterOption={filterOption}
-                  style={this.handleListStyle(listStyle, 'left')}
-                  checkedKeys={sourceSelectedKeys}
-                  handleFilter={this.handleLeftFilter}
-                  handleClear={this.handleLeftClear}
-                  onItemSelect={this.onLeftItemSelect}
-                  onItemSelectAll={this.onLeftItemSelectAll}
-                  render={render}
-                  showSearch={showSearch}
-                  renderList={children}
-                  footer={footer}
-                  onScroll={this.handleLeftScroll}
-                  disabled={disabled}
-                  direction={direction === 'rtl' ? 'right' : 'left'}
-                  showSelectAll={showSelectAll}
-                  selectAllLabel={selectAllLabels[0]}
-                  pagination={mergedPagination}
-                  {...locale}
-                />
-                <Operation
-                  className={`${prefixCls}-operation`}
-                  rightActive={rightActive}
-                  rightArrowText={operations[0]}
-                  moveToRight={this.moveToRight}
-                  leftActive={leftActive}
-                  leftArrowText={operations[1]}
-                  moveToLeft={this.moveToLeft}
-                  style={operationStyle}
-                  disabled={disabled}
-                  direction={direction}
-                  oneWay={oneWay}
-                />
-                <List<KeyWise<RecordType>>
-                  prefixCls={`${prefixCls}-list`}
-                  titleText={titles[1]}
-                  dataSource={rightDataSource}
-                  filterOption={filterOption}
-                  style={this.handleListStyle(listStyle, 'right')}
-                  checkedKeys={targetSelectedKeys}
-                  handleFilter={this.handleRightFilter}
-                  handleClear={this.handleRightClear}
-                  onItemSelect={this.onRightItemSelect}
-                  onItemSelectAll={this.onRightItemSelectAll}
-                  onItemRemove={this.onRightItemRemove}
-                  render={render}
-                  showSearch={showSearch}
-                  renderList={children}
-                  footer={footer}
-                  onScroll={this.handleRightScroll}
-                  disabled={disabled}
-                  direction={direction === 'rtl' ? 'left' : 'right'}
-                  showSelectAll={showSelectAll}
-                  selectAllLabel={selectAllLabels[1]}
-                  showRemove={oneWay}
-                  pagination={mergedPagination}
-                  {...locale}
-                />
-              </div>
-            );
-          }}
-        </FormItemInputContext.Consumer>
-      )}
+        const titles = this.getTitles(locale);
+        const selectAllLabels = this.props.selectAllLabels || [];
+        return (
+          <div className={cls} style={style}>
+            <List<KeyWise<RecordType>>
+              prefixCls={`${prefixCls}-list`}
+              titleText={titles[0]}
+              dataSource={leftDataSource}
+              filterOption={filterOption}
+              style={this.handleListStyle(listStyle, 'left')}
+              checkedKeys={sourceSelectedKeys}
+              handleFilter={this.handleLeftFilter}
+              handleClear={this.handleLeftClear}
+              onItemSelect={this.onLeftItemSelect}
+              onItemSelectAll={this.onLeftItemSelectAll}
+              render={render}
+              showSearch={showSearch}
+              renderList={children}
+              footer={footer}
+              onScroll={this.handleLeftScroll}
+              disabled={disabled}
+              direction="left"
+              showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[0]}
+              pagination={mergedPagination}
+              {...locale}
+            />
+            <Operation
+              className={`${prefixCls}-operation`}
+              rightActive={rightActive}
+              rightArrowText={operations[0]}
+              moveToRight={this.moveToRight}
+              leftActive={leftActive}
+              leftArrowText={operations[1]}
+              moveToLeft={this.moveToLeft}
+              style={operationStyle}
+              disabled={disabled}
+              direction={direction}
+              oneWay={oneWay}
+            />
+            <List<KeyWise<RecordType>>
+              prefixCls={`${prefixCls}-list`}
+              titleText={titles[1]}
+              dataSource={rightDataSource}
+              filterOption={filterOption}
+              style={this.handleListStyle(listStyle, 'right')}
+              checkedKeys={targetSelectedKeys}
+              handleFilter={this.handleRightFilter}
+              handleClear={this.handleRightClear}
+              onItemSelect={this.onRightItemSelect}
+              onItemSelectAll={this.onRightItemSelectAll}
+              onItemRemove={this.onRightItemRemove}
+              render={render}
+              showSearch={showSearch}
+              renderList={children}
+              footer={footer}
+              onScroll={this.handleRightScroll}
+              disabled={disabled}
+              direction="right"
+              showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[1]}
+              showRemove={oneWay}
+              pagination={mergedPagination}
+              {...locale}
+            />
+          </div>
+        );
+      }}
     </ConfigConsumer>
   );
 

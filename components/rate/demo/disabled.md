@@ -13,11 +13,8 @@ title:
 
 Read only, can't use mouse to interact.
 
-```tsx
+```jsx
 import { Rate } from 'antd';
-import React from 'react';
 
-const App: React.FC = () => <Rate disabled defaultValue={2} />;
-
-export default App;
+ReactDOM.render(<Rate disabled defaultValue={2} />, mountNode);
 ```

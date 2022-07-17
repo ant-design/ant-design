@@ -1,6 +1,6 @@
-import { mount, render } from 'enzyme';
 import React from 'react';
-import Radio, { Button, Group } from '..';
+import { mount, render } from 'enzyme';
+import Radio, { Group, Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

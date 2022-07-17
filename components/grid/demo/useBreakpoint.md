@@ -11,15 +11,13 @@ title: useBreakpoint Hook
 
 Use `useBreakpoint` Hook provide personalized layout.
 
-```tsx
+```jsx
 import { Grid, Tag } from 'antd';
-import React from 'react';
 
 const { useBreakpoint } = Grid;
 
-const App: React.FC = () => {
+function UseBreakpointDemo() {
   const screens = useBreakpoint();
-
   return (
     <>
       Current break point:{' '}
@@ -32,7 +30,7 @@ const App: React.FC = () => {
         ))}
     </>
   );
-};
+}
 
-export default App;
+ReactDOM.render(<UseBreakpointDemo />, mountNode);
 ```

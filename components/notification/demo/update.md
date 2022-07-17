@@ -13,9 +13,8 @@ title:
 
 Update content with unique key.
 
-```tsx
+```jsx
 import { Button, notification } from 'antd';
-import React from 'react';
 
 const key = 'updatable';
 
@@ -25,7 +24,6 @@ const openNotification = () => {
     message: 'Notification Title',
     description: 'description.',
   });
-
   setTimeout(() => {
     notification.open({
       key,
@@ -35,11 +33,10 @@ const openNotification = () => {
   }, 1000);
 };
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>
+  </Button>,
+  mountNode,
 );
-
-export default App;
 ```

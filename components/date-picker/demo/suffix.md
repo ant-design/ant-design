@@ -14,26 +14,18 @@ title:
 
 Basic use case. Users can select or input a date in panel.
 
-```tsx
-import { SmileOutlined } from '@ant-design/icons';
+```jsx
 import { DatePicker, Space } from 'antd';
-import type { Moment } from 'moment';
-import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;
 
-type DatePickerValue = Moment | null;
-type RangePickerValue = [Moment | null, Moment | null] | null;
-
-const onChange = (
-  date: DatePickerValue | RangePickerValue,
-  dateString: [string, string] | string,
-) => {
+function onChange(date, dateString) {
   console.log(date, dateString);
-};
+}
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Space direction="vertical" size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
@@ -43,8 +35,7 @@ const App: React.FC = () => (
     <DatePicker suffixIcon="ab" onChange={onChange} picker="month" />
     <RangePicker suffixIcon="ab" onChange={onChange} />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
-  </Space>
+  </Space>,
+  mountNode,
 );
-
-export default App;
 ```

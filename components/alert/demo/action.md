@@ -14,10 +14,10 @@ title:
 Custom action.
 
 ```tsx
-import { Alert, Button, Space } from 'antd';
 import React from 'react';
+import { Alert, Button, Space } from 'antd';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <>
     <Alert
       message="Success Tips"
@@ -69,10 +69,9 @@ const App: React.FC = () => (
       }
       closable
     />
-  </>
+  </>,
+  mountNode,
 );
-
-export default App;
 ```
 
 <style>
