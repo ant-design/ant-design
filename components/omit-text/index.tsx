@@ -1,14 +1,10 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import type { ReactNode } from 'react';
-import Tooltip from '../tooltip';
-import Popconfirm from '../popconfirm';
-import Popover from '../popover';
-import type { PopconfirmProps } from '../popconfirm';
-import type { TooltipProps } from '../tooltip';
-import type { PopoverProps } from '../popover';
+import {Tooltip,Popconfirm,Popover} from 'antd';
+import type {PopconfirmProps,TooltipProps,PopoverProps} from 'antd';
 
-interface OmitTextProps {
+export interface OmitTextProps {
   width?: number | string;
   children?: ReactNode;
   className?: string;
@@ -18,7 +14,7 @@ interface OmitTextProps {
 const OmitTextChildren = (props: Omit<OmitTextProps, 'TooltipProps'>) => {
   const { width = 120, className, children, ...rest } = props;
   return (
-    <div className={classNames('omitText', className)} style={{ maxWidth: width }} {...rest}>
+    <div className={classNames('ant-omit-text', className)} style={{ maxWidth: width }} {...rest}>
       {children}
     </div>
   );
