@@ -3,7 +3,7 @@
 exports[`renders ./components/omit-text/demo/basic.md extend context correctly 1`] = `
 Array [
   <div
-    class="omitText"
+    class="ant-omit-text"
     style="max-width:120px"
   >
     这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本
@@ -38,7 +38,7 @@ Array [
 exports[`renders ./components/omit-text/demo/type.md extend context correctly 1`] = `
 Array [
   <div
-    class="omitText"
+    class="ant-omit-text"
     style="max-width:120px"
   >
     这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本
@@ -124,7 +124,7 @@ Array [
 exports[`renders ./components/omit-text/demo/width.md extend context correctly 1`] = `
 Array [
   <div
-    class="omitText"
+    class="ant-omit-text"
     style="max-width:250px"
   >
     这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本

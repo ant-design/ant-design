@@ -2,7 +2,7 @@
 
 exports[`renders ./components/omit-text/demo/basic.md correctly 1`] = `
 <div
-  class="omitText"
+  class="ant-omit-text"
   style="max-width:120px"
 >
   这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本
@@ -11,7 +11,7 @@ exports[`renders ./components/omit-text/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/omit-text/demo/type.md correctly 1`] = `
 <div
-  class="omitText"
+  class="ant-omit-text"
   style="max-width:120px"
 >
   这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本
@@ -20,7 +20,7 @@ exports[`renders ./components/omit-text/demo/type.md correctly 1`] = `
 
 exports[`renders ./components/omit-text/demo/width.md correctly 1`] = `
 <div
-  class="omitText"
+  class="ant-omit-text"
   style="max-width:250px"
 >
   这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本

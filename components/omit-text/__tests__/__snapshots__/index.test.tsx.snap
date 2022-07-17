@@ -2,7 +2,7 @@
 
 exports[`OmitText rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="omitText"
+  class="ant-omit-text"
   style="max-width: 120px;"
 />
 `;
