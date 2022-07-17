@@ -1,8 +1,12 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import type { ReactNode } from 'react';
-import {Tooltip,Popconfirm,Popover} from 'antd';
-import type {PopconfirmProps,TooltipProps,PopoverProps} from 'antd';
+import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
+import Popconfirm from '../popconfirm';
+import type { PopconfirmProps } from '../popconfirm';
+import Popover from '../popover';
+import type { PopoverProps } from '../popover';
 
 export interface OmitTextProps {
   width?: number | string;
@@ -24,6 +28,7 @@ const OmitText = (props: OmitTextProps) => {
   if(['tooltip','confirm','popover'].indexOf(type.toLowerCase()) === -1){
     return null
   }
+    
   if(type.toLowerCase() === 'confirm') {
     return (
       <Popconfirm title={rest.children} {...tooltipProps}>
@@ -44,4 +49,6 @@ const OmitText = (props: OmitTextProps) => {
     </Tooltip>
   );
 };
+
+
 export default OmitText;

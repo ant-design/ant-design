@@ -18,7 +18,7 @@ import { OmitText } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
-  <OmitText width={250}>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本</OmitText>
+  <OmitText width={200}>这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本</OmitText>
 );
 
 export default App;

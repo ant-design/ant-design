@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: OmitText
-cover: 
+cover:
 ---
 
 Simply omit the text, and display the bubble prompt box floating.
@@ -13,10 +13,8 @@ Simply omit the text, and display the bubble prompt box floating.
 
 ## API
 
-| Property | Description                   | Type                         | Default |
-| -------- | ----------------------------- | ---------------------------- | ------- |
-| width    | set the width | number | string | 120       |
-| type    | the type of tooltip or Popconfirm | 'tooltip' | 'confirm' | 'popover' | 'tooltip'       |
-| tooltipProps | Configuration properties of the tooltip or the Popconfirm| [TooltipProps](/components/tooltip/#API) | [PopconfirmProps](/components/popconfirm/#API) | [PopoverProps](/components/popover/#API) | -     |
-
-
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| width | set the width | number \| string | 120 |
+| type | the type of tooltip or Popconfirm | 'tooltip' \| 'confirm' \| 'popover' | 'tooltip' |
+| tooltipProps | Configuration properties of the tooltip or the Popconfirm | [TooltipProps](/components/tooltip/#API) \| [PopconfirmProps](/components/popconfirm/#API) \| [PopoverProps](/components/popover/#API) | - |

@@ -21,7 +21,7 @@ exports[`renders ./components/omit-text/demo/type.md correctly 1`] = `
 exports[`renders ./components/omit-text/demo/width.md correctly 1`] = `
 <div
   class="ant-omit-text"
-  style="max-width:250px"
+  style="max-width:200px"
 >
   这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本
 </div>

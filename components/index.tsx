@@ -60,6 +60,7 @@ export type { DividerProps } from './divider';
 export { default as Drawer } from './drawer';
 export type { DrawerProps } from './drawer';
 export { default as Dropdown } from './dropdown';
+export { default as OmitText } from './omit-text';
 export type {
   DropdownProps,
   // typo, but we need to support it for backwards compatibility
