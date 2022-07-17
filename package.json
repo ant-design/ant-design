@@ -217,7 +217,7 @@
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^26.4.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-markdown": "^2.0.0",
+    "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-unicorn": "^43.0.0",
