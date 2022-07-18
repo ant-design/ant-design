@@ -246,7 +246,8 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
+| setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#NamePath), value: any) => void | 4.22.0 |
+| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -333,6 +334,27 @@ const Demo = () => {
     </Form>
   );
 };
+```
+
+### Form.Item.useStatus
+
+`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+
+```tsx
+const CustomInput = ({ value }) => {
+  const { status } = Form.Item.useStatus();
+  return <input value={value} className={`custom-input-${status}`} />;
+};
+
+export default () => (
+  <Form>
+    <Form.Item name="username">
+      <CustomInput />
+    </Form.Item>
+  </Form>
+);
 ```
 
 #### Difference between other data fetching method
