@@ -846,6 +846,54 @@ exports[`Form form should support disabled 1`] = `
     >
       <label
         class=""
+        title="Upload"
+      >
+        Upload
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-14 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class=""
+          >
+            <div
+              class="ant-upload ant-upload-select ant-upload-select-text ant-upload-disabled"
+              style="display: none;"
+            >
+              <span
+                class="ant-upload ant-upload-disabled"
+                role="button"
+              >
+                <input
+                  accept=""
+                  style="display: none;"
+                  type="file"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-upload-list ant-upload-list-text"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
         title="Button"
       >
         Button
