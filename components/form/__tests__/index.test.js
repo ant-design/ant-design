@@ -9,7 +9,7 @@ import * as Util from '../util';
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
-
+import Upload from '../../upload';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
@@ -947,6 +947,9 @@ describe('Form', () => {
         </Form.Item>
         <Form.Item label="Switch" valuePropName="checked">
           <Switch />
+        </Form.Item>
+        <Form.Item label="Upload" valuePropName="fileList">
+          <Upload />
         </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
