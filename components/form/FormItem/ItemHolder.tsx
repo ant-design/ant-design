@@ -5,7 +5,6 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 import type { Meta } from 'rc-field-form/lib/interface';
 import Row from '../../row';
 import FormItemLabel from '../FormItemLabel';
@@ -21,8 +20,7 @@ const iconMap = {
   validating: LoadingOutlined,
 };
 
-export interface ItemHolderProps
-  extends Pick<FormItemProps, 'help' | 'validateStatus' | 'hasFeedback' | 'hidden'> {
+export interface ItemHolderProps extends FormItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
@@ -115,10 +113,38 @@ export default function ItemHolder(props: ItemHolderProps) {
       className={classNames(itemClassName)}
       style={style}
       key="row"
-      {...omit(pickAttrs(restProps), [
+      {...omit(restProps, [
+        '_internalItemRender' as any,
+        'colon',
+        'dependencies',
+        'fieldKey',
+        'extra',
+        'getValueFromEvent',
+        'getValueProps',
         'htmlFor',
         'id', // It is deprecated because `htmlFor` is its replacement.
-      ] as any)}
+        'initialValue',
+        'isListField',
+        'label',
+        'labelAlign',
+        'labelCol',
+        'labelWrap',
+        'messageVariables',
+        'name',
+        'normalize',
+        'noStyle',
+        'preserve',
+        'required',
+        'requiredMark',
+        'rules',
+        'shouldUpdate',
+        'trigger',
+        'tooltip',
+        'validateFirst',
+        'validateTrigger',
+        'valuePropName',
+        'wrapperCol',
+      ])}
     >
       {/* Label */}
       <FormItemLabel
