@@ -8,26 +8,23 @@ import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
-import omit from 'rc-util/lib/omit';
 import { supportRef } from 'rc-util/lib/ref';
 import type { ReactNode } from 'react';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import { ConfigContext } from '../config-provider';
-import Row from '../grid/row';
-import { cloneElement, isValidElement } from '../_util/reactNode';
-import { tuple } from '../_util/type';
-import warning from '../_util/warning';
-import type { FormItemStatusContextProps } from './context';
-import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
-import type { FormItemInputProps } from './FormItemInput';
-import FormItemInput from './FormItemInput';
-import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemLabel from './FormItemLabel';
-import useDebounce from './hooks/useDebounce';
-import useFrameState from './hooks/useFrameState';
-import useItemRef from './hooks/useItemRef';
-import { getFieldId, toArray } from './util';
+import { ConfigContext } from '../../config-provider';
+import { cloneElement, isValidElement } from '../../_util/reactNode';
+import { tuple } from '../../_util/type';
+import warning from '../../_util/warning';
+import type { FormItemStatusContextProps } from '../context';
+import { FormContext, NoStyleItemContext } from '../context';
+import type { FormItemInputProps } from '../FormItemInput';
+import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import useDebounce from '../hooks/useDebounce';
+import useFrameState from '../hooks/useFrameState';
+import useItemRef from '../hooks/useItemRef';
+import { getFieldId, toArray } from '../util';
+import ItemHolder from './ItemHolder';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -212,6 +209,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   const debounceErrors = useDebounce(mergedErrors);
   const debounceWarnings = useDebounce(mergedWarnings);
+  const hasHelp = debounceErrors.length || debounceWarnings.length;
 
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
@@ -264,76 +262,91 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       return baseChildren;
     }
 
-    const itemClassName = {
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]:
-        (help !== undefined && help !== null) || debounceErrors.length || debounceWarnings.length,
-      [`${className}`]: !!className,
-
-      // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-      [`${prefixCls}-item-hidden`]: hidden,
-    };
-
-    // ======================= Children =======================
     return (
-      <Row
-        className={classNames(itemClassName)}
-        style={style}
-        key="row"
-        {...omit(restProps, [
-          'colon',
-          'extra',
-          'fieldKey',
-          'requiredMark',
-          'getValueFromEvent',
-          'getValueProps',
-          'htmlFor',
-          'id', // It is deprecated because `htmlFor` is its replacement.
-          'initialValue',
-          'isListField',
-          'labelAlign',
-          'labelWrap',
-          'labelCol',
-          'normalize',
-          'preserve',
-          'tooltip',
-          'validateFirst',
-          'valuePropName',
-          'wrapperCol',
-          '_internalItemRender' as any,
-        ])}
+      <ItemHolder
+        {...props}
+        prefixCls={prefixCls}
+        fieldId={fieldId}
+        isRequired={isRequired}
+        errors={mergedErrors}
+        warnings={mergedWarnings}
+        meta={meta}
+        onSubItemMetaChange={onSubItemMetaChange}
       >
-        {/* Label */}
-        <FormItemLabel
-          htmlFor={fieldId}
-          required={isRequired}
-          requiredMark={requiredMark}
-          {...props}
-          prefixCls={prefixCls}
-        />
-        {/* Input Group */}
-        <FormItemInput
-          {...props}
-          {...meta}
-          errors={debounceErrors}
-          warnings={debounceWarnings}
-          prefixCls={prefixCls}
-          status={mergedValidateStatus}
-          help={help}
-        >
-          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <FormItemInputContext.Provider value={formItemStatusContext}>
-              {baseChildren}
-            </FormItemInputContext.Provider>
-          </NoStyleItemContext.Provider>
-        </FormItemInput>
-      </Row>
+        {baseChildren}
+      </ItemHolder>
     );
+
+    // const itemClassName = {
+    //   [`${prefixCls}-item`]: true,
+    //   [`${prefixCls}-item-with-help`]:
+    //     (help !== undefined && help !== null) || hasHelp,
+    //   [`${className}`]: !!className,
+
+    //   // Status
+    //   [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+    //   [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+    //   [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+    //   [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+    //   [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+    //   [`${prefixCls}-item-hidden`]: hidden,
+    // };
+
+    // // ======================= Children =======================
+    // return (
+    //   <Row
+    //     className={classNames(itemClassName)}
+    //     style={style}
+    //     key="row"
+    //     {...omit(restProps, [
+    //       'colon',
+    //       'extra',
+    //       'fieldKey',
+    //       'requiredMark',
+    //       'getValueFromEvent',
+    //       'getValueProps',
+    //       'htmlFor',
+    //       'id', // It is deprecated because `htmlFor` is its replacement.
+    //       'initialValue',
+    //       'isListField',
+    //       'labelAlign',
+    //       'labelWrap',
+    //       'labelCol',
+    //       'normalize',
+    //       'preserve',
+    //       'tooltip',
+    //       'validateFirst',
+    //       'valuePropName',
+    //       'wrapperCol',
+    //       '_internalItemRender' as any,
+    //     ])}
+    //   >
+    //     {/* Label */}
+    //     <FormItemLabel
+    //       htmlFor={fieldId}
+    //       required={isRequired}
+    //       requiredMark={requiredMark}
+    //       {...props}
+    //       prefixCls={prefixCls}
+    //     />
+    //     {/* Input Group */}
+    //     <FormItemInput
+    //       {...props}
+    //       {...meta}
+    //       errors={debounceErrors}
+    //       warnings={debounceWarnings}
+    //       prefixCls={prefixCls}
+    //       status={mergedValidateStatus}
+    //       help={help}
+    //     >
+    //       <NoStyleItemContext.Provider value={onSubItemMetaChange}>
+    //         <FormItemInputContext.Provider value={formItemStatusContext}>
+    //           {baseChildren}
+    //         </FormItemInputContext.Provider>
+    //       </NoStyleItemContext.Provider>
+    //     </FormItemInput>
+    //   </Row>
+    // );
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
