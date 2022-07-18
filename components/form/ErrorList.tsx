@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
+import { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
@@ -68,58 +68,30 @@ export default function ErrorList({
   }, [help, helpStatus, debounceErrors, debounceWarnings]);
 
   return (
-    <CSSMotion
-      {...collapseMotion}
-      motionName={`${rootPrefixCls}-show-help`}
-      motionAppear={false}
-      motionEnter={false}
-      visible={!!fullKeyList.length}
-      onLeaveStart={node => {
-        // Force disable css override style in index.less configured
-        node.style.height = 'auto';
-        return { height: node.offsetHeight };
-      }}
-    >
-      {holderProps => {
-        const { className: holderClassName, style: holderStyle } = holderProps;
+    <div className={classNames(baseClassName, rootClassName)}>
+      <CSSMotionList
+        keys={fullKeyList}
+        {...collapseMotion}
+        motionName={`${rootPrefixCls}-show-help-item`}
+        component={false}
+      >
+        {itemProps => {
+          const { key, error, errorStatus, className: itemClassName, style: itemStyle } = itemProps;
 
-        return (
-          <div
-            className={classNames(baseClassName, holderClassName, rootClassName)}
-            style={holderStyle}
-          >
-            <CSSMotionList
-              keys={fullKeyList}
-              {...collapseMotion}
-              motionName={`${rootPrefixCls}-show-help-item`}
-              component={false}
+          return (
+            <div
+              key={key}
+              role="alert"
+              className={classNames(itemClassName, {
+                [`${baseClassName}-${errorStatus}`]: errorStatus,
+              })}
+              style={itemStyle}
             >
-              {itemProps => {
-                const {
-                  key,
-                  error,
-                  errorStatus,
-                  className: itemClassName,
-                  style: itemStyle,
-                } = itemProps;
-
-                return (
-                  <div
-                    key={key}
-                    role="alert"
-                    className={classNames(itemClassName, {
-                      [`${baseClassName}-${errorStatus}`]: errorStatus,
-                    })}
-                    style={itemStyle}
-                  >
-                    {error}
-                  </div>
-                );
-              }}
-            </CSSMotionList>
-          </div>
-        );
-      }}
-    </CSSMotion>
+              {error}
+            </div>
+          );
+        }}
+      </CSSMotionList>
+    </div>
   );
 }

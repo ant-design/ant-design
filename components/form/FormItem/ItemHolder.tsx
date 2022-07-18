@@ -2,16 +2,18 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import type { Meta } from 'rc-field-form/lib/interface';
-import Row from '../../row';
+import { Row } from '../../grid';
 import FormItemLabel from '../FormItemLabel';
 import FormItemInput from '../FormItemInput';
 import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
 import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
 import type { FormItemProps, ValidateStatus } from '.';
+import useDebounce from '../hooks/useDebounce';
 
 const iconMap = {
   success: CheckCircleFilled,
@@ -52,7 +54,29 @@ export default function ItemHolder(props: ItemHolderProps) {
     ...restProps
   } = props;
 
+  const itemPrefixCls = `${prefixCls}-item`;
   const { requiredMark } = React.useContext(FormContext);
+
+  // ======================== Margin ========================
+  const itemRef = React.useRef<HTMLDivElement>(null);
+  const debounceErrors = useDebounce(errors);
+  const debounceWarnings = useDebounce(warnings);
+  const hasHelp = help !== undefined && help !== null;
+  const hasError = !!(hasHelp || errors.length || warnings.length);
+  const [marginBottom, setMarginBottom] = React.useState(0);
+
+  useLayoutEffect(() => {
+    if (hasError && itemRef.current) {
+      const itemStyle = getComputedStyle(itemRef.current);
+      setMarginBottom(parseInt(itemStyle.marginBottom, 10));
+    }
+  }, [hasError]);
+
+  const onErrorVisibleChanged = (nextVisible: boolean) => {
+    if (!nextVisible) {
+      setMarginBottom(0);
+    }
+  };
 
   // ======================== Status ========================
   let mergedValidateStatus: ValidateStatus = '';
@@ -60,9 +84,9 @@ export default function ItemHolder(props: ItemHolderProps) {
     mergedValidateStatus = validateStatus;
   } else if (meta.validating) {
     mergedValidateStatus = 'validating';
-  } else if (errors.length) {
+  } else if (debounceErrors.length) {
     mergedValidateStatus = 'error';
-  } else if (warnings.length) {
+  } else if (debounceWarnings.length) {
     mergedValidateStatus = 'warning';
   } else if (meta.touched) {
     mergedValidateStatus = 'success';
@@ -75,8 +99,8 @@ export default function ItemHolder(props: ItemHolderProps) {
       feedbackIcon = IconNode ? (
         <span
           className={classNames(
-            `${prefixCls}-item-feedback-icon`,
-            `${prefixCls}-item-feedback-icon-${mergedValidateStatus}`,
+            `${itemPrefixCls}-feedback-icon`,
+            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
           )}
         >
           <IconNode />
@@ -94,82 +118,88 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   // ======================== Render ========================
   const itemClassName = {
-    [`${prefixCls}-item`]: true,
-    [`${prefixCls}-item-with-help`]:
-      (help !== undefined && help !== null) || errors.length || warnings.length,
+    [itemPrefixCls]: true,
+    [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
     [`${className}`]: !!className,
 
     // Status
-    [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-    [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-    [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-    [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-    [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-    [`${prefixCls}-item-hidden`]: hidden,
+    [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
+    [`${itemPrefixCls}-has-success`]: mergedValidateStatus === 'success',
+    [`${itemPrefixCls}-has-warning`]: mergedValidateStatus === 'warning',
+    [`${itemPrefixCls}-has-error`]: mergedValidateStatus === 'error',
+    [`${itemPrefixCls}-is-validating`]: mergedValidateStatus === 'validating',
+    [`${itemPrefixCls}-hidden`]: hidden,
   };
 
   return (
-    <Row
-      className={classNames(itemClassName)}
-      style={style}
-      key="row"
-      {...omit(restProps, [
-        '_internalItemRender' as any,
-        'colon',
-        'dependencies',
-        'fieldKey',
-        'extra',
-        'getValueFromEvent',
-        'getValueProps',
-        'htmlFor',
-        'id', // It is deprecated because `htmlFor` is its replacement.
-        'initialValue',
-        'isListField',
-        'label',
-        'labelAlign',
-        'labelCol',
-        'labelWrap',
-        'messageVariables',
-        'name',
-        'normalize',
-        'noStyle',
-        'preserve',
-        'required',
-        'requiredMark',
-        'rules',
-        'shouldUpdate',
-        'trigger',
-        'tooltip',
-        'validateFirst',
-        'validateTrigger',
-        'valuePropName',
-        'wrapperCol',
-      ])}
-    >
-      {/* Label */}
-      <FormItemLabel
-        htmlFor={fieldId}
-        required={isRequired}
-        requiredMark={requiredMark}
-        {...props}
-        prefixCls={prefixCls}
-      />
-      {/* Input Group */}
-      <FormItemInput
-        {...props}
-        {...meta}
-        errors={errors}
-        warnings={warnings}
-        prefixCls={prefixCls}
-        status={mergedValidateStatus}
-        help={help}
+    <div className={classNames(itemClassName)} style={style} ref={itemRef}>
+      <Row
+        className={`${itemPrefixCls}-row`}
+        {...omit(restProps, [
+          '_internalItemRender' as any,
+          'colon',
+          'dependencies',
+          'fieldKey',
+          'getValueFromEvent',
+          'getValueProps',
+          'htmlFor',
+          'id', // It is deprecated because `htmlFor` is its replacement.
+          'initialValue',
+          'isListField',
+          'label',
+          'labelAlign',
+          'labelCol',
+          'labelWrap',
+          'messageVariables',
+          'name',
+          'normalize',
+          'noStyle',
+          'preserve',
+          'required',
+          'requiredMark',
+          'rules',
+          'shouldUpdate',
+          'trigger',
+          'tooltip',
+          'validateFirst',
+          'validateTrigger',
+          'valuePropName',
+          'wrapperCol',
+        ])}
       >
-        <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-          <FormItemInputContext.Provider value={formItemStatusContext}>
-            {children}
-          </FormItemInputContext.Provider>
-        </NoStyleItemContext.Provider>
-      </FormItemInput>
-    </Row>
+        {/* Label */}
+        <FormItemLabel
+          htmlFor={fieldId}
+          required={isRequired}
+          requiredMark={requiredMark}
+          {...props}
+          prefixCls={prefixCls}
+        />
+        {/* Input Group */}
+        <FormItemInput
+          {...props}
+          {...meta}
+          errors={debounceErrors}
+          warnings={debounceWarnings}
+          prefixCls={prefixCls}
+          status={mergedValidateStatus}
+          help={help}
+          marginBottom={marginBottom}
+          onErrorVisibleChanged={onErrorVisibleChanged}
+        >
+          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
+            <FormItemInputContext.Provider value={formItemStatusContext}>
+              {children}
+            </FormItemInputContext.Provider>
+          </NoStyleItemContext.Provider>
+        </FormItemInput>
+      </Row>
+
+      <div
+        style={{
+          marginBottom: -marginBottom,
+        }}
+      />
+    </div>
   );
 }

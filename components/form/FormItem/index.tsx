@@ -201,6 +201,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     return (
       <ItemHolder
+        key="row"
         {...props}
         prefixCls={prefixCls}
         fieldId={fieldId}

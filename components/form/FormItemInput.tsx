@@ -11,6 +11,8 @@ interface FormItemInputMiscProps {
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
+  marginBottom?: number;
+  onErrorVisibleChanged?: (visible: boolean) => void;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
@@ -43,6 +45,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     _internalItemRender: formItemRender,
     extra,
     help,
+    marginBottom,
+    onErrorVisibleChanged,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -64,15 +68,19 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom = (
-    <FormItemPrefixContext.Provider value={formItemContext}>
-      <ErrorList
-        errors={errors}
-        warnings={warnings}
-        help={help}
-        helpStatus={status}
-        className={`${baseClassName}-explain-connected`}
-      />
-    </FormItemPrefixContext.Provider>
+    <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
+      <div style={{ width: 0, height: marginBottom }} />
+      <FormItemPrefixContext.Provider value={formItemContext}>
+        <ErrorList
+          errors={errors}
+          warnings={warnings}
+          help={help}
+          helpStatus={status}
+          className={`${baseClassName}-explain-connected`}
+          onVisibleChanged={onErrorVisibleChanged}
+        />
+      </FormItemPrefixContext.Provider>
+    </div>
   );
 
   // If extra = 0, && will goes wrong
