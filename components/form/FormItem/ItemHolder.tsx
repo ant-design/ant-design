@@ -139,6 +139,7 @@ export default function ItemHolder(props: ItemHolderProps) {
           '_internalItemRender' as any,
           'colon',
           'dependencies',
+          'extra',
           'fieldKey',
           'getValueFromEvent',
           'getValueProps',
