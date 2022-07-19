@@ -1303,4 +1303,31 @@ describe('Form', () => {
       'custom-input-status-error',
     );
   });
+
+  it('item customize margin', async () => {
+    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
+      marginBottom: 24,
+    }));
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        value: '',
+      },
+    });
+
+    await sleep(0);
+    computeSpy.mockRestore();
+
+    expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
+      marginBottom: -24,
+    });
+  });
 });

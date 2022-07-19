@@ -198,6 +198,7 @@ export default function ItemHolder(props: ItemHolderProps) {
 
       {!!marginBottom && (
         <div
+          className={`${itemPrefixCls}-margin-offset`}
           style={{
             marginBottom: -marginBottom,
           }}
