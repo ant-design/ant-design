@@ -199,6 +199,10 @@
     .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
   }
 
+  &-explain-connected {
+    width: 100%;
+  }
+
   &-extra {
     min-height: @form-item-margin-bottom;
   }
@@ -238,6 +242,21 @@
 }
 
 // >>>>>>>>>> Motion <<<<<<<<<<
+// Explain holder
+.@{ant-prefix}-show-help {
+  transition: height @animation-duration-slow linear, min-height @animation-duration-slow linear,
+    margin-bottom @animation-duration-slow @ease-in-out,
+    opacity @animation-duration-slow @ease-in-out;
+
+  &-leave {
+    min-height: @form-item-margin-bottom;
+
+    &-active {
+      min-height: 0;
+    }
+  }
+}
+
 // Explain
 .@{ant-prefix}-show-help-item {
   overflow: hidden;

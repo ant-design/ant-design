@@ -195,11 +195,13 @@ export default function ItemHolder(props: ItemHolderProps) {
         </FormItemInput>
       </Row>
 
-      <div
-        style={{
-          marginBottom: -marginBottom,
-        }}
-      />
+      {!!marginBottom && (
+        <div
+          style={{
+            marginBottom: -marginBottom,
+          }}
+        />
+      )}
     </div>
   );
 }

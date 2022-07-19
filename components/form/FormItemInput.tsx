@@ -69,7 +69,6 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom = (
     <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
-      <div style={{ width: 0, height: marginBottom }} />
       <FormItemPrefixContext.Provider value={formItemContext}>
         <ErrorList
           errors={errors}
@@ -80,6 +79,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
           onVisibleChanged={onErrorVisibleChanged}
         />
       </FormItemPrefixContext.Provider>
+      {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
     </div>
   );
 
