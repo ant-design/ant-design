@@ -18,13 +18,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     value: props.value,
   });
 
-  const { prefixCls: customizePrefixCls } = props;
-  const prefixCls = getPrefixCls('radio', customizePrefixCls);
-  const groupPrefixCls = `${prefixCls}-group`;
-
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;
     const val = ev.target.value;
@@ -37,91 +30,96 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     }
   };
 
-  const renderGroup = () => {
-    const {
-      className = '',
-      options,
-      buttonStyle = 'outline' as RadioGroupButtonStyle,
-      disabled,
-      children,
-      size: customizeSize,
-      style,
-      id,
-      onMouseEnter,
-      onMouseLeave,
-    } = props;
-    let childrenToRender = children;
-    // 如果存在 options, 优先使用
-    if (options && options.length > 0) {
-      childrenToRender = options.map(option => {
-        if (typeof option === 'string' || typeof option === 'number') {
-          // 此处类型自动推导为 string
-          return (
-            <Radio
-              key={option.toString()}
-              prefixCls={prefixCls}
-              disabled={disabled}
-              value={option}
-              checked={value === option}
-            >
-              {option}
-            </Radio>
-          );
-        }
-        // 此处类型自动推导为 { label: string value: string }
+  const {
+    prefixCls: customizePrefixCls,
+    className = '',
+    options,
+    buttonStyle = 'outline' as RadioGroupButtonStyle,
+    disabled,
+    children,
+    size: customizeSize,
+    style,
+    id,
+    onMouseEnter,
+    onMouseLeave,
+    onFocus,
+    onBlur,
+  } = props;
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const groupPrefixCls = `${prefixCls}-group`;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  let childrenToRender = children;
+  // 如果存在 options, 优先使用
+  if (options && options.length > 0) {
+    childrenToRender = options.map(option => {
+      if (typeof option === 'string' || typeof option === 'number') {
+        // 此处类型自动推导为 string
         return (
           <Radio
-            key={`radio-group-value-options-${option.value}`}
+            key={option.toString()}
             prefixCls={prefixCls}
-            disabled={option.disabled || disabled}
-            value={option.value}
-            checked={value === option.value}
-            style={option.style}
+            disabled={disabled}
+            value={option}
+            checked={value === option}
           >
-            {option.label}
+            {option}
           </Radio>
         );
-      });
-    }
+      }
+      // 此处类型自动推导为 { label: string value: string }
+      return (
+        <Radio
+          key={`radio-group-value-options-${option.value}`}
+          prefixCls={prefixCls}
+          disabled={option.disabled || disabled}
+          value={option.value}
+          checked={value === option.value}
+          style={option.style}
+        >
+          {option.label}
+        </Radio>
+      );
+    });
+  }
 
-    const mergedSize = customizeSize || size;
-    const classString = classNames(
-      groupPrefixCls,
-      `${groupPrefixCls}-${buttonStyle}`,
-      {
-        [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
-        [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-      hashId,
-    );
-    return wrapSSR(
-      <div
-        {...getDataOrAriaProps(props)}
-        className={classString}
-        style={style}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        id={id}
-        ref={ref}
+  const mergedSize = customizeSize || size;
+  const classString = classNames(
+    groupPrefixCls,
+    `${groupPrefixCls}-${buttonStyle}`,
+    {
+      [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
+      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+    },
+    className,
+    hashId,
+  );
+  return wrapSSR(
+    <div
+      {...getDataOrAriaProps(props)}
+      className={classString}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      id={id}
+      ref={ref}
+    >
+      <RadioGroupContextProvider
+        value={{
+          onChange: onRadioChange,
+          value,
+          disabled: props.disabled,
+          name: props.name,
+          optionType: props.optionType,
+        }}
       >
         {childrenToRender}
-      </div>,
-    );
-  };
-
-  return (
-    <RadioGroupContextProvider
-      value={{
-        onChange: onRadioChange,
-        value,
-        disabled: props.disabled,
-        name: props.name,
-        optionType: props.optionType,
-      }}
-    >
-      {renderGroup()}
-    </RadioGroupContextProvider>
+      </RadioGroupContextProvider>
+    </div>,
   );
 });
 
