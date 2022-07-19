@@ -24,7 +24,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: SpaceSize | [SpaceSize, SpaceSize];
   direction?: 'horizontal' | 'vertical';
   // No `stretch` since many components do not support that.
-  align?: 'start' | 'end' | 'center' | 'baseline';
+  align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
   split?: React.ReactNode;
   wrap?: boolean;
 }

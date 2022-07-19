@@ -114,11 +114,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 
       marginBottom: token.marginLG,
       verticalAlign: 'top',
-      // We delay one frame (0.017s) here to let CSSMotion goes
-      transition: `margin-bottom ${token.motionDurationSlow} 0.017s linear`,
 
       '&-with-help': {
-        marginBottom: 0,
         transition: 'none',
       },
 
@@ -262,9 +259,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         },
 
         '&-explain-connected': {
-          height: 0,
-          minHeight: 0,
-          opacity: 0,
+          width: '100%',
         },
 
         '&-extra': {
@@ -284,7 +279,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 
       [`&-with-help ${formItemCls}-explain`]: {
         height: 'auto',
-        minHeight: token.controlHeightSM,
         opacity: 1,
       },
 
@@ -327,16 +321,21 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
     [componentCls]: {
       // Explain holder
       [`.${rootPrefixCls}-show-help`]: {
-        transition: `height ${token.motionDurationSlow} linear,
-                     min-height ${token.motionDurationSlow} linear,
-                     margin-bottom ${token.motionDurationSlow} ${token.motionEaseInOut},
-                     opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+        transition: `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
-        '&-leave': {
-          minHeight: token.controlHeightSM,
+        '&-appear, &-enter': {
+          opacity: 0,
 
           '&-active': {
-            minHeight: 0,
+            opacity: 1,
+          },
+        },
+
+        '&-leave': {
+          opacity: 1,
+
+          '&-active': {
+            opacity: 0,
           },
         },
       },

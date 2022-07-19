@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
+import { useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
 import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
@@ -34,6 +35,7 @@ export interface ErrorListProps {
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
   className?: string;
+  onVisibleChanged?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
@@ -42,12 +44,15 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
   className: rootClassName,
+  onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
   const rootPrefixCls = getPrefixCls();
+
+  const collapseMotion = useMemo(() => initCollapseMotion(rootPrefixCls), [rootPrefixCls]);
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
@@ -69,16 +74,11 @@ export default function ErrorList({
 
   return (
     <CSSMotion
-      {...initCollapseMotion(rootPrefixCls)}
+      {...collapseMotion}
+      motionDeadline={collapseMotion.motionDeadline}
       motionName={`${rootPrefixCls}-show-help`}
-      motionAppear={false}
-      motionEnter={false}
       visible={!!fullKeyList.length}
-      onLeaveStart={node => {
-        // Force disable css override style in index.less configured
-        node.style.height = 'auto';
-        return { height: node.offsetHeight };
-      }}
+      onVisibleChanged={onVisibleChanged}
     >
       {holderProps => {
         const { className: holderClassName, style: holderStyle } = holderProps;

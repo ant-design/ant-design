@@ -133,6 +133,7 @@ import ptBR from '../pt_BR';
 import ptPT from '../pt_PT';
 import roRO from '../ro_RO';
 import ruRU from '../ru_RU';
+import siLK from '../si_LK';
 import skSK from '../sk_SK';
 import slSI from '../sl_SI';
 import srRS from '../sr_RS';
@@ -201,6 +202,7 @@ const locales = [
   ptPT,
   roRO,
   ruRU,
+  siLK,
   skSK,
   slSI,
   srRS,

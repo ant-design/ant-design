@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.21.7
+
+`2022-07-18`
+
+- 🆕 新增 Skeleton.Node 子组件，允许用户自定义 Skeleton 的内容。[#36441](https://github.com/ant-design/ant-design/pull/36441) [@DawnLck](https://github.com/DawnLck)
+- Form
+  - 🐞 修复 Form 下设置 Select 百分比宽度时会有未预期空行问题。[#36484](https://github.com/ant-design/ant-design/pull/36484)
+  - 🐞 修复 Form 设为禁用时、内部的 Upload 组件仍能上传文件的问题。[#36573](https://github.com/ant-design/ant-design/pull/36573) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🐞 修复 Tree 非 `draggable` 依然展示可拖拽图标的问题。[#36511](https://github.com/ant-design/ant-design/pull/36511) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Upload 在预览包含 `<foreignObject>` 及跨域链接的 SVG 文件时发生错误的问题。[#36402](https://github.com/ant-design/ant-design/pull/36402) [@jonioni](https://github.com/jonioni)
+- 🐞 修复 Tooltip 在被禁用的 Radio 上时无法自动关闭的问题。[#36483](https://github.com/ant-design/ant-design/pull/36483)
+- 💄 添加 Modal Less 变量 `@modal-border-radius`。[#36527](https://github.com/ant-design/ant-design/pull/36527) [@kkkisme](https://github.com/kkkisme)
+- 💄 修复 Table 开启固定和省略功能的列内的展开按钮换行样式。[#36496](https://github.com/ant-design/ant-design/pull/36496)
+
 ## 4.21.6
 
 `2022-07-11`

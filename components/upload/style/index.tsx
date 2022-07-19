@@ -17,7 +17,7 @@ export interface UploadToken extends FullToken<'Upload'> {
 }
 
 const genBaseStyle: GenerateStyle<UploadToken> = token => {
-  const { componentCls } = token;
+  const { componentCls, colorTextDisabled } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -35,6 +35,7 @@ const genBaseStyle: GenerateStyle<UploadToken> = token => {
       },
 
       [`${componentCls}-disabled`]: {
+        color: colorTextDisabled,
         cursor: 'not-allowed',
       },
     },
