@@ -51,11 +51,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -154,11 +150,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -204,11 +196,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -254,11 +242,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -357,11 +341,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -407,11 +387,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               </div>
               <div
                 style="display:flex;flex-wrap:nowrap"
-              >
-                <div
-                  class="ant-form-item-explain ant-form-item-explain-connected"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -518,11 +494,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -594,11 +566,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -641,11 +609,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -676,11 +640,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -730,11 +690,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -806,11 +762,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -935,11 +887,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -970,11 +918,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1020,11 +964,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1096,11 +1036,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1131,11 +1067,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1268,11 +1200,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -1321,11 +1249,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1418,11 +1342,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1469,11 +1389,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1521,11 +1437,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1618,11 +1530,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1669,11 +1577,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1783,11 +1687,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1818,11 +1718,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1871,11 +1767,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1915,11 +1807,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -1981,11 +1869,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2062,11 +1946,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2105,11 +1985,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2200,11 +2076,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2294,11 +2166,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2388,11 +2256,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2465,11 +2329,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2585,11 +2445,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2696,11 +2552,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2738,11 +2590,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2789,11 +2637,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2878,11 +2722,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2924,11 +2764,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -2974,11 +2810,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3118,11 +2950,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3275,11 +3103,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3454,11 +3278,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3668,18 +3488,11 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                 Add field at head
               </span>
             </button>
-            <div
-              class="ant-form-item-explain"
-            />
           </div>
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3710,11 +3523,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3777,11 +3586,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3812,11 +3617,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3916,11 +3717,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -3974,11 +3771,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4009,11 +3802,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4101,11 +3890,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
                   </div>
                   <div
                     style="display:flex;flex-wrap:nowrap"
-                  >
-                    <div
-                      class="ant-form-item-explain ant-form-item-explain-connected"
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             </div>
@@ -4113,11 +3898,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4148,11 +3929,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4201,11 +3978,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4246,11 +4019,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4291,11 +4060,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4326,11 +4091,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4378,11 +4139,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4440,11 +4197,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4484,11 +4237,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4550,11 +4299,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -4632,11 +4377,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4693,11 +4434,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4728,11 +4465,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4801,11 +4534,7 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -4898,11 +4627,7 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5006,11 +4731,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5049,11 +4770,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5092,11 +4809,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5127,11 +4840,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5181,11 +4890,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5227,11 +4932,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5274,11 +4975,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5326,11 +5023,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5370,11 +5063,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5482,11 +5171,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5526,11 +5211,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5568,11 +5249,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5603,11 +5280,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5672,11 +5345,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5733,11 +5402,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5786,11 +5451,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5827,11 +5488,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5878,11 +5535,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5911,11 +5564,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -5979,11 +5628,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6055,11 +5700,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6131,11 +5772,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6198,11 +5835,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6321,11 +5954,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6439,11 +6068,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6622,11 +6247,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6690,11 +6311,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6737,11 +6354,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6834,11 +6447,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6901,11 +6510,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
         <div
           class="ant-form-item-extra"
         >
@@ -6957,11 +6562,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -6992,11 +6593,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7106,11 +6703,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7172,11 +6765,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7244,11 +6833,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7279,11 +6864,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7387,11 +6968,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7429,11 +7006,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7522,11 +7095,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7614,11 +7183,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7706,11 +7271,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7782,11 +7343,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7892,11 +7449,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7942,11 +7495,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -7987,11 +7536,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8073,11 +7618,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8151,11 +7692,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8229,11 +7766,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8349,11 +7882,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8469,11 +7998,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8550,11 +8075,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8585,11 +8106,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8638,11 +8155,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -8750,11 +8263,7 @@ Array [
           </div>
           <div
             style="display:flex;flex-wrap:nowrap"
-          >
-            <div
-              class="ant-form-item-explain ant-form-item-explain-connected"
-            />
-          </div>
+          />
         </div>
       </div>
     </div>
@@ -8808,11 +8317,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8905,11 +8410,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -8992,11 +8493,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9111,11 +8608,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9163,11 +8656,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9290,11 +8779,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9390,11 +8875,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9490,11 +8971,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -9684,11 +9161,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10018,11 +9491,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10107,11 +9576,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
         <div
           class="ant-form-item-extra"
         >
@@ -10207,11 +9672,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10242,11 +9703,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10371,11 +9828,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10528,11 +9981,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10603,11 +10052,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10785,11 +10230,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -10888,11 +10329,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11030,11 +10467,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11148,11 +10581,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11568,11 +10997,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </div>
                   <div
                     style="display:flex;flex-wrap:nowrap"
-                  >
-                    <div
-                      class="ant-form-item-explain ant-form-item-explain-connected"
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             </div>
@@ -11580,11 +11005,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11722,11 +11143,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11821,11 +11238,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -11919,11 +11332,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -12042,11 +11451,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -12118,11 +11523,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -12274,11 +11675,7 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -12330,11 +11727,7 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
         </div>
         <div
           style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
