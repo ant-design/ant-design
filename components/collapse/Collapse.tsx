@@ -7,7 +7,7 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { CollapsibleType } from './CollapsePanel';
@@ -64,6 +64,7 @@ const Collapse: CollapseInterface = props => {
     expandIconPosition = 'start',
   } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // Warning if use legacy type `expandIconPosition`
@@ -107,7 +108,7 @@ const Collapse: CollapseInterface = props => {
     hashId,
   );
   const openMotion: CSSMotionProps = {
-    ...collapseMotion,
+    ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
     leavedClassName: `${prefixCls}-content-hidden`,
   };

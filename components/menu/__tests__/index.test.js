@@ -14,7 +14,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
-import collapseMotion from '../../_util/motion';
+import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
@@ -522,7 +522,7 @@ describe('Menu', () => {
 
     it('inline menu collapseMotion should be triggered', async () => {
       const cloneMotion = {
-        ...collapseMotion,
+        ...initCollapseMotion(),
         motionDeadline: 1,
       };
 

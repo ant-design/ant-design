@@ -36,6 +36,7 @@ import {
   zoomUpIn,
   zoomUpOut,
 } from './zoom';
+import genCollapseMotion from './collapse';
 
 export {
   initSlideMotion,
@@ -72,4 +73,5 @@ export {
   moveUpIn,
   moveUpOut,
   initMoveMotion,
+  genCollapseMotion,
 };

@@ -1,6 +1,6 @@
-// deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { genCollapseMotion } from '../../style/motion';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { DerivativeToken } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
@@ -477,4 +477,5 @@ export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
     [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
   },
   genTreeStyle(prefixCls, token),
+  genCollapseMotion(token),
 ]);

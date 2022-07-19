@@ -5,7 +5,7 @@ import RcTree, { TreeNode } from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import DirectoryTree from './DirectoryTree';
 import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
@@ -175,10 +175,19 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     checkable,
     selectable,
     draggable,
+    motion: customMotion,
   } = props;
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const motion = customMotion ?? {
+    ...initCollapseMotion(rootPrefixCls),
+    motionAppear: false,
+  };
+
   const newProps = {
     ...props,
+    motion,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -249,10 +258,6 @@ Tree.defaultProps = {
   checkable: false,
   selectable: true,
   showIcon: false,
-  motion: {
-    ...collapseMotion,
-    motionAppear: false,
-  },
   blockNode: false,
 };
 

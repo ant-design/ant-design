@@ -1,4 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
+import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import getHorizontalStyle from './horizontal';
@@ -487,6 +488,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
         // RTL
         getRTLStyle(menuToken),
+
+        // Motion
+        genCollapseMotion(menuToken),
       ];
     },
     token => ({

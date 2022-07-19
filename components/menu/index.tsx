@@ -9,7 +9,7 @@ import { forwardRef } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { ItemType } from './hooks/useItems';
@@ -122,7 +122,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   const defaultMotions = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },
-    inline: collapseMotion,
+    inline: initCollapseMotion(rootPrefixCls),
     other: { motionName: `${rootPrefixCls}-zoom-big` },
   };
 

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
@@ -69,7 +69,7 @@ export default function ErrorList({
 
   return (
     <CSSMotion
-      {...collapseMotion}
+      {...initCollapseMotion(rootPrefixCls)}
       motionName={`${rootPrefixCls}-show-help`}
       motionAppear={false}
       motionEnter={false}
@@ -90,7 +90,7 @@ export default function ErrorList({
           >
             <CSSMotionList
               keys={fullKeyList}
-              {...collapseMotion}
+              {...initCollapseMotion(rootPrefixCls)}
               motionName={`${rootPrefixCls}-show-help-item`}
               component={false}
             >

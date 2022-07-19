@@ -6,23 +6,16 @@ import classNames from 'classnames';
 import type { CSSMotionListProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
+import { useMemo } from 'react';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
 import { ConfigContext } from '../../config-provider';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
-import collapseMotion from '../../_util/motion';
+import initCollapseMotion from '../../_util/motion';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import type { InternalUploadFile, UploadFile, UploadListProps, UploadListType } from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
-
-const listItemMotion: Partial<CSSMotionListProps> = {
-  ...collapseMotion,
-};
-
-delete listItemMotion.onAppearEnd;
-delete listItemMotion.onEnterEnd;
-delete listItemMotion.onLeaveEnd;
 
 const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
   {
@@ -163,6 +156,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
 
   const listClassNames = classNames({
     [`${prefixCls}-list`]: true,
@@ -186,6 +180,18 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     keys: motionKeyList,
     motionAppear,
   };
+
+  const listItemMotion: Partial<CSSMotionListProps> = useMemo(() => {
+    const motion = {
+      ...initCollapseMotion(rootPrefixCls),
+    };
+
+    delete motion.onAppearEnd;
+    delete motion.onEnterEnd;
+    delete motion.onLeaveEnd;
+
+    return motion;
+  }, [rootPrefixCls]);
 
   if (listType !== 'picture-card') {
     motionConfig = {
