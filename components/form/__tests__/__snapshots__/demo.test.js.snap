@@ -49,9 +49,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   />
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -148,9 +145,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -194,9 +188,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   />
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -240,9 +231,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   />
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -339,9 +327,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -385,9 +370,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                   />
                 </div>
               </div>
-              <div
-                style="display:flex;flex-wrap:nowrap"
-              />
             </div>
           </div>
         </div>
@@ -492,9 +474,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -564,9 +543,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -607,9 +583,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             </label>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -638,9 +611,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -688,9 +658,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -760,9 +727,6 @@ Array [
               </span>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -885,9 +849,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -916,9 +877,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -962,9 +920,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -1034,9 +989,6 @@ Array [
               </span>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -1065,9 +1017,6 @@ Array [
               </button>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -1198,9 +1147,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -1247,9 +1193,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1340,9 +1283,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1387,9 +1327,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1435,9 +1372,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1528,9 +1462,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1575,9 +1506,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1685,9 +1613,6 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1716,9 +1641,6 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1765,9 +1687,6 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1805,9 +1724,6 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1867,9 +1783,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </label>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1944,9 +1857,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -1983,9 +1893,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2074,9 +1981,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2164,9 +2068,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2254,9 +2155,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2327,9 +2225,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2443,9 +2338,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2550,9 +2442,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2588,9 +2477,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2635,9 +2521,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2720,9 +2603,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2762,9 +2642,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2808,9 +2685,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2845,20 +2719,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               type="text"
               value="Buggy!"
             />
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -2898,20 +2758,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -2948,9 +2794,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -2985,20 +2828,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               type="text"
               value="Buggy!"
             />
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -3036,20 +2865,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               type="text"
               value="Buggy!"
             />
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -3101,9 +2916,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3151,20 +2963,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 />
               </span>
             </span>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -3217,20 +3015,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -3276,9 +3060,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3322,20 +3103,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 value="50"
               />
             </span>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -3382,20 +3149,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 value="50"
               />
             </span>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Buggy!
-            </div>
           </div>
         </div>
       </div>
@@ -3490,9 +3243,6 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3521,9 +3271,6 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3584,9 +3331,6 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3615,9 +3359,6 @@ exports[`renders ./components/form/demo/dynamic-form-items.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3715,9 +3456,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3769,9 +3507,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3800,9 +3535,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3888,17 +3620,11 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
                       </button>
                     </div>
                   </div>
-                  <div
-                    style="display:flex;flex-wrap:nowrap"
-                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3927,9 +3653,6 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md correctly
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -3976,9 +3699,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4017,9 +3737,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4058,9 +3775,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             </label>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4089,9 +3803,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4137,9 +3848,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4195,9 +3903,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4235,9 +3940,6 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4297,9 +3999,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -4375,9 +4074,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4432,9 +4128,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4463,9 +4156,6 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4532,9 +4222,6 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4625,9 +4312,6 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4729,9 +4413,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4768,9 +4449,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4807,9 +4485,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4838,9 +4513,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4888,9 +4560,6 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4930,9 +4599,6 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -4973,9 +4639,6 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5021,9 +4684,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5061,9 +4721,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5169,9 +4826,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5209,9 +4863,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5247,9 +4898,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5278,9 +4926,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5343,9 +4988,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5400,9 +5042,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5449,9 +5088,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </a>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5486,9 +5122,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </a>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5533,9 +5166,6 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5562,9 +5192,6 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5626,9 +5253,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5698,9 +5322,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5770,9 +5391,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5833,9 +5451,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -5952,9 +5567,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6066,9 +5678,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6245,9 +5854,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6309,9 +5915,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6352,9 +5955,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6445,9 +6045,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6456,7 +6053,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      extra="We must make sure that your are a human."
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6509,9 +6105,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           </div>
         </div>
         <div
-          style="display:flex;flex-wrap:nowrap"
-        />
-        <div
           class="ant-form-item-extra"
         >
           We must make sure that your are a human.
@@ -6560,9 +6153,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </label>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6591,9 +6181,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6701,9 +6288,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6763,9 +6347,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6831,9 +6412,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6862,9 +6440,6 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -6966,9 +6541,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7004,9 +6576,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7093,9 +6662,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7181,9 +6747,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7269,9 +6832,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7341,9 +6901,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7447,9 +7004,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7493,9 +7047,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7534,9 +7085,6 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7616,9 +7164,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7690,9 +7235,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7764,9 +7306,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7880,9 +7419,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -7996,9 +7532,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8073,9 +7606,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8104,9 +7634,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8153,9 +7680,6 @@ Array [
               />
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -8261,9 +7785,6 @@ Array [
               </div>
             </div>
           </div>
-          <div
-            style="display:flex;flex-wrap:nowrap"
-          />
         </div>
       </div>
     </div>
@@ -8315,9 +7836,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8408,9 +7926,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8491,9 +8006,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8606,9 +8118,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8654,9 +8163,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8777,9 +8283,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8873,9 +8376,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -8969,9 +8469,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9159,9 +8656,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9489,9 +8983,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </ul>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9500,7 +8991,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      extra="longgggggggggggggggggggggggggggggggggg"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9574,9 +9064,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
         <div
           class="ant-form-item-extra"
         >
@@ -9670,9 +9157,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9701,9 +9185,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9746,20 +9227,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               type="text"
               value=""
             />
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Should be combination of numbers & alphabets
-            </div>
           </div>
         </div>
       </div>
@@ -9826,9 +9293,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -9895,20 +9359,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </span>
               </span>
             </span>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-validating"
-              role="alert"
-            >
-              The information is being validated...
-            </div>
           </div>
         </div>
       </div>
@@ -9979,9 +9429,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10050,9 +9497,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10119,20 +9563,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </span>
               </span>
             </span>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Should be combination of numbers & alphabets
-            </div>
           </div>
         </div>
       </div>
@@ -10228,9 +9658,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10327,9 +9754,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10465,9 +9889,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10579,9 +10000,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -10689,20 +10107,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </span>
                 </span>
               </span>
-            </div>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Something breaks the rule.
             </div>
           </div>
         </div>
@@ -10816,20 +10220,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-warning"
-              role="alert"
-            >
-              Need to be checked
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -10916,20 +10306,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="display:flex;flex-wrap:nowrap"
-                  >
-                    <div
-                      class="ant-form-item-explain ant-form-item-explain-connected"
-                    >
-                      <div
-                        class="ant-form-item-explain-error"
-                        role="alert"
-                      >
-                        Please select right date
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -10995,17 +10371,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       </div>
                     </div>
                   </div>
-                  <div
-                    style="display:flex;flex-wrap:nowrap"
-                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11141,9 +10511,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11236,9 +10603,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11330,9 +10694,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11449,9 +10810,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </span>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11521,9 +10879,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11613,20 +10968,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class="ant-form-item-explain-error"
-              role="alert"
-            >
-              Should have something
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -11673,9 +11014,6 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
             />
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11725,9 +11063,6 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
             </div>
           </div>
         </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        />
       </div>
     </div>
   </div>
@@ -11838,20 +11173,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                   value="11"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="display:flex;flex-wrap:nowrap"
-        >
-          <div
-            class="ant-form-item-explain ant-form-item-explain-connected"
-          >
-            <div
-              class=""
-              role="alert"
-            >
-              A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
             </div>
           </div>
         </div>

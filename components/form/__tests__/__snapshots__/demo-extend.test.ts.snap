@@ -606,7 +606,6 @@ exports[`renders ./components/form/demo/basic.md extend context correctly 1`] = 
 >
   <div
     class="ant-form-item"
-    style="margin-bottom:0"
   >
     <div
       class="ant-row ant-form-item-row"
