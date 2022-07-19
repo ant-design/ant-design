@@ -274,6 +274,11 @@
     }
   }
 
+  &-leave {
+    transition: height @animation-duration-base @ease-in-out,
+      opacity @animation-duration-base @ease-in-out, transform @animation-duration-base @ease-in-out !important;
+  }
+
   &-leave-active {
     transform: translateY(-5px);
   }
