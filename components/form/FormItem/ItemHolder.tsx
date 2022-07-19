@@ -63,7 +63,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const debounceWarnings = useDebounce(warnings);
   const hasHelp = help !== undefined && help !== null;
   const hasError = !!(hasHelp || errors.length || warnings.length);
-  const [marginBottom, setMarginBottom] = React.useState(0);
+  const [marginBottom, setMarginBottom] = React.useState<number | null>(null);
 
   useLayoutEffect(() => {
     if (hasError && itemRef.current) {
@@ -74,7 +74,7 @@ export default function ItemHolder(props: ItemHolderProps) {
 
   const onErrorVisibleChanged = (nextVisible: boolean) => {
     if (!nextVisible) {
-      setMarginBottom(0);
+      setMarginBottom(null);
     }
   };
 

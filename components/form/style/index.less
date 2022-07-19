@@ -209,7 +209,7 @@
 
   &-with-help &-explain {
     height: auto;
-    min-height: @form-item-margin-bottom;
+    // min-height: @form-item-margin-bottom;
     opacity: 1;
   }
 
@@ -244,15 +244,22 @@
 // >>>>>>>>>> Motion <<<<<<<<<<
 // Explain holder
 .@{ant-prefix}-show-help {
-  transition: height @animation-duration-slow linear, min-height @animation-duration-slow linear,
-    margin-bottom @animation-duration-slow @ease-in-out,
-    opacity @animation-duration-slow @ease-in-out;
+  transition: opacity @animation-duration-slow @ease-in-out;
 
-  &-leave {
-    min-height: @form-item-margin-bottom;
+  &-appear,
+  &-enter {
+    opacity: 0;
 
     &-active {
-      min-height: 0;
+      opacity: 1;
+    }
+  }
+
+  &-leave {
+    opacity: 1;
+
+    &-active {
+      opacity: 0;
     }
   }
 }

@@ -71,16 +71,9 @@ export default function ErrorList({
 
   return (
     <CSSMotion
-      {...collapseMotion}
+      motionDeadline={collapseMotion.motionDeadline}
       motionName={`${rootPrefixCls}-show-help`}
-      motionAppear={false}
-      motionEnter={false}
       visible={!!fullKeyList.length}
-      onLeaveStart={node => {
-        // Force disable css override style in index.less configured
-        node.style.height = 'auto';
-        return { height: node.offsetHeight };
-      }}
       onVisibleChanged={onVisibleChanged}
     >
       {holderProps => {

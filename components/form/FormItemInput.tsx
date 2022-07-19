@@ -11,7 +11,7 @@ interface FormItemInputMiscProps {
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
-  marginBottom?: number;
+  marginBottom?: number | null;
   onErrorVisibleChanged?: (visible: boolean) => void;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
@@ -68,7 +68,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
   const errorListDom =
-    marginBottom || errors.length || warnings.length ? (
+    marginBottom !== null || errors.length || warnings.length ? (
       <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
         <FormItemPrefixContext.Provider value={formItemContext}>
           <ErrorList
