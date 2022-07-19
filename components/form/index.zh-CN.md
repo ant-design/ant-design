@@ -245,7 +245,8 @@ Form.List 渲染表单相关操作函数。
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
+| setFieldValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#NamePath), value: any) => void | 4.22.0 |
+| setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
 | validateFields | 触发表单验证 | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -332,6 +333,27 @@ const Demo = () => {
     </Form>
   );
 };
+```
+
+### Form.Item.useStatus
+
+`type Form.Item.useStatus = (): { status: ValidateStatus | undefined }`
+
+`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`：
+
+```tsx
+const CustomInput = ({ value }) => {
+  const { status } = Form.Item.useStatus();
+  return <input value={value} className={`custom-input-${status}`} />;
+};
+
+export default () => (
+  <Form>
+    <Form.Item name="username">
+      <CustomInput />
+    </Form.Item>
+  </Form>
+);
 ```
 
 #### 与其他获取数据的方式的区别

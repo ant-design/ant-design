@@ -4,6 +4,7 @@ import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import warning from '../_util/warning';
@@ -38,7 +39,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onChange,
     onDrop,
     previewFile,
-    disabled,
+    disabled: customDisabled,
     locale: propLocale,
     iconRender,
     isImageUrl,
@@ -51,6 +52,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     itemRender,
     maxCount,
   } = props;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
@@ -300,6 +305,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onSuccess,
     ...(props as RcUploadProps),
     prefixCls,
+    disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
   };
@@ -311,7 +317,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   // !children: https://github.com/ant-design/ant-design/issues/14298
   // disabled: https://github.com/ant-design/ant-design/issues/16478
   //           https://github.com/ant-design/ant-design/issues/24197
-  if (!children || disabled) {
+  if (!children || mergedDisabled) {
     delete rcUploadProps.id;
   }
 
@@ -339,7 +345,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               onPreview={onPreview}
               onDownload={onDownload}
               onRemove={handleRemove}
-              showRemoveIcon={!disabled && showRemoveIcon}
+              showRemoveIcon={!mergedDisabled && showRemoveIcon}
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
               removeIcon={removeIcon}
@@ -371,7 +377,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-drag`]: true,
         [`${prefixCls}-drag-uploading`]: mergedFileList.some(file => file.status === 'uploading'),
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-disabled`]: mergedDisabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       hashId,
@@ -395,7 +401,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   }
 
   const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
-    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-disabled`]: mergedDisabled,
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (

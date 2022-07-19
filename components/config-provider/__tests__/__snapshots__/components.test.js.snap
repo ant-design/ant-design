@@ -15381,32 +15381,26 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
-      class="config-col config-form-item-control"
+      class="config-row config-form-item-row"
     >
       <div
-        class="config-form-item-control-input"
+        class="config-col config-form-item-control"
       >
         <div
-          class="config-form-item-control-input-content"
+          class="config-form-item-control-input"
         >
-          <input
-            class="config-input config-input-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="config-form-item-explain config-form-item-explain-connected"
-      >
-        <div
-          class="config-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="config-form-item-control-input-content"
+          >
+            <input
+              class="config-input config-input-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15419,33 +15413,27 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
-      class="config-col config-form-item-control"
+      class="config-row config-form-item-row"
     >
       <div
-        class="config-form-item-control-input"
+        class="config-col config-form-item-control"
       >
         <div
-          class="config-form-item-control-input-content"
+          class="config-form-item-control-input"
         >
-          <input
-            class="config-input config-input-disabled config-input-status-error"
-            disabled=""
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="config-form-item-explain config-form-item-explain-connected"
-      >
-        <div
-          class="config-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="config-form-item-control-input-content"
+          >
+            <input
+              class="config-input config-input-disabled config-input-status-error"
+              disabled=""
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15458,32 +15446,26 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
   class="config-form config-form-horizontal config-form-large"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
-      class="config-col config-form-item-control"
+      class="config-row config-form-item-row"
     >
       <div
-        class="config-form-item-control-input"
+        class="config-col config-form-item-control"
       >
         <div
-          class="config-form-item-control-input-content"
+          class="config-form-item-control-input"
         >
-          <input
-            class="config-input config-input-lg config-input-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="config-form-item-explain config-form-item-explain-connected"
-      >
-        <div
-          class="config-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="config-form-item-control-input-content"
+          >
+            <input
+              class="config-input config-input-lg config-input-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15496,32 +15478,26 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
   class="config-form config-form-horizontal config-form-middle"
 >
   <div
-    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
-      class="config-col config-form-item-control"
+      class="config-row config-form-item-row"
     >
       <div
-        class="config-form-item-control-input"
+        class="config-col config-form-item-control"
       >
         <div
-          class="config-form-item-control-input-content"
+          class="config-form-item-control-input"
         >
-          <input
-            class="config-input config-input-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="config-form-item-explain config-form-item-explain-connected"
-      >
-        <div
-          class="config-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="config-form-item-control-input-content"
+          >
+            <input
+              class="config-input config-input-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15534,32 +15510,26 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
-          <input
-            class="ant-input ant-input-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="ant-form-item-explain ant-form-item-explain-connected"
-      >
-        <div
-          class="ant-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15572,32 +15542,26 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
-          <input
-            class="ant-input ant-input-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="ant-form-item-explain ant-form-item-explain-connected"
-      >
-        <div
-          class="ant-form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -15610,32 +15574,26 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
+    class="prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
   >
     <div
-      class="ant-col prefix-Form-item-control"
+      class="ant-row prefix-Form-item-row"
     >
       <div
-        class="prefix-Form-item-control-input"
+        class="ant-col prefix-Form-item-control"
       >
         <div
-          class="prefix-Form-item-control-input-content"
+          class="prefix-Form-item-control-input"
         >
-          <input
-            class="prefix-Form prefix-Form-status-error"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="prefix-Form-item-explain prefix-Form-item-explain-connected"
-      >
-        <div
-          class="prefix-Form-item-explain-error"
-          role="alert"
-        >
-          Bamboo is Light
+          <div
+            class="prefix-Form-item-control-input-content"
+          >
+            <input
+              class="prefix-Form prefix-Form-status-error"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -41877,12 +41835,11 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select"
+    class="config-upload config-upload-select config-upload-disabled"
   >
     <span
-      class="config-upload"
+      class="config-upload config-upload-disabled"
       role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -41932,35 +41889,7 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
         </span>
         <span
           class="config-upload-list-item-actions"
-        >
-          <button
-            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
-            disabled=""
-            title="Remove file"
-            type="button"
-          >
-            <span
-              aria-label="delete"
-              class="anticon anticon-delete"
-              role="img"
-              tabindex="-1"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="delete"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                />
-              </svg>
-            </span>
-          </button>
-        </span>
+        />
       </div>
     </div>
   </div>
