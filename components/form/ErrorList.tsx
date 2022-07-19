@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
+import { useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
@@ -51,6 +52,8 @@ export default function ErrorList({
   const baseClassName = `${prefixCls}-item-explain`;
   const rootPrefixCls = getPrefixCls();
 
+  const collapseMotion = useMemo(() => initCollapseMotion(rootPrefixCls), [rootPrefixCls]);
+
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
   const debounceErrors = useDebounce(errors);
@@ -71,6 +74,7 @@ export default function ErrorList({
 
   return (
     <CSSMotion
+      {...collapseMotion}
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${rootPrefixCls}-show-help`}
       visible={!!fullKeyList.length}
@@ -86,7 +90,7 @@ export default function ErrorList({
           >
             <CSSMotionList
               keys={fullKeyList}
-              {...collapseMotion}
+              {...initCollapseMotion(rootPrefixCls)}
               motionName={`${rootPrefixCls}-show-help-item`}
               component={false}
             >

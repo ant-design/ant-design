@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { zoomIn } from '../../style/motion';
+import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
@@ -539,6 +539,7 @@ export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
     genHorizontalStyle(formToken),
     genInlineStyle(formToken),
     genVerticalStyle(formToken),
+    genCollapseMotion(formToken),
     zoomIn,
   ];
 });

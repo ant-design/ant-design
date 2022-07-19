@@ -1,3 +1,4 @@
+import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent, resetIcon } from '../../style';
@@ -233,26 +234,6 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
-const genMotion: GenerateStyle<CollapseToken> = token => ({
-  [token.componentCls]: {
-    // For common/openAnimation
-    [`${token.antCls}-motion-collapse-legacy`]: {
-      overflow: 'hidden',
-
-      '&-active': {
-        transition: `height ${token.motionDurationMid} ${token.motionEaseInOut},
-        opacity ${token.motionDurationMid} ${token.motionEaseInOut} !important`,
-      },
-    },
-
-    [`${token.antCls}-motion-collapse`]: {
-      overflow: 'hidden',
-      transition: `height ${token.motionDurationMid} ${token.motionEaseInOut},
-        opacity ${token.motionDurationMid} ${token.motionEaseInOut} !important`,
-    },
-  },
-});
-
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
     collapseContentBg: token.colorBgContainer,
@@ -266,6 +247,6 @@ export default genComponentStyleHook('Collapse', token => {
     genBaseStyle(collapseToken),
     genBorderlessStyle(collapseToken),
     genArrowStyle(collapseToken),
-    genMotion(collapseToken),
+    genCollapseMotion(collapseToken),
   ];
 });

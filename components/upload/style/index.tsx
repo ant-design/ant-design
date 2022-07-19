@@ -6,6 +6,7 @@ import genMotionStyle from './motion';
 import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
 import { resetComponent } from '../../style';
+import { genCollapseMotion } from '../../style/motion';
 
 export interface ComponentToken {}
 
@@ -60,5 +61,6 @@ export default genComponentStyleHook('Upload', token => {
     genListStyle(uploadToken),
     genMotionStyle(uploadToken),
     genRtlStyle(uploadToken),
+    genCollapseMotion(uploadToken),
   ];
 });
