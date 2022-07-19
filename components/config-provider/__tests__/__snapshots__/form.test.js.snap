@@ -5,38 +5,42 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item"
+    class="ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class="ant-form-item-required-mark-optional"
-        for="age"
-        title="年龄"
-      >
-        年龄
-        <span
-          class="ant-form-item-optional"
-          title=""
-        >
-          (optional)
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required-mark-optional"
+          for="age"
+          title="年龄"
+        >
+          年龄
+          <span
+            class="ant-form-item-optional"
+            title=""
+          >
+            (optional)
+          </span>
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
-          <input
-            id="age"
-            value="18"
-          />
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              id="age"
+              value="18"
+            />
+          </div>
         </div>
       </div>
     </div>
