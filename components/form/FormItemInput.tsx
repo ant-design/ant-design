@@ -11,6 +11,8 @@ interface FormItemInputMiscProps {
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
+  marginBottom?: number | null;
+  onErrorVisibleChanged?: (visible: boolean) => void;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
@@ -18,7 +20,7 @@ interface FormItemInputMiscProps {
       props: FormItemInputProps & FormItemInputMiscProps,
       domList: {
         input: JSX.Element;
-        errorList: JSX.Element;
+        errorList: JSX.Element | null;
         extra: JSX.Element | null;
       },
     ) => React.ReactNode;
@@ -43,6 +45,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     _internalItemRender: formItemRender,
     extra,
     help,
+    marginBottom,
+    onErrorVisibleChanged,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -63,17 +67,22 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
-  const errorListDom = (
-    <FormItemPrefixContext.Provider value={formItemContext}>
-      <ErrorList
-        errors={errors}
-        warnings={warnings}
-        help={help}
-        helpStatus={status}
-        className={`${baseClassName}-explain-connected`}
-      />
-    </FormItemPrefixContext.Provider>
-  );
+  const errorListDom =
+    marginBottom !== null || errors.length || warnings.length ? (
+      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
+        <FormItemPrefixContext.Provider value={formItemContext}>
+          <ErrorList
+            errors={errors}
+            warnings={warnings}
+            help={help}
+            helpStatus={status}
+            className={`${baseClassName}-explain-connected`}
+            onVisibleChanged={onErrorVisibleChanged}
+          />
+        </FormItemPrefixContext.Provider>
+        {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
+      </div>
+    ) : null;
 
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
