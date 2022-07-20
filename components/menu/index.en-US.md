@@ -79,6 +79,8 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
 | onSelect | Called when a menu item is selected | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
+| onMouseEnter | Function({eventKey, domEvent}) |  | - |  |
+| onMouseLeave | Function({eventKey, domEvent}) |  | - |  |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
@@ -88,14 +90,17 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 
 #### MenuItemType
 
-| Param    | Description                          | Type      | Default value | Version |
-| -------- | ------------------------------------ | --------- | ------------- | ------- |
-| danger   | Display the danger style             | boolean   | false         |         |
-| disabled | Whether menu item is disabled        | boolean   | false         |         |
-| icon     | The icon of the menu item            | ReactNode | -             |         |
-| key      | Unique ID of the menu item           | string    | -             |         |
-| label    | Menu label                           | ReactNode | -             |         |
-| title    | Set display title for collapsed item | string    | -             |         |
+| Param        | Description                           | Type      | Default value | Version |
+| ------------ | ------------------------------------- | --------- | ------------- | ------- |
+| className    | Additional css class of root dom node | string    | -             |         |
+| danger       | Display the danger style              | boolean   | false         |         |
+| disabled     | Whether menu item is disabled         | boolean   | false         |         |
+| icon         | The icon of the menu item             | ReactNode | -             |         |
+| key          | Unique ID of the menu item            | string    | -             |         |
+| label        | Menu label                            | ReactNode | -             |         |
+| title        | Set display title for collapsed item  | string    | -             |         |
+| onMouseEnter | Function({eventKey, domEvent})        | string    | -             |         |
+| onMouseLeave | Function({eventKey, domEvent})        | string    | -             |         |
 
 > Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
 >
@@ -129,6 +134,8 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
+| onMouseEnter | Function({eventKey, domEvent}) |  | - |  |
+| onMouseLeave | Function({eventKey, domEvent}) |  | - |  |
 
 #### MenuItemGroupType
 
