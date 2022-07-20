@@ -148,7 +148,7 @@ export type GlobalToken = AliasToken & ComponentTokenMap;
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface SeedToken extends PresetColorType {
   // Color
-  brandColor: string;
+  colorPrimary: string;
   colorSuccess: string;
   colorWarning: string;
   colorError: string;

@@ -31,7 +31,7 @@ describe('Theme', () => {
       <ConfigProvider
         theme={{
           token: {
-            brandColor: '#ff0000',
+            colorPrimary: '#ff0000',
           },
         }}
       >
