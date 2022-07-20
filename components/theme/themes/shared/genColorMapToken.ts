@@ -37,12 +37,12 @@ export default function genColorMapToken(
     colorWarning: colorWarningBase,
     colorError: colorErrorBase,
     colorInfo: colorInfoBase,
-    brandColor,
+    colorPrimary: colorPrimaryBase,
     colorBgBase,
     colorTextBase,
   } = seed;
 
-  const primaryColors = generatePrimaryPalettes(brandColor);
+  const primaryColors = generatePrimaryPalettes(colorPrimaryBase);
   const successColors = generateSuccessPalettes(colorSuccessBase);
   const warningColors = generateWarningPalettes(colorWarningBase);
   const errorColors = generateErrorPalettes(colorErrorBase);
