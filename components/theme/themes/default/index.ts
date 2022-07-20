@@ -37,6 +37,8 @@ export default function derivative(token: SeedToken): MapToken {
   return {
     ...token,
     ...colorPalettes,
+    colorBgBase,
+    colorTextBase,
     // Colors
     ...genColorMapToken(
       { ...token, colorBgBase, colorTextBase },
