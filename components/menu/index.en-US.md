@@ -169,7 +169,7 @@ Menu collects structure info with [twice-render](https://github.com/react-compon
 
 ### Why Menu do not responsive collapse in Flex layout?
 
-Menu will render fully item in flex layout and then collapse it. You need tell flex not consider Menu width to enable responsive:
+Menu will render fully item in flex layout and then collapse it. You need tell flex not consider Menu width to enable responsive ([online demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)):
 
 ```jsx
 <div style={{ flex }}>
