@@ -398,7 +398,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorError,
         colorTextDisabled,
         colorErrorHover,
-        colorErrorOutline,
+        colorErrorBg,
         colorText,
         colorTextLightSolid,
         colorTextSecondary,
@@ -444,8 +444,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeColorDangerText: colorError,
         themeColorDangerTextHover: colorError,
         themeColorDangerTextSelect: colorError,
-        themeColorDangerBgActive: colorErrorOutline,
-        themeColorDangerBgSelect: colorErrorOutline,
+        themeColorDangerBgActive: colorErrorBg,
+        themeColorDangerBgSelect: colorErrorBg,
       });
 
       const menuDarkToken = mergeToken<MenuThemeToken>(menuToken, {
