@@ -49,12 +49,6 @@ export default function genColorMapToken(
   const bgColors = generateBgPalettes(colorBgBase, colorTextBase);
   const textColors = generateTextAlphaPalettes(colorTextBase);
 
-  const colorPrimary = primaryColors[6];
-  const colorError = errorColors[5];
-  const colorWarning = warningColors[6];
-  const colorSuccess = successColors[6];
-  const colorInfo = infoColors[6];
-
   return {
     ...bgColors,
     ...textColors,
@@ -64,29 +58,29 @@ export default function genColorMapToken(
     colorPrimaryBorder: primaryColors[3],
     colorPrimaryBorderHover: primaryColors[4],
     colorPrimaryHover: primaryColors[5],
-    colorPrimary,
+    colorPrimary: primaryColors[6],
     colorPrimaryActive: primaryColors[7],
     colorPrimaryText: primaryColors[8],
     colorPrimaryTextHover: primaryColors[9],
 
-    colorSuccess,
     colorSuccessBg: successColors[1],
     colorSuccessBorder: successColors[3],
+    colorSuccess: successColors[6],
 
-    colorError,
     colorErrorBg: errorColors[1],
     colorErrorBorder: errorColors[3],
     colorErrorHover: errorColors[5],
+    colorError: errorColors[6],
     colorErrorActive: errorColors[7],
 
-    colorWarning,
     colorWarningBg: warningColors[1],
     colorWarningBorder: warningColors[3],
     colorWarningHover: warningColors[5],
+    colorWarning: warningColors[6],
     colorWarningActive: warningColors[7],
 
-    colorInfo,
     colorInfoBg: infoColors[1],
     colorInfoBorder: infoColors[3],
+    colorInfo: infoColors[6],
   };
 }
