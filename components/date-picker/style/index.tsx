@@ -788,7 +788,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: token.colorError,
               inputBorderHoverColor: token.colorError,
-              controlOutlineActive: token.colorErrorOutline,
+              controlOutline: token.colorErrorOutline,
             }),
           ),
         },
@@ -809,7 +809,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: token.colorWarning,
               inputBorderHoverColor: token.colorWarning,
-              controlOutlineActive: token.colorWarningOutline,
+              controlOutline: token.colorWarningOutline,
             }),
           ),
         },

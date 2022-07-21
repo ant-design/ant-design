@@ -165,7 +165,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       },
 
       [`&${token.componentCls}-checked:focus-visible`]: {
-        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutlineActive}`,
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
       },
 
       '&:focus:hover': {

@@ -183,7 +183,7 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   color: token.colorTextLightSolid,
   backgroundColor: token.colorPrimary,
 
-  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutlineActive}`,
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
 
   ...genHoverActiveButtonStyle(
     {

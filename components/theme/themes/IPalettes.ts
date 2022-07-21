@@ -1,7 +1,6 @@
 import type { BgMapToken, TextMapToken } from 'antd/es/theme/interface';
 
 export interface PrimaryPalettes {
-  0: string;
   1: string;
   2: string;
   3: string;

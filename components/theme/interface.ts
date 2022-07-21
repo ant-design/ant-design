@@ -341,7 +341,7 @@ export interface AliasToken extends MapToken {
 
   colorHighlight: string;
 
-  controlOutlineActive: string;
+  controlOutline: string;
   colorWarningOutline: string;
   colorErrorOutline: string;
 

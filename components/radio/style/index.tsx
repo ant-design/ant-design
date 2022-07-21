@@ -463,7 +463,7 @@ export default genComponentStyleHook('Radio', token => {
     fontSize,
     lineHeight,
     fontSizeLG,
-    controlOutlineActive,
+    controlOutline,
     colorPrimaryHover,
     colorPrimaryActive,
     colorText,
@@ -473,7 +473,7 @@ export default genComponentStyleHook('Radio', token => {
   } = token;
 
   // Radio
-  const radioFocusShadow = `0 0 0 ${controlOutlineWidth}px ${controlOutlineActive}`;
+  const radioFocusShadow = `0 0 0 ${controlOutlineWidth}px ${controlOutline}`;
   const radioButtonFocusShadow = radioFocusShadow;
 
   const radioSize = fontSizeLG;

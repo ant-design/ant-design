@@ -36,7 +36,7 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutlineActive}`,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
   borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
@@ -81,7 +81,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           mergeToken<InputToken>(token, {
             inputBorderActiveColor: colorError,
             inputBorderHoverColor: colorError,
-            controlOutlineActive: colorErrorOutline,
+            controlOutline: colorErrorOutline,
           }),
         ),
       },
@@ -100,7 +100,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           mergeToken<InputToken>(token, {
             inputBorderActiveColor: colorWarning,
             inputBorderHoverColor: colorWarning,
-            controlOutlineActive: colorWarningOutline,
+            controlOutline: colorWarningOutline,
           }),
         ),
       },
