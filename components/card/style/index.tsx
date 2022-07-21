@@ -193,12 +193,12 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, colorBgContainerSecondary, cardInnerHeadPadding } = token;
+  const { componentCls, cardPaddingBase, colorFillAlter, cardInnerHeadPadding } = token;
 
   return {
     [`${componentCls}-head`]: {
       padding: `0 ${cardPaddingBase}px`,
-      background: colorBgContainerSecondary,
+      background: colorFillAlter,
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,

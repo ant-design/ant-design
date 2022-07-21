@@ -135,9 +135,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
     },
-    ({ zIndexPopupBase, colorBgTooltipTmp }) => ({
+    ({ zIndexPopupBase, colorBgSpotlight }) => ({
       zIndexPopup: zIndexPopupBase + 70,
-      colorBgDefault: colorBgTooltipTmp,
+      colorBgDefault: colorBgSpotlight,
     }),
   );
 

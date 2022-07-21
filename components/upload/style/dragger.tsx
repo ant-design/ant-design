@@ -11,7 +11,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = token => {
         width: '100%',
         height: '100%',
         textAlign: 'center',
-        background: token.colorBgContainerSecondary,
+        background: token.colorFillAlter,
         border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
         borderRadius: token.radiusBase,
         cursor: 'pointer',

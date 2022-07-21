@@ -3,12 +3,7 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
 
-export interface ComponentToken {
-  // FIXME: need to be removed
-  bgColor: string;
-  bgColorHover: string;
-  bgColorSelected: string;
-}
+export interface ComponentToken {}
 
 interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontal: number;
@@ -16,6 +11,9 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedContainerPadding: number;
   labelColor: string;
   labelColorHover: string;
+  bgColor: string;
+  bgColorHover: string;
+  bgColorSelected: string;
 }
 
 // ============================== Mixins ==============================
@@ -168,23 +166,26 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Segmented',
-  token => {
-    const { lineWidthBold, controlLineWidth, colorTextLabel, colorText } = token;
+export default genComponentStyleHook('Segmented', token => {
+  const {
+    lineWidthBold,
+    controlLineWidth,
+    colorTextLabel,
+    colorText,
+    colorFillSecondary,
+    colorFill,
+    colorBgContainer,
+  } = token;
 
-    const segmentedToken = mergeToken<SegmentedToken>(token, {
-      segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
-      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
-      segmentedContainerPadding: lineWidthBold,
-      labelColor: colorTextLabel,
-      labelColorHover: colorText,
-    });
-    return [genSegmentedStyle(segmentedToken)];
-  },
-  ({ segmentedBgColor, segmentedBgColorActive, segmentedBgColorHover }) => ({
-    bgColor: segmentedBgColor,
-    bgColorHover: segmentedBgColorHover,
-    bgColorSelected: segmentedBgColorActive,
-  }),
-);
+  const segmentedToken = mergeToken<SegmentedToken>(token, {
+    segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
+    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
+    segmentedContainerPadding: lineWidthBold,
+    labelColor: colorTextLabel,
+    labelColorHover: colorText,
+    bgColor: colorFillSecondary,
+    bgColorHover: colorFill,
+    bgColorSelected: colorBgContainer,
+  });
+  return [genSegmentedStyle(segmentedToken)];
+});

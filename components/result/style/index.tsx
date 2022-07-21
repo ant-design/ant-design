@@ -79,7 +79,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     [`${componentCls} ${componentCls}-content`]: {
       marginTop: paddingLG,
       padding: `${paddingLG}px ${padding * 2.5}px`,
-      backgroundColor: token.colorBgContainerSecondary,
+      backgroundColor: token.colorFillAlter,
     },
 
     [`${componentCls} ${componentCls}-extra`]: {

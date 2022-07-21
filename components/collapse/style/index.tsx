@@ -238,7 +238,7 @@ export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
     collapseContentBg: token.colorBgContainer,
     collapseContentPadding: token.padding,
-    collapseHeaderBg: token.colorBgContainerSecondary,
+    collapseHeaderBg: token.colorFillAlter,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
     collapsePanelBorderRadius: token.radiusBase,
   });

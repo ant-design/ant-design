@@ -233,19 +233,19 @@ export default genComponentStyleHook('Table', token => {
     paddingXS,
     paddingSM,
     controlHeight,
-    colorBgContainerSecondary,
-    colorAction,
-    colorActionHover,
+    colorFillAlter,
+    colorIcon,
+    colorIconHover,
     opacityLoading,
     colorBgContainer,
-    colorBgContent,
+    colorFillSecondary,
     radiusBase,
-    colorBgFillTmp,
+    colorFillContent,
     controlInteractiveSize: checkboxSize,
   } = token;
 
-  const baseColorAction = new TinyColor(colorAction);
-  const baseColorActionHover = new TinyColor(colorActionHover);
+  const baseColorAction = new TinyColor(colorIcon);
+  const baseColorActionHover = new TinyColor(colorIconHover);
 
   const tableSelectedRowBg = controlItemBgActive;
   const zIndexTableFixed: number = 2;
@@ -263,12 +263,12 @@ export default genComponentStyleHook('Table', token => {
     tablePaddingHorizontalSmall: paddingXS,
     tableBorderColor: colorSplit,
     tableHeaderTextColor: colorTextHeading,
-    tableHeaderBg: colorBgContainerSecondary,
+    tableHeaderBg: colorFillAlter,
     tableFooterTextColor: colorTextHeading,
-    tableFooterBg: colorBgContainerSecondary,
+    tableFooterBg: colorFillAlter,
     tableHeaderCellSplitColor: colorSplit,
-    tableHeaderSortBg: colorBgContent,
-    tableHeaderSortHoverBg: colorBgFillTmp,
+    tableHeaderSortBg: colorFillSecondary,
+    tableHeaderSortHoverBg: colorFillContent,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
@@ -277,11 +277,11 @@ export default genComponentStyleHook('Table', token => {
       .clone()
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableBodySortBg: colorBgContainerSecondary,
-    tableFixedHeaderSortActiveBg: colorBgContent,
-    tableHeaderFilterActiveBg: colorBgFillTmp,
+    tableBodySortBg: colorFillAlter,
+    tableFixedHeaderSortActiveBg: colorFillSecondary,
+    tableHeaderFilterActiveBg: colorFillContent,
     tableFilterDropdownBg: colorBgContainer,
-    tableRowHoverBg: colorBgContainerSecondary,
+    tableRowHoverBg: colorFillAlter,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: controlItemBgActiveHover,
     zIndexTableFixed,
@@ -291,7 +291,7 @@ export default genComponentStyleHook('Table', token => {
     tableSelectionColumnWidth: controlHeight,
     tableExpandIconBg: colorBgContainer,
     tableExpandColumnWidth: checkboxSize + 2 * token.padding,
-    tableExpandedRowBg: colorBgContainerSecondary,
+    tableExpandedRowBg: colorFillAlter,
 
     // Dropdown
     tableFilterDropdownWidth: 120,
