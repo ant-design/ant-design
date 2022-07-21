@@ -87,7 +87,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
                 [`${componentCls}-close`]: {
                   display: 'inline-block',
                   marginInlineEnd: token.marginSM,
-                  color: token.colorAction,
+                  color: token.colorIcon,
                   fontWeight: token.fontWeightStrong,
                   fontSize: fontSizeLG,
                   fontStyle: 'normal',
@@ -103,7 +103,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
                   textRendering: 'auto',
 
                   [`&:focus, &:hover`]: {
-                    color: token.colorActionHover,
+                    color: token.colorIconHover,
                     textDecoration: 'none',
                   },
                 },

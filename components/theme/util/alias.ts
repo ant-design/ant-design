@@ -31,8 +31,37 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const aliasToken: AliasToken = {
     ...mergedToken,
 
-    colorTextPlaceholder: mergedToken.colorTextDisabled,
+    colorLink: mergedToken.colorPrimary,
+    colorLinkHover: mergedToken.colorPrimaryHover,
+    colorLinkActive: mergedToken.colorPrimaryActive,
+
+    // ============== Background ============== //
+    colorFillContent: mergedToken.colorFillSecondary,
+    colorFillContentHover: mergedToken.colorFill,
+    colorFillAlter: mergedToken.colorFillQuaternary,
+    colorBgContainerDisabled: mergedToken.colorFillTertiary,
+
+    colorBgMask: mergedToken.colorTextTertiary,
+    colorBgSpotlight: mergedToken.colorText,
+
+    // ============== Split ============== //
+    colorBorderBg: mergedToken.colorBgLayout,
+    colorBorder: mergedToken.colorFill,
+    colorBorderSecondary: mergedToken.colorFillSecondary,
+    colorSplit: mergedToken.colorFillSecondary,
+
+    // ============== Text ============== //
+    colorTextPlaceholder: mergedToken.colorTextQuaternary,
+    colorTextDisabled: mergedToken.colorTextQuaternary,
+    colorTextHeading: mergedToken.colorText,
+    colorTextLabel: mergedToken.colorTextSecondary,
     colorHighlight: mergedToken.colorError,
+
+    colorIcon: mergedToken.colorTextTertiary,
+    colorIconHover: mergedToken.colorText,
+
+    colorErrorOutline: mergedToken.colorErrorBg,
+    colorWarningOutline: mergedToken.colorWarningBg,
 
     // Font
     fontSizeSM,
@@ -62,13 +91,16 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
-    controlItemBgHover: mergedToken.colorBgItemHover,
+    controlItemBgHover: mergedToken.colorFillTertiary,
     controlItemBgActive: mergedToken.colorPrimaryBg,
     controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
-    controlItemBgActiveDisabled: mergedToken.colorTextDisabled,
+    controlItemBgActiveDisabled: mergedToken.colorTextQuaternary,
+    controlTmpOutline: mergedToken.colorFillQuaternary,
+    controlOutline: mergedToken.colorPrimaryBg,
 
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
+
     fontWeightStrong: 600,
 
     opacityLoading: 0.65,
@@ -120,8 +152,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
-
-    controlTmpOutline: mergedToken.colorBgContainerSecondary,
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,

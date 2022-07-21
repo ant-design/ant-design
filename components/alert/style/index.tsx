@@ -179,8 +179,8 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
     motionDurationSlow: duration,
     marginXS,
     fontSizeIcon,
-    colorAction,
-    colorActionHover,
+    colorIcon,
+    colorIconHover,
   } = token;
 
   return {
@@ -201,19 +201,19 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
         cursor: 'pointer',
 
         [`${iconCls}-close`]: {
-          color: colorAction,
+          color: colorIcon,
           transition: `color ${duration}`,
           '&:hover': {
-            color: colorActionHover,
+            color: colorIconHover,
           },
         },
       },
 
       '&-close-text': {
-        color: colorAction,
+        color: colorIcon,
         transition: `color ${duration}`,
         '&:hover': {
-          color: colorActionHover,
+          color: colorIconHover,
         },
       },
     },

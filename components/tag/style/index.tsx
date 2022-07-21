@@ -147,7 +147,7 @@ export default genComponentStyleHook('Tag', token => {
 
   const tagFontSize = token.fontSizeSM;
   const tagLineHeight = tagHeight - controlLineWidth * 2;
-  const tagDefaultBg = token.colorBgContainerSecondary;
+  const tagDefaultBg = token.colorFillAlter;
   const tagDefaultColor = token.colorText;
 
   const tagToken = mergeToken<TagToken>(token, {

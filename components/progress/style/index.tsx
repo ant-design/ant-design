@@ -259,7 +259,7 @@ export default genComponentStyleHook('Progress', token => {
     progressLineRadius: 100, // magic for capsule shape, should be a very large number
     progressInfoTextColor: token.colorText,
     progressDefaultColor: token.colorInfo,
-    progressRemainingColor: token.colorBgContent,
+    progressRemainingColor: token.colorFillSecondary,
     progressStepMarginInlineEnd,
     progressStepMinWidth: progressStepMarginInlineEnd,
     progressActiveMotionDuration: '2.4s',

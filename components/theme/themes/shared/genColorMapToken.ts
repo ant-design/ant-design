@@ -1,4 +1,3 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type {
   GenerateBgPalettes,
@@ -47,86 +46,41 @@ export default function genColorMapToken(
   const warningColors = generateWarningPalettes(colorWarningBase);
   const errorColors = generateErrorPalettes(colorErrorBase);
   const infoColors = generateInfoPalettes(colorInfoBase);
-  const bgColors = generateBgPalettes(colorBgBase);
+  const bgColors = generateBgPalettes(colorBgBase, colorTextBase);
   const textColors = generateTextAlphaPalettes(colorTextBase);
 
-  const colorPrimary = primaryColors['6'];
-  const colorError = errorColors['5'];
-  const colorWarning = warningColors['6'];
-  const colorSuccess = successColors['6'];
-  const colorInfo = infoColors['6'];
-
   return {
-    colorPrimary,
-    colorPrimaryHover: primaryColors['5'],
-    colorPrimaryBg: primaryColors['1'],
-    colorPrimaryBgHover: primaryColors['0'],
-    colorPrimaryActive: primaryColors['7'],
-    colorPrimaryBorder: primaryColors['3'],
-    colorPrimaryBorderHover: primaryColors['4'],
-    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    ...bgColors,
+    ...textColors,
 
-    colorSuccess,
-    colorSuccessBg: successColors['1'],
-    colorSuccessBorder: successColors['3'],
+    colorPrimaryBg: primaryColors[1],
+    colorPrimaryBgHover: primaryColors[2],
+    colorPrimaryBorder: primaryColors[3],
+    colorPrimaryBorderHover: primaryColors[4],
+    colorPrimaryHover: primaryColors[5],
+    colorPrimary: primaryColors[6],
+    colorPrimaryActive: primaryColors[7],
+    colorPrimaryText: primaryColors[8],
+    colorPrimaryTextHover: primaryColors[9],
 
-    colorError,
-    colorErrorBg: errorColors['1'],
-    colorErrorBorder: errorColors['3'],
-    colorErrorHover: errorColors['5'],
-    colorErrorActive: errorColors['7'],
-    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorSuccessBg: successColors[1],
+    colorSuccessBorder: successColors[3],
+    colorSuccess: successColors[6],
 
-    colorWarning,
-    colorWarningBg: warningColors['1'],
-    colorWarningBorder: warningColors['3'],
-    colorWarningHover: warningColors['5'],
-    colorWarningActive: warningColors['7'],
-    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
+    colorErrorBg: errorColors[1],
+    colorErrorBorder: errorColors[3],
+    colorErrorHover: errorColors[5],
+    colorError: errorColors[6],
+    colorErrorActive: errorColors[7],
 
-    colorInfo,
-    colorInfoBg: infoColors['1'],
-    colorInfoBorder: infoColors['3'],
+    colorWarningBg: warningColors[1],
+    colorWarningBorder: warningColors[3],
+    colorWarningHover: warningColors[5],
+    colorWarning: warningColors[6],
+    colorWarningActive: warningColors[7],
 
-    colorLink: primaryColors['6'],
-    colorLinkHover: primaryColors['5'],
-    colorLinkActive: primaryColors['7'],
-
-    // ============== Background ============== //
-    colorBgLayout: bgColors['0'],
-    colorBgElevated: bgColors['12'],
-    colorBgContainer: bgColors['8'],
-    colorBgContent: bgColors['15'],
-
-    colorBgContentHover: bgColors['26'],
-    colorBgContainerSecondary: textColors['4'],
-    colorBgContainerDisabled: textColors['8'],
-
-    colorBgMask: textColors['45'],
-    colorBgItemHover: textColors['8'],
-    colorBgFillTmp: textColors['12'],
-    colorBgTooltipTmp: textColors['85'],
-
-    // ============== Split ============== //
-    colorBorder: bgColors['26'],
-    colorBorderSecondary: bgColors['19'],
-    colorBorderBg: bgColors.base,
-    colorSplit: textColors['12'],
-
-    // ============== Text ============== //
-    colorText: textColors['85'],
-    colorTextHeading: textColors['85'],
-    colorTextSecondary: textColors['45'],
-    colorTextDisabled: textColors['25'],
-    colorTextLabel: textColors['65'],
-
-    colorAction: textColors['45'],
-    colorActionHover: textColors['85'],
-
-    buttonColorBgTextHover: textColors['3'],
-    buttonColorBgTextActive: textColors['4'],
-    segmentedBgColor: textColors['8'],
-    segmentedBgColorHover: textColors['12'],
-    segmentedBgColorActive: bgColors['8'],
+    colorInfoBg: infoColors[1],
+    colorInfoBorder: infoColors[3],
+    colorInfo: infoColors[6],
   };
 }

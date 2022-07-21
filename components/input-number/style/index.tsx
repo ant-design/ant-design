@@ -204,7 +204,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
           transition: `all ${motionDurationFast} linear`,
           '&:active': {
-            background: token.colorBgContainerSecondary,
+            background: token.colorFillAlter,
           },
 
           // Hover

@@ -222,7 +222,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
 
         '&:focus': {
           borderColor: token.colorPrimaryHover,
-          boxShadow: `${token.inputOutlineOffset} 0 ${token.controlOutlineWidth} ${token.colorPrimaryOutline}`,
+          boxShadow: `${token.inputOutlineOffset} 0 ${token.controlOutlineWidth} ${token.controlOutline}`,
         },
 
         '&[disabled]': {

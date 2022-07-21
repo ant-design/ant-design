@@ -368,7 +368,7 @@ export default genComponentStyleHook('Modal', token => {
     modalFooterPaddingHorizontal: token.padding,
     modalFooterBorderWidth: token.controlLineWidth,
     modalConfirmTitleFontSize: token.fontSizeLG,
-    modalIconHoverColor: token.colorActionHover,
+    modalIconHoverColor: token.colorIconHover,
     modalConfirmIconSize: token.fontSize * token.lineHeight,
   });
   return [

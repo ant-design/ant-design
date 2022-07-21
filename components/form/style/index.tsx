@@ -55,7 +55,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
   input[type='radio']:focus,
   input[type='checkbox']:focus`]: {
     outline: 0,
-    boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
+    boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
   },
 
   // Adjust output element

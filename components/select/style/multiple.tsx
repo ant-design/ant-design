@@ -93,7 +93,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
-        background: token.colorBgContent,
+        background: token.colorFillSecondary,
         border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.controlRadius,
         cursor: 'default',
@@ -122,7 +122,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           ...resetIcon(),
 
           display: 'inline-block',
-          color: token.colorAction,
+          color: token.colorIcon,
           fontWeight: 'bold',
           fontSize: 10,
           lineHeight: 'inherit',
@@ -133,7 +133,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           },
 
           '&:hover': {
-            color: token.colorActionHover,
+            color: token.colorIconHover,
           },
         },
       },

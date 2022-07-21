@@ -222,11 +222,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
           position: 'absolute',
           top: token.notificationPaddingVertical,
           insetInlineEnd: token.notificationPaddingHorizontal,
-          color: token.colorAction,
+          color: token.colorIcon,
           outline: 'none',
 
           '&:hover': {
-            color: token.colorActionHover,
+            color: token.colorIconHover,
           },
         },
 

@@ -297,7 +297,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = token => {
       componentCls,
       mergeToken<any>(token, {
         borderHoverColor: token.colorPrimaryHover,
-        outlineColor: token.colorPrimaryOutline,
+        outlineColor: token.controlOutline,
       }),
     ),
     genStatusStyle(

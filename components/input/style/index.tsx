@@ -36,7 +36,7 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
   borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
@@ -81,7 +81,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           mergeToken<InputToken>(token, {
             inputBorderActiveColor: colorError,
             inputBorderHoverColor: colorError,
-            colorPrimaryOutline: colorErrorOutline,
+            controlOutline: colorErrorOutline,
           }),
         ),
       },
@@ -100,7 +100,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           mergeToken<InputToken>(token, {
             inputBorderActiveColor: colorWarning,
             inputBorderHoverColor: colorWarning,
-            colorPrimaryOutline: colorWarningOutline,
+            controlOutline: colorWarningOutline,
           }),
         ),
       },
@@ -247,7 +247,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorBgContainerSecondary,
+        backgroundColor: token.colorFillAlter,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.controlRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -515,7 +515,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
-      color: token.colorAction,
+      color: token.colorIcon,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151
@@ -561,8 +561,8 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     inputAffixPadding,
     colorTextSecondary,
     motionDurationSlow,
-    colorAction,
-    colorActionHover,
+    colorIcon,
+    colorIconHover,
     iconCls,
   } = token;
 
@@ -637,12 +637,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       // password
       [`${iconCls}.${prefixCls}-password-icon`]: {
-        color: colorAction,
+        color: colorIcon,
         cursor: 'pointer',
         transition: `all ${motionDurationSlow}`,
 
         '&:hover': {
-          color: colorActionHover,
+          color: colorIconHover,
         },
       },
 

@@ -89,7 +89,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       '&-focused:not(:hover):not(&-active-focused)': {
-        background: token.colorPrimaryOutline,
+        background: token.controlOutline,
       },
 
       // =================== Virtual List ===================
@@ -282,7 +282,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.colorPrimaryOutline,
+          backgroundColor: token.controlOutline,
         },
 
         // Icon

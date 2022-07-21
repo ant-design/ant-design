@@ -204,16 +204,39 @@ export interface SeedToken extends PresetColorType {
   opacityImage: number;
 }
 
-export interface ColorMapToken {
+export interface TextMapToken {
+  colorText: string;
+  colorTextSecondary: string;
+  colorTextTertiary: string;
+  colorTextQuaternary: string;
+}
+
+export interface BgMapToken {
+  // 作为比较重的描边或者填充内容
+  colorFill: string;
+  // 表达 选中态，或者作为弱一级的实色 border
+  colorFillSecondary: string;
+  // 另外一种 hover 色 或者禁用的背景色
+  // 用于表达选中态或用于与区分 BgComponent 区分
+  colorFillTertiary: string;
+  colorFillQuaternary: string;
+  // Container 类型
+  colorBgContainer: string;
+  colorBgElevated: string;
+  colorBgLayout: string;
+}
+
+export interface ColorMapToken extends BgMapToken, TextMapToken {
   // Color
-  colorPrimary: string;
-  colorPrimaryHover: string;
-  colorPrimaryBg: string;
-  colorPrimaryBgHover: string;
-  colorPrimaryActive: string;
-  colorPrimaryBorder: string; // primary[2]
-  colorPrimaryBorderHover: string;
-  colorPrimaryOutline: string;
+  colorPrimaryBg: string; // 1
+  colorPrimaryBgHover: string; // 2
+  colorPrimaryBorder: string; // 3
+  colorPrimaryBorderHover: string; // 4
+  colorPrimaryHover: string; // 5
+  colorPrimary: string; // 6
+  colorPrimaryActive: string; // 7
+  colorPrimaryText: string; // 8
+  colorPrimaryTextHover: string; // 9
 
   colorSuccess: string;
   colorSuccessBorder: string;
@@ -224,63 +247,16 @@ export interface ColorMapToken {
   colorWarningActive: string;
   colorWarningBorder: string;
   colorWarningBg: string;
-  colorWarningOutline: string;
 
   colorError: string;
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorBorder: string;
   colorErrorBg: string;
-  colorErrorOutline: string;
 
   colorInfo: string;
   colorInfoBorder: string;
   colorInfoBg: string;
-
-  /** Color of layout background */
-  colorBgLayout: string;
-  colorBgContent: string;
-  /** Color of popup background */
-  colorBgElevated: string;
-  /** Color of component background */
-  colorBgContainer: string;
-
-  colorBgContentHover: string;
-  colorBgContainerSecondary: string;
-  colorBgContainerDisabled: string;
-
-  colorBorder: string;
-  colorBorderBg: string;
-  colorBorderSecondary: string;
-  colorSplit: string;
-
-  // Color
-  colorText: string;
-  colorTextSecondary: string;
-  colorTextDisabled: string;
-  colorTextHeading: string;
-  colorTextLabel: string;
-
-  /** Weak action. Such as `allowClear` or Alert close button */
-  colorAction: string;
-  /** Weak action hover color. Such as `allowClear` or Alert close button */
-  colorActionHover: string;
-
-  colorLink: string;
-  colorLinkHover: string;
-  colorLinkActive: string;
-
-  colorBgMask: string;
-  colorBgItemHover: string;
-  colorBgFillTmp: string;
-  colorBgTooltipTmp: string;
-
-  // FIXME: should be removed
-  buttonColorBgTextHover: string;
-  buttonColorBgTextActive: string;
-  segmentedBgColor: string;
-  segmentedBgColorHover: string;
-  segmentedBgColorActive: string;
 }
 
 export interface CommonMapToken {
@@ -332,10 +308,42 @@ export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, Commo
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface AliasToken extends MapToken {
-  /** Placeholder text color */
+  // Background
+  colorFillSecondary: string;
+  colorFillContentHover: string;
+  colorFillAlter: string;
+  colorBgContainerDisabled: string;
+
+  colorBgMask: string;
+  colorBgSpotlight: string;
+  colorFillContent: string;
+
+  // Border
+  colorBorder: string;
+  colorBorderBg: string;
+  colorBorderSecondary: string;
+  colorSplit: string;
+
+  // Text
   colorTextPlaceholder: string;
+  colorTextDisabled: string;
+  colorTextHeading: string;
+  colorTextLabel: string;
+
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorIcon: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorIconHover: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
 
   colorHighlight: string;
+
+  controlOutline: string;
+  colorWarningOutline: string;
+  colorErrorOutline: string;
 
   // Font
   fontSizeSM: number;

@@ -854,7 +854,7 @@ export default genComponentStyleHook(
       tabsCardHeight,
       tabsCardGutter: token.marginXXS / 2,
       tabsHorizontalGutter: token.marginXL,
-      tabsCardHeadBackground: token.colorBgContainerSecondary,
+      tabsCardHeadBackground: token.colorFillAlter,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
       tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,

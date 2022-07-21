@@ -315,7 +315,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         button: {
           padding: 0,
-          color: token.colorAction,
+          color: token.colorIcon,
           lineHeight: `${token.pickerTextHeight}px`,
           background: 'transparent',
           border: 0,
@@ -328,7 +328,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           fontSize: token.fontSize,
 
           '&:hover': {
-            color: token.colorActionHover,
+            color: token.colorIconHover,
           },
         },
 
@@ -788,7 +788,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: token.colorError,
               inputBorderHoverColor: token.colorError,
-              colorPrimaryOutline: token.colorErrorOutline,
+              controlOutline: token.colorErrorOutline,
             }),
           ),
         },
@@ -809,7 +809,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
             mergeToken<PickerToken>(token, {
               inputBorderActiveColor: token.colorWarning,
               inputBorderHoverColor: token.colorWarning,
-              colorPrimaryOutline: token.colorWarningOutline,
+              controlOutline: token.colorWarningOutline,
             }),
           ),
         },
