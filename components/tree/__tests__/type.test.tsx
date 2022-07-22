@@ -91,7 +91,7 @@ describe('Tree.TypeScript', () => {
             ],
           },
         ]}
-        draggable={(node: DataNode) => node.title === 'Bamboo'}
+        draggable={(node: DataNode) => node.title === 'Little'}
       />,
     );
     expect(container).toBeTruthy();
