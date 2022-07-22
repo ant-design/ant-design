@@ -227,7 +227,7 @@ export interface BgMapToken {
 }
 
 export interface ColorMapToken extends BgMapToken, TextMapToken {
-  // Color
+  // Primary
   colorPrimaryBg: string; // 1
   colorPrimaryBgHover: string; // 2
   colorPrimaryBorder: string; // 3
@@ -238,25 +238,49 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorPrimaryText: string; // 8
   colorPrimaryTextHover: string; // 9
 
-  colorSuccess: string;
-  colorSuccessBorder: string;
-  colorSuccessBg: string; // success[0]
+  // Success
+  colorSuccessBg: string; // 1
+  colorSuccessBgHover: string; // 2
+  colorSuccessBorder: string; // 3
+  colorSuccessBorderHover: string; // 4
+  colorSuccessHover: string; // 5
+  colorSuccess: string; // 6
+  colorSuccessActive: string; // 7
+  colorSuccessText: string; // 8
+  colorSuccessTextHover: string; // 9
 
-  colorWarning: string;
-  colorWarningHover: string;
-  colorWarningActive: string;
-  colorWarningBorder: string;
-  colorWarningBg: string;
+  // Warning
+  colorWarningBg: string; // 1
+  colorWarningBgHover: string; // 2
+  colorWarningBorder: string; // 3
+  colorWarningBorderHover: string; // 4
+  colorWarningHover: string; // 5
+  colorWarning: string; // 6
+  colorWarningActive: string; // 7
+  colorWarningText: string; // 8
+  colorWarningTextHover: string; // 9
 
-  colorError: string;
-  colorErrorHover: string;
-  colorErrorActive: string;
-  colorErrorBorder: string;
-  colorErrorBg: string;
+  // Error
+  colorErrorBg: string; // 1
+  colorErrorBgHover: string; // 2
+  colorErrorBorder: string; // 3
+  colorErrorBorderHover: string; // 4
+  colorErrorHover: string; // 5
+  colorError: string; // 6
+  colorErrorActive: string; // 7
+  colorErrorText: string; // 8
+  colorErrorTextHover: string; // 9
 
-  colorInfo: string;
-  colorInfoBorder: string;
-  colorInfoBg: string;
+  // Info
+  colorInfoBg: string; // 1
+  colorInfoBgHover: string; // 2
+  colorInfoBorder: string; // 3
+  colorInfoBorderHover: string; // 4
+  colorInfoHover: string; // 5
+  colorInfo: string; // 6
+  colorInfoActive: string; // 7
+  colorInfoText: string; // 8
+  colorInfoTextHover: string; // 9
 }
 
 export interface CommonMapToken {

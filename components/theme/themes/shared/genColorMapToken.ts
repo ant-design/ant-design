@@ -1,35 +1,19 @@
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type {
   GenerateBgPalettes,
-  GenerateErrorPalettes,
-  GenerateInfoPalettes,
-  GeneratePrimaryPalettes,
-  GenerateSuccessPalettes,
+  GenerateColorPalettes,
   GenerateTextAlphaPalettes,
-  GenerateWarningPalettes,
 } from '../IPalettes';
 
 interface PaletteGenerators {
-  generatePrimaryPalettes: GeneratePrimaryPalettes;
-  generateSuccessPalettes: GenerateSuccessPalettes;
-  generateErrorPalettes: GenerateErrorPalettes;
-  generateWarningPalettes: GenerateWarningPalettes;
-  generateInfoPalettes: GenerateInfoPalettes;
+  generateColorPalettes: GenerateColorPalettes;
   generateTextAlphaPalettes: GenerateTextAlphaPalettes;
   generateBgPalettes: GenerateBgPalettes;
 }
 
 export default function genColorMapToken(
   seed: SeedToken,
-  {
-    generatePrimaryPalettes,
-    generateSuccessPalettes,
-    generateErrorPalettes,
-    generateWarningPalettes,
-    generateInfoPalettes,
-    generateTextAlphaPalettes,
-    generateBgPalettes,
-  }: PaletteGenerators,
+  { generateColorPalettes, generateTextAlphaPalettes, generateBgPalettes }: PaletteGenerators,
 ): ColorMapToken {
   const {
     colorSuccess: colorSuccessBase,
@@ -41,11 +25,11 @@ export default function genColorMapToken(
     colorTextBase,
   } = seed;
 
-  const primaryColors = generatePrimaryPalettes(colorPrimaryBase);
-  const successColors = generateSuccessPalettes(colorSuccessBase);
-  const warningColors = generateWarningPalettes(colorWarningBase);
-  const errorColors = generateErrorPalettes(colorErrorBase);
-  const infoColors = generateInfoPalettes(colorInfoBase);
+  const primaryColors = generateColorPalettes(colorPrimaryBase);
+  const successColors = generateColorPalettes(colorSuccessBase);
+  const warningColors = generateColorPalettes(colorWarningBase);
+  const errorColors = generateColorPalettes(colorErrorBase);
+  const infoColors = generateColorPalettes(colorInfoBase);
   const bgColors = generateBgPalettes(colorBgBase, colorTextBase);
   const textColors = generateTextAlphaPalettes(colorTextBase);
 
@@ -64,23 +48,43 @@ export default function genColorMapToken(
     colorPrimaryTextHover: primaryColors[9],
 
     colorSuccessBg: successColors[1],
+    colorSuccessBgHover: successColors[2],
     colorSuccessBorder: successColors[3],
+    colorSuccessBorderHover: successColors[4],
+    colorSuccessHover: successColors[5],
     colorSuccess: successColors[6],
+    colorSuccessActive: successColors[7],
+    colorSuccessText: successColors[8],
+    colorSuccessTextHover: successColors[9],
 
     colorErrorBg: errorColors[1],
+    colorErrorBgHover: errorColors[2],
     colorErrorBorder: errorColors[3],
+    colorErrorBorderHover: errorColors[4],
     colorErrorHover: errorColors[5],
     colorError: errorColors[6],
     colorErrorActive: errorColors[7],
+    colorErrorText: errorColors[8],
+    colorErrorTextHover: errorColors[9],
 
     colorWarningBg: warningColors[1],
+    colorWarningBgHover: warningColors[2],
     colorWarningBorder: warningColors[3],
+    colorWarningBorderHover: warningColors[4],
     colorWarningHover: warningColors[5],
     colorWarning: warningColors[6],
     colorWarningActive: warningColors[7],
+    colorWarningText: warningColors[8],
+    colorWarningTextHover: warningColors[9],
 
     colorInfoBg: infoColors[1],
+    colorInfoBgHover: infoColors[2],
     colorInfoBorder: infoColors[3],
+    colorInfoBorderHover: infoColors[4],
+    colorInfoHover: infoColors[5],
     colorInfo: infoColors[6],
+    colorInfoActive: infoColors[7],
+    colorInfoText: infoColors[8],
+    colorInfoTextHover: infoColors[9],
   };
 }
