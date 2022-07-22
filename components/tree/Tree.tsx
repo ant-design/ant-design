@@ -95,7 +95,8 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-type DraggableFn = (node: AntTreeNode) => boolean;
+type DraggableFn = (node: DataNode) => boolean;
+
 interface DraggableConfig {
   icon?: React.ReactNode | false;
   nodeDraggable?: DraggableFn;
