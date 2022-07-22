@@ -1,4 +1,3 @@
-import noop from 'lodash/noop';
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
@@ -37,7 +36,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
     setVisible(false);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (innerConfig.onCancel && triggerCancel) {
-      innerConfig.onCancel(noop, ...args.slice(1));
+      innerConfig.onCancel(() => {}, ...args.slice(1));
     }
   };
 
