@@ -3,15 +3,7 @@ import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
-import {
-  generateBgPalettes,
-  generateErrorPalettes,
-  generateInfoPalettes,
-  generatePrimaryPalettes,
-  generateSuccessPalettes,
-  generateTextAlphaPalettes,
-  generateWarningPalettes,
-} from './palettes';
+import { generateBgPalettes, generateColorPalettes, generateTextAlphaPalettes } from './palettes';
 
 export default function derivative(token: SeedToken): MapToken {
   const colorPalettes = Object.keys(defaultPresetColors)
@@ -43,11 +35,7 @@ export default function derivative(token: SeedToken): MapToken {
     ...genColorMapToken(
       { ...token, colorBgBase, colorTextBase },
       {
-        generatePrimaryPalettes,
-        generateErrorPalettes,
-        generateInfoPalettes,
-        generateSuccessPalettes,
-        generateWarningPalettes,
+        generateColorPalettes,
         generateBgPalettes,
         generateTextAlphaPalettes,
       },
