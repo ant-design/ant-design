@@ -69,10 +69,10 @@ export const generateBgPalettes: GenerateBgPalettes = (
   bgBaseColor: string,
   textBaseColor: string,
 ) => ({
-  colorFill: getAlphaColor(textBaseColor, 18),
-  colorFillSecondary: getAlphaColor(textBaseColor, 12),
-  colorFillTertiary: getAlphaColor(textBaseColor, 8),
-  colorFillQuaternary: getAlphaColor(textBaseColor, 4),
+  colorFill: getAlphaColor(textBaseColor, 0.18),
+  colorFillSecondary: getAlphaColor(textBaseColor, 0.12),
+  colorFillTertiary: getAlphaColor(textBaseColor, 0.08),
+  colorFillQuaternary: getAlphaColor(textBaseColor, 0.04),
 
   colorBgElevated: getSolidColor(bgBaseColor, 12),
   colorBgContainer: getSolidColor(bgBaseColor, 8),
