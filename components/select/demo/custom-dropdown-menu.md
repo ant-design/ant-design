@@ -16,6 +16,7 @@ Customize the dropdown menu via `dropdownRender`. If you want to close the dropd
 ```tsx
 import { PlusOutlined } from '@ant-design/icons';
 import { Divider, Input, Select, Space, Button } from 'antd';
+import type { InputRef } from 'antd';
 import React, { useState, useRef } from 'react';
 
 const { Option } = Select;
@@ -25,7 +26,7 @@ let index = 0;
 const App: React.FC = () => {
   const [items, setItems] = useState(['jack', 'lucy']);
   const [name, setName] = useState('');
-  const inputRef = useRef<Input>(null);
+  const inputRef = useRef<InputRef>(null);
 
   const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
