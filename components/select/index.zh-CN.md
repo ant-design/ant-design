@@ -112,9 +112,9 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 这一般是 `options` 中的 `label` 和 `value` 不同导致的，你可以通过 `optionFilterProp="label"` 将过滤设置为展示值以避免这种情况。
 
-### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
+### 点击 `dropdownRender` 里的元素，下拉菜单不会自动消失？
 
-自定义内容点击时会关闭浮层，如果不喜欢关闭，可以添加 `onMouseDown={e => e.preventDefault()}` 进行阻止（更多详情见 [#13448](https://github.com/ant-design/ant-design/issues/13448)）。
+你可以使用受控模式，手动设置 `open` 属性：[codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js)。
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 
