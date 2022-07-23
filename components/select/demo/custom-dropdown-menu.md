@@ -37,7 +37,7 @@ const App: React.FC = () => {
     setItems([...items, name || `New item ${index++}`]);
     setName('');
     setTimeout(() => {
-      inputRef.current.focus();
+      inputRef.current?.focus();
     }, 0);
   };
 
