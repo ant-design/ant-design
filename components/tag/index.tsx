@@ -1,6 +1,5 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
@@ -20,7 +19,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
-  visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
@@ -51,12 +49,6 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
-
-  React.useEffect(() => {
-    if ('visible' in props) {
-      setVisible(props.visible!);
-    }
-  }, [props.visible]);
 
   const isPresetColor = (): boolean => {
     if (!color) {
@@ -94,9 +86,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     if (e.defaultPrevented) {
       return;
     }
-    if (!('visible' in props)) {
-      setVisible(false);
-    }
+    setVisible(false);
   };
 
   const renderCloseIcon = () => {
@@ -114,7 +104,6 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const isNeedWave =
     'onClick' in props || (children && (children as React.ReactElement<any>).type === 'a');
-  const tagProps = omit(props, ['visible']);
   const iconNode = icon || null;
   const kids = iconNode ? (
     <>
@@ -126,7 +115,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   );
 
   const tagNode = (
-    <span {...tagProps} ref={ref} className={tagClassName} style={tagStyle}>
+    <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {renderCloseIcon()}
     </span>

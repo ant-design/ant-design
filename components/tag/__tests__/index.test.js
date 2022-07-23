@@ -76,30 +76,6 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const wrapper = mount(<Tag visible />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      jest.runAllTimers();
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      jest.runAllTimers();
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-
-    it('can be controlled by visible with hidden as initial value', () => {
-      const wrapper = mount(<Tag visible={false} />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      jest.runAllTimers();
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      jest.runAllTimers();
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-  });
-
   describe('CheckableTag', () => {
     it('support onChange', () => {
       const onChange = jest.fn();
