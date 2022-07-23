@@ -45,22 +45,25 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 `;
 
 exports[`Radio should render correctly 1`] = `
-<label
-  class="ant-radio-wrapper customized"
->
-  <span
-    class="ant-radio"
+<div>
+  <label
+    class="ant-radio-wrapper customized"
   >
-    <input
-      class="ant-radio-input"
-      type="radio"
-    />
     <span
-      class="ant-radio-inner"
-    />
-  </span>
-  <span>
-    Test
-  </span>
-</label>
+      class="ant-radio"
+    >
+      <input
+        class="ant-radio-input"
+        type="radio"
+        value=""
+      />
+      <span
+        class="ant-radio-inner"
+      />
+    </span>
+    <span>
+      Test
+    </span>
+  </label>
+</div>
 `;

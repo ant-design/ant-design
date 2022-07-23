@@ -20,68 +20,73 @@ exports[`Radio Button rtl render component should be rendered correctly in RTL d
 `;
 
 exports[`Radio Button should render correctly 1`] = `
-<label
-  class="ant-radio-button-wrapper customized"
->
-  <span
-    class="ant-radio-button"
+<div>
+  <label
+    class="ant-radio-button-wrapper customized"
   >
-    <input
-      class="ant-radio-button-input"
-      type="radio"
-    />
     <span
-      class="ant-radio-button-inner"
-    />
-  </span>
-  <span>
-    Test
-  </span>
-</label>
+      class="ant-radio-button"
+    >
+      <input
+        class="ant-radio-button-input"
+        type="radio"
+        value=""
+      />
+      <span
+        class="ant-radio-button-inner"
+      />
+    </span>
+    <span>
+      Test
+    </span>
+  </label>
+</div>
 `;
 
 exports[`Radio Group passes prefixCls down to radio 1`] = `
-<div
-  class="my-radio-group my-radio-group-outline"
->
-  <label
-    class="my-radio-wrapper"
+<div>
+  <div
+    class="my-radio-group my-radio-group-outline"
   >
-    <span
-      class="my-radio"
+    <label
+      class="my-radio-wrapper"
     >
-      <input
-        class="my-radio-input"
-        type="radio"
-        value="Apple"
-      />
       <span
-        class="my-radio-inner"
-      />
-    </span>
-    <span>
-      Apple
-    </span>
-  </label>
-  <label
-    class="my-radio-wrapper"
-    style="font-size:12px"
-  >
-    <span
-      class="my-radio"
+        class="my-radio"
+      >
+        <input
+          class="my-radio-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="my-radio-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="my-radio-wrapper"
+      style="font-size: 12px;"
     >
-      <input
-        class="my-radio-input"
-        type="radio"
-        value="Orange"
-      />
       <span
-        class="my-radio-inner"
-      />
-    </span>
-    <span>
-      Orange
-    </span>
-  </label>
+        class="my-radio"
+      >
+        <input
+          class="my-radio-input"
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="my-radio-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>
 </div>
 `;
