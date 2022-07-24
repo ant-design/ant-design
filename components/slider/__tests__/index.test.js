@@ -29,7 +29,7 @@ describe('Slider', () => {
     expect(wrapper.find('Trigger').render()).toMatchSnapshot();
   });
 
-  it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
+  it('when tooltip.open is true, tooltip should show always, or should never show', () => {
     let wrapper = mount(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
