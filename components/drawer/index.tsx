@@ -77,17 +77,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     height,
     size = 'default',
     closable = true,
-    placement = 'right' as placementType,
-    maskClosable = true,
     mask = true,
-    level = null,
     push = defaultPushState,
     closeIcon = <CloseOutlined />,
     bodyStyle,
     drawerStyle,
     className,
     visible,
-    forceRender,
     children,
     zIndex,
     destroyOnClose,
@@ -186,29 +182,22 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     return (
       <NoFormStyle status override>
         <RcDrawer
-          handler={false}
-          {...{
-            placement,
-            prefixCls,
-            maskClosable,
-            level,
-            children,
-            onClose,
-            forceRender,
-          }}
+          prefixCls={prefixCls}
+          onClose={onClose}
           {...rest}
           open={visible}
           mask={mask}
           push={push}
           width={mergedWidth}
           height={mergedHeight}
-          className={drawerClassName}
+          rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={open => {
             afterVisibleChange?.(open);
           }}
           maskMotion={maskMotion}
           motion={panelMotion}
+          rootStyle={style}
         >
           <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
             {renderHeader()}

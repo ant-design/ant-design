@@ -27,7 +27,6 @@
   &-content-wrapper {
     position: absolute;
     z-index: @zindex-modal;
-    overflow: hidden;
     transition: transform @animation-duration-slow;
 
     // Placement
@@ -64,6 +63,23 @@
 
     &-hidden {
       display: none;
+    }
+
+    // Placement
+    .@{drawer-prefix-cls}-left & {
+      box-shadow: @shadow-1-right;
+    }
+
+    .@{drawer-prefix-cls}-right & {
+      box-shadow: @shadow-1-left;
+    }
+
+    .@{drawer-prefix-cls}-top & {
+      box-shadow: @shadow-1-down;
+    }
+
+    .@{drawer-prefix-cls}-bottom & {
+      box-shadow: @shadow-1-up;
     }
   }
 
@@ -143,6 +159,13 @@
     min-height: 0;
     padding: @drawer-body-padding;
     overflow: auto;
+  }
+
+  // Footer
+  &-footer {
+    flex-shrink: 0;
+    padding: @drawer-footer-padding-vertical @drawer-footer-padding-horizontal;
+    border-top: @border-width-base @border-style-base @border-color-split;
   }
 }
 
