@@ -164,7 +164,7 @@ describe('Radio Group', () => {
       { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
     const { container } = render(<Radio.Group prefixCls="my-radio" options={options} />);
-    expect(container).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should forward ref', () => {

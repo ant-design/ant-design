@@ -14,7 +14,7 @@ describe('Radio Button', () => {
 
   it('should render correctly', () => {
     const { container } = render(<Button className="customized">Test</Button>);
-    expect(container).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('responses hover events', () => {
@@ -163,7 +163,7 @@ describe('Radio Group', () => {
       { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
     const { container } = render(<Radio.Group prefixCls="my-radio" options={options} />);
-    expect(container).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should forward ref', () => {

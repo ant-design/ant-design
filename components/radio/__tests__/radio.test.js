@@ -18,7 +18,7 @@ describe('Radio', () => {
 
   it('should render correctly', () => {
     const { container } = render(<Radio className="customized">Test</Radio>);
-    expect(container).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('responses hover events', () => {
