@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用 `tipFormatter` 可以格式化 `Tooltip` 的内容，设置 `tipFormatter={null}`，则隐藏 `Tooltip`。
+使用 `tooltip.formatter` 可以格式化 `Tooltip` 的内容，设置 `tooltip.formatter={null}`，则隐藏 `Tooltip`。
 
 ## en-US
 
-Use `tipFormatter` to format content of `Tooltip`. If `tipFormatter` is null, hide it.
+Use `tooltip.formatter` to format content of `Tooltip`. If `tooltip.formatter` is null, hide it.
 
 ```tsx
 import { Slider } from 'antd';
@@ -21,8 +21,8 @@ const formatter = (value: number) => `${value}%`;
 
 const App: React.FC = () => (
   <>
-    <Slider tipFormatter={formatter} />
-    <Slider tipFormatter={null} />
+    <Slider tooltip={{ formatter }} />
+    <Slider tooltip={{ formatter: null }} />
   </>
 );
 
