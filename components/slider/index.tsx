@@ -22,9 +22,16 @@ export type HandleGeneratorFn = (config: {
   info: HandleGeneratorInfo;
 }) => React.ReactElement;
 
+export interface SliderTooltipProps {
+  prefixCls?: string;
+  visible?: boolean;
+  placement?: TooltipPlacement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  formatter?: null | ((value?: number) => React.ReactNode);
+}
+
 export interface SliderBaseProps {
   prefixCls?: string;
-  tooltipPrefixCls?: string;
   reverse?: boolean;
   min?: number;
   max?: number;
@@ -34,13 +41,10 @@ export interface SliderBaseProps {
   included?: boolean;
   disabled?: boolean;
   vertical?: boolean;
-  tipFormatter?: null | ((value?: number) => React.ReactNode);
   className?: string;
   id?: string;
   style?: React.CSSProperties;
-  tooltipVisible?: boolean;
-  tooltipPlacement?: TooltipPlacement;
-  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  tooltip?: boolean | SliderTooltipProps;
   autoFocus?: boolean;
 }
 
@@ -89,15 +93,8 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return direction === 'rtl' ? 'left' : 'right';
     };
 
-    const {
-      prefixCls: customizePrefixCls,
-      tooltipPrefixCls: customizeTooltipPrefixCls,
-      range,
-      className,
-      ...restProps
-    } = props;
+    const { prefixCls: customizePrefixCls, range, className, ...restProps } = props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
-    const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
 
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -127,8 +124,25 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       const { index, dragging } = info;
 
       const rootPrefixCls = getPrefixCls();
-      const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer, vertical } =
-        props;
+      const { tooltip, vertical } = props;
+
+      let tooltipProps: SliderTooltipProps = {
+        formatter(value) {
+          return typeof value === 'number' ? value.toString() : '';
+        },
+      };
+      if (typeof tooltip === 'boolean') {
+        tooltipProps = { visible: tooltip };
+      } else if (typeof tooltip === 'object') {
+        tooltipProps = { ...tooltip, ...tooltipProps };
+      }
+      const {
+        visible: tooltipVisible,
+        placement: tooltipPlacement,
+        getPopupContainer: getTooltipPopupContainer,
+        prefixCls: customizeTooltipPrefixCls,
+        formatter: tipFormatter,
+      } = tooltipProps;
 
       const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
       const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
@@ -138,6 +152,8 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         onMouseEnter: () => toggleTooltipVisible(index, true),
         onMouseLeave: () => toggleTooltipVisible(index, false),
       };
+
+      const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
 
       return (
         <SliderTooltip
@@ -173,11 +189,5 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 if (process.env.NODE_ENV !== 'production') {
   Slider.displayName = 'Slider';
 }
-
-Slider.defaultProps = {
-  tipFormatter(value: number) {
-    return typeof value === 'number' ? value.toString() : '';
-  },
-};
 
 export default Slider;
