@@ -1,16 +1,16 @@
-import * as React from 'react';
-import RcTooltip from 'rc-tooltip';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
+import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import { getTransitionName } from '../_util/motion';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -87,7 +87,8 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
   const elementType = element.type as any;
   if (
     ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
-    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading))
+    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading)) ||
+    (elementType.__ANT_RADIO === true && element.props.disabled)
   ) {
     // Pick some layout related style properties up to span
     // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
@@ -268,7 +269,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
 });
 
-Tooltip.displayName = 'Tooltip';
+if (process.env.NODE_ENV !== 'production') {
+  Tooltip.displayName = 'Tooltip';
+}
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,

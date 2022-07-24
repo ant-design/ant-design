@@ -1,4 +1,4 @@
-import type { ComponentClass, ForwardedRef, Component } from 'react';
+import type { Component, ComponentClass, ForwardedRef } from 'react';
 import type { PickerProps, RangePickerProps } from '.';
 
 export interface CommonPickerMethods {

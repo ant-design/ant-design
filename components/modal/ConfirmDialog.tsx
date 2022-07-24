@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import ConfigProvider from '../config-provider';
+import ActionButton from '../_util/ActionButton';
+import { getTransitionName } from '../_util/motion';
+import warning from '../_util/warning';
 import type { ModalFuncProps } from './Modal';
 import Dialog from './Modal';
-import ActionButton from '../_util/ActionButton';
-import warning from '../_util/warning';
-import ConfigProvider from '../config-provider';
-import { getTransitionName } from '../_util/motion';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;

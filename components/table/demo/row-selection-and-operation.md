@@ -15,7 +15,7 @@ To perform operations and clear selections after selecting some rows, use `rowSe
 
 ```tsx
 import { Button, Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 
 interface DataType {

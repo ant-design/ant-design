@@ -40,22 +40,12 @@ const App: React.FC = () => {
   };
 
   const remove = (targetKey: string) => {
-    let lastIndex = -1;
-    panes.forEach((pane, i) => {
-      if (pane.key === targetKey) {
-        lastIndex = i - 1;
-      }
-    });
-    if (panes.length && activeKey === targetKey) {
-      let newActiveKey: string;
-      if (lastIndex >= 0) {
-        newActiveKey = panes[lastIndex].key;
-      } else {
-        newActiveKey = panes[0].key;
-      }
-      setActiveKey(newActiveKey);
-    }
+    const targetIndex = panes.findIndex(pane => pane.key === targetKey);
     const newPanes = panes.filter(pane => pane.key !== targetKey);
+    if (newPanes.length && targetKey === activeKey) {
+      const { key } = newPanes[targetIndex === newPanes.length ? targetIndex - 1 : targetIndex];
+      setActiveKey(key);
+    }
     setPanes(newPanes);
   };
 

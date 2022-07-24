@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import List from '..';
+import { render } from '../../../tests/utils';
 
 describe('List', () => {
   it('renders empty list', () => {

@@ -1,26 +1,28 @@
 import type * as React from 'react';
-import InternalRadio from './radio';
 import Group from './group';
-import Button from './radioButton';
 import type { RadioProps } from './interface';
+import InternalRadio from './radio';
+import Button from './radioButton';
 
 export {
+  RadioChangeEvent,
+  RadioChangeEventTarget,
   RadioGroupButtonStyle,
+  RadioGroupContextProps,
   RadioGroupOptionType,
   RadioGroupProps,
-  RadioGroupContextProps,
   RadioProps,
-  RadioChangeEventTarget,
-  RadioChangeEvent,
 } from './interface';
+export { Button, Group };
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
   Button: typeof Button;
+  __ANT_RADIO: boolean;
 }
 
 const Radio = InternalRadio as CompoundedComponent;
 Radio.Button = Button;
 Radio.Group = Group;
-export { Button, Group };
+Radio.__ANT_RADIO = true;
 export default Radio;

@@ -19,8 +19,8 @@ You can control the indent width by setting `indentSize`.
 
 ```tsx
 import { Space, Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
-import type { TableRowSelection } from 'antd/lib/table/interface';
+import type { ColumnsType } from 'antd/es/table';
+import type { TableRowSelection } from 'antd/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {

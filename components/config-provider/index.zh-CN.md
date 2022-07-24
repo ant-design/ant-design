@@ -50,7 +50,7 @@ export default () => (
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀。注意：需要配合 `less` 变量 [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106) 使用 | string | `anticon` | 4.11.0 |
 | input | 设置 Input 组件的通用属性 | { autoComplete?: string } | - | 4.2.0 |
-| locale | 语言包配置，语言包可到 [antd/lib/locale](http://unpkg.com/antd/lib/locale/) 目录下寻找 | object | - |  |
+| locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
 | pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | prefixCls | 设置统一样式前缀。注意：需要配合 `less` 变量 [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7) 使用 | string | `ant` |  |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
@@ -74,14 +74,9 @@ ConfigProvider.config({
 
 参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
 
-#### 为什么我使用了 ConfigProvider `locale`，时间类组件的国际化还有问题？
+#### 为什么时间类组件的国际化 locale 设置不生效？
 
-请检查是否正确设置了 moment 语言包，或者是否有两个版本的 moment 共存。
-
-```js
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
-```
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
 
 #### 配置 `getPopupContainer` 导致 Modal 报错？
 

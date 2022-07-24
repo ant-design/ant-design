@@ -15,6 +15,85 @@ timeline: true
 
 ---
 
+## 4.21.7
+
+`2022-07-18`
+
+- 🆕 Add Skeleton.Node sub-component, allow user customize content of Skeleton. [#36441](https://github.com/ant-design/ant-design/pull/36441) [@DawnLck](https://github.com/DawnLck)
+- Form
+  - 🐞 Fix Form with percentage width Select may leaves unexpected height. [#36484](https://github.com/ant-design/ant-design/pull/36484)
+  - 🐞 Fix Form disabled but Upload component still uploadable in it. [#36573](https://github.com/ant-design/ant-design/pull/36573) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🐞 Fix Tree non-draggable element still render the draggable icon. [#36511](https://github.com/ant-design/ant-design/pull/36511) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Upload preview error on SVG with `<foreignObject>` and cross-origin links. [#36402](https://github.com/ant-design/ant-design/pull/36402) [@jonioni](https://github.com/jonioni)
+- 🐞 Fix that Tooltip cannot close automaticly on disabled Radio. [#36483](https://github.com/ant-design/ant-design/pull/36483)
+- 💄 Add Modal Less variable `@modal-border-radius`. [#36527](https://github.com/ant-design/ant-design/pull/36527) [@kkkisme](https://github.com/kkkisme)
+- 💄 Fix Table expand icon wrap style when column is fixed and ellipsis. [#36496](https://github.com/ant-design/ant-design/pull/36496)
+
+## 4.21.6
+
+`2022-07-11`
+
+- 🐞 Fix Skeleton active lost border-radius in Safari. [#36445](https://github.com/ant-design/ant-design/pull/36445)
+- 🐞 Fix Breadcrumb separators disappearing when used as last element in a List. [#36448](https://github.com/ant-design/ant-design/pull/36448) [@LeonKattendick](https://github.com/LeonKattendick)
+- 🐞 Fixed Upload removing file status color is wrong. [#36439](https://github.com/ant-design/ant-design/pull/36439)
+- 🐞 Fix DatePicker style issue when using `status`. [#35685](https://github.com/ant-design/ant-design/pull/35685) [@simplejason](https://github.com/simplejason)
+- Table
+  - 🐞 Fix Table scroll shadow style. [#36420](https://github.com/ant-design/ant-design/pull/36420) [@shunyue1320](https://github.com/shunyue1320)
+  - 🐞 Fix Table hover render performance issue. [#36383](https://github.com/ant-design/ant-design/pull/36383)
+- 💄 Adjust Modal header close icon style. [#36309](https://github.com/ant-design/ant-design/pull/36309) [@cw1997](https://github.com/cw1997)
+- 🐞 Fix Form.ErrorList shaking when validating too fast. [#36358](https://github.com/ant-design/ant-design/pull/36358)
+- 💄 Radio shadow color should be transparency to fit none-white background. [#36335](https://github.com/ant-design/ant-design/pull/36335)
+- 🐞 Fix Table border style issue when `title` configured. [#36384](https://github.com/ant-design/ant-design/pull/36384) [@Unuuuuu](https://github.com/Unuuuuu)
+
+## 4.21.5
+
+`2022-07-03`
+
+- 🐞 Fix Checkbox cannot be disabled by Form `disabled` prop. [#36345](https://github.com/ant-design/ant-design/pull/36345)
+- 🐞 Fix Button `loading` prop with `null` value. [#36288](https://github.com/ant-design/ant-design/pull/36288) [@kejianfeng](https://github.com/kejianfeng)
+- 🐞 Fix popover arrow compatibility problem on some browsers. [#36266](https://github.com/ant-design/ant-design/pull/36266)
+- 🐞 Fix extra shadow in nested Table. [#36277](https://github.com/ant-design/ant-design/pull/36277)
+- 🐞 Fix that some class name in Divider cannot be customized. [#36271](https://github.com/ant-design/ant-design/pull/36271) [@alanhaledc](https://github.com/alanhaledc)
+- 🇧🇾 Update Belarusian locale. [#36265](https://github.com/ant-design/ant-design/pull/36265)
+
+## 4.21.4
+
+`2022-06-27`
+
+- Table
+  - 🐞 Fix Table expand icon not align center. [#36215](https://github.com/ant-design/ant-design/pull/36215)
+  - 💄 Fix nested Table margin style. [#36209](https://github.com/ant-design/ant-design/pull/36209)
+  - 🐞 Fix Table filter dropdown with multiple subMenu may not closed. [#36132](https://github.com/ant-design/ant-design/pull/36132)
+  - 🐞 Table reset the last selection key when deselect or bulk operations. [#34705](https://github.com/ant-design/ant-design/pull/34705) [@Dunqing](https://github.com/Dunqing)
+- 🐞 Fix Popover arrow color with custom `color` prop. [#36241](https://github.com/ant-design/ant-design/pull/36241) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Upload `listType="picture-card"` select button not being hidden when children is empty. [#36196](https://github.com/ant-design/ant-design/pull/36196)
+- 🐞 Fix Menu deprecated warning when `item={undefined}`. [#36190](https://github.com/ant-design/ant-design/pull/36190)
+- 💄 Fix Button `loading` icon margin style lost. [#36168](https://github.com/ant-design/ant-design/pull/36168)
+- 🐞 Fix Dropdown using Menu with group item can not close by click. [#36148](https://github.com/ant-design/ant-design/pull/36148)
+- 💄 Enlarge dragable area for Slider handler. [#36018](https://github.com/ant-design/ant-design/pull/36018) [@slotDumpling](https://github.com/slotDumpling)
+- 🐞 Fix: repeat a css class in readOnly, which has been declared in rc-input-number. [#36120](https://github.com/ant-design/ant-design/pull/36120) [@RainyLiao](https://github.com/RainyLiao)
+- 💄 Fix Skeleton active background color in dark theme. [#36116](https://github.com/ant-design/ant-design/pull/36116)
+- TypeScript
+  - 🤖 Fix type incompatibility. [#36189](https://github.com/ant-design/ant-design/pull/36189) [@Dunqing](https://github.com/Dunqing)
+  - 🤖 exporting `UploadFile` from `Upload`. [#34733](https://github.com/ant-design/ant-design/pull/34733) [@chentsulin](https://github.com/chentsulin)
+
+## 4.21.3
+
+`2022-06-17`
+
+- 🐞 Fix Table customize `filterDropdown` with Menu should not break default `selectable`. [#36098](https://github.com/ant-design/ant-design/pull/36098)
+- 🐞 Fix Input.Textarea cannot focus after click clear icon in controlled mode. [#34728](https://github.com/ant-design/ant-design/pull/34728) [@Pulset](https://github.com/Pulset)
+- TypeScript
+  - 🤖 Tree.DirectoryTree supports generic DataNode type. [#36092](https://github.com/ant-design/ant-design/pull/36092) [@JaylanChen](https://github.com/JaylanChen)
+  - 🤖 Export `RefSelectProps` from `Select`. [#34732](https://github.com/ant-design/ant-design/pull/34732) [@chentsulin](https://github.com/chentsulin)
+  - 🤖 Export `FormRule`, `FormListFieldData`, `FormListOperation` from `Form`. [#34735](https://github.com/ant-design/ant-design/pull/34735) [@chentsulin](https://github.com/chentsulin)
+
+## 4.21.2
+
+`2022-06-15`
+
+- 🐞 Fix incorrect Form status with `noStyle`. [#36054](https://github.com/ant-design/ant-design/pull/36054)
+
 ## 4.21.1
 
 `2022-06-13`

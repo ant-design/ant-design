@@ -111,7 +111,20 @@ async function printLog() {
       const pr = prs[j];
 
       // Use jquery to get full html page since it don't need auth token
-      const res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+      let res;
+      let tryTimes = 0;
+      const fetchPullRequest = async () => {
+        try {
+          res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+        } catch (err) {
+          tryTimes++;
+          if (tryTimes < 5) {
+            console.log(chalk.red(`😬 Fetch error, retrying...`));
+            await fetchPullRequest();
+          }
+        }
+      };
+      await fetchPullRequest();
       if (res.url.includes('/issues/')) {
         continue;
       }
