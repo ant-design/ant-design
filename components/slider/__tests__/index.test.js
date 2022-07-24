@@ -22,7 +22,7 @@ describe('Slider', () => {
   });
 
   it('should show correct placement tooltip when set tooltipPlacement', () => {
-    const wrapper = mount(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
+    const wrapper = mount(<Slider vertical defaultValue={30} tooltip={{ placement: 'left' }} />);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
     expect(wrapper.find('Trigger').render()).toMatchSnapshot();
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
@@ -30,13 +30,24 @@ describe('Slider', () => {
   });
 
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
-    let wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
+    let wrapper = mount(<Slider defaultValue={30} tooltip={{ visible: true }} />);
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper.find('.ant-slider-handle').at(0).simulate('click');
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
-    wrapper = mount(<Slider defaultValue={30} tooltipVisible={false} />);
+    wrapper = mount(<Slider defaultValue={30} tooltip={{ visible: false }} />);
+    expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
+  });
+
+  it('should tooltip support boolean type', () => {
+    let wrapper = mount(<Slider defaultValue={30} tooltip />);
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper.find('.ant-slider-handle').at(0).simulate('click');
+    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
+    wrapper = mount(<Slider defaultValue={30} tooltip={false} />);
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
 
@@ -49,7 +60,12 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(
-      <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
+      <Slider
+        marks={marks}
+        defaultValue={intentionallyWrongValue}
+        step={null}
+        tooltip={{ visible: true }}
+      />,
     );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 48);
   });
@@ -61,7 +77,9 @@ describe('Slider', () => {
       100: '100',
     };
 
-    const wrapper = mount(<Slider marks={marks} defaultValue={49} step={1} tooltipVisible />);
+    const wrapper = mount(
+      <Slider marks={marks} defaultValue={49} step={1} tooltip={{ visible: true }} />,
+    );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
 
@@ -73,7 +91,7 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(
-      <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
+      <Slider marks={marks} defaultValue={49} step={undefined} tooltip={{ visible: true }} />,
     );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
@@ -81,7 +99,7 @@ describe('Slider', () => {
   it('should render in RTL direction', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
-        <Slider defaultValue={30} tooltipVisible />
+        <Slider defaultValue={30} tooltip={{ visible: true }} />
       </ConfigProvider>,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -105,12 +123,12 @@ describe('Slider', () => {
 
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      mount(<Slider value={value} tooltipVisible />);
+      mount(<Slider value={value} tooltip={{ visible: true }} />);
     });
   });
   it('step should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      mount(<Slider step={value} tooltipVisible />);
+      mount(<Slider step={value} tooltip={{ visible: true }} />);
     });
   });
 });
