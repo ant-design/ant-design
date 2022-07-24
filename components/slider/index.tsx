@@ -79,8 +79,8 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
     const [opens, setOpens] = React.useState<Opens>({});
 
-    const toggleTooltipOpen = (index: number, visible: boolean) => {
-      setOpens((prev: Opens) => ({ ...prev, [index]: visible }));
+    const toggleTooltipOpen = (index: number, open: boolean) => {
+      setOpens((prev: Opens) => ({ ...prev, [index]: open }));
     };
 
     const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
