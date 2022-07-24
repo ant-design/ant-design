@@ -17,7 +17,7 @@ When `tooltip` is `true`, ToolTip will always show, or ToolTip will not show any
 import { Slider } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Slider defaultValue={30} tooltip={true} />;
+const App: React.FC = () => <Slider defaultValue={30} tooltip />;
 
 export default App;
 ```
