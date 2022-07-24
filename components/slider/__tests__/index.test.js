@@ -30,13 +30,13 @@ describe('Slider', () => {
   });
 
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
-    let wrapper = mount(<Slider defaultValue={30} tooltip={{ visible: true }} />);
+    let wrapper = mount(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
     wrapper.find('.ant-slider-handle').at(0).simulate('click');
     expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
-    wrapper = mount(<Slider defaultValue={30} tooltip={{ visible: false }} />);
+    wrapper = mount(<Slider defaultValue={30} tooltip={{ open: false }} />);
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
 
@@ -64,7 +64,7 @@ describe('Slider', () => {
         marks={marks}
         defaultValue={intentionallyWrongValue}
         step={null}
-        tooltip={{ visible: true }}
+        tooltip={{ open: true }}
       />,
     );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 48);
@@ -78,7 +78,7 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(
-      <Slider marks={marks} defaultValue={49} step={1} tooltip={{ visible: true }} />,
+      <Slider marks={marks} defaultValue={49} step={1} tooltip={{ open: true }} />,
     );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
@@ -91,7 +91,7 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(
-      <Slider marks={marks} defaultValue={49} step={undefined} tooltip={{ visible: true }} />,
+      <Slider marks={marks} defaultValue={49} step={undefined} tooltip={{ open: true }} />,
     );
     expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
@@ -99,7 +99,7 @@ describe('Slider', () => {
   it('should render in RTL direction', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
-        <Slider defaultValue={30} tooltip={{ visible: true }} />
+        <Slider defaultValue={30} tooltip={{ open: true }} />
       </ConfigProvider>,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -123,12 +123,12 @@ describe('Slider', () => {
 
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      mount(<Slider value={value} tooltip={{ visible: true }} />);
+      mount(<Slider value={value} tooltip={{ open: true }} />);
     });
   });
   it('step should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      mount(<Slider step={value} tooltip={{ visible: true }} />);
+      mount(<Slider step={value} tooltip={{ open: true }} />);
     });
   });
 });

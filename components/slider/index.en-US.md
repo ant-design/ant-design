@@ -43,7 +43,7 @@ To input a value in a range.
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| visible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering | boolean | - |  |
+| open | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering | boolean | - |  |
 | placement | Set Tooltip display position. Ref [Tooltip](/components/tooltip/) | string | - |  |
 | getPopupContainer | The DOM container of the Tooltip, the default behavior is to create a div element in body | (triggerNode) => HTMLElement | () => document.body |  |
 | formatter | Slider will pass its value to `formatter`, and display its value in Tooltip, and hide Tooltip when return value is null | value => ReactNode \| null | IDENTITY |  |
