@@ -459,7 +459,7 @@ describe('ConfigProvider', () => {
       if (myProps.prefixCls) {
         myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
       }
-      return <Slider tooltipVisible {...myProps} />;
+      return <Slider tooltip {...myProps} />;
     });
 
     // Spin
