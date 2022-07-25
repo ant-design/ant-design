@@ -1,8 +1,9 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const DrawerTest = ({ getContainer }) => (
@@ -17,19 +18,53 @@ describe('Drawer', () => {
   mountTest(Drawer);
   rtlTest(Drawer);
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  function triggerMotion() {
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    const mask = document.querySelector('.ant-drawer-mask');
+    if (mask) {
+      fireEvent.animationEnd(mask);
+    }
+
+    const panel = document.querySelector('.ant-drawer-content');
+    if (panel) {
+      fireEvent.animationEnd(panel);
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  }
+
   it('render correctly', () => {
     const { container: wrapper } = render(
       <Drawer visible width={400} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
+
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('getContainer return undefined', () => {
     const { container: wrapper, rerender } = render(<DrawerTest getContainer={() => undefined} />);
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
+
     rerender(<DrawerTest getContainer={false} />);
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -39,6 +74,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -48,6 +85,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -57,6 +96,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -66,15 +107,19 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose visible={false} className="test_drawer" getContainer={false}>
+      <Drawer destroyOnClose visible className="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -94,6 +139,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -103,6 +150,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -131,6 +180,8 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
+
+    triggerMotion();
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
@@ -146,16 +197,5 @@ describe('Drawer', () => {
     expect(errorSpy).not.toHaveBeenCalled();
 
     errorSpy.mockRestore();
-  });
-
-  it('should support ref', () => {
-    const ref = React.createRef();
-    render(
-      <Drawer visible ref={ref} width={400}>
-        Here is content of Drawer
-      </Drawer>,
-    );
-    expect(typeof ref.current.push).toBe('function');
-    expect(typeof ref.current.pull).toBe('function');
   });
 });

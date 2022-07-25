@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
 import glob from 'glob';
-import { render } from 'enzyme';
+import { render as enzymeRender } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import type { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
+import { render, act } from '../utils';
+import { TriggerMockContext } from './demoTestContext';
 
-export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
-
-type CheerIO = ReturnType<typeof render>;
+type CheerIO = ReturnType<typeof enzymeRender>;
 type CheerIOElement = CheerIO[0];
 // We should avoid use it in 4.0. Reopen if can not handle this.
 const USE_REPLACEMENT = false;
@@ -52,6 +51,7 @@ function ariaConvert(wrapper: CheerIO) {
 
 type Options = {
   skip?: boolean | string[];
+  testingLib?: boolean;
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
@@ -85,14 +85,29 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        const wrapper = render(Demo);
+        if (options?.testingLib) {
+          jest.useFakeTimers();
 
-        // Convert aria related content
-        ariaConvert(wrapper);
+          const { container } = render(Demo);
+          act(() => {
+            jest.runAllTimers();
+          });
 
-        expect(wrapper).toMatchSnapshot();
+          const { children } = container;
+          const child = children.length > 1 ? children : children[0];
+          expect(child).toMatchSnapshot();
+
+          jest.useRealTimers();
+        } else {
+          const wrapper = enzymeRender(Demo);
+
+          // Convert aria related content
+          ariaConvert(wrapper);
+
+          expect(wrapper).toMatchSnapshot();
+        }
+
         MockDate.reset();
-
         errSpy();
       },
     );
