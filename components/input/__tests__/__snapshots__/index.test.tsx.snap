@@ -364,22 +364,26 @@ exports[`Input should support size in form 1`] = `
   class="ant-form ant-form-horizontal ant-form-large"
 >
   <div
-    class="ant-row ant-form-item"
+    class="ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
-          <input
-            class="ant-input ant-input-lg"
-            type="text"
-            value=""
-          />
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-lg"
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
     </div>

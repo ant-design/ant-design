@@ -48,7 +48,7 @@ const App: React.FC = () => {
               </Select.Option>,
             );
           }
-          
+
           const year = value.year();
           const month = value.month();
           const options = [];
