@@ -57,7 +57,7 @@ Extends File with additional props.
 | crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
 | name | File name | string | - | - |
 | percent | Upload progress percent | number | - | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` | - | - |
+| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
 | thumbUrl | Thumb image url | string | - | - |
 | uid | unique id. Will auto generate when not provided | string | - | - |
 | url | Download url | string | - | - |
@@ -82,7 +82,7 @@ When uploading state change, it returns:
    {
       uid: 'uid',      // unique identifier, negative is recommend, to prevent interference with internal generated id
       name: 'xx.png',   // file name
-      status: 'done', // options：uploading, done, error. Intercepted file by beforeUpload don't have status field.
+      status: 'done', // options：uploading, done, error, removed. Intercepted file by beforeUpload don't have status field.
       response: '{"status": "success"}', // response from server
       linkProps: '{"download": "image"}', // additional html props of file link
       xhr: 'XMLHttpRequest{ ... }', // XMLHttpRequest Header
