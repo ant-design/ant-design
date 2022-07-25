@@ -1,6 +1,4 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
-import { fireEvent, render as testLibRender } from '@testing-library/react';
 import Radio from '..';
 
 import { render, fireEvent } from '../../../tests/utils';
@@ -240,7 +238,7 @@ describe('Radio Group', () => {
   it('onBlur & onFocus should work', () => {
     const handleBlur = jest.fn();
     const handleFocus = jest.fn();
-    const { container } = testLibRender(
+    const { container } = render(
       <Radio.Group options={['1', '2', '3']} onBlur={handleBlur} onFocus={handleFocus} />,
     );
     fireEvent.focus(container.firstChild);
