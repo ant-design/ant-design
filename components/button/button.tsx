@@ -189,8 +189,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   };
 
   // =============== Update Loading ===============
-  const loadingOrDelay: Loading =
-      typeof loading === 'boolean' ? loading : (loading?.delay || true);
+  const loadingOrDelay: Loading = typeof loading === 'boolean' ? loading : loading?.delay || true;
 
   React.useEffect(() => {
     let delayTimer: number | null = null;
