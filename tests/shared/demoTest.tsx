@@ -6,7 +6,7 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import type { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
-import { render } from '../utils';
+import { render, act } from '../utils';
 
 export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
 
@@ -88,10 +88,18 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         if (options?.testingLib) {
+          jest.useFakeTimers();
+
           const { container } = render(Demo);
+          act(() => {
+            jest.runAllTimers();
+          });
+
           const { children } = container;
           const child = children.length > 1 ? children : children[0];
           expect(child).toMatchSnapshot();
+
+          jest.useRealTimers();
         } else {
           const wrapper = enzymeRender(Demo);
 
