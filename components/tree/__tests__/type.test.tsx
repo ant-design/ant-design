@@ -1,6 +1,7 @@
 import type { BasicDataNode } from 'rc-tree';
 import * as React from 'react';
 import { render } from '../../../tests/utils';
+import type { DataNode } from '../index';
 import Tree from '../index';
 
 const { DirectoryTree } = Tree;
@@ -72,6 +73,27 @@ describe('Tree.TypeScript', () => {
       />,
     );
 
+    expect(container).toBeTruthy();
+  });
+
+  it('draggable params type', () => {
+    const { container } = render(
+      <Tree
+        treeData={[
+          {
+            title: 'Bamboo',
+            key: 'bamboo',
+            children: [
+              {
+                title: 'Little',
+                key: 'little',
+              },
+            ],
+          },
+        ]}
+        draggable={(node: DataNode) => node.title === 'Little'}
+      />,
+    );
     expect(container).toBeTruthy();
   });
 });

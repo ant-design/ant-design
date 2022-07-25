@@ -120,7 +120,7 @@ return <Menu items={items} />;
 #### SubMenuType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | 子菜单的菜单项 | [ItemType\[\]](#ItemType) | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - |  |
@@ -167,3 +167,14 @@ const dividerItem = {
 ### 为何 Menu 的子元素会渲染两次？
 
 Menu 通过[二次渲染](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543)收集嵌套结构信息以支持 HOC 的结构。合并成一个推导结构会使得逻辑变得十分复杂，欢迎 PR 以协助改进该设计。
+
+### 在 Flex 布局中，Menu 没有按照预期响应式省略菜单？
+
+Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于 Flex 布局中，你需要告知其预期宽度为响应式宽度（[在线 Demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)）：
+
+```jsx
+<div style={{ flex }}>
+  <div style={{ ... }}>Some Content</div>
+  <Menu style={{ minWidth: 0, flex: "auto" }} />
+</div>
+```
