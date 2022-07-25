@@ -4,11 +4,9 @@ import glob from 'glob';
 import { render as enzymeRender } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import type { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 import { render, act } from '../utils';
-
-export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);
+import { TriggerMockContext } from './demoTestContext';
 
 type CheerIO = ReturnType<typeof enzymeRender>;
 type CheerIOElement = CheerIO[0];
@@ -87,7 +85,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        if (options?.testingLib) {
+        if (options?.testingLib && false) {
           jest.useFakeTimers();
 
           const { container } = render(Demo);
