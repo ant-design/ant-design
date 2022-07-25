@@ -10,7 +10,7 @@ import DirectoryTree from './DirectoryTree';
 import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
 
-export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
