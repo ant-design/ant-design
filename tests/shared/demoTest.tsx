@@ -85,7 +85,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        if (options?.testingLib && false) {
+        if (options?.testingLib) {
           jest.useFakeTimers();
 
           const { container } = render(Demo);
