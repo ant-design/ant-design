@@ -173,8 +173,6 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer push />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    // const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    // expect(translateX).toEqual('translateX(-180px)');
     expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
       transform: 'translateX(-180px)',
     });
@@ -184,8 +182,6 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer push={false} />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    // const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    // expect(translateX).toEqual('');
     expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
       transform: '',
     });

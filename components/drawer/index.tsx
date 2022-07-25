@@ -80,7 +80,6 @@ function Drawer({
   visible,
   children,
   zIndex,
-  destroyOnClose,
   style,
   title,
   headerStyle,
