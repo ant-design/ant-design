@@ -7,6 +7,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
 import Wave from '../_util/wave';
+import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
 
 import useStyle from './style';
@@ -101,6 +102,12 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
     return null;
   };
+
+  warning(
+    !('visible' in props),
+    'Tag',
+    '`visible` is deprecated, you can use `visible && <Tag />` instead.',
+  );
 
   const isNeedWave =
     'onClick' in props || (children && (children as React.ReactElement<any>).type === 'a');
