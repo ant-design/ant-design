@@ -1665,9 +1665,9 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
           <div
             class="ant-space-item"
           >
-            <a
-              class="ant-typography"
-              style="white-space:nowrap"
+            <button
+              class="ant-btn ant-btn-text"
+              type="button"
             >
               <span
                 aria-label="plus"
@@ -1692,8 +1692,10 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
                   />
                 </svg>
               </span>
-               Add item
-            </a>
+              <span>
+                Add item
+              </span>
+            </button>
           </div>
         </div>
       </div>
