@@ -53,14 +53,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 
 继承自 File，附带额外属性用于渲染。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| name | 文件名 | string | - |
-| percent | 上传进度 | number | - |
-| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
-| thumbUrl | 缩略图地址 | string | - |
-| uid | 唯一标识符，不设置时会自动生成 | string | - |
-| url | 下载地址 | string | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
+| name | 文件名 | string | - | - |
+| percent | 上传进度 | number | - | - |
+| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| thumbUrl | 缩略图地址 | string | - | - |
+| uid | 唯一标识符，不设置时会自动生成 | string | - | - |
+| url | 下载地址 | string | - | - |
 
 ### onChange
 
@@ -114,3 +115,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 ### `onChange` 为什么有时候返回 File 有时候返回 { originFileObj: File }？
 
 历史原因，在 `beforeUpload` 返回 `false` 时，会返回 File 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 File 写法。你可以提前切换。
+
+### 为何有时 Chrome 点击 Upload 无法弹出文件选择框？
+
+与 antd 无关，原生上传也会失败。请重启 Chrome 浏览器，让其完成升级工作。相关 issue：
+
+- [#32672](https://github.com/ant-design/ant-design/issues/32672)
+- [#32913](https://github.com/ant-design/ant-design/issues/32913)
+- [#33988](https://github.com/ant-design/ant-design/issues/33988)

@@ -7,7 +7,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh-CN/) [AntV 数据可视化解决方案](https://antv.vision/zh) |
+| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh) [AntV 数据可视化解决方案](https://antv.vision/zh) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
@@ -39,6 +39,8 @@ title: 社区精选组件
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 水印 | [WaterMark](https://procomponents.ant.design/components/water-mark) |
+| 金额格式化 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
+| 应用程序框架 | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
 
 ## 推荐产品 ✨
 

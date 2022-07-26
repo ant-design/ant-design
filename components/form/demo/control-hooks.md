@@ -18,7 +18,8 @@ Call form method with `Form.useForm`.
 > Note that `useForm` is a [React Hooks](https://reactjs.org/docs/hooks-intro.html) that only works in functional component.
 
 ```tsx
-import { Form, Input, Button, Select } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -30,7 +31,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onGenderChange = (value: string) => {
@@ -104,7 +105,7 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```
 
 ```css

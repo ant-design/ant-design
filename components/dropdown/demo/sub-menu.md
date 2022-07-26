@@ -13,35 +13,72 @@ title:
 
 The menu has multiple levels.
 
-```jsx
-import { Menu, Dropdown } from 'antd';
+```tsx
 import { DownOutlined } from '@ant-design/icons';
-
-const { SubMenu } = Menu;
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
-  <Menu>
-    <Menu.ItemGroup title="Group title">
-      <Menu.Item>1st menu item</Menu.Item>
-      <Menu.Item>2nd menu item</Menu.Item>
-    </Menu.ItemGroup>
-    <SubMenu title="sub menu">
-      <Menu.Item>3rd menu item</Menu.Item>
-      <Menu.Item>4th menu item</Menu.Item>
-    </SubMenu>
-    <SubMenu title="disabled sub menu" disabled>
-      <Menu.Item>5d menu item</Menu.Item>
-      <Menu.Item>6th menu item</Menu.Item>
-    </SubMenu>
-  </Menu>
+  <Menu
+    items={[
+      {
+        key: '1',
+        type: 'group',
+        label: 'Group title',
+        children: [
+          {
+            key: '1-1',
+            label: '1st menu item',
+          },
+          {
+            key: '1-2',
+            label: '2nd menu item',
+          },
+        ],
+      },
+      {
+        key: '2',
+        label: 'sub menu',
+        children: [
+          {
+            key: '2-1',
+            label: '3rd menu item',
+          },
+          {
+            key: '2-2',
+            label: '4th menu item',
+          },
+        ],
+      },
+      {
+        key: '3',
+        label: 'disabled sub menu',
+        disabled: true,
+        children: [
+          {
+            key: '3-1',
+            label: '5d menu item',
+          },
+          {
+            key: '3-2',
+            label: '6th menu item',
+          },
+        ],
+      },
+    ]}
+  />
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Cascading menu <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Cascading menu
+        <DownOutlined />
+      </Space>
     </a>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
+
+export default App;
 ```

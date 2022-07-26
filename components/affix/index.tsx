@@ -1,16 +1,17 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 import {
   addObserveTarget,
-  removeObserveTarget,
-  getTargetRect,
-  getFixedTop,
   getFixedBottom,
+  getFixedTop,
+  getTargetRect,
+  removeObserveTarget,
 } from './utils';
 
 function getDefaultTarget() {
@@ -33,7 +34,7 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-export interface InternalAffixProps extends AffixProps {
+interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
 }
 
@@ -295,6 +296,8 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     );
   }
 }
+// just use in test
+export type InternalAffixClass = Affix;
 
 const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
@@ -302,13 +305,13 @@ const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
 
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
-  const AffixProps: InternalAffixProps = {
+  const affixProps: InternalAffixProps = {
     ...props,
 
     affixPrefixCls,
   };
 
-  return <Affix {...AffixProps} ref={ref} />;
+  return <Affix {...affixProps} ref={ref} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {

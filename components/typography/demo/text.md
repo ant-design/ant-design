@@ -13,12 +13,13 @@ title:
 
 Provides multiple types of text and link.
 
-```jsx
-import { Typography, Space } from 'antd';
+```tsx
+import { Space, Typography } from 'antd';
+import React from 'react';
 
 const { Text, Link } = Typography;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
@@ -36,7 +37,8 @@ ReactDOM.render(
     <Link href="https://ant.design" target="_blank">
       Ant Design (Link)
     </Link>
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

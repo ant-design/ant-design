@@ -15,18 +15,21 @@ debug: true
 config by ConfigProvider.
 
 ```tsx
-import React, { useState, useRef } from 'react';
-import { Drawer, ConfigProvider, Button } from 'antd';
+import { Button, ConfigProvider, Drawer } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
   const showDrawer = () => {
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <ConfigProvider getPopupContainer={() => domRef.current!}>
       <div ref={domRef} className="site-drawer-render-in-current-wrapper">
@@ -49,5 +52,5 @@ const App: React.FC = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

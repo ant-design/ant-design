@@ -13,17 +13,19 @@ title:
 
 Use `type="vertical"` make it vertical.
 
-```jsx
+```tsx
 import { Divider } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     Text
     <Divider type="vertical" />
     <a href="#">Link</a>
     <Divider type="vertical" />
     <a href="#">Link</a>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -4,8 +4,14 @@ on:
   schedule:
     - cron: "0 0 */15 * *"
 
+permissions:
+  contents: read
+
 jobs:
   issue-check-inactive:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
     runs-on: ubuntu-latest
     steps:
       - name: check-inactive

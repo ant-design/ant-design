@@ -24,16 +24,17 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 ```tsx
 import { SmileOutlined } from '@ant-design/icons';
 import {
+  Cascader,
+  DatePicker,
   Form,
   Input,
-  DatePicker,
-  TimePicker,
-  Select,
-  Cascader,
   InputNumber,
   Mentions,
+  Select,
+  TimePicker,
   TreeSelect,
 } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -48,7 +49,7 @@ const formItemLayout = {
   },
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -94,6 +95,10 @@ ReactDOM.render(
 
     <Form.Item label="Warning" hasFeedback validateStatus="warning">
       <TimePicker style={{ width: '100%' }} />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <DatePicker.RangePicker style={{ width: '100%' }} />
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
@@ -162,7 +167,8 @@ ReactDOM.render(
     <Form.Item label="Fail" validateStatus="error" hasFeedback help="Should have something">
       <Input.TextArea allowClear showCount />
     </Form.Item>
-  </Form>,
-  mountNode,
+  </Form>
 );
+
+export default App;
 ```

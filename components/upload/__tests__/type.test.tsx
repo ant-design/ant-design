@@ -1,5 +1,6 @@
 import React from 'react';
-import Upload, { UploadProps } from '..';
+import type { UploadProps } from '..';
+import Upload from '..';
 
 describe('Upload.typescript', () => {
   it('Upload', () => {
@@ -28,6 +29,20 @@ describe('Upload.typescript', () => {
 
     const upload = (
       <Upload<IFile> onChange={({ file }) => file.response?.customFile}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
+  it('onChange fileList', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const upload = (
+      <Upload<IFile> onChange={({ fileList }) => fileList.map(file => file.response?.customFile)}>
         <span>click to upload</span>
       </Upload>
     );

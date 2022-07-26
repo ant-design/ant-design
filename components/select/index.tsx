@@ -1,18 +1,24 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import type { SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { BaseSelectRef, OptGroup, Option } from 'rc-select';
 import { OptionProps } from 'rc-select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { FormItemInputContext } from '../form/context';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -32,6 +38,7 @@ export interface InternalSelectProps<
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
   bordered?: boolean;
 }
@@ -61,6 +68,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     placement,
     listItemHeight = 24,
     size: customizeSize,
+    disabled: customDisabled,
     notFoundContent,
     status: customStatus,
     showArrow,
@@ -99,8 +107,13 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const mergedShowArrow =
     showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
 
-  // ===================== Validation Status =====================
-  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  // ===================== Form Status =====================
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -110,32 +123,38 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    status: mergedStatus,
     hasFeedback,
+    feedbackIcon,
     showArrow: mergedShowArrow,
     prefixCls,
   });
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+  const rcSelectRtlDropdownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
   const mergedSize = customizeSize || size;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const mergedClassName = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
@@ -175,8 +194,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={rcSelectRtlDropDownClassName}
+      dropdownClassName={rcSelectRtlDropdownClassName}
       showArrow={hasFeedback || showArrow}
+      disabled={mergedDisabled}
     />
   );
 };

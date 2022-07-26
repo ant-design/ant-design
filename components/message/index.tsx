@@ -1,19 +1,17 @@
-import * as React from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RCNotification from 'rc-notification';
-import {
-  NotificationInstance as RCNotificationInstance,
+import type {
   NoticeContent,
+  NotificationInstance as RCNotificationInstance,
 } from 'rc-notification/lib/Notification';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import createUseMessage from './hooks/useMessage';
+import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
-
-export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+import createUseMessage from './hooks/useMessage';
 
 let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;
@@ -128,10 +126,15 @@ const typeToIcon = {
   warning: ExclamationCircleFilled,
   loading: LoadingOutlined,
 };
+
+export type NoticeType = keyof typeof typeToIcon;
+
+export const typeList = Object.keys(typeToIcon) as NoticeType[];
+
 export interface ArgsProps {
-  content: React.ReactNode;
+  content: any;
   duration?: number;
-  type: NoticeType;
+  type?: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -149,7 +152,7 @@ function getRCNoticeProps(
   iconPrefixCls?: string,
 ): NoticeContent {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const IconComponent = typeToIcon[args.type];
+  const IconComponent = typeToIcon[args.type!];
   const messageClass = classNames(`${prefixCls}-custom-content`, {
     [`${prefixCls}-${args.type}`]: args.type,
     [`${prefixCls}-rtl`]: rtl === true,
@@ -247,9 +250,7 @@ export function attachTypeApi(originalApi: MessageApi, type: NoticeType) {
   };
 }
 
-(['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
-  attachTypeApi(api, type),
-);
+typeList.forEach(type => attachTypeApi(api, type));
 
 api.warn = api.warning;
 api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);

@@ -45,7 +45,7 @@ Tree selection control.
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
-| switcherIcon | customize collapse \| expand icon of tree node | ReactNode | - |  |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
@@ -53,8 +53,10 @@ Tree selection control.
 | treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | boolean \| object&lt;{ id: string, pId: string, rootPId: string }> | false |  |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
+| treeExpandAction | Tree title open logic when click, optional: false \| `click` \| `doubleClick` | string \| boolean | false | 4.21.0 |
 | treeExpandedKeys | Set expanded keys | string\[] | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
+| treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] |  |
 | treeLine | Show the line. Ref [Tree - showLine](/components/tree/#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |

@@ -1,16 +1,19 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useState from 'rc-util/lib/hooks/useState';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
+import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
-import { TagType } from '../tag';
-import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
-import Avatar, { AvatarProps } from '../avatar';
-import Space from '../space';
-import TransButton from '../_util/transButton';
+import useState from 'rc-util/lib/hooks/useState';
+import * as React from 'react';
+import type { AvatarProps } from '../avatar';
+import Avatar from '../avatar';
+import type { BreadcrumbProps } from '../breadcrumb';
+import Breadcrumb from '../breadcrumb';
+import type { ConfigConsumerProps, DirectionType } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import Space from '../space';
+import type { TagType } from '../tag';
+import TransButton from '../_util/transButton';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -27,6 +30,7 @@ export interface PageHeaderProps {
   onBack?: (e?: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
   ghost?: boolean;
+  children?: React.ReactNode;
 }
 
 const renderBack = (
@@ -163,7 +167,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
 
         const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
-        //  support breadcrumbRender function
+        // support breadcrumbRender function
         const breadcrumbRenderDomFromProps =
           breadcrumbRender?.(props, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
 

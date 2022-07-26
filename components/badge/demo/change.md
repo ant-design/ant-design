@@ -13,66 +13,62 @@ title:
 
 The count will be animated as it changes.
 
-```jsx
-import { Badge, Button, Switch, Divider, Avatar } from 'antd';
+```tsx
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Button, Divider, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const ButtonGroup = Button.Group;
 
-class Demo extends React.Component {
-  state = {
-    count: 5,
-    show: true,
+const App: React.FC = () => {
+  const [count, setCount] = useState(5);
+  const [show, setShow] = useState(true);
+
+  const increase = () => {
+    setCount(count + 1);
   };
 
-  increase = () => {
-    const count = this.state.count + 1;
-    this.setState({ count });
-  };
-
-  decline = () => {
-    let count = this.state.count - 1;
-    if (count < 0) {
-      count = 0;
+  const decline = () => {
+    let newCount = count - 1;
+    if (newCount < 0) {
+      newCount = 0;
     }
-    this.setState({ count });
+    setCount(newCount);
   };
 
-  random = () => {
-    const count = Math.floor(Math.random() * 100);
-    this.setState({ count });
+  const random = () => {
+    const newCount = Math.floor(Math.random() * 100);
+    setCount(newCount);
   };
 
-  onChange = show => {
-    this.setState({ show });
+  const onChange = (checked: boolean) => {
+    setShow(checked);
   };
 
-  render() {
-    return (
-      <>
-        <Badge count={this.state.count}>
-          <Avatar shape="square" size="large" />
-        </Badge>
-        <ButtonGroup>
-          <Button onClick={this.decline}>
-            <MinusOutlined />
-          </Button>
-          <Button onClick={this.increase}>
-            <PlusOutlined />
-          </Button>
-          <Button onClick={this.random}>
-            <QuestionOutlined />
-          </Button>
-        </ButtonGroup>
-        <Divider />
-        <Badge dot={this.state.show}>
-          <Avatar shape="square" size="large" />
-        </Badge>
-        <Switch onChange={this.onChange} checked={this.state.show} />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Badge count={count}>
+        <Avatar shape="square" size="large" />
+      </Badge>
+      <ButtonGroup>
+        <Button onClick={decline}>
+          <MinusOutlined />
+        </Button>
+        <Button onClick={increase}>
+          <PlusOutlined />
+        </Button>
+        <Button onClick={random}>
+          <QuestionOutlined />
+        </Button>
+      </ButtonGroup>
+      <Divider />
+      <Badge dot={show}>
+        <Avatar shape="square" size="large" />
+      </Badge>
+      <Switch onChange={onChange} checked={show} />
+    </>
+  );
+};
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

@@ -24,9 +24,12 @@
     color: @error-color;
 
     a&:active,
-    a&:focus,
+    a&:focus {
+      color: @error-color-active;
+    }
+
     a&:hover {
-      color: ~`colorPalette('@{error-color}', 5) `;
+      color: @error-color-hover;
     }
   }
 
@@ -217,6 +220,9 @@
 
     // Fix Editable Textarea flash in Firefox
     textarea {
+      // https://stackoverflow.com/a/7695964/3040605
+      height: 1em;
+      margin: 0 !important;
       /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
     }

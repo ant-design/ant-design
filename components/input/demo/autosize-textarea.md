@@ -13,42 +13,33 @@ title:
 
 `autoSize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content. An option object can be provided to `autoSize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
 
-```jsx
+```tsx
 import { Input } from 'antd';
+import React, { useState } from 'react';
 
 const { TextArea } = Input;
 
-class Demo extends React.Component {
-  state = {
-    value: '',
-  };
+const App: React.FC = () => {
+  const [value, setValue] = useState('');
 
-  onChange = ({ target: { value } }) => {
-    this.setState({ value });
-  };
+  return (
+    <>
+      <TextArea placeholder="Autosize height based on content lines" autoSize />
+      <div style={{ margin: '24px 0' }} />
+      <TextArea
+        placeholder="Autosize height with minimum and maximum number of lines"
+        autoSize={{ minRows: 2, maxRows: 6 }}
+      />
+      <div style={{ margin: '24px 0' }} />
+      <TextArea
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        placeholder="Controlled autosize"
+        autoSize={{ minRows: 3, maxRows: 5 }}
+      />
+    </>
+  );
+};
 
-  render() {
-    const { value } = this.state;
-
-    return (
-      <>
-        <TextArea placeholder="Autosize height based on content lines" autoSize />
-        <div style={{ margin: '24px 0' }} />
-        <TextArea
-          placeholder="Autosize height with minimum and maximum number of lines"
-          autoSize={{ minRows: 2, maxRows: 6 }}
-        />
-        <div style={{ margin: '24px 0' }} />
-        <TextArea
-          value={value}
-          onChange={this.onChange}
-          placeholder="Controlled autosize"
-          autoSize={{ minRows: 3, maxRows: 5 }}
-        />
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

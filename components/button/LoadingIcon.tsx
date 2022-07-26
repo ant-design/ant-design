@@ -1,6 +1,6 @@
-import React from 'react';
-import CSSMotion from 'rc-motion';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CSSMotion from 'rc-motion';
+import React from 'react';
 
 export interface LoadingIconProps {
   prefixCls: string;

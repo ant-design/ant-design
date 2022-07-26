@@ -13,69 +13,57 @@ title:
 
 async
 
-```jsx
+```tsx
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
+import React, { useCallback, useRef, useState } from 'react';
 
 const { Option } = Mentions;
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
+  const ref = useRef<string>();
 
-class AsyncMention extends React.Component {
-  constructor() {
-    super();
-
-    this.loadGithubUsers = debounce(this.loadGithubUsers, 800);
-  }
-
-  state = {
-    search: '',
-    loading: false,
-    users: [],
-  };
-
-  onSearch = search => {
-    this.setState({ search, loading: !!search, users: [] });
-    console.log('Search:', search);
-    this.loadGithubUsers(search);
-  };
-
-  loadGithubUsers(key) {
+  const loadGithubUsers = (key: string) => {
     if (!key) {
-      this.setState({
-        users: [],
-      });
+      setUsers([]);
       return;
     }
 
     fetch(`https://api.github.com/search/users?q=${key}`)
       .then(res => res.json())
       .then(({ items = [] }) => {
-        const { search } = this.state;
-        if (search !== key) return;
+        if (ref.current !== key) return;
 
-        this.setState({
-          users: items.slice(0, 10),
-          loading: false,
-        });
+        setLoading(false);
+        setUsers(items.slice(0, 10));
       });
-  }
+  };
 
-  render() {
-    const { users, loading } = this.state;
+  const debounceLoadGithubUsers = useCallback(debounce(loadGithubUsers, 800), []);
 
-    return (
-      <Mentions style={{ width: '100%' }} loading={loading} onSearch={this.onSearch}>
-        {users.map(({ login, avatar_url: avatar }) => (
-          <Option key={login} value={login} className="antd-demo-dynamic-option">
-            <img src={avatar} alt={login} />
-            <span>{login}</span>
-          </Option>
-        ))}
-      </Mentions>
-    );
-  }
-}
+  const onSearch = (search: string) => {
+    console.log('Search:', search);
+    ref.current = search;
+    setLoading(!!search);
+    setUsers([]);
 
-ReactDOM.render(<AsyncMention />, mountNode);
+    debounceLoadGithubUsers(search);
+  };
+
+  return (
+    <Mentions style={{ width: '100%' }} loading={loading} onSearch={onSearch}>
+      {users.map(({ login, avatar_url: avatar }) => (
+        <Option key={login} value={login} className="antd-demo-dynamic-option">
+          <img src={avatar} alt={login} />
+          <span>{login}</span>
+        </Option>
+      ))}
+    </Mentions>
+  );
+};
+
+export default App;
 ```
 
 <style>

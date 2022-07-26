@@ -13,9 +13,12 @@ title:
 
 A disabled state of the `TimePicker`.
 
-```jsx
+```tsx
 import { TimePicker } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
-ReactDOM.render(<TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />, mountNode);
+const App: React.FC = () => <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />;
+
+export default App;
 ```

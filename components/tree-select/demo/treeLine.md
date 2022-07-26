@@ -14,13 +14,14 @@ title:
 Use `treeLine` to show the line style.
 
 ```tsx
-import { TreeSelect, Switch, Space } from 'antd';
+import { Space, Switch, TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const { TreeNode } = TreeSelect;
 
-const Demo = () => {
-  const [treeLine, setTreeLine] = React.useState(true);
-  const [showLeafIcon, setShowLeafIcon] = React.useState(false);
+const App: React.FC = () => {
+  const [treeLine, setTreeLine] = useState(true);
+  const [showLeafIcon, setShowLeafIcon] = useState(false);
 
   return (
     <Space direction="vertical">
@@ -52,5 +53,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

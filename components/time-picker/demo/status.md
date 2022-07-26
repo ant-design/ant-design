@@ -15,14 +15,17 @@ title:
 Add status to TimePicker with `status`, which could be `error` or `warning`.
 
 ```tsx
-import { TimePicker, Space } from 'antd';
+import { Space, TimePicker } from 'antd';
+import React from 'react';
 
-const Status: React.FC = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <TimePicker status="error" />
     <TimePicker status="warning" />
+    <TimePicker.RangePicker status="error" />
+    <TimePicker.RangePicker status="warning" />
   </Space>
 );
 
-ReactDOM.render(<Status />, mountNode);
+export default App;
 ```

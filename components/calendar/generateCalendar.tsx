@@ -1,19 +1,19 @@
-import * as React from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import { Locale } from 'rc-picker/lib/interface';
-import { GenerateConfig } from 'rc-picker/lib/generate';
-import {
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { Locale } from 'rc-picker/lib/interface';
+import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import enUS from './locale/en_US';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import CalendarHeader from './Header';
+import enUS from './locale/en_US';
 
 type InjectDefaultProps<Props> = Omit<
   Props,

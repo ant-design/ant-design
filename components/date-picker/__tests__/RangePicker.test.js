@@ -1,11 +1,11 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import React from 'react';
 import DatePicker from '..';
-import { setMockDate, resetMockDate } from '../../../tests/utils';
-import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import { resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
+import { closePicker, openPicker, selectCell } from './utils';
 
 const { RangePicker } = DatePicker;
 
@@ -70,9 +70,7 @@ describe('RangePicker', () => {
       openPicker(wrapper, 1);
       selectCell(wrapper, 'Feb');
       closePicker(wrapper, 1);
-
-      const { value } = wrapper.state();
-
+      const { value } = wrapper.find(Test).state();
       expect(value[0].isSame(value[1], 'date')).toBeTruthy();
     });
   });

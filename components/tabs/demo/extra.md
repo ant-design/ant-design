@@ -13,8 +13,9 @@ title:
 
 You can add extra actions to the right or left or even both side of Tabs.
 
-```jsx
-import { Tabs, Button, Divider, Checkbox } from 'antd';
+```tsx
+import { Button, Checkbox, Divider, Tabs } from 'antd';
+import React, { useMemo, useState } from 'react';
 
 const { TabPane } = Tabs;
 
@@ -22,17 +23,19 @@ const CheckboxGroup = Checkbox.Group;
 
 const operations = <Button>Extra Action</Button>;
 
-const OperationsSlot = {
+const OperationsSlot: Record<PositionType, React.ReactNode> = {
   left: <Button className="tabs-extra-demo-button">Left Extra Action</Button>,
   right: <Button>Right Extra Action</Button>,
 };
 
 const options = ['left', 'right'];
 
-const Demo = () => {
-  const [position, setPosition] = React.useState(['left', 'right']);
+type PositionType = 'left' | 'right';
 
-  const slot = React.useMemo(() => {
+const App: React.FC = () => {
+  const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
+
+  const slot = useMemo(() => {
     if (position.length === 0) return null;
 
     return position.reduce(
@@ -63,7 +66,7 @@ const Demo = () => {
         options={options}
         value={position}
         onChange={value => {
-          setPosition(value);
+          setPosition(value as PositionType[]);
         }}
       />
       <br />
@@ -83,7 +86,7 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```
 
 ```css

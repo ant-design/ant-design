@@ -14,13 +14,13 @@ title:
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
 ```tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { VariableSizeGrid as Grid } from 'react-window';
-import ResizeObserver from 'rc-resize-observer';
-import classNames from 'classnames';
 import { Table } from 'antd';
+import classNames from 'classnames';
+import ResizeObserver from 'rc-resize-observer';
+import React, { useEffect, useRef, useState } from 'react';
+import { VariableSizeGrid as Grid } from 'react-window';
 
-function VirtualTable(props: Parameters<typeof Table>[0]) {
+const VirtualTable = (props: Parameters<typeof Table>[0]) => {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
 
@@ -40,7 +40,12 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
   const [connectObject] = useState<any>(() => {
     const obj = {};
     Object.defineProperty(obj, 'scrollLeft', {
-      get: () => null,
+      get: () => {
+        if (gridRef.current) {
+          return gridRef.current?.state?.scrollLeft;
+        }
+        return null;
+      },
       set: (scrollLeft: number) => {
         if (gridRef.current) {
           gridRef.current.scrollTo({ scrollLeft });
@@ -122,7 +127,7 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
       />
     </ResizeObserver>
   );
-}
+};
 
 // Usage
 const columns = [
@@ -136,10 +141,11 @@ const columns = [
 
 const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
 
-ReactDOM.render(
-  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />,
-  mountNode,
+const App: React.FC = () => (
+  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />
 );
+
+export default App;
 ```
 
 <style>

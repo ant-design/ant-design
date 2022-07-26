@@ -14,12 +14,13 @@ debug: true
 
 Display the title and paragraph.
 
-```jsx
+```tsx
 import { Typography } from 'antd';
+import React from 'react';
 
 const { Title, Paragraph, Text } = Typography;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Title>Introduction</Title>
     <Paragraph>
@@ -110,7 +111,8 @@ ReactDOM.render(
         </li>
       </ol>
     </Paragraph>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

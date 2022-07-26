@@ -13,26 +13,29 @@ title:
 
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
-```jsx
+```tsx
 import { Checkbox, Divider } from 'antd';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import React, { useState } from 'react';
 
 const CheckboxGroup = Checkbox.Group;
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const defaultCheckedList = ['Apple', 'Orange'];
 
-const App = () => {
-  const [checkedList, setCheckedList] = React.useState(defaultCheckedList);
-  const [indeterminate, setIndeterminate] = React.useState(true);
-  const [checkAll, setCheckAll] = React.useState(false);
+const App: React.FC = () => {
+  const [checkedList, setCheckedList] = useState<CheckboxValueType[]>(defaultCheckedList);
+  const [indeterminate, setIndeterminate] = useState(true);
+  const [checkAll, setCheckAll] = useState(false);
 
-  const onChange = list => {
+  const onChange = (list: CheckboxValueType[]) => {
     setCheckedList(list);
     setIndeterminate(!!list.length && list.length < plainOptions.length);
     setCheckAll(list.length === plainOptions.length);
   };
 
-  const onCheckAllChange = e => {
+  const onCheckAllChange = (e: CheckboxChangeEvent) => {
     setCheckedList(e.target.checked ? plainOptions : []);
     setIndeterminate(false);
     setCheckAll(e.target.checked);
@@ -49,5 +52,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

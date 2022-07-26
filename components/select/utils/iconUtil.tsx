@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { ReactNode } from 'react';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import { ValidateStatus } from '../../form/FormItem';
-import { getFeedbackIcon } from '../../_util/statusUtils';
+import type { ReactNode } from 'react';
+import * as React from 'react';
+
+type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
 export default function getIcons({
   suffixIcon,
@@ -17,18 +17,18 @@ export default function getIcons({
   loading,
   multiple,
   hasFeedback,
-  status,
   prefixCls,
   showArrow,
+  feedbackIcon,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: React.ReactNode;
-  menuItemSelectedIcon?: React.ReactNode;
-  removeIcon?: React.ReactNode;
+  clearIcon?: RenderNode;
+  menuItemSelectedIcon?: RenderNode;
+  removeIcon?: RenderNode;
   loading?: boolean;
   multiple?: boolean;
   hasFeedback?: boolean;
-  status?: ValidateStatus;
+  feedbackIcon?: ReactNode;
   prefixCls: string;
   showArrow?: boolean;
 }) {
@@ -42,7 +42,7 @@ export default function getIcons({
   const getSuffixIconNode = (arrowIcon?: ReactNode) => (
     <>
       {showArrow !== false && arrowIcon}
-      {hasFeedback && getFeedbackIcon(prefixCls, status)}
+      {hasFeedback && feedbackIcon}
     </>
   );
 

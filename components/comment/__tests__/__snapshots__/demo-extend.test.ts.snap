@@ -41,7 +41,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -104,7 +104,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -156,7 +156,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -215,45 +215,53 @@ exports[`renders ./components/comment/demo/editor.md extend context correctly 1`
         class="ant-comment-content-detail"
       >
         <div
-          class="ant-row ant-form-item"
+          class="ant-form-item"
         >
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-row ant-form-item-row"
           >
             <div
-              class="ant-form-item-control-input"
+              class="ant-col ant-form-item-control"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item-control-input"
               >
-                <textarea
-                  class="ant-input"
-                  rows="4"
-                />
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <textarea
+                    class="ant-input"
+                    rows="4"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-row ant-form-item"
+          class="ant-form-item"
         >
           <div
-            class="ant-col ant-form-item-control"
+            class="ant-row ant-form-item-row"
           >
             <div
-              class="ant-form-item-control-input"
+              class="ant-col ant-form-item-control"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item-control-input"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="submit"
+                <div
+                  class="ant-form-item-control-input-content"
                 >
-                  <span>
-                    Add Comment
-                  </span>
-                </button>
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="submit"
+                  >
+                    <span>
+                      Add Comment
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -317,7 +325,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -395,7 +403,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"

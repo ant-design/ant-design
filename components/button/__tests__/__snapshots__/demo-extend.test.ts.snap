@@ -83,6 +83,191 @@ Array [
 ]
 `;
 
+exports[`renders ./components/button/demo/chinese-chars-loading.md extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      部 署
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    部署
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      部署
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    Submit
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    部署
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      按 钮
+    </span>
+  </button>,
+]
+`;
+
 exports[`renders ./components/button/demo/danger.md extend context correctly 1`] = `
 Array [
   <button
@@ -365,7 +550,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -448,7 +633,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -524,7 +709,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -599,7 +784,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -700,7 +885,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -783,7 +968,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -859,7 +1044,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -934,7 +1119,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1016,7 +1201,7 @@ Array [
       class="ant-btn-group ant-btn-group-sm"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -1024,7 +1209,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -1036,7 +1221,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -1065,7 +1250,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1087,7 +1272,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1113,7 +1298,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1191,7 +1376,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1239,7 +1424,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1268,7 +1453,7 @@ Array [
       class="ant-btn-group ant-btn-group-lg"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -1276,7 +1461,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -1288,7 +1473,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -1317,7 +1502,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1339,7 +1524,7 @@ Array [
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1365,7 +1550,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1639,7 +1824,7 @@ Array [
     <div>
       <div
         class="ant-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1661,7 +1846,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1694,7 +1879,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1727,7 +1912,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1754,7 +1939,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1776,7 +1961,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1798,7 +1983,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"

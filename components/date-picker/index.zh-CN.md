@@ -40,7 +40,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
+import locale from 'antd/es/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
@@ -184,9 +184,9 @@ import locale from 'antd/lib/locale/zh_CN';
 
 请参考[《替换 Moment.js》](/docs/react/replace-moment#DatePicker)
 
-### 为何全局修改 moment.locale 不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？
 
-v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `locale` 属性来单独设置，也可以通过 [ConfigProvider `locale`](/components/config-provider) 属性来配置。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
 
 ### 如何修改周的起始日？
 

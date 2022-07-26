@@ -13,13 +13,15 @@ title:
 
 Set `okText` and `cancelText` props to customize the button's labels.
 
-```jsx
+```tsx
 import { Popconfirm } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
     <a href="#">Delete</a>
-  </Popconfirm>,
-  mountNode,
+  </Popconfirm>
 );
+
+export default App;
 ```

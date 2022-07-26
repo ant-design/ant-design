@@ -13,19 +13,22 @@ title:
 
 Jump to a page directly.
 
-```jsx
+```tsx
+import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
+import React from 'react';
 
-function onChange(pageNumber) {
+const onChange: PaginationProps['onChange'] = pageNumber => {
   console.log('Page: ', pageNumber);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
     <br />
     <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

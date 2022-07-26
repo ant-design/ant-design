@@ -13,31 +13,35 @@ title:
 
 A example shows how to select a dynamic range by using `onCalendarChange` and `disabledDate`.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
 import { DatePicker } from 'antd';
+import type { Moment } from 'moment';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App = () => {
-  const [dates, setDates] = useState([]);
-  const [hackValue, setHackValue] = useState();
-  const [value, setValue] = useState();
-  const disabledDate = current => {
-    if (!dates || dates.length === 0) {
+type RangeValue = [Moment | null, Moment | null] | null;
+
+const App: React.FC = () => {
+  const [dates, setDates] = useState<RangeValue>(null);
+  const [hackValue, setHackValue] = useState<RangeValue>(null);
+  const [value, setValue] = useState<RangeValue>(null);
+
+  const disabledDate = (current: Moment) => {
+    if (!dates) {
       return false;
     }
     const tooLate = dates[0] && current.diff(dates[0], 'days') > 7;
     const tooEarly = dates[1] && dates[1].diff(current, 'days') > 7;
-    return tooEarly || tooLate;
+    return !!tooEarly || !!tooLate;
   };
 
-  const onOpenChange = open => {
+  const onOpenChange = (open: boolean) => {
     if (open) {
-      setHackValue([]);
-      setDates([]);
+      setHackValue([null, null]);
+      setDates([null, null]);
     } else {
-      setHackValue(undefined);
+      setHackValue(null);
     }
   };
 
@@ -52,5 +56,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

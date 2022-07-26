@@ -50,11 +50,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义样式 | CSSProperties | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| tagRender | 自定义 tag 内容，多选时生效 | (props) => ReactNode | - | 4.17.0 |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
+| showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
