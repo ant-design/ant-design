@@ -72,6 +72,15 @@ const ListItem = React.forwardRef(
     }: ListItemProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
+    // Status: which will ignore `removed` status
+    const { status } = file;
+    const [mergedStatus, setMergedStatus] = React.useState(status);
+    React.useEffect(() => {
+      if (status !== 'removed') {
+        setMergedStatus(status);
+      }
+    }, [status]);
+
     // Delay to show the progress bar
     const [showProgress, setShowProgress] = React.useState(false);
     const progressRafRef = React.useRef<any>();
@@ -92,10 +101,10 @@ const ListItem = React.forwardRef(
     const iconNode = iconRender(file);
     let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card') {
-      if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
+      if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
         const uploadingClassName = classNames({
           [`${prefixCls}-list-item-thumbnail`]: true,
-          [`${prefixCls}-list-item-file`]: file.status !== 'uploading',
+          [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;
       } else {
@@ -129,7 +138,7 @@ const ListItem = React.forwardRef(
 
     const infoUploadingClass = classNames({
       [`${prefixCls}-list-item`]: true,
-      [`${prefixCls}-list-item-${file.status}`]: true,
+      [`${prefixCls}-list-item-${mergedStatus}`]: true,
       [`${prefixCls}-list-item-list-type-${listType}`]: true,
     });
     const linkProps =
@@ -147,7 +156,7 @@ const ListItem = React.forwardRef(
       : null;
 
     const downloadIcon =
-      showDownloadIcon && file.status === 'done'
+      showDownloadIcon && mergedStatus === 'done'
         ? actionIconRender(
             (typeof customDownloadIcon === 'function'
               ? customDownloadIcon(file)
@@ -215,10 +224,10 @@ const ListItem = React.forwardRef(
       </a>
     ) : null;
 
-    const actions = listType === 'picture-card' && file.status !== 'uploading' && (
+    const actions = listType === 'picture-card' && mergedStatus !== 'uploading' && (
       <span className={`${prefixCls}-list-item-actions`}>
         {previewIcon}
-        {file.status === 'done' && downloadIcon}
+        {mergedStatus === 'done' && downloadIcon}
         {removeIcon}
       </span>
     );
@@ -245,7 +254,7 @@ const ListItem = React.forwardRef(
         {showProgress && (
           <CSSMotion
             motionName={`${rootPrefixCls}-fade`}
-            visible={file.status === 'uploading'}
+            visible={mergedStatus === 'uploading'}
             motionDeadline={2000}
           >
             {({ className: motionClassName }) => {
@@ -267,7 +276,7 @@ const ListItem = React.forwardRef(
     );
     const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
     const item =
-      file.status === 'error' ? (
+      mergedStatus === 'error' ? (
         <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
           {dom}
         </Tooltip>
