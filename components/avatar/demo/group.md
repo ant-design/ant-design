@@ -64,6 +64,26 @@ const App: React.FC = () => (
       </Tooltip>
       <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} />
     </Avatar.Group>
+    <Divider />
+    <Avatar.Group
+      maxCount={2}
+      maxPopoverTrigger="click"
+      size="large"
+      maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' }}
+      maxShape="square"
+    >
+      <Avatar
+        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        shape="square"
+      />
+      <Avatar style={{ backgroundColor: '#f56a00' }} shape="square">
+        K
+      </Avatar>
+      <Tooltip title="Ant User" placement="top">
+        <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} shape="square" />
+      </Tooltip>
+      <Avatar style={{ backgroundColor: '#1890ff' }} icon={<AntDesignOutlined />} shape="square" />
+    </Avatar.Group>
   </>
 );
 
