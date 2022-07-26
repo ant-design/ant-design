@@ -252,24 +252,6 @@ describe('Descriptions', () => {
     expect(wrapper.find('Cell').key()).toBe('item-bamboo');
   });
 
-  //   // https://github.com/ant-design/ant-design/issues/19887
-  //   it('should work with React Fragment', () => {
-  //     if (!React.Fragment) {
-  //       return;
-  //     }
-  //     const wrapper = mount(
-  //       <Descriptions>
-  //         <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
-  //         <>
-  //           <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
-  //           <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
-  //         </>
-  //       </Descriptions>,
-  //     );
-
-  //     expect(wrapper.render()).toMatchSnapshot();
-  //   });
-
   // https://github.com/ant-design/ant-design/issues/20255
   it('columns 5 with customize', () => {
     // const wrapper = mount(
