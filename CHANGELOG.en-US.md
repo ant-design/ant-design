@@ -23,7 +23,7 @@ timeline: true
   - 🔥 Form support `Form.Item.useStatus` for custom components to get Form.Item validate status. [#36486](https://github.com/ant-design/ant-design/pull/36486)
   - 🆕 Form support `setFieldValue` to simplify config array index value. [#36058](https://github.com/ant-design/ant-design/pull/36058)
   - 🐞 Fix Form.Item shaking when trigger validate so fast. [#36575](https://github.com/ant-design/ant-design/pull/36575)
-- 🆕 Radio.Group support `ref.focus()` and `ref.blur()`. [#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Radio.Group support `onBlur` and `onFocus` props. [#36041](https://github.com/ant-design/ant-design/pull/36041)
 - 🆕 Typography `ellipsis.tooltip` supports a object for Tooltip props. [#36099](https://github.com/ant-design/ant-design/pull/36099)
 - 🛠 Refactor Drawer to remove directly style control which helps more React way. [#36672](https://github.com/ant-design/ant-design/pull/36672)
 - 🛠 Refactor Sketelon.Button square shape style that its width is equal to height, and old become the default. [#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
