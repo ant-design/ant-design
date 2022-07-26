@@ -23,17 +23,17 @@ timeline: true
   - 🔥 Form support `Form.Item.useStatus` for custom components to get Form.Item validate status. [#36486](https://github.com/ant-design/ant-design/pull/36486)
   - 🆕 Form support `setFieldValue` to simplify config array index value. [#36058](https://github.com/ant-design/ant-design/pull/36058)
   - 🐞 Fix Form.Item shaking when trigger validate so fast. [#36575](https://github.com/ant-design/ant-design/pull/36575)
-- 🆕 Radio.Group support focus and blur event. [#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Radio.Group support `ref.focus()` and `ref.blur()`. [#36041](https://github.com/ant-design/ant-design/pull/36041)
 - 🆕 Typography `ellipsis.tooltip` supports a object for Tooltip props. [#36099](https://github.com/ant-design/ant-design/pull/36099)
 - 🛠 Refactor Drawer to remove directly style control which helps more React way. [#36672](https://github.com/ant-design/ant-design/pull/36672)
 - 🛠 Refactor Sketelon.Button square shape style that its width is equal to height, and old become the default. [#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
 - 🐞 Fix Modal.confirm `onCancel` argument close is not a function sometimes. [#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
-- 🐞 Revert "fix: Upload item removed should keep status className (#36439)". [#36682](https://github.com/ant-design/ant-design/pull/36682)
+- 🐞 Revert "fix: Upload item removed should keep status className (#36439)" to fix the problem of incorrect status when uploading and deleting files. [#36682](https://github.com/ant-design/ant-design/pull/36682)
 - Tree
   - 🛠 Tree/TreeSelect `switcherIcon` argument support more parameters from `{ expanded: boolean }` to `AntTreeNodeProps`. [#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
-  - 🐞 Fix Tree draggable Fn params type from AntTreeNode to DataNode. [#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
+  - 🐞 Fix Tree `draggable` Fn params type from AntTreeNode to DataNode. [#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
 - Table
-  - 💄 Fix Table extra shadow and scrollbar when all columns are fixed. [cff762c](https://github.com/ant-design/ant-design/commit/cff762c) [@dashaowang](https://github.com/dashaowang)
+  - 💄 Fix Table extra shadow and scrollbar when all columns are fixed. [#36606](https://github.com/ant-design/ant-design/pull/36606) [@dashaowang](https://github.com/dashaowang)
   - 💄 Fix Table tree data ellipsis style problem. [#36608](https://github.com/ant-design/ant-design/pull/36608)
 - 🌐 Localization
   - 🇱🇰 Add Sri Lanka locale. [#36149](https://github.com/ant-design/ant-design/pull/36149) [@sayuri-gi](https://github.com/sayuri-gi)
