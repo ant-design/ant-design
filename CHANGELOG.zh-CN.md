@@ -28,7 +28,7 @@ timeline: true
 - 🛠 重构 Drawer 移除直接的 dom 操作以使其更符合 React 运作方式。[#36672](https://github.com/ant-design/ant-design/pull/36672)
 - 🛠 重构 Sketelon.Button square shape 样式为宽高相等，之前的 square 改为默认样式。[#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
 - 🐞 修复 Modal.confirm 中 `onCancel(close)` 参数有时候不是 function 的问题。[#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
-- 🐞 回滚 "修复 Upload 移除文件时状态色会变化的问题 (#36439)"，以修复上传和删除文件时状态不对的问题。[#36682](https://github.com/ant-design/ant-design/pull/36682)
+- 🐞 修复 Upload 移除文件时状态色会变化的问题。[#36706](https://github.com/ant-design/ant-design/pull/36706)
 - Tree
   - 🛠 Tree/TreeSelect `switcherIcon` 参数现在支持完整 TreeNode 属性，从 `{ expanded: boolean }` 变为 `AntTreeNodeProps`。[#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
   - 🐞 修改 Tree `draggable` 函数的参数类型由 AntTreeNode 改为 DataNode。[#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)

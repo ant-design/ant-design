@@ -28,7 +28,7 @@ timeline: true
 - 🛠 Refactor Drawer to remove directly style control which helps more React way. [#36672](https://github.com/ant-design/ant-design/pull/36672)
 - 🛠 Refactor Sketelon.Button square shape style that its width is equal to height, and old become the default. [#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
 - 🐞 Fix Modal.confirm `onCancel` argument close is not a function sometimes. [#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
-- 🐞 Revert "fix: Upload item removed should keep status className (#36439)" to fix the problem of incorrect status when uploading and deleting files. [#36682](https://github.com/ant-design/ant-design/pull/36682)
+- 🐞 Fixed Upload removing file status color is wrong. [#36706](https://github.com/ant-design/ant-design/pull/36706)
 - Tree
   - 🛠 Tree/TreeSelect `switcherIcon` argument support more parameters from `{ expanded: boolean }` to `AntTreeNodeProps`. [#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
   - 🐞 Fix Tree `draggable` Fn params type from AntTreeNode to DataNode. [#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
