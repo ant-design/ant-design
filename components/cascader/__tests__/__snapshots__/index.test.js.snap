@@ -1641,6 +1641,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
           <div
             class="ant-cascader-menu-item-content"
           >
+            
             <span
               class="ant-cascader-menu-item-keyword"
             >
@@ -1672,6 +1673,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
              / 
             Nanjing
              / 
+            
             <span
               class="ant-cascader-menu-item-keyword"
             >
@@ -1708,6 +1710,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
           <div
             class="ant-cascader-menu-item-content"
           >
+            
             <span
               class="ant-cascader-menu-item-keyword"
             >
@@ -1735,6 +1738,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
           <div
             class="ant-cascader-menu-item-content"
           >
+            
             <span
               class="ant-cascader-menu-item-keyword"
             >

@@ -402,12 +402,11 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const { container, baseElement } = render(
-      <Cascader options={customerOptions} placement="topRight" />,
-    );
+    const { container } = render(<Cascader options={customerOptions} placement="topRight" />);
     toggleOpen(container);
-    // FIXME
-    expect(baseElement.querySelector('.ant-select-dropdown-placement-topRight')).toBeTruthy();
+
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect(global.triggerProps.popupPlacement).toEqual('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
@@ -528,12 +527,9 @@ describe('Cascader', () => {
   it('rtl should work well with placement', () => {
     const { container } = render(<Cascader options={options} direction="rtl" />);
     toggleOpen(container);
-    // FIXME
-    expect(
-      document
-        .querySelector('.ant-select-dropdown')
-        .className.includes('ant-select-dropdown-placement-topRight'),
-    ).toBe(true);
+
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect(global.triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
@@ -544,12 +540,9 @@ describe('Cascader', () => {
       );
 
       expect(container.querySelector('.mock-cls')).toBeTruthy();
-      // FIXME
-      expect(
-        container
-          .querySelector('.mock-cls')
-          .className.includes('ant-select-dropdown-placement-bottomLeft'),
-      ).toBe(true);
+
+      // Inject in tests/__mocks__/rc-trigger.js
+      expect(global.triggerProps.popupPlacement).toEqual('bottomLeft');
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
