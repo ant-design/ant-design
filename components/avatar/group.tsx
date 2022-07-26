@@ -5,6 +5,7 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
+import { ShapeContextProvider } from './ShapeContext';
 import type { AvatarSize } from './SizeContext';
 import { SizeContextProvider } from './SizeContext';
 
@@ -22,11 +23,12 @@ export interface GroupProps {
    * or a custom number size
    * */
   size?: AvatarSize;
+  shape?: 'circle' | 'square';
 }
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
+  const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size, shape } = props;
 
   const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
 
@@ -62,18 +64,22 @@ const Group: React.FC<GroupProps> = props => {
     );
     return (
       <SizeContextProvider size={size}>
-        <div className={cls} style={props.style}>
-          {childrenShow}
-        </div>
+        <ShapeContextProvider shape={shape}>
+          <div className={cls} style={props.style}>
+            {childrenShow}
+          </div>
+        </ShapeContextProvider>
       </SizeContextProvider>
     );
   }
 
   return (
     <SizeContextProvider size={size}>
-      <div className={cls} style={props.style}>
-        {childrenWithProps}
-      </div>
+      <ShapeContextProvider shape={shape}>
+        <div className={cls} style={props.style}>
+          {childrenWithProps}
+        </div>
+      </ShapeContextProvider>
     </SizeContextProvider>
   );
 };
