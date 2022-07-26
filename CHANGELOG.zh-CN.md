@@ -23,7 +23,7 @@ timeline: true
   - 🔥 Form 新增 `Form.Item.useStatus` 用于获取 Form.Item 的校验状态。[#36486](https://github.com/ant-design/ant-design/pull/36486)
   - 🆕 Form 支持 `setFieldValue` 以简化设置数字单个值的操作流程。[#36058](https://github.com/ant-design/ant-design/pull/36058)
   - 🐞 修复 Form.Item 在快速切换校验状态时高度抖动的问题。[#36575](https://github.com/ant-design/ant-design/pull/36575)
-- 🆕 Radio.Group 支持调用 `ref.focus()` 和 `ref.blur()` 方法。[#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Radio.Group 支持 `onBlur` 和 `onFocus` 属性。[#36041](https://github.com/ant-design/ant-design/pull/36041)
 - 🆕 Typography `ellipsis.tooltip` 属性支持传入一个对象。[#36099](https://github.com/ant-design/ant-design/pull/36099)
 - 🛠 重构 Drawer 移除直接的 dom 操作以使其更符合 React 运作方式。[#36672](https://github.com/ant-design/ant-design/pull/36672)
 - 🛠 重构 Sketelon.Button square shape 样式为宽高相等，之前的 square 改为默认样式。[#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
