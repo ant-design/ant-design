@@ -155,7 +155,9 @@ describe('Cascader', () => {
   it('should highlight keyword and filter when search in Cascader', () => {
     const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
     fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
-    expect(getDropdown(container)).toMatchSnapshot();
+
+    // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
+    expect(getDropdown(container).innerHTML).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -189,7 +191,9 @@ describe('Cascader', () => {
       />,
     );
     fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
-    expect(getDropdown(container)).toMatchSnapshot();
+
+    // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
+    expect(getDropdown(container).innerHTML).toMatchSnapshot();
   });
 
   it('should render not found content', () => {
