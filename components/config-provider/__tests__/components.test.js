@@ -457,7 +457,12 @@ describe('ConfigProvider', () => {
     testPair('Slider', props => {
       const myProps = { ...props };
       if (myProps.prefixCls) {
-        myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
+        return (
+          <Slider
+            tooltip={{ open: true, prefixCls: `${myProps.prefixCls}-tooltip` }}
+            {...myProps}
+          />
+        );
       }
       return <Slider tooltip {...myProps} />;
     });
