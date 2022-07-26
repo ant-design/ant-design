@@ -7,6 +7,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
+import ShapeContext from './ShapeContext';
 import type { AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
 
@@ -39,6 +40,7 @@ export interface AvatarProps {
 
 const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (props, ref) => {
   const groupSize = React.useContext(SizeContext);
+  const groupShape = React.useContext(ShapeContext);
 
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
@@ -89,7 +91,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const {
     prefixCls: customizePrefixCls,
-    shape,
+    shape: customShape,
     size: customSize,
     src,
     srcSet,
@@ -103,6 +105,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   } = props;
 
   const size = customSize === 'default' ? groupSize : customSize;
+  const shape = customShape === 'circle' ? groupShape : customShape;
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some(key =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
