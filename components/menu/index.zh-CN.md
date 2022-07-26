@@ -129,7 +129,7 @@ return <Menu items={items} />;
 | popupClassName | 子菜单样式，`mode="inline"` 时无效 | string | - |  |
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
-| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - |  |
+| theme | 设置子菜单的主题，默认从 Menu 上继承 | `light` \| `dark` | - |  |
 
 #### MenuItemGroupType
 
