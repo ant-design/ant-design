@@ -7,7 +7,7 @@ import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
-import DescriptionsItem from './Item';
+import DescriptionsItem, { type DescriptionsItemProps } from './Item';
 import Row from './Row';
 
 export interface DescriptionsContextProps {
@@ -110,6 +110,10 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  items: (Omit<DescriptionsItemProps, 'children'> & {
+    key?: string | number;
+    content?: React.ReactNode;
+  })[];
 }
 
 function Descriptions({
@@ -126,6 +130,7 @@ function Descriptions({
   size,
   labelStyle,
   contentStyle,
+  items,
 }: DescriptionsProps) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
@@ -147,7 +152,17 @@ function Descriptions({
   }, []);
 
   // Children
-  const rows = getRows(children, mergedColumn);
+  const itemNodes = (items || [])
+    .filter(item => item)
+    .map(item => {
+      const { key, content, ...itemProps } = item;
+      return (
+        <DescriptionsItem {...itemProps} key={key}>
+          {content}
+        </DescriptionsItem>
+      );
+    });
+  const rows = getRows(children || itemNodes, mergedColumn);
   const contextValue = React.useMemo(
     () => ({ labelStyle, contentStyle }),
     [labelStyle, contentStyle],
@@ -196,6 +211,6 @@ function Descriptions({
   );
 }
 
-Descriptions.Item = DescriptionsItem;
+// Descriptions.Item = DescriptionsItem;
 
 export default Descriptions;
