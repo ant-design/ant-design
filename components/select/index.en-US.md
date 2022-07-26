@@ -59,7 +59,7 @@ Select component to select value from options.
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
-| showSearch | Whether show search input in single mode | boolean | false |  |
+| showSearch | Whether select is searchable | boolean | single: false, multple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
@@ -107,19 +107,19 @@ Select component to select value from options.
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tag` mode?
+### Why sometime search will show 2 same option when in `tags` mode?
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### The dropdown is closed when click `dropdownRender` area?
+### When I click elements in dropdownRender, the select dropdown will not be closed?
 
-Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
+You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
 ### Why sometime customize Option cause scroll break?
 
 Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```tsx
+```jsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 

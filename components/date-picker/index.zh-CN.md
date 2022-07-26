@@ -184,9 +184,9 @@ import locale from 'antd/es/locale/zh_CN';
 
 请参考[《替换 Moment.js》](/docs/react/replace-moment#DatePicker)
 
-### 为何全局修改 moment.locale 不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？
 
-v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `locale` 属性来单独设置，也可以通过 [ConfigProvider `locale`](/components/config-provider) 属性来配置。
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。
 
 ### 如何修改周的起始日？
 

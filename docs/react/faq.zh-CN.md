@@ -21,6 +21,10 @@ title: FAQ
 
 注意：对于类 `Select` 组件的 `options`，我们**强烈不建议**使用 `undefined` 和 `null` 作为 `option` 中的 `value`，请使用 `string | number` 作为 `option` 的 `value`。
 
+## 官方文档中没有提供的隐藏 API 我可以使用吗？
+
+不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
+
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
@@ -114,6 +118,23 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
+
+## 为什么时间类组件的国际化 locale 设置不生效？
+
+请检查是否正确设置了 moment 语言包。
+
+```jsx
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+```
+
+如果还有问题，请检查是否有两个版本的 moment 共存？
+
+```jsx
+npm ls moment
+```
+
+一般来说，如果项目中依赖的 moment 版本和 [antd 依赖的 moment 版本](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) 无法兼容（semver 无法匹配，比如项目中的 moment 版本写死且较低），则会导致使用两个不同版本的 momenet 实例，这样也会导致国际化失效。
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 

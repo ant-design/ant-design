@@ -292,6 +292,38 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+    it('tooltip props', async () => {
+      const { container, baseElement } = await getWrapper({
+        title: 'This is tooltip',
+        className: 'tooltip-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild);
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
+    it('tooltip title true', async () => {
+      const { container, baseElement } = await getWrapper({
+        title: true,
+        className: 'tooltip-class-name',
+      });
+      fireEvent.mouseEnter(container.firstChild);
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
+    it('tooltip element', async () => {
+      const { container, baseElement } = await getWrapper(
+        <div className="tooltip-class-name">title</div>,
+      );
+      fireEvent.mouseEnter(container.firstChild);
+      await waitFor(() => {
+        expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
   });
 
   it('js ellipsis should show aria-label', () => {

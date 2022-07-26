@@ -7,7 +7,7 @@ import { convertLegacyProps } from '../button/button';
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  close: Function;
+  close?: Function;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
@@ -24,6 +24,10 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   const clickedRef = React.useRef<boolean>(false);
   const ref = React.useRef<any>();
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
+  const { close } = props;
+  const onInternalClose = (...args: any[]) => {
+    close?.(...args);
+  };
 
   React.useEffect(() => {
     let timeoutId: any;
@@ -39,7 +43,6 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   }, []);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
-    const { close } = props;
     if (!isThenable(returnValueOfOnOk)) {
       return;
     }
@@ -47,7 +50,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     returnValueOfOnOk!.then(
       (...args: any[]) => {
         setLoading(false, true);
-        close(...args);
+        onInternalClose(...args);
         clickedRef.current = false;
       },
       (e: Error) => {
@@ -62,13 +65,13 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   };
 
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { actionFn, close } = props;
+    const { actionFn } = props;
     if (clickedRef.current) {
       return;
     }
     clickedRef.current = true;
     if (!actionFn) {
-      close();
+      onInternalClose();
       return;
     }
     let returnValueOfOnOk;
@@ -76,7 +79,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       returnValueOfOnOk = actionFn(e);
       if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
-        close(e);
+        onInternalClose(e);
         return;
       }
     } else if (actionFn.length) {
@@ -86,7 +89,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     } else {
       returnValueOfOnOk = actionFn();
       if (!returnValueOfOnOk) {
-        close();
+        onInternalClose();
         return;
       }
     }

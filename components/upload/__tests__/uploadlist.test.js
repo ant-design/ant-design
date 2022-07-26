@@ -928,6 +928,35 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('upload svg file with <foreignObject> should not have CORS error', async () => {
+    const mockFile = new File(
+      [
+        '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
+      ],
+      'bar.svg',
+      { type: 'image/svg+xml' },
+    );
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }]}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then(dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+    });
+    unmount();
+  });
+
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
@@ -1537,5 +1566,46 @@ describe('Upload List', () => {
       expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
       unmount();
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/36286
+  it('remove should keep origin className', async () => {
+    jest.useFakeTimers();
+
+    const onChange = jest.fn();
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'error',
+      },
+    ];
+    const { container } = render(
+      <Upload fileList={list} listType="picture-card" onChange={onChange} />,
+    );
+
+    fireEvent.click(container.querySelector('.anticon-delete'));
+
+    // Wait for Upload sync
+    for (let i = 0; i < 10; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await Promise.resolve();
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({
+          status: 'removed',
+        }),
+      }),
+    );
+
+    expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });

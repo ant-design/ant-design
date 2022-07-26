@@ -39,7 +39,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
   if (!onChange) {
     return;
   }
-  let event = e;
+  let event = e as React.ChangeEvent<E>;
 
   if (e.type === 'click') {
     // Clone a new target for event.
@@ -63,7 +63,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     });
 
     currentTarget.value = '';
-    onChange(event as React.ChangeEvent<E>);
+    onChange(event);
     return;
   }
 
@@ -75,10 +75,10 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     });
 
     target.value = targetValue;
-    onChange(event as React.ChangeEvent<E>);
+    onChange(event);
     return;
   }
-  onChange(event as React.ChangeEvent<E>);
+  onChange(event);
 }
 
 export function triggerFocus(

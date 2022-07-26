@@ -34,6 +34,7 @@ export interface ErrorListProps {
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
   className?: string;
+  onVisibleChanged?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
@@ -42,6 +43,7 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
   className: rootClassName,
+  onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -69,16 +71,10 @@ export default function ErrorList({
 
   return (
     <CSSMotion
-      {...collapseMotion}
+      motionDeadline={collapseMotion.motionDeadline}
       motionName={`${rootPrefixCls}-show-help`}
-      motionAppear={false}
-      motionEnter={false}
       visible={!!fullKeyList.length}
-      onLeaveStart={node => {
-        // Force disable css override style in index.less configured
-        node.style.height = 'auto';
-        return { height: node.offsetHeight };
-      }}
+      onVisibleChanged={onVisibleChanged}
     >
       {holderProps => {
         const { className: holderClassName, style: holderStyle } = holderProps;

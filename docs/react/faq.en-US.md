@@ -21,6 +21,10 @@ But in antd, `undefined` is treated as uncontrolled, and `null` is used as an ex
 
 Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
 
+## Can I use internal API which is not documented on the site?
+
+NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
+
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
 This is an old bug that has been fixed since `v3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentElement}>` to render a component inside Popover. (Or other `getXxxxContainer` props)
@@ -94,6 +98,23 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 ## How do I extend antd's components?
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
+
+## Date-related components locale is not working?
+
+Please check whether import moment locale correctly.
+
+```jsx
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+```
+
+Please check whether there is two version of moment installed.
+
+```jsx
+npm ls moment
+```
+
+If you are using a mismatched version of moment with [antd's moment](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 

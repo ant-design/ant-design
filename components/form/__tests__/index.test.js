@@ -2,13 +2,14 @@ import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import classNames from 'classnames';
 import Form from '..';
 import * as Util from '../util';
 
 import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
-
+import Upload from '../../upload';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
@@ -947,6 +948,9 @@ describe('Form', () => {
         <Form.Item label="Switch" valuePropName="checked">
           <Switch />
         </Form.Item>
+        <Form.Item label="Upload" valuePropName="fileList">
+          <Upload />
+        </Form.Item>
         <Form.Item label="Button">
           <Button>Button</Button>
         </Form.Item>
@@ -1244,5 +1248,86 @@ describe('Form', () => {
     expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
     expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+  });
+
+  it('Form.Item.useStatus should work', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const CustomInput = ({ className, value }) => {
+      const { status } = useStatus();
+      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+    };
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item name="required" rules={[{ required: true }]}>
+            <CustomInput className="custom-input-required" value="" />
+          </Form.Item>
+          <Form.Item name="warning" validateStatus="warning">
+            <CustomInput className="custom-input-warning" />
+          </Form.Item>
+          <Form.Item name="normal">
+            <CustomInput className="custom-input" />
+          </Form.Item>
+          <CustomInput className="custom-input-wrong" />
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-',
+    );
+    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+      'custom-input-status-warning',
+    );
+    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+      'custom-input-status-undefined',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
+    );
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(0);
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-error',
+    );
+  });
+
+  it('item customize margin', async () => {
+    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
+      marginBottom: 24,
+    }));
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        value: '',
+      },
+    });
+
+    await sleep(0);
+    computeSpy.mockRestore();
+
+    expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
+      marginBottom: -24,
+    });
   });
 });
