@@ -51,7 +51,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -423,7 +423,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -741,7 +741,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1259,7 +1259,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1681,7 +1681,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1968,7 +1968,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2207,7 +2207,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2623,7 +2623,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2878,7 +2878,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -3204,7 +3204,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -3517,7 +3517,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -4077,7 +4077,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -4456,7 +4456,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -4808,7 +4808,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5120,7 +5120,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               style="opacity:0"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -5406,7 +5406,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               style="opacity:0"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -5646,7 +5646,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               style="opacity:0"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -5998,7 +5998,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               style="opacity:0"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -6306,7 +6306,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7152,7 +7152,7 @@ Array [
             style="opacity:0"
           >
             <ul
-              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
               data-menu-list="true"
               role="menu"
               tabindex="0"

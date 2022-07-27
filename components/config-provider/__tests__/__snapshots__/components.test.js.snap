@@ -17437,7 +17437,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 exports[`ConfigProvider components Menu configProvider 1`] = `
 Array [
   <ul
-    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    class="config-menu config-menu-root config-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17506,7 +17506,7 @@ Array [
 exports[`ConfigProvider components Menu configProvider componentDisabled 1`] = `
 Array [
   <ul
-    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    class="config-menu config-menu-root config-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17575,7 +17575,7 @@ Array [
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
 Array [
   <ul
-    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    class="config-menu config-menu-root config-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17644,7 +17644,7 @@ Array [
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
 Array [
   <ul
-    class="config-menu config-menu-root config-menu-inline config-menu-light"
+    class="config-menu config-menu-root config-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17713,7 +17713,7 @@ Array [
 exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17782,7 +17782,7 @@ Array [
 exports[`ConfigProvider components Menu normal 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -17851,7 +17851,7 @@ Array [
 exports[`ConfigProvider components Menu prefixCls 1`] = `
 Array [
   <ul
-    class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
+    class="prefix-Menu prefix-Menu-root prefix-Menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -26304,7 +26304,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             class="config-table-filter-dropdown"
                           >
                             <ul
-                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -26604,7 +26604,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             class="config-table-filter-dropdown"
                           >
                             <ul
-                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -26906,7 +26906,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             class="config-table-filter-dropdown"
                           >
                             <ul
-                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -27206,7 +27206,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             class="config-table-filter-dropdown"
                           >
                             <ul
-                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
+                              class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -27506,7 +27506,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -27806,7 +27806,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -28106,7 +28106,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             class="prefix-Table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
