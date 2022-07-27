@@ -40,6 +40,7 @@ const App: React.FC = () => {
         mask={false}
         onClose={onClose}
         visible={visible}
+        contentWrapperStyle={{ background: 'red', boxShadow: '-5px 0 5px green' }}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
