@@ -39,12 +39,12 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
         tabindex="0"
       />
       <div
-        class="ant-drawer-content-wrapper"
+        class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
         style="width: 378px;"
       >
         <div
           aria-modal="true"
-          class="ant-drawer-content ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+          class="ant-drawer-content"
           role="dialog"
         >
           <div
@@ -415,12 +415,12 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
       style="width: 378px;"
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+        class="ant-drawer-content"
         role="dialog"
       >
         <div
