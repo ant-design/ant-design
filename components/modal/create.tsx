@@ -19,12 +19,13 @@ export type CreateModalProps<T> = Omit<
   children?: ReactNode /* | Component | FunctionComponent | ExoticComponent */;
   /** 同 children ，优先级高于 children */
   render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
+  /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
+  onOk?: (values?: T) => Promise<void> | void;
+  onFailed?: (error: any) => void;
   /** 隐藏“取消”按钮 */
   // hideCancel?: boolean;
   /** 隐藏“确认”按钮 */
   // hideOk?: boolean;
-  /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
-  onOk?: (values?: T) => Promise<void> | void;
   /** “拒绝”按钮文本 */
   // denyText?: string;
   /** “拒绝”按钮（传入此字段才显示）事件，返回 promise 可以延迟关闭 */
@@ -36,6 +37,7 @@ function App<T>({
   render,
   onOk,
   onCancel,
+  onFailed,
   // onDeny,
   // denyText,
   // hideCancel = false,
@@ -58,6 +60,7 @@ function App<T>({
       setVisible(false);
     } catch (error) {
       console.error(error);
+      onFailed?.(error);
       // throw error;
     } finally {
       setConfirmLoading(false);
@@ -72,6 +75,7 @@ function App<T>({
   //     await onDeny?.(values);
   //     setVisible(false);
   //   } catch (error) {
+  // onFailed?.(error);
   //     console.error(error);
   //     // throw error;
   //   } finally {
