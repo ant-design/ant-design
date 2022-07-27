@@ -37,7 +37,7 @@ type InternalMenuProps = Omit<MenuProps, 'theme'> &
     collapsedWidth?: string | number;
   };
 
-export const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
+const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const override = React.useContext(OverrideContext);
   const overrideObj = override || {};
 
