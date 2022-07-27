@@ -113,6 +113,7 @@ const App: React.FC = () => (
         Modal.create<LoginPaylod>({
           title: 'Login',
           maskClosable: false,
+          // Same as render: formLikeRef => <Form ref={formLikeRef}>...</Form>
           children: (
             <Form
               name="login"
