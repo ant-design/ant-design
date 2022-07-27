@@ -21,6 +21,7 @@ export type CreateModalProps<T> = Omit<
   render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
   /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
   onOk?: (values?: T) => Promise<void> | void;
+  /** 验证失败和 onOk 失败的回调 */
   onFailed?: (error: unknown) => void;
   /** 隐藏“取消”按钮 */
   // hideCancel?: boolean;
@@ -138,7 +139,7 @@ function App<T>({
     </Modal>
   );
 }
-/** 创建弹窗，默认内置 ProForm ，可直接传入表单字段：Form.Item、ProFormText 等。也可以自定义。 */
+
 export default function createModal<T>(params: CreateModalProps<T>) {
   /**
    * https://github.com/ant-design/ant-design/issues/23623
