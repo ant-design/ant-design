@@ -881,7 +881,7 @@ describe('Table.rowSelection', () => {
             value: 'Lucy',
           },
         ],
-        filterDropdownVisible: true,
+        filterDropdownOpen: true,
         onFilter: (value, record) => record.name.indexOf(value) === 0,
       },
     ];
