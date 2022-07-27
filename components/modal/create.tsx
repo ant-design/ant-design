@@ -135,9 +135,7 @@ function App<T>({
     </Modal>
   );
 }
-/**
- * @description 创建弹窗，默认内置 ProForm ，可直接传入表单字段：Form.Item、ProFormText 等。也可以自定义。
- */
+/** 创建弹窗，默认内置 ProForm ，可直接传入表单字段：Form.Item、ProFormText 等。也可以自定义。 */
 export default function createModal<T>({ modalProps, ...rest }: CreateModalProps<T>) {
   /**
    * https://github.com/ant-design/ant-design/issues/23623
@@ -151,6 +149,15 @@ export default function createModal<T>({ modalProps, ...rest }: CreateModalProps
     function destory() {
       unmountComponentAtNode(div);
       document.body.removeChild(div);
+
+      for (let i = 0; i < destroyFns.length; i++) {
+        const fn = destroyFns[i];
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        if (fn === destory) {
+          destroyFns.splice(i, 1);
+          break;
+        }
+      }
       // console.log('destoryed modal');
     }
     destroyFns.push(destory);
