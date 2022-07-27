@@ -19,21 +19,21 @@ import type { DrawerProps } from 'antd/es/drawer';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [size, setSize] = useState<DrawerProps['size']>();
 
   const showDefaultDrawer = () => {
     setSize('default');
-    setVisible(true);
+    setOpen(true);
   };
 
   const showLargeDrawer = () => {
     setSize('large');
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -51,7 +51,7 @@ const App: React.FC = () => {
         placement="right"
         size={size}
         onClose={onClose}
-        visible={visible}
+        open={open}
         extra={
           <Space>
             <Button onClick={onClose}>Cancel</Button>

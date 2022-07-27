@@ -50,7 +50,7 @@ export interface DrawerProps {
   bodyStyle?: React.CSSProperties;
   contentWrapperStyle?: React.CSSProperties;
   title?: React.ReactNode;
-  visible?: boolean;
+  open?: boolean;
   width?: number | string;
   height?: number | string;
   zIndex?: number;
@@ -58,7 +58,7 @@ export interface DrawerProps {
   push?: boolean | PushState;
   placement?: placementType;
   onClose?: (e: EventType) => void;
-  afterVisibleChange?: (visible: boolean) => void;
+  afterOpenChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
   keyboard?: boolean;
@@ -89,7 +89,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       bodyStyle,
       drawerStyle,
       className,
-      visible: propsVisible,
+      open: propsOpen,
       forceRender,
       children,
       zIndex,
@@ -103,7 +103,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       prefixCls: customizePrefixCls,
       getContainer: customizeGetContainer,
       extra,
-      afterVisibleChange,
+      afterOpenChange,
       ...rest
     },
     ref,
@@ -116,18 +116,18 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const [visible, setVisible] = React.useState(false);
 
     React.useEffect(() => {
-      if (propsVisible) {
+      if (propsOpen) {
         setLoad(true);
       } else {
         setVisible(false);
       }
-    }, [propsVisible]);
+    }, [propsOpen]);
 
     React.useEffect(() => {
-      if (load && propsVisible) {
+      if (load && propsOpen) {
         setVisible(true);
       }
-    }, [load, propsVisible]);
+    }, [load, propsOpen]);
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -144,7 +144,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (propsVisible && parentDrawer) {
+      if (propsOpen && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -273,7 +273,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     // render drawer body dom
     const renderBody = () => {
       // destroyCloseRef.current =false Load the body only once by default
-      if (destroyCloseRef.current && !forceRender && !propsVisible) {
+      if (destroyCloseRef.current && !forceRender && !propsOpen) {
         return null;
       }
 
@@ -315,7 +315,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
               ...rest,
             }}
             {...offsetStyle}
-            open={visible || propsVisible}
+            open={visible || propsOpen}
             showMask={mask}
             style={getRcDrawerStyle()}
             className={drawerClassName}
@@ -327,7 +327,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
                 destroyCloseRef.current = true;
                 setLoad(false);
               }
-              afterVisibleChange?.(open);
+              afterOpenChange?.(open);
             }}
           >
             {renderBody()}
