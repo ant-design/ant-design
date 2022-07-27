@@ -21,7 +21,7 @@ export type CreateModalProps<T> = Omit<
   render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
   /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
   onOk?: (values?: T) => Promise<void> | void;
-  onFailed?: (error: any) => void;
+  onFailed?: (error: unknown) => void;
   /** 隐藏“取消”按钮 */
   // hideCancel?: boolean;
   /** 隐藏“确认”按钮 */
@@ -77,7 +77,7 @@ function App<T>({
   //     await onDeny?.(values);
   //     setVisible(false);
   //   } catch (error) {
-  // onFailed?.(error);
+  //     onFailed?.(error);
   //     console.error(error);
   //     // throw error;
   //   } finally {
