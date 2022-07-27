@@ -36,6 +36,35 @@ describe('Table.typescript', () => {
     const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
     expect(table).toBeTruthy();
   });
+
+  it('Sorter', () => {
+    const onChange = jest.fn();
+
+    interface User {
+      name: string;
+    }
+    const columns: ColumnProps<User>[] = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        filters: [
+          {
+            text: 'Joe',
+            value: 'Joe',
+          },
+          {
+            text: 'Jim',
+            value: 'Jim',
+          },
+        ],
+        sorter: (a, b) => a.name.length - b.name.length,
+      },
+    ];
+
+    const table = <Table columns={columns} onChange={onChange} />;
+
+    expect(table).toBeTruthy();
+  });
 });
 
 describe('Table.typescript types', () => {
