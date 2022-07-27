@@ -95,7 +95,7 @@ const App: React.FC = () => (
       onClick={() => {
         Modal.create({
           title: 'Some title',
-          children: 'Some descriptions',
+          content: 'Some descriptions',
           onOk() {
             console.log('OK');
           },
