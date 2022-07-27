@@ -7,6 +7,7 @@ import confirm, {
   withSuccess,
   withWarn,
 } from './confirm';
+import createModal from './create';
 import destroyFns from './destroyFns';
 import type { ModalFuncProps } from './Modal';
 import OriginModal from './Modal';
@@ -21,6 +22,7 @@ function modalWarn(props: ModalFuncProps) {
 type ModalType = typeof OriginModal &
   ModalStaticFunctions & {
     useModal: typeof useModal;
+    create: typeof createModal;
     destroyAll: () => void;
     config: typeof modalGlobalConfig;
   };
@@ -48,6 +50,8 @@ Modal.warn = modalWarn;
 Modal.confirm = function confirmFn(props: ModalFuncProps) {
   return confirm(withConfirm(props));
 };
+
+Modal.create = createModal;
 
 Modal.destroyAll = function destroyAllFn() {
   while (destroyFns.length) {
