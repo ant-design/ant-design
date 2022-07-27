@@ -1,217 +1,96 @@
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import classNames from 'classnames';
-import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
-import RcMenu, { ItemGroup } from 'rc-menu';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import omit from 'rc-util/lib/omit';
+import { ItemGroup } from 'rc-menu';
+import type { MenuRef as RcMenuRef } from 'rc-menu';
 import * as React from 'react';
-import { forwardRef } from 'react';
-import { ConfigContext } from '../config-provider';
+import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { MenuProps } from './menu';
+import InternalMenu from './menu';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import initCollapseMotion from '../_util/motion';
-import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
-import type { ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
-import MenuContext, { MenuTheme } from './MenuContext';
+import { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import Item, { MenuItemProps } from './MenuItem';
-import OverrideContext from './OverrideContext';
 import SubMenu, { SubMenuProps } from './SubMenu';
-
-import useStyle from './style';
+import { ConfigProvider } from '..';
+import type { ComponentToken } from './style';
+import { useToken } from '../theme';
 
 export { MenuItemGroupProps } from 'rc-menu';
 export { MenuDividerProps } from './MenuDivider';
-export { MenuTheme, SubMenuProps, MenuItemProps };
+export { MenuTheme, SubMenuProps, MenuItemProps, MenuProps };
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
-export interface MenuProps extends Omit<RcMenuProps, 'items'> {
-  theme?: MenuTheme;
-  inlineIndent?: number;
+export type MenuRef = {
+  menu: RcMenuRef | null;
+  focus: (options?: FocusOptions) => void;
+};
 
-  // >>>>> Private
-  /**
-   * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
-   *   for removing.
-   */
-  _internalDisableMenuItemTitleTooltip?: boolean;
-
-  items?: ItemType[];
+interface CompoundedComponent
+  extends React.ForwardRefExoticComponent<MenuProps & React.RefAttributes<MenuRef>> {
+  Divider: typeof MenuDivider;
+  Item: typeof Item;
+  SubMenu: typeof SubMenu;
+  ItemGroup: typeof ItemGroup;
 }
 
-type InternalMenuProps = MenuProps &
-  SiderContextProps & {
-    collapsedWidth?: string | number;
-  };
+const ThemedMenu = forwardRef<MenuRef, MenuProps>(({ theme = 'light', ...rest }, ref) => {
+  const menuRef = useRef<RcMenuRef>(null);
+  const [, token] = useToken();
 
-const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext);
-  const overrideObj = override || {};
+  useImperativeHandle(ref, () => ({
+    focus: options => {
+      menuRef.current?.focus(options);
+    },
+    menu: menuRef.current,
+  }));
 
-  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
+  const { colorTextLightSolid, colorTextSecondary, colorPrimary, colorError, colorErrorHover } =
+    token;
 
-  const rootPrefixCls = getPrefixCls();
+  const darkThemeToken = useMemo<Partial<ComponentToken>>(() => {
+    if (theme === 'dark') {
+      return {
+        colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+        colorItemTextHover: colorTextLightSolid,
+        colorGroupTitle: colorTextSecondary,
+        colorItemTextSelected: colorTextLightSolid,
+        colorItemBg: '#001529',
+        colorSubItemBg: '#000c17',
+        colorItemBgActive: 'transparent',
+        colorItemBgSelected: colorPrimary,
+        colorActiveBarWidth: 0,
+        colorActiveBarHeight: 0,
+        colorActiveBarBorderSize: 0,
 
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    theme = 'light',
-    expandIcon,
-    _internalDisableMenuItemTitleTooltip,
-    inlineCollapsed,
-    siderCollapsed,
-    items,
-    children,
-    rootClassName,
-    mode,
-    selectable,
-    onClick,
-    ...restProps
-  } = props;
+        // Disabled
+        colorItemTextDisabled: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
 
-  const passedProps = omit(restProps, ['collapsedWidth']);
-
-  // ========================= Items ===========================
-  const mergedChildren = useItems(items) || children;
-
-  // ======================== Warning ==========================
-  warning(
-    !('inlineCollapsed' in props && mode !== 'inline'),
-    'Menu',
-    '`inlineCollapsed` should only be used when `mode` is inline.',
-  );
-
-  warning(
-    !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-    'Menu',
-    '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-  );
-
-  warning(
-    'items' in props && !children,
-    'Menu',
-    '`children` will be removed in next major version. Please use `items` instead.',
-  );
-
-  overrideObj.validator?.({ mode });
-
-  // ========================== Click ==========================
-  // Tell dropdown that item clicked
-  const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
-    onClick?.(...args);
-    overrideObj.onClick?.();
-  });
-
-  // ========================== Mode ===========================
-  const mergedMode = overrideObj.mode || mode;
-
-  // ======================= Selectable ========================
-  const mergedSelectable = selectable ?? overrideObj.selectable;
-
-  // ======================== Collapsed ========================
-  // Inline Collapsed
-  const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
+        // Danger
+        colorDangerItemText: colorError,
+        colorDangerItemTextHover: colorErrorHover,
+        colorDangerItemTextSelected: colorTextLightSolid,
+        colorDangerItemBgActive: colorError,
+        colorDangerItemBgSelected: colorError,
+      };
     }
-    return inlineCollapsed;
-  }, [inlineCollapsed, siderCollapsed]);
+    return {};
+  }, [theme]);
 
-  const defaultMotions = {
-    horizontal: { motionName: `${rootPrefixCls}-slide-up` },
-    inline: initCollapseMotion(rootPrefixCls),
-    other: { motionName: `${rootPrefixCls}-zoom-big` },
-  };
-
-  const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, !override);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
-
-  // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else {
-    mergedExpandIcon = cloneElement(expandIcon || overrideObj.expandIcon, {
-      className: `${prefixCls}-submenu-expand-icon`,
-    });
-  }
-
-  // ======================== Context ==========================
-  const contextValue = React.useMemo(
-    () => ({
-      prefixCls,
-      inlineCollapsed: mergedInlineCollapsed || false,
-      antdMenuTheme: theme,
-      direction,
-      firstLevel: true,
-      disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
-    }),
-    [prefixCls, mergedInlineCollapsed, theme, direction, _internalDisableMenuItemTitleTooltip],
-  );
-
-  // ========================= Render ==========================
-  return wrapSSR(
-    <OverrideContext.Provider value={null}>
-      <MenuContext.Provider value={contextValue}>
-        <RcMenu
-          getPopupContainer={getPopupContainer}
-          overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-          mode={mergedMode}
-          selectable={mergedSelectable}
-          onClick={onItemClick}
-          {...passedProps}
-          inlineCollapsed={mergedInlineCollapsed}
-          className={menuClassName}
-          prefixCls={prefixCls}
-          direction={direction}
-          defaultMotions={defaultMotions}
-          expandIcon={mergedExpandIcon}
-          ref={ref}
-          rootClassName={classNames(rootClassName, hashId)}
-        >
-          {mergedChildren}
-        </RcMenu>
-      </MenuContext.Provider>
-    </OverrideContext.Provider>,
+  return (
+    <ConfigProvider theme={{ override: { Menu: darkThemeToken } }}>
+      <SiderContext.Consumer>
+        {(context: SiderContextProps) => <InternalMenu ref={menuRef} {...rest} {...context} />}
+      </SiderContext.Consumer>
+    </ConfigProvider>
   );
 });
 
-// We should keep this as ref-able
-class Menu extends React.Component<MenuProps, {}> {
-  static Divider = MenuDivider;
+const Menu: CompoundedComponent = ThemedMenu as CompoundedComponent;
 
-  static Item = Item;
-
-  static SubMenu = SubMenu;
-
-  static ItemGroup = ItemGroup;
-
-  menu: MenuRef | null;
-
-  focus = (options?: FocusOptions) => {
-    this.menu?.focus(options);
-  };
-
-  render() {
-    return (
-      <SiderContext.Consumer>
-        {(context: SiderContextProps) => (
-          <InternalMenu
-            ref={node => {
-              this.menu = node;
-            }}
-            {...this.props}
-            {...context}
-          />
-        )}
-      </SiderContext.Consumer>
-    );
-  }
-}
+Menu.Divider = MenuDivider;
+Menu.Item = Item;
+Menu.SubMenu = SubMenu;
+Menu.ItemGroup = ItemGroup;
 
 export default Menu;
