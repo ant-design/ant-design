@@ -19,7 +19,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
 type LoginPaylod = { username: string; password: string };
 
-function loginService(data: LoginPaylod) {
+function someService(data: any) {
   return fetch('https://httpbin.org/delay/1', {
     body: JSON.stringify(data),
     method: 'POST',
@@ -33,7 +33,7 @@ interface User {
   age: number;
 }
 
-const CustomComponent = forwardRef((props: IProps, ref) => {
+const UserSelect = forwardRef((_props: Record<string, any>, ref) => {
   const [selected, setSelected] = useState<User[]>([]);
 
   useImperativeHandle(ref, () => ({
@@ -79,7 +79,7 @@ const CustomComponent = forwardRef((props: IProps, ref) => {
       pagination={false}
       rowKey="id"
       rowSelection={{
-        type: 'multiple',
+        type: 'checkbox',
         selectedRowKeys: selected.map(user => user.id),
         onChange(keys, rows) {
           setSelected(rows);
@@ -139,7 +139,7 @@ const App: React.FC = () => (
           ),
           async onOk(values) {
             console.log(`Logging in with:`, values);
-            await loginService(values);
+            await someService(values);
             message.success('Login successful');
           },
         });
@@ -153,12 +153,14 @@ const App: React.FC = () => (
         Modal.create<User[]>({
           title: 'Select Users',
           maskClosable: false,
-          /* Same as children: <CustomComponent /> */
-          render: formLikeRef => <CustomComponent ref={formLikeRef} />,
+          /* Same as children: <UserSelect /> */
+          render: formLikeRef => <UserSelect ref={formLikeRef} />,
           async onOk(values) {
             console.log(`Selected Users:`, values);
-            await loginService(values);
-            message.success('Submit successful');
+            if (values) {
+              await someService(values);
+              message.success('Submit successful');
+            }
           },
           onFailed(error) {
             if (error instanceof Error) {
