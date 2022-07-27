@@ -12,7 +12,10 @@ type FormLike<T> = {
   validateFieldsReturnFormatValue?: ValidateFields<T>;
   [key: string]: any;
 };
-export type CreateModalProps<T> = {
+export type CreateModalProps<T> = Omit<
+  ModalProps,
+  'onOk' | 'visible' | 'destroyOnClose' | 'confirmLoading'
+> & {
   /** 弹窗内容，通常是一个表单，点击确认时会尝试调用其 validateFields 方法 */
   children?: ReactNode /* | Component | FunctionComponent | ExoticComponent */;
   /** 同 children ，优先级高于 children */
@@ -21,30 +24,24 @@ export type CreateModalProps<T> = {
   hideCancel?: boolean;
   /** 隐藏“确认”按钮 */
   hideOk?: boolean;
-  /** “确认”按钮事件 */
-  onConfirm?: (values?: T) => Promise<void> | void;
-  /** “取消”按钮事件 */
-  onCancel?: () => void;
-  /** “拒绝”按钮（传入此字段才显示）事件 */
-  onDeny?: (values?: T) => Promise<void> | void;
-  /** “拒绝”按钮文本，其它按钮配置请查阅 ModalProps */
+  /** “拒绝”按钮文本 */
   denyText?: string;
-  /** 全部转发给 Modal */
-  modalProps?: Omit<
-    ModalProps,
-    'onCancel' | 'onOk' | 'visible' | 'destroyOnClose' | 'confirmLoading'
-  >;
+  /** “确认”按钮事件，返回 promise 可以延迟关闭 */
+  onOk?: (values?: T) => Promise<void> | void;
+  /** “拒绝”按钮（传入此字段才显示）事件，返回 promise 可以延迟关闭 */
+  onDeny?: (values?: T) => Promise<void> | void;
 };
 
 function App<T>({
   children,
   render,
-  onConfirm,
+  onOk,
+  onCancel,
   onDeny,
   denyText,
   hideCancel = false,
   hideOk = false,
-  modalProps,
+  ...rest
 }: CreateModalProps<T>) {
   const formLikeRef = useRef<FormLike<T>>();
   const [visible, setVisible] = useState(false);
@@ -58,7 +55,7 @@ function App<T>({
       const validateFields =
         formLikeRef.current?.validateFieldsReturnFormatValue || formLikeRef.current?.validateFields;
       const values = await validateFields?.();
-      await onConfirm?.(values);
+      await onOk?.(values);
       setVisible(false);
     } catch (error) {
       console.error(error);
@@ -82,8 +79,9 @@ function App<T>({
       setConfirmLoading(false);
     }
   };
-  const handleCancel = () => {
+  const handleCancel: typeof onCancel = e => {
     setVisible(false);
+    onCancel?.(e);
   };
 
   const renderPropChildren = () => {
@@ -91,7 +89,7 @@ function App<T>({
     let attached = false;
     return Children.map(children, child => {
       if (!isValidElement(child)) {
-        return null;
+        return child;
       }
       if (attached) return child;
       const childProps = {
@@ -105,7 +103,8 @@ function App<T>({
 
   return (
     <Modal
-      {...modalProps}
+      {...rest}
+      // todo
       // okText="确定"
       // cancelText="取消"
       // confirmLoading={confirmLoading}
@@ -114,7 +113,7 @@ function App<T>({
       footer={[
         hideCancel || (
           <Button key="cancel" onClick={handleCancel}>
-            {modalProps?.cancelText || '取消'}
+            {rest?.cancelText || '取消'}
           </Button>
         ),
         onDeny && (
@@ -124,7 +123,7 @@ function App<T>({
         ),
         hideOk || (
           <Button key="ok" type="primary" loading={confirmLoading} onClick={handleOk}>
-            {modalProps?.okText || '确定'}
+            {rest?.okText || '确定'}
           </Button>
         ),
       ]}
@@ -136,7 +135,7 @@ function App<T>({
   );
 }
 /** 创建弹窗，默认内置 ProForm ，可直接传入表单字段：Form.Item、ProFormText 等。也可以自定义。 */
-export default function createModal<T>({ modalProps, ...rest }: CreateModalProps<T>) {
+export default function createModal<T>(params: CreateModalProps<T>) {
   /**
    * https://github.com/ant-design/ant-design/issues/23623
    *
@@ -163,7 +162,7 @@ export default function createModal<T>({ modalProps, ...rest }: CreateModalProps
     destroyFns.push(destory);
     reactRender(
       // <RootContainer>
-      <App<T> modalProps={{ ...modalProps, afterClose: destory }} {...rest} />,
+      <App<T> afterClose={destory} {...params} />,
       // </RootContainer>,
       div,
     );
