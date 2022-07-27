@@ -109,7 +109,8 @@ function App<T>({
   return (
     <Modal
       {...rest}
-      // todo context value
+      // todo context value and locale
+      // todo extra footer buttons
       confirmLoading={confirmLoading}
       onCancel={handleCancel}
       onOk={handleOk}
