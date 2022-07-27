@@ -16,7 +16,7 @@ export type CreateModalProps<T> = Omit<
   'onOk' | 'visible' | 'destroyOnClose' | 'confirmLoading'
 > & {
   /** 弹窗内容，通常是一个表单，点击确认时会尝试调用其 validateFields 方法 */
-  children?: ReactNode /* | Component | FunctionComponent | ExoticComponent */;
+  content?: ReactNode /* | Component | FunctionComponent | ExoticComponent */;
   /** 同 children ，优先级高于 children */
   render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
   /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
@@ -33,7 +33,8 @@ export type CreateModalProps<T> = Omit<
 };
 
 function App<T>({
-  children,
+  content,
+  children = content,
   render,
   onOk,
   onCancel,
@@ -48,6 +49,7 @@ function App<T>({
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   useEffect(() => {
+    // for animation
     setVisible(true);
   }, []);
   const handleOk = async () => {
