@@ -43,7 +43,9 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
-  // 方便 pro-layout 定义样式
+  /**
+   * @private 方便 pro-layout 定义样式，
+   */
   siderChildrenClassName?: number;
 }
 
@@ -210,7 +212,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
       );
       return (
         <aside className={siderCls} {...divProps} style={divStyle} ref={ref}>
-          <div className={classNames(`${prefixCls}-children`, props.childrenClassName)}>
+          <div className={classNames(`${prefixCls}-children`, props.siderChildrenClassName)}>
             {children}
           </div>
           {collapsible || (below && zeroWidthTrigger) ? triggerDom : null}
