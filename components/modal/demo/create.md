@@ -15,7 +15,6 @@ Use `create()` to create a modal dialog dynamically. Let onCancel/onOk function 
 
 ```tsx
 import { Button, Modal, Space, Form, Input, message, Table } from 'antd';
-import type { ColumnsType } from 'antd';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
 type LoginPaylod = { username: string; password: string };
@@ -35,62 +34,48 @@ interface User {
 }
 
 const CustomComponent = forwardRef((props: IProps, ref) => {
-  const columns: ColumnsType<User> = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      render: (text: string) => <a>{text}</a>,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-    },
-  ];
-
-  const data: User[] = [
-    {
-      id: '1',
-      name: 'John Brown',
-      age: 32,
-    },
-    {
-      id: '2',
-      name: 'Jim Green',
-      age: 42,
-    },
-    {
-      id: '3',
-      name: 'Joe Black',
-      age: 32,
-    },
-    {
-      id: '4',
-      name: 'Disabled User',
-      age: 99,
-    },
-  ];
-
   const [selected, setSelected] = useState<User[]>([]);
 
   useImperativeHandle(ref, () => ({
     async validateFields(): Promise<User[]> {
-      let msg: string | undefined;
       if (selected.length === 0) {
-        msg = '至少选一个Sku';
-      } else if (selected.reduce((a, c) => a + c.count, 0) <= 1) {
-        msg = '总数量必须大于1';
-      }
-      if (msg) {
-        message.error(msg);
-        throw new Error(msg);
+        throw new Error('One at least');
+      } else if (selected.length > 2) {
+        throw new Error('Two at most');
       }
       return selected;
     },
   }));
   return (
     <Table<User>
-      columns={columns}
-      dataSource={data}
+      columns={[
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          render: (text: string) => <a>{text}</a>,
+        },
+        {
+          title: 'Age',
+          dataIndex: 'age',
+        },
+      ]}
+      dataSource={[
+        {
+          id: '1',
+          name: 'John Brown',
+          age: 32,
+        },
+        {
+          id: '2',
+          name: 'Jim Green',
+          age: 42,
+        },
+        {
+          id: '3',
+          name: 'Joe Black',
+          age: 32,
+        },
+      ]}
       pagination={false}
       rowKey="id"
       rowSelection={{
@@ -165,14 +150,19 @@ const App: React.FC = () => (
 
     <Button
       onClick={() => {
-        Modal.create<Row[]>({
-          title: 'Select User',
+        Modal.create<User[]>({
+          title: 'Select Users',
           maskClosable: false,
           children: <CustomComponent />,
           async onOk(values) {
-            console.log(`Selected User:`, values);
+            console.log(`Selected Users:`, values);
             await loginService(values);
             message.success('Submit successful');
+          },
+          onFailed(error) {
+            if (error instanceof Error) {
+              message.error(error.message);
+            }
           },
         });
       }}
