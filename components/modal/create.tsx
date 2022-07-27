@@ -4,7 +4,6 @@ import type { ReactNode } from 'react';
 import type { ValidateFields } from 'rc-field-form/es/interface';
 import type { ModalProps } from './Modal';
 import Modal from './Modal';
-import Button from '../button';
 import destroyFns from './destroyFns';
 
 type FormLike<T> = {
@@ -21,15 +20,15 @@ export type CreateModalProps<T> = Omit<
   /** 同 children ，优先级高于 children */
   render?: (formRef: React.MutableRefObject<FormLike<T> | undefined>) => ReactNode;
   /** 隐藏“取消”按钮 */
-  hideCancel?: boolean;
+  // hideCancel?: boolean;
   /** 隐藏“确认”按钮 */
-  hideOk?: boolean;
-  /** “拒绝”按钮文本 */
-  denyText?: string;
-  /** “确认”按钮事件，返回 promise 可以延迟关闭 */
+  // hideOk?: boolean;
+  /** “确认”按钮事件，返回 promise 可以延迟关闭。参数为弹窗内容传递的值 */
   onOk?: (values?: T) => Promise<void> | void;
+  /** “拒绝”按钮文本 */
+  // denyText?: string;
   /** “拒绝”按钮（传入此字段才显示）事件，返回 promise 可以延迟关闭 */
-  onDeny?: (values?: T) => Promise<void> | void;
+  // onDeny?: (values?: T) => Promise<void> | void;
 };
 
 function App<T>({
@@ -37,10 +36,10 @@ function App<T>({
   render,
   onOk,
   onCancel,
-  onDeny,
-  denyText,
-  hideCancel = false,
-  hideOk = false,
+  // onDeny,
+  // denyText,
+  // hideCancel = false,
+  // hideOk = false,
   ...rest
 }: CreateModalProps<T>) {
   const formLikeRef = useRef<FormLike<T>>();
@@ -64,21 +63,21 @@ function App<T>({
       setConfirmLoading(false);
     }
   };
-  const handleDeny = async () => {
-    setConfirmLoading(true);
-    try {
-      const validateFields =
-        formLikeRef.current?.validateFieldsReturnFormatValue || formLikeRef.current?.validateFields;
-      const values = await validateFields?.();
-      await onDeny?.(values);
-      setVisible(false);
-    } catch (error) {
-      console.error(error);
-      // throw error;
-    } finally {
-      setConfirmLoading(false);
-    }
-  };
+  // const handleDeny = async () => {
+  //   setConfirmLoading(true);
+  //   try {
+  //     const validateFields =
+  //       formLikeRef.current?.validateFieldsReturnFormatValue || formLikeRef.current?.validateFields;
+  //     const values = await validateFields?.();
+  //     await onDeny?.(values);
+  //     setVisible(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //     // throw error;
+  //   } finally {
+  //     setConfirmLoading(false);
+  //   }
+  // };
   const handleCancel: typeof onCancel = e => {
     setVisible(false);
     onCancel?.(e);
@@ -104,29 +103,27 @@ function App<T>({
   return (
     <Modal
       {...rest}
-      // todo
-      // okText="确定"
-      // cancelText="取消"
-      // confirmLoading={confirmLoading}
-      // onOk={handleOk}
+      // todo context value
+      confirmLoading={confirmLoading}
       onCancel={handleCancel}
-      footer={[
-        hideCancel || (
-          <Button key="cancel" onClick={handleCancel}>
-            {rest?.cancelText || '取消'}
-          </Button>
-        ),
-        onDeny && (
-          <Button key="deny" type="primary" danger loading={confirmLoading} onClick={handleDeny}>
-            {denyText || '驳回'}
-          </Button>
-        ),
-        hideOk || (
-          <Button key="ok" type="primary" loading={confirmLoading} onClick={handleOk}>
-            {rest?.okText || '确定'}
-          </Button>
-        ),
-      ]}
+      onOk={handleOk}
+      // footer={[
+      //   hideCancel || (
+      //     <Button key="cancel" onClick={handleCancel}>
+      //       {rest?.cancelText || '取消'}
+      //     </Button>
+      //   ),
+      //   onDeny && (
+      //     <Button key="deny" type="primary" danger loading={confirmLoading} onClick={handleDeny}>
+      //       {denyText || '驳回'}
+      //     </Button>
+      //   ),
+      //   hideOk || (
+      //     <Button key="ok" type="primary" loading={confirmLoading} onClick={handleOk}>
+      //       {rest?.okText || '确定'}
+      //     </Button>
+      //   ),
+      // ]}
       destroyOnClose
       visible={visible}
     >
