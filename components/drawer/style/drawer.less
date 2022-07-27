@@ -6,9 +6,12 @@
 
 .@{drawer-prefix-cls} {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: @zindex-modal;
   pointer-events: none;
-  inset: 0;
 
   &-inline {
     position: absolute;
@@ -17,17 +20,20 @@
   // ====================== Mask ======================
   &-mask {
     position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: @zindex-modal;
     background: @modal-mask-bg;
     pointer-events: auto;
-    inset: 0;
   }
 
   // ==================== Content =====================
   &-content-wrapper {
     position: absolute;
     z-index: @zindex-modal;
-    transition: transform @animation-duration-slow;
+    transition: all @animation-duration-slow;
 
     // Placement
     .@{drawer-prefix-cls}-left & {
