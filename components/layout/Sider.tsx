@@ -43,7 +43,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
-  // 方便 pro 定义一样式
+  // 方便 pro-layout 定义样式
   siderChildrenClassName?: number;
 }
 
