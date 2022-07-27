@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 4.22.1
+
+`2022-07-27`
+
+- 🐞 Fix Drawer with percentage width display issue. [#36729](https://github.com/ant-design/ant-design/pull/36729)
+
 ## 4.22.0
 
 `2022-07-26`
