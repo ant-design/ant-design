@@ -61,7 +61,7 @@ function App<T>({
       await onOk?.(values);
       setVisible(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       onFailed?.(error);
       // throw error;
     } finally {
