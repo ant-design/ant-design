@@ -1,27 +1,31 @@
-import * as React from 'react';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
-import RcCascader from 'rc-cascader';
 import type {
-  SingleCascaderProps as RcSingleCascaderProps,
-  MultipleCascaderProps as RcMultipleCascaderProps,
-  ShowSearchType,
-  FieldNames,
   BaseOptionType,
   DefaultOptionType,
+  FieldNames,
+  MultipleCascaderProps as RcMultipleCascaderProps,
+  ShowSearchType,
+  SingleCascaderProps as RcSingleCascaderProps,
 } from 'rc-cascader';
+import RcCascader from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
-import RightOutlined from '@ant-design/icons/RightOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import * as React from 'react';
 import { useContext } from 'react';
-import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import getIcons from '../select/utils/iconUtil';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import getIcons from '../select/utils/iconUtil';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -98,6 +102,7 @@ type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
+  disabled?: boolean;
   bordered?: boolean;
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
@@ -114,6 +119,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
+    disabled: customDisabled,
     className,
     multiple,
     bordered = true,
@@ -157,22 +163,20 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================
-  if (process.env.NODE_ENV !== 'production') {
-    devWarning(
-      popupClassName === undefined,
-      'Cascader',
-      '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-    );
+  warning(
+    popupClassName === undefined,
+    'Cascader',
+    '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+  );
 
-    devWarning(
-      !multiple || !props.displayRender,
-      'Cascader',
-      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
-    );
-  }
+  warning(
+    !multiple || !props.displayRender,
+    'Cascader',
+    '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
+  );
 
   // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
+  const mergedNotFoundContent = notFoundContent || (renderEmpty || defaultRenderEmpty)('Cascader');
 
   // ==================== Prefix =====================
   const rootPrefixCls = getPrefixCls();
@@ -211,6 +215,10 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // ===================== Size ======================
   const size = React.useContext(SizeContext);
   const mergedSize = customizeSize || size;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
 
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
@@ -267,6 +275,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         className,
       )}
+      disabled={mergedDisabled}
       {...(restProps as any)}
       direction={mergedDirection}
       placement={getPlacement()}
@@ -299,8 +308,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
 };
-
-Cascader.displayName = 'Cascader';
+if (process.env.NODE_ENV !== 'production') {
+  Cascader.displayName = 'Cascader';
+}
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;
 

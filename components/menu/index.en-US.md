@@ -19,18 +19,39 @@ More layouts with navigation: [Layout](/components/layout).
 - Menu is rendered as a `ul` element, so it only supports [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children nodes。Your customized node should be wrapped by `Menu.Item`.
 - Menu needs to collect its node structure, so its children should be `Menu.*` or encapsulated HOCs.
 
-## API
+### Usage upgrade after 4.20.0
+
+```__react
+import Alert from '../alert';
+ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage <Menu items={[...]} /> with better perfermance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+```
 
 ```jsx
+// works when >=4.20.0, recommended ✅
 const items = [
-  { label: 'Menu' },
+  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
+  { label: 'item 2', key: 'item-2' }, // which is required
   {
-    label: 'SubMenu',
-    children: [{ label: 'SubMenuItem' }],
+    label: 'sub menu',
+    key: 'submenu',
+    children: [{ label: 'item 3', key: 'submenu-item-1' }],
   },
 ];
-<Menu items={items} />;
+return <Menu items={items} />;
+
+// works when <4.20.0, deprecated when >=4.20.0 🙅🏻‍♀️
+<Menu>
+  <Menu.Item>item 1</Menu.Item>
+  <Menu.Item>item 2</Menu.Item>
+  <Menu.SubMenu title="sub menu">
+    <Menu.Item>item 3</Menu.Item>
+  </Menu.SubMenu>
+</Menu>;
 ```
+
+The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+
+## API
 
 ### Menu
 
@@ -106,7 +127,6 @@ const items = [
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| title | Title of sub menu | ReactNode | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
@@ -118,7 +138,7 @@ Define `type` as `group` to make as group:
 const groupItem = {
   type: 'group', // Must have
   label: 'My Group',
-  chidlren: [],
+  children: [],
 };
 ```
 
@@ -146,3 +166,14 @@ const dividerItem = {
 ### Why will Menu's children be rendered twice?
 
 Menu collects structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merging into one render may cause the logic to become much more complex. Contributions to help improve the collection logic are welcomed.
+
+### Why Menu do not responsive collapse in Flex layout?
+
+Menu will render fully item in flex layout and then collapse it. You need tell flex not consider Menu width to enable responsive ([online demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)):
+
+```jsx
+<div style={{ flex }}>
+  <div style={{ ... }}>Some Content</div>
+  <Menu style={{ minWidth: 0, flex: "auto" }} />
+</div>
+```

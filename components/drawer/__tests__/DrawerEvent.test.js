@@ -1,6 +1,6 @@
 import React from 'react';
 import Drawer from '..';
-import { render, fireEvent } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -8,6 +8,14 @@ describe('Drawer', () => {
       Here is content of Drawer
     </Drawer>
   );
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
 
   it('render correctly', () => {
     const { container, asFragment, rerender } = render(getDrawer());
@@ -48,20 +56,97 @@ describe('Drawer', () => {
 
   it('dom should be removed after close when destroyOnClose is true', () => {
     const { container, rerender } = render(getDrawer({ destroyOnClose: true }));
+    expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
     rerender(getDrawer({ destroyOnClose: true, visible: false }));
-    fireEvent.transitionEnd(container.querySelector('.ant-drawer-wrapper-body'));
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeFalsy();
+    expect(container.querySelector('.ant-drawer')).toBeFalsy();
   });
 
   it('dom should be existed after close when destroyOnClose is false', () => {
     const { container, rerender } = render(getDrawer());
-    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
     rerender(getDrawer({ visible: false }));
-    fireEvent.transitionEnd(container.querySelector('.ant-drawer-wrapper-body'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
 
-    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer')).toBeTruthy();
+  });
+
+  it('dom should be existed after close twice when getContainer is false', () => {
+    const { container, rerender } = render(getDrawer({ visible: true, getContainer: false }));
+    expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
+
+    // Hide
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
+    expect(container.querySelector('.ant-drawer-content-hidden')).toBeTruthy();
+
+    // Show
+    rerender(getDrawer({ visible: true, getContainer: false }));
+    expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-content-hidden')).toBeFalsy();
+
+    // Hide
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
+    expect(container.querySelector('.ant-drawer-content-hidden')).toBeTruthy();
+  });
+
+  it('test afterVisibleChange', async () => {
+    const afterVisibleChange = jest.fn();
+    const { container, rerender } = render(getDrawer({ afterVisibleChange, visible: true }));
+    rerender(getDrawer({ afterVisibleChange, visible: false }));
+
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
+
+    expect(afterVisibleChange).toBeCalledTimes(1);
+  });
+
+  it('should support children ref', () => {
+    const fn = jest.fn();
+
+    const refCallback = ref => {
+      expect(typeof ref).toBe('object');
+      fn();
+    };
+
+    const RefDemo = () => {
+      const ref = React.useRef();
+      const [visible, setVisible] = React.useState(false);
+
+      React.useEffect(() => {
+        if (visible) {
+          refCallback(ref.current);
+        }
+      }, [visible]);
+
+      return (
+        <>
+          <a onClick={() => setVisible(true)}>open</a>
+          <Drawer visible={visible}>
+            <div ref={ref} />
+          </Drawer>
+        </>
+      );
+    };
+    const { container } = render(<RefDemo />);
+    fireEvent.click(container.querySelector('a'));
+    expect(fn).toBeCalled();
   });
 });

@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/kn_IN';
-import DatePicker from '../date-picker/locale/kn_IN';
-import TimePicker from '../time-picker/locale/kn_IN';
 import Calendar from '../calendar/locale/kn_IN';
-import { Locale } from '../locale-provider';
+import DatePicker from '../date-picker/locale/kn_IN';
+import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/kn_IN';
 
 const localeValues: Locale = {
   locale: 'kn',

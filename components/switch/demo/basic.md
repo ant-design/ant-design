@@ -13,14 +13,17 @@ title:
 
 The most basic usage.
 
-```jsx
+```tsx
 import { Switch } from 'antd';
+import React from 'react';
 
-function onChange(checked) {
+const onChange = (checked: boolean) => {
   console.log(`switch to ${checked}`);
-}
+};
 
-export default () => <Switch defaultChecked onChange={onChange} />;
+const App: React.FC = () => <Switch defaultChecked onChange={onChange} />;
+
+export default App;
 ```
 
 <style>

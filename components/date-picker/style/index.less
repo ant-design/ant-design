@@ -220,6 +220,10 @@
   &-dropdown {
     .reset-component();
     position: absolute;
+    // Fix incorrect position of picker popup
+    // https://github.com/ant-design/ant-design/issues/35590
+    top: -9999px;
+    left: -9999px;
     z-index: @zindex-picker;
 
     &-hidden {
@@ -318,11 +322,6 @@
     width: @arrow-size;
     height: @arrow-size;
     margin-left: @input-padding-horizontal-base * 1.5;
-    background: linear-gradient(
-      135deg,
-      transparent 40%,
-      @calendar-bg 40%
-    ); // Use linear-gradient to prevent arrow from covering text
     box-shadow: 2px 2px 6px -2px fade(@black, 10%); // use spread radius to hide shadow over popover
     transition: left @animation-duration-slow ease-out;
     .roundedArrow(@arrow-size, 5px, @calendar-bg);

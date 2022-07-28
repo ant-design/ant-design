@@ -29,6 +29,7 @@ exports[`Radio Button should render correctly 1`] = `
     <input
       class="ant-radio-button-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-button-inner"
@@ -65,7 +66,7 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
   </label>
   <label
     class="my-radio-wrapper"
-    style="font-size:12px"
+    style="font-size: 12px;"
   >
     <span
       class="my-radio"

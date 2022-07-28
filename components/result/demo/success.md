@@ -13,10 +13,11 @@ title:
 
 Show successful results.
 
-```jsx
-import { Result, Button } from 'antd';
+```tsx
+import { Button, Result } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Result
     status="success"
     title="Successfully Purchased Cloud Server ECS!"
@@ -29,4 +30,6 @@ export default () => (
     ]}
   />
 );
+
+export default App;
 ```

@@ -13,8 +13,9 @@ title:
 
 Mouse to click, focus and move in.
 
-```jsx
-import { Popover, Button } from 'antd';
+```tsx
+import { Button, Popover } from 'antd';
+import React from 'react';
 
 const content = (
   <div>
@@ -23,7 +24,7 @@ const content = (
   </div>
 );
 
-export default () => (
+const App: React.FC = () => (
   <div>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>
@@ -36,4 +37,6 @@ export default () => (
     </Popover>
   </div>
 );
+
+export default App;
 ```

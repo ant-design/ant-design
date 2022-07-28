@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
-import { sleep } from '../../../tests/utils';
 import message, { getInstance } from '..';
+import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('message.config', () => {

@@ -13,13 +13,14 @@ title:
 
 The Tab with Icon.
 
-```jsx
+```tsx
+import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
-import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
+import React from 'react';
 
 const { TabPane } = Tabs;
 
-export default () => (
+const App: React.FC = () => (
   <Tabs defaultActiveKey="2">
     <TabPane
       tab={
@@ -45,4 +46,6 @@ export default () => (
     </TabPane>
   </Tabs>
 );
+
+export default App;
 ```

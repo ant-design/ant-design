@@ -1,12 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import SizeContext, { AvatarSize } from './SizeContext';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
+import warning from '../_util/warning';
+import type { AvatarSize } from './SizeContext';
+import SizeContext from './SizeContext';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -124,7 +126,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       : {};
   }, [screens, size]);
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Avatar',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
@@ -236,7 +238,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 };
 
 const Avatar = React.forwardRef<unknown, AvatarProps>(InternalAvatar);
-Avatar.displayName = 'Avatar';
+if (process.env.NODE_ENV !== 'production') {
+  Avatar.displayName = 'Avatar';
+}
 
 Avatar.defaultProps = {
   shape: 'circle' as AvatarProps['shape'],

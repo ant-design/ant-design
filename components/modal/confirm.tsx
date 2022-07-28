@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import * as React from 'react';
+import { globalConfig } from '../config-provider';
+import warning from '../_util/warning';
+import ConfirmDialog from './ConfirmDialog';
+import destroyFns from './destroyFns';
 import { getConfirmLocale } from './locale';
 import type { ModalFuncProps } from './Modal';
-import ConfirmDialog from './ConfirmDialog';
-import { globalConfig } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 
@@ -34,7 +34,7 @@ export default function confirm(config: ModalFuncProps) {
   function destroy(...args: any[]) {
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
-      config.onCancel(...args);
+      config.onCancel(() => {}, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
@@ -159,10 +159,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
 }
 
 export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
-  devWarning(
-    false,
-    'Modal',
-    'Modal.config is deprecated. Please use ConfigProvider.config instead.',
-  );
+  warning(false, 'Modal', 'Modal.config is deprecated. Please use ConfigProvider.config instead.');
   defaultRootPrefixCls = rootPrefixCls;
 }
