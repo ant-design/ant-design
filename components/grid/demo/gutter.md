@@ -25,12 +25,13 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
 
 > vertical gutter was supported after `3.24.0`.
 
-```jsx
-import { Row, Col, Divider } from 'antd';
+```tsx
+import { Col, Divider, Row } from 'antd';
+import React from 'react';
 
-const style = { background: '#0092ff', padding: '8px 0' };
+const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>
@@ -91,6 +92,8 @@ export default () => (
     </Row>
   </>
 );
+
+export default App;
 ```
 
 ```css

@@ -17,20 +17,21 @@ Input.Group example.
 
 Note: You don't need `Col` to control the width in the `compact` mode.
 
-```jsx
+```tsx
+import { CopyOutlined } from '@ant-design/icons';
 import {
-  Input,
+  AutoComplete,
   Button,
+  Cascader,
   Col,
+  DatePicker,
+  Input,
+  InputNumber,
   Row,
   Select,
-  InputNumber,
-  DatePicker,
-  AutoComplete,
-  Cascader,
   Tooltip,
 } from 'antd';
-import { CopyOutlined } from '@ant-design/icons';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -69,7 +70,7 @@ const options = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-input-group-wrapper">
     <Input.Group size="large">
       <Row gutter={8}>

@@ -1,12 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
-import Spin from '../spin';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import Spin from '../spin';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 export const { Option } = RcMentions;
 
@@ -92,7 +94,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       return notFoundContent;
     }
 
-    return renderEmpty('Select');
+    return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
   const getOptions = () => {
@@ -162,7 +164,9 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
-Mentions.displayName = 'Mentions';
+if (process.env.NODE_ENV !== 'production') {
+  Mentions.displayName = 'Mentions';
+}
 Mentions.Option = Option;
 
 Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {

@@ -17,17 +17,20 @@ Click to upload user's avatar, and validate size and format of picture with `bef
 
 > The return value of function `beforeUpload` can be a Promise to check asynchronously. [demo](https://upload-react-component.vercel.app/demo/before-upload#beforeupload)
 
-```jsx
-import { Upload, message } from 'antd';
+```tsx
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { message, Upload } from 'antd';
+import type { UploadChangeParam } from 'antd/es/upload';
+import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
-function getBase64(img, callback) {
+const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
-  reader.addEventListener('load', () => callback(reader.result));
+  reader.addEventListener('load', () => callback(reader.result as string));
   reader.readAsDataURL(img);
-}
+};
 
-function beforeUpload(file) {
+const beforeUpload = (file: RcFile) => {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
   if (!isJpgOrPng) {
     message.error('You can only upload JPG/PNG file!');
@@ -37,52 +40,47 @@ function beforeUpload(file) {
     message.error('Image must smaller than 2MB!');
   }
   return isJpgOrPng && isLt2M;
-}
+};
 
-class Avatar extends React.Component {
-  state = {
-    loading: false,
-  };
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState<string>();
 
-  handleChange = info => {
+  const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
     if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
+      setLoading(true);
       return;
     }
     if (info.file.status === 'done') {
       // Get this url from response in real world.
-      getBase64(info.file.originFileObj, imageUrl =>
-        this.setState({
-          imageUrl,
-          loading: false,
-        }),
-      );
+      getBase64(info.file.originFileObj as RcFile, url => {
+        setLoading(false);
+        setImageUrl(url);
+      });
     }
   };
 
-  render() {
-    const { loading, imageUrl } = this.state;
-    const uploadButton = (
-      <div>
-        {loading ? <LoadingOutlined /> : <PlusOutlined />}
-        <div style={{ marginTop: 8 }}>Upload</div>
-      </div>
-    );
-    return (
-      <Upload
-        name="avatar"
-        listType="picture-card"
-        className="avatar-uploader"
-        showUploadList={false}
-        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-        beforeUpload={beforeUpload}
-        onChange={this.handleChange}
-      >
-        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-      </Upload>
-    );
-  }
-}
+  const uploadButton = (
+    <div>
+      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
 
-export default Avatar;
+  return (
+    <Upload
+      name="avatar"
+      listType="picture-card"
+      className="avatar-uploader"
+      showUploadList={false}
+      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      beforeUpload={beforeUpload}
+      onChange={handleChange}
+    >
+      {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+    </Upload>
+  );
+};
+
+export default App;
 ```

@@ -14,8 +14,8 @@ title:
 To load data asynchronously when click to expand a treeNode.
 
 ```tsx
-import React, { useState } from 'react';
 import { Tree } from 'antd';
+import React, { useState } from 'react';
 
 interface DataNode {
   title: string;
@@ -31,8 +31,8 @@ const initTreeData: DataNode[] = [
 ];
 
 // It's just a simple demo. You can use tree map to optimize update perf.
-function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] {
-  return list.map(node => {
+const updateTreeData = (list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] =>
+  list.map(node => {
     if (node.key === key) {
       return {
         ...node,
@@ -47,9 +47,8 @@ function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]):
     }
     return node;
   });
-}
 
-const Demo: React.FC<{}> = () => {
+const App: React.FC = () => {
   const [treeData, setTreeData] = useState(initTreeData);
 
   const onLoadData = ({ key, children }: any) =>
@@ -73,5 +72,5 @@ const Demo: React.FC<{}> = () => {
   return <Tree loadData={onLoadData} treeData={treeData} />;
 };
 
-export default Demo;
+export default App;
 ```

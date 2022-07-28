@@ -1,14 +1,14 @@
-import * as React from 'react';
-import Notification from 'rc-notification';
-import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import createUseNotification from './hooks/useNotification';
+import classNames from 'classnames';
+import Notification from 'rc-notification';
+import type { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
+import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import createUseNotification from './hooks/useNotification';
 
 export type NotificationPlacement =
   | 'top'
@@ -206,6 +206,7 @@ export interface ArgsProps {
   duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
+  maxCount?: number;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;

@@ -13,20 +13,21 @@ title:
 
 The basic example.
 
-```jsx
-import { Popconfirm, message } from 'antd';
+```tsx
+import { message, Popconfirm } from 'antd';
+import React from 'react';
 
-function confirm(e) {
+const confirm = (e: React.MouseEvent<HTMLElement>) => {
   console.log(e);
   message.success('Click on Yes');
-}
+};
 
-function cancel(e) {
+const cancel = (e: React.MouseEvent<HTMLElement>) => {
   console.log(e);
   message.error('Click on No');
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <Popconfirm
     title="Are you sure to delete this task?"
     onConfirm={confirm}
@@ -37,4 +38,6 @@ export default () => (
     <a href="#">Delete</a>
   </Popconfirm>
 );
+
+export default App;
 ```

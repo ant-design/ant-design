@@ -5,146 +5,107 @@
 @drawer-animation-ease: @ease-out-quint;
 
 .@{drawer-prefix-cls} {
-  @drawer-header-close-padding: ceil(((@drawer-header-close-size - @font-size-lg) / 2));
-
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: @zindex-modal;
-  width: 0%;
-  height: 100%;
-  transition: width 0s ease @animation-duration-slow, height 0s ease @animation-duration-slow;
+  pointer-events: none;
 
-  &-content-wrapper {
+  &-inline {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: transform @animation-duration-slow @drawer-animation-ease,
-      box-shadow @animation-duration-slow @drawer-animation-ease;
   }
 
-  .@{drawer-prefix-cls}-content {
-    width: 100%;
-    height: 100%;
-  }
-
-  &-left,
-  &-right {
+  // ====================== Mask ======================
+  &-mask {
+    position: absolute;
     top: 0;
-    width: 0%;
-    height: 100%;
-    .@{drawer-prefix-cls}-content-wrapper {
-      height: 100%;
-    }
-    &.@{drawer-prefix-cls}-open {
-      width: 100%;
-      transition: transform @animation-duration-slow @drawer-animation-ease;
-    }
-  }
-
-  &-left {
-    left: 0;
-
-    .@{drawer-prefix-cls} {
-      &-content-wrapper {
-        left: 0;
-      }
-    }
-
-    &.@{drawer-prefix-cls}-open {
-      .@{drawer-prefix-cls}-content-wrapper {
-        box-shadow: @shadow-1-right;
-      }
-    }
-  }
-
-  &-right {
     right: 0;
-
-    .@{drawer-prefix-cls} {
-      &-content-wrapper {
-        right: 0;
-      }
-    }
-    &.@{drawer-prefix-cls}-open {
-      .@{drawer-prefix-cls}-content-wrapper {
-        box-shadow: @shadow-1-left;
-      }
-      // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
-      &.no-mask {
-        right: 1px;
-        transform: translateX(1px);
-      }
-    }
-  }
-
-  &-top,
-  &-bottom {
-    left: 0;
-    width: 100%;
-    height: 0%;
-
-    .@{drawer-prefix-cls}-content-wrapper {
-      width: 100%;
-    }
-    &.@{drawer-prefix-cls}-open {
-      height: 100%;
-      transition: transform @animation-duration-slow @drawer-animation-ease;
-    }
-  }
-
-  &-top {
-    top: 0;
-
-    &.@{drawer-prefix-cls}-open {
-      .@{drawer-prefix-cls}-content-wrapper {
-        box-shadow: @shadow-1-down;
-      }
-    }
-  }
-
-  &-bottom {
     bottom: 0;
-
-    .@{drawer-prefix-cls} {
-      &-content-wrapper {
-        bottom: 0;
-      }
-    }
-    &.@{drawer-prefix-cls}-open {
-      .@{drawer-prefix-cls}-content-wrapper {
-        box-shadow: @shadow-1-up;
-      }
-
-      &.no-mask {
-        bottom: 1px;
-        transform: translateY(1px);
-      }
-    }
-  }
-
-  &.@{drawer-prefix-cls}-open .@{drawer-prefix-cls}-mask {
-    height: 100%;
-    opacity: 1;
-    transition: none;
-    animation: antdDrawerFadeIn @animation-duration-slow @drawer-animation-ease;
+    left: 0;
+    z-index: @zindex-modal;
+    background: @modal-mask-bg;
     pointer-events: auto;
   }
 
-  &-title {
-    flex: 1;
-    margin: 0;
-    color: @heading-color;
-    font-weight: 500;
-    font-size: @drawer-title-font-size;
-    line-height: @drawer-title-line-height;
+  // ==================== Content =====================
+  &-content-wrapper {
+    position: absolute;
+    z-index: @zindex-modal;
+    transition: all @animation-duration-slow;
+
+    &-hidden {
+      display: none;
+    }
+
+    // Placement
+    .@{drawer-prefix-cls}-left & {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: @shadow-1-right;
+    }
+
+    .@{drawer-prefix-cls}-right & {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: @shadow-1-left;
+    }
+
+    .@{drawer-prefix-cls}-top & {
+      top: 0;
+      right: 0;
+      left: 0;
+      box-shadow: @shadow-1-down;
+    }
+
+    .@{drawer-prefix-cls}-bottom & {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: @shadow-1-up;
+    }
   }
 
   &-content {
-    position: relative;
-    z-index: 1;
+    width: 100%;
+    height: 100%;
     overflow: auto;
-    background-color: @drawer-bg;
-    background-clip: padding-box;
-    border: 0;
+    background: @drawer-bg;
+    pointer-events: auto;
+  }
+
+  // ===================== Panel ======================
+  &-wrapper-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Header
+  &-header {
+    display: flex;
+    flex: 0;
+    align-items: center;
+    padding: @drawer-header-padding;
+    font-size: @drawer-title-font-size;
+    line-height: @drawer-title-line-height;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+
+    &-title {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      min-width: 0;
+      min-height: 0;
+    }
+  }
+
+  &-extra {
+    flex: 0;
   }
 
   &-close {
@@ -172,78 +133,28 @@
     }
   }
 
-  &-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: @drawer-header-padding;
-    color: @text-color;
-    background: @drawer-bg;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
-    border-radius: @border-radius-base @border-radius-base 0 0;
-
-    &-title {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    &-close-only {
-      padding-bottom: 0;
-      border: none;
-    }
+  &-title {
+    flex: 1;
+    margin: 0;
+    color: @heading-color;
+    font-weight: 500;
+    font-size: @drawer-title-font-size;
+    line-height: @drawer-title-line-height;
   }
 
-  &-wrapper-body {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-  }
-
+  // Body
   &-body {
-    flex-grow: 1;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
     padding: @drawer-body-padding;
     overflow: auto;
-    font-size: @font-size-base;
-    line-height: @line-height-base;
-    word-wrap: break-word;
   }
 
+  // Footer
   &-footer {
     flex-shrink: 0;
     padding: @drawer-footer-padding-vertical @drawer-footer-padding-horizontal;
     border-top: @border-width-base @border-style-base @border-color-split;
-  }
-
-  &-mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    background-color: @modal-mask-bg;
-    opacity: 0;
-    transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
-    pointer-events: none;
-  }
-
-  // =================== Hook Components ===================
-  .@{picker-prefix-cls} {
-    &-clear {
-      background: @popover-background;
-    }
-  }
-}
-
-@keyframes antdDrawerFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
   }
 }

@@ -3,7 +3,7 @@
 
 @popover-prefix-cls: ~'@{ant-prefix}-popover';
 
-@popover-arrow-rotate-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2);
+@popover-arrow-rotate-width: sqrt(@popover-arrow-width * @popover-arrow-width * 2) + 6px;
 
 @popover-arrow-offset-vertical: 12px;
 @popover-arrow-offset-horizontal: 16px;
@@ -20,6 +20,10 @@
   text-align: left;
   cursor: auto;
   user-select: text;
+
+  &-content {
+    position: relative;
+  }
 
   &::after {
     position: absolute;
@@ -125,6 +129,7 @@
     pointer-events: none;
 
     &-content {
+      --antd-arrow-background-color: @popover-bg;
       position: absolute;
       top: 0;
       right: 0;
@@ -134,17 +139,17 @@
       width: @popover-arrow-width;
       height: @popover-arrow-width;
       margin: auto;
-      background-color: @popover-bg;
       content: '';
       pointer-events: auto;
-      .roundedArrow(@popover-arrow-width, 5px, @popover-bg);
+      .roundedArrow(@popover-arrow-width, 5px);
     }
   }
 
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: @popover-distance - @popover-arrow-rotate-width;
+    bottom: 0;
+    transform: translateY(100%);
 
     &-content {
       box-shadow: 3px 3px 7px fade(@black, 7%);
@@ -154,7 +159,7 @@
 
   &-placement-top &-arrow {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(100%) translateX(-50%);
   }
 
   &-placement-topLeft &-arrow {
@@ -168,7 +173,8 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: @popover-distance - @popover-arrow-rotate-width;
+    left: 0;
+    transform: translateX(-100%);
 
     &-content {
       box-shadow: 3px 3px 7px fade(@black, 7%);
@@ -178,7 +184,7 @@
 
   &-placement-right &-arrow {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-100%) translateY(-50%);
   }
 
   &-placement-rightTop &-arrow {
@@ -192,7 +198,8 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: @popover-distance - @popover-arrow-rotate-width;
+    top: 0;
+    transform: translateY(-100%);
 
     &-content {
       box-shadow: 2px 2px 5px fade(@black, 6%);
@@ -202,7 +209,7 @@
 
   &-placement-bottom &-arrow {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(-100%) translateX(-50%);
   }
 
   &-placement-bottomLeft &-arrow {
@@ -216,7 +223,8 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @popover-distance - @popover-arrow-rotate-width;
+    right: 0;
+    transform: translateX(100%);
 
     &-content {
       box-shadow: 3px 3px 7px fade(@black, 7%);
@@ -226,7 +234,7 @@
 
   &-placement-left &-arrow {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateX(100%) translateY(-50%);
   }
 
   &-placement-leftTop &-arrow {

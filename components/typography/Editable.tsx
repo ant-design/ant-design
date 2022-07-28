@@ -1,10 +1,10 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
-import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import classNames from 'classnames';
+import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import KeyCode from 'rc-util/lib/KeyCode';
+import * as React from 'react';
+import type { DirectionType } from '../config-provider';
 import TextArea from '../input/TextArea';
-import { DirectionType } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
 interface EditableProps {

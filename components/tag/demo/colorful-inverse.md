@@ -14,10 +14,11 @@ debug: true
 
 Internal inverse color tag
 
-```jsx
-import { Tag, Divider } from 'antd';
+```tsx
+import { Divider, Tag } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets Inverse</Divider>
     <div>
@@ -35,6 +36,8 @@ export default () => (
     </div>
   </>
 );
+
+export default App;
 ```
 
 <style>

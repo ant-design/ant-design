@@ -1,23 +1,39 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RcSegmented from 'rc-segmented';
 import type {
+  SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
   SegmentedRawOption,
-  SegmentedLabeledOption as RcSegmentedLabeledOption,
 } from 'rc-segmented';
+import RcSegmented from 'rc-segmented';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 
 export type { SegmentedValue } from 'rc-segmented';
 
-export interface SegmentedLabeledOption extends RcSegmentedLabeledOption {
-  /** Set icon for Segmented item */
-  icon?: React.ReactNode;
+interface SegmentedLabeledOptionWithoutIcon extends RcSegmentedLabeledOption {
+  label: RcSegmentedLabeledOption['label'];
 }
 
-export interface SegmentedProps extends Omit<RCSegmentedProps, 'size'> {
+interface SegmentedLabeledOptionWithIcon extends Omit<RcSegmentedLabeledOption, 'label'> {
+  label?: RcSegmentedLabeledOption['label'];
+  /** Set icon for Segmented item */
+  icon: React.ReactNode;
+}
+
+function isSegmentedLabeledOptionWithIcon(
+  option: SegmentedRawOption | SegmentedLabeledOptionWithIcon | SegmentedLabeledOptionWithoutIcon,
+): option is SegmentedLabeledOptionWithIcon {
+  return typeof option === 'object' && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
+}
+
+export type SegmentedLabeledOption =
+  | SegmentedLabeledOptionWithIcon
+  | SegmentedLabeledOptionWithoutIcon;
+
+export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options'> {
   options: (SegmentedRawOption | SegmentedLabeledOption)[];
   /** Option to fit width to its parent's width */
   block?: boolean;
@@ -46,14 +62,14 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const extendedOptions = React.useMemo(
     () =>
       options.map(option => {
-        if (typeof option === 'object' && option?.icon) {
+        if (isSegmentedLabeledOptionWithIcon(option)) {
           const { icon, label, ...restOption } = option;
           return {
             ...restOption,
             label: (
               <>
                 <span className={`${prefixCls}-item-icon`}>{icon}</span>
-                <span>{label}</span>
+                {label && <span>{label}</span>}
               </>
             ),
           };
@@ -79,7 +95,10 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   );
 });
 
-Segmented.displayName = 'Segmented';
+if (process.env.NODE_ENV !== 'production') {
+  Segmented.displayName = 'Segmented';
+}
+
 Segmented.defaultProps = {
   options: [],
 };
