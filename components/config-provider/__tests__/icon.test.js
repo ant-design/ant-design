@@ -1,7 +1,7 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
 import IconContext from '@ant-design/icons/lib/components/Context';
+import { mount } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Icon', () => {

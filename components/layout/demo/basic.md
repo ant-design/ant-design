@@ -13,12 +13,13 @@ title:
 
 Classic page layouts.
 
-```jsx
+```tsx
 import { Layout } from 'antd';
+import React from 'react';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Layout>
       <Header>Header</Header>
@@ -54,6 +55,8 @@ export default () => (
     </Layout>
   </>
 );
+
+export default App;
 ```
 
 <style>

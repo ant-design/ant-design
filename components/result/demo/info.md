@@ -13,10 +13,11 @@ title:
 
 Show processing results.
 
-```jsx
-import { Result, Button } from 'antd';
+```tsx
+import { Button, Result } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Result
     title="Your operation has been executed"
     extra={
@@ -26,4 +27,6 @@ export default () => (
     }
   />
 );
+
+export default App;
 ```

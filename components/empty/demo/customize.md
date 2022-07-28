@@ -13,10 +13,11 @@ title:
 
 Customize image source, image size, description and extra content.
 
-```jsx
-import { Empty, Button } from 'antd';
+```tsx
+import { Button, Empty } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     imageStyle={{
@@ -31,4 +32,6 @@ export default () => (
     <Button type="primary">Create Now</Button>
   </Empty>
 );
+
+export default App;
 ```

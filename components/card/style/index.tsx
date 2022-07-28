@@ -2,6 +2,5 @@ import '../../style/index.less';
 import './index.less';
 
 // style dependencies
+import '../../skeleton/style';
 import '../../tabs/style';
-import '../../row/style';
-import '../../col/style';

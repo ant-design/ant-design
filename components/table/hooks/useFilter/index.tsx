@@ -1,18 +1,18 @@
 import * as React from 'react';
-import devWarning from '../../../_util/devWarning';
-import {
-  TransformColumns,
+import warning from '../../../_util/warning';
+import type {
+  ColumnFilterItem,
   ColumnsType,
-  ColumnType,
   ColumnTitleProps,
+  ColumnType,
+  FilterKey,
+  FilterValue,
+  GetPopupContainer,
   Key,
   TableLocale,
-  FilterValue,
-  FilterKey,
-  GetPopupContainer,
-  ColumnFilterItem,
+  TransformColumns,
 } from '../../interface';
-import { getColumnPos, renderColumnTitle, getColumnKey } from '../../util';
+import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
 import FilterDropdown from './FilterDropdown';
 
 export interface FilterState<RecordType> {
@@ -211,24 +211,25 @@ function useFilter<RecordType>({
 
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
-
-    const filteredKeysIsNotControlled = collectedStates.every(
-      ({ filteredKeys }) => filteredKeys === undefined,
-    );
+    let filteredKeysIsAllNotControlled = true;
+    let filteredKeysIsAllControlled = true;
+    collectedStates.forEach(({ filteredKeys }) => {
+      if (filteredKeys !== undefined) {
+        filteredKeysIsAllNotControlled = false;
+      } else {
+        filteredKeysIsAllControlled = false;
+      }
+    });
 
     // Return if not controlled
-    if (filteredKeysIsNotControlled) {
+    if (filteredKeysIsAllNotControlled) {
       return filterStates;
     }
 
-    const filteredKeysIsAllControlled = collectedStates.every(
-      ({ filteredKeys }) => filteredKeys !== undefined,
-    );
-
-    devWarning(
-      filteredKeysIsNotControlled || filteredKeysIsAllControlled,
+    warning(
+      filteredKeysIsAllControlled,
       'Table',
-      '`FilteredKeys` should all be controlled or not controlled.',
+      'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
 
     return collectedStates;

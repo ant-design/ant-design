@@ -4,19 +4,14 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   push:
-    branches:
-      - master
 
 # Cancel prev CI if new commit come
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: read
-
 jobs:
-  test:
+  imagesnapshot:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -27,6 +22,10 @@ jobs:
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
       - name: create package-lock.json
         run: npm i --package-lock-only --ignore-scripts

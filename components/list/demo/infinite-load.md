@@ -13,14 +13,30 @@ title:
 
 The example of infinite load with [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component).
 
-```jsx
-import React, { useState, useEffect } from 'react';
-import { List, message, Avatar, Skeleton, Divider } from 'antd';
+```tsx
+import { Avatar, Divider, List, Skeleton } from 'antd';
+import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-const InfiniteListExample = () => {
+interface DataType {
+  gender: string;
+  name: {
+    title: string;
+    first: string;
+    last: string;
+  };
+  email: string;
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
+  nat: string;
+}
+
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataType[]>([]);
 
   const loadMoreData = () => {
     if (loading) {
@@ -63,7 +79,7 @@ const InfiniteListExample = () => {
         <List
           dataSource={data}
           renderItem={item => (
-            <List.Item key={item.id}>
+            <List.Item key={item.email}>
               <List.Item.Meta
                 avatar={<Avatar src={item.picture.large} />}
                 title={<a href="https://ant.design">{item.name.last}</a>}
@@ -78,5 +94,5 @@ const InfiniteListExample = () => {
   );
 };
 
-export default () => <InfiniteListExample />;
+export default App;
 ```

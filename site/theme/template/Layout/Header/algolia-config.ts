@@ -1,4 +1,4 @@
-import { DocSearchHit } from 'docsearch-react-fork/dist/esm/types';
+import type { DocSearchHit } from 'docsearch-react-fork/dist/esm/types';
 
 let _internalATag: HTMLAnchorElement | null;
 

@@ -1,4 +1,4 @@
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 export function validProgress(progress: number | undefined) {
   if (!progress || progress < 0) {
@@ -23,7 +23,7 @@ export function getSuccessPercent({
   let percent = successPercent;
   /** @deprecated Use `percent` instead */
   if (success && 'progress' in success) {
-    devWarning(
+    warning(
       false,
       'Progress',
       '`success.progress` is deprecated. Please use `success.percent` instead.',

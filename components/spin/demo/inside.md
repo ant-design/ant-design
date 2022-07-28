@@ -15,12 +15,15 @@ Spin in a container.
 
 ```tsx
 import { Spin } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <div className="example">
     <Spin />
   </div>
 );
+
+export default App;
 ```
 
 ```css

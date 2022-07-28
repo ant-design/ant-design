@@ -1,11 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import * as React from 'react';
 import Affix from '../affix';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
-import scrollTo from '../_util/scrollTo';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
+import scrollTo from '../_util/scrollTo';
 import AnchorContext from './context';
 
 export type AnchorContainer = HTMLElement | Window;

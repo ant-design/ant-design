@@ -35,7 +35,7 @@ const MAINTAINERS = [
   'Rustin-Liu',
   'fireairforce',
   'kerm1it',
-  'MadCcc',
+  'madccc',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -47,7 +47,7 @@ function getDescription(entity) {
   }
   const descEle = entity.element.find('td:last');
   let htmlContent = descEle.html();
-  htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
+  htmlContent = htmlContent.replace(/<code class="notranslate">([^<]*)<\/code>/g, '`$1`');
   return htmlContent.trim();
 }
 
@@ -111,7 +111,20 @@ async function printLog() {
       const pr = prs[j];
 
       // Use jquery to get full html page since it don't need auth token
-      const res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+      let res;
+      let tryTimes = 0;
+      const fetchPullRequest = async () => {
+        try {
+          res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+        } catch (err) {
+          tryTimes++;
+          if (tryTimes < 5) {
+            console.log(chalk.red(`😬 Fetch error, retrying...`));
+            await fetchPullRequest();
+          }
+        }
+      };
+      await fetchPullRequest();
       if (res.url.includes('/issues/')) {
         continue;
       }
@@ -178,6 +191,9 @@ async function printLog() {
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
+        }
+        if (str.toLowerCase().includes('feat')) {
+          icon = '🆕';
         }
 
         let authorText = '';

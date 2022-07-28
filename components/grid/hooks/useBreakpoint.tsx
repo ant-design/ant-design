@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
-import ResponsiveObserve, { ScreenMap } from '../../_util/responsiveObserve';
+import type { ScreenMap } from '../../_util/responsiveObserve';
+import ResponsiveObserve from '../../_util/responsiveObserve';
 
 function useBreakpoint(refreshOnChange: boolean = true): ScreenMap {
   const screensRef = useRef<ScreenMap>({});

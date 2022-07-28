@@ -13,13 +13,14 @@ title:
 
 Complex error feedback.
 
-```jsx
-import { Result, Button, Typography } from 'antd';
+```tsx
 import { CloseCircleOutlined } from '@ant-design/icons';
+import { Button, Result, Typography } from 'antd';
+import React from 'react';
 
 const { Paragraph, Text } = Typography;
 
-export default () => (
+const App: React.FC = () => (
   <Result
     status="error"
     title="Submission Failed"
@@ -53,6 +54,8 @@ export default () => (
     </div>
   </Result>
 );
+
+export default App;
 ```
 
 ```css
