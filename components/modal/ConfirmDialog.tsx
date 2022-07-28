@@ -1,10 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import Dialog, { ModalFuncProps } from './Modal';
-import ActionButton from '../_util/ActionButton';
-import devWarning from '../_util/devWarning';
+import * as React from 'react';
 import ConfigProvider from '../config-provider';
+import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
+import warning from '../_util/warning';
+import type { ModalFuncProps } from './Modal';
+import Dialog from './Modal';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -43,7 +44,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     focusTriggerAfterClose,
   } = props;
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Modal',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

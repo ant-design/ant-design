@@ -20,6 +20,7 @@ High performance Form component with data scope management. Including data colle
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
+| disabled | Set form component disable, only available for antd components | boolean | false |
 | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
@@ -242,10 +243,11 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | Check field if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
+| setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#NamePath), value: any) => void | 4.22.0 |
+| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -278,6 +280,86 @@ validateFields()
     */
   });
 ```
+
+## Hooks
+
+### Form.useForm
+
+`type Form.useForm = (): [FormInstance]`
+
+Create Form instance to maintain data store.
+
+### Form.useFormInstance
+
+`type Form.useFormInstance = (): FormInstance`
+
+Added in `4.20.0`. Get current context form instance to avoid pass as props between components:
+
+```tsx
+const Sub = () => {
+  const form = Form.useFormInstance();
+
+  return <Button onClick={() => form.setFieldsValue({})} />;
+};
+
+export default () => {
+  const [form] = Form.useForm();
+
+  return (
+    <Form form={form}>
+      <Sub />
+    </Form>
+  );
+};
+```
+
+### Form.useWatch
+
+`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+
+Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+  const userName = Form.useWatch('username', form);
+
+  const { data: options } = useSWR(`/api/user/${userName}`, fetcher);
+
+  return (
+    <Form form={form}>
+      <Form.Item name="username">
+        <AutoComplete options={options} />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+### Form.Item.useStatus
+
+`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+
+```tsx
+const CustomInput = ({ value }) => {
+  const { status } = Form.Item.useStatus();
+  return <input value={value} className={`custom-input-${status}`} />;
+};
+
+export default () => (
+  <Form>
+    <Form.Item name="username">
+      <CustomInput />
+    </Form.Item>
+  </Form>
+);
+```
+
+#### Difference between other data fetching method
+
+Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
 ### Interface
 
@@ -436,7 +518,7 @@ React can not get correct interaction of controlled component with async value u
 
 See similar issues: [#28370](https://github.com/ant-design/ant-design/issues/28370) [#27994](https://github.com/ant-design/ant-design/issues/27994)
 
-`scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please mark sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
+`scrollToFirstError` and `scrollToField` deps on `id` attribute passed to form control, please make sure that it hasn't been ignored in your custom form control. Check [codesandbox](https://codesandbox.io/s/antd-reproduction-template-forked-25nul?file=/index.js) for solution.
 
 ### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
 

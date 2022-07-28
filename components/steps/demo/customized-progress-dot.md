@@ -13,12 +13,14 @@ title:
 
 You can customize the display for Steps with progress dot style.
 
-```jsx
-import { Steps, Popover } from 'antd';
+```tsx
+import type { StepsProps } from 'antd';
+import { Popover, Steps } from 'antd';
+import React from 'react';
 
 const { Step } = Steps;
 
-const customDot = (dot, { status, index }) => (
+const customDot: StepsProps['progressDot'] = (dot, { status, index }) => (
   <Popover
     content={
       <span>
@@ -30,13 +32,14 @@ const customDot = (dot, { status, index }) => (
   </Popover>
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Steps current={1} progressDot={customDot}>
     <Step title="Finished" description="You can hover on the dot." />
     <Step title="In Progress" description="You can hover on the dot." />
     <Step title="Waiting" description="You can hover on the dot." />
     <Step title="Waiting" description="You can hover on the dot." />
-  </Steps>,
-  mountNode,
+  </Steps>
 );
+
+export default App;
 ```

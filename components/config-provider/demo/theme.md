@@ -14,52 +14,84 @@ title:
 
 Modify global theme color by css variable which IE not support. Css variable depends on the design, it may adjust so please do not directly use it. You can go to other components page for more detail style. [Check this](/docs/react/customize-theme-variable) to view detail.
 
-```jsx
-import { SketchPicker } from 'react-color';
-import React, { useState } from 'react';
+```tsx
 import {
+  ClockCircleOutlined,
   DownOutlined,
   MailOutlined,
   SettingOutlined,
-  ClockCircleOutlined,
 } from '@ant-design/icons';
+import type { SpaceProps, TreeSelectProps } from 'antd';
 import {
-  ConfigProvider,
-  Tag,
-  Mentions,
-  Steps,
+  Alert,
   Button,
-  Radio,
-  Space,
+  Card,
+  Checkbox,
+  Col,
+  ConfigProvider,
+  DatePicker,
+  Divider,
+  Dropdown,
   Form,
   Input,
-  Row,
-  Col,
-  Typography,
-  Menu,
-  Dropdown,
-  Divider,
-  Pagination,
-  Select,
-  Checkbox,
-  DatePicker,
-  TimePicker,
   InputNumber,
+  Mentions,
+  Menu,
+  Pagination,
+  Progress,
+  Radio,
+  Row,
+  Select,
   Slider,
+  Space,
+  Spin,
+  Steps,
   Switch,
-  TreeSelect,
-  Card,
   Table,
   Tabs,
+  Tag,
   Timeline,
-  Tree,
-  Alert,
-  Progress,
-  Spin,
+  TimePicker,
   Transfer,
+  Tree,
+  TreeSelect,
+  Typography,
 } from 'antd';
+import React, { useState } from 'react';
+import { SketchPicker } from 'react-color';
 
-const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
+const SplitSpace: React.FC<SpaceProps> = props => (
+  <Space split={<Divider type="vertical" />} size={4} {...props} />
+);
+
+const menuItems = [
+  {
+    key: 'mail',
+    icon: <MailOutlined />,
+    label: 'Mail',
+  },
+  {
+    key: 'SubMenu',
+    icon: <SettingOutlined />,
+    label: 'Submenu',
+    children: [
+      {
+        type: 'group',
+        label: 'Item 1',
+        children: [
+          {
+            key: 'setting:1',
+            label: 'Option 1',
+          },
+          {
+            key: 'setting:2',
+            label: 'Option 2',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 const inputProps = {
   style: { width: 128 },
@@ -87,7 +119,7 @@ const treeData = [
   },
 ];
 
-const treeSelectProps = {
+const treeSelectProps: TreeSelectProps = {
   ...inputProps,
   treeCheckable: true,
   maxTagCount: 'responsive',
@@ -129,7 +161,7 @@ const MyTransfer = () => {
   );
 };
 
-const FormSizeDemo = () => {
+const App: React.FC = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',
@@ -138,7 +170,7 @@ const FormSizeDemo = () => {
     infoColor: '#1890ff',
   });
 
-  function onColorChange(nextColor) {
+  const onColorChange = (nextColor: Partial<typeof color>) => {
     const mergedNextColor = {
       ...color,
       ...nextColor,
@@ -147,7 +179,7 @@ const FormSizeDemo = () => {
     ConfigProvider.config({
       theme: mergedNextColor,
     });
-  }
+  };
 
   return (
     <Row gutter={16} wrap={false}>
@@ -281,14 +313,26 @@ const FormSizeDemo = () => {
             {/* Dropdown */}
             <Dropdown
               overlay={
-                <Menu>
-                  <Menu.Item>1st menu item</Menu.Item>
-                  <Menu.Item danger>a danger item</Menu.Item>
-                </Menu>
+                <Menu
+                  items={[
+                    {
+                      key: '1',
+                      label: '1st menu item',
+                    },
+                    {
+                      key: '2',
+                      label: 'a danger item',
+                      danger: true,
+                    },
+                  ]}
+                />
               }
             >
-              <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                Hover me <DownOutlined />
+              <a onClick={e => e.preventDefault()}>
+                <Space>
+                  Hover me
+                  <DownOutlined />
+                </Space>
               </a>
             </Dropdown>
 
@@ -299,60 +343,25 @@ const FormSizeDemo = () => {
           {/* Menu - horizontal */}
           <Row gutter={16}>
             <Col span={12}>
-              <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="horizontal" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
             <Col span={12}>
-              <Menu mode="horizontal" theme="dark" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu
+                mode="horizontal"
+                theme="dark"
+                defaultSelectedKeys={['mail']}
+                items={menuItems}
+              />
             </Col>
           </Row>
 
           {/* Menu - vertical */}
           <Row gutter={16}>
             <Col span={12}>
-              <Menu mode="inline" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="inline" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
             <Col span={12}>
-              <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
           </Row>
 
@@ -630,5 +639,6 @@ const FormSizeDemo = () => {
     </Row>
   );
 };
-ReactDOM.render(<FormSizeDemo />, mountNode);
+
+export default App;
 ```

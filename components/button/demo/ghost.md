@@ -13,10 +13,11 @@ title:
 
 `ghost` property will make button's background transparent, it is commonly used in colored background.
 
-```jsx
+```tsx
 import { Button } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div className="site-button-ghost-wrapper">
     <Button type="primary" ghost>
       Primary
@@ -28,9 +29,10 @@ ReactDOM.render(
     <Button type="primary" danger ghost>
       Danger
     </Button>
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```
 
 ```css

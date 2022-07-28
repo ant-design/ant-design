@@ -13,38 +13,33 @@ title:
 
 Vertical Radio.Group, with more radios.
 
-```jsx
-import { Radio, Input, Space } from 'antd';
+```tsx
+import type { RadioChangeEvent } from 'antd';
+import { Input, Radio, Space } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    value: 1,
-  };
+const App: React.FC = () => {
+  const [value, setValue] = useState(1);
 
-  onChange = e => {
+  const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
-    this.setState({
-      value: e.target.value,
-    });
+    setValue(e.target.value);
   };
 
-  render() {
-    const { value } = this.state;
-    return (
-      <Radio.Group onChange={this.onChange} value={value}>
-        <Space direction="vertical">
-          <Radio value={1}>Option A</Radio>
-          <Radio value={2}>Option B</Radio>
-          <Radio value={3}>Option C</Radio>
-          <Radio value={4}>
-            More...
-            {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
-          </Radio>
-        </Space>
-      </Radio.Group>
-    );
-  }
-}
+  return (
+    <Radio.Group onChange={onChange} value={value}>
+      <Space direction="vertical">
+        <Radio value={1}>Option A</Radio>
+        <Radio value={2}>Option B</Radio>
+        <Radio value={3}>Option C</Radio>
+        <Radio value={4}>
+          More...
+          {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
+        </Radio>
+      </Space>
+    </Radio.Group>
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

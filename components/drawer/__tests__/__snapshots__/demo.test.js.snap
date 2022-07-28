@@ -310,50 +310,25 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
     </button>
   </div>
   <div
-    class=""
+    class="ant-drawer ant-drawer-right ant-drawer-inline"
+    style="position:absolute"
+    tabindex="-1"
   >
     <div
-      class="ant-drawer ant-drawer-right"
-      style="position:absolute"
-      tabindex="-1"
-    >
-      <div
-        class="ant-drawer-mask"
-      />
-      <div
-        class="ant-drawer-content-wrapper"
-        style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
-      >
-        <div
-          class="ant-drawer-content"
-        >
-          <div
-            class="ant-drawer-wrapper-body"
-          >
-            <div
-              class="ant-drawer-header"
-            >
-              <div
-                class="ant-drawer-header-title"
-              >
-                <div
-                  class="ant-drawer-title"
-                >
-                  Basic Drawer
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-drawer-body"
-            >
-              <p>
-                Some contents...
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      tabindex="0"
+    />
   </div>
 </div>
 `;

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 切换菜单类型
   en-US: Switch the menu type
@@ -13,27 +13,66 @@ title:
 
 Show the dynamic switching mode (between `inline` and `vertical`).
 
-```jsx
-import { Menu, Switch, Divider } from 'antd';
+```tsx
 import {
-  MailOutlined,
-  CalendarOutlined,
   AppstoreOutlined,
-  SettingOutlined,
+  CalendarOutlined,
   LinkOutlined,
+  MailOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
+import { Divider, Menu, Switch } from 'antd';
+import type { MenuProps, MenuTheme } from 'antd/es/menu';
+import React, { useState } from 'react';
 
-const { SubMenu } = Menu;
+type MenuItem = Required<MenuProps>['items'][number];
 
-const Demo = () => {
-  const [mode, setMode] = React.useState('inline');
-  const [theme, setTheme] = React.useState('light');
+function getItem(
+  label: React.ReactNode,
+  key?: React.Key | null,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  } as MenuItem;
+}
 
-  const changeMode = value => {
+const items: MenuItem[] = [
+  getItem('Navigation One', '1', <MailOutlined />),
+  getItem('Navigation Two', '2', <CalendarOutlined />),
+  getItem('Navigation Two', 'sub1', <AppstoreOutlined />, [
+    getItem('Option 3', '3'),
+    getItem('Option 4', '4'),
+    getItem('Submenu', 'sub1-2', null, [getItem('Option 5', '5'), getItem('Option 6', '6')]),
+  ]),
+  getItem('Navigation Three', 'sub2', <SettingOutlined />, [
+    getItem('Option 7', '7'),
+    getItem('Option 8', '8'),
+    getItem('Option 9', '9'),
+    getItem('Option 10', '10'),
+  ]),
+  getItem(
+    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+      Ant Design
+    </a>,
+    'link',
+    <LinkOutlined />,
+  ),
+];
+
+const App: React.FC = () => {
+  const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
+  const [theme, setTheme] = useState<MenuTheme>('light');
+
+  const changeMode = (value: boolean) => {
     setMode(value ? 'vertical' : 'inline');
   };
 
-  const changeTheme = value => {
+  const changeTheme = (value: boolean) => {
     setTheme(value ? 'dark' : 'light');
   };
 
@@ -50,36 +89,11 @@ const Demo = () => {
         defaultOpenKeys={['sub1']}
         mode={mode}
         theme={theme}
-      >
-        <Menu.Item key="1" icon={<MailOutlined />}>
-          Navigation One
-        </Menu.Item>
-        <Menu.Item key="2" icon={<CalendarOutlined />}>
-          Navigation Two
-        </Menu.Item>
-        <SubMenu key="sub1" icon={<AppstoreOutlined />} title="Navigation Two">
-          <Menu.Item key="3">Option 3</Menu.Item>
-          <Menu.Item key="4">Option 4</Menu.Item>
-          <SubMenu key="sub1-2" title="Submenu">
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-          </SubMenu>
-        </SubMenu>
-        <SubMenu key="sub2" icon={<SettingOutlined />} title="Navigation Three">
-          <Menu.Item key="7">Option 7</Menu.Item>
-          <Menu.Item key="8">Option 8</Menu.Item>
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="link" icon={<LinkOutlined />}>
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-            Ant Design
-          </a>
-        </Menu.Item>
-      </Menu>
+        items={items}
+      />
     </>
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

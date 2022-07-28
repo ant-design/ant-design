@@ -36,6 +36,8 @@ module.exports = {
     原则: 1,
     Principles: 1,
     全局规则: 2,
+    重型组件: 8,
+    ProComponents: 8,
     'Global Rules': 2,
     模板文档: 3,
     'Template Document': 3,

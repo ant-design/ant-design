@@ -24,7 +24,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | The text of the Confirm button | string | `OK` |  |
 | okType | Button `type` of the Confirm button | string | `primary` |  |
-| showCancel | Show cancel button | boolean | true | 4.17.0 |
+| showCancel | Show cancel button | boolean | true | 4.18.0 |
 | title | The title of the confirmation box | ReactNode \| () => ReactNode | - |  |
 | onCancel | A callback of cancel | function(e) | - |  |
 | onConfirm | A callback of confirmation | function(e) | - |  |

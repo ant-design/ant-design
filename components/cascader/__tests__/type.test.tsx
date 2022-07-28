@@ -1,6 +1,7 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
-import Cascader, { BasicDataNode } from '..';
+import type { BaseOptionType } from '..';
+import Cascader from '..';
+import { render } from '../../../tests/utils';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {
@@ -45,18 +46,20 @@ describe('Cascader.typescript', () => {
   });
 
   it('suffixIcon', () => {
-    const wrapper = mount(<Cascader suffixIcon={<span />} />);
-    expect(wrapper).toBeTruthy();
+    const { container } = render(<Cascader suffixIcon={<span />} />);
+    expect(
+      container.querySelector('.ant-select-arrow')?.querySelector('span')?.className,
+    ).toBeFalsy();
   });
 
   it('Generic', () => {
-    interface MyOptionData extends BasicDataNode {
+    interface MyOptionData extends BaseOptionType {
       customizeLabel: string;
       customizeValue: string;
       customizeChildren?: MyOptionData[];
     }
 
-    const wrapper = mount(
+    const { container } = render(
       <Cascader<MyOptionData>
         options={[
           {
@@ -72,6 +75,20 @@ describe('Cascader.typescript', () => {
         ]}
       />,
     );
-    expect(wrapper).toBeTruthy();
+    expect(container).toBeTruthy();
+  });
+
+  it('single onChange', () => {
+    const { container } = render(
+      <Cascader multiple={false} onChange={(values: (string | number)[]) => values} />,
+    );
+    expect(container).toBeTruthy();
+  });
+
+  it('multiple onChange', () => {
+    const { container } = render(
+      <Cascader multiple onChange={(values: (string | number)[][]) => values} />,
+    );
+    expect(container).toBeTruthy();
   });
 });

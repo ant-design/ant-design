@@ -30,14 +30,14 @@
     border-color: @hoverBorderColor;
     box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
   }
-  border-right-width: @border-width-base !important;
+  border-right-width: @border-width-base;
   outline: 0;
 }
 
 // == when hover
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
-  border-right-width: @border-width-base !important;
+  border-right-width: @border-width-base;
 }
 
 .disabled() {
@@ -66,7 +66,7 @@
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @control-border-radius;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
 
@@ -193,7 +193,7 @@
     text-align: center;
     background-color: @input-addon-bg;
     border: @border-width-base @border-style-base @input-border-color;
-    border-radius: @border-radius-base;
+    border-radius: @control-border-radius;
     transition: all 0.3s;
 
     // Reset Select's style in addon
@@ -297,8 +297,8 @@
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       .@{ant-prefix}-input-search & {
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
+        border-top-left-radius: @control-border-radius;
+        border-bottom-left-radius: @control-border-radius;
       }
     }
 
@@ -384,8 +384,8 @@
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
-      border-top-left-radius: @border-radius-base;
-      border-bottom-left-radius: @border-radius-base;
+      border-top-left-radius: @control-border-radius;
+      border-bottom-left-radius: @control-border-radius;
     }
 
     & > *:last-child,
@@ -393,8 +393,8 @@
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
       border-right-width: @border-width-base;
-      border-top-right-radius: @border-radius-base;
-      border-bottom-right-radius: @border-radius-base;
+      border-top-right-radius: @control-border-radius;
+      border-bottom-right-radius: @control-border-radius;
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -416,9 +416,55 @@
         }
 
         & > .@{ant-prefix}-input {
-          border-radius: @border-radius-base 0 0 @border-radius-base;
+          border-radius: @control-border-radius 0 0 @control-border-radius;
         }
       }
     }
+  }
+}
+
+.status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  &:not(.@{prefix-cls}-disabled):not(.@{prefix-cls}-borderless).@{prefix-cls} {
+    &,
+    &:hover {
+      background: @background-color;
+      border-color: @border-color;
+    }
+
+    &:focus,
+    &-focused {
+      .active(@text-color, @hoverBorderColor, @outlineColor);
+    }
+  }
+}
+
+.status-color-common(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  .@{prefix-cls}-prefix {
+    color: @text-color;
+  }
+}
+
+.group-status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+) {
+  .@{prefix-cls}-group-addon {
+    color: @text-color;
+    border-color: @border-color;
   }
 }

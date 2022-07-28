@@ -13,8 +13,9 @@ title:
 
 The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
 
-```jsx
+```tsx
 import { TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const treeData = [
   {
@@ -37,30 +38,26 @@ const treeData = [
   },
 ];
 
-class Demo extends React.Component {
-  state = {
-    value: undefined,
+const App: React.FC = () => {
+  const [value, setValue] = useState<string>();
+
+  const onChange = (newValue: string) => {
+    console.log(newValue);
+    setValue(newValue);
   };
 
-  onChange = value => {
-    console.log(value);
-    this.setState({ value });
-  };
+  return (
+    <TreeSelect
+      style={{ width: '100%' }}
+      value={value}
+      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      treeData={treeData}
+      placeholder="Please select"
+      treeDefaultExpandAll
+      onChange={onChange}
+    />
+  );
+};
 
-  render() {
-    return (
-      <TreeSelect
-        style={{ width: '100%' }}
-        value={this.state.value}
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        treeData={treeData}
-        placeholder="Please select"
-        treeDefaultExpandAll
-        onChange={this.onChange}
-      />
-    );
-  }
-}
-
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

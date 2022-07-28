@@ -1,15 +1,16 @@
-import React from 'react';
-import Moment from 'moment';
-import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
+import Moment from 'moment';
+import momentGenerateConfig from 'rc-picker/lib/generate/moment';
+import React from 'react';
 import Calendar from '..';
-import Header from '../Header';
-import Select from '../../select';
-import Group from '../../radio/group';
-import Button from '../../radio/radioButton';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import Group from '../../radio/group';
+import Button from '../../radio/radioButton';
+import Select from '../../select';
+import Header from '../Header';
 
 describe('Calendar', () => {
   mountTest(Calendar);
@@ -40,14 +41,21 @@ describe('Calendar', () => {
   });
 
   it('Calendar should be selectable', () => {
+    MockDate.set(Moment('2000-01-01').valueOf());
+
     const onSelect = jest.fn();
     const onChange = jest.fn();
-    const wrapper = mount(<Calendar onSelect={onSelect} onChange={onChange} />);
-    wrapper.find('.ant-picker-cell').at(0).simulate('click');
+    const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
+
+    fireEvent.click(container.querySelector('.ant-picker-cell'));
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
+
     const value = onSelect.mock.calls[0][0];
     expect(Moment.isMoment(value)).toBe(true);
+
     expect(onChange).toHaveBeenCalled();
+
+    MockDate.reset();
   });
 
   it('only Valid range should be selectable', () => {
@@ -402,5 +410,21 @@ describe('Calendar', () => {
       <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
     );
     expect(wrapper.find('.bamboo').first().text()).toEqual('Light');
+  });
+
+  it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Calendar
+        fullscreen={false}
+        dateFullCellRender={() => (
+          <div className="bamboo" onClick={onClick}>
+            Light
+          </div>
+        )}
+      />,
+    );
+    wrapper.find('.bamboo').first().simulate('click');
+    expect(onClick).toBeCalled();
   });
 });

@@ -15,23 +15,24 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 
 ```tsx
 import { Select, Spin } from 'antd';
-import { SelectProps } from 'antd/es/select';
+import type { SelectProps } from 'antd/es/select';
 import debounce from 'lodash/debounce';
+import React, { useMemo, useRef, useState } from 'react';
 
 export interface DebounceSelectProps<ValueType = any>
-  extends Omit<SelectProps<ValueType>, 'options' | 'children'> {
+  extends Omit<SelectProps<ValueType | ValueType[]>, 'options' | 'children'> {
   fetchOptions: (search: string) => Promise<ValueType[]>;
   debounceTimeout?: number;
 }
 
 function DebounceSelect<
-  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any
->({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps) {
-  const [fetching, setFetching] = React.useState(false);
-  const [options, setOptions] = React.useState<ValueType[]>([]);
-  const fetchRef = React.useRef(0);
+  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any,
+>({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps<ValueType>) {
+  const [fetching, setFetching] = useState(false);
+  const [options, setOptions] = useState<ValueType[]>([]);
+  const fetchRef = useRef(0);
 
-  const debounceFetcher = React.useMemo(() => {
+  const debounceFetcher = useMemo(() => {
     const loadOptions = (value: string) => {
       fetchRef.current += 1;
       const fetchId = fetchRef.current;
@@ -53,7 +54,7 @@ function DebounceSelect<
   }, [fetchOptions, debounceTimeout]);
 
   return (
-    <Select<ValueType>
+    <Select
       labelInValue
       filterOption={false}
       onSearch={debounceFetcher}
@@ -85,8 +86,8 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
     );
 }
 
-const Demo = () => {
-  const [value, setValue] = React.useState<UserValue[]>([]);
+const App: React.FC = () => {
+  const [value, setValue] = useState<UserValue[]>([]);
 
   return (
     <DebounceSelect
@@ -95,12 +96,12 @@ const Demo = () => {
       placeholder="Select users"
       fetchOptions={fetchUserList}
       onChange={newValue => {
-        setValue(newValue);
+        setValue(newValue as UserValue[]);
       }}
       style={{ width: '100%' }}
     />
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

@@ -27,17 +27,17 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  |
 | destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | false |  |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
-| expandIconPosition | 设置图标位置 | `left` \| `right` | - |  |
+| expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | onChange | 切换面板的回调 | function | - |  |
 
 ### Collapse.Panel
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| collapsible | 是否可折叠或指定可折叠触发区域 | `header` \| `disabled` | - | 4.9.0 |
-| extra | 自定义渲染每个面板右上角的内容 | ReactNode | - |  |
-| forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
-| header | 面板头内容 | ReactNode | - |  |
-| key | 对应 activeKey | string \| number | - |  |
-| showArrow | 是否展示当前面板上的箭头 | boolean | true |  |
+| 参数        | 说明                           | 类型                   | 默认值 | 版本  |
+| ----------- | ------------------------------ | ---------------------- | ------ | ----- |
+| collapsible | 是否可折叠或指定可折叠触发区域 | `header` \| `disabled` | -      | 4.9.0 |
+| extra       | 自定义渲染每个面板右上角的内容 | ReactNode              | -      |       |
+| forceRender | 被隐藏时是否渲染 DOM 结构      | boolean                | false  |       |
+| header      | 面板头内容                     | ReactNode              | -      |       |
+| key         | 对应 activeKey                 | string \| number       | -      |       |
+| showArrow   | 是否展示当前面板上的箭头       | boolean                | true   |       |

@@ -13,93 +13,82 @@ title:
 
 Synchronize with [InputNumber](/components/input-number/) component.
 
-```jsx
-import { Slider, InputNumber, Row, Col } from 'antd';
+```tsx
+import { Col, InputNumber, Row, Slider } from 'antd';
+import React, { useState } from 'react';
 
-class IntegerStep extends React.Component {
-  state = {
-    inputValue: 1,
+const IntegerStep = () => {
+  const [inputValue, setInputValue] = useState(1);
+
+  const onChange = (newValue: number) => {
+    setInputValue(newValue);
   };
 
-  onChange = value => {
-    this.setState({
-      inputValue: value,
-    });
-  };
+  return (
+    <Row>
+      <Col span={12}>
+        <Slider
+          min={1}
+          max={20}
+          onChange={onChange}
+          value={typeof inputValue === 'number' ? inputValue : 0}
+        />
+      </Col>
+      <Col span={4}>
+        <InputNumber
+          min={1}
+          max={20}
+          style={{ margin: '0 16px' }}
+          value={inputValue}
+          onChange={onChange}
+        />
+      </Col>
+    </Row>
+  );
+};
 
-  render() {
-    const { inputValue } = this.state;
-    return (
-      <Row>
-        <Col span={12}>
-          <Slider
-            min={1}
-            max={20}
-            onChange={this.onChange}
-            value={typeof inputValue === 'number' ? inputValue : 0}
-          />
-        </Col>
-        <Col span={4}>
-          <InputNumber
-            min={1}
-            max={20}
-            style={{ margin: '0 16px' }}
-            value={inputValue}
-            onChange={this.onChange}
-          />
-        </Col>
-      </Row>
-    );
-  }
-}
+const DecimalStep = () => {
+  const [inputValue, setInputValue] = useState(0);
 
-class DecimalStep extends React.Component {
-  state = {
-    inputValue: 0,
-  };
-
-  onChange = value => {
+  const onChange = (value: number) => {
     if (isNaN(value)) {
       return;
     }
-    this.setState({
-      inputValue: value,
-    });
+
+    setInputValue(value);
   };
 
-  render() {
-    const { inputValue } = this.state;
-    return (
-      <Row>
-        <Col span={12}>
-          <Slider
-            min={0}
-            max={1}
-            onChange={this.onChange}
-            value={typeof inputValue === 'number' ? inputValue : 0}
-            step={0.01}
-          />
-        </Col>
-        <Col span={4}>
-          <InputNumber
-            min={0}
-            max={1}
-            style={{ margin: '0 16px' }}
-            step={0.01}
-            value={inputValue}
-            onChange={this.onChange}
-          />
-        </Col>
-      </Row>
-    );
-  }
-}
+  return (
+    <Row>
+      <Col span={12}>
+        <Slider
+          min={0}
+          max={1}
+          onChange={onChange}
+          value={typeof inputValue === 'number' ? inputValue : 0}
+          step={0.01}
+        />
+      </Col>
+      <Col span={4}>
+        <InputNumber
+          min={0}
+          max={1}
+          style={{ margin: '0 16px' }}
+          step={0.01}
+          value={inputValue}
+          onChange={onChange}
+        />
+      </Col>
+    </Row>
+  );
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div>
     <IntegerStep />
     <DecimalStep />
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```

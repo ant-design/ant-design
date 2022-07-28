@@ -15,8 +15,11 @@ The simplest usage for short messages.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-ReactDOM.render(<Alert message="Success Text" type="success" />, mountNode);
+const App: React.FC = () => <Alert message="Success Text" type="success" />;
+
+export default App;
 ```
 
 <style>

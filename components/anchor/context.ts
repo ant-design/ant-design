@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AntAnchor } from './Anchor';
+import type { AntAnchor } from './Anchor';
 
 const AnchorContext = React.createContext<AntAnchor>(null as any);
 

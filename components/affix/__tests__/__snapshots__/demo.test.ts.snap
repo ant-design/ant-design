@@ -71,7 +71,7 @@ exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
     class=""
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>

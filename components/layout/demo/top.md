@@ -19,21 +19,28 @@ Generally, the mainnav is placed at the top of the page, and includes the logo, 
 
 Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links.
 
-```jsx
-import { Layout, Menu, Breadcrumb } from 'antd';
+```tsx
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer } = Layout;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Layout className="layout">
     <Header>
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        {new Array(15).fill(null).map((_, index) => {
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        items={new Array(15).fill(null).map((_, index) => {
           const key = index + 1;
-          return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
+          return {
+            key,
+            label: `nav ${key}`,
+          };
         })}
-      </Menu>
+      />
     </Header>
     <Content style={{ padding: '0 50px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
@@ -44,9 +51,10 @@ ReactDOM.render(
       <div className="site-layout-content">Content</div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
+
+export default App;
 ```
 
 ```css

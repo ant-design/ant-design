@@ -37,7 +37,7 @@ Select component to select value from options.
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |
-| fieldNames | Customize node title, key, options field name | object | { label: `label`, key: `key`, options: `options` } | 4.17.0 |
+| fieldNames | Customize node label, value, options field name | object | { label: `label`, value: `value`, options: `options` } | 4.17.0 |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | filterSort | Sort function for search options sorting, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction | (optionA: Option, optionB: Option) => number | - | 4.9.0 |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -55,14 +55,16 @@ Select component to select value from options.
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | Placeholder of select | ReactNode | - |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | The current input "search" text | string | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true(for single select), false(for multiple select) |  |
-| showSearch | Whether show search input in single mode | boolean | false |  |
+| showSearch | Whether select is searchable | boolean | single: false, multple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
-| tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
+| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
@@ -105,19 +107,19 @@ Select component to select value from options.
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tag` mode?
+### Why sometime search will show 2 same option when in `tags` mode?
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
-### The dropdown is closed when click `dropdownRender` area?
+### When I click elements in dropdownRender, the select dropdown will not be closed?
 
-See the instruction in [dropdownRender example](#components-select-demo-custom-dropdown-menu).
+You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
 ### Why sometime customize Option cause scroll break?
 
 Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
-```tsx
+```jsx
 <Select listItemHeight={10} listHeight={250} />
 ```
 

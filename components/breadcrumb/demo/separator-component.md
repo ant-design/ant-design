@@ -13,10 +13,11 @@ title:
 
 The separator can be customized by setting the separator property: `Breadcrumb.Separator`.
 
-```jsx
+```tsx
 import { Breadcrumb } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Breadcrumb separator="">
     <Breadcrumb.Item>Location</Breadcrumb.Item>
     <Breadcrumb.Separator>:</Breadcrumb.Separator>
@@ -25,7 +26,8 @@ ReactDOM.render(
     <Breadcrumb.Item href="">Application List</Breadcrumb.Item>
     <Breadcrumb.Separator />
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>,
-  mountNode,
+  </Breadcrumb>
 );
+
+export default App;
 ```

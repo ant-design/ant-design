@@ -40,6 +40,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | open | 是否展开下拉菜单 | boolean | - |  |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | value | 指定当前选中的条目 | string | - |  |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | - |  |
@@ -47,13 +48,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | onFocus | 获得焦点时的回调 | function() | - |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
+| onClear | 清除内容时回调 | function | - | 4.6.0 |
 
 ## 方法
 
-| 名称 | 描述 | 版本 |
-| --- | --- | --- |
-| blur() | 移除焦点 |  |
-| focus() | 获取焦点 |  |
+| 名称    | 描述     | 版本 |
+| ------- | -------- | ---- |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
 ## FAQ
 

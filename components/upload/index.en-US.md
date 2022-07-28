@@ -52,14 +52,15 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 Extends File with additional props.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| name | File name | string | - |
-| percent | Upload progress percent | number | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
-| thumbUrl | Thumb image url | string | - |
-| uid | unique id. Will auto generate when not provided | string | - |
-| url | Download url | string | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
+| name | File name | string | - | - |
+| percent | Upload progress percent | number | - | - |
+| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| thumbUrl | Thumb image url | string | - | - |
+| uid | unique id. Will auto generate when not provided | string | - | - |
+| url | Download url | string | - | - |
 
 ### onChange
 
@@ -94,7 +95,7 @@ When uploading state change, it returns:
 
 ## FAQ
 
-### How to implement upload server side?
+### How do I implement upload server side?
 
 - You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki#server-side) about how to implement server side upload interface.
 - There is a mock example of [express](https://github.com/react-component/upload/blob/master/server.js) in rc-upload.
@@ -107,10 +108,18 @@ Please set property `url` of each item in `fileList` to control content of link.
 
 See <https://github.com/react-component/upload#customrequest>.
 
-### Why `fileList` in control will not trigger `onChange` `status` update when file not in the list?
+### Why will the `fileList` that's in control not trigger `onChange` `status` update when the file is not in the list?
 
-`onChange` only trigger when file in the list, it will ignore left events when removed from the list. Please note that there exist bug which makes event still trigger even the file is not in the list before `4.13.0`.
+`onChange` will only trigger when the file is in the list, it will ignore any events removed from the list. Please note that there does exist a bug which makes an event still trigger even when the file is not in the list before `4.13.0`.
 
-### Why sometime `onChange` return File object and sometime return { originFileObj: File }?
+### Why does `onChange` sometimes return File object and other times return { originFileObj: File }?
 
 For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before major release.
+
+### Why sometime Chrome can not upload?
+
+Chrome update will also break native upload. Please restart chrome to finish the upload work. Ref:
+
+- [#32672](https://github.com/ant-design/ant-design/issues/32672)
+- [#32913](https://github.com/ant-design/ant-design/issues/32913)
+- [#33988](https://github.com/ant-design/ant-design/issues/33988)

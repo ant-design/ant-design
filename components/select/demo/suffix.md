@@ -14,19 +14,20 @@ title:
 
 Basic Usage.
 
-```jsx
+```tsx
+import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
-import { SmileOutlined, MehOutlined } from '@ant-design/icons';
+import React from 'react';
 
 const smileIcon = <SmileOutlined />;
 const mehIcon = <MehOutlined />;
 const { Option } = Select;
 
-function handleChange(value) {
+const handleChange = (value: string) => {
   console.log(`selected ${value}`);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Select
       suffixIcon={smileIcon}
@@ -44,7 +45,8 @@ ReactDOM.render(
     <Select suffixIcon={mehIcon} defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/km_KH';
-import DatePicker from '../date-picker/locale/km_KH';
-import TimePicker from '../time-picker/locale/km_KH';
 import Calendar from '../calendar/locale/km_KH';
-import { Locale } from '../locale-provider';
+import DatePicker from '../date-picker/locale/km_KH';
+import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/km_KH';
 
 const typeTemplate = '${label} is not a valid ${type}';
 
@@ -26,18 +26,18 @@ const localeValues: Locale = {
     sortTitle: 'តម្រៀប',
     expand: 'ពន្លាត',
     collapse: 'បិតបាំង',
-    triggerDesc: 'ចុចដើម្បីរៀបតាំលំដាប់ធំ',
-    triggerAsc: 'ចុចដើម្បីរៀបតាំលំដាប់តូច​',
+    triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
+    triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
   },
   Modal: {
     okText: 'យល់ព្រម',
-    cancelText: 'យល់ព្រម',
+    cancelText: 'បោះបង់',
     justOkText: 'យល់ព្រម',
   },
   Popconfirm: {
     okText: 'យល់ព្រម',
-    cancelText: 'យល់ព្រម',
+    cancelText: 'បោះបង់',
   },
   Transfer: {
     searchPlaceholder: 'ស្វែងរកនៅទីនេះ',

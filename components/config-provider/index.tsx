@@ -1,25 +1,28 @@
-import * as React from 'react';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import { RenderEmptyHandler } from './renderEmpty';
-import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
+import * as React from 'react';
+import type { RequiredMark } from '../form/Form';
+import type { Locale } from '../locale-provider';
+import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import message from '../message';
+import notification from '../notification';
+import type { Theme } from './context';
 import {
   ConfigConsumer,
+  ConfigConsumerProps,
   ConfigContext,
   CSPConfig,
   DirectionType,
-  ConfigConsumerProps,
-  Theme,
 } from './context';
-import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
-import message from '../message';
-import notification from '../notification';
-import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
-import defaultLocale from '../locale/default';
+import { RenderEmptyHandler } from './defaultRenderEmpty';
+import { DisabledContextProvider } from './DisabledContext';
+import type { SizeType } from './SizeContext';
+import SizeContext, { SizeContextProvider } from './SizeContext';
 
 export {
   RenderEmptyHandler,
@@ -49,6 +52,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'renderEmpty',
   'pageHeader',
   'input',
+  'pagination',
   'form',
 ];
 
@@ -69,11 +73,15 @@ export interface ConfigProviderProps {
   input?: {
     autoComplete?: string;
   };
+  pagination?: {
+    showSizeChanger?: boolean;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
   componentSize?: SizeType;
+  componentDisabled?: boolean;
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
@@ -159,6 +167,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
+    componentDisabled,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -211,7 +220,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   const memoIconContextValue = React.useMemo(
     () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls],
+    [iconPrefixCls, csp],
   );
 
   let childNode = children;
@@ -238,7 +247,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  if (iconPrefixCls) {
+  if (iconPrefixCls || csp) {
     childNode = (
       <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
     );
@@ -246,6 +255,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   if (componentSize) {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
+  }
+
+  if (componentDisabled !== undefined) {
+    childNode = (
+      <DisabledContextProvider disabled={componentDisabled}>{childNode}</DisabledContextProvider>
+    );
   }
 
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;

@@ -27,7 +27,7 @@ When requiring users to interact with the application, but without jumping to a 
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode | (OK and Cancel buttons) |  |
 | forceRender | Force render Modal | boolean | false |  |
-| getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
@@ -87,7 +87,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
 | title | Title | ReactNode | - |  |
 | width | Width of the modal dialog | string \| number | 416 |  |
-| wrapClassName | The class name of the container of the modal dialog | string | - | 4.17.0 |
+| wrapClassName | The class name of the container of the modal dialog | string | - | 4.18.0 |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when the user clicks the Cancel button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onCancel.length`) then modal dialog will be closed unless returned value is `true` (`!!onCancel()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
 | onOk | Specify a function that will be called when the user clicks the OK button. The parameter of this function is a function whose execution should include closing the dialog. If the function does not take any parameter (`!onOk.length`) then modal dialog will be closed unless returned value is `true` (`!!onOk()`). You can also just return a promise and when the promise is resolved, the modal dialog will also be closed | function(close) | - |  |
@@ -141,6 +141,10 @@ return <div>{contextHolder}</div>;
 ```
 
 ## FAQ
+
+### Why content not update when Modal closed?
+
+Modal will use memo to avoid content jumping when closed. Also, if you use Form in Modal, you can reset `initialValues` by calling `resetFields` in effect.
 
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
 
