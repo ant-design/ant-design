@@ -267,8 +267,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       const removedFileList = removeFileItem(file, mergedFileList);
 
       if (removedFileList) {
-        currentFile = { ...file };
+        currentFile = { ...file, status: 'removed' };
+        mergedFileList?.forEach(item => {
+          const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
+          if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
+            item.status = 'removed';
+          }
+        });
         upload.current?.abort(currentFile);
+
         onInternalChange(currentFile, removedFileList);
       }
     });

@@ -505,9 +505,6 @@ describe('Upload', () => {
       <Upload fileList={[file]} onChange={onChange} onRemove={onRemove} />,
     );
     fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete'));
-    expect(container.querySelector('.ant-upload-list-item').className).toContain(
-      'ant-upload-list-item-uploading',
-    );
 
     // uploadStart is a batch work which we need wait for react act
     await act(async () => {
@@ -520,13 +517,8 @@ describe('Upload', () => {
       await removePromise(true);
     });
 
-    // https://github.com/ant-design/ant-design/issues/36286
-    expect(container.querySelector('.ant-upload-list-item').className).toContain(
-      'ant-upload-list-item-uploading',
-    );
-
     expect(onChange).toHaveBeenCalled();
-    expect(file.status).toBe('uploading');
+    expect(file.status).toBe('removed');
   });
 
   it('should not stop download when return use onDownload', done => {
