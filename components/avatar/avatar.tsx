@@ -7,13 +7,14 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
+import type { AvatarShape } from './ShapeContext';
 import ShapeContext from './ShapeContext';
 import type { AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
-  shape?: 'circle' | 'square';
+  shape?: AvatarShape;
   /*
    * Size of avatar, options: `large`, `small`, `default`
    * or a custom number size

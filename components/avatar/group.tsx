@@ -5,6 +5,7 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
+import type { AvatarShape } from './ShapeContext';
 import { ShapeContextProvider } from './ShapeContext';
 import type { AvatarSize } from './SizeContext';
 import { SizeContextProvider } from './SizeContext';
@@ -23,7 +24,7 @@ export interface GroupProps {
    * or a custom number size
    * */
   size?: AvatarSize;
-  shape?: 'circle' | 'square';
+  shape?: AvatarShape;
 }
 
 const Group: React.FC<GroupProps> = props => {
