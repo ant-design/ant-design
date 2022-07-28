@@ -1,7 +1,7 @@
-import type { MenuThemeToken } from '.';
+import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
+const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
   const {
     componentCls,
     motionDurationSlow,

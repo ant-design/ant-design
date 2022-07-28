@@ -1,4 +1,4 @@
-import { genCollapseMotion } from '../../style/motion';
+import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import getHorizontalStyle from './horizontal';
@@ -55,8 +55,6 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuArrowOffset: string;
   menuPanelMaskInset: number;
 }
-
-export interface MenuThemeToken extends MenuToken {}
 
 // =============================== Base ===============================
 const getBaseStyle: GenerateStyle<MenuToken> = token => {
@@ -406,30 +404,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
       });
 
-      // const menuDarkToken = mergeToken<MenuThemeToken>(menuToken, {
-      //   colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
-      //   colorItemTextHover: colorTextLightSolid,
-      //   colorGroupTitle: colorTextSecondary,
-      //   colorItemTextSelected: colorTextLightSolid,
-      //   colorItemBg: '#001529',
-      //   colorSubItemBg: '#000c17',
-      //   colorItemBgActive: 'transparent',
-      //   colorItemBgSelected: colorPrimary,
-      //   colorActiveBarWidth: 0,
-      //   colorActiveBarHeight: 0,
-      //   colorActiveBarBorderSize: 0,
-      //
-      //   // Disabled
-      //   colorItemTextDisabled: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
-      //
-      //   // Danger
-      //   colorDangerItemText: colorError,
-      //   colorDangerItemTextHover: colorErrorHover,
-      //   colorDangerItemTextSelected: colorTextLightSolid,
-      //   colorDangerItemBgActive: colorError,
-      //   colorDangerItemBgSelected: colorError,
-      // });
-
       return [
         // Basic
         getBaseStyle(menuToken),
@@ -448,6 +422,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
         // Motion
         genCollapseMotion(menuToken),
+
+        initSlideMotion(menuToken, 'slide-up'),
+        initSlideMotion(menuToken, 'slide-down'),
+        initZoomMotion(menuToken, 'zoom-big'),
       ];
     },
     token => {

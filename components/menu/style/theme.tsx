@@ -1,5 +1,5 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { MenuThemeToken, MenuToken } from '.';
+import type { MenuToken } from '.';
 
 const accessibilityFocus = (token: MenuToken) => {
   const { controlOutlineWidth, colorPrimaryHover } = token;
@@ -9,7 +9,7 @@ const accessibilityFocus = (token: MenuToken) => {
   };
 };
 
-const getThemeStyle = (token: MenuThemeToken): CSSInterpolation => {
+const getThemeStyle = (token: MenuToken): CSSInterpolation => {
   const {
     componentCls,
     colorItemText,
