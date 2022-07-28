@@ -89,7 +89,7 @@ export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
 export type { MentionProps } from './mentions';
 export { default as Menu } from './menu';
-export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps } from './menu';
+export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps, MenuRef } from './menu';
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';

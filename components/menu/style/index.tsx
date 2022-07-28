@@ -1,5 +1,4 @@
-import { TinyColor } from '@ctrl/tinycolor';
-import { genCollapseMotion } from '../../style/motion';
+import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import getHorizontalStyle from './horizontal';
@@ -12,6 +11,44 @@ import { clearFix, resetComponent, resetIcon } from '../../style';
 export interface ComponentToken {
   dropdownWidth: number;
   zIndexPopup: number;
+
+  // Group
+  colorGroupTitle: string;
+
+  // radius
+  radiusItem: number;
+
+  // Item Text
+  // > Default
+  colorItemText: string;
+  colorItemTextHover: string;
+  colorItemTextSelected: string;
+
+  // > Disabled
+  colorItemTextDisabled: string;
+
+  // > Danger
+  colorDangerItemText: string;
+  colorDangerItemTextHover: string;
+  colorDangerItemTextSelected: string;
+
+  // Item Bg
+  colorItemBg: string;
+  colorSubItemBg: string;
+
+  // > Default
+  colorItemBgActive: string;
+  colorItemBgSelected: string;
+  colorItemBgSelectedHorizontal: string;
+
+  // > Danger
+  colorDangerItemBgActive: string;
+  colorDangerItemBgSelected: string;
+
+  // Ink Bar
+  colorActiveBarWidth: number;
+  colorActiveBarHeight: number;
+  colorActiveBarBorderSize: number;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -21,42 +58,6 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuArrowSize: number;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
-}
-
-export interface MenuThemeToken extends MenuToken {
-  // Group
-  themeColorTextSecondary: string;
-
-  // Item Text
-  // > Default
-  themeColorText: string;
-  themeColorTextHover: string;
-  themeColorTextSelect: string;
-
-  // > Disabled
-  themeColorDisabledText: string;
-
-  // > Danger
-  themeColorDangerText: string;
-  themeColorDangerTextHover: string;
-  themeColorDangerTextSelect: string;
-
-  // Item Bg
-  themeColorBg: string;
-  themeColorBgSecondary: string;
-
-  // > Default
-  themeColorBgActive: string;
-  themeColorBgSelect: string;
-
-  // > Danger
-  themeColorDangerBgActive: string;
-  themeColorDangerBgSelect: string;
-
-  // Ink Bar
-  themeInkBarWidth: number;
-  themeInkBarHeight: number;
-  themeInkBorderSize: number;
 }
 
 // =============================== Base ===============================
@@ -130,6 +131,9 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           [`${componentCls}-item`]: {
             flex: 'none',
           },
+        },
+        [`${componentCls}-item,${componentCls}-submenu,`]: {
+          borderRadius: token.radiusItem,
         },
 
         [`${componentCls}-item-group-title`]: {
@@ -393,23 +397,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const {
-        colorPrimary,
-        colorError,
-        colorTextDisabled,
-        colorErrorHover,
-        colorErrorBg,
-        colorText,
-        colorTextLightSolid,
-        colorTextSecondary,
-        colorBgContainer,
-        colorFillAlter,
-        controlHeightLG,
-        fontSize,
-        controlItemBgActive,
-        lineWidth,
-        lineWidthBold,
-      } = token;
+      const { controlHeightLG, fontSize } = token;
 
       const menuArrowSize = (fontSize / 7) * 5;
 
@@ -423,80 +411,73 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
       });
 
-      // Theme Token
-      const menuLightToken = mergeToken<MenuThemeToken>(menuToken, {
-        themeColorText: colorText,
-        themeColorTextHover: colorPrimary,
-        themeColorTextSecondary: colorTextSecondary,
-        themeColorTextSelect: colorPrimary,
-        themeColorBg: colorBgContainer,
-        themeColorBgSecondary: colorFillAlter,
-        themeColorBgActive: controlItemBgActive,
-        themeColorBgSelect: controlItemBgActive,
-        themeInkBarWidth: lineWidthBold + lineWidth,
-        themeInkBarHeight: lineWidthBold,
-        themeInkBorderSize: lineWidth,
-
-        // Disabled
-        themeColorDisabledText: colorTextDisabled,
-
-        // Danger
-        themeColorDangerText: colorError,
-        themeColorDangerTextHover: colorError,
-        themeColorDangerTextSelect: colorError,
-        themeColorDangerBgActive: colorErrorBg,
-        themeColorDangerBgSelect: colorErrorBg,
-      });
-
-      const menuDarkToken = mergeToken<MenuThemeToken>(menuToken, {
-        themeColorText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
-        themeColorTextHover: colorTextLightSolid,
-        themeColorTextSecondary: colorTextSecondary,
-        themeColorTextSelect: colorTextLightSolid,
-        themeColorBg: '#001529',
-        themeColorBgSecondary: '#000c17',
-        themeColorBgActive: 'transparent',
-        themeColorBgSelect: colorPrimary,
-        themeInkBarWidth: 0,
-        themeInkBarHeight: 0,
-        themeInkBorderSize: 0,
-
-        // Disabled
-        themeColorDisabledText: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
-
-        // Danger
-        themeColorDangerText: colorError,
-        themeColorDangerTextHover: colorErrorHover,
-        themeColorDangerTextSelect: colorTextLightSolid,
-        themeColorDangerBgActive: colorError,
-        themeColorDangerBgSelect: colorError,
-      });
-
       return [
         // Basic
         getBaseStyle(menuToken),
 
         // Horizontal
-        getHorizontalStyle(menuLightToken), // Hard code for some light style
+        getHorizontalStyle(menuToken), // Hard code for some light style
 
         // Vertical
-        getVerticalStyle(menuLightToken), // Hard code for some light style
+        getVerticalStyle(menuToken), // Hard code for some light style
 
         // Theme
-        getThemeStyle(menuLightToken, 'light'),
-        getThemeStyle(menuDarkToken, 'dark'),
+        getThemeStyle(menuToken),
 
         // RTL
         getRTLStyle(menuToken),
 
         // Motion
         genCollapseMotion(menuToken),
+
+        initSlideMotion(menuToken, 'slide-up'),
+        initSlideMotion(menuToken, 'slide-down'),
+        initZoomMotion(menuToken, 'zoom-big'),
       ];
     },
-    token => ({
-      dropdownWidth: 160,
-      zIndexPopup: token.zIndexPopupBase + 50,
-    }),
+    token => {
+      const {
+        colorPrimary,
+        colorError,
+        colorTextDisabled,
+        colorErrorBg,
+        colorText,
+        colorTextSecondary,
+        colorBgContainer,
+        colorFillAlter,
+        controlItemBgActive,
+        lineWidth,
+        lineWidthBold,
+      } = token;
+
+      return {
+        dropdownWidth: 160,
+        zIndexPopup: token.zIndexPopupBase + 50,
+        radiusItem: 0,
+        colorItemText: colorText,
+        colorItemTextHover: colorPrimary,
+        colorGroupTitle: colorTextSecondary,
+        colorItemTextSelected: colorPrimary,
+        colorItemBg: colorBgContainer,
+        colorSubItemBg: colorFillAlter,
+        colorItemBgActive: controlItemBgActive,
+        colorItemBgSelected: controlItemBgActive,
+        colorItemBgSelectedHorizontal: 'transparent',
+        colorActiveBarWidth: lineWidthBold + lineWidth,
+        colorActiveBarHeight: lineWidthBold,
+        colorActiveBarBorderSize: lineWidth,
+
+        // Disabled
+        colorItemTextDisabled: colorTextDisabled,
+
+        // Danger
+        colorDangerItemText: colorError,
+        colorDangerItemTextHover: colorError,
+        colorDangerItemTextSelected: colorError,
+        colorDangerItemBgActive: colorErrorBg,
+        colorDangerItemBgSelected: colorErrorBg,
+      };
+    },
   );
 
   return useOriginHook(prefixCls);

@@ -1,5 +1,5 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { MenuThemeToken, MenuToken } from '.';
+import type { MenuToken } from '.';
 
 const accessibilityFocus = (token: MenuToken) => {
   const { controlOutlineWidth, colorPrimaryHover } = token;
@@ -9,43 +9,44 @@ const accessibilityFocus = (token: MenuToken) => {
   };
 };
 
-const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpolation => {
+const getThemeStyle = (token: MenuToken): CSSInterpolation => {
   const {
     componentCls,
-    themeColorText,
-    themeColorTextSelect,
-    themeColorTextSecondary,
-    themeColorBg,
-    themeColorBgSecondary,
-    themeColorBgActive,
-    themeColorBgSelect,
-    themeInkBarHeight,
-    themeInkBarWidth,
-    themeInkBorderSize,
+    colorItemText,
+    colorItemTextSelected,
+    colorGroupTitle,
+    colorItemBg,
+    colorSubItemBg,
+    colorItemBgActive,
+    colorItemBgSelectedHorizontal,
+    colorItemBgSelected,
+    colorActiveBarHeight,
+    colorActiveBarWidth,
+    colorActiveBarBorderSize,
     motionDurationSlow,
     motionEaseInOut,
     motionEaseOut,
     menuItemPaddingInline,
     motionDurationFast,
-    themeColorTextHover,
+    colorItemTextHover,
     lineType,
     colorBorderSecondary,
 
     // Disabled
-    themeColorDisabledText,
+    colorItemTextDisabled,
 
     // Danger
-    themeColorDangerText,
-    themeColorDangerTextHover,
-    themeColorDangerTextSelect,
-    themeColorDangerBgActive,
-    themeColorDangerBgSelect,
+    colorDangerItemText,
+    colorDangerItemTextHover,
+    colorDangerItemTextSelected,
+    colorDangerItemBgActive,
+    colorDangerItemBgSelected,
   } = token;
 
   return {
-    [`${componentCls}-${themeSuffix}`]: {
-      color: themeColorText,
-      background: themeColorBg,
+    [componentCls]: {
+      color: colorItemText,
+      background: colorItemBg,
 
       [`&${componentCls}-root:focus-visible`]: {
         ...accessibilityFocus(token),
@@ -53,44 +54,44 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
 
       // ======================== Item ========================
       [`${componentCls}-item-group-title`]: {
-        color: themeColorTextSecondary,
+        color: colorGroupTitle,
       },
 
       [`${componentCls}-submenu-selected`]: {
         [`> ${componentCls}-submenu-title`]: {
-          color: themeColorTextSelect,
+          color: colorItemTextSelected,
         },
       },
 
       // Disabled
       [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
-        color: `${themeColorDisabledText} !important`,
+        color: `${colorItemTextDisabled} !important`,
       },
 
       // Hover
       [`${componentCls}-item:hover, ${componentCls}-submenu-title:hover`]: {
         [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-          color: themeColorTextHover,
+          color: colorItemTextHover,
         },
       },
 
       // Active
       [`${componentCls}-item:active, ${componentCls}-submenu-title:active`]: {
-        background: themeColorBgActive,
+        background: colorItemBgActive,
       },
 
       // Danger - only Item has
       [`${componentCls}-item-danger`]: {
-        color: themeColorDangerText,
+        color: colorDangerItemText,
 
         [`&${componentCls}-item:hover`]: {
           [`&:not(${componentCls}-item-selected):not(${componentCls}-submenu-selected)`]: {
-            color: themeColorDangerTextHover,
+            color: colorDangerItemTextHover,
           },
         },
 
         [`&${componentCls}-item:active`]: {
-          background: themeColorDangerBgActive,
+          background: colorDangerItemBgActive,
         },
       },
 
@@ -101,11 +102,11 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       },
 
       [`${componentCls}-item-selected`]: {
-        color: themeColorTextSelect,
+        color: colorItemTextSelected,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
-          color: themeColorDangerTextSelect,
+          color: colorDangerItemTextSelected,
         },
 
         [`a, a:hover`]: {
@@ -114,11 +115,11 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       },
 
       [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
-        backgroundColor: themeColorBgSelect,
+        backgroundColor: colorItemBgSelected,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
-          backgroundColor: themeColorDangerBgSelect,
+          backgroundColor: colorDangerItemBgSelected,
         },
       },
 
@@ -129,34 +130,43 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       },
 
       [`&${componentCls}-submenu > ${componentCls}`]: {
-        backgroundColor: themeColorBg,
+        backgroundColor: colorItemBg,
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: themeColorBg,
+        backgroundColor: colorItemBg,
       },
 
       // ====================== Horizontal ======================
       [`&${componentCls}-horizontal`]: {
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
-          top: themeInkBorderSize,
-          marginTop: -themeInkBorderSize,
+          top: colorActiveBarBorderSize,
+          marginTop: -colorActiveBarBorderSize,
           marginBottom: 0,
+          borderRadius: token.radiusItem,
 
           '&::after': {
             position: 'absolute',
             insetInline: menuItemPaddingInline,
             bottom: 0,
-            borderBottom: `${themeInkBarHeight}px solid transparent`,
+            borderBottom: `${colorActiveBarHeight}px solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
             content: '""',
           },
 
-          [`&:hover, &-active, &-open, &-selected`]: {
-            color: themeColorTextSelect,
-
+          [`&:hover, &-active, &-open`]: {
+            color: colorItemTextSelected,
             '&::after': {
-              borderBottomColor: themeColorTextSelect,
+              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomColor: colorItemTextSelected,
+            },
+          },
+          [`&-selected`]: {
+            color: colorItemTextSelected,
+            backgroundColor: colorItemBgSelectedHorizontal,
+            '&::after': {
+              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomColor: colorItemTextSelected,
             },
           },
         },
@@ -166,7 +176,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       //
       [`&${componentCls}-root`]: {
         [`&${componentCls}-inline, &${componentCls}-vertical`]: {
-          borderInlineEnd: `${themeInkBorderSize}px ${lineType} ${colorBorderSecondary}`,
+          borderInlineEnd: `${colorActiveBarBorderSize}px ${lineType} ${colorBorderSecondary}`,
         },
       },
 
@@ -174,13 +184,13 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       [`&${componentCls}-inline`]: {
         // Sub
         [`${componentCls}-sub${componentCls}-inline`]: {
-          background: themeColorBgSecondary,
+          background: colorSubItemBg,
         },
 
         // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: themeInkBorderSize
+        [`${componentCls}-item, ${componentCls}-submenu-title`]: colorActiveBarBorderSize
           ? {
-              width: `calc(100% + ${themeInkBorderSize}px)`,
+              width: `calc(100% + ${colorActiveBarBorderSize}px)`,
             }
           : {},
 
@@ -191,7 +201,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
             position: 'absolute',
             insetBlock: 0,
             insetInlineEnd: 0,
-            borderInlineEnd: `${themeInkBarWidth}px solid ${themeColorTextSelect}`,
+            borderInlineEnd: `${colorActiveBarWidth}px solid ${colorItemTextSelected}`,
             transform: 'scaleY(0.0001)',
             opacity: 0,
             transition: [
@@ -204,7 +214,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
           // Danger
           [`&${componentCls}-item-danger`]: {
             '&::after': {
-              borderInlineEndColor: themeColorDangerTextSelect,
+              borderInlineEndColor: colorDangerItemTextSelected,
             },
           },
         },

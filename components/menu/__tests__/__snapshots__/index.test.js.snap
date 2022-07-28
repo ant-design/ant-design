@@ -3,7 +3,7 @@
 exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -165,7 +165,7 @@ Array [
 exports[`Menu all types must be available in the "items" syntax 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -326,9 +326,8 @@ Array [
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
+    class="ant-menu ant-menu-root ant-menu-vertical"
     data-menu-list="true"
-    dir="rtl"
     role="menu"
     tabindex="0"
   >
@@ -384,7 +383,7 @@ Array [
 exports[`Menu should controlled collapse work 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -432,7 +431,7 @@ Array [
 exports[`Menu should controlled collapse work 2`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
     data-menu-list="true"
     role="menu"
     tabindex="0"
