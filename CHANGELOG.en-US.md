@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 Adjust Collapse title click region which will be fully width when `collapsible=default` now. [#36761](https://github.com/ant-design/ant-design/pull/36761)
+- 🐞 Fix Drawer not work in 360 browser and revert back panel style into wrapper dom node in case developer use `contentWrapperStyle` for overwrite. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+
 ## 4.22.1
 
 `2022-07-27`
