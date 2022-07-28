@@ -58,7 +58,7 @@ export interface DrawerProps {
   push?: boolean | PushState;
   placement?: placementType;
   onClose?: (e: EventType) => void;
-  afterOpenChange?: (visible: boolean) => void;
+  afterOpenChange?: (open: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
   keyboard?: boolean;
@@ -113,19 +113,19 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const destroyCloseRef = React.useRef<boolean>(false);
 
     const [load, setLoad] = React.useState(false);
-    const [visible, setVisible] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
     React.useEffect(() => {
       if (propsOpen) {
         setLoad(true);
       } else {
-        setVisible(false);
+        setOpen(false);
       }
     }, [propsOpen]);
 
     React.useEffect(() => {
       if (load && propsOpen) {
-        setVisible(true);
+        setOpen(true);
       }
     }, [load, propsOpen]);
 
@@ -158,13 +158,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useEffect(() => {
       if (parentDrawer) {
-        if (visible) {
+        if (open) {
           parentDrawer.push();
         } else {
           parentDrawer.pull();
         }
       }
-    }, [visible]);
+    }, [open]);
 
     const operations = React.useMemo(
       () => ({
@@ -186,7 +186,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
-      if (!visible && !mask) {
+      if (!open && !mask) {
         return {};
       }
       const offsetStyle: any = {};
@@ -315,19 +315,19 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
               ...rest,
             }}
             {...offsetStyle}
-            open={visible || propsOpen}
+            open={open || propsOpen}
             showMask={mask}
             style={getRcDrawerStyle()}
             className={drawerClassName}
             getContainer={getContainer}
-            afterVisibleChange={open => {
-              if (open) {
+            afterVisibleChange={isOpen => {
+              if (isOpen) {
                 destroyCloseRef.current = false;
               } else if (destroyOnClose) {
                 destroyCloseRef.current = true;
                 setLoad(false);
               }
-              afterOpenChange?.(open);
+              afterOpenChange?.(isOpen);
             }}
           >
             {renderBody()}
