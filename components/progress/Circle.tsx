@@ -1,14 +1,15 @@
-import * as React from 'react';
-import { Circle as RCCircle } from 'rc-progress';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
-import { validProgress, getSuccessPercent } from './utils';
-import { ProgressProps } from './progress';
+import { Circle as RCCircle } from 'rc-progress';
+import * as React from 'react';
+import type { ProgressGradient, ProgressProps } from './progress';
+import { getSuccessPercent, validProgress } from './utils';
 
 interface CircleProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
   progressStatus: string;
+  strokeColor?: string | ProgressGradient;
 }
 
 function getPercentage({ percent, success, successPercent }: CircleProps) {
@@ -16,9 +17,12 @@ function getPercentage({ percent, success, successPercent }: CircleProps) {
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 }
 
-function getStrokeColor({ success = {}, strokeColor }: Partial<CircleProps>) {
+function getStrokeColor({
+  success = {},
+  strokeColor,
+}: Partial<CircleProps>): (string | Record<string, string>)[] {
   const { strokeColor: successColor } = success;
-  return [successColor || presetPrimaryColors.green, strokeColor || null];
+  return [successColor || presetPrimaryColors.green, strokeColor || null!];
 }
 
 const Circle: React.FC<CircleProps> = props => {
@@ -26,8 +30,8 @@ const Circle: React.FC<CircleProps> = props => {
     prefixCls,
     width,
     strokeWidth,
-    trailColor,
-    strokeLinecap,
+    trailColor = null as any,
+    strokeLinecap = 'round',
     gapPosition,
     gapDegree,
     type,
@@ -41,7 +45,7 @@ const Circle: React.FC<CircleProps> = props => {
     fontSize: circleSize * 0.15 + 6,
   } as React.CSSProperties;
   const circleWidth = strokeWidth || 6;
-  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
+  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
   const getGapDegree = () => {
     // Support gapDeg = 0 when type = 'dashboard'

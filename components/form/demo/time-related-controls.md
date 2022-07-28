@@ -14,7 +14,8 @@ title:
 The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
 ```tsx
-import { Form, DatePicker, TimePicker, Button } from 'antd';
+import { Button, DatePicker, Form, TimePicker } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
@@ -35,7 +36,7 @@ const rangeConfig = {
   rules: [{ type: 'array' as const, required: true, message: 'Please select time!' }],
 };
 
-const TimeRelatedForm = () => {
+const App: React.FC = () => {
   const onFinish = (fieldsValue: any) => {
     // Should format date value before submit.
     const rangeValue = fieldsValue['range-picker'];
@@ -89,5 +90,5 @@ const TimeRelatedForm = () => {
   );
 };
 
-ReactDOM.render(<TimeRelatedForm />, mountNode);
+export default App;
 ```

@@ -1,11 +1,11 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import React from 'react';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/devWarning';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -47,7 +47,7 @@ describe('TimePicker', () => {
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
     const wrapper = mount(<TimePicker clearIcon={clearIcon} />);
-    expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
+    expect(wrapper.find('Picker').last().prop('clearIcon')).toEqual(
       <div className="test-clear-icon">test</div>,
     );
   });
@@ -70,7 +70,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
@@ -81,7 +81,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should support bordered', () => {

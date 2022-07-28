@@ -15,31 +15,19 @@ Show a loop banner by using with [react-text-loop-next](https://npmjs.com/packag
 
 ```tsx
 import { Alert } from 'antd';
-import { TextLoop } from 'react-text-loop-next';
+import React from 'react';
 import Marquee from 'react-fast-marquee';
 
-ReactDOM.render(
-  <>
-    <Alert
-      banner
-      message={
-        <TextLoop mask>
-          <div>Notice message one</div>
-          <div>Notice message two</div>
-          <div>Notice message three</div>
-          <div>Notice message four</div>
-        </TextLoop>
-      }
-    />
-    <Alert
-      banner
-      message={
-        <Marquee pauseOnHover gradient={false}>
-          I can be a React component, multiple React components, or just some text.
-        </Marquee>
-      }
-    />
-  </>,
-  mountNode,
+const App: React.FC = () => (
+  <Alert
+    banner
+    message={
+      <Marquee pauseOnHover gradient={false}>
+        I can be a React component, multiple React components, or just some text.
+      </Marquee>
+    }
+  />
 );
+
+export default App;
 ```

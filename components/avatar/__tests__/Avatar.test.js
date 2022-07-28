@@ -1,10 +1,11 @@
+import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
 jest.mock('../../grid/hooks/useBreakpoint');
@@ -86,7 +87,7 @@ describe('Avatar Render', () => {
     // https://github.com/jsdom/jsdom/issues/1816
     wrapper.find('img').simulate('error');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_SUCCESS_SRC);
 
     wrapper.detach();
@@ -104,7 +105,7 @@ describe('Avatar Render', () => {
     const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
     wrapper.find('img').simulate('error');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
     // children should show, when image load error without onError return false
     expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
@@ -113,7 +114,7 @@ describe('Avatar Render', () => {
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
     wrapper.update();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-image').length).toBe(1);
 
     // cleanup
@@ -122,8 +123,8 @@ describe('Avatar Render', () => {
   });
 
   it('should calculate scale of avatar children correctly', () => {
-    const wrapper = mount(<Avatar>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    const { container, rerender } = render(<Avatar>Avatar</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
@@ -133,20 +134,22 @@ describe('Avatar Render', () => {
         return 40;
       },
     });
-    wrapper.setProps({ children: 'xx' });
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+
+    rerender(<Avatar>xx</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should calculate scale of avatar children correctly with gap', () => {
     const wrapper = mount(<Avatar gap={2}>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
   });
 
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Avatar size={64} icon="aa" />);
+    render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Avatar size={64} icon="user" />);
+
+    render(<Avatar size={64} icon="user" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
     );
@@ -173,8 +176,8 @@ describe('Avatar Render', () => {
 
   it('support onMouseEnter', () => {
     const onMouseEnter = jest.fn();
-    const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
-    wrapper.simulate('mouseenter');
+    const { container } = render(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
+    fireEvent.mouseEnter(container.firstChild);
     expect(onMouseEnter).toHaveBeenCalled();
   });
 

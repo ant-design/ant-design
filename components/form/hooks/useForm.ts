@@ -1,8 +1,9 @@
+import type { FormInstance as RcFormInstance } from 'rc-field-form';
+import { useForm as useRcForm } from 'rc-field-form';
 import * as React from 'react';
-import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import { ScrollOptions, NamePath, InternalNamePath } from '../interface';
-import { toArray, getFieldId } from '../util';
+import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
+import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;

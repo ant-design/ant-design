@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
 
@@ -167,10 +168,16 @@ describe('message.hooks', () => {
 
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
-    jest.runAllTimers();
+
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    hide();
-    jest.runAllTimers();
+
+    act(() => {
+      hide();
+      jest.runAllTimers();
+    });
     expect(getInstance().component.state.notices).toHaveLength(0);
   });
 

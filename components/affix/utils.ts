@@ -1,5 +1,4 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import Affix from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 
@@ -41,7 +40,7 @@ const TRIGGER_EVENTS = [
 
 interface ObserverEntity {
   target: HTMLElement | Window;
-  affixList: Affix[];
+  affixList: any[];
   eventHandlers: { [eventName: string]: any };
 }
 
@@ -52,7 +51,7 @@ export function getObserverEntities() {
   return observerEntities;
 }
 
-export function addObserveTarget(target: HTMLElement | Window | null, affix: Affix): void {
+export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: T): void {
   if (!target) return;
 
   let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
@@ -78,7 +77,7 @@ export function addObserveTarget(target: HTMLElement | Window | null, affix: Aff
   }
 }
 
-export function removeObserveTarget(affix: Affix): void {
+export function removeObserveTarget<T>(affix: T): void {
   const observerEntity = observerEntities.find(oriObserverEntity => {
     const hasAffix = oriObserverEntity.affixList.some(item => item === affix);
     if (hasAffix) {

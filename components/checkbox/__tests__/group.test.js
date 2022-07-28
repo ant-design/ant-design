@@ -1,10 +1,11 @@
-import React from 'react';
-import { mount, render } from 'enzyme';
-import Collapse from '../../collapse';
-import Table from '../../table';
-import Checkbox from '../index';
+import React, { useState } from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import Collapse from '../../collapse';
+import Input from '../../input';
+import Table from '../../table';
+import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -12,16 +13,16 @@ describe('CheckboxGroup', () => {
 
   it('should work basically', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group options={['Apple', 'Pear', 'Orange']} onChange={onChange} />,
     );
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalledWith(['Apple']);
-    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear']);
-    wrapper.find('.ant-checkbox-input').at(2).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[2]);
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear', 'Orange']);
-    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Orange']);
   });
 
@@ -33,12 +34,12 @@ describe('CheckboxGroup', () => {
       { label: 'Pear', value: 'Pear' },
     ];
 
-    const groupWrapper = mount(
+    const { container } = render(
       <Checkbox.Group options={options} onChange={onChangeGroup} disabled />,
     );
-    groupWrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChangeGroup).not.toHaveBeenCalled();
-    groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChangeGroup).not.toHaveBeenCalled();
   });
 
@@ -50,17 +51,17 @@ describe('CheckboxGroup', () => {
       { label: 'Orange', value: 'Orange', disabled: true },
     ];
 
-    const groupWrapper = mount(<Checkbox.Group options={options} onChange={onChangeGroup} />);
-    groupWrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    const { container } = render(<Checkbox.Group options={options} onChange={onChangeGroup} />);
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
-    groupWrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
   });
 
   it('all children should have a name property', () => {
-    const wrapper = mount(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
-    wrapper.find('input[type="checkbox"]').forEach(el => {
-      expect(el.props().name).toEqual('checkboxgroup');
+    const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
+    [...container.querySelectorAll('input[type="checkbox"]')].forEach(el => {
+      expect(el.getAttribute('name')).toEqual('checkboxgroup');
     });
   });
 
@@ -70,9 +71,9 @@ describe('CheckboxGroup', () => {
       { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
 
-    const wrapper = render(<Checkbox.Group prefixCls="my-checkbox" options={options} />);
+    const { container } = render(<Checkbox.Group prefixCls="my-checkbox" options={options} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should be controlled by value', () => {
@@ -80,23 +81,22 @@ describe('CheckboxGroup', () => {
       { label: 'Apple', value: 'Apple' },
       { label: 'Orange', value: 'Orange' },
     ];
-
-    const wrapper = mount(<Checkbox.Group options={options} />);
-    expect(wrapper.find('.ant-checkbox-checked').length).toBe(0);
-    wrapper.setProps({ value: ['Apple'] });
-    wrapper.update();
-    expect(wrapper.find('.ant-checkbox-checked').length).toBe(1);
+    const renderCheckbox = props => <Checkbox.Group {...props} />;
+    const { container, rerender } = render(renderCheckbox({ options }));
+    expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
+    rerender(renderCheckbox({ options, value: 'Apple' }));
+    expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/12642
   it('should trigger onChange in sub Checkbox', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group>
         <Checkbox value="my" onChange={onChange} />
       </Checkbox.Group>,
     );
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });
@@ -104,40 +104,44 @@ describe('CheckboxGroup', () => {
   // https://github.com/ant-design/ant-design/issues/16376
   it('onChange should filter removed value', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Checkbox.Group defaultValue={[1]} onChange={onChange}>
         <Checkbox key={1} value={1} />
         <Checkbox key={2} value={2} />
       </Checkbox.Group>,
     );
 
-    wrapper.setProps({
-      children: [<Checkbox key={2} value={2} />],
-    });
-
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    rerender(
+      <Checkbox.Group defaultValue={[1]} onChange={onChange}>
+        <Checkbox key={2} value={2} />
+      </Checkbox.Group>,
+    );
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
 
     expect(onChange).toHaveBeenCalledWith([2]);
   });
 
   it('checkbox should register value again after value changed', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Checkbox.Group defaultValue={[1]} onChange={onChange}>
         <Checkbox key={1} value={1} />
       </Checkbox.Group>,
     );
 
-    wrapper.setProps({
-      children: [<Checkbox key={1} value={2} />],
-    });
-    expect(wrapper.find('.ant-checkbox-input').at(0).prop('checked')).toBe(false);
+    rerender(
+      <Checkbox.Group defaultValue={[1]} onChange={onChange}>
+        <Checkbox key={1} value={2} />
+      </Checkbox.Group>,
+    );
+
+    expect(container.querySelector('.ant-checkbox-input')).toHaveAttribute('checked');
   });
 
   // https://github.com/ant-design/ant-design/issues/17297
   it('onChange should keep the order of the original values', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Checkbox key={1} value={1} />
         <Checkbox key={2} value={2} />
@@ -145,20 +149,19 @@ describe('CheckboxGroup', () => {
         <Checkbox key={4} value={4} />
       </Checkbox.Group>,
     );
-
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalledWith([1]);
-    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChange).toHaveBeenCalledWith([1, 2]);
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalledWith([2]);
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[0]);
     expect(onChange).toHaveBeenCalledWith([1, 2]);
   });
 
   // https://github.com/ant-design/ant-design/issues/21134
   it('should work when checkbox is wrapped by other components', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group>
         <Collapse bordered={false}>
           <Collapse.Panel header="test panel">
@@ -169,28 +172,31 @@ describe('CheckboxGroup', () => {
         </Collapse>
       </Checkbox.Group>,
     );
-    wrapper.find('.ant-collapse-item').at(0).find('.ant-collapse-header').simulate('click');
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
-    expect(wrapper.find('.ant-checkbox-checked').length).toBe(1);
-    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
-    expect(wrapper.find('.ant-checkbox-checked').length).toBe(0);
+
+    fireEvent.click(
+      container.querySelector('.ant-collapse-item').querySelector('.ant-collapse-header'),
+    );
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
   });
 
   it('skipGroup', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Checkbox value={1} />
         <Checkbox value={2} skipGroup />
       </Checkbox.Group>,
     );
-    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it('Table rowSelection', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Checkbox.Group onChange={onChange}>
         <Table
           dataSource={[{ key: 1, value: '1' }]}
@@ -199,18 +205,64 @@ describe('CheckboxGroup', () => {
         />
       </Checkbox.Group>,
     );
-    wrapper.find('.ant-checkbox-input').at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll('.ant-checkbox-input')[1]);
     expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should get div ref', () => {
-    mount(
+    const refCalls = [];
+    render(
       <Checkbox.Group
         options={['Apple', 'Pear', 'Orange']}
         ref={node => {
-          expect(node.nodeName).toBe('DIV');
+          refCalls.push(node);
         }}
       />,
     );
+    const [mountCall] = refCalls;
+    expect(mountCall.nodeName).toBe('DIV');
+  });
+
+  it('should support number option', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <Checkbox.Group options={[1, 'Pear', 'Orange']} onChange={onChange} />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(onChange).toHaveBeenCalledWith([1]);
+  });
+
+  it('should store latest checkbox value if changed', () => {
+    const onChange = jest.fn();
+
+    const Demo = () => {
+      const [v, setV] = useState('');
+
+      React.useEffect(() => {
+        setTimeout(setV('1'), 1000);
+      }, []);
+
+      return (
+        <div>
+          <Input className="my-input" value={v} onChange={e => setV(e.target.value)} />
+          <Checkbox.Group defaultValue={['length1']} style={{ width: '100%' }} onChange={onChange}>
+            <Checkbox className="target-checkbox" value={v ? `length${v}` : 'A'}>
+              A
+            </Checkbox>
+          </Checkbox.Group>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(onChange).toHaveBeenCalledWith([]);
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(onChange).toHaveBeenCalledWith(['length1']);
+    fireEvent.change(container.querySelector('.ant-input'), { target: { value: '' } });
+    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    expect(onChange).toHaveBeenCalledWith(['A']);
   });
 });

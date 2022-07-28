@@ -13,10 +13,12 @@ title:
 
 Use text link for prev and next button.
 
-```jsx
+```tsx
+import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
+import React from 'react';
 
-function itemRender(current, type, originalElement) {
+const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
   if (type === 'prev') {
     return <a>Previous</a>;
   }
@@ -24,7 +26,9 @@ function itemRender(current, type, originalElement) {
     return <a>Next</a>;
   }
   return originalElement;
-}
+};
 
-ReactDOM.render(<Pagination total={500} itemRender={itemRender} />, mountNode);
+const App: React.FC = () => <Pagination total={500} itemRender={itemRender} />;
+
+export default App;
 ```

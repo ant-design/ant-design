@@ -13,20 +13,20 @@ title:
 
 Provide additional interactive capacity of editable and copyable.
 
-```jsx
+```tsx
+import { CheckOutlined, HighlightOutlined, SmileFilled, SmileOutlined } from '@ant-design/icons';
+import { Divider, Radio, Typography } from 'antd';
 import React, { useState } from 'react';
-import { Checkbox, Radio, Typography } from 'antd';
-import { CheckOutlined, HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
-const Demo = () => {
+const App: React.FC = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [clickTriggerStr, setClickTriggerStr] = useState(
     'Text or icon as trigger - click to start editing.',
   );
-  const [chooseTrigger, setChooseTrigger] = useState('icon');
+  const [chooseTrigger, setChooseTrigger] = useState<('icon' | 'text')[]>(['icon']);
   const [customEnterIconStr, setCustomEnterIconStr] = useState(
     'Editable text with a custom enter icon in edit field.',
   );
@@ -38,7 +38,7 @@ const Demo = () => {
     'This is an editable text with limited length.',
   );
 
-  const radioToState = input => {
+  const radioToState = (input: string): ('icon' | 'text')[] => {
     switch (input) {
       case 'text':
         return ['text'];
@@ -119,6 +119,22 @@ const Demo = () => {
       >
         {lengthLimitedStr}
       </Paragraph>
+      <Typography.Title editable level={1} style={{ margin: 0 }}>
+        h1. Ant Design
+      </Typography.Title>
+      <Typography.Title editable level={2} style={{ margin: 0 }}>
+        h2. Ant Design
+      </Typography.Title>
+      <Typography.Title editable level={3} style={{ margin: 0 }}>
+        h3. Ant Design
+      </Typography.Title>
+      <Typography.Title editable level={4} style={{ margin: 0 }}>
+        h4. Ant Design
+      </Typography.Title>
+      <Typography.Title editable level={5} style={{ margin: 0 }}>
+        h5. Ant Design
+      </Typography.Title>
+      <Divider />
       <Paragraph copyable>This is a copyable text.</Paragraph>
       <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
       <Paragraph
@@ -134,5 +150,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

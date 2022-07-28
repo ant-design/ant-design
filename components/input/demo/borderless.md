@@ -13,8 +13,11 @@ title:
 
 No border.
 
-```jsx
+```tsx
 import { Input } from 'antd';
+import React from 'react';
 
-ReactDOM.render(<Input placeholder="Borderless" bordered={false} />, mountNode);
+const App: React.FC = () => <Input placeholder="Borderless" bordered={false} />;
+
+export default App;
 ```

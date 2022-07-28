@@ -17,72 +17,81 @@ Inline menu could be collapsed.
 
 Here is [a complete demo](/components/layout/#components-layout-demo-side) with sider layout.
 
-```jsx
-import { Menu, Button } from 'antd';
+```tsx
 import {
   AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
   ContainerOutlined,
+  DesktopOutlined,
   MailOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Button, Menu } from 'antd';
+import React, { useState } from 'react';
 
-const { SubMenu } = Menu;
+type MenuItem = Required<MenuProps>['items'][number];
 
-class App extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    return (
-      <div style={{ width: 256 }}>
-        <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-        </Button>
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-          inlineCollapsed={this.state.collapsed}
-        >
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-          <Menu.Item key="3" icon={<ContainerOutlined />}>
-            Option 3
-          </Menu.Item>
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-          <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
-          </SubMenu>
-        </Menu>
-      </div>
-    );
-  }
+function getItem(
+  label: React.ReactNode,
+  key: React.Key,
+  icon?: React.ReactNode,
+  children?: MenuItem[],
+  type?: 'group',
+): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  } as MenuItem;
 }
 
-ReactDOM.render(<App />, mountNode);
+const items: MenuItem[] = [
+  getItem('Option 1', '1', <PieChartOutlined />),
+  getItem('Option 2', '2', <DesktopOutlined />),
+  getItem('Option 3', '3', <ContainerOutlined />),
+
+  getItem('Navigation One', 'sub1', <MailOutlined />, [
+    getItem('Option 5', '5'),
+    getItem('Option 6', '6'),
+    getItem('Option 7', '7'),
+    getItem('Option 8', '8'),
+  ]),
+
+  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
+    getItem('Option 9', '9'),
+    getItem('Option 10', '10'),
+
+    getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
+  ]),
+];
+
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
+
+  return (
+    <div style={{ width: 256 }}>
+      <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
+        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+      </Button>
+      <Menu
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        theme="dark"
+        inlineCollapsed={collapsed}
+        items={items}
+      />
+    </div>
+  );
+};
+
+export default App;
 ```

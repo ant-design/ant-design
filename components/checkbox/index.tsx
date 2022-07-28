@@ -1,8 +1,9 @@
-import * as React from 'react';
-import InternalCheckbox, { CheckboxProps } from './Checkbox';
+import type * as React from 'react';
+import type { CheckboxProps } from './Checkbox';
+import InternalCheckbox from './Checkbox';
 import Group from './Group';
 
-export { CheckboxProps, CheckboxChangeEvent } from './Checkbox';
+export { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
 export { CheckboxGroupProps, CheckboxOptionType } from './Group';
 
 interface CompoundedComponent

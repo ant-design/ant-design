@@ -14,25 +14,26 @@ title:
 Perform different check rules according to different situations.
 
 ```tsx
-import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Button, Checkbox, Form, Input } from 'antd';
+import React, { useEffect, useState } from 'react';
 
 const formItemLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8 },
 };
+
 const formTailLayout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 8, offset: 4 },
 };
 
-const DynamicRule = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
 
   useEffect(() => {
     form.validateFields(['nickname']);
-  }, [checkNick]);
+  }, [checkNick, form]);
 
   const onCheckboxChange = (e: { target: { checked: boolean } }) => {
     setCheckNick(e.target.checked);
@@ -89,5 +90,5 @@ const DynamicRule = () => {
   );
 };
 
-ReactDOM.render(<DynamicRule />, mountNode);
+export default App;
 ```

@@ -14,18 +14,20 @@ Buggy!
 
 Buggy!
 
-```jsx
-import { Steps, Button } from 'antd';
+```tsx
+import type { StepsProps } from 'antd';
+import { Button, Steps } from 'antd';
+import React, { useState } from 'react';
 
 const { Step } = Steps;
 
-function Demo() {
-  const [percent, setPercentage] = React.useState(0);
-  const [current, setCurrent] = React.useState(1);
-  const [status, setStatus] = React.useState('process');
+const App: React.FC = () => {
+  const [percent, setPercentage] = useState(0);
+  const [current, setCurrent] = useState(1);
+  const [status, setStatus] = useState<StepsProps['status']>('process');
   return (
     <>
-      <Button onClick={() => setPercentage(undefined)}>Percentage to undefined</Button>
+      <Button onClick={() => setPercentage(0)}>Percentage to undefined</Button>
       <Button onClick={() => setPercentage((percent + 10) % 100)}>Percentage +</Button>
       <Button
         onClick={() => {
@@ -61,7 +63,7 @@ function Demo() {
       </Steps>
     </>
   );
-}
+};
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

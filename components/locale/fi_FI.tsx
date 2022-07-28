@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/fi_FI';
-import DatePicker from '../date-picker/locale/fi_FI';
-import TimePicker from '../time-picker/locale/fi_FI';
 import Calendar from '../calendar/locale/fi_FI';
-import { Locale } from '../locale-provider';
+import DatePicker from '../date-picker/locale/fi_FI';
+import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/fi_FI';
 
 const localeValues: Locale = {
   locale: 'fi',
@@ -17,6 +17,9 @@ const localeValues: Locale = {
     selectAll: 'Valitse kaikki',
     selectInvert: 'Valitse päinvastoin',
     sortTitle: 'Lajittele',
+    triggerDesc: 'Lajittele laskevasti',
+    triggerAsc: 'Lajittele nousevasti',
+    cancelSort: 'Peruuta lajittelu',
   },
   Modal: {
     okText: 'OK',

@@ -1,9 +1,11 @@
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { Locale } from 'rc-picker/lib/interface';
 import * as React from 'react';
-import { GenerateConfig } from 'rc-picker/lib/generate';
-import { Locale } from 'rc-picker/lib/interface';
+import { useContext, useMemo } from 'react';
+import { FormItemInputContext } from '../form/context';
+import { Button, Group } from '../radio';
 import Select from '../select';
-import { Group, Button } from '../radio';
-import { CalendarMode } from './generateCalendar';
+import type { CalendarMode } from './generateCalendar';
 
 const YearSelectOffset = 10;
 const YearSelectTotal = 20;
@@ -20,16 +22,8 @@ interface SharedProps<DateType> {
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    fullscreen,
-    validRange,
-    generateConfig,
-    locale,
-    prefixCls,
-    value,
-    onChange,
-    divRef,
-  } = props;
+  const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
+    props;
 
   const year = generateConfig.getYear(value || generateConfig.getNow());
 
@@ -82,16 +76,8 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 }
 
 function MonthSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    prefixCls,
-    fullscreen,
-    validRange,
-    value,
-    generateConfig,
-    locale,
-    onChange,
-    divRef,
-  } = props;
+  const { prefixCls, fullscreen, validRange, value, generateConfig, locale, onChange, divRef } =
+    props;
   const month = generateConfig.getMonth(value || generateConfig.getNow());
 
   let start = 0;
@@ -168,6 +154,15 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  const formItemInputContext = useContext(FormItemInputContext);
+  const mergedFormItemInputContext = useMemo(
+    () => ({
+      ...formItemInputContext,
+      isFormItemInput: false,
+    }),
+    [formItemInputContext],
+  );
+
   const sharedProps = {
     ...props,
     onChange,
@@ -177,8 +172,10 @@ function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
 
   return (
     <div className={`${prefixCls}-header`} ref={divRef}>
-      <YearSelect {...sharedProps} />
-      {mode === 'month' && <MonthSelect {...sharedProps} />}
+      <FormItemInputContext.Provider value={mergedFormItemInputContext}>
+        <YearSelect {...sharedProps} />
+        {mode === 'month' && <MonthSelect {...sharedProps} />}
+      </FormItemInputContext.Provider>
       <ModeSwitch {...sharedProps} onModeChange={onModeChange} />
     </div>
   );

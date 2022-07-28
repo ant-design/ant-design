@@ -4,16 +4,19 @@
 .@{iconfont-css-prefix} {
   .iconfont-mixin();
 
+  // https://github.com/ant-design/ant-design/issues/33703
+  & > & {
+    line-height: 0;
+    vertical-align: 0;
+  }
+
   &[tabindex] {
     cursor: pointer;
   }
 }
 
+.@{iconfont-css-prefix}-spin,
 .@{iconfont-css-prefix}-spin::before {
-  display: inline-block;
-  animation: loadingCircle 1s infinite linear;
-}
-.@{iconfont-css-prefix}-spin {
   display: inline-block;
   animation: loadingCircle 1s infinite linear;
 }

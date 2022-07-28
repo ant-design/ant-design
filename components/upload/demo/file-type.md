@@ -14,78 +14,76 @@ title:
 
 Displays the corresponding by default by type icon
 
-```jsx
-import { Upload, Modal } from 'antd';
+```tsx
 import {
+  FileExcelTwoTone,
+  FilePdfTwoTone,
+  FileWordTwoTone,
   LoadingOutlined,
   PaperClipOutlined,
   PictureTwoTone,
-  FilePdfTwoTone,
-  FileWordTwoTone,
-  FileExcelTwoTone,
   PlusOutlined,
 } from '@ant-design/icons';
+import { Modal, Upload } from 'antd';
+import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
+const getBase64 = (file: RcFile): Promise<string> =>
+  new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
+    reader.onload = () => resolve(reader.result as string);
     reader.onerror = error => reject(error);
   });
-}
 
-class PicturesWall extends React.Component {
-  state = {
-    previewVisible: false,
-    previewImage: '',
-    fileList: [
-      {
-        uid: '-2',
-        name: 'pdf.pdf',
-        status: 'done',
-        url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
-      },
-      {
-        uid: '-3',
-        name: 'doc.doc',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc',
-      },
-      {
-        uid: '-4',
-        name: 'image.png',
-        status: 'error',
-      },
-      {
-        uid: '-5',
-        name: 'pdf.pdf',
-        status: 'error',
-      },
-      {
-        uid: '-6',
-        name: 'doc.doc',
-        status: 'error',
-      },
-    ],
-  };
+const App: React.FC = () => {
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+  const [fileList, setFileList] = useState<UploadFile[]>([
+    {
+      uid: '-2',
+      name: 'pdf.pdf',
+      status: 'done',
+      url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
+    },
+    {
+      uid: '-3',
+      name: 'doc.doc',
+      status: 'done',
+      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc',
+    },
+    {
+      uid: '-4',
+      name: 'image.png',
+      status: 'error',
+    },
+    {
+      uid: '-5',
+      name: 'pdf.pdf',
+      status: 'error',
+    },
+    {
+      uid: '-6',
+      name: 'doc.doc',
+      status: 'error',
+    },
+  ]);
 
-  handleCancel = () => this.setState({ previewVisible: false });
+  const handleCancel = () => setPreviewVisible(false);
 
-  handlePreview = async file => {
+  const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
+      file.preview = await getBase64(file.originFileObj as RcFile);
     }
 
-    this.setState({
-      previewImage: file.url || file.preview,
-      previewVisible: true,
-    });
+    setPreviewVisible(true);
+    setPreviewImage(file.url || (file.preview as string));
   };
 
-  handleChange = ({ fileList }) => this.setState({ fileList });
+  const handleChange: UploadProps['onChange'] = ({ fileList: newFileList }) =>
+    setFileList(newFileList);
 
-  handleIconRender = (file, listType) => {
+  const handleIconRender: UploadProps['iconRender'] = (file, listType) => {
     const fileSufIconList = [
       { type: <FilePdfTwoTone />, suf: ['.pdf'] },
       { type: <FileExcelTwoTone />, suf: ['.xlsx', '.xls', '.csv'] },
@@ -102,7 +100,7 @@ class PicturesWall extends React.Component {
         icon = <LoadingOutlined />; // or icon = 'uploading...';
       } else {
         fileSufIconList.forEach(item => {
-          if (item.suf.includes(file.name.substr(file.name.lastIndexOf('.')))) {
+          if (item.suf.includes(file.name.slice(file.name.lastIndexOf('.')))) {
             icon = item.type;
           }
         });
@@ -111,33 +109,31 @@ class PicturesWall extends React.Component {
     return icon;
   };
 
-  render() {
-    const { previewVisible, previewImage, fileList } = this.state;
-    const uploadButton = (
-      <div>
-        <PlusOutlined />
-        <div style={{ marginTop: 8 }}>Upload</div>
-      </div>
-    );
-    return (
-      <>
-        <Upload
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-          listType="picture-card"
-          fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
-          iconRender={this.handleIconRender}
-        >
-          {fileList.length >= 8 ? null : uploadButton}
-        </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
-      </>
-    );
-  }
-}
+  const uploadButton = (
+    <div>
+      <PlusOutlined />
+      <div style={{ marginTop: 8 }}>Upload</div>
+    </div>
+  );
 
-ReactDOM.render(<PicturesWall />, mountNode);
+  return (
+    <>
+      <Upload
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        listType="picture-card"
+        fileList={fileList}
+        onPreview={handlePreview}
+        onChange={handleChange}
+        iconRender={handleIconRender}
+      >
+        {fileList.length >= 8 ? null : uploadButton}
+      </Upload>
+      <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
+        <img alt="example" style={{ width: '100%' }} src={previewImage} />
+      </Modal>
+    </>
+  );
+};
+
+export default App;
 ```

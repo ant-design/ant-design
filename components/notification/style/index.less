@@ -16,17 +16,6 @@
   z-index: @zindex-notification;
   margin-right: @notification-margin-edge;
 
-  &-topLeft,
-  &-bottomLeft {
-    margin-right: 0;
-    margin-left: @notification-margin-edge;
-
-    .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
-    .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
-      animation-name: NotificationLeftFadeIn;
-    }
-  }
-
   &-close-icon {
     font-size: @font-size-base;
     cursor: pointer;
@@ -49,6 +38,12 @@
     background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+
+    .@{notification-prefix-cls}-top &,
+    .@{notification-prefix-cls}-bottom & {
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     .@{notification-prefix-cls}-topLeft &,
     .@{notification-prefix-cls}-bottomLeft & {
@@ -192,18 +187,6 @@
   }
 }
 
-@keyframes NotificationLeftFadeIn {
-  0% {
-    right: @notification-width;
-    opacity: 0;
-  }
-
-  100% {
-    right: 0;
-    opacity: 1;
-  }
-}
-
 @keyframes NotificationFadeOut {
   0% {
     max-height: 150px;
@@ -221,3 +204,4 @@
 }
 
 @import './rtl';
+@import './placement';

@@ -13,15 +13,24 @@ title:
 
 large count of items with pagination.
 
-```jsx
-import { Transfer, Switch } from 'antd';
+```tsx
+import { Switch, Transfer } from 'antd';
+import type { TransferDirection } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
-const App = () => {
-  const [oneWay, setOneWay] = React.useState(false);
-  const [mockData, setMockData] = React.useState([]);
-  const [targetKeys, setTargetKeys] = React.useState([]);
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
+  chosen: boolean;
+}
 
-  React.useEffect(() => {
+const App: React.FC = () => {
+  const [oneWay, setOneWay] = useState(false);
+  const [mockData, setMockData] = useState<RecordType[]>([]);
+  const [targetKeys, setTargetKeys] = useState<string[]>([]);
+
+  useEffect(() => {
     const newTargetKeys = [];
     const newMockData = [];
     for (let i = 0; i < 2000; i++) {
@@ -41,7 +50,7 @@ const App = () => {
     setMockData(newMockData);
   }, []);
 
-  const onChange = (newTargetKeys, direction, moveKeys) => {
+  const onChange = (newTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
     console.log(newTargetKeys, direction, moveKeys);
     setTargetKeys(newTargetKeys);
   };
@@ -67,5 +76,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

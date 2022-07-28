@@ -17,7 +17,8 @@
   height: @switch-height;
   line-height: @switch-height;
   vertical-align: middle;
-  background-color: @disabled-color;
+  background-image: linear-gradient(to right, @disabled-color, @disabled-color),
+    linear-gradient(to right, @component-background, @component-background);
   border: 0;
   border-radius: 100px;
   cursor: pointer;
@@ -38,7 +39,7 @@
   }
 
   &-checked {
-    background-color: @switch-color;
+    background: @switch-color;
   }
 
   &-loading,

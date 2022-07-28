@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Skeleton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -15,6 +15,7 @@ describe('Skeleton', () => {
   const genSkeletonAvatar = props => mount(<Skeleton.Avatar {...props} />);
   const genSkeletonInput = props => mount(<Skeleton.Input {...props} />);
   const genSkeletonImage = props => mount(<Skeleton.Image {...props} />);
+  const genSkeletonNode = props => mount(<Skeleton.Node {...props} />);
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
@@ -32,6 +33,21 @@ describe('Skeleton', () => {
   it('should round title and paragraph', () => {
     const wrapperSmall = genSkeleton({ round: true, title: true, paragraph: true });
     expect(wrapperSmall.render()).toMatchSnapshot();
+  });
+
+  it('should display without children and falsy loading props', () => {
+    const wrapper = mount(<Skeleton loading={false} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should display with empty children and falsy loading props', () => {
+    const wrapper = mount(<Skeleton loading={false}>{0}</Skeleton>);
+    expect(wrapper.text()).toBe('0');
+  });
+
+  it('should display children', () => {
+    const wrapper = mount(<Skeleton loading={false}>{[1, 2, 3]}</Skeleton>);
+    expect(wrapper.text()).toBe('123');
   });
 
   describe('avatar', () => {
@@ -146,5 +162,19 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonImage();
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  describe('custom node element', () => {
+    it('should render normal', () => {
+      const wrapper = genSkeletonNode();
+      expect(wrapper.render()).toMatchSnapshot();
+      const wrapperNode = genSkeletonNode({ children: <span>Custom Content Node</span> });
+      expect(wrapperNode.render()).toMatchSnapshot();
+    });
+  });
+
+  it('should support style', () => {
+    const wrapper = genSkeleton({ style: { background: 'blue' } });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

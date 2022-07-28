@@ -11,7 +11,6 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
@@ -35,7 +34,7 @@ exports[`TreeSelect TreeSelect Custom Icons should \`treeIcon\` work 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
+      style="opacity: 0; min-width: 0; width: 0px;"
     >
       <div>
         <div>
@@ -214,7 +213,6 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
@@ -263,7 +261,6 @@ exports[`TreeSelect rtl render component should be rendered correctly in RTL dir
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"

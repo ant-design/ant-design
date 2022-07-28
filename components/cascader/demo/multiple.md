@@ -14,10 +14,17 @@ title:
 
 Select multiple options
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
+import React from 'react';
 
-const options = [
+interface Option {
+  value: string | number;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
@@ -51,18 +58,19 @@ const options = [
   },
 ];
 
-function onChange(value) {
+const onChange = (value: string[][]) => {
   console.log(value);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Cascader
-    style={{ width: 233 }}
+    style={{ width: '100%' }}
     options={options}
     onChange={onChange}
     multiple
     maxTagCount="responsive"
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

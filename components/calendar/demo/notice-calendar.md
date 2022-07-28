@@ -13,10 +13,13 @@ title:
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
-```jsx
-import { Calendar, Badge } from 'antd';
+```tsx
+import type { BadgeProps } from 'antd';
+import { Badge, Calendar } from 'antd';
+import type { Moment } from 'moment';
+import React from 'react';
 
-function getListData(value) {
+const getListData = (value: Moment) => {
   let listData;
   switch (value.date()) {
     case 8:
@@ -45,41 +48,42 @@ function getListData(value) {
     default:
   }
   return listData || [];
-}
+};
 
-function dateCellRender(value) {
-  const listData = getListData(value);
-  return (
-    <ul className="events">
-      {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function getMonthData(value) {
+const getMonthData = (value: Moment) => {
   if (value.month() === 8) {
     return 1394;
   }
-}
+};
 
-function monthCellRender(value) {
-  const num = getMonthData(value);
-  return num ? (
-    <div className="notes-month">
-      <section>{num}</section>
-      <span>Backlog number</span>
-    </div>
-  ) : null;
-}
+const App: React.FC = () => {
+  const monthCellRender = (value: Moment) => {
+    const num = getMonthData(value);
+    return num ? (
+      <div className="notes-month">
+        <section>{num}</section>
+        <span>Backlog number</span>
+      </div>
+    ) : null;
+  };
 
-ReactDOM.render(
-  <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
-  mountNode,
-);
+  const dateCellRender = (value: Moment) => {
+    const listData = getListData(value);
+    return (
+      <ul className="events">
+        {listData.map(item => (
+          <li key={item.content}>
+            <Badge status={item.type as BadgeProps['status']} text={item.content} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />;
+};
+
+export default App;
 ```
 
 ```css

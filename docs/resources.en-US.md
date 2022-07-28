@@ -14,10 +14,10 @@ Please find below some of the design resources and tools about Ant Design that w
 
 <div class="next-block-use-cards"></div>
 
-- RENEW Sketch Symbols
+- Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.4.0.zip
+  - https://github.com/ant-design/ant-design/files/2051729/Ant.Design.Template.sketch.zip
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - Sketch Symbols File for Mobile
@@ -70,6 +70,14 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - Use fully components and templates on JiShi Design
   - https://js.design/antd
+- Ant for Plasmic
+  - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
+  - Drag/drop live Ant components and manipulate props in this React visual builder
+  - https://www.plasmic.app/ant-design
+- MasterGo
+  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
+  - Use fully components and templates on MasterGo
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 
 ## Articles
 

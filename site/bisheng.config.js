@@ -8,7 +8,7 @@ const themeConfig = require('./themeConfig');
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
-const { ANT_THEME } = process.env;
+const { ANT_THEME, DEV_THEME } = process.env;
 
 function alertBabelConfig(rules) {
   rules.forEach(rule => {
@@ -27,8 +27,10 @@ function alertBabelConfig(rules) {
   });
 }
 
+const port = process.env.DEV_PORT || 8001;
+
 module.exports = {
-  port: 8001,
+  port,
   hash: true,
   source: {
     components: './components',
@@ -58,7 +60,7 @@ module.exports = {
   lessConfig: {
     javascriptEnabled: true,
     modifyVars: {
-      'root-entry-name': ANT_THEME || 'variable',
+      'root-entry-name': ANT_THEME || DEV_THEME || 'variable',
     },
   },
   webpackConfig(config) {
@@ -87,6 +89,7 @@ module.exports = {
       };
     } else if (process.env.ESBUILD) {
       // use esbuild
+      config.optimization.minimize = true;
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',
@@ -160,11 +163,38 @@ module.exports = {
       ];
     }
 
+    // Split chunks
+    if (config.mode === 'production') {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          vendors: {
+            test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
+            name: 'anticon',
+            chunks: 'initial',
+            maxSize: 1024 * 1024,
+          },
+          components: {
+            test(module) {
+              return (
+                module.resource &&
+                module.resource.includes('ant-design/components') &&
+                !module.resource.includes('demo') &&
+                !module.resource.endsWith('md')
+              );
+            },
+            name: 'components',
+            chunks: 'initial',
+          },
+        },
+      };
+    }
+
     return config;
   },
 
   devServerConfig: {
-    public: process.env.DEV_HOST || 'localhost',
+    public: `${process.env.DEV_HOST || 'localhost'}:${port}`,
     disableHostCheck: !!process.env.DEV_HOST,
   },
 

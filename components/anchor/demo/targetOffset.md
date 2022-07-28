@@ -14,16 +14,18 @@ title:
 Anchor target scroll to screen center.
 
 ```tsx
-import React, { useState, useEffect } from 'react';
 import { Anchor } from 'antd';
+import React, { useEffect, useState } from 'react';
 
 const { Link } = Anchor;
 
-const AnchorExample: React.FC = () => {
+const App: React.FC = () => {
   const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
+
   useEffect(() => {
     setTargetOffset(window.innerHeight / 2);
   }, []);
+
   return (
     <Anchor targetOffset={targetOffset}>
       <Link href="#components-anchor-demo-basic" title="Basic demo" />
@@ -36,5 +38,5 @@ const AnchorExample: React.FC = () => {
   );
 };
 
-ReactDOM.render(<AnchorExample />, mountNode);
+export default App;
 ```

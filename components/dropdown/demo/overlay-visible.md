@@ -13,46 +13,56 @@ title:
 
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
-```jsx
-import { Menu, Dropdown } from 'antd';
+```tsx
 import { DownOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Dropdown, Menu, Space } from 'antd';
+import React, { useState } from 'react';
 
-class OverlayVisible extends React.Component {
-  state = {
-    visible: false,
-  };
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
-  handleMenuClick = e => {
+  const handleMenuClick: MenuProps['onClick'] = e => {
     if (e.key === '3') {
-      this.setState({ visible: false });
+      setVisible(false);
     }
   };
 
-  handleVisibleChange = flag => {
-    this.setState({ visible: flag });
+  const handleVisibleChange = (flag: boolean) => {
+    setVisible(flag);
   };
 
-  render() {
-    const menu = (
-      <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
-        <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
-        <Menu.Item key="3">Clicking me will close the menu.</Menu.Item>
-      </Menu>
-    );
-    return (
-      <Dropdown
-        overlay={menu}
-        onVisibleChange={this.handleVisibleChange}
-        visible={this.state.visible}
-      >
-        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-          Hover me <DownOutlined />
-        </a>
-      </Dropdown>
-    );
-  }
-}
+  const menu = (
+    <Menu
+      onClick={handleMenuClick}
+      items={[
+        {
+          label: 'Clicking me will not close the menu.',
+          key: '1',
+        },
+        {
+          label: 'Clicking me will not close the menu also.',
+          key: '2',
+        },
+        {
+          label: 'Clicking me will close the menu.',
+          key: '3',
+        },
+      ]}
+    />
+  );
 
-ReactDOM.render(<OverlayVisible />, mountNode);
+  return (
+    <Dropdown overlay={menu} onVisibleChange={handleVisibleChange} visible={visible}>
+      <a onClick={e => e.preventDefault()}>
+        <Space>
+          Hover me
+          <DownOutlined />
+        </Space>
+      </a>
+    </Dropdown>
+  );
+};
+
+export default App;
 ```

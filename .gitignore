@@ -60,6 +60,7 @@ site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
 scripts/previewEditor/index.html
 components/version/version.tsx
+components/version/token.tsx
 
 # Image snapshot diff
 __diff_output__/
@@ -67,3 +68,5 @@ __image_snapshots__/
 /jest-stare
 /imageSnapshots
 /imageDiffSnapshots
+
+.devcontainer*

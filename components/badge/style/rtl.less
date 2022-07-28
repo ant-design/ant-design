@@ -6,7 +6,7 @@
   &:not(&-not-a-wrapper) &-count,
   &:not(&-not-a-wrapper) &-dot,
   &:not(&-not-a-wrapper) .@{number-prefix-cls}-custom-component {
-    .@{badge-prefix-cls}-rtl & {
+    .@{badge-prefix-cls}-rtl& {
       right: auto;
       left: 0;
       direction: ltr;
@@ -30,6 +30,17 @@
       }
     }
   }
+
+  &:not(&-not-a-wrapper).@{badge-prefix-cls}-rtl {
+    .@{badge-prefix-cls}-zoom-appear,
+    .@{badge-prefix-cls}-zoom-enter {
+      animation-name: antZoomBadgeInRtl;
+    }
+
+    .@{badge-prefix-cls}-zoom-leave {
+      animation-name: antZoomBadgeOutRtl;
+    }
+  }
 }
 
 .@{ribbon-prefix-cls}-rtl {
@@ -42,10 +53,10 @@
     .@{ribbon-prefix-cls}-corner {
       right: unset;
       left: 0;
-      border-color: currentColor currentColor transparent transparent;
+      border-color: currentcolor currentcolor transparent transparent;
 
       &::after {
-        border-color: currentColor currentColor transparent transparent;
+        border-color: currentcolor currentcolor transparent transparent;
       }
     }
   }
@@ -57,11 +68,33 @@
     .@{ribbon-prefix-cls}-corner {
       right: 0;
       left: unset;
-      border-color: currentColor transparent transparent currentColor;
+      border-color: currentcolor transparent transparent currentcolor;
 
       &::after {
-        border-color: currentColor transparent transparent currentColor;
+        border-color: currentcolor transparent transparent currentcolor;
       }
     }
+  }
+}
+
+@keyframes antZoomBadgeInRtl {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOutRtl {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
   }
 }

@@ -1,5 +1,7 @@
 import './index.less';
 
 // style dependencies
-import '../../tag/style';
 import '../../button/style';
+import '../../tag/style';
+
+// deps-lint-skip: form

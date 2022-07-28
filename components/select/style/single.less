@@ -25,13 +25,6 @@
       padding: 0;
       line-height: @select-height-without-border;
       transition: all 0.3s;
-
-      // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-      @supports (-moz-appearance: meterbar) {
-        & {
-          line-height: @select-height-without-border;
-        }
-      }
     }
 
     .@{select-prefix-cls}-selection-item {

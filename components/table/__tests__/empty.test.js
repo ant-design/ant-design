@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Table from '..';
+import { render, triggerResize, waitFor } from '../../../tests/utils';
 
 const columns = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
@@ -46,19 +47,41 @@ const columnsFixed = [
 
 describe('Table', () => {
   it('renders empty table', () => {
-    const wrapper = render(<Table dataSource={[]} columns={columns} pagination={false} />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Table dataSource={[]} columns={columns} pagination={false} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('renders empty table with fixed columns', () => {
-    const wrapper = render(
-      <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
-    );
-    expect(wrapper).toMatchSnapshot();
+  describe('renders empty table with fixed columns', () => {
+    let domSpy;
+
+    beforeAll(() => {
+      domSpy = spyElementPrototypes(HTMLDivElement, {
+        offsetWidth: {
+          get: () => 1000,
+        },
+      });
+    });
+    afterAll(() => {
+      domSpy.mockRestore();
+    });
+
+    it('should work', async () => {
+      const { container, asFragment } = render(
+        <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
+      );
+
+      triggerResize(container.querySelector('.ant-table'));
+
+      await waitFor(() => {
+        expect(container.querySelector('.ant-empty')).toBeTruthy();
+      });
+
+      expect(asFragment().firstChild).toMatchSnapshot();
+    });
   });
 
   it('renders empty table with custom emptyText', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <Table
         dataSource={[]}
         columns={columns}
@@ -66,11 +89,11 @@ describe('Table', () => {
         locale={{ emptyText: 'custom empty text' }}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders empty table without emptyText when loading', () => {
-    const wrapper = render(<Table dataSource={[]} columns={columns} loading />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

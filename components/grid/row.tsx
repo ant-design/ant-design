@@ -1,19 +1,17 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import RowContext from './RowContext';
-import { tuple } from '../_util/type';
-import ResponsiveObserve, {
-  Breakpoint,
-  ScreenMap,
-  responsiveArray,
-} from '../_util/responsiveObserve';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
+import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import { tuple } from '../_util/type';
+import RowContext from './RowContext';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
-const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
+const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
-export type Gutter = number | Partial<Record<Breakpoint, number>>;
+type Gap = number | undefined;
+export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
   align?: typeof RowAligns[number];
@@ -66,9 +64,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   }, []);
 
   // ================================== Render ==================================
-  const getGutter = (): [number, number] => {
-    const results: [number, number] = [0, 0];
-    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
+  const getGutter = (): [Gap, Gap] => {
+    const results: [Gap, Gap] = [undefined, undefined];
+    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, undefined];
     normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
         for (let i = 0; i < responsiveArray.length; i++) {
@@ -79,7 +77,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
           }
         }
       } else {
-        results[index] = g || 0;
+        results[index] = g;
       }
     });
     return results;
@@ -100,8 +98,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
-  const horizontalGutter = gutters[0] > 0 ? gutters[0] / -2 : undefined;
-  const verticalGutter = gutters[1] > 0 ? gutters[1] / -2 : undefined;
+  const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
+  const verticalGutter = gutters[1] != null && gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
   if (horizontalGutter) {
     rowStyle.marginLeft = horizontalGutter;
@@ -116,11 +114,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginBottom = verticalGutter;
   }
 
-  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
-    gutters,
-    wrap,
-    supportFlexGap,
-  ]);
+  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
+  // So we deconstruct "gutters" variable here.
+  const [gutterH, gutterV] = gutters;
+  const rowContext = React.useMemo(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
+    [gutterH, gutterV, wrap, supportFlexGap],
+  );
 
   return (
     <RowContext.Provider value={rowContext}>
@@ -131,6 +131,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   );
 });
 
-Row.displayName = 'Row';
+if (process.env.NODE_ENV !== 'production') {
+  Row.displayName = 'Row';
+}
 
 export default Row;

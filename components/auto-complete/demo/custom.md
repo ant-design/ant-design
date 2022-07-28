@@ -14,13 +14,14 @@ title:
 Customize Input Component
 
 ```tsx
-import React, { useState } from 'react';
 import { AutoComplete, Input } from 'antd';
+import React, { useState } from 'react';
 
 const { TextArea } = Input;
 
-const Complete: React.FC = () => {
+const App: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
+
   const handleSearch = (value: string) => {
     setOptions(
       !value ? [] : [{ value }, { value: value + value }, { value: value + value + value }],
@@ -52,5 +53,5 @@ const Complete: React.FC = () => {
   );
 };
 
-ReactDOM.render(<Complete />, mountNode);
+export default App;
 ```
