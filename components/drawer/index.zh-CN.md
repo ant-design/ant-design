@@ -45,6 +45,6 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
 | visible | Drawer 是否可见 | boolean | - |  |
-| width | 宽度 | string \| number | 378 |  |
+| width | 宽度 | string \| number | '378px' \| 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
