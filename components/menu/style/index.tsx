@@ -15,6 +15,9 @@ export interface ComponentToken {
   // Group
   colorGroupTitle: string;
 
+  // radius
+  radiusItem: number;
+
   // Item Text
   // > Default
   colorItemText: string;
@@ -36,6 +39,7 @@ export interface ComponentToken {
   // > Default
   colorItemBgActive: string;
   colorItemBgSelected: string;
+  colorItemBgSelectedHorizontal: string;
 
   // > Danger
   colorDangerItemBgActive: string;
@@ -127,6 +131,9 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           [`${componentCls}-item`]: {
             flex: 'none',
           },
+        },
+        [`${componentCls}-item,${componentCls}-submenu,`]: {
+          borderRadius: token.radiusItem,
         },
 
         [`${componentCls}-item-group-title`]: {
@@ -446,6 +453,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       return {
         dropdownWidth: 160,
         zIndexPopup: token.zIndexPopupBase + 50,
+        radiusItem: 0,
         colorItemText: colorText,
         colorItemTextHover: colorPrimary,
         colorGroupTitle: colorTextSecondary,
@@ -454,6 +462,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorSubItemBg: colorFillAlter,
         colorItemBgActive: controlItemBgActive,
         colorItemBgSelected: controlItemBgActive,
+        colorItemBgSelectedHorizontal: 'transparent',
         colorActiveBarWidth: lineWidthBold + lineWidth,
         colorActiveBarHeight: lineWidthBold,
         colorActiveBarBorderSize: lineWidth,

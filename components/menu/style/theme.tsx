@@ -18,6 +18,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
     colorItemBg,
     colorSubItemBg,
     colorItemBgActive,
+    colorItemBgSelectedHorizontal,
     colorItemBgSelected,
     colorActiveBarHeight,
     colorActiveBarWidth,
@@ -142,6 +143,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
           top: colorActiveBarBorderSize,
           marginTop: -colorActiveBarBorderSize,
           marginBottom: 0,
+          borderRadius: token.radiusItem,
 
           '&::after': {
             position: 'absolute',
@@ -152,10 +154,18 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
             content: '""',
           },
 
-          [`&:hover, &-active, &-open, &-selected`]: {
+          [`&:hover, &-active, &-open`]: {
             color: colorItemTextSelected,
-
             '&::after': {
+              borderWidth: `${colorActiveBarHeight}px`,
+              borderBottomColor: colorItemTextSelected,
+            },
+          },
+          [`&-selected`]: {
+            color: colorItemTextSelected,
+            backgroundColor: colorItemBgSelectedHorizontal,
+            '&::after': {
+              borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelected,
             },
           },
