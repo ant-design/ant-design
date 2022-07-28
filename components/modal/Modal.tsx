@@ -33,7 +33,7 @@ if (canUseDocElement()) {
 
 export interface ModalProps {
   /** 对话框是否可见 */
-  visible?: boolean;
+  open?: boolean;
   /** 确定按钮 loading */
   confirmLoading?: boolean;
   /** 标题 */
@@ -88,7 +88,7 @@ type getContainerFunc = () => HTMLElement;
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
-  visible?: boolean;
+  open?: boolean;
   title?: React.ReactNode;
   closable?: boolean;
   content?: React.ReactNode;
@@ -150,7 +150,7 @@ const Modal: React.FC<ModalProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    visible,
+    open,
     wrapClassName,
     centered,
     getContainer,
@@ -183,7 +183,7 @@ const Modal: React.FC<ModalProps> = props => {
           onOk: handleOk,
           onCancel: handleCancel,
         })}
-        visible={visible}
+        visible={open}
         mousePosition={mousePosition}
         onClose={handleCancel}
         closeIcon={renderCloseIcon(prefixCls, closeIcon)}
@@ -199,7 +199,7 @@ const Modal: React.FC<ModalProps> = props => {
 Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
-  visible: false,
+  open: false,
 };
 
 export default Modal;

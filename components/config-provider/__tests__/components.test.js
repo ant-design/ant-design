@@ -391,7 +391,7 @@ describe('ConfigProvider', () => {
     // Modal
     testPair('Modal', props => (
       <div>
-        <Modal {...props} visible getContainer={false}>
+        <Modal {...props} open getContainer={false}>
           Bamboo is Little Light
         </Modal>
       </div>

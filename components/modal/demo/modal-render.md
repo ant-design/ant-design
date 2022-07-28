@@ -20,23 +20,23 @@ import type { DraggableData, DraggableEvent } from 'react-draggable';
 import Draggable from 'react-draggable';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({ left: 0, top: 0, bottom: 0, right: 0 });
   const draggleRef = useRef<HTMLDivElement>(null);
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   const onStart = (_event: DraggableEvent, uiData: DraggableData) => {
@@ -80,7 +80,7 @@ const App: React.FC = () => {
             Draggable Modal
           </div>
         }
-        visible={visible}
+        open={open}
         onOk={handleOk}
         onCancel={handleCancel}
         modalRender={modal => (
