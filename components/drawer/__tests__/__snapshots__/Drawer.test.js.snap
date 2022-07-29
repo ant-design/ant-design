@@ -146,7 +146,6 @@ exports[`Drawer getContainer return undefined 2`] = `
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="width: 400px;"
       >
         <div
           class="ant-drawer-wrapper-body"
@@ -224,7 +223,6 @@ exports[`Drawer have a footer 1`] = `
       aria-modal="true"
       class="ant-drawer-content"
       role="dialog"
-      style="width: 378px;"
     >
       <div
         class="ant-drawer-wrapper-body"
@@ -306,7 +304,6 @@ exports[`Drawer have a title 1`] = `
       aria-modal="true"
       class="ant-drawer-content"
       role="dialog"
-      style="width: 378px;"
     >
       <div
         class="ant-drawer-wrapper-body"

@@ -1851,7 +1851,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
                   />
                 </span>
                 <span>
-                   Apple
+                   Apple 
                 </span>
               </label>
               <label
@@ -1871,7 +1871,7 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
                   />
                 </span>
                 <span>
-                   Pear
+                   Pear 
                 </span>
               </label>
             </div>
@@ -3903,7 +3903,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             <span
               class="ant-typography ant-typography-secondary ant-form-text"
             >
-              (
+              ( 
               <span
                 aria-label="smile"
                 class="anticon anticon-smile"
@@ -4645,7 +4645,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
           class="ant-form-item-no-colon"
           title=" "
         >
-
+           
         </label>
       </div>
       <div
@@ -5146,7 +5146,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 Log in
               </span>
             </button>
-            Or
+            Or 
             <a
               href=""
             >
@@ -6189,7 +6189,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 />
               </span>
               <span>
-                I have read the
+                I have read the 
                 <a
                   href=""
                 >
@@ -7845,7 +7845,7 @@ Array [
     class="ant-typography"
   >
     <pre>
-      Name Value:
+      Name Value: 
     </pre>
   </article>,
 ]
