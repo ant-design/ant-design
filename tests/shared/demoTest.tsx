@@ -76,7 +76,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         // Inject cssinjs cache to avoid create <style /> element
         Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
-        render(Demo);
+        enzymeRender(Demo);
 
         expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
         MockDate.reset();
