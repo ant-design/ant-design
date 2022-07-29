@@ -3,7 +3,7 @@ import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
-  const { componentCls, menuItemHeight, marginXS, padding, marginXXS, menuArrowSize, fontSize } =
+  const { componentCls, menuItemHeight, menuItemMarginInline, padding, menuArrowSize, fontSize } =
     token;
 
   const paddingWithArrow = menuArrowSize + fontSize;
@@ -16,7 +16,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       height: menuItemHeight,
       lineHeight: `${menuItemHeight}px`,
-      marginBlock: marginXXS,
+      marginBlock: menuItemMarginInline,
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
@@ -25,10 +25,6 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     // disable margin collapsed
     [`${componentCls}-submenu`]: {
       paddingBottom: 0.02,
-    },
-
-    [`${componentCls}-item:not(:last-child)`]: {
-      marginBottom: marginXS,
     },
 
     [`> ${componentCls}-item,
