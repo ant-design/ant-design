@@ -1,10 +1,10 @@
-import { render as testLibRender } from '@testing-library/react';
-import { mount, render } from 'enzyme';
 import React from 'react';
 import Radio, { Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('Radio Button', () => {
   focusTest(Button, { refFocus: true });
@@ -13,20 +13,22 @@ describe('Radio Button', () => {
   rtlTest(Button);
 
   it('should render correctly', () => {
-    const wrapper = render(<Button className="customized">Test</Button>);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Button className="customized">Test</Button>);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = mount(<Button onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
+    const { container } = render(
+      <Button onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+    );
 
-    wrapper.find('label').simulate('mouseenter');
+    fireEvent.mouseEnter(container.querySelector('label'));
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.find('label').simulate('mouseleave');
+    fireEvent.mouseLeave(container.querySelector('label'));
     expect(onMouseLeave).toHaveBeenCalled();
   });
 });
@@ -46,32 +48,29 @@ describe('Radio Group', () => {
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
 
-    const wrapper = mount(
+    const { container } = render(
       <Radio.Group onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <Radio />
       </Radio.Group>,
     );
 
-    wrapper.find('div').at(0).simulate('mouseenter');
+    fireEvent.mouseEnter(container.querySelectorAll('div')[0]);
     expect(onMouseEnter).toHaveBeenCalled();
 
-    wrapper.find('div').at(0).simulate('mouseleave');
+    fireEvent.mouseLeave(container.querySelectorAll('div')[0]);
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
   it('fire change events when value changes', () => {
     const onChange = jest.fn();
 
-    const wrapper = mount(
-      createRadioGroup({
-        onChange,
-      }),
-    );
-    const radios = wrapper.find('input');
+    const { container, rerender } = render(createRadioGroup({ onChange }));
+
+    const radios = container.querySelectorAll('input');
 
     // controlled component
-    wrapper.setProps({ value: 'A' });
-    radios.at(1).simulate('change');
+    rerender(createRadioGroup({ onChange, value: 'A' }));
+    fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
   });
 
@@ -79,7 +78,7 @@ describe('Radio Group', () => {
     const onChange = jest.fn();
     const onChangeRadioGroup = jest.fn();
 
-    const wrapper = mount(
+    const { container } = render(
       <Radio.Group onChange={onChangeRadioGroup}>
         <Radio value="A" onChange={onChange}>
           A
@@ -92,63 +91,69 @@ describe('Radio Group', () => {
         </Radio>
       </Radio.Group>,
     );
-    const radios = wrapper.find('input');
+    const radios = container.querySelectorAll('input');
 
     // controlled component
-    wrapper.setProps({ value: 'A' });
-    radios.at(1).simulate('change');
+    fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
+    expect(onChangeRadioGroup.mock.calls.length).toBe(1);
   });
 
   it('Trigger onChange when both of Button and radioGroup exists', () => {
     const onChange = jest.fn();
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Radio.Group onChange={onChange}>
         <Button value="A">A</Button>
         <Button value="B">B</Button>
         <Button value="C">C</Button>
       </Radio.Group>,
     );
-    const radios = wrapper.find('input');
+    const radios = container.querySelectorAll('input');
 
     // controlled component
-    wrapper.setProps({ value: 'A' });
-    radios.at(1).simulate('change');
+    rerender(
+      <Radio.Group value="A" onChange={onChange}>
+        <Button value="A">A</Button>
+        <Button value="B">B</Button>
+        <Button value="C">C</Button>
+      </Radio.Group>,
+    );
+    fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
   });
 
   it('should only trigger once when in group with options', () => {
     const onChange = jest.fn();
     const options = [{ label: 'Bamboo', value: 'Bamboo' }];
-    const wrapper = mount(<Radio.Group options={options} onChange={onChange} />);
+    const { container } = render(<Radio.Group options={options} onChange={onChange} />);
 
-    wrapper.find('input').simulate('change');
+    fireEvent.click(container.querySelector('input'));
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it("won't fire change events when value not changes", () => {
     const onChange = jest.fn();
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       createRadioGroup({
         onChange,
       }),
     );
-    const radios = wrapper.find('input');
+    const radios = container.querySelectorAll('input');
 
     // controlled component
-    wrapper.setProps({ value: 'A' });
-    radios.at(0).simulate('change');
+    rerender(createRadioGroup({ onChange, value: 'A' }));
+    fireEvent.click(radios[0]);
     expect(onChange.mock.calls.length).toBe(0);
   });
 
   it('all children should have a name property', () => {
-    const GROUP_NAME = 'radiogroup';
-    const wrapper = mount(createRadioGroup({ name: GROUP_NAME }));
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(createRadioGroup({ name: GROUP_NAME }));
 
-    wrapper.find('input[type="radio"]').forEach(el => {
-      expect(el.props().name).toEqual(GROUP_NAME);
+    container.querySelectorAll('input[type="radio"]').forEach(el => {
+      expect(el.name).toEqual(GROUP_NAME);
     });
   });
 
@@ -157,13 +162,13 @@ describe('Radio Group', () => {
       { label: 'Apple', value: 'Apple' },
       { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
-    const wrapper = render(<Radio.Group prefixCls="my-radio" options={options} />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Radio.Group prefixCls="my-radio" options={options} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should forward ref', () => {
     let radioGroupRef;
-    const { container } = testLibRender(
+    const { container } = render(
       createRadioGroup({
         ref: ref => {
           radioGroupRef = ref;
@@ -175,7 +180,7 @@ describe('Radio Group', () => {
   });
 
   it('should support data-* or aria-* props', () => {
-    const { container } = testLibRender(
+    const { container } = render(
       createRadioGroup({
         'data-radio-group-id': 'radio-group-id',
         'aria-label': 'radio-group',
@@ -187,7 +192,7 @@ describe('Radio Group', () => {
 
   it('Radio type should not be override', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Radio.Group onChange={onChange}>
         <Radio value={1} type="1">
           A
@@ -203,48 +208,36 @@ describe('Radio Group', () => {
         </Radio>
       </Radio.Group>,
     );
-    const radios = wrapper.find('input');
-    radios.at(1).simulate('change');
+    const radios = container.querySelectorAll('input');
+    fireEvent.click(radios[0]);
     expect(onChange).toHaveBeenCalled();
-    expect(radios.at(1).getDOMNode().type).toBe('radio');
+    expect(radios[1].type).toBe('radio');
   });
 
   describe('value is null or undefined', () => {
     it('use `defaultValue` when `value` is undefined', () => {
-      const wrapper = mount(
+      const { container } = render(
         <Radio.Group defaultValue="bamboo" value={undefined}>
           <Button value="bamboo">Bamboo</Button>
         </Radio.Group>,
       );
-      expect(
-        wrapper
-          .find('.ant-radio-button-wrapper')
-          .at(0)
-          .hasClass('ant-radio-button-wrapper-checked'),
-      ).toBe(true);
+      expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
     });
 
     [undefined, null].forEach(newValue => {
       it(`should set value back when value change back to ${newValue}`, () => {
-        const wrapper = mount(
+        const { container, rerender } = render(
           <Radio.Group value="bamboo">
             <Button value="bamboo">Bamboo</Button>
           </Radio.Group>,
         );
-        expect(
-          wrapper
-            .find('.ant-radio-button-wrapper')
-            .at(0)
-            .hasClass('ant-radio-button-wrapper-checked'),
-        ).toBe(true);
-        wrapper.setProps({ value: newValue });
-        wrapper.update();
-        expect(
-          wrapper
-            .find('.ant-radio-button-wrapper')
-            .at(0)
-            .hasClass('ant-radio-button-wrapper-checked'),
-        ).toBe(false);
+        expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(1);
+        rerender(
+          <Radio.Group value={newValue}>
+            <Button value="bamboo">Bamboo</Button>
+          </Radio.Group>,
+        );
+        expect(container.querySelectorAll('.ant-radio-button-wrapper-checked').length).toBe(0);
       });
     });
   });

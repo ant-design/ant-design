@@ -1,9 +1,11 @@
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
+import KeyCode from 'rc-util/lib/KeyCode';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import TestUtils, { act } from 'react-dom/test-utils';
+
 import Modal from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -192,5 +194,111 @@ describe('Modal.hook', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
     expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
+  });
+
+  it('the callback close should be a method when onCancel has a close parameter', async () => {
+    jest.useFakeTimers();
+
+    const clear = async function clear() {
+      await act(async () => {
+        jest.runAllTimers();
+        await sleep();
+      });
+    };
+
+    const mockFn = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = React.useCallback(() => {
+        modal.confirm({
+          closable: true,
+          keyboard: true,
+          maskClosable: true,
+          onCancel: close => mockFn(close),
+        });
+      }, [modal]);
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // First open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Click mask to close
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Second open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Press ESC to turn off
+    TestUtils.Simulate.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
+      keyCode: KeyCode.ESC,
+    });
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Third open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+    // Click the close icon to close
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-close')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+    // Last open
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+    // Click the Cancel button to close (invalid)
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+    mockFn.mockImplementation(close => close());
+
+    // Click the Cancel button to close (valid)
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);
+
+    await clear();
+
+    expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(0);
+
+    // Close called 5 times
+    expect(mockFn).toHaveBeenCalledTimes(5);
+
+    expect(mockFn.mock.calls).toEqual(Array.from({ length: 5 }, () => [expect.any(Function)]));
+
+    jest.useRealTimers();
   });
 });

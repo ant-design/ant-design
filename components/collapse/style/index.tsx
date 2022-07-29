@@ -69,6 +69,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
 
+          [`> ${componentCls}-header-text`]: {
+            flex: 'auto',
+          },
+
           '&:focus': {
             outline: 'none',
           },
@@ -100,6 +104,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           cursor: 'default',
 
           [`${componentCls}-header-text`]: {
+            flex: 'none',
             cursor: 'pointer',
           },
         },

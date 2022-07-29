@@ -1567,4 +1567,45 @@ describe('Upload List', () => {
       unmount();
     });
   });
+
+  // https://github.com/ant-design/ant-design/issues/36286
+  it('remove should keep origin className', async () => {
+    jest.useFakeTimers();
+
+    const onChange = jest.fn();
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'error',
+      },
+    ];
+    const { container } = render(
+      <Upload fileList={list} listType="picture-card" onChange={onChange} />,
+    );
+
+    fireEvent.click(container.querySelector('.anticon-delete'));
+
+    // Wait for Upload sync
+    for (let i = 0; i < 10; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await Promise.resolve();
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({
+          status: 'removed',
+        }),
+      }),
+    );
+
+    expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+
+    jest.useRealTimers();
+  });
 });
