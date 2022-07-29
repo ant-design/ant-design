@@ -458,8 +458,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <Dropdown
         overlay={menu}
         trigger={['click']}
-        visible={mergedVisible}
-        onVisibleChange={onVisibleChange}
+        open={mergedVisible}
+        onOpenChange={onVisibleChange}
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
       >

@@ -21,8 +21,8 @@ describe('DropdownButton', () => {
       ),
       disabled: false,
       trigger: ['hover'],
-      visible: true,
-      onVisibleChange: () => {},
+      open: true,
+      onOpenChange: () => {},
     };
 
     const wrapper = mount(<Dropdown.Button {...props} />);
@@ -33,7 +33,7 @@ describe('DropdownButton', () => {
     });
   });
 
-  it("don't pass visible to Dropdown if it's not exits", () => {
+  it("don't pass open to Dropdown if it's not exits", () => {
     const menu = (
       <Menu>
         <Menu.Item key="1">foo</Menu.Item>
@@ -42,7 +42,7 @@ describe('DropdownButton', () => {
     const wrapper = mount(<Dropdown.Button overlay={menu} />);
     const dropdownProps = wrapper.find(Dropdown).props();
 
-    expect('visible' in dropdownProps).toBe(false);
+    expect('open' in dropdownProps).toBe(false);
   });
 
   it('should support href like Button', () => {
@@ -89,7 +89,7 @@ describe('DropdownButton', () => {
         overlayClassName="className"
         overlayStyle={{ color: 'red' }}
         overlay={menu}
-        visible
+        open
       />,
     );
     expect(wrapper.find('.ant-dropdown').getDOMNode().className).toContain('className');
