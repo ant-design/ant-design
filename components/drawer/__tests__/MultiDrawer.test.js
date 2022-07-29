@@ -149,9 +149,12 @@ describe('Drawer', () => {
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
     fireEvent.click(wrapper.querySelector('button#remove_drawer'));
 
-    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: '',
-    });
+    // Strange, testing-lib get wrong style in next branch.
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper').style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
 
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
     expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
@@ -182,8 +185,10 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer push={false} />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
-      transform: '',
-    });
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper').style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
   });
 });
