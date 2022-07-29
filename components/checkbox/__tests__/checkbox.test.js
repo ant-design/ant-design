@@ -36,4 +36,16 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('defaultChecked should work if checked is passed as undefined and should be able to change state', () => {
+    resetWarned();
+    const { container } = render(<Checkbox defaultChecked checked={undefined} />);
+    const checkbox = container.getElementsByClassName('ant-checkbox-input')[0];
+
+    expect(checkbox).toBeChecked();
+
+    fireEvent.click(checkbox);
+
+    expect(checkbox).not.toBeChecked();
+  });
 });

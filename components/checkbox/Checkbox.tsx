@@ -104,6 +104,9 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     checkboxProps.name = checkboxGroup.name;
     checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
   }
+  if (restProps.checked === undefined) {
+    delete checkboxProps.checked;
+  }
   const classString = classNames(
     {
       [`${prefixCls}-wrapper`]: true,
