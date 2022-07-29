@@ -88,21 +88,21 @@ describe('Drawer', () => {
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
-    expect(container.querySelector('.ant-drawer-content-hidden')).toBeTruthy();
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper'));
+    expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
 
     // Show
     rerender(getDrawer({ visible: true, getContainer: false }));
-    expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
-    expect(container.querySelector('.ant-drawer-content-hidden')).toBeFalsy();
+    expect(container.querySelector('.ant-drawer-content-wrapper')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeFalsy();
 
     // Hide
     rerender(getDrawer({ visible: false, getContainer: false }));
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
-    expect(container.querySelector('.ant-drawer-content-hidden')).toBeTruthy();
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper'));
+    expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
   it('test afterVisibleChange', async () => {
@@ -113,7 +113,7 @@ describe('Drawer', () => {
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content'));
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper'));
 
     expect(afterVisibleChange).toBeCalledTimes(1);
   });
