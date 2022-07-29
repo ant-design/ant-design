@@ -15,6 +15,45 @@ timeline: true
 
 ---
 
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 Adjust Collapse title click region which will be fully width when `collapsible=default` now. [#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 Fix Drawer not work in 360 browser. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Revert back panel style into wrapper dom node in case developer use `contentWrapperStyle` for overwrite. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Fix for the string type as `width/height` value and warning which should use number type instead. [#284](https://github.com/react-component/drawer/pull/284)
+
+## 4.22.1
+
+`2022-07-27`
+
+- 🐞 Fix Drawer with percentage width display issue. [#36729](https://github.com/ant-design/ant-design/pull/36729)
+
+## 4.22.0
+
+`2022-07-26`
+
+- Form
+  - 🔥 Form support `Form.Item.useStatus` for custom components to get Form.Item validate status. [#36486](https://github.com/ant-design/ant-design/pull/36486)
+  - 🆕 Form support `setFieldValue` to simplify config array index value. [#36058](https://github.com/ant-design/ant-design/pull/36058)
+  - 🐞 Fix Form.Item shaking when trigger validate so fast. [#36575](https://github.com/ant-design/ant-design/pull/36575)
+- 🆕 Radio.Group support `onBlur` and `onFocus` props. [#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Typography `ellipsis.tooltip` supports a object for Tooltip props. [#36099](https://github.com/ant-design/ant-design/pull/36099)
+- 🛠 Refactor Drawer to remove directly style control which helps more React way. [#36672](https://github.com/ant-design/ant-design/pull/36672)
+- 🛠 Refactor Sketelon.Button square shape style that its width is equal to height, and old become the default. [#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
+- 🐞 Fix Modal.confirm `onCancel` argument close is not a function sometimes. [#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Revert [#36439](https://github.com/ant-design/ant-design/pull/36439) to fix the problem of incorrect status when uploading and deleting files, and fix the status color change when Upload removes files again change problem. [#36706](https://github.com/ant-design/ant-design/pull/36706)
+- Tree
+  - 🛠 Tree/TreeSelect `switcherIcon` argument support more parameters from `{ expanded: boolean }` to `AntTreeNodeProps`. [#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
+  - 🐞 Fix Tree `draggable` Fn params type from AntTreeNode to DataNode. [#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
+- Table
+  - 💄 Fix Table extra shadow and scrollbar when all columns are fixed. [#36606](https://github.com/ant-design/ant-design/pull/36606) [@dashaowang](https://github.com/dashaowang)
+  - 💄 Fix Table tree data ellipsis style problem. [#36608](https://github.com/ant-design/ant-design/pull/36608)
+- 🌐 Localization
+  - 🇱🇰 Add Sri Lanka locale. [#36149](https://github.com/ant-design/ant-design/pull/36149) [@sayuri-gi](https://github.com/sayuri-gi)
+
 ## 4.21.7
 
 `2022-07-18`

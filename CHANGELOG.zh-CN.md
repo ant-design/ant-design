@@ -15,6 +15,45 @@ timeline: true
 
 ---
 
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 调整 Collapse 标题文本在 `collapsible=default` 时为完整宽度点击区域。[#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 修复 Drawer 在 360 浏览器不生效的问题。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 回滚将样式恢复至包裹层以防止原本通过 `contentWrapperStyle` 覆盖样式的用法。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 修复兼容以 string 类型作为 `width/height` 的用法，并且警告用户应当使用 number 类型。[#284](https://github.com/react-component/drawer/pull/284)
+
+## 4.22.1
+
+`2022-07-27`
+
+- 🐞 修复 Drawer 使用百分比宽度时的展示问题。[#36729](https://github.com/ant-design/ant-design/pull/36729)
+
+## 4.22.0
+
+`2022-07-26`
+
+- Form
+  - 🔥 Form 新增 `Form.Item.useStatus` 用于获取 Form.Item 的校验状态。[#36486](https://github.com/ant-design/ant-design/pull/36486)
+  - 🆕 Form 支持 `setFieldValue` 以简化设置数字单个值的操作流程。[#36058](https://github.com/ant-design/ant-design/pull/36058)
+  - 🐞 修复 Form.Item 在快速切换校验状态时高度抖动的问题。[#36575](https://github.com/ant-design/ant-design/pull/36575)
+- 🆕 Radio.Group 支持 `onBlur` 和 `onFocus` 属性。[#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Typography `ellipsis.tooltip` 属性支持传入一个对象。[#36099](https://github.com/ant-design/ant-design/pull/36099)
+- 🛠 重构 Drawer 移除直接的 dom 操作以使其更符合 React 运作方式。[#36672](https://github.com/ant-design/ant-design/pull/36672)
+- 🛠 重构 Sketelon.Button square shape 样式为宽高相等，之前的 square 改为默认样式。[#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
+- 🐞 修复 Modal.confirm 中 `onCancel(close)` 参数有时候不是 function 的问题。[#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 回滚 [#36439](https://github.com/ant-design/ant-design/pull/36439) 以修复上传和删除文件时状态不对的问题，并再次修复 Upload 移除文件时状态色会变化的问题。[#36706](https://github.com/ant-design/ant-design/pull/36706)
+- Tree
+  - 🛠 Tree/TreeSelect `switcherIcon` 参数现在支持完整 TreeNode 属性，从 `{ expanded: boolean }` 变为 `AntTreeNodeProps`。[#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
+  - 🐞 修改 Tree `draggable` 函数的参数类型由 AntTreeNode 改为 DataNode。[#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
+- Table
+  - 💄 修复 Table 固定列额外阴影和滚动条样式的问题。[#36606](https://github.com/ant-design/ant-design/pull/36606) [@dashaowang](https://github.com/dashaowang)
+  - 💄 修复 Table 树形数据固定列的省略样式错位的问题。[#36608](https://github.com/ant-design/ant-design/pull/36608)
+- 🌐 国际化
+  - 🇱🇰 添加斯里兰卡语言。[#36149](https://github.com/ant-design/ant-design/pull/36149) [@sayuri-gi](https://github.com/sayuri-gi)
+
 ## 4.21.7
 
 `2022-07-18`

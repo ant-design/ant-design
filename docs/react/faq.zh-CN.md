@@ -21,6 +21,10 @@ title: FAQ
 
 注意：对于类 `Select` 组件的 `options`，我们**强烈不建议**使用 `undefined` 和 `null` 作为 `option` 中的 `value`，请使用 `string | number` 作为 `option` 的 `value`。
 
+## 官方文档中没有提供的隐藏 API 我可以使用吗？
+
+不推荐。对内接口不保证兼容性，它很可能在某个版本中因重构而移除。如果你确实需要使用，需自行确保版本升级时隐藏接口仍旧可用，或者锁定版本。
+
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。

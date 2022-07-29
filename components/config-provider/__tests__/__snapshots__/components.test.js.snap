@@ -14130,449 +14130,519 @@ exports[`ConfigProvider components Divider prefixCls 1`] = `
 
 exports[`ConfigProvider components Drawer configProvider 1`] = `
 <div
-  class=""
+  class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="config-drawer config-drawer-right"
-    tabindex="-1"
+    class="config-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="config-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="config-drawer-mask"
-    />
-    <div
-      class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="config-drawer-content"
+      role="dialog"
     >
       <div
-        class="config-drawer-content"
+        class="config-drawer-wrapper-body"
       >
         <div
-          class="config-drawer-wrapper-body"
+          class="config-drawer-header config-drawer-header-close-only"
         >
           <div
-            class="config-drawer-header config-drawer-header-close-only"
+            class="config-drawer-header-title"
           >
-            <div
-              class="config-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="config-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="config-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="config-drawer-body"
-          />
         </div>
+        <div
+          class="config-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] = `
 <div
-  class=""
+  class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="config-drawer config-drawer-right"
-    tabindex="-1"
+    class="config-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="config-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="config-drawer-mask"
-    />
-    <div
-      class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="config-drawer-content"
+      role="dialog"
     >
       <div
-        class="config-drawer-content"
+        class="config-drawer-wrapper-body"
       >
         <div
-          class="config-drawer-wrapper-body"
+          class="config-drawer-header config-drawer-header-close-only"
         >
           <div
-            class="config-drawer-header config-drawer-header-close-only"
+            class="config-drawer-header-title"
           >
-            <div
-              class="config-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="config-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="config-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="config-drawer-body"
-          />
         </div>
+        <div
+          class="config-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer configProvider componentSize large 1`] = `
 <div
-  class=""
+  class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="config-drawer config-drawer-right"
-    tabindex="-1"
+    class="config-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="config-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="config-drawer-mask"
-    />
-    <div
-      class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="config-drawer-content"
+      role="dialog"
     >
       <div
-        class="config-drawer-content"
+        class="config-drawer-wrapper-body"
       >
         <div
-          class="config-drawer-wrapper-body"
+          class="config-drawer-header config-drawer-header-close-only"
         >
           <div
-            class="config-drawer-header config-drawer-header-close-only"
+            class="config-drawer-header-title"
           >
-            <div
-              class="config-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="config-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="config-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="config-drawer-body"
-          />
         </div>
+        <div
+          class="config-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer configProvider componentSize middle 1`] = `
 <div
-  class=""
+  class="config-drawer config-drawer-right config-drawer-open config-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="config-drawer config-drawer-right"
-    tabindex="-1"
+    class="config-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="config-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="config-drawer-mask"
-    />
-    <div
-      class="config-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="config-drawer-content"
+      role="dialog"
     >
       <div
-        class="config-drawer-content"
+        class="config-drawer-wrapper-body"
       >
         <div
-          class="config-drawer-wrapper-body"
+          class="config-drawer-header config-drawer-header-close-only"
         >
           <div
-            class="config-drawer-header config-drawer-header-close-only"
+            class="config-drawer-header-title"
           >
-            <div
-              class="config-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="config-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="config-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="config-drawer-body"
-          />
         </div>
+        <div
+          class="config-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class=""
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="ant-drawer ant-drawer-right"
-    tabindex="-1"
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="ant-drawer-mask"
-    />
-    <div
-      class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
     >
       <div
-        class="ant-drawer-content"
+        class="ant-drawer-wrapper-body"
       >
         <div
-          class="ant-drawer-wrapper-body"
+          class="ant-drawer-header ant-drawer-header-close-only"
         >
           <div
-            class="ant-drawer-header ant-drawer-header-close-only"
+            class="ant-drawer-header-title"
           >
-            <div
-              class="ant-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="ant-drawer-body"
-          />
         </div>
+        <div
+          class="ant-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer normal 1`] = `
 <div
-  class=""
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="ant-drawer ant-drawer-right"
-    tabindex="-1"
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="ant-drawer-mask"
-    />
-    <div
-      class="ant-drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
     >
       <div
-        class="ant-drawer-content"
+        class="ant-drawer-wrapper-body"
       >
         <div
-          class="ant-drawer-wrapper-body"
+          class="ant-drawer-header ant-drawer-header-close-only"
         >
           <div
-            class="ant-drawer-header ant-drawer-header-close-only"
+            class="ant-drawer-header-title"
           >
-            <div
-              class="ant-drawer-header-title"
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="ant-drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="ant-drawer-body"
-          />
         </div>
+        <div
+          class="ant-drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 
 exports[`ConfigProvider components Drawer prefixCls 1`] = `
 <div
-  class=""
+  class="prefix-Drawer prefix-Drawer-right prefix-Drawer-open prefix-Drawer-inline"
+  tabindex="-1"
 >
   <div
-    class="prefix-Drawer prefix-Drawer-right"
-    tabindex="-1"
+    class="prefix-Drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
+  <div
+    class="prefix-Drawer-content-wrapper"
+    style="width:378px"
   >
     <div
-      class="prefix-Drawer-mask"
-    />
-    <div
-      class="prefix-Drawer-content-wrapper"
-      style="transform:translateX(100%);-ms-transform:translateX(100%);width:378px"
+      aria-modal="true"
+      class="prefix-Drawer-content"
+      role="dialog"
     >
       <div
-        class="prefix-Drawer-content"
+        class="prefix-Drawer-wrapper-body"
       >
         <div
-          class="prefix-Drawer-wrapper-body"
+          class="prefix-Drawer-header prefix-Drawer-header-close-only"
         >
           <div
-            class="prefix-Drawer-header prefix-Drawer-header-close-only"
+            class="prefix-Drawer-header-title"
           >
-            <div
-              class="prefix-Drawer-header-title"
+            <button
+              aria-label="Close"
+              class="prefix-Drawer-close"
+              type="button"
             >
-              <button
-                aria-label="Close"
-                class="prefix-Drawer-close"
-                type="button"
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
-          <div
-            class="prefix-Drawer-body"
-          />
         </div>
+        <div
+          class="prefix-Drawer-body"
+        />
       </div>
     </div>
   </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+    tabindex="0"
+  />
 </div>
 `;
 

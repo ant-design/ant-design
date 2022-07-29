@@ -1,5 +1,3 @@
-import { mount } from 'enzyme';
-import KeyCode from 'rc-util/lib/KeyCode';
 import React from 'react';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
@@ -7,26 +5,26 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import ConfigProvider from '../../config-provider';
+import { fireEvent, render } from '../../../tests/utils';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
-function toggleOpen(wrapper) {
-  wrapper.find('.ant-select-selector').simulate('mousedown');
+function toggleOpen(container) {
+  fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
 }
 
-function isOpen(wrapper) {
-  return !!wrapper.find('Trigger').props().popupVisible;
+function isOpen(container) {
+  return container.querySelector('.ant-cascader').className.includes('ant-select-open');
 }
 
-function getDropdown(wrapper) {
-  return wrapper.find('.ant-select-dropdown');
+function getDropdown(container) {
+  return container.querySelector('.ant-select-dropdown');
 }
 
-function clickOption(wrapper, menuIndex, itemIndex, type = 'click') {
-  const menu = wrapper.find('ul.ant-cascader-menu').at(menuIndex);
-  const itemList = menu.find('li.ant-cascader-menu-item');
-
-  itemList.at(itemIndex).simulate(type);
+function clickOption(container, menuIndex, itemIndex, type = 'click') {
+  const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
+  const itemList = menu.querySelectorAll('li.ant-cascader-menu-item');
+  fireEvent[type](itemList[itemIndex]);
 }
 
 const options = [
@@ -76,80 +74,90 @@ describe('Cascader', () => {
   rtlTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
-    const wrapper = mount(<Cascader options={options} />);
-    expect(isOpen(wrapper)).toBeFalsy();
+    const { container } = render(<Cascader options={options} />);
+    expect(isOpen(container)).toBeFalsy();
   });
 
   it('popup correctly when panel is open', () => {
     const onPopupVisibleChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
     );
-    toggleOpen(wrapper);
-    expect(isOpen(wrapper)).toBeTruthy();
+    toggleOpen(container);
+    expect(isOpen(container)).toBeTruthy();
     expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
   });
 
   it('support controlled mode', () => {
-    const wrapper = mount(<Cascader options={options} />);
-    wrapper.setProps({
-      value: ['zhejiang', 'hangzhou', 'xihu'],
-    });
-    expect(wrapper.render()).toMatchSnapshot();
+    const { rerender, asFragment } = render(<Cascader options={options} />);
+    rerender(<Cascader options={options} value={['zhejiang', 'hangzhou', 'xihu']} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('popup correctly with defaultValue', () => {
-    const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
-    toggleOpen(wrapper);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    const { container } = render(
+      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    toggleOpen(container);
+    expect(getDropdown(container)).toMatchSnapshot();
   });
 
   it('should support popupVisible', () => {
-    const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
-    expect(isOpen(wrapper)).toBeFalsy();
-    wrapper.setProps({ popupVisible: true });
-    expect(isOpen(wrapper)).toBeTruthy();
+    const { container, rerender } = render(
+      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    expect(isOpen(container)).toBeFalsy();
+    rerender(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} popupVisible />);
+    expect(isOpen(container)).toBeTruthy();
   });
 
   it('can be selected', () => {
     const onChange = jest.fn();
-    const wrapper = mount(<Cascader options={options} onChange={onChange} />);
+    const { container } = render(<Cascader options={options} onChange={onChange} />);
 
-    toggleOpen(wrapper);
-    expect(isOpen(wrapper)).toBeTruthy();
+    toggleOpen(container);
+    expect(isOpen(container)).toBeTruthy();
 
-    clickOption(wrapper, 0, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    clickOption(container, 0, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
-    clickOption(wrapper, 1, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    clickOption(container, 1, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
-    clickOption(wrapper, 2, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    clickOption(container, 2, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
   it('backspace should work with `Cascader[showSearch]`', () => {
-    const wrapper = mount(<Cascader options={options} showSearch />);
-    wrapper.find('input').simulate('change', { target: { value: '123' } });
-    expect(isOpen(wrapper)).toBeTruthy();
+    const { container } = render(<Cascader options={options} showSearch />);
+    fireEvent.change(container.querySelector('input'), { target: { value: '123' } });
+    expect(isOpen(container)).toBeTruthy();
 
-    wrapper.find('input').simulate('keydown', { which: KeyCode.BACKSPACE });
-    expect(isOpen(wrapper)).toBeTruthy();
+    fireEvent.keyDown(container.querySelector('input'), {
+      key: 'Backspace',
+      keyCode: 8,
+    });
+    expect(isOpen(container)).toBeTruthy();
 
-    wrapper.find('input').simulate('change', { target: { value: '' } });
-    expect(isOpen(wrapper)).toBeTruthy();
+    fireEvent.change(container.querySelector('input'), { target: { value: '' } });
+    expect(isOpen(container)).toBeTruthy();
 
-    wrapper.find('input').simulate('keydown', { which: KeyCode.BACKSPACE });
-    expect(isOpen(wrapper)).toBeFalsy();
+    fireEvent.keyDown(container.querySelector('input'), {
+      key: 'Backspace',
+      keyCode: 8,
+    });
+    expect(isOpen(container)).toBeFalsy();
   });
 
   it('should highlight keyword and filter when search in Cascader', () => {
-    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-    wrapper.find('input').simulate('change', { target: { value: 'z' } });
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
+
+    // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
+    expect(getDropdown(container).innerHTML).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -175,58 +183,67 @@ describe('Cascader', () => {
     function customFilter(inputValue, path) {
       return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
     }
-    const wrapper = mount(
+    const { container } = render(
       <Cascader
         options={customOptions}
         fieldNames={{ label: 'name', value: 'name' }}
         showSearch={{ filter: customFilter }}
       />,
     );
-    wrapper.find('input').simulate('change', { target: { value: 'z' } });
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
+
+    // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
+    expect(getDropdown(container).innerHTML).toMatchSnapshot();
   });
 
   it('should render not found content', () => {
-    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-    wrapper.find('input').simulate('change', { target: { value: '__notfoundkeyword__' } });
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
+    fireEvent.change(container.querySelector('input'), {
+      target: { value: '__notfoundkeyword__' },
+    });
+    expect(getDropdown(container)).toMatchSnapshot();
   });
 
   it('should support to clear selection', () => {
-    const wrapper = mount(<Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />);
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('Zhejiang / Hangzhou');
-    wrapper.find('.ant-select-clear').at(0).simulate('mouseDown');
-    expect(wrapper.exists('.ant-select-selection-item')).toBeFalsy();
+    const { container } = render(
+      <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
+      'Zhejiang / Hangzhou',
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-clear'));
+    expect(container.querySelector('.ant-select-selection-item')).toBeFalsy();
   });
 
   it('should clear search input when clear selection', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} showSearch />,
     );
-    wrapper.find('input').simulate('change', { target: { value: 'xxx' } });
-
-    wrapper.find('.ant-select-clear').at(0).simulate('mouseDown');
-    expect(wrapper.find('input').props().value).toEqual('');
+    fireEvent.change(container.querySelector('input'), { target: { value: 'xxx' } });
+    fireEvent.mouseDown(container.querySelector('.ant-select-clear'));
+    expect(container.querySelector('input').value).toEqual('');
   });
 
   it('should change filtered item when options are changed', () => {
-    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-    wrapper.find('input').simulate('change', { target: { value: 'a' } });
-    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-    wrapper.setProps({ options: [options[0]] });
-    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(1);
+    const { container, rerender } = render(<Cascader options={options} showSearch={{ filter }} />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+    expect(container.querySelectorAll('.ant-cascader-menu-item').length).toBe(2);
+
+    rerender(<Cascader options={[options[0]]} showSearch={{ filter }} />);
+    expect(container.querySelectorAll('.ant-cascader-menu-item').length).toBe(1);
   });
 
   it('should select item immediately when searching and pressing down arrow key', () => {
-    const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
-    wrapper.find('input').simulate('change', { target: { value: 'a' } });
-    expect(wrapper.find('.ant-cascader-menu-item').length).toBe(2);
-    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(0);
+    const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
 
-    wrapper.find('input').simulate('keyDown', {
-      which: KeyCode.DOWN,
+    expect(container.querySelectorAll('.ant-cascader-menu-item').length).toBe(2);
+    expect(container.querySelectorAll('.ant-cascader-menu-item-active').length).toBe(0);
+    fireEvent.keyDown(container.querySelector('input'), {
+      key: 'Down',
+      keyCode: 40,
     });
-    expect(wrapper.find('.ant-cascader-menu-item-active').length).toBe(1);
+    expect(container.querySelectorAll('.ant-cascader-menu-item-active').length).toBe(1);
   });
 
   it('can use fieldNames', () => {
@@ -267,7 +284,7 @@ describe('Cascader', () => {
 
     const onChange = jest.fn();
 
-    const wrapper = mount(
+    const { container } = render(
       <Cascader
         options={customerOptions}
         onChange={onChange}
@@ -280,10 +297,10 @@ describe('Cascader', () => {
       />,
     );
 
-    clickOption(wrapper, 0, 0);
-    clickOption(wrapper, 1, 0);
-    clickOption(wrapper, 2, 0);
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual(
+    clickOption(container, 0, 0);
+    clickOption(container, 1, 0);
+    clickOption(container, 2, 0);
+    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -291,14 +308,14 @@ describe('Cascader', () => {
 
   it('should show not found content when options.length is 0', () => {
     const customerOptions = [];
-    const wrapper = mount(<Cascader options={customerOptions} />);
-    toggleOpen(wrapper);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    const { container } = render(<Cascader options={customerOptions} />);
+    toggleOpen(container);
+    expect(getDropdown(container)).toMatchSnapshot();
   });
 
   it('not found content should be disabled', () => {
-    const wrapper = mount(<Cascader options={[]} open />);
-    expect(wrapper.find('.ant-cascader-menu-item-disabled').length).toBe(1);
+    const { container } = render(<Cascader options={[]} open />);
+    expect(container.querySelectorAll('.ant-cascader-menu-item-disabled').length).toBe(1);
   });
 
   describe('limit filtered item count', () => {
@@ -309,22 +326,28 @@ describe('Cascader', () => {
     });
 
     it('limit with positive number', () => {
-      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: 1 }} />);
-      wrapper.find('input').simulate('change', { target: { value: 'a' } });
-      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(1);
+      const { container } = render(
+        <Cascader options={options} showSearch={{ filter, limit: 1 }} />,
+      );
+      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(1);
     });
 
     it('not limit', () => {
-      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: false }} />);
-      wrapper.find('input').simulate('change', { target: { value: 'a' } });
-      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(2);
+      const { container } = render(
+        <Cascader options={options} showSearch={{ filter, limit: false }} />,
+      );
+      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(2);
     });
 
     it('negative limit', () => {
-      const wrapper = mount(<Cascader options={options} showSearch={{ filter, limit: -1 }} />);
-      wrapper.find('input').simulate('click');
-      wrapper.find('input').simulate('change', { target: { value: 'a' } });
-      expect(wrapper.find('.ant-cascader-menu-item')).toHaveLength(2);
+      const { container } = render(
+        <Cascader options={options} showSearch={{ filter, limit: -1 }} />,
+      );
+      fireEvent.click(container.querySelector('input'));
+      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(2);
     });
   });
 
@@ -332,7 +355,7 @@ describe('Cascader', () => {
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    render(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Cascader] Not found `value` in `options`.',
     );
@@ -355,22 +378,22 @@ describe('Cascader', () => {
       },
     ];
     expect(() => {
-      mount(<Cascader options={optionsWithChildrenNull} />);
+      render(<Cascader options={optionsWithChildrenNull} />);
     }).not.toThrow();
   });
 
   it('placeholder works correctly', () => {
-    const wrapper = mount(<Cascader options={[]} />);
-    expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual('');
+    const { container, rerender } = render(<Cascader options={[]} />);
+    expect(container.querySelector('.ant-select-selection-placeholder').textContent).toEqual('');
 
     const customPlaceholder = 'Custom placeholder';
-    wrapper.setProps({
-      placeholder: customPlaceholder,
-    });
-    expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual(customPlaceholder);
+    rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
+    expect(container.querySelector('.ant-select-selection-placeholder').textContent).toEqual(
+      customPlaceholder,
+    );
   });
 
-  it('placement work correctly', () => {
+  it('placement work correctly', async () => {
     const customerOptions = [
       {
         value: 'zhejiang',
@@ -383,17 +406,20 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const wrapper = mount(<Cascader options={customerOptions} placement="topRight" />);
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+    const { container } = render(<Cascader options={customerOptions} placement="topRight" />);
+    toggleOpen(container);
+
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect(global.triggerProps.popupPlacement).toEqual('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <ConfigProvider direction="rtl">
         <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} open />
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('can be selected in RTL direction', () => {
@@ -432,7 +458,7 @@ describe('Cascader', () => {
       },
     ];
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <ConfigProvider direction="rtl">
         <Cascader
           options={options2}
@@ -443,72 +469,84 @@ describe('Cascader', () => {
       </ConfigProvider>,
     );
 
-    toggleOpen(wrapper);
-    clickOption(wrapper, 0, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    toggleOpen(container);
+    clickOption(container, 0, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(wrapper);
-    clickOption(wrapper, 1, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    toggleOpen(container);
+    clickOption(container, 1, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(wrapper);
-    clickOption(wrapper, 2, 0);
-    expect(getDropdown(wrapper).render()).toMatchSnapshot();
+    toggleOpen(container);
+    clickOption(container, 2, 0);
+    expect(getDropdown(container)).toMatchSnapshot();
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
   it('defaultValue works correctly when no match options', () => {
-    const wrapper = mount(<Cascader options={options} defaultValue={['options1', 'options2']} />);
-    expect(wrapper.find('.ant-select-selection-item').text()).toEqual('options1 / options2');
+    const { container } = render(
+      <Cascader options={options} defaultValue={['options1', 'options2']} />,
+    );
+    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
+      'options1 / options2',
+    );
   });
 
   it('can be selected when showSearch', () => {
     const onChange = jest.fn();
-    const wrapper = mount(<Cascader options={options} onChange={onChange} showSearch />);
-    wrapper.find('input').simulate('change', { target: { value: 'Zh' } });
-    expect(wrapper.find('.ant-cascader-menu').length).toBe(1);
-    clickOption(wrapper, 0, 0);
+    const { container } = render(<Cascader options={options} onChange={onChange} showSearch />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'Zh' } });
+
+    expect(container.querySelectorAll('.ant-cascader-menu').length).toBe(1);
+    clickOption(container, 0, 0);
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
   it('options should open after press esc and then search', () => {
-    const wrapper = mount(<Cascader options={options} showSearch />);
-    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
-    expect(isOpen(wrapper)).toBeTruthy();
-    wrapper.find('input').simulate('keydown', { which: KeyCode.ESC });
-    expect(isOpen(wrapper)).toBeFalsy();
-    wrapper.find('input').simulate('change', { target: { value: 'jin' } });
-    expect(isOpen(wrapper)).toBeTruthy();
+    const { container } = render(<Cascader options={options} showSearch />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'jin' } });
+    expect(isOpen(container)).toBeTruthy();
+    fireEvent.keyDown(container.querySelector('input'), {
+      key: 'Esc',
+      keyCode: 27,
+    });
+    expect(isOpen(container)).toBeFalsy();
+    fireEvent.change(container.querySelector('input'), { target: { value: 'jin' } });
+    expect(isOpen(container)).toBeTruthy();
   });
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
     const onChange = jest.fn();
     const sameNames = { label: 'label', value: 'label' };
-    const wrapper = mount(
+    const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
-    wrapper.find('input').simulate('change', { target: { value: 'est' } });
-    clickOption(wrapper, 0, 0);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'est' } });
+    clickOption(container, 0, 0);
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
 
   it('rtl should work well with placement', () => {
-    const wrapper = mount(<Cascader options={options} direction="rtl" />);
+    const { container } = render(<Cascader options={options} direction="rtl" />);
+    toggleOpen(container);
 
-    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomRight');
+    // Inject in tests/__mocks__/rc-trigger.js
+    expect(global.triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
     it('popupClassName', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = mount(
+      const { container } = render(
         <Cascader open popupPlacement="bottomLeft" popupClassName="mock-cls" />,
       );
 
-      expect(wrapper.exists('.mock-cls')).toBeTruthy();
-      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomLeft');
+      expect(container.querySelector('.mock-cls')).toBeTruthy();
+
+      // Inject in tests/__mocks__/rc-trigger.js
+      expect(global.triggerProps.popupPlacement).toEqual('bottomLeft');
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
@@ -562,7 +600,7 @@ describe('Cascader', () => {
         selectedValue = value;
       };
 
-      const wrapper = mount(
+      const { container, asFragment } = render(
         <Cascader
           options={multipleOptions}
           onChange={onChange}
@@ -570,13 +608,13 @@ describe('Cascader', () => {
           showCheckedStrategy={SHOW_CHILD}
         />,
       );
-      toggleOpen(wrapper);
-      expect(wrapper.render()).toMatchSnapshot();
+      toggleOpen(container);
+      expect(asFragment().firstChild).toMatchSnapshot();
 
-      clickOption(wrapper, 0, 0);
-      clickOption(wrapper, 1, 0);
-      clickOption(wrapper, 2, 0);
-      clickOption(wrapper, 2, 1);
+      clickOption(container, 0, 0);
+      clickOption(container, 1, 0);
+      clickOption(container, 2, 0);
+      clickOption(container, 2, 1);
       expect(selectedValue[0].join(',')).toBe('zhejiang,hangzhou,xihu');
       expect(selectedValue[1].join(',')).toBe('zhejiang,hangzhou,donghu');
       expect(selectedValue.join(',')).toBe('zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu');
@@ -627,7 +665,7 @@ describe('Cascader', () => {
         selectedValue = value;
       };
 
-      const wrapper = mount(
+      const { container, asFragment } = render(
         <Cascader
           options={multipleOptions}
           onChange={onChange}
@@ -635,12 +673,12 @@ describe('Cascader', () => {
           showCheckedStrategy={SHOW_PARENT}
         />,
       );
-      toggleOpen(wrapper);
-      expect(wrapper.render()).toMatchSnapshot();
-      clickOption(wrapper, 0, 0);
-      clickOption(wrapper, 1, 0);
-      clickOption(wrapper, 2, 0);
-      clickOption(wrapper, 2, 1);
+      toggleOpen(container);
+      expect(asFragment().firstChild).toMatchSnapshot();
+      clickOption(container, 0, 0);
+      clickOption(container, 1, 0);
+      clickOption(container, 2, 0);
+      clickOption(container, 2, 1);
 
       expect(selectedValue.length).toBe(1);
       expect(selectedValue.join(',')).toBe('zhejiang');

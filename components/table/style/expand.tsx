@@ -17,6 +17,10 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tableExpandIconBg,
     tableExpandColumnWidth,
     radiusBase,
+    fontSize,
+    fontSizeSM,
+    lineHeight,
+    lineWidth,
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
@@ -35,6 +39,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [`${componentCls}-row-expand-icon-cell`]: {
         textAlign: 'center',
+
+        [`${componentCls}-row-expand-icon`]: {
+          display: 'inline-flex',
+          float: 'none',
+          verticalAlign: 'sub',
+        },
       },
 
       [`${componentCls}-row-indent`]: {
@@ -44,8 +54,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-row-expand-icon`]: {
         ...operationUnit(token),
         position: 'relative',
-        display: 'inline-flex',
-        verticalAlign: 'text-top',
+        float: 'left',
         boxSizing: 'border-box',
         width: expandIconSize,
         height: expandIconSize,
@@ -104,15 +113,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
           border: 0,
           visibility: 'hidden',
         },
-
-        [`+ ${componentCls}-cell-content`]: {
-          display: 'inline-block !important',
-          width: `calc(100% - (${expandIconSize}px + ${paddingXS}px))`,
-          verticalAlign: 'top',
-        },
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
+        marginTop:
+          (fontSize * lineHeight - lineWidth * 3) / 2 -
+          Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
         marginInlineEnd: paddingXS,
       },
 

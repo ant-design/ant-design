@@ -1,254 +1,211 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
+import genMotionStyle from './motion';
+
+export interface ComponentToken {
+  zIndexPopup: number;
+}
 
 export interface DrawerToken extends FullToken<'Drawer'> {
   drawerFooterPaddingVertical: number;
   drawerFooterPaddingHorizontal: number;
 }
 
-const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
-  '0%': { opacity: 0 },
-  '100%': { opacity: 1 },
-});
-
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject => {
+const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
   const {
     componentCls,
-    motionEaseOut,
+    zIndexPopup,
+    colorBgMask,
+    colorBgElevated,
     motionDurationSlow,
-    fontSizeLG,
-    paddingLG,
-    lineWidth,
-    radiusBase,
-    fontSize,
-    lineHeight,
-    drawerFooterPaddingVertical,
-    drawerFooterPaddingHorizontal,
-    zIndexPopupBase,
-    colorText,
     padding,
+    paddingLG,
+    fontSizeLG,
+    lineHeightLG,
+    lineWidth,
     lineType,
     colorSplit,
+    marginSM,
+    colorIcon,
+    colorIconHover,
+    colorText,
+    fontWeightStrong,
+    drawerFooterPaddingVertical,
+    drawerFooterPaddingHorizontal,
   } = token;
 
+  const wrapperCls = `${componentCls}-content-wrapper`;
+
   return {
-    [`${componentCls}`]: {
+    [componentCls]: {
       position: 'fixed',
-      zIndex: zIndexPopupBase,
-      width: 0,
-      height: '100%',
-      transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,
-      [`${componentCls}-content-wrapper`]: {
+      inset: 0,
+      zIndex: zIndexPopup,
+      pointerEvents: 'none',
+
+      '&-inline': {
         position: 'absolute',
-        width: '100%',
-        height: '100%',
-        transition: `transform ${motionDurationSlow} ${motionEaseOut},box-shadow ${motionDurationSlow} ${motionEaseOut}`,
-        [`${componentCls}-content`]: {
-          width: '100%',
-          height: '100%',
-          position: 'relative',
-          zIndex: 1,
-          overflow: 'auto',
-          backgroundColor: token.colorBgElevated,
-          backgroundClip: `padding-box`,
-          border: 0,
-          [`${componentCls}-wrapper-body`]: {
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            width: '100%',
-            height: '100%',
-            [`${componentCls}-header`]: {
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              padding: `${padding}px ${paddingLG}px`,
-              color: colorText,
-              background: token.colorBgElevated,
-              borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
-              borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
-
-              [`${componentCls}-header-title`]: {
-                display: 'flex',
-                flex: 1,
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                [`${componentCls}-title`]: {
-                  flex: 1,
-                  margin: 0,
-                  color: colorText,
-                  fontWeight: token.fontWeightStrong,
-                  fontSize: fontSizeLG,
-                  lineHeight: token.lineHeightLG,
-                },
-                [`${componentCls}-close`]: {
-                  display: 'inline-block',
-                  marginInlineEnd: token.marginSM,
-                  color: token.colorIcon,
-                  fontWeight: token.fontWeightStrong,
-                  fontSize: fontSizeLG,
-                  fontStyle: 'normal',
-                  lineHeight: 1,
-                  textAlign: 'center',
-                  textTransform: 'none',
-                  textDecoration: 'none',
-                  background: 'transparent',
-                  border: 0,
-                  outline: 0,
-                  cursor: 'pointer',
-                  transition: `color ${motionDurationSlow}`,
-                  textRendering: 'auto',
-
-                  [`&:focus, &:hover`]: {
-                    color: token.colorIconHover,
-                    textDecoration: 'none',
-                  },
-                },
-              },
-              [`${componentCls}-header-close-only`]: {
-                paddingBottom: 0,
-                border: 'none',
-              },
-            },
-            [`${componentCls}-body`]: {
-              flexGrow: 1,
-              padding: paddingLG,
-              overflow: 'auto',
-              fontSize,
-              lineHeight,
-              wordWrap: 'break-word',
-            },
-            [`${componentCls}-footer`]: {
-              flexShrink: 0,
-              padding: `${drawerFooterPaddingVertical}px ${drawerFooterPaddingHorizontal}px`,
-              borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
-            },
-          },
-        },
       },
+
+      // ====================== Mask ======================
       [`${componentCls}-mask`]: {
         position: 'absolute',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        width: '100%',
-        height: 0,
-        backgroundColor: token.colorBgMask,
-        opacity: 0,
-        transition: `opacity ${motionDurationSlow} linear, height 0s ease ${motionDurationSlow}`,
-        pointerEvents: 'none',
+        inset: 0,
+        zIndex: zIndexPopup,
+        background: colorBgMask,
+        pointerEvents: 'auto',
       },
-    },
-    [`${componentCls}${componentCls}-open ${componentCls}-mask`]: {
-      height: '100%',
-      opacity: 1,
-      transition: 'none',
-      animationName: antdDrawerFadeIn,
-      animationDuration: token.motionDurationSlow,
-      animationTimingFunction: motionEaseOut,
-      pointerEvents: 'auto',
-    },
-  };
-};
 
-const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
-  const { componentCls, motionDurationSlow, lineWidth, motionEaseOut } = token;
+      // ==================== Content =====================
+      [wrapperCls]: {
+        position: 'absolute',
+        zIndex: zIndexPopup,
+        transition: `all ${motionDurationSlow}`,
 
-  return {
-    // =================== left,right ===================
-    [`${componentCls}-left`]: {
-      insetInlineStart: 0,
-      insetBlockStart: 0,
-      width: 0,
-      height: '100%',
-      [`${componentCls}-content-wrapper`]: {
-        height: '100%',
-        insetInlineStart: 0,
+        '&-hidden': {
+          display: 'none',
+        },
       },
-    },
-    [`${componentCls}-left${componentCls}-open`]: {
-      width: '100%',
-      transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-      [`${componentCls}-content-wrapper`]: {
+
+      // Placement
+      [`&-left ${wrapperCls}`]: {
+        top: 0,
+        bottom: 0,
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         boxShadow: token.boxShadowDrawerRight,
       },
-    },
-    [`${componentCls}-right`]: {
-      insetInlineEnd: 0,
-      insetBlockStart: 0,
-      width: 0,
-      height: '100%',
-      [`${componentCls}-content-wrapper`]: {
-        height: '100%',
-        insetInlineEnd: 0,
-      },
-    },
-    [`${componentCls}-right${componentCls}-open`]: {
-      width: '100%',
-      transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-      [`${componentCls}-content-wrapper`]: {
+      [`&-right ${wrapperCls}`]: {
+        top: 0,
+        right: {
+          _skip_check_: true,
+          value: 0,
+        },
+        bottom: 0,
         boxShadow: token.boxShadowDrawerLeft,
       },
-    },
-    // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
-    [`${componentCls}-right${componentCls}-open.no-mask`]: {
-      insetInlineEnd: lineWidth,
-      transform: `translateX(${lineWidth})`,
-    },
-
-    // =================== top,bottom ===================
-    [`${componentCls}-top,${componentCls}-bottom`]: {
-      insetInlineStart: 0,
-      width: '100%',
-      height: 0,
-      [`${componentCls}-content-wrapper`]: {
-        width: '100%',
-      },
-    },
-
-    [`${componentCls}-top${componentCls}-open,${componentCls}-bottom${componentCls}-open`]: {
-      height: '100%',
-      transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-    },
-
-    [`${componentCls}-top`]: {
-      insetBlockStart: 0,
-    },
-
-    [`${componentCls}-top${componentCls}-open`]: {
-      [`${componentCls}-content-wrapper`]: {
+      [`&-top ${wrapperCls}`]: {
+        top: 0,
+        insetInline: 0,
         boxShadow: token.boxShadowDrawerDown,
       },
-    },
-
-    [`${componentCls}-bottom`]: {
-      bottom: 0,
-      [`${componentCls}-content-wrapper`]: {
+      [`&-bottom ${wrapperCls}`]: {
         bottom: 0,
-      },
-    },
-
-    [`${componentCls}-bottom${componentCls}-bottom-open`]: {
-      [`${componentCls}-content-wrapper`]: {
+        insetInline: 0,
         boxShadow: token.boxShadowDrawerUp,
       },
-    },
 
-    [`${componentCls}-bottom${componentCls}-bottom-open.no-mask`]: {
-      insetBlockEnd: lineWidth,
-      transform: `translateY(${lineWidth})`,
+      [`${componentCls}-content`]: {
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+        background: colorBgElevated,
+        pointerEvents: 'auto',
+      },
+
+      // ===================== Panel ======================
+      [`${componentCls}-wrapper-body`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+      },
+
+      // Header
+      [`${componentCls}-header`]: {
+        display: 'flex',
+        flex: 0,
+        alignItems: 'center',
+        padding: `${padding}px ${paddingLG}px`,
+        fontSize: fontSizeLG,
+        lineHeight: lineHeightLG,
+        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+
+        '&-title': {
+          display: 'flex',
+          flex: 1,
+          alignItems: 'center',
+          minWidth: 0,
+          minHeight: 0,
+        },
+      },
+
+      [`${componentCls}-extra`]: {
+        flex: 0,
+      },
+
+      [`${componentCls}-close`]: {
+        display: 'inline-block',
+        marginInlineEnd: marginSM,
+        color: colorIcon,
+        fontWeight: fontWeightStrong,
+        fontSize: fontSizeLG,
+        fontStyle: 'normal',
+        lineHeight: 1,
+        textAlign: 'center',
+        textTransform: 'none',
+        textDecoration: 'none',
+        background: 'transparent',
+        border: 0,
+        outline: 0,
+        cursor: 'pointer',
+        transition: `color ${motionDurationSlow}`,
+        textRendering: 'auto',
+
+        '&:focus, &:hover': {
+          color: colorIconHover,
+          textDecoration: 'none',
+        },
+      },
+
+      [`${componentCls}-title`]: {
+        flex: 1,
+        margin: 0,
+        color: colorText,
+        fontWeight: token.fontWeightStrong,
+        fontSize: fontSizeLG,
+        lineHeight: lineHeightLG,
+      },
+
+      // Body
+      [`${componentCls}-body`]: {
+        flex: 1,
+        minWidth: 0,
+        minHeight: 0,
+        padding: paddingLG,
+        overflow: 'auto',
+      },
+
+      // Footer
+      [`${componentCls}-footer`]: {
+        flexShrink: 0,
+        padding: `${drawerFooterPaddingVertical}px ${drawerFooterPaddingHorizontal}px`,
+        borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+      },
+
+      // ====================== RTL =======================
+      '&-rtl': {
+        direction: 'rtl',
+      },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Drawer', token => {
-  const drawerToken = mergeToken<DrawerToken>(token, {
-    drawerFooterPaddingVertical: token.paddingXS,
-    drawerFooterPaddingHorizontal: token.padding,
-  });
+export default genComponentStyleHook(
+  'Drawer',
+  token => {
+    const drawerToken = mergeToken<DrawerToken>(token, {
+      drawerFooterPaddingVertical: token.paddingXS,
+      drawerFooterPaddingHorizontal: token.padding,
+    });
 
-  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken)];
-});
+    return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
+  },
+  token => ({
+    zIndexPopup: token.zIndexPopupBase,
+  }),
+);

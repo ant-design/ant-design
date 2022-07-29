@@ -45,7 +45,7 @@ Tree selection control.
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
-| switcherIcon | customize collapse \| expand icon of tree node | ReactNode | - |  |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |

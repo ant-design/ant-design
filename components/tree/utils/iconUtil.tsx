@@ -35,8 +35,7 @@ export default function renderSwitcherIcon(
 
   const switcherCls = `${prefixCls}-switcher-icon`;
 
-  const switcher =
-    typeof switcherIcon === 'function' ? switcherIcon({ expanded: !!expanded }) : switcherIcon;
+  const switcher = typeof switcherIcon === 'function' ? switcherIcon(treeNodeProps) : switcherIcon;
 
   if (isValidElement(switcher)) {
     return cloneElement(switcher, {

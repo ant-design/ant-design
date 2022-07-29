@@ -1,10 +1,10 @@
-import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import React from 'react';
+import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
@@ -14,32 +14,35 @@ describe('InputNumber', () => {
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {
     const onChange = jest.fn();
-    const wrapper = mount(<InputNumber defaultValue="1" onChange={onChange} />);
-    wrapper.find('input').simulate('change', { target: { value: '' } });
+    const { container } = render(<InputNumber defaultValue="1" onChange={onChange} />);
+    fireEvent.change(container.querySelector('input'), { target: { value: '' } });
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
 
   it('should call onStep when press up or down button', () => {
     const onStep = jest.fn();
-    const wrapper = mount(<InputNumber defaultValue={1} onStep={onStep} />);
-    wrapper.find('.ant-input-number-handler-up').simulate('mousedown');
+    const { container } = render(<InputNumber defaultValue={1} onStep={onStep} />);
+    fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-up'));
     expect(onStep).toBeCalledTimes(1);
     expect(onStep).toHaveBeenLastCalledWith(2, { offset: 1, type: 'up' });
-    wrapper.find('.ant-input-number-handler-down').simulate('mousedown');
+
+    fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-down'));
     expect(onStep).toBeCalledTimes(2);
     expect(onStep).toHaveBeenLastCalledWith(1, { offset: 1, type: 'down' });
   });
 
   it('renders correctly when controls is boolean', () => {
-    expect(mount(<InputNumber controls={false} />).render()).toMatchSnapshot();
+    const { asFragment } = render(<InputNumber controls={false} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders correctly when controls is {}', () => {
-    expect(mount(<InputNumber controls={{}} />).render()).toMatchSnapshot();
+    const { asFragment } = render(<InputNumber controls={{}} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders correctly when controls has custom upIcon and downIcon', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <InputNumber
         controls={{
           upIcon: <ArrowUpOutlined />,
@@ -47,11 +50,11 @@ describe('InputNumber', () => {
         }}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support className', () => {
-    const wrapper = mount(
+    const { container } = render(
       <InputNumber
         controls={{
           upIcon: <ArrowUpOutlined className="my-class-name" />,
@@ -59,11 +62,11 @@ describe('InputNumber', () => {
         }}
       />,
     );
-    expect(wrapper.find('.anticon-arrow-up').getDOMNode().className.includes('my-class-name')).toBe(
+    expect(container.querySelector('.anticon-arrow-up')?.className.includes('my-class-name')).toBe(
       true,
     );
     expect(
-      wrapper.find('.anticon-arrow-down').getDOMNode().className.includes('my-class-name'),
+      container.querySelector('.anticon-arrow-down')?.className.includes('my-class-name'),
     ).toBe(true);
   });
 });
