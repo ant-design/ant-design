@@ -405,8 +405,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       // Menu Token
       const menuToken = mergeToken<MenuToken>(token, {
         menuItemHeight: controlHeightLG,
-        menuItemPaddingInline: 16,
-        menuItemMarginInline: 4,
+        menuItemPaddingInline: token.margin
+        menuItemMarginInline: token.marginXXS,
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,
