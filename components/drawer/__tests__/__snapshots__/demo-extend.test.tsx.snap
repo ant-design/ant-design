@@ -1767,7 +1767,7 @@ HTMLCollection [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                                    class="ant-picker-cell ant-picker-cell-in-view"
                                                     title="2022-07-27"
                                                   >
                                                     <div
@@ -1787,7 +1787,7 @@ HTMLCollection [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                                     title="2022-07-29"
                                                   >
                                                     <div
