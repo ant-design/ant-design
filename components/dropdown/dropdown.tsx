@@ -82,6 +82,17 @@ const Dropdown: DropdownInterface = props => {
     direction,
   } = React.useContext(ConfigContext);
 
+  [
+    ['visible', 'open'],
+    ['onVisibleChange', 'onOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Dropdown',
+      `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+    );
+  });
+
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
     const { placement = '', transitionName } = props;
