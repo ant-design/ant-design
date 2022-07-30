@@ -20,7 +20,7 @@ describe('Popover', () => {
     expect(ref.current.getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
-    expect(popover.find('Trigger PopupInner').props().visible).toBeTruthy();
+    expect(popover.find('Trigger PopupInner').props().open).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
@@ -90,7 +90,7 @@ describe('Popover', () => {
   it(`should be rendered correctly in RTL direction`, () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
-        <Popover title="RTL" visible>
+        <Popover title="RTL" open>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,

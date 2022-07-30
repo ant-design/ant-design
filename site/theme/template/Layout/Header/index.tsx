@@ -82,7 +82,7 @@ function shouldOpenAntdMirrorModal() {
 }
 
 interface HeaderState {
-  menuVisible: boolean;
+  menuOpen: boolean;
   windowWidth: number;
   searching: boolean;
   showTechUIButton: boolean;
@@ -94,7 +94,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   pingTimer: NodeJS.Timeout;
 
   state = {
-    menuVisible: false,
+    menuOpen: false,
     windowWidth: 1400,
     searching: false,
     showTechUIButton: false,
@@ -160,13 +160,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   handleShowMenu = () => {
     this.setState({
-      menuVisible: true,
+      menuOpen: true,
     });
   };
 
   handleHideMenu = () => {
     this.setState({
-      menuVisible: false,
+      menuOpen: false,
     });
   };
 
@@ -200,9 +200,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return {};
   };
 
-  onMenuVisibleChange = (visible: boolean) => {
+  onMenuOpenChange = (open: boolean) => {
     this.setState({
-      menuVisible: visible,
+      menuOpen: open,
     });
   };
 
@@ -243,7 +243,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <SiteContext.Consumer>
         {({ isMobile }) => {
-          const { menuVisible, windowWidth, searching, showTechUIButton } = this.state;
+          const { menuOpen, windowWidth, searching, showTechUIButton } = this.state;
           const { direction } = this.context;
           const {
             location,
@@ -367,9 +367,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   placement="bottomRight"
                   content={menu}
                   trigger="click"
-                  visible={menuVisible}
+                  open={menuOpen}
                   arrowPointAtCenter
-                  onVisibleChange={this.onMenuVisibleChange}
+                  onOpenChange={this.onMenuOpenChange}
                 >
                   <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
                 </Popover>

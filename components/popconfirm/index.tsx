@@ -92,8 +92,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     <Popover
       {...restProps}
       placement={placement}
-      onVisibleChange={onVisibleChange}
-      visible={visible}
+      onOpenChange={onVisibleChange}
+      open={visible}
       _overlay={
         <Overlay
           {...props}

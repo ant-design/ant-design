@@ -417,7 +417,7 @@ describe('ConfigProvider', () => {
     // Popover
     testPair('Popover', props => (
       <div>
-        <Popover {...props} visible>
+        <Popover {...props} open>
           <span>Light</span>
         </Popover>
       </div>

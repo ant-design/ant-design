@@ -26,7 +26,7 @@ interface PicSearcherProps {
 interface PicSearcherState {
   loading: boolean;
   modalVisible: boolean;
-  popoverVisible: boolean;
+  popoverOpen: boolean;
   icons: Array<string>;
   fileList: Array<any>;
   error: boolean;
@@ -42,7 +42,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   state = {
     loading: false,
     modalVisible: false,
-    popoverVisible: false,
+    popoverOpen: false,
     icons: [],
     fileList: [],
     error: false,
@@ -51,7 +51,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
 
   componentDidMount() {
     this.loadModel();
-    this.setState({ popoverVisible: !localStorage.getItem('disableIconTip') });
+    this.setState({ popoverOpen: !localStorage.getItem('disableIconTip') });
   }
 
   componentWillUnmount() {
@@ -125,7 +125,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   toggleModal = () => {
     this.setState(prev => ({
       modalVisible: !prev.modalVisible,
-      popoverVisible: false,
+      popoverOpen: false,
       fileList: [],
       icons: [],
     }));
@@ -147,13 +147,12 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const { modalVisible, popoverVisible, icons, fileList, loading, modelLoaded, error } =
-      this.state;
+    const { modalVisible, popoverOpen, icons, fileList, loading, modelLoaded, error } = this.state;
     return (
       <div className="icon-pic-searcher">
         <Popover
           content={messages[`app.docs.components.icon.pic-searcher.intro`]}
-          visible={popoverVisible}
+          open={popoverOpen}
         >
           <AntdIcons.CameraOutlined className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
