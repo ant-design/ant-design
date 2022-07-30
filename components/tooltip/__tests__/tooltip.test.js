@@ -41,12 +41,12 @@ describe('Tooltip', () => {
     const divElement = container.querySelector('#hello');
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange).not.toHaveBeenCalled();
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // update `title` value.
@@ -63,12 +63,12 @@ describe('Tooltip', () => {
     );
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
-    expect(ref.current.props.open).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // add `open` props.
@@ -87,13 +87,13 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
     const lastCount = onOpenChange.mock.calls.length;
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     // always trigger onOpenChange
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange.mock.calls.length).toBe(lastCount); // no change with lastCount
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
@@ -120,12 +120,12 @@ describe('Tooltip', () => {
 
     fireEvent.mouseEnter(button);
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current.props.open).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(button);
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
@@ -151,12 +151,12 @@ describe('Tooltip', () => {
 
         fireEvent.mouseEnter(button);
         expect(onOpenChange).toHaveBeenCalledWith(true);
-        expect(ref.current.props.open).toBe(true);
+        expect(ref.current.props.visible).toBe(true);
         expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
         fireEvent.mouseLeave(button);
         expect(onOpenChange).toHaveBeenCalledWith(false);
-        expect(ref.current.props.open).toBe(false);
+        expect(ref.current.props.visible).toBe(false);
         expect(container.querySelector('.ant-tooltip-open')).toBeNull();
       });
     }
@@ -250,13 +250,13 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(picker);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current.props.open).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(picker);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
@@ -277,13 +277,13 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(inputGroup);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(true);
-    expect(ref.current.props.open).toBe(true);
+    expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(inputGroup);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(ref.current.props.open).toBe(false);
+    expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 

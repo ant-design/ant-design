@@ -408,7 +408,7 @@ describe('ConfigProvider', () => {
     // Popconfirm
     testPair('Popconfirm', props => (
       <div>
-        <Popconfirm {...props} visible>
+        <Popconfirm {...props} open>
           <span>Bamboo</span>
         </Popconfirm>
       </div>
