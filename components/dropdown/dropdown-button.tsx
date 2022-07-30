@@ -84,7 +84,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     destroyPopupOnHide,
   } as DropdownProps;
 
-  if ('visible' in props) {
+  if ('open' in props) {
     dropdownProps.open = open;
   }
 
