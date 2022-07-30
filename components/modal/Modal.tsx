@@ -9,6 +9,7 @@ import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { renderCloseIcon, renderFooter } from './PurePanel';
 import useStyle from './style';
+import warning from '../_util/warning';
 
 let mousePosition: { x: number; y: number } | null;
 
@@ -168,6 +169,13 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
+
+  warning(
+    !('visible' in props),
+    'Modal',
+    `\`visible\` is deprecated, please use \`open\` instead.`,
+  );
+
   return wrapSSR(
     <NoFormStyle status override>
       <Dialog
