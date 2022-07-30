@@ -1150,6 +1150,43 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-12 ant-form-item-label"
+        >
+          <label
+            class=""
+            for="col12"
+            title="col12"
+          >
+            col12
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-12 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="col12"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
 ]
 `;
