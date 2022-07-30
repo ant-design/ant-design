@@ -549,7 +549,7 @@ describe('ConfigProvider', () => {
 
     // Tooltip
     testPair('Tooltip', props => (
-      <Tooltip {...props} title="Bamboo" visible>
+      <Tooltip {...props} title="Bamboo" open>
         <span>Light</span>
       </Tooltip>
     ));
