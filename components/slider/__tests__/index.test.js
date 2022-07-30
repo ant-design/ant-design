@@ -92,7 +92,7 @@ describe('Slider', () => {
     mount(
       <SliderTooltip
         title="30"
-        visible
+        open
         ref={node => {
           ref = node;
         }}

@@ -20,7 +20,7 @@ describe('Popover', () => {
     expect(ref.current.getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
-    expect(popover.find('Trigger PopupInner').props().open).toBeTruthy();
+    expect(popover.find('Trigger PopupInner').props().visible).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
