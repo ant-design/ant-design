@@ -177,6 +177,7 @@ Properties for expandable.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | The column contains children to display | string | children |  |
+| columnTitle | Set the title of the expand column | ReactNode | - | 4.23.0 |
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |  |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
