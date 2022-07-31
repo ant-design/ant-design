@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
 import React, { memo, useContext, useRef, useState } from 'react';
+import { fireEvent, render } from '../../../tests/utils';
 import Menu from '../index';
 import MenuContext from '../MenuContext';
 
@@ -40,16 +40,17 @@ const CacheOuter = () => {
 };
 
 it("Rendering on Menu without changed MenuContext won't trigger rendering on child component.", () => {
-  const wrapper = mount(<CacheOuter />);
-  const childCount = wrapper.find('#child_count').text();
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('2');
+  const { container, unmount } = render(<CacheOuter />);
+  const childCount = container.querySelector('#child_count')!.textContent;
+  fireEvent.click(container.querySelector('#parent_btn')!);
+
+  expect(container.querySelector('#parent_count')?.textContent).toBe('2');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('3');
+  expect(container.querySelector('#child_count')?.textContent).toBe(childCount);
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(container.querySelector('#parent_count')?.textContent).toBe('3');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
+  expect(container.querySelector('#child_count')?.textContent).toBe(childCount);
   // in order to depress warning "Warning: An update to Menu inside a test was not wrapped in act(...)."
-  wrapper.unmount();
+  unmount();
 });
