@@ -37,31 +37,8 @@ describe('Table.typescript', () => {
     expect(table).toBeTruthy();
   });
 
-  it('Sorter', () => {
-    const onChange = jest.fn();
-
-    interface User {
-      name: string;
-    }
-    const columns: ColumnProps<User>[] = [
-      {
-        title: 'Name',
-        dataIndex: 'name',
-        filters: [
-          {
-            text: 'Joe',
-            value: 'Joe',
-          },
-          {
-            text: 'Jim',
-            value: 'Jim',
-          },
-        ],
-        sorter: (a, b) => a.name.length - b.name.length,
-      },
-    ];
-
-    const table = <Table columns={columns} onChange={onChange} />;
+  it('Sorter types', () => {
+    const table = <Table onChange={(pagination, filters, sorter) => sorter.field} />;
 
     expect(table).toBeTruthy();
   });
