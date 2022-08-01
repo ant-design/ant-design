@@ -22,7 +22,6 @@ timeline: true
 - 🐞 修复在 React 18 版本中 Uploader 的 `fileList` 发生更新后出现闪烁的情况。[#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
 - 🐞 修复 Form.Item 在垂直布局下使用小尺寸的 `labelCol` 和 `wrapperCol` 时不换行的问题。[#36800](https://github.com/ant-design/ant-design/pull/36800)
 - 🐞 修复 Row 在 flex 布局中占据过多空间的问题。[#36770](https://github.com/ant-design/ant-design/pull/36770)
-- 📖 更正文档 <a href="https://ant.design/docs/react/replace-moment-cn" rel="nofollow"> 替换 Moment.js</a> 一篇中对 DatePicker 和 Calendar 组件的重写无需引入样式。[#36805](https://github.com/ant-design/ant-design/pull/36805) [@strivelen](https://github.com/strivelen)
 
 ## 4.22.2
 

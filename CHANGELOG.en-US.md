@@ -22,7 +22,6 @@ timeline: true
 - 🐞 Fixed flickering when `fileList` updating in Uploader with React 18. [#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
 - 🐞 Fix Form.Item with small size `labelCol` and `wrapperCol` not break line in vertical layout. [#36800](https://github.com/ant-design/ant-design/pull/36800)
 - 🐞 Fix Row in flex layout takes too wide space by default. [#36770](https://github.com/ant-design/ant-design/pull/36770)
-- 📖 Update the document <a href="https://ant.design/docs/react/replace-moment-cn" rel="nofollow">Replace Moment.js</a> the rewrite of DatePicker and Calendar components no longer needs to introduce styles. [#36805](https://github.com/ant-design/ant-design/pull/36805) [@strivelen](https://github.com/strivelen)
 
 ## 4.22.2
 
