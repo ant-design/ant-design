@@ -215,4 +215,26 @@ if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
 
+interface PurePanelProps extends DrawerProps {}
+
+function PurePanel({ style, ...restProps }: PurePanelProps) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        minHeight: 100,
+        overflow: 'hidden',
+        ...style,
+      }}
+    >
+      <Drawer {...restProps} getContainer={false} visible />
+    </div>
+  );
+}
+
+Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
 export default Drawer;
