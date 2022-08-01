@@ -472,7 +472,9 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
   return {
     [`${componentCls}-vertical`]: {
       [formItemCls]: {
-        flexDirection: 'column',
+        '&-row': {
+          flexDirection: 'column',
+        },
 
         '&-label > label': {
           height: 'auto',
