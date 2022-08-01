@@ -15,6 +15,30 @@ timeline: true
 
 ---
 
+## 4.22.3
+
+`2022-08-01`
+
+- 🐞 Fixed flickering when `fileList` updating in Uploader with React 18. [#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
+- 🐞 Fix Form.Item with small size `labelCol` and `wrapperCol` not break line in vertical layout. [#36800](https://github.com/ant-design/ant-design/pull/36800)
+- 🐞 Fix Row in flex layout takes too wide space by default. [#36770](https://github.com/ant-design/ant-design/pull/36770)
+
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 Adjust Collapse title click region which will be fully width when `collapsible=default` now. [#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 Fix Drawer not work in 360 browser. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Revert back panel style into wrapper dom node in case developer use `contentWrapperStyle` for overwrite. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Fix for the string type as `width/height` value and warning which should use number type instead. [#284](https://github.com/react-component/drawer/pull/284)
+
+## 4.22.1
+
+`2022-07-27`
+
+- 🐞 Fix Drawer with percentage width display issue. [#36729](https://github.com/ant-design/ant-design/pull/36729)
+
 ## 4.22.0
 
 `2022-07-26`
