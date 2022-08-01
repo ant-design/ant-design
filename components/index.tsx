@@ -167,3 +167,6 @@ export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
 export type { UploadFile, UploadProps } from './upload';
 export { default as version } from './version';
+
+// https://github.com/ant-design/ant-design/discussions/36814#discussioncomment-3293778
+export { default as theme } from './theme';
