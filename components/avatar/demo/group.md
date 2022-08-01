@@ -70,7 +70,7 @@ const App: React.FC = () => (
       maxPopoverTrigger="click"
       size="large"
       maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' }}
-      maxShape="square"
+      shape="square"
     >
       <Avatar
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"

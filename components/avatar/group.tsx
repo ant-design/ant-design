@@ -15,7 +15,7 @@ export interface GroupProps {
   prefixCls?: string;
   maxCount?: number;
   maxStyle?: React.CSSProperties;
-  maxShape?: 'circle' | 'square';
+  shape?: 'circle' | 'square';
   maxPopoverPlacement?: 'top' | 'bottom';
   maxPopoverTrigger?: 'hover' | 'focus' | 'click';
   /*
@@ -32,7 +32,7 @@ const Group: React.FC<GroupProps> = props => {
     className = '',
     maxCount,
     maxStyle,
-    maxShape = 'circle',
+    shape = 'circle',
     size,
   } = props;
 
@@ -65,7 +65,7 @@ const Group: React.FC<GroupProps> = props => {
         placement={maxPopoverPlacement}
         overlayClassName={`${prefixCls}-popover`}
       >
-        <Avatar style={maxStyle} shape={maxShape}>{`+${numOfChildren - maxCount}`}</Avatar>
+        <Avatar style={maxStyle} shape={shape}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
     return (
