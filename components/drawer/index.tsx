@@ -12,59 +12,32 @@ import { tuple } from '../_util/type';
 // CSSINJS
 import useStyle from './style';
 
-type EventType =
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
-
-type getContainerFunc = () => HTMLElement;
-
-type ILevelMove = number | [number, number];
-
-const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
-type placementType = typeof PlacementTypes[number];
-
 const SizeTypes = tuple('default', 'large');
 type sizeType = typeof SizeTypes[number];
 
 export interface PushState {
   distance: string | number;
 }
-export interface DrawerProps {
-  autoFocus?: boolean;
+
+// Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
+export interface DrawerProps extends RcDrawerProps {
+  size?: sizeType;
   closable?: boolean;
   closeIcon?: React.ReactNode;
-  destroyOnClose?: boolean;
-  forceRender?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false;
-  maskClosable?: boolean;
-  mask?: boolean;
-  maskStyle?: React.CSSProperties;
-  style?: React.CSSProperties;
-  size?: sizeType;
+
   /** Wrapper dom node style of header and body */
   drawerStyle?: React.CSSProperties;
   headerStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
-  contentWrapperStyle?: React.CSSProperties;
+  footerStyle?: React.CSSProperties;
+
   title?: React.ReactNode;
   visible?: boolean;
-  width?: number | string;
-  height?: number | string;
-  zIndex?: number;
-  prefixCls?: string;
-  push?: boolean | PushState;
-  placement?: placementType;
-  onClose?: (e: EventType) => void;
-  afterVisibleChange?: (visible: boolean) => void;
-  className?: string;
-  handler?: React.ReactNode;
-  keyboard?: boolean;
-  extra?: React.ReactNode;
+
   footer?: React.ReactNode;
-  footerStyle?: React.CSSProperties;
-  level?: string | string[] | null | undefined;
-  levelMove?: ILevelMove | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
-  children?: React.ReactNode;
+  extra?: React.ReactNode;
+
+  afterVisibleChange?: (visible: boolean) => void;
 }
 
 const defaultPushState: PushState = { distance: 180 };
