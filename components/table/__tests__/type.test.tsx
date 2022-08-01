@@ -38,7 +38,7 @@ describe('Table.typescript', () => {
   });
 
   it('Sorter types', () => {
-    const table = <Table onChange={(pagination, filters, sorter) => sorter.field} />;
+    const table = <Table onChange={(_pagination, _filters, sorter) => sorter.field} />;
 
     expect(table).toBeTruthy();
   });
