@@ -29,7 +29,6 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | closeIcon | 自定义关闭图标 | ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式 | CSSProperties | - |  |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
-| drawerStyle | 用于设置 Drawer 弹出层的样式 | CSSProperties | - |  |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |  |
@@ -44,7 +43,7 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | rootClassName | 对话框外层容器的类名 | string | - |  |
-| rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
+| rootStyle | 可用于设置 Drawer 最外层容器的样式，和 `style` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |

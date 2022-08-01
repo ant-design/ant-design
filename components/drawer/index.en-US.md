@@ -30,7 +30,6 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
-| drawerStyle | Style of the popup layer element | CSSProperties | - |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |  |
@@ -45,7 +44,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | rootClassName | The class name of the container of the Drawer dialog | string | - |  |
-| rootStyle | Style of wrapper element which **contains mask** compare to `drawerStyle` | CSSProperties | - |  |
+| rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
 | size | presetted size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
