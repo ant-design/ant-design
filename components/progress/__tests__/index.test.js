@@ -1,121 +1,132 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { handleGradient, sortGradient } from '../Line';
 import ProgressSteps from '../Steps';
+import { render } from '../../../tests/utils';
 
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
 
   it('successPercent should decide the progress status when it exists', () => {
-    const wrapper = mount(<Progress percent={100} success={{ percent: 50 }} />);
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
+    const { container: wrapper, rerender } = render(
+      <Progress percent={100} success={{ percent: 50 }} />,
+    );
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(0);
 
-    wrapper.setProps({ percent: 50, success: { percent: 100 } });
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+    rerender(<Progress percent={50} success={{ percent: 100 }} />);
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
 
-    wrapper.setProps({ percent: 100, success: { percent: 0 } });
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
+    rerender(<Progress percent={100} success={{ percent: 0 }} />);
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(0);
   });
 
   it('render out-of-range progress', () => {
-    const wrapper = mount(<Progress percent={120} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress percent={120} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render out-of-range progress with info', () => {
-    const wrapper = mount(<Progress percent={120} showInfo />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress percent={120} showInfo />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render negative progress', () => {
-    const wrapper = mount(<Progress percent={-20} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress percent={-20} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render negative successPercent', () => {
-    const wrapper = mount(<Progress percent={50} success={{ percent: -20 }} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress percent={50} success={{ percent: -20 }} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render format', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Progress
         percent={50}
         success={{ percent: 10 }}
         format={(percent, successPercent) => `${percent} ${successPercent}`}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render strokeColor', () => {
-    const wrapper = mount(<Progress type="circle" percent={50} strokeColor="red" />);
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({
-      strokeColor: {
-        from: '#108ee9',
-        to: '#87d068',
-      },
-      type: 'line',
-    });
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({
-      strokeColor: {
-        '0%': '#108ee9',
-        '100%': '#87d068',
-      },
-    });
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper, rerender } = render(
+      <Progress type="circle" percent={50} strokeColor="red" />,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
+    rerender(
+      <Progress
+        strokeColor={{
+          from: '#108ee9',
+          to: '#87d068',
+        }}
+        percent={50}
+        type="line"
+      />,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
+    rerender(
+      <Progress
+        strokeColor={{
+          '0%': '#108ee9',
+          '100%': '#87d068',
+        }}
+        percent={50}
+        type="line"
+      />,
+    );
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render normal progress', () => {
-    const wrapper = mount(<Progress status="normal" />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress status="normal" />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render trailColor progress', () => {
-    const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render successColor progress', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Progress percent={60} success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render successColor progress type="circle"', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Progress percent={60} type="circle" success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render successColor progress type="dashboard"', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Progress percent={60} type="dashboard" success={{ percent: 30, strokeColor: '#ffffff' }} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard zero gapDegree', () => {
-    const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={0} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard 295 gapDegree', () => {
-    const wrapper = mount(<Progress type="dashboard" gapDegree={295} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={295} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render dashboard 296 gapDegree', () => {
-    const wrapper = mount(<Progress type="dashboard" gapDegree={296} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress type="dashboard" gapDegree={296} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('get correct line-gradient', () => {
@@ -138,74 +149,74 @@ describe('Progress', () => {
   });
 
   it('should show success status when percent is 100', () => {
-    const wrapper = mount(<Progress percent={100} />);
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+    const { container: wrapper } = render(<Progress percent={100} />);
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/15950
   it('should show success status when percent is 100 and status is undefined', () => {
-    const wrapper = mount(<Progress percent={100} status={undefined} />);
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+    const { container: wrapper } = render(<Progress percent={100} status={undefined} />);
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/pull/15951#discussion_r273062969
   it('should show success status when status is invalid', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const wrapper = mount(<Progress percent={100} status="invalid" />);
-    expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
+    const { container: wrapper } = render(<Progress percent={100} status="invalid" />);
+    expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
   });
 
   it('should support steps', () => {
-    const wrapper = mount(<Progress steps={3} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Progress steps={3} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('steps should be changable', () => {
-    const wrapper = mount(<Progress steps={5} percent={60} />);
-    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
-    wrapper.setProps({ percent: 40 });
-    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
+    const { container: wrapper, rerender } = render(<Progress steps={5} percent={60} />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(3);
+    rerender(<Progress steps={5} percent={40} />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(2);
   });
 
   it('steps should be changable when has strokeColor', () => {
-    const wrapper = mount(<Progress steps={5} percent={60} strokeColor="#1890ff" />);
-    expect(wrapper.find('.ant-progress-steps-item').at(0).getDOMNode().style.backgroundColor).toBe(
+    const { container: wrapper, rerender } = render(
+      <Progress steps={5} percent={60} strokeColor="#1890ff" />,
+    );
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[0].style.backgroundColor).toBe(
       'rgb(24, 144, 255)',
     );
-    wrapper.setProps({ percent: 40 });
-    expect(wrapper.find('.ant-progress-steps-item').at(2).getDOMNode().style.backgroundColor).toBe(
-      '',
-    );
-    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+    rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[2].style.backgroundColor).toBe('');
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[1].style.backgroundColor).toBe(
       'rgb(24, 144, 255)',
     );
   });
 
   it('steps should support trailColor', () => {
-    const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
-    expect(wrapper.find('.ant-progress-steps-item').at(1).getDOMNode().style.backgroundColor).toBe(
+    const { container: wrapper } = render(<Progress steps={5} percent={20} trailColor="#1890ee" />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[1].style.backgroundColor).toBe(
       'rgb(24, 144, 238)',
     );
   });
 
   it('should display correct step', () => {
-    const wrapper = mount(<Progress steps={9} percent={22.22} />);
-    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(2);
-    wrapper.setProps({ percent: 33.33 });
-    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(3);
-    wrapper.setProps({ percent: 44.44 });
-    expect(wrapper.find('.ant-progress-steps-item-active').length).toBe(4);
+    const { container: wrapper, rerender } = render(<Progress steps={9} percent={22.22} />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(2);
+    rerender(<Progress steps={9} percent={33.33} />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(3);
+    rerender(<Progress steps={9} percent={44.44} />);
+    expect(wrapper.querySelectorAll('.ant-progress-steps-item-active').length).toBe(4);
   });
 
   it('steps should have default percent 0', () => {
-    const wrapper = mount(<ProgressSteps />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<ProgressSteps />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('should warnning if use `progress` in success', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Progress percent={60} success={{ progress: 30 }} />);
+    render(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
@@ -213,7 +224,7 @@ describe('Progress', () => {
 
   it('should warnning if use `progress` in success in type Circle', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
+    render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
@@ -223,8 +234,10 @@ describe('Progress', () => {
   describe('github issues', () => {
     it('"Rendered more hooks than during the previous render"', () => {
       expect(() => {
-        const wrapper = mount(<Progress percent={60} success={{ percent: 0 }} type="circle" />);
-        wrapper.setProps({ success: { percent: 10 } });
+        const { rerender } = render(
+          <Progress percent={60} success={{ percent: 0 }} type="circle" />,
+        );
+        rerender(<Progress percent={60} success={{ percent: 10 }} type="circle" />);
       }).not.toThrow();
     });
   });
