@@ -55,6 +55,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuItemHeight: number;
   menuHorizontalHeight: number;
   menuItemPaddingInline: number;
+  menuItemMarginInline: number;
   menuArrowSize: number;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
@@ -404,7 +405,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       // Menu Token
       const menuToken = mergeToken<MenuToken>(token, {
         menuItemHeight: controlHeightLG,
-        menuItemPaddingInline: controlHeightLG / 2,
+        menuItemPaddingInline: token.margin,
+        menuItemMarginInline: token.marginXXS,
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,

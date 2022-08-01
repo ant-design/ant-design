@@ -10,6 +10,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
     lineWidth,
     lineType,
     menuItemPaddingInline,
+    menuItemMarginInline,
   } = token;
 
   return {
@@ -32,6 +33,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
         display: 'inline-block',
         verticalAlign: 'bottom',
         paddingInline: menuItemPaddingInline,
+        marginInline: menuItemMarginInline,
       },
 
       [`> ${componentCls}-item:hover,
