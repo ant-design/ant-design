@@ -114,7 +114,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose visible className="test_drawer" getContainer={false}>
+      <Drawer destroyOnClose visible rootClassName="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -130,7 +130,7 @@ describe('Drawer', () => {
     const { container: wrapper } = render(
       <Drawer
         visible
-        style={style}
+        rootStyle={style}
         drawerStyle={style}
         headerStyle={style}
         bodyStyle={style}

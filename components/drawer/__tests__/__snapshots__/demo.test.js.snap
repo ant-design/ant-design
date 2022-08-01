@@ -311,7 +311,6 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
   </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-inline"
-    style="position:absolute"
     tabindex="-1"
   >
     <div

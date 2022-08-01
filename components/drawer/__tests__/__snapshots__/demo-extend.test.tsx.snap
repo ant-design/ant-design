@@ -2906,7 +2906,6 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
   </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
-    style="position: absolute;"
     tabindex="-1"
   >
     <div
@@ -2972,7 +2971,7 @@ exports[`renders ./components/drawer/demo/render-panel.md extend context correct
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -2981,7 +2980,7 @@ exports[`renders ./components/drawer/demo/render-panel.md extend context correct
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
