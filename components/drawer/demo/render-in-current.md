@@ -43,7 +43,6 @@ const App: React.FC = () => {
         onClose={onClose}
         visible={visible}
         getContainer={false}
-        style={{ position: 'absolute' }}
       >
         <p>Some contents...</p>
       </Drawer>

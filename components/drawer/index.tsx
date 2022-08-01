@@ -43,6 +43,7 @@ export interface DrawerProps extends RcDrawerProps {
 const defaultPushState: PushState = { distance: 180 };
 
 function Drawer({
+  rootClassName,
   width,
   height,
   size = 'default',
@@ -52,11 +53,9 @@ function Drawer({
   closeIcon = <CloseOutlined />,
   bodyStyle,
   drawerStyle,
-  className,
   visible,
   children,
   zIndex,
-  style,
   title,
   headerStyle,
   onClose,
@@ -125,7 +124,7 @@ function Drawer({
       'no-mask': !mask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    className,
+    rootClassName,
     hashId,
   );
 
@@ -157,6 +156,8 @@ function Drawer({
       <RcDrawer
         prefixCls={prefixCls}
         onClose={onClose}
+        maskMotion={maskMotion}
+        motion={panelMotion}
         {...rest}
         open={visible}
         mask={mask}
@@ -168,9 +169,6 @@ function Drawer({
         afterOpenChange={open => {
           afterVisibleChange?.(open);
         }}
-        maskMotion={maskMotion}
-        motion={panelMotion}
-        rootStyle={style}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
@@ -187,5 +185,27 @@ function Drawer({
 if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
+
+interface PurePanelProps extends DrawerProps {}
+
+function PurePanel({ style, ...restProps }: PurePanelProps) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        minHeight: 100,
+        overflow: 'hidden',
+        ...style,
+      }}
+    >
+      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} visible />
+    </div>
+  );
+}
+
+Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Drawer;
