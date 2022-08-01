@@ -304,13 +304,15 @@ describe('TextArea', () => {
       const { container } = render(
         <TextArea
           maxLength={5}
-          showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+          showCount={{
+            formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+          }}
           value="12345"
         />,
       );
       expect(container.querySelector('textarea').value).toBe('12345');
       expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
-        '5, 5',
+        '12345, 5, 5',
       );
     });
   });
