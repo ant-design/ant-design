@@ -123,6 +123,7 @@ const Dropdown: DropdownInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  console.log(children, 'children');
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {

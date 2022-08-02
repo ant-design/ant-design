@@ -1,10 +1,24 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import type { TriggerProps } from 'rc-trigger';
+
 import Dropdown from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
 import Menu from '../../menu';
+
+let triggerProps: TriggerProps;
+
+jest.mock('rc-trigger', () => {
+  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+  Trigger = Trigger.default || Trigger;
+  const h: typeof React = jest.requireActual('react');
+
+  return h.forwardRef<unknown, TriggerProps>((props, ref) => {
+    triggerProps = props;
+    return h.createElement(Trigger, { ref, ...props });
+  });
+});
 
 describe('Dropdown', () => {
   mountTest(() => (
@@ -20,21 +34,21 @@ describe('Dropdown', () => {
   ));
 
   it('overlay is function and has custom transitionName', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" visible>
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('overlay is string', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Dropdown overlay="string" visible>
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('support Menu expandIcon', async () => {
@@ -51,18 +65,18 @@ describe('Dropdown', () => {
       getPopupContainer: node => node,
     };
 
-    const wrapper = mount(
+    const { container } = render(
       <Dropdown {...props}>
         <button type="button">button</button>
       </Dropdown>,
     );
     await sleep(500);
-    expect(wrapper.find(Dropdown).find('#customExpandIcon').length).toBe(1);
+    expect(container.querySelectorAll('#customExpandIcon').length).toBe(1);
   });
 
   it('should warn if use topCenter or bottomCenter', () => {
     const error = jest.spyOn(console, 'error');
-    mount(
+    render(
       <div>
         <Dropdown overlay="123" placement="bottomCenter">
           <button type="button">bottomCenter</button>
@@ -82,13 +96,13 @@ describe('Dropdown', () => {
 
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
-    const wrapper = mount(
+    render(
       <Dropdown overlay={<div>menu</div>} visible>
         <button type="button">button</button>
       </Dropdown>,
     );
 
-    expect(wrapper.find('Trigger').prop('builtinPlacements')).toEqual(
+    expect(triggerProps.builtinPlacements).toEqual(
       expect.objectContaining({
         bottomLeft: expect.objectContaining({
           overflow: {
@@ -127,13 +141,13 @@ describe('Dropdown', () => {
     );
 
     // Open
-    fireEvent.click(container.querySelector('a'));
+    fireEvent.click(container.querySelector('a')!);
     act(() => {
       jest.runAllTimers();
     });
 
     // Close
-    fireEvent.click(container.querySelector('.ant-dropdown-menu-item'));
+    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
 
     // Force Motion move on
     for (let i = 0; i < 10; i += 1) {
@@ -143,7 +157,7 @@ describe('Dropdown', () => {
     }
 
     // Motion End
-    fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active'));
+    fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active')!);
 
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
