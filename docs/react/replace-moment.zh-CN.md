@@ -21,7 +21,6 @@ title: 替换 Moment.js
 import { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 
@@ -61,7 +60,6 @@ export default TimePicker;
 import { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
-import 'antd/es/calendar/style';
 
 const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 
