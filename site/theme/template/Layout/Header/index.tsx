@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Select, Row, Col, Popover, Button, Modal } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import type { DirectionType } from 'antd/es/config-provider';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
 import Logo from './Logo';
@@ -31,7 +32,7 @@ export interface HeaderProps {
   location: { pathname: string; query: any };
   router: any;
   themeConfig: { docVersions: Record<string, string> };
-  changeDirection: (direction: string) => void;
+  changeDirection: (direction: DirectionType) => void;
 }
 
 let docsearch: any;
@@ -87,7 +88,7 @@ interface HeaderState {
   showTechUIButton: boolean;
 }
 
-const Header: React.FC<HeaderProps> = props => {
+const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
   const { intl, router, location, themeConfig, changeDirection } = props;
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
@@ -331,4 +332,4 @@ const Header: React.FC<HeaderProps> = props => {
   );
 };
 
-export default injectIntl(Header as unknown as React.FC<WrappedComponentProps<'intl'>>);
+export default injectIntl(Header);
