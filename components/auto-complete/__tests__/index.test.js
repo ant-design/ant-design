@@ -89,4 +89,18 @@ describe('AutoComplete', () => {
     );
     expect(container.querySelector('input').classList.contains('custom')).toBeTruthy();
   });
+
+  it('should show warning when use dropdownClassName', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <AutoComplete dropdownClassName="myCustomClassName">
+        <AutoComplete.Option value="111">111</AutoComplete.Option>
+        <AutoComplete.Option value="222">222</AutoComplete.Option>
+      </AutoComplete>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+    errorSpy.mockRestore();
+  });
 });
