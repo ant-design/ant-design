@@ -44,8 +44,8 @@ export default function genColorMapToken(
     colorPrimaryHover: primaryColors[5],
     colorPrimary: primaryColors[6],
     colorPrimaryActive: primaryColors[7],
-    colorPrimaryText: primaryColors[8],
-    colorPrimaryTextHover: primaryColors[9],
+    colorPrimaryText: primaryColors[6],
+    colorPrimaryTextHover: primaryColors[5],
 
     colorSuccessBg: successColors[1],
     colorSuccessBgHover: successColors[2],

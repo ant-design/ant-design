@@ -225,6 +225,11 @@ export interface BgMapToken {
   colorBgContainer: string;
   colorBgElevated: string;
   colorBgLayout: string;
+
+  // Border
+  colorBorder: string;
+  colorBorderSecondary: string;
+  colorSplit: string;
 }
 
 export interface ColorMapToken extends BgMapToken, TextMapToken {
@@ -344,10 +349,7 @@ export interface AliasToken extends MapToken {
   colorFillContent: string;
 
   // Border
-  colorBorder: string;
   colorBorderBg: string;
-  colorBorderSecondary: string;
-  colorSplit: string;
 
   // Text
   colorTextPlaceholder: string;

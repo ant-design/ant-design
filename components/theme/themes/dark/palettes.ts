@@ -33,6 +33,10 @@ export const generateBgPalettes: GenerateBgPalettes = (
   colorBgElevated: getSolidColor(bgBaseColor, 12),
   colorBgContainer: getSolidColor(bgBaseColor, 8),
   colorBgLayout: getSolidColor(bgBaseColor, 0),
+
+  colorBorder: getSolidColor(bgBaseColor, 26),
+  colorBorderSecondary: getSolidColor(bgBaseColor, 19),
+  colorSplit: getAlphaColor(textBaseColor, 12),
 });
 
 export const generateTextAlphaPalettes: GenerateTextAlphaPalettes = (textBaseColor: string) => ({
