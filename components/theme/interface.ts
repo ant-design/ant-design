@@ -287,6 +287,9 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorInfoActive: string; // 7
   colorInfoText: string; // 8
   colorInfoTextHover: string; // 9
+
+  colorBgMask: string;
+  colorBgSpotlight: string;
 }
 
 export interface CommonMapToken {
@@ -343,9 +346,6 @@ export interface AliasToken extends MapToken {
   colorFillContentHover: string;
   colorFillAlter: string;
   colorBgContainerDisabled: string;
-
-  colorBgMask: string;
-  colorBgSpotlight: string;
   colorFillContent: string;
 
   // Border

@@ -1,3 +1,4 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type {
   GenerateBgPalettes,
@@ -86,5 +87,8 @@ export default function genColorMapToken(
     colorInfoActive: infoColors[7],
     colorInfoText: infoColors[8],
     colorInfoTextHover: infoColors[9],
+
+    colorBgMask: textColors.colorTextTertiary,
+    colorBgSpotlight: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   };
 }

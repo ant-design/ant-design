@@ -41,9 +41,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorFillAlter: mergedToken.colorFillQuaternary,
     colorBgContainerDisabled: mergedToken.colorFillTertiary,
 
-    colorBgMask: mergedToken.colorTextTertiary,
-    colorBgSpotlight: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-
     // ============== Split ============== //
     colorBorderBg: mergedToken.colorBgLayout,
 
