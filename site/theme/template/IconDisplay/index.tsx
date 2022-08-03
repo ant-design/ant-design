@@ -16,9 +16,7 @@ export enum ThemeType {
   TwoTone = 'TwoTone',
 }
 
-const allIcons: {
-  [key: string]: any;
-} = AntdIcons;
+const allIcons: { [key: string]: any } = AntdIcons;
 
 interface IconDisplayProps {
   intl: any;
