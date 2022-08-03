@@ -31,8 +31,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const aliasToken: AliasToken = {
     ...mergedToken,
 
-    colorLink: mergedToken.colorPrimary,
-    colorLinkHover: mergedToken.colorPrimaryHover,
+    colorLink: mergedToken.colorPrimaryText,
+    colorLinkHover: mergedToken.colorPrimaryTextHover,
     colorLinkActive: mergedToken.colorPrimaryActive,
 
     // ============== Background ============== //
@@ -41,14 +41,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorFillAlter: mergedToken.colorFillQuaternary,
     colorBgContainerDisabled: mergedToken.colorFillTertiary,
 
-    colorBgMask: mergedToken.colorTextTertiary,
-    colorBgSpotlight: mergedToken.colorText,
-
     // ============== Split ============== //
     colorBorderBg: mergedToken.colorBgLayout,
-    colorBorder: mergedToken.colorFill,
-    colorBorderSecondary: mergedToken.colorFillSecondary,
-    colorSplit: mergedToken.colorFillSecondary,
 
     // ============== Text ============== //
     colorTextPlaceholder: mergedToken.colorTextQuaternary,

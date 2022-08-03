@@ -1,3 +1,4 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type {
   GenerateBgPalettes,
@@ -44,8 +45,8 @@ export default function genColorMapToken(
     colorPrimaryHover: primaryColors[5],
     colorPrimary: primaryColors[6],
     colorPrimaryActive: primaryColors[7],
-    colorPrimaryText: primaryColors[8],
-    colorPrimaryTextHover: primaryColors[9],
+    colorPrimaryText: primaryColors[6],
+    colorPrimaryTextHover: primaryColors[5],
 
     colorSuccessBg: successColors[1],
     colorSuccessBgHover: successColors[2],
@@ -86,5 +87,8 @@ export default function genColorMapToken(
     colorInfoActive: infoColors[7],
     colorInfoText: infoColors[8],
     colorInfoTextHover: infoColors[9],
+
+    colorBgMask: textColors.colorTextTertiary,
+    colorBgSpotlight: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   };
 }

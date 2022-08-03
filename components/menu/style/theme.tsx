@@ -30,7 +30,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
     motionDurationFast,
     colorItemTextHover,
     lineType,
-    colorBorderSecondary,
+    colorSplit,
 
     // Disabled
     colorItemTextDisabled,
@@ -176,7 +176,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
       //
       [`&${componentCls}-root`]: {
         [`&${componentCls}-inline, &${componentCls}-vertical`]: {
-          borderInlineEnd: `${colorActiveBarBorderSize}px ${lineType} ${colorBorderSecondary}`,
+          borderInlineEnd: `${colorActiveBarBorderSize}px ${lineType} ${colorSplit}`,
         },
       },
 
