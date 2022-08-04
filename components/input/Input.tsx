@@ -134,7 +134,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
-    id,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -219,7 +218,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
-      id={id}
       {...rest}
       disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
