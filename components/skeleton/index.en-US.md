@@ -55,7 +55,7 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | --- | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false |  |
 | block | Option to fit button width to its parent width | boolean | false | 4.17.0 |
-| shape | Set the shape of button | `circle` \| `round` \| `default` | - |  |
+| shape | Set the shape of button | `circle` \| `round` \| `square` \| `default` | - |  |
 | size | Set the size of button | `large` \| `small` \| `default` | - |  |
 
 ### SkeletonInputProps

@@ -564,7 +564,7 @@
 // ---
 @anchor-bg: transparent;
 @anchor-border-color: @border-color-split;
-@anchor-link-top: 7px;
+@anchor-link-top: 4px;
 @anchor-link-left: 16px;
 @anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
 
@@ -616,7 +616,7 @@
 @modal-header-title-line-height: 22px;
 @modal-header-title-font-size: @font-size-lg;
 @modal-header-border-color-split: @border-color-split;
-@modal-header-close-size: 56px;
+@modal-header-close-size: @modal-header-title-line-height + 2 * @modal-header-padding-vertical;
 @modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
 @modal-close-color: @text-color-secondary;
@@ -629,6 +629,7 @@
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
 @modal-confirm-title-font-size: @font-size-lg;
+@modal-border-radius: @border-radius-base;
 
 // Progress
 // --
@@ -1108,7 +1109,7 @@
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
 
-//  Result
+// Result
 // ---
 @result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;

@@ -13,8 +13,9 @@ title:
 
 With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly.
 
-```jsx
+```tsx
 import { PageHeader } from 'antd';
+import React from 'react';
 
 const routes = [
   {
@@ -31,7 +32,7 @@ const routes = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     title="Title"
@@ -39,4 +40,6 @@ export default () => (
     subTitle="This is a subtitle"
   />
 );
+
+export default App;
 ```

@@ -29,11 +29,12 @@ ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage
 ```jsx
 // works when >=4.20.0, recommended ✅
 const items = [
-  { label: 'item 1' },
-  { label: 'item 2' },
+  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
+  { label: 'item 2', key: 'item-2' }, // which is required
   {
     label: 'sub menu',
-    children: [{ label: 'item 3' }],
+    key: 'submenu',
+    children: [{ label: 'item 3', key: 'submenu-item-1' }],
   },
 ];
 return <Menu items={items} />;
@@ -126,7 +127,6 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| title | Title of sub menu | ReactNode | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
@@ -138,7 +138,7 @@ Define `type` as `group` to make as group:
 const groupItem = {
   type: 'group', // Must have
   label: 'My Group',
-  chidlren: [],
+  children: [],
 };
 ```
 
@@ -166,3 +166,14 @@ const dividerItem = {
 ### Why will Menu's children be rendered twice?
 
 Menu collects structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merging into one render may cause the logic to become much more complex. Contributions to help improve the collection logic are welcomed.
+
+### Why Menu do not responsive collapse in Flex layout?
+
+Menu will render fully item in flex layout and then collapse it. You need tell flex not consider Menu width to enable responsive ([online demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)):
+
+```jsx
+<div style={{ flex }}>
+  <div style={{ ... }}>Some Content</div>
+  <Menu style={{ minWidth: 0, flex: "auto" }} />
+</div>
+```

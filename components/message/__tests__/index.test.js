@@ -1,7 +1,7 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { SmileOutlined } from '@ant-design/icons';
+import { mount } from 'enzyme';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;

@@ -13,10 +13,11 @@ title:
 
 `${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
 
-```jsx
-import { Badge, Avatar } from 'antd';
+```tsx
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge count={99}>
       <Avatar shape="square" size="large" />
@@ -32,4 +33,6 @@ export default () => (
     </Badge>
   </>
 );
+
+export default App;
 ```

@@ -1,6 +1,6 @@
 import * as React from 'react';
+import type { ColumnProps } from '..';
 import Table from '../Table';
-import { ColumnProps } from '..';
 
 const { Column, ColumnGroup } = Table;
 
@@ -34,6 +34,12 @@ describe('Table.typescript', () => {
       key: string;
     }
     const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
+    expect(table).toBeTruthy();
+  });
+
+  it('Sorter types', () => {
+    const table = <Table onChange={(_pagination, _filters, sorter) => sorter.field} />;
+
     expect(table).toBeTruthy();
   });
 });

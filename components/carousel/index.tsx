@@ -1,6 +1,7 @@
-import * as React from 'react';
-import SlickCarousel, { Settings } from '@ant-design/react-slick';
+import type { Settings } from '@ant-design/react-slick';
+import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
 export type CarouselEffect = 'scrollx' | 'fade';

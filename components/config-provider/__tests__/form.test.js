@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { render } from '../../../tests/utils';
 import ConfigProvider from '..';
-import zhCN from '../../locale/zh_CN';
+import { render } from '../../../tests/utils';
 import Form from '../../form';
+import zhCN from '../../locale/zh_CN';
 
 describe('ConfigProvider.Form', () => {
   beforeAll(() => {
@@ -51,6 +51,10 @@ describe('ConfigProvider.Form', () => {
         await Promise.resolve();
       });
 
+      act(() => {
+        jest.runAllTimers();
+      });
+
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
     });
 
@@ -68,6 +72,10 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         jest.runAllTimers();
         await Promise.resolve();
+      });
+
+      act(() => {
+        jest.runAllTimers();
       });
 
       const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));

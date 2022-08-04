@@ -1,11 +1,13 @@
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
-import { DirectionType } from '../config-provider';
-import { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, FormItemStatusContextProps } from '../form/context';
+import type { DirectionType } from '../config-provider';
+import type { SizeType } from '../config-provider/SizeContext';
+import type { FormItemStatusContextProps } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
 

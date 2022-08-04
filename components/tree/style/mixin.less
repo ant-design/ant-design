@@ -117,6 +117,21 @@
       color: @tree-node-hightlight-color;
       font-weight: 500;
     }
+
+    &-draggable {
+      .@{custom-tree-prefix-cls}-draggable-icon {
+        width: @tree-title-height;
+        line-height: @tree-title-height;
+        text-align: center;
+        visibility: visible;
+        opacity: 0.2;
+        transition: opacity @animation-duration-slow;
+
+        .@{custom-tree-node-prefix-cls}:hover & {
+          opacity: 0.45;
+        }
+      }
+    }
   }
 
   // >>> Indent
@@ -133,15 +148,7 @@
 
   // >>> Drag Handler
   &-draggable-icon {
-    width: @tree-title-height;
-    line-height: @tree-title-height;
-    text-align: center;
-    opacity: 0.2;
-    transition: opacity @animation-duration-slow;
-
-    .@{custom-tree-node-prefix-cls}:hover & {
-      opacity: 0.45;
-    }
+    visibility: hidden;
   }
 
   // >>> Switcher

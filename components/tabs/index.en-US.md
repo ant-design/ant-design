@@ -21,7 +21,7 @@ Ant Design has 3 types of Tabs for different situations.
 ### Tabs
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |
 | addIcon | Customize add icon | ReactNode | - | 4.4.0 |
 | animated | Whether to change tabs with animation. Only works while `tabPosition="top"` | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
@@ -29,12 +29,13 @@ Ant Design has 3 types of Tabs for different situations.
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
+| popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
-| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
+| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \  | `left` | `top` |  |
 | destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
@@ -49,6 +50,7 @@ More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
+| disabled | Set TabPane disabled | boolean | false |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
 | tab | Show text in TabPane's head | ReactNode | - |

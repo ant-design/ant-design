@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import Menu from '../menu';
+import { cloneElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
-import Menu from '../menu';
-import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
   path: string;
@@ -119,7 +119,7 @@ const Breadcrumb: BreadcrumbInterface = ({
         return element;
       }
 
-      devWarning(
+      warning(
         element.type &&
           (element.type.__ANT_BREADCRUMB_ITEM === true ||
             element.type.__ANT_BREADCRUMB_SEPARATOR === true),

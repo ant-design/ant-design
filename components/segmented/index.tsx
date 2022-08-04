@@ -1,14 +1,15 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RcSegmented from 'rc-segmented';
 import type {
+  SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
   SegmentedRawOption,
-  SegmentedLabeledOption as RcSegmentedLabeledOption,
 } from 'rc-segmented';
+import RcSegmented from 'rc-segmented';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -94,7 +95,10 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   );
 });
 
-Segmented.displayName = 'Segmented';
+if (process.env.NODE_ENV !== 'production') {
+  Segmented.displayName = 'Segmented';
+}
+
 Segmented.defaultProps = {
   options: [],
 };

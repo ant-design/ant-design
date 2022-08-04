@@ -3185,12 +3185,10 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
       </h4>
       <div
         class="ant-row"
-        role="row"
         style="margin-left:-4px;margin-right:-4px"
       >
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div
@@ -3239,7 +3237,6 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div
@@ -3484,8 +3481,8 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             />
                           </div>
                           <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option year-item"
+                            aria-selected="true"
+                            class="ant-select-item ant-select-item-option year-item ant-select-item-option-selected"
                             title="2016"
                           >
                             <div
@@ -3690,7 +3687,6 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div

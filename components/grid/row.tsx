@@ -1,14 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import RowContext from './RowContext';
-import { tuple } from '../_util/type';
-import ResponsiveObserve, {
-  Breakpoint,
-  ScreenMap,
-  responsiveArray,
-} from '../_util/responsiveObserve';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
+import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import { tuple } from '../_util/type';
+import RowContext from './RowContext';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
@@ -127,13 +124,15 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   return (
     <RowContext.Provider value={rowContext}>
-      <div role="row" {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
+      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
     </RowContext.Provider>
   );
 });
 
-Row.displayName = 'Row';
+if (process.env.NODE_ENV !== 'production') {
+  Row.displayName = 'Row';
+}
 
 export default Row;

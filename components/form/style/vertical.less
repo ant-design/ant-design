@@ -40,10 +40,16 @@
 
 .@{form-prefix-cls}-vertical {
   .@{form-item-prefix-cls} {
-    flex-direction: column;
+    &-row {
+      flex-direction: column;
+    }
 
     &-label > label {
       height: auto;
+    }
+
+    .@{form-prefix-cls}-item-control {
+      width: 100%;
     }
   }
 }

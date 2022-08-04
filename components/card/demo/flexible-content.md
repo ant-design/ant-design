@@ -13,12 +13,13 @@ title:
 
 You can use `Card.Meta` to support more flexible content.
 
-```jsx
+```tsx
 import { Card } from 'antd';
+import React from 'react';
 
 const { Meta } = Card;
 
-export default () => (
+const App: React.FC = () => (
   <Card
     hoverable
     style={{ width: 240 }}
@@ -27,4 +28,6 @@ export default () => (
     <Meta title="Europe Street beat" description="www.instagram.com" />
   </Card>
 );
+
+export default App;
 ```

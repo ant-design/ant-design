@@ -1,21 +1,22 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import {
-  TransformColumns,
-  ColumnsType,
-  Key,
-  ColumnType,
-  SortOrder,
-  CompareFn,
-  ColumnTitleProps,
-  SorterResult,
+import * as React from 'react';
+import type { TooltipProps } from '../../tooltip';
+import Tooltip from '../../tooltip';
+import type {
   ColumnGroupType,
+  ColumnsType,
+  ColumnTitleProps,
+  ColumnType,
+  CompareFn,
+  Key,
+  SorterResult,
+  SortOrder,
   TableLocale,
+  TransformColumns,
 } from '../interface';
-import Tooltip, { TooltipProps } from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 const ASCEND = 'ascend';
@@ -246,7 +247,7 @@ function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
 
 function generateSorterInfo<RecordType>(
   sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType>[] {
+): SorterResult<RecordType> | SorterResult<RecordType[]> {
   const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
 
   // =========== Legacy compatible support ===========
@@ -258,11 +259,7 @@ function generateSorterInfo<RecordType>(
     };
   }
 
-  if (list.length <= 1) {
-    return list[0] || {};
-  }
-
-  return list;
+  return list[0] || {};
 }
 
 export function getSortData<RecordType>(
@@ -323,7 +320,7 @@ interface SorterConfig<RecordType> {
   prefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (
-    sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorterResult: SorterResult<RecordType> | SorterResult<RecordType[]>,
     sortStates: SortState<RecordType>[],
   ) => void;
   sortDirections: SortOrder[];
@@ -342,7 +339,7 @@ export default function useFilterSorter<RecordType>({
   TransformColumns<RecordType>,
   SortState<RecordType>[],
   ColumnTitleProps<RecordType>,
-  () => SorterResult<RecordType> | SorterResult<RecordType>[],
+  () => SorterResult<RecordType> | SorterResult<RecordType[]>,
 ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),

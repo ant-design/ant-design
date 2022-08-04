@@ -31,6 +31,10 @@
     return Math.round(hue);
   };
   var getSaturation = function(hsv, i, isLight) {
+    // grey color don't change saturation
+    if (hsv.h === 0 && hsv.s === 0) {
+      return hsv.s;
+    }
     var saturation;
     if (isLight) {
       saturation = hsv.s - saturationStep * i;

@@ -1,14 +1,18 @@
-import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
-import { FormItemInputContext, NoFormStatus } from '../form/context';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 import { hasPrefixSuffix } from './utils';
-import devWarning from '../_util/devWarning';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -35,7 +39,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
   if (!onChange) {
     return;
   }
-  let event = e;
+  let event = e as React.ChangeEvent<E>;
 
   if (e.type === 'click') {
     // Clone a new target for event.
@@ -59,7 +63,7 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     });
 
     currentTarget.value = '';
-    onChange(event as React.ChangeEvent<E>);
+    onChange(event);
     return;
   }
 
@@ -71,10 +75,10 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     });
 
     target.value = targetValue;
-    onChange(event as React.ChangeEvent<E>);
+    onChange(event);
     return;
   }
-  onChange(event as React.ChangeEvent<E>);
+  onChange(event);
 }
 
 export function triggerFocus(
@@ -111,9 +115,10 @@ export interface InputProps
     'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
   size?: SizeType;
+  disabled?: boolean;
   status?: InputStatus;
   bordered?: boolean;
-  [key: `data-${string}`]: string;
+  [key: `data-${string}`]: string | undefined;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {
@@ -122,6 +127,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     bordered = true,
     status: customStatus,
     size: customSize,
+    disabled: customDisabled,
     onBlur,
     onFocus,
     suffix,
@@ -139,6 +145,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
 
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
@@ -148,7 +158,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
   useEffect(() => {
     if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
-      devWarning(
+      warning(
         document.activeElement === inputRef.current?.input,
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
@@ -209,12 +219,25 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
+      disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
-      addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
+      addonAfter={
+        addonAfter && (
+          <NoFormStyle override status>
+            {addonAfter}
+          </NoFormStyle>
+        )
+      }
+      addonBefore={
+        addonBefore && (
+          <NoFormStyle override status>
+            {addonBefore}
+          </NoFormStyle>
+        )
+      }
       inputClassName={classNames(
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',

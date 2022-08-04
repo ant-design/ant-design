@@ -15,17 +15,20 @@ debug: true
 Remove mask.
 
 ```tsx
+import { Button, Drawer } from 'antd';
 import React, { useState } from 'react';
-import { Drawer, Button } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
+
   const showDrawer = () => {
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <>
       <Button type="primary" onClick={showDrawer}>
@@ -37,6 +40,13 @@ const App: React.FC = () => {
         mask={false}
         onClose={onClose}
         visible={visible}
+        contentWrapperStyle={{
+          width: 333,
+          background: 'red',
+          borderRadius: 20,
+          boxShadow: '-5px 0 5px green',
+          overflow: 'hidden',
+        }}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>

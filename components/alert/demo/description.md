@@ -15,8 +15,9 @@ Additional description for alert message.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert
       message="Success Text"
@@ -40,4 +41,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

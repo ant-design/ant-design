@@ -1,7 +1,7 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import DatePicker from '..';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 const { QuarterPicker } = DatePicker;
 

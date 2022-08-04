@@ -1,9 +1,9 @@
-import React from 'react';
-import MockDate from 'mockdate';
 import { mount } from 'enzyme';
+import MockDate from 'mockdate';
+import React from 'react';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);

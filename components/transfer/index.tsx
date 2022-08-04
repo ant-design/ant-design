@@ -1,16 +1,20 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import List, { TransferListProps } from './list';
-import Operation from './operation';
-import Search from './search';
+import * as React from 'react';
+import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import { FormItemInputContext } from '../form/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { TransferListBodyProps } from './ListBody';
-import { PaginationType } from './interface';
-import devWarning from '../_util/devWarning';
-import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
+import type { PaginationType } from './interface';
+import type { TransferListProps } from './list';
+import List from './list';
+import type { TransferListBodyProps } from './ListBody';
+import Operation from './operation';
+import Search from './search';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -133,7 +137,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    devWarning(
+    warning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',
@@ -372,7 +376,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               status: customStatus,
             } = this.props;
             const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty);
+            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
             const { sourceSelectedKeys, targetSelectedKeys } = this.state;
             const mergedStatus = getMergedStatus(contextStatus, customStatus);
 

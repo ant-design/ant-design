@@ -43,6 +43,10 @@
         }
       }
 
+      .@{collapse-prefix-cls}-header-text {
+        flex: auto;
+      }
+
       .@{collapse-prefix-cls}-extra {
         margin-left: auto;
       }
@@ -55,6 +59,7 @@
     .@{collapse-prefix-cls}-header-collapsible-only {
       cursor: default;
       .@{collapse-prefix-cls}-header-text {
+        flex: none;
         cursor: pointer;
       }
     }
@@ -66,8 +71,8 @@
     }
   }
 
-  // Expand Icon right
-  &-icon-position-right {
+  // Expand Icon end
+  &-icon-position-end {
     & > .@{collapse-prefix-cls}-item {
       > .@{collapse-prefix-cls}-header {
         position: relative;

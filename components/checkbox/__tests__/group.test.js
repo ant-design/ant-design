@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Collapse from '../../collapse';
-import Table from '../../table';
-import Checkbox from '../index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Collapse from '../../collapse';
 import Input from '../../input';
+import Table from '../../table';
+import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);

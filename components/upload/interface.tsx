@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {
+import type {
   RcFile as OriRcFile,
-  UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
+  UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
-import { ProgressProps } from '../progress';
+import type * as React from 'react';
+import type { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;

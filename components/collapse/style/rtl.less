@@ -6,6 +6,26 @@
 .@{collapse-prefix-cls} {
   &-rtl {
     direction: rtl;
+
+    // Expand Icon end
+    &.@{collapse-prefix-cls}.@{collapse-prefix-cls}-icon-position-end {
+      & > .@{collapse-prefix-cls}-item {
+        > .@{collapse-prefix-cls}-header {
+          position: relative;
+          padding: @collapse-header-padding;
+          padding-left: @collapse-header-padding-extra;
+
+          .@{collapse-prefix-cls}-arrow {
+            position: absolute;
+            top: 50%;
+            right: auto;
+            left: @padding-md;
+            margin: 0;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
   }
 
   & > &-item {

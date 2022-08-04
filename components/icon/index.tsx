@@ -1,7 +1,7 @@
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 const Icon = () => {
-  devWarning(false, 'Icon', 'Empty Icon');
+  warning(false, 'Icon', 'Empty Icon');
   return null;
 };
 

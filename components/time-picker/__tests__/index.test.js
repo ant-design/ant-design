@@ -1,11 +1,11 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
+import React from 'react';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/devWarning';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -81,7 +81,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should support bordered', () => {
