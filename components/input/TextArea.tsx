@@ -87,6 +87,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const {
       status: contextStatus,
+      ariaDescribedBy,
       hasFeedback,
       isFormItemInput,
       feedbackIcon,
@@ -183,6 +184,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const textArea = (
       <RcTextArea
         {...omit(props, ['allowClear'])}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={mergedStatus === 'error' || undefined}
         disabled={mergedDisabled}
         className={classNames(
           {

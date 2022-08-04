@@ -157,6 +157,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const {
     status: contextStatus,
     hasFeedback,
+    ariaDescribedBy,
     isFormItemInput,
     feedbackIcon,
   } = useContext(FormItemInputContext);
@@ -262,6 +263,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   // ==================== Render =====================
   return (
     <RcCascader
+      aria-describedby={ariaDescribedBy}
+      aria-invalid={contextStatus === 'error' || undefined}
       prefixCls={prefixCls}
       className={classNames(
         !customizePrefixCls && cascaderPrefixCls,

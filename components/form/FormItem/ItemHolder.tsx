@@ -108,8 +108,16 @@ export default function ItemHolder(props: ItemHolderProps) {
       ) : null;
     }
 
+    const errorIdPrefix = fieldId ? `${fieldId}_` : '';
+    const ariaDescribedBy =
+      [
+        ...(errors?.map((e, i) => `${errorIdPrefix}error_${i}`) || []),
+        ...(warnings?.map((w, i) => `${errorIdPrefix}warning_${i}`) || []),
+      ].join(' ') || undefined;
+
     return {
       status: mergedValidateStatus,
+      ariaDescribedBy,
       hasFeedback,
       feedbackIcon,
       isFormItemInput: true,

@@ -110,6 +110,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   // ===================== Form Status =====================
   const {
     status: contextStatus,
+    ariaDescribedBy,
     hasFeedback,
     isFormItemInput,
     feedbackIcon,
@@ -172,6 +173,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   return (
     <RcSelect<any, any>
+      aria-describedby={ariaDescribedBy}
+      aria-invalid={contextStatus === 'error' || undefined}
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}

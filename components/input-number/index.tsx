@@ -75,6 +75,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const {
     hasFeedback,
     status: contextStatus,
+    ariaDescribedBy,
     isFormItemInput,
     feedbackIcon,
   } = useContext(FormItemInputContext);
@@ -100,6 +101,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   let element = (
     <RcInputNumber
       ref={inputRef}
+      aria-describedby={ariaDescribedBy}
+      aria-invalid={mergedStatus === 'error'}
       disabled={mergedDisabled}
       className={inputNumberClass}
       upHandler={upIcon}

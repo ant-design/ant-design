@@ -13,6 +13,7 @@ interface ErrorEntity {
   error: React.ReactNode;
   errorStatus?: ValidateStatus;
   key: string;
+  index: number;
 }
 
 function toErrorEntity(
@@ -22,6 +23,7 @@ function toErrorEntity(
   index: number = 0,
 ): ErrorEntity {
   return {
+    index,
     key: typeof error === 'string' ? error : `${prefix}-${index}`,
     error,
     errorStatus,
@@ -33,6 +35,7 @@ export interface ErrorListProps {
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
+  fieldId?: string;
   className?: string;
   onVisibleChanged?: (visible: boolean) => void;
 }
@@ -42,6 +45,7 @@ export default function ErrorList({
   helpStatus,
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
+  fieldId,
   className: rootClassName,
   onVisibleChanged,
 }: ErrorListProps) {
@@ -93,16 +97,19 @@ export default function ErrorList({
               {itemProps => {
                 const {
                   key,
+                  index,
                   error,
                   errorStatus,
                   className: itemClassName,
                   style: itemStyle,
                 } = itemProps;
 
+                const idPrefix = fieldId ? `${fieldId}_` : '';
+
                 return (
                   <div
                     key={key}
-                    role="alert"
+                    id={`${idPrefix}${errorStatus}_${index}`}
                     className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}

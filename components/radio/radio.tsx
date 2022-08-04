@@ -17,7 +17,11 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
-  const { isFormItemInput } = useContext(FormItemInputContext);
+  const {
+    isFormItemInput,
+    ariaDescribedBy,
+    status: contextStatus,
+  } = useContext(FormItemInputContext);
 
   warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
 
@@ -71,7 +75,14 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
     >
-      <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
+      <RcCheckbox
+        {...radioProps}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={contextStatus === 'error' || undefined}
+        type="radio"
+        prefixCls={prefixCls}
+        ref={mergedRef}
+      />
       {children !== undefined ? <span>{children}</span> : null}
     </label>
   );

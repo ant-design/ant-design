@@ -32,6 +32,7 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  fieldId?: string;
 }
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
@@ -44,6 +45,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     warnings,
     _internalItemRender: formItemRender,
     extra,
+    fieldId,
     help,
     marginBottom,
     onErrorVisibleChanged,
@@ -76,6 +78,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
             warnings={warnings}
             help={help}
             helpStatus={status}
+            fieldId={fieldId}
             className={`${baseClassName}-explain-connected`}
             onVisibleChanged={onErrorVisibleChanged}
           />

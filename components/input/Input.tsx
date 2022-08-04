@@ -134,6 +134,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
+    id,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -150,7 +151,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedDisabled = customDisabled || disabled;
 
   // ===================== Status =====================
-  const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
+  const {
+    status: contextStatus,
+    ariaDescribedBy,
+    hasFeedback,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Focus warning =====================
@@ -215,9 +221,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   return (
     <RcInput
+      aria-invalid={mergedStatus === 'error' || undefined}
+      aria-describedby={ariaDescribedBy}
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
+      id={id}
       {...rest}
       disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
