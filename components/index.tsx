@@ -15,12 +15,7 @@ if (
   );
 }
 /* @remove-on-es-build-end */
-import ant_version from './version';
-export const version = ant_version;
-
-// @ts-ignore
-import { loadTheme } from '@hi/core';
-loadTheme(ant_version);
+export { default as version } from './version';
 
 export { default as Affix } from './affix';
 
