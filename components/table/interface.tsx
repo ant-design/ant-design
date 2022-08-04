@@ -189,8 +189,8 @@ export interface TableCurrentDataSource<RecordType> {
 export interface SorterResult<RecordType> {
   column?: ColumnType<RecordType>;
   order?: SortOrder;
-  field?: Key | readonly Key[];
-  columnKey?: Key;
+  field?: keyof RecordType | readonly keyof RecordType[];
+  columnKey?: keyof RecordType;
 }
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
