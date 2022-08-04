@@ -5004,7 +5004,6 @@ Array [
                   class="ant-input-number-input-wrap"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
                     class="ant-input-number-input"
                     disabled=""
@@ -5289,7 +5288,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-status-error"
               placeholder="unavailable choice"
               type="text"
@@ -5326,7 +5324,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-disabled ant-input-status-error"
               disabled=""
               placeholder="unavailable choice"
@@ -5400,7 +5397,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-status-error"
               placeholder="unavailable choice"
               type="text"
@@ -5437,7 +5433,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-disabled ant-input-status-error"
               disabled=""
               placeholder="unavailable choice"
@@ -5535,7 +5530,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                   Buggy!
                 </span>
                 <input
-                  aria-invalid="true"
                   class="ant-input ant-input-status-error"
                   placeholder="unavailable choice"
                   type="text"
@@ -5585,7 +5579,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                   Buggy!
                 </span>
                 <input
-                  aria-invalid="true"
                   class="ant-input ant-input-disabled ant-input-status-error"
                   disabled=""
                   placeholder="unavailable choice"
@@ -5678,7 +5671,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                 人民币
               </span>
               <input
-                aria-invalid="true"
                 class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
@@ -5724,7 +5716,6 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
                 人民币
               </span>
               <input
-                aria-invalid="true"
                 class="ant-input ant-input-disabled"
                 disabled=""
                 placeholder="unavailable choice"
@@ -7480,7 +7471,6 @@ exports[`renders ./components/form/demo/nest-messages.md extend context correctl
                 class="ant-input-number-input-wrap"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
                   class="ant-input-number-input"
                   id="nest-messages_user_age"
@@ -8641,7 +8631,6 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-invalid="false"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="register_donation"
@@ -10862,7 +10851,6 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
                   class="ant-input-number-input"
                   role="spinbutton"
@@ -18668,7 +18656,6 @@ Array [
                   class="ant-input-number-input-wrap"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
                     class="ant-input-number-input"
                     id="age"
@@ -19157,7 +19144,6 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                 class="ant-input-number-input-wrap"
               >
                 <input
-                  aria-invalid="false"
                   aria-valuemax="10"
                   aria-valuemin="1"
                   aria-valuenow="3"
@@ -20304,7 +20290,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-status-error"
               id="error"
               placeholder="unavailable choice"
@@ -20613,7 +20598,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <input
-                aria-invalid="true"
                 class="ant-input"
                 id="error2"
                 placeholder="unavailable choice"
@@ -24019,7 +24003,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-invalid="true"
               class="ant-select ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -24033,7 +24016,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
-                    aria-invalid="true"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -24231,7 +24213,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-invalid="true"
               class="ant-select ant-cascader ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -24244,7 +24225,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-haspopup="listbox"
-                    aria-invalid="true"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -24584,7 +24564,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                           class="ant-picker-input"
                         >
                           <input
-                            aria-invalid="true"
                             autocomplete="off"
                             placeholder="Select date"
                             readonly=""
@@ -25894,7 +25873,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   class="ant-input-number-input-wrap"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
                     class="ant-input-number-input"
                     role="spinbutton"
@@ -26149,7 +26127,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             >
               <input
                 action="click"
-                aria-invalid="true"
                 class="ant-input"
                 placeholder="with input password and allowClear"
                 type="password"
@@ -26268,7 +26245,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 class="ant-mentions ant-mentions-status-error"
               >
                 <textarea
-                  aria-invalid="true"
                   class="rc-textarea"
                   rows="1"
                 />
@@ -26339,7 +26315,6 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
               >
                 <textarea
-                  aria-invalid="true"
                   class="ant-input ant-input-status-error"
                 />
                 <span
@@ -26588,7 +26563,6 @@ exports[`renders ./components/form/demo/without-form-create.md extend context co
                 class="ant-input-number-input-wrap"
               >
                 <input
-                  aria-invalid="false"
                   aria-valuemax="12"
                   aria-valuemin="8"
                   aria-valuenow="11"

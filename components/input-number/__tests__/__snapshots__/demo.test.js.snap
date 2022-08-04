@@ -84,7 +84,6 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
-              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -241,7 +240,6 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
-              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -393,7 +391,6 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
-              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -565,7 +562,6 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
-              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -647,7 +643,6 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="3"
@@ -727,7 +722,6 @@ exports[`renders ./components/input-number/demo/borderless.md correctly 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="3"
@@ -815,7 +809,6 @@ exports[`renders ./components/input-number/demo/controls.md correctly 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -893,7 +886,6 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -974,7 +966,6 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
-        aria-invalid="false"
         aria-valuemax="10"
         aria-valuemin="1"
         aria-valuenow="3"
@@ -1075,7 +1066,6 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuenow="1000"
           autocomplete="off"
           class="ant-input-number-input"
@@ -1154,7 +1144,6 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="100"
@@ -1243,7 +1232,6 @@ exports[`renders ./components/input-number/demo/keyboard.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="10"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -1355,7 +1343,6 @@ exports[`renders ./components/input-number/demo/out-of-range.md correctly 1`] = 
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="10"
           aria-valuemin="1"
           aria-valuenow="99"
@@ -1459,7 +1446,6 @@ Array [
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -1574,7 +1560,6 @@ Array [
             class="ant-input-number-input-wrap"
           >
             <input
-              aria-invalid="false"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
@@ -1662,7 +1647,6 @@ Array [
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           disabled=""
@@ -1749,7 +1733,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -1831,7 +1814,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -1912,7 +1894,6 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -2003,7 +1984,6 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="true"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -2083,7 +2063,6 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -2192,7 +2171,6 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
           class="ant-input-number-input-wrap"
         >
           <input
-            aria-invalid="true"
             autocomplete="off"
             class="ant-input-number-input"
             role="spinbutton"
@@ -2301,7 +2279,6 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
           class="ant-input-number-input-wrap"
         >
           <input
-            aria-invalid="false"
             autocomplete="off"
             class="ant-input-number-input"
             role="spinbutton"

@@ -15753,7 +15753,6 @@ exports[`ConfigProvider components Form configProvider 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="config-input config-input-status-error"
               type="text"
               value=""
@@ -15786,7 +15785,6 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="config-input config-input-disabled config-input-status-error"
               disabled=""
               type="text"
@@ -15820,7 +15818,6 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="config-input config-input-lg config-input-status-error"
               type="text"
               value=""
@@ -15853,7 +15850,6 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
             class="config-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="config-input config-input-status-error"
               type="text"
               value=""
@@ -15886,7 +15882,6 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-status-error"
               type="text"
               value=""
@@ -15919,7 +15914,6 @@ exports[`ConfigProvider components Form normal 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="ant-input ant-input-status-error"
               type="text"
               value=""
@@ -15952,7 +15946,6 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
             class="prefix-Form-item-control-input-content"
           >
             <input
-              aria-invalid="true"
               class="prefix-Form prefix-Form-status-error"
               type="text"
               value=""
@@ -16771,7 +16764,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     class="config-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="config-input-number-input"
       role="spinbutton"
@@ -16848,7 +16840,6 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
     class="config-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="config-input-number-input"
       disabled=""
@@ -16926,7 +16917,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
     class="config-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="config-input-number-input"
       role="spinbutton"
@@ -17003,7 +16993,6 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
     class="config-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="config-input-number-input"
       role="spinbutton"
@@ -17080,7 +17069,6 @@ exports[`ConfigProvider components InputNumber configProvider virtual and dropdo
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -17157,7 +17145,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -17234,7 +17221,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     class="prefix-InputNumber-input-wrap"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       class="prefix-InputNumber-input"
       role="spinbutton"

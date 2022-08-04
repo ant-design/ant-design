@@ -800,7 +800,6 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
-        aria-invalid="false"
         autocomplete="off"
         class="ant-input-number-input"
         role="spinbutton"
@@ -5844,7 +5843,6 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
         class="ant-input-number-input-wrap"
       >
         <input
-          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -9576,7 +9574,6 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
     style="margin-bottom:8px"
   >
     <input
-      aria-invalid="true"
       class="ant-input ant-input-status-error"
       placeholder="Error"
       type="text"
@@ -9628,7 +9625,6 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
         </span>
       </span>
       <input
-        aria-invalid="true"
         class="ant-input"
         placeholder="Error with prefix"
         type="text"
