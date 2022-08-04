@@ -99,6 +99,19 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+## How to get the definition which is not export?
+
+antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取： antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+
+```tsx
+import { Table } from 'antd';
+
+type Props<T extends (...args: any) => any> = Parameters<T>[0];
+
+type TableProps = Props<typeof Table<{ key: string, name: string, age: number }>>;
+type DataSource = TableProps['dataSource'];
+```
+
 ## Date-related components locale is not working?
 
 Please check whether import moment locale correctly.

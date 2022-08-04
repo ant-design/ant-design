@@ -1,8 +1,9 @@
 import * as React from 'react';
+import type { DirectionType } from 'antd/es/config-provider';
 
 export interface SiteContextProps {
   isMobile: boolean;
-  direction: string;
+  direction: DirectionType;
 }
 
 const SiteContext = React.createContext<SiteContextProps>({
