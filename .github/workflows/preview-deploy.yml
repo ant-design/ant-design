@@ -51,7 +51,7 @@ jobs:
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v2
+        uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -62,7 +62,7 @@ jobs:
 
       - name: The job has failed
         if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v2
+        uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -96,7 +96,7 @@ jobs:
         run: echo "::set-output name=id::$(<pr-id.txt)"
 
       - name: The job has failed
-        uses: actions-cool/maintain-one-comment@v2
+        uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
