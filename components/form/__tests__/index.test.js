@@ -725,6 +725,8 @@ describe('Form', () => {
       </Form>,
     );
 
+    expect(wrapper.find('input').getDOMNode().getAttribute('aria-invalid')).toBeFalsy();
+    expect(wrapper.find('input').getDOMNode().getAttribute('aria-describedby')).toBeFalsy();
     wrapper.find('form').simulate('submit');
     await sleep(100);
     wrapper.update();
