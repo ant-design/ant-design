@@ -247,7 +247,7 @@ function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
 
 function generateSorterInfo<RecordType>(
   sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType>[] {
+): SorterResult<RecordType> | SorterResult<RecordType[]> {
   const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
 
   // =========== Legacy compatible support ===========
@@ -259,11 +259,7 @@ function generateSorterInfo<RecordType>(
     };
   }
 
-  if (list.length <= 1) {
-    return list[0] || {};
-  }
-
-  return list;
+  return list[0] || {};
 }
 
 export function getSortData<RecordType>(
@@ -324,7 +320,7 @@ interface SorterConfig<RecordType> {
   prefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (
-    sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorterResult: SorterResult<RecordType> | SorterResult<RecordType[]>,
     sortStates: SortState<RecordType>[],
   ) => void;
   sortDirections: SortOrder[];
@@ -343,7 +339,7 @@ export default function useFilterSorter<RecordType>({
   TransformColumns<RecordType>,
   SortState<RecordType>[],
   ColumnTitleProps<RecordType>,
-  () => SorterResult<RecordType> | SorterResult<RecordType>[],
+  () => SorterResult<RecordType> | SorterResult<RecordType[]>,
 ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),

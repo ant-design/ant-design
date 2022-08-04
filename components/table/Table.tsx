@@ -61,7 +61,7 @@ interface ChangeEventInfo<RecordType> {
     total?: number;
   };
   filters: Record<string, FilterValue | null>;
-  sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
+  sorter: SorterResult<RecordType> | SorterResult<RecordType[]>;
 
   filterStates: FilterState<RecordType>[];
   sorterStates: SortState<RecordType>[];
@@ -92,7 +92,7 @@ export interface TableProps<RecordType>
   onChange?: (
     pagination: TablePaginationConfig,
     filters: Record<string, FilterValue | null>,
-    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorter: SorterResult<RecordType> | SorterResult<RecordType[]>,
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
@@ -263,7 +263,7 @@ function InternalTable<RecordType extends object = any>(
 
   // ============================ Sorter =============================
   const onSorterChange = (
-    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorter: SorterResult<RecordType> | SorterResult<RecordType[]>,
     sorterStates: SortState<RecordType>[],
   ) => {
     triggerOnChange(
