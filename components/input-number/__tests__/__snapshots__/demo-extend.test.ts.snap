@@ -84,6 +84,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -150,7 +151,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -322,6 +323,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -370,7 +372,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -589,6 +591,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -670,7 +673,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -835,6 +838,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-invalid="false"
               aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
@@ -916,6 +920,7 @@ exports[`renders ./components/input-number/demo/basic.md extend context correctl
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="3"
@@ -995,6 +1000,7 @@ exports[`renders ./components/input-number/demo/borderless.md extend context cor
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="3"
@@ -1082,6 +1088,7 @@ exports[`renders ./components/input-number/demo/controls.md extend context corre
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -1159,6 +1166,7 @@ exports[`renders ./components/input-number/demo/digit.md extend context correctl
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       aria-valuemax="10"
       aria-valuemin="0"
       aria-valuenow="1"
@@ -1239,6 +1247,7 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-invalid="false"
         aria-valuemax="10"
         aria-valuemin="1"
         aria-valuenow="3"
@@ -1339,6 +1348,7 @@ exports[`renders ./components/input-number/demo/formatter.md extend context corr
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuenow="1000"
           autocomplete="off"
           class="ant-input-number-input"
@@ -1417,6 +1427,7 @@ exports[`renders ./components/input-number/demo/formatter.md extend context corr
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="100"
@@ -1505,6 +1516,7 @@ exports[`renders ./components/input-number/demo/keyboard.md extend context corre
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="10"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -1616,6 +1628,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md extend context c
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="10"
           aria-valuemin="1"
           aria-valuenow="99"
@@ -1719,6 +1732,7 @@ Array [
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -1833,6 +1847,7 @@ Array [
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-invalid="false"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
@@ -1920,6 +1935,7 @@ Array [
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           disabled=""
@@ -2006,6 +2022,7 @@ exports[`renders ./components/input-number/demo/size.md extend context correctly
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -2087,6 +2104,7 @@ exports[`renders ./components/input-number/demo/size.md extend context correctly
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -2167,6 +2185,7 @@ exports[`renders ./components/input-number/demo/size.md extend context correctly
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           aria-valuemax="100000"
           aria-valuemin="1"
           aria-valuenow="3"
@@ -2257,6 +2276,7 @@ exports[`renders ./components/input-number/demo/status.md extend context correct
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="true"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -2336,6 +2356,7 @@ exports[`renders ./components/input-number/demo/status.md extend context correct
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -2444,6 +2465,7 @@ exports[`renders ./components/input-number/demo/status.md extend context correct
           class="ant-input-number-input-wrap"
         >
           <input
+            aria-invalid="true"
             autocomplete="off"
             class="ant-input-number-input"
             role="spinbutton"
@@ -2552,6 +2574,7 @@ exports[`renders ./components/input-number/demo/status.md extend context correct
           class="ant-input-number-input-wrap"
         >
           <input
+            aria-invalid="false"
             autocomplete="off"
             class="ant-input-number-input"
             role="spinbutton"

@@ -695,7 +695,7 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
-  it('validation message should has alert role', async () => {
+  it('validation message should have alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const wrapper = mount(
       // eslint-disable-next-line no-template-curly-in-string
@@ -712,6 +712,26 @@ describe('Form', () => {
     await sleep(100);
     expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
       'alert',
+    );
+  });
+
+  it('validation message should have aria-describedby and aria-invalid', async () => {
+    const wrapper = mount(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: 'name is good!' }}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    wrapper.find('form').simulate('submit');
+    await sleep(100);
+    wrapper.update();
+    await sleep(100);
+    expect(wrapper.find('input').getDOMNode().getAttribute('aria-invalid')).toBe('true');
+    expect(wrapper.find('input').getDOMNode().getAttribute('aria-describedby')).toContain(
+      wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('id'),
     );
   });
 

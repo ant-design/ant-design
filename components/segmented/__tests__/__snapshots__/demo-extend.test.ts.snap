@@ -1255,7 +1255,7 @@ Array [
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div

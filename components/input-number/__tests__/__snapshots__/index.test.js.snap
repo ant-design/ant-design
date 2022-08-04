@@ -74,6 +74,7 @@ exports[`InputNumber renders correctly when controls has custom upIcon and downI
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -150,6 +151,7 @@ exports[`InputNumber renders correctly when controls is {} 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -168,6 +170,7 @@ exports[`InputNumber renders correctly when controls is boolean 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
@@ -244,6 +247,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
     class="ant-input-number-input-wrap"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"

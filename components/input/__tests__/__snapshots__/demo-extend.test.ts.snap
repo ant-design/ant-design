@@ -80,7 +80,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -230,7 +230,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -493,7 +493,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <div>
               <div
                 class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-                style="opacity:0"
+                style="opacity:0;pointer-events:none"
               >
                 <div>
                   <div
@@ -668,7 +668,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div
           class="ant-tooltip-content"
@@ -800,6 +800,7 @@ Array [
       class="ant-input-number-input-wrap"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         class="ant-input-number-input"
         role="spinbutton"
@@ -851,7 +852,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-picker-panel-container"
@@ -1448,7 +1449,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-picker-panel-container"
@@ -2846,7 +2847,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div>
           <div
@@ -3018,7 +3019,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div>
           <div
@@ -3136,7 +3137,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
+        style="opacity:0;pointer-events:none;min-width:auto"
       >
         <div>
           <div
@@ -3360,7 +3361,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -4496,7 +4497,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-picker-panel-container"
@@ -4758,7 +4759,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div>
           <div
@@ -5298,7 +5299,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div
           class="ant-tooltip-content"
@@ -5359,7 +5360,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -5666,7 +5667,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -5843,6 +5844,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
@@ -5905,7 +5907,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div
           class="ant-picker-panel-container"
@@ -6552,7 +6554,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -7686,7 +7688,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -7827,7 +7829,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -7973,7 +7975,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -8142,7 +8144,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -8280,7 +8282,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -8399,7 +8401,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -8539,7 +8541,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <div>
         <div
           class="ant-select-dropdown ant-cascader-dropdown"
-          style="opacity:0;min-width:auto"
+          style="opacity:0;pointer-events:none;min-width:auto"
         >
           <div>
             <div
@@ -8812,7 +8814,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div
             class="ant-tooltip-content"
@@ -9574,6 +9576,7 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
     style="margin-bottom:8px"
   >
     <input
+      aria-invalid="true"
       class="ant-input ant-input-status-error"
       placeholder="Error"
       type="text"
@@ -9625,6 +9628,7 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
         </span>
       </span>
       <input
+        aria-invalid="true"
         class="ant-input"
         placeholder="Error with prefix"
         type="text"
@@ -9764,7 +9768,7 @@ Array [
   <div>
     <div
       class="ant-tooltip numeric-input"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"

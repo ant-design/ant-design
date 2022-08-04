@@ -34,7 +34,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div>
           <div
@@ -80,7 +80,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        style="opacity:0;pointer-events:none"
       >
         <div>
           <div
@@ -163,7 +163,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
   <div>
     <div
       class="ant-select-dropdown certain-category-search-dropdown"
-      style="opacity:0;width:500px"
+      style="opacity:0;pointer-events:none;width:500px"
     >
       <div>
         <div
@@ -501,7 +501,7 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
   <div>
     <div
       class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div
@@ -574,7 +574,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               <div>
                 <div
                   class="ant-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
+                  style="opacity:0;pointer-events:none"
                 >
                   <div>
                     <div
@@ -647,7 +647,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               <div>
                 <div
                   class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
+                  style="opacity:0;pointer-events:none"
                 >
                   <div>
                     <div
@@ -796,7 +796,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -909,7 +909,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1008,7 +1008,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               <div>
                 <div
                   class="ant-select-dropdown ant-select-dropdown-empty"
-                  style="opacity:0"
+                  style="opacity:0;pointer-events:none"
                 >
                   <div>
                     <div
@@ -1085,7 +1085,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1225,7 +1225,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1303,7 +1303,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1452,7 +1452,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1530,7 +1530,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1679,7 +1679,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <div>
                   <div
                     class="ant-select-dropdown ant-select-dropdown-empty"
-                    style="opacity:0"
+                    style="opacity:0;pointer-events:none"
                   >
                     <div>
                       <div
@@ -1760,7 +1760,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div
@@ -1890,7 +1890,7 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
   <div>
     <div
       class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div>
         <div
@@ -1943,7 +1943,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
       <div>
         <div
           class="ant-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -1989,7 +1989,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
       <div>
         <div
           class="ant-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
+          style="opacity:0;pointer-events:none"
         >
           <div>
             <div
@@ -2073,7 +2073,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md extend co
   <div>
     <div
       class="ant-select-dropdown ant-select-dropdown-empty"
-      style="opacity:0;width:252px"
+      style="opacity:0;pointer-events:none;width:252px"
     >
       <div>
         <div

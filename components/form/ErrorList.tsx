@@ -109,6 +109,7 @@ export default function ErrorList({
                 return (
                   <div
                     key={key}
+                    role="alert"
                     id={`${idPrefix}${errorStatus}_${index}`}
                     className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,

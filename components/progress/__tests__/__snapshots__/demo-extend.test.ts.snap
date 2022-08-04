@@ -1402,7 +1402,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"
@@ -1475,7 +1475,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"
@@ -1548,7 +1548,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0"
+      style="opacity:0;pointer-events:none"
     >
       <div
         class="ant-tooltip-content"

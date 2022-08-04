@@ -744,7 +744,7 @@ HTMLCollection [
                               <div>
                                 <div
                                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                                  style="opacity: 0;"
+                                  style="opacity: 0; pointer-events: none;"
                                 >
                                   <div>
                                     <div
@@ -921,7 +921,7 @@ HTMLCollection [
                               <div>
                                 <div
                                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                                  style="opacity: 0;"
+                                  style="opacity: 0; pointer-events: none;"
                                 >
                                   <div>
                                     <div
@@ -1103,7 +1103,7 @@ HTMLCollection [
                               <div>
                                 <div
                                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                                  style="opacity: 0;"
+                                  style="opacity: 0; pointer-events: none;"
                                 >
                                   <div>
                                     <div
@@ -1331,7 +1331,7 @@ HTMLCollection [
                             <div>
                               <div
                                 class="ant-picker-dropdown ant-picker-dropdown-range ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                                style="opacity: 0;"
+                                style="opacity: 0; pointer-events: none;"
                               >
                                 <div
                                   class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -2425,6 +2425,9 @@ HTMLCollection [
                                 </div>
                               </div>
                             </div>
+                            <div
+                              style="position: absolute; top: 0px; left: 0px; width: 100%;"
+                            />
                             <div
                               style="position: absolute; top: 0px; left: 0px; width: 100%;"
                             />

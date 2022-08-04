@@ -801,6 +801,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
                   class="ant-input-number-input"
                   disabled=""
