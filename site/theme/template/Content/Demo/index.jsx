@@ -499,7 +499,11 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
     );
 
     if (meta.version) {
-      codeBox = <Badge.Ribbon text={meta.version}>{codeBox}</Badge.Ribbon>;
+      codeBox = (
+        <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
+          {codeBox}
+        </Badge.Ribbon>
+      );
     }
 
     return codeBox;
