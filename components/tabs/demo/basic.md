@@ -25,14 +25,23 @@ const App: React.FC = () => (
   <Tabs
     defaultActiveKey="1"
     onChange={onChange}
-    items={new Array(3).fill(null).map((_, i) => {
-      const id = String(i + 1);
-      return {
-        label: `Tab ${id}`,
-        key: id,
-        children: `Content of Tab Pane ${id}`,
-      };
-    })}
+    items={[
+      {
+        label: `Tab 1`,
+        key: '1',
+        children: `Content of Tab Pane 1`,
+      },
+      {
+        label: `Tab 2`,
+        key: '2',
+        children: `Content of Tab Pane 2`,
+      },
+      {
+        label: `Tab 3`,
+        key: '3',
+        children: `Content of Tab Pane 3`,
+      },
+    ]}
   />
 );
 
