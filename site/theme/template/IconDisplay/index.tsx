@@ -35,13 +35,19 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
   });
 
   const newIconNames: string[] = [];
-  const handleSearchIcon = debounce((searchKey: string) => {
-    setDisplayState(prevState => ({ ...prevState, searchKey }));
-  });
-  const handleChangeTheme = (e: RadioChangeEvent) => {
+
+  const handleSearchIcon = React.useCallback(
+    debounce((searchKey: string) => {
+      setDisplayState(prevState => ({ ...prevState, searchKey }));
+    }),
+    [],
+  );
+
+  const handleChangeTheme = React.useCallback((e: RadioChangeEvent) => {
     setDisplayState(prevState => ({ ...prevState, theme: e.target.value as ThemeType }));
-  };
-  const renderCategories = () => {
+  }, []);
+
+  const renderCategories = React.useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
 
     const categoriesResult = Object.keys(categories)
@@ -74,9 +80,8 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
           newIcons={newIconNames}
         />
       ));
-
     return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
-  };
+  }, [displayState.searchKey, displayState.theme]);
   return (
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -106,7 +111,7 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
           suffix={<IconPicSearcher />}
         />
       </div>
-      {renderCategories()}
+      {renderCategories}
     </>
   );
 };
