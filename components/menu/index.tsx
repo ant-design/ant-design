@@ -45,7 +45,7 @@ const ThemedMenu = forwardRef<MenuRef, MenuProps>(({ theme = 'light', ...rest },
     menu: menuRef.current,
   }));
 
-  const { colorTextLightSolid, colorTextSecondary, colorPrimary, colorError, colorErrorHover } =
+  const { colorTextLightSolid, colorTextDescription, colorPrimary, colorError, colorErrorHover } =
     token;
 
   const darkThemeToken = useMemo<Partial<ComponentToken>>(() => {
@@ -53,7 +53,7 @@ const ThemedMenu = forwardRef<MenuRef, MenuProps>(({ theme = 'light', ...rest },
       return {
         colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
         colorItemTextHover: colorTextLightSolid,
-        colorGroupTitle: colorTextSecondary,
+        colorGroupTitle: colorTextDescription,
         colorItemTextSelected: colorTextLightSolid,
         colorItemBg: '#001529',
         colorSubItemBg: '#000c17',

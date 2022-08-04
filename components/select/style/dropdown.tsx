@@ -98,7 +98,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
 
           // =========== Group ============
           '&-group': {
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             fontSize: token.fontSizeSM,
             cursor: 'default',
           },

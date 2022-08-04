@@ -524,7 +524,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       transition: `color ${token.motionDurationSlow}`,
 
       '&:hover': {
-        color: token.colorTextSecondary,
+        color: token.colorTextDescription,
       },
 
       '&:active': {
@@ -559,7 +559,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     prefixCls,
     inputAffixPadding,
-    colorTextSecondary,
+    colorTextDescription,
     motionDurationSlow,
     colorIcon,
     colorIconHover,
@@ -617,7 +617,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-suffix': {
-          color: colorTextSecondary,
+          color: colorTextDescription,
         },
 
         '&-show-count-has-suffix': {
@@ -735,7 +735,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
 
           [`${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
 
             '&.ant-btn-loading::before': {
               insetInlineStart: 0,
@@ -834,7 +834,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
           position: 'absolute',
           bottom: 0,
           insetInlineEnd: 0,
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',

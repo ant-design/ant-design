@@ -33,7 +33,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlHeightSM,
     colorError,
     inputPaddingHorizontalSM,
-    colorTextSecondary,
+    colorTextDescription,
     motionDurationFast,
     colorPrimary,
     controlHeight,
@@ -196,7 +196,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-handler`]: {
           height: '50%',
           overflow: 'hidden',
-          color: colorTextSecondary,
+          color: colorTextDescription,
           fontWeight: 'bold',
           lineHeight: 0,
           textAlign: 'center',
@@ -222,7 +222,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-up-inner, &-down-inner': {
             ...resetIcon(),
 
-            color: colorTextSecondary,
+            color: colorTextDescription,
             transition: `all ${motionDurationFast} linear`,
             userSelect: 'none',
           },

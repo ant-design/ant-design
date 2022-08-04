@@ -267,7 +267,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             transition: `all ${motionDurationSlow}`,
           },
 
@@ -365,7 +365,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
               [`${componentCls}-menu-submenu-arrow-icon`]: {
                 marginInlineEnd: '0 !important',
-                color: token.colorTextSecondary,
+                color: token.colorTextDescription,
                 fontSize: fontSizeIcon,
                 fontStyle: 'normal',
               },

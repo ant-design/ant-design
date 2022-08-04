@@ -92,14 +92,14 @@ export default genComponentStyleHook<'BackTop'>(
   token => {
     const {
       fontSizeHeading3,
-      colorTextSecondary,
+      colorTextDescription,
       colorTextLightSolid,
       colorText,
       controlHeightLG,
     } = token;
 
     const backTopToken = mergeToken<BackTopToken>(token, {
-      backTopBackground: colorTextSecondary,
+      backTopBackground: colorTextDescription,
       backTopColor: colorTextLightSolid,
       backTopHoverBackground: colorText,
       backTopFontSize: fontSizeHeading3,
