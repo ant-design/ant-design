@@ -38,7 +38,7 @@ const App: React.FC = () => {
         tabPosition={mode}
         style={{ height: 220 }}
         items={new Array(30).fill(null).map((_, i) => {
-          const id = String(i + 1);
+          const id = String(i);
           return {
             label: `Tab-${id}`,
             key: id,
