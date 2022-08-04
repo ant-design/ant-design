@@ -63,11 +63,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
-  const {
-    isFormItemInput,
-    status: contextStatus,
-    ariaDescribedBy,
-  } = useContext(FormItemInputContext);
+  const { isFormItemInput, status: contextStatus } = useContext(FormItemInputContext);
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled || checkboxGroup?.disabled || contextDisabled;
 
@@ -132,8 +128,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     >
       <RcCheckbox
         aria-checked={ariaChecked}
-        aria-describedby={ariaDescribedBy}
-        aria-invalid={contextStatus === 'error' || undefined}
         {...checkboxProps}
         prefixCls={prefixCls}
         className={checkboxClass}

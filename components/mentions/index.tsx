@@ -70,7 +70,6 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const {
     status: contextStatus,
     hasFeedback,
-    ariaDescribedBy,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
@@ -131,8 +130,6 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 
   const mentions = (
     <RcMentions
-      aria-describedby={ariaDescribedBy}
-      aria-invalid={contextStatus === 'error' || undefined}
       prefixCls={prefixCls}
       notFoundContent={getNotFoundContent()}
       className={mergedClassName}

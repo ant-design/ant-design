@@ -114,7 +114,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const {
     status: contextStatus,
     hasFeedback,
-    ariaDescribedBy,
     isFormItemInput,
     feedbackIcon,
   } = useContext(FormItemInputContext);
@@ -178,8 +177,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
 
   return (
     <RcTreeSelect
-      aria-describedby={ariaDescribedBy}
-      aria-invalid={contextStatus === 'error' || undefined}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={mergedDisabled}

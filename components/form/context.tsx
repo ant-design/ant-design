@@ -58,7 +58,6 @@ export interface FormItemStatusContextProps {
   isFormItemInput?: boolean;
   status?: ValidateStatus;
   hasFeedback?: boolean;
-  ariaDescribedBy?: string;
   feedbackIcon?: ReactNode;
 }
 

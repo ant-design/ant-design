@@ -720,7 +720,7 @@ describe('Form', () => {
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
-          <Input />
+          <input />
         </Form.Item>
       </Form>,
     );

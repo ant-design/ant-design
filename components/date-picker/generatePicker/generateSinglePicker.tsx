@@ -90,12 +90,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         // ===================== FormItemInput =====================
         const formItemContext = useContext(FormItemInputContext);
-        const {
-          hasFeedback,
-          status: contextStatus,
-          ariaDescribedBy,
-          feedbackIcon,
-        } = formItemContext;
+        const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
         const suffixNode = (
           <>
@@ -112,8 +107,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               return (
                 <RCPicker<DateType>
                   ref={innerRef}
-                  aria-describedby={ariaDescribedBy}
-                  aria-invalid={contextStatus === 'error' || undefined}
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={suffixNode}
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}

@@ -266,6 +266,22 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           ...control,
         };
 
+        const errorIdPrefix = fieldId ? `${fieldId}_` : '';
+        const ariaDescribedBy =
+          [
+            ...(mergedErrors?.map((_e, i) => `${errorIdPrefix}error_${i}`) || []),
+            ...(mergedWarnings?.map((_w, i) => `${errorIdPrefix}warning_${i}`) || []),
+          ].join(' ') || undefined;
+
+        // no point in having aria-invalid="false", so we only add it if it's true
+        if (mergedErrors.length) {
+          mergedControl['aria-invalid'] = true;
+        }
+
+        if (mergedErrors.length + mergedWarnings.length) {
+          mergedControl['aria-describedby'] = ariaDescribedBy;
+        }
+
         let childNode: React.ReactNode = null;
 
         warning(
