@@ -9,7 +9,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     // stepsSmallIconMargin,
     fontSizeSM,
     fontSizeBase,
-    colorTextSecondary,
+    colorTextDescription,
   } = token;
 
   return {
@@ -43,7 +43,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
       },
       [`${componentCls}-item-description`]: {
-        color: colorTextSecondary,
+        color: colorTextDescription,
         fontSize: fontSizeBase,
       },
       [`${componentCls}-item-tail`]: {

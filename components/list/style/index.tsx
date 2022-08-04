@@ -117,7 +117,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     paddingXS,
     margin,
     colorText,
-    colorTextSecondary,
+    colorTextDescription,
     motionDurationSlow,
     lineWidth,
   } = token;
@@ -194,7 +194,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
           },
 
           [`${componentCls}-item-meta-description`]: {
-            color: colorTextSecondary,
+            color: colorTextDescription,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
           },
@@ -211,7 +211,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
             position: 'relative',
             display: 'inline-block',
             padding: `0 ${paddingXS}px`,
-            color: colorTextSecondary,
+            color: colorTextDescription,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
             textAlign: 'center',
@@ -235,7 +235,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 
       [`${componentCls}-empty`]: {
         padding: `${padding}px 0`,
-        color: colorTextSecondary,
+        color: colorTextDescription,
         fontSize: token.fontSizeSM,
         textAlign: 'center',
       },

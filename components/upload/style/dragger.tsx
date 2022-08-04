@@ -53,7 +53,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = token => {
         },
 
         [`p${componentCls}-hint`]: {
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
           fontSize: token.fontSizeBase,
         },
 

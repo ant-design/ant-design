@@ -960,7 +960,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         },
 
         '&:hover': {
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
         },
       },
 
@@ -975,7 +975,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         cursor: 'default',
 
         [`${componentCls}-focused &`]: {
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
         },
 
         [`${componentCls}-range-separator &`]: {

@@ -15,7 +15,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
     width: '100%',
     marginBottom: token.marginLG,
     padding: 0,
-    color: token.colorTextSecondary,
+    color: token.colorTextDescription,
     fontSize: token.fontSizeLG,
     lineHeight: 'inherit',
     border: 0,
@@ -191,7 +191,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           [`${formItemCls}-optional`]: {
             display: 'inline-block',
             marginInlineStart: token.marginXXS,
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
 
             [`${componentCls}-hide-required-mark &`]: {
               display: 'none',
@@ -200,7 +200,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 
           // Optional mark
           [`${formItemCls}-tooltip`]: {
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             cursor: 'help',
             writingMode: 'horizontal-tb',
             marginInlineStart: token.marginXXS,
@@ -252,7 +252,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
       [formItemCls]: {
         '&-explain, &-extra': {
           clear: 'both',
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           transition: `color ${token.motionDurationMid} ${token.motionEaseOut}`, // sync input color transition

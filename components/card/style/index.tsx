@@ -118,7 +118,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     '& > li': {
       margin: cardActionsLiMargin,
-      color: token.colorTextSecondary,
+      color: token.colorTextDescription,
       textAlign: 'center',
 
       '> span': {
@@ -137,7 +137,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         [`a:not(${componentCls}-btn), > ${iconCls}`]: {
           display: 'inline-block',
           width: '100%',
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
           lineHeight: `${token.fontSize * token.lineHeight}px`,
           transition: `color ${token.motionDurationSlow}`,
 
@@ -187,7 +187,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
   },
 
   '&-description': {
-    color: token.colorTextSecondary,
+    color: token.colorTextDescription,
   },
 });
 
