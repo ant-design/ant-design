@@ -26,7 +26,7 @@ describe('Upload.Dragger', () => {
       },
     });
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 
