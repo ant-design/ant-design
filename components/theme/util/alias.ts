@@ -49,7 +49,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorTextDisabled: mergedToken.colorTextQuaternary,
     colorTextHeading: mergedToken.colorText,
     colorTextLabel: mergedToken.colorTextSecondary,
-    colorTextDescription: mergedToken.colorTextSecondary,
+    colorTextDescription: mergedToken.colorTextTertiary,
     colorHighlight: mergedToken.colorError,
 
     colorIcon: mergedToken.colorTextTertiary,

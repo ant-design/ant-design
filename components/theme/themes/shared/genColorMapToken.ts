@@ -1,20 +1,15 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
-import type {
-  GenerateBgPalettes,
-  GenerateColorPalettes,
-  GenerateTextAlphaPalettes,
-} from '../IPalettes';
+import type { GenerateColorPalettes, GenerateNeutralColorPalettes } from '../IPalettes';
 
 interface PaletteGenerators {
   generateColorPalettes: GenerateColorPalettes;
-  generateTextAlphaPalettes: GenerateTextAlphaPalettes;
-  generateBgPalettes: GenerateBgPalettes;
+  generateNeutralColorPalettes: GenerateNeutralColorPalettes;
 }
 
 export default function genColorMapToken(
   seed: SeedToken,
-  { generateColorPalettes, generateTextAlphaPalettes, generateBgPalettes }: PaletteGenerators,
+  { generateColorPalettes, generateNeutralColorPalettes }: PaletteGenerators,
 ): ColorMapToken {
   const {
     colorSuccess: colorSuccessBase,
@@ -31,12 +26,10 @@ export default function genColorMapToken(
   const warningColors = generateColorPalettes(colorWarningBase);
   const errorColors = generateColorPalettes(colorErrorBase);
   const infoColors = generateColorPalettes(colorInfoBase);
-  const bgColors = generateBgPalettes(colorBgBase, colorTextBase);
-  const textColors = generateTextAlphaPalettes(colorTextBase);
+  const neutralColors = generateNeutralColorPalettes(colorBgBase, colorTextBase);
 
   return {
-    ...bgColors,
-    ...textColors,
+    ...neutralColors,
 
     colorPrimaryBg: primaryColors[1],
     colorPrimaryBgHover: primaryColors[2],
@@ -93,7 +86,7 @@ export default function genColorMapToken(
     colorInfoText: infoColors[6],
     colorInfoTextActive: infoColors[7],
 
-    colorBgMask: textColors.colorTextTertiary,
+    colorBgMask: neutralColors.colorTextTertiary,
     colorBgSpotlight: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   };
 }
