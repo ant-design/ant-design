@@ -205,23 +205,20 @@ export interface SeedToken extends PresetColorType {
   opacityImage: number;
 }
 
-export interface TextMapToken {
+export interface NeutralColorMapToken {
+  // Text
   colorText: string;
   colorTextSecondary: string;
   colorTextTertiary: string;
   colorTextQuaternary: string;
-}
 
-export interface BgMapToken {
-  // 作为比较重的描边或者填充内容
+  // Fill
   colorFill: string;
-  // 表达 选中态，或者作为弱一级的实色 border
   colorFillSecondary: string;
-  // 另外一种 hover 色 或者禁用的背景色
-  // 用于表达选中态或用于与区分 BgComponent 区分
   colorFillTertiary: string;
   colorFillQuaternary: string;
-  // Container 类型
+
+  // Background
   colorBgContainer: string;
   colorBgElevated: string;
   colorBgLayout: string;
@@ -232,7 +229,7 @@ export interface BgMapToken {
   colorSplit: string;
 }
 
-export interface ColorMapToken extends BgMapToken, TextMapToken {
+export interface ColorMapToken extends NeutralColorMapToken {
   // Primary
   colorPrimaryBg: string; // 1
   colorPrimaryBgHover: string; // 2

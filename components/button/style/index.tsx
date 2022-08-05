@@ -376,11 +376,11 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', token => {
-  const { controlTmpOutline, colorTextQuaternary, colorTextTertiary } = token;
+  const { controlTmpOutline, colorFillQuaternary, colorFillTertiary } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
-    colorBgTextHover: colorTextQuaternary,
-    colorBgTextActive: colorTextTertiary,
+    colorBgTextHover: colorFillQuaternary,
+    colorBgTextActive: colorFillTertiary,
     colorOutlineDefault: controlTmpOutline,
   });
 

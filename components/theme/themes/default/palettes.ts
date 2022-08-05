@@ -1,9 +1,5 @@
 import { generate } from '@ant-design/colors';
-import type {
-  GenerateBgPalettes,
-  GenerateColorPalettes,
-  GenerateTextAlphaPalettes,
-} from '../IPalettes';
+import type { GenerateColorPalettes, GenerateNeutralColorPalettes } from '../IPalettes';
 import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 
 export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) => {
@@ -21,10 +17,16 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
   };
 };
 
-export const generateBgPalettes: GenerateBgPalettes = (
+export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   bgBaseColor: string,
   textBaseColor: string,
 ) => ({
+  colorText: getAlphaColor(textBaseColor, 0.85),
+  // v5 should be 0.65
+  colorTextSecondary: getAlphaColor(textBaseColor, 0.45),
+  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
+  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
+
   colorFill: getAlphaColor(textBaseColor, 0.06),
   colorFillSecondary: getAlphaColor(textBaseColor, 0.04),
   colorFillTertiary: getAlphaColor(textBaseColor, 0.03),
@@ -37,11 +39,4 @@ export const generateBgPalettes: GenerateBgPalettes = (
   colorBorder: getSolidColor(bgBaseColor, 15),
   colorBorderSecondary: getSolidColor(bgBaseColor, 6),
   colorSplit: getAlphaColor(textBaseColor, 0.06),
-});
-
-export const generateTextAlphaPalettes: GenerateTextAlphaPalettes = (textBaseColor: string) => ({
-  colorText: getAlphaColor(textBaseColor, 0.85),
-  colorTextSecondary: getAlphaColor(textBaseColor, 0.65), // 目前只有 Segment Label 用了
-  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
-  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
 });

@@ -1,4 +1,4 @@
-import type { BgMapToken, TextMapToken } from 'antd/es/theme/interface';
+import type { NeutralColorMapToken } from 'antd/es/theme/interface';
 
 export interface ColorPalettes {
   1: string;
@@ -13,5 +13,7 @@ export interface ColorPalettes {
 }
 
 export type GenerateColorPalettes = (baseColor: string) => ColorPalettes;
-export type GenerateTextAlphaPalettes = (textBaseColor: string) => TextMapToken;
-export type GenerateBgPalettes = (bgBaseColor: string, textBaseColor: string) => BgMapToken;
+export type GenerateNeutralColorPalettes = (
+  bgBaseColor: string,
+  textBaseColor: string,
+) => NeutralColorMapToken;
