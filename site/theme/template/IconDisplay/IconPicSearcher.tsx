@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
@@ -73,7 +73,7 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
       };
     });
 
-  const uploadFile = (file: File) => {
+  const uploadFile = useCallback((file: File) => {
     setState(prev => ({ ...prev, loading: true }));
     const reader = new FileReader();
     reader.onload = () => {
@@ -84,8 +84,9 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
       }));
     };
     reader.readAsDataURL(file);
-  };
-  const onPaste = (event: ClipboardEvent) => {
+  }, []);
+
+  const onPaste = useCallback((event: ClipboardEvent) => {
     const items = event.clipboardData && event.clipboardData.items;
     let file = null;
     if (items && items.length) {
@@ -99,8 +100,8 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
     if (file) {
       uploadFile(file);
     }
-  };
-  const toggleModal = () => {
+  }, []);
+  const toggleModal = useCallback(() => {
     setState(prev => ({
       ...prev,
       modalVisible: !prev.modalVisible,
@@ -111,15 +112,15 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
     if (!localStorage.getItem('disableIconTip')) {
       localStorage.setItem('disableIconTip', 'true');
     }
-  };
+  }, []);
   // eslint-disable-next-line class-methods-use-this
-  const onCopied = (text: string) => {
+  const onCopied = useCallback((text: string) => {
     message.success(
       <span>
         <code className="copied-code">{text}</code> copied 🎉
       </span>,
     );
-  };
+  }, []);
   useEffect(() => {
     const script = document.createElement('script');
     script.onload = async () => {
