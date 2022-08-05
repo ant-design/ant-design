@@ -3,7 +3,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
-import RcTabs, { TabPane, TabPaneProps } from 'rc-tabs';
+import RcTabs from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 import * as React from 'react';
 
@@ -11,6 +11,8 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
+import useLegacyItems from './hooks/useLegacyItems';
+import TabPane, { TabPaneProps } from './TabPane';
 
 import useStyle from './style';
 
@@ -26,6 +28,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   centered?: boolean;
   addIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
+  children?: React.ReactNode;
 }
 
 function Tabs({
@@ -37,6 +40,8 @@ function Tabs({
   centered,
   addIcon,
   popupClassName,
+  children,
+  items,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
@@ -63,6 +68,8 @@ function Tabs({
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
   );
 
+  const mergedItems = useLegacyItems(items, children);
+
   return wrapSSR(
     <SizeContext.Consumer>
       {contextSize => {
@@ -72,6 +79,7 @@ function Tabs({
             direction={direction}
             moreTransitionName={`${rootPrefixCls}-slide-up`}
             {...props}
+            items={mergedItems}
             className={classNames(
               {
                 [`${prefixCls}-${size}`]: size,

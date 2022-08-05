@@ -36,6 +36,12 @@ describe('Table.typescript', () => {
     const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
     expect(table).toBeTruthy();
   });
+
+  it('Sorter types', () => {
+    const table = <Table onChange={(_pagination, _filters, sorter) => sorter.field} />;
+
+    expect(table).toBeTruthy();
+  });
 });
 
 describe('Table.typescript types', () => {

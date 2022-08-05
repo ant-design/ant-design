@@ -33,7 +33,7 @@ Select component to select value from options.
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| dropdownClassName | The className of dropdown menu | string | - |  |
+| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | dropdownRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | dropdownStyle | The style of dropdown menu | CSSProperties | - |  |

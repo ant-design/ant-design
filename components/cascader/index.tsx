@@ -112,6 +112,11 @@ export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
   status?: InputStatus;
+  /**
+   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+   *   version.Please use `popupClassName` instead.
+   */
+  dropdownClassName?: string;
 };
 
 export interface CascaderRef {
@@ -168,9 +173,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== Warning =====================
   warning(
-    popupClassName === undefined,
+    !dropdownClassName,
     'Cascader',
-    '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
   );
 
   warning(
@@ -192,7 +197,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== Dropdown ====================
   const mergedDropdownClassName = classNames(
-    dropdownClassName || popupClassName,
+    popupClassName || dropdownClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
