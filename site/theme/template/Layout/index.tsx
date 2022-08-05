@@ -1,21 +1,24 @@
+/* eslint-disable class-methods-use-this */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
 import themeSwitcher from 'theme-switcher';
-import { setTwoToneColor, TwoToneColor } from '@ant-design/icons';
+import type { TwoToneColor } from '@ant-design/icons';
+import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import { browserHistory } from 'bisheng/router';
 import zhCN from 'antd/lib/locale/zh_CN';
+import type { DirectionType } from 'antd/es/config-provider';
 import Header from './Header';
-import SiteContext, { SiteContextProps } from './SiteContext';
+import type { SiteContextProps } from './SiteContext';
+import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import { DirectionType } from 'antd/es/config-provider';
+import 'moment/locale/zh-cn';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -41,7 +44,7 @@ if (typeof window !== 'undefined') {
   (window as any)['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
-  window.addEventListener('error', function onError(e) {
+  window.addEventListener('error', e => {
     // Ignore ResizeObserver error
     if (e.message === 'ResizeObserver loop limit exceeded') {
       e.stopPropagation();
@@ -81,7 +84,9 @@ interface LayoutStateType {
 
 export default class Layout extends React.Component<LayoutPropsType, LayoutStateType> {
   static contextType = SiteContext;
+
   timer: NodeJS.Timeout | null = null;
+
   isBeforeComponent = false;
 
   constructor(props: LayoutPropsType) {
@@ -106,9 +111,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
       if (typeof (window as any).ga !== 'undefined') {
         (window as any).ga('send', 'pageview', pathname + search);
       }
-      // eslint-disable-next-line
       if (typeof (window as any)._hmt !== 'undefined') {
-        // eslint-disable-next-line
         (window as any)._hmt.push(['_trackPageview', pathname + search]);
       }
       const componentPage = /^\/?components/.test(pathname);
@@ -224,6 +227,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
       <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
         <HelmetProvider context={helmetContext}>
           <Helmet encodeSpecialCharacters={false}>
@@ -234,7 +238,6 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
             />
             <title>{title}</title>
             <link
-              rel="apple-touch-icon-precomposed"
               sizes="144x144"
               href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
             />

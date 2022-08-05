@@ -33,9 +33,8 @@ const OldIcon: React.FC<IconProps> = props => {
   return <IconFont {...props} type={`icon-${computedType}`} />;
 };
 
-const Icon: React.FC<IconProps> & CreateIconfont = props => {
-  return typeof props.type === 'string' ? <OldIcon {...props} /> : <AntdIcon {...props} />;
-};
+const Icon: React.FC<IconProps> & CreateIconfont = props =>
+  typeof props.type === 'string' ? <OldIcon {...props} /> : <AntdIcon {...props} />;
 
 Icon.createFromIconfontCN = createFromIconfontCN;
 
