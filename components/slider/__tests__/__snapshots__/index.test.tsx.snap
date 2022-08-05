@@ -55,7 +55,7 @@ exports[`Slider should render in RTL direction 1`] = `
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip ant-tooltip-rtl ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-        style="opacity: 0; pointer-events: none;"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -83,7 +83,7 @@ exports[`Slider should render in RTL direction 1`] = `
 exports[`Slider should show correct placement tooltip when set tooltipPlacement 1`] = `
 <div
   class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-  style="opacity: 0; pointer-events: none;"
+  style="opacity: 0;"
 >
   <div
     class="ant-tooltip-content"
@@ -133,7 +133,7 @@ exports[`Slider should show correct placement tooltip when set tooltipPlacement 
 exports[`Slider should show tooltip when hovering slider handler 1`] = `
 <div
   class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-  style="opacity: 0; pointer-events: none;"
+  style="opacity: 0;"
 >
   <div
     class="ant-tooltip-content"

@@ -42,7 +42,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -489,7 +489,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -1627,7 +1627,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -2074,7 +2074,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -3274,7 +3274,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -3724,7 +3724,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -4819,7 +4819,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -5266,7 +5266,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -6814,7 +6814,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -7261,7 +7261,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div

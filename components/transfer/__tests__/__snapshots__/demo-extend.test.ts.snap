@@ -48,7 +48,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -70,7 +70,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -103,7 +103,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -130,7 +130,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -152,7 +152,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -421,7 +421,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -443,7 +443,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -476,7 +476,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -503,7 +503,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -525,7 +525,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -740,7 +740,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -762,7 +762,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -795,7 +795,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -822,7 +822,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -844,7 +844,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1258,7 +1258,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1280,7 +1280,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1313,7 +1313,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1340,7 +1340,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1362,7 +1362,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1680,7 +1680,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1702,7 +1702,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1735,7 +1735,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1762,7 +1762,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1784,7 +1784,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -1968,7 +1968,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1990,7 +1990,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2023,7 +2023,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2050,7 +2050,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2072,7 +2072,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2208,7 +2208,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2230,7 +2230,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2263,7 +2263,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2290,7 +2290,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2312,7 +2312,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2624,7 +2624,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2646,7 +2646,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2679,7 +2679,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2706,7 +2706,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2728,7 +2728,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -2879,7 +2879,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2901,7 +2901,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -2934,7 +2934,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -2967,7 +2967,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -2994,7 +2994,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3016,7 +3016,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3038,7 +3038,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3206,7 +3206,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -3228,7 +3228,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3261,7 +3261,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3294,7 +3294,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3321,7 +3321,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3343,7 +3343,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3365,7 +3365,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3520,7 +3520,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -3542,7 +3542,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3575,7 +3575,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3602,7 +3602,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -3624,7 +3624,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -4080,7 +4080,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -4102,7 +4102,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -4129,7 +4129,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -4459,7 +4459,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -4481,7 +4481,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4514,7 +4514,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4541,7 +4541,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4563,7 +4563,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4812,7 +4812,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -4834,7 +4834,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4867,7 +4867,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4894,7 +4894,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -4916,7 +4916,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -5125,7 +5125,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -5147,7 +5147,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5180,7 +5180,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5207,7 +5207,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5229,7 +5229,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5412,7 +5412,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -5434,7 +5434,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5467,7 +5467,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5494,7 +5494,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5516,7 +5516,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5653,7 +5653,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -5675,7 +5675,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5708,7 +5708,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5735,7 +5735,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -5757,7 +5757,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -6006,7 +6006,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -6028,7 +6028,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -6061,7 +6061,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -6088,7 +6088,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -6110,7 +6110,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -6315,7 +6315,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -6337,7 +6337,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -6370,7 +6370,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -6397,7 +6397,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -6419,7 +6419,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -7161,7 +7161,7 @@ Array [
         <div>
           <div
             class="ant-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -7183,7 +7183,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -7216,7 +7216,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -7243,7 +7243,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -7265,7 +7265,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"

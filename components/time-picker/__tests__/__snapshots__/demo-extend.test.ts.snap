@@ -47,7 +47,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -1370,7 +1370,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -2692,7 +2692,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -3474,7 +3474,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -4898,7 +4898,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -6309,7 +6309,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -7758,7 +7758,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-time-range-wrapper"
@@ -9175,7 +9175,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown myCustomClassName"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -10587,7 +10587,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -12022,7 +12022,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -12888,7 +12888,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -13352,7 +13352,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-time-range-wrapper"
@@ -14793,7 +14793,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -16223,7 +16223,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -17653,7 +17653,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -19070,7 +19070,7 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -20482,7 +20482,7 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -21936,7 +21936,7 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-time-range-wrapper"
@@ -23394,7 +23394,7 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-time-range-wrapper"
@@ -24809,7 +24809,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -26220,7 +26220,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
