@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState, useMemo } from 'react';
+import type { WrappedComponentProps } from 'react-intl';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Row, Col, Popover, Button, Modal } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import type { DirectionType } from 'antd/es/config-provider';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
 import Logo from './Logo';
@@ -26,13 +28,11 @@ const { Option } = Select;
 const antdVersion: string = packageJson.version;
 
 export interface HeaderProps {
-  intl: {
-    locale: string;
-  };
+  intl: { locale: string };
   location: { pathname: string; query: any };
   router: any;
   themeConfig: { docVersions: Record<string, string> };
-  changeDirection: (direction: string) => void;
+  changeDirection: (direction: DirectionType) => void;
 }
 
 let docsearch: any;
@@ -61,7 +61,7 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
       transformData: AlgoliaConfig.transformData,
       debug: AlgoliaConfig.debug,
       // https://docsearch.algolia.com/docs/behavior#handleselected
-      handleSelected: (input: any, _$1: unknown, suggestion: any) => {
+      handleSelected(input: any, _$1: unknown, suggestion: any) {
         router.push(suggestion.url);
         setTimeout(() => {
           input.setVal('');
@@ -88,37 +88,44 @@ interface HeaderState {
   showTechUIButton: boolean;
 }
 
-class Header extends React.Component<HeaderProps, HeaderState> {
-  static contextType = SiteContext;
-
-  pingTimer: NodeJS.Timeout;
-
-  state = {
+const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
+  const { intl, router, location, themeConfig, changeDirection } = props;
+  const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
     showTechUIButton: false,
-  };
+  });
+  const { direction } = useContext<SiteContextProps>(SiteContext);
+  const pingTimer = useRef<NodeJS.Timeout | null>(null);
 
-  context: SiteContextProps;
+  const handleHideMenu = useCallback(() => {
+    setHeaderState(prev => ({ ...prev, menuVisible: false }));
+  }, []);
+  const onWindowResize = useCallback(() => {
+    setHeaderState(prev => ({ ...prev, windowWidth: window.innerWidth }));
+  }, []);
+  const onTriggerSearching = useCallback((searching: boolean) => {
+    setHeaderState(prev => ({ ...prev, searching }));
+  }, []);
+  const handleShowMenu = useCallback(() => {
+    setHeaderState(prev => ({ ...prev, menuVisible: true }));
+  }, []);
+  const onMenuVisibleChange = useCallback((visible: boolean) => {
+    setHeaderState(prev => ({ ...prev, menuVisible: visible }));
+  }, []);
+  const onDirectionChange = useCallback(() => {
+    changeDirection(direction !== 'rtl' ? 'rtl' : 'ltr');
+  }, [direction]);
 
-  componentDidMount() {
-    const { intl, router } = this.props;
-    router.listen(this.handleHideMenu);
-
-    initDocSearch({
-      isZhCN: intl.locale === 'zh-CN',
-      router,
-    });
-
-    window.addEventListener('resize', this.onWindowResize);
-    this.onWindowResize();
-
-    this.pingTimer = ping(status => {
+  useEffect(() => {
+    router.listen(handleHideMenu);
+    initDocSearch({ isZhCN: intl.locale === 'zh-CN', router });
+    onWindowResize();
+    window.addEventListener('resize', onWindowResize);
+    pingTimer.current = ping(status => {
       if (status !== 'timeout' && status !== 'error') {
-        this.setState({
-          showTechUIButton: true,
-        });
+        setHeaderState(prev => ({ ...prev, showTechUIButton: true }));
         if (
           process.env.NODE_ENV === 'production' &&
           window.location.host !== 'ant-design.antgroup.com' &&
@@ -128,86 +135,29 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             title: '提示',
             content: '内网用户推荐访问国内镜像以获得极速体验～',
             okText: '🚀 立刻前往',
-            onOk: () => {
+            cancelText: '不再弹出',
+            closable: true,
+            onOk() {
               window.open('https://ant-design.antgroup.com', '_self');
               disableAntdMirrorModal();
             },
-            cancelText: '不再弹出',
-            onCancel: () => {
+            onCancel() {
               disableAntdMirrorModal();
             },
-            closable: true,
           });
         }
       }
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onWindowResize);
-    clearTimeout(this.pingTimer);
-  }
-
-  onWindowResize = () => {
-    this.setState({
-      windowWidth: window.innerWidth,
-    });
-  };
-
-  onTriggerSearching = (searching: boolean) => {
-    this.setState({ searching });
-  };
-
-  handleShowMenu = () => {
-    this.setState({
-      menuVisible: true,
-    });
-  };
-
-  handleHideMenu = () => {
-    this.setState({
-      menuVisible: false,
-    });
-  };
-
-  onDirectionChange = () => {
-    const { changeDirection } = this.props;
-    const { direction } = this.context;
-    if (direction !== 'rtl') {
-      changeDirection('rtl');
-    } else {
-      changeDirection('ltr');
-    }
-  };
-
-  getNextDirectionText = () => {
-    const { direction } = this.context;
-
-    if (direction !== 'rtl') {
-      return 'RTL';
-    }
-    return 'LTR';
-  };
-
-  getDropdownStyle = (): React.CSSProperties => {
-    const { direction } = this.context;
-    if (direction === 'rtl') {
-      return {
-        direction: 'ltr',
-        textAlign: 'right',
-      };
-    }
-    return {};
-  };
-
-  onMenuVisibleChange = (visible: boolean) => {
-    this.setState({
-      menuVisible: visible,
-    });
-  };
+    return () => {
+      window.removeEventListener('resize', onWindowResize);
+      if (pingTimer.current) {
+        clearTimeout(pingTimer.current);
+      }
+    };
+  }, []);
 
   // eslint-disable-next-line class-methods-use-this
-  handleVersionChange = (url: string) => {
+  const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
     if (/overview/.test(currentPathname) && /0?[1-39][0-3]?x/.test(url)) {
@@ -218,184 +168,168 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       return;
     }
     window.location.href = currentUrl.replace(window.location.origin, url);
-  };
+  }, []);
 
-  onLangChange = () => {
-    const {
-      location: { pathname, query },
-    } = this.props;
+  const onLangChange = useCallback(() => {
+    const { pathname, query } = location;
     const currentProtocol = `${window.location.protocol}//`;
     const currentHref = window.location.href.slice(currentProtocol.length);
 
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
-
     window.location.href =
       currentProtocol +
       currentHref.replace(
         window.location.pathname,
         utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname), query).pathname,
       );
-  };
+  }, [location]);
 
-  render() {
-    return (
-      <SiteContext.Consumer>
-        {({ isMobile }) => {
-          const { menuVisible, windowWidth, searching, showTechUIButton } = this.state;
-          const { direction } = this.context;
-          const {
-            location,
-            themeConfig,
-            intl: { locale },
-            router,
-          } = this.props;
-          const docVersions: Record<string, string> = {
-            [antdVersion]: antdVersion,
-            ...themeConfig.docVersions,
-          };
-          const versionOptions = Object.keys(docVersions).map(version => (
-            <Option value={docVersions[version]} key={version}>
-              {version}
-            </Option>
-          ));
+  const getNextDirectionText = useMemo<string>(
+    () => (direction !== 'rtl' ? 'RTL' : 'LTR'),
+    [direction],
+  );
 
-          const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
+  const getDropdownStyle = useMemo<React.CSSProperties>(
+    () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'right' } : {}),
+    [direction],
+  );
 
-          const isHome = ['', 'index', 'index-cn'].includes(pathname);
+  return (
+    <SiteContext.Consumer>
+      {({ isMobile }) => {
+        const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
+        const docVersions: Record<string, string> = {
+          [antdVersion]: antdVersion,
+          ...themeConfig.docVersions,
+        };
+        const versionOptions = Object.keys(docVersions).map(version => (
+          <Option value={docVersions[version]} key={version}>
+            {version}
+          </Option>
+        ));
 
-          const isZhCN = locale === 'zh-CN';
-          const isRTL = direction === 'rtl';
-          let responsive: null | 'narrow' | 'crowded' = null;
-          if (windowWidth < RESPONSIVE_XS) {
-            responsive = 'crowded';
-          } else if (windowWidth < RESPONSIVE_SM) {
-            responsive = 'narrow';
-          }
+        const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
 
-          const headerClassName = classNames({
-            clearfix: true,
-            'home-header': isHome,
-          });
+        const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
-          const sharedProps = {
-            isZhCN,
-            isRTL,
-          };
+        const isZhCN = intl.locale === 'zh-CN';
+        const isRTL = direction === 'rtl';
+        let responsive: null | 'narrow' | 'crowded' = null;
+        if (windowWidth < RESPONSIVE_XS) {
+          responsive = 'crowded';
+        } else if (windowWidth < RESPONSIVE_SM) {
+          responsive = 'narrow';
+        }
 
-          const navigationNode = (
-            <Navigation
-              key="nav"
-              {...sharedProps}
-              location={location}
-              responsive={responsive}
-              isMobile={isMobile}
-              showTechUIButton={showTechUIButton}
-              pathname={pathname}
-              directionText={this.getNextDirectionText()}
-              onLangChange={this.onLangChange}
-              onDirectionChange={this.onDirectionChange}
-            />
-          );
+        const headerClassName = classNames({
+          clearfix: true,
+          'home-header': isHome,
+        });
 
-          let menu: (React.ReactElement | null)[] = [
-            navigationNode,
-            <Select
-              key="version"
-              className="version"
-              size="small"
-              defaultValue={antdVersion}
-              onChange={this.handleVersionChange}
-              dropdownStyle={this.getDropdownStyle()}
-              getPopupContainer={trigger => trigger.parentNode}
-            >
-              {versionOptions}
-            </Select>,
-            <Button
-              size="small"
-              onClick={this.onLangChange}
-              className="header-button header-lang-button"
-              key="lang-button"
-            >
-              <FormattedMessage id="app.header.lang" />
-            </Button>,
-            <Button
-              size="small"
-              onClick={this.onDirectionChange}
-              className="header-button header-direction-button"
-              key="direction-button"
-            >
-              {this.getNextDirectionText()}
-            </Button>,
-            <More key="more" {...sharedProps} />,
-            <Github key="github" responsive={responsive} />,
-          ];
+        const sharedProps = {
+          isZhCN,
+          isRTL,
+        };
 
-          if (windowWidth < RESPONSIVE_XS) {
-            menu = searching ? [] : [navigationNode];
-          } else if (windowWidth < RESPONSIVE_SM) {
-            menu = searching ? [] : menu;
-          }
+        const navigationNode = (
+          <Navigation
+            key="nav"
+            {...sharedProps}
+            location={location}
+            responsive={responsive}
+            isMobile={isMobile}
+            showTechUIButton={showTechUIButton}
+            pathname={pathname}
+            directionText={getNextDirectionText}
+            onLangChange={onLangChange}
+            onDirectionChange={onDirectionChange}
+          />
+        );
 
-          const colProps = isHome
-            ? [{ flex: 'none' }, { flex: 'auto' }]
-            : [
-                {
-                  xxl: 4,
-                  xl: 5,
-                  lg: 6,
-                  md: 6,
-                  sm: 24,
-                  xs: 24,
-                },
-                {
-                  xxl: 20,
-                  xl: 19,
-                  lg: 18,
-                  md: 18,
-                  sm: 0,
-                  xs: 0,
-                },
-              ];
+        let menu: (React.ReactElement | null)[] = [
+          navigationNode,
+          <Select
+            key="version"
+            className="version"
+            size="small"
+            defaultValue={antdVersion}
+            onChange={handleVersionChange}
+            dropdownStyle={getDropdownStyle}
+            getPopupContainer={trigger => trigger.parentNode}
+          >
+            {versionOptions}
+          </Select>,
+          <Button
+            size="small"
+            onClick={onLangChange}
+            className="header-button header-lang-button"
+            key="lang-button"
+          >
+            <FormattedMessage id="app.header.lang" />
+          </Button>,
+          <Button
+            size="small"
+            onClick={onDirectionChange}
+            className="header-button header-direction-button"
+            key="direction-button"
+          >
+            {getNextDirectionText}
+          </Button>,
+          <More key="more" {...sharedProps} />,
+          <Github key="github" responsive={responsive} />,
+        ];
 
-          return (
-            <header id="header" className={headerClassName}>
-              {isMobile && (
-                <Popover
-                  overlayClassName="popover-menu"
-                  placement="bottomRight"
-                  content={menu}
-                  trigger="click"
-                  visible={menuVisible}
-                  arrowPointAtCenter
-                  onVisibleChange={this.onMenuVisibleChange}
-                >
-                  <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
-                </Popover>
-              )}
-              <Row style={{ flexFlow: 'nowrap', height: 64 }}>
-                <Col {...colProps[0]}>
-                  <Logo {...sharedProps} location={location} />
-                </Col>
-                <Col {...colProps[1]} className="menu-row">
-                  <SearchBar
-                    key="search"
-                    {...sharedProps}
-                    router={router}
-                    algoliaConfig={AlgoliaConfig}
-                    responsive={responsive}
-                    onTriggerFocus={this.onTriggerSearching}
-                  />
-                  {!isMobile && menu}
-                </Col>
-              </Row>
-            </header>
-          );
-        }}
-      </SiteContext.Consumer>
-    );
-  }
-}
+        if (windowWidth < RESPONSIVE_XS) {
+          menu = searching ? [] : [navigationNode];
+        } else if (windowWidth < RESPONSIVE_SM) {
+          menu = searching ? [] : menu;
+        }
 
-export default injectIntl(Header as any);
+        const colProps = isHome
+          ? [{ flex: 'none' }, { flex: 'auto' }]
+          : [
+              { xxl: 4, xl: 5, lg: 6, md: 6, sm: 24, xs: 24 },
+              { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
+            ];
+
+        return (
+          <header id="header" className={headerClassName}>
+            {isMobile && (
+              <Popover
+                overlayClassName="popover-menu"
+                placement="bottomRight"
+                content={menu}
+                trigger="click"
+                visible={menuVisible}
+                arrowPointAtCenter
+                onVisibleChange={onMenuVisibleChange}
+              >
+                <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+              </Popover>
+            )}
+            <Row style={{ flexFlow: 'nowrap', height: 64 }}>
+              <Col {...colProps[0]}>
+                <Logo {...sharedProps} location={location} />
+              </Col>
+              <Col {...colProps[1]} className="menu-row">
+                <SearchBar
+                  key="search"
+                  {...sharedProps}
+                  router={router}
+                  algoliaConfig={AlgoliaConfig}
+                  responsive={responsive}
+                  onTriggerFocus={onTriggerSearching}
+                />
+                {!isMobile && menu}
+              </Col>
+            </Row>
+          </header>
+        );
+      }}
+    </SiteContext.Consumer>
+  );
+};
+
+export default injectIntl(Header);

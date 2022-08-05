@@ -17,16 +17,14 @@ Hide default plus icon, and bind event for customized trigger.
 import { Button, Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
 
-const { TabPane } = Tabs;
-
-const defaultPanes = Array.from({ length: 2 }).map((_, index) => {
+const defaultPanes = new Array(2).fill(null).map((_, index) => {
   const id = String(index + 1);
-  return { title: `Tab ${id}`, content: `Content of Tab Pane ${index + 1}`, key: id };
+  return { label: `Tab ${id}`, children: `Content of Tab Pane ${index + 1}`, key: id };
 });
 
 const App: React.FC = () => {
   const [activeKey, setActiveKey] = useState(defaultPanes[0].key);
-  const [panes, setPanes] = useState(defaultPanes);
+  const [items, setItems] = useState(defaultPanes);
   const newTabIndex = useRef(0);
 
   const onChange = (key: string) => {
@@ -35,18 +33,18 @@ const App: React.FC = () => {
 
   const add = () => {
     const newActiveKey = `newTab${newTabIndex.current++}`;
-    setPanes([...panes, { title: 'New Tab', content: 'New Tab Pane', key: newActiveKey }]);
+    setItems([...items, { label: 'New Tab', children: 'New Tab Pane', key: newActiveKey }]);
     setActiveKey(newActiveKey);
   };
 
   const remove = (targetKey: string) => {
-    const targetIndex = panes.findIndex(pane => pane.key === targetKey);
-    const newPanes = panes.filter(pane => pane.key !== targetKey);
+    const targetIndex = items.findIndex(pane => pane.key === targetKey);
+    const newPanes = items.filter(pane => pane.key !== targetKey);
     if (newPanes.length && targetKey === activeKey) {
       const { key } = newPanes[targetIndex === newPanes.length ? targetIndex - 1 : targetIndex];
       setActiveKey(key);
     }
-    setPanes(newPanes);
+    setItems(newPanes);
   };
 
   const onEdit = (targetKey: string, action: 'add' | 'remove') => {
@@ -62,13 +60,14 @@ const App: React.FC = () => {
       <div style={{ marginBottom: 16 }}>
         <Button onClick={add}>ADD</Button>
       </div>
-      <Tabs hideAdd onChange={onChange} activeKey={activeKey} type="editable-card" onEdit={onEdit}>
-        {panes.map(pane => (
-          <TabPane tab={pane.title} key={pane.key}>
-            {pane.content}
-          </TabPane>
-        ))}
-      </Tabs>
+      <Tabs
+        hideAdd
+        onChange={onChange}
+        activeKey={activeKey}
+        type="editable-card"
+        onEdit={onEdit}
+        items={items}
+      />
     </div>
   );
 };

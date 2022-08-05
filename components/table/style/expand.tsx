@@ -64,7 +64,6 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius: radiusBase,
-        outline: 'none',
         transform: `scale(${checkboxSize / expandIconSize})`,
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
