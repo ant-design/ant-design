@@ -31,7 +31,7 @@ export interface HeaderProps {
   intl: { locale: string };
   location: { pathname: string; query: any };
   router: any;
-  themeConfig: { docVersions: Record<string, string> };
+  themeConfig?: { docVersions: Record<string, string> };
   changeDirection: (direction: DirectionType) => void;
 }
 
@@ -202,7 +202,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
         const { menuVisible, windowWidth, searching, showTechUIButton } = headerState;
         const docVersions: Record<string, string> = {
           [antdVersion]: antdVersion,
-          ...themeConfig.docVersions,
+          ...themeConfig?.docVersions,
         };
         const versionOptions = Object.keys(docVersions).map(version => (
           <Option value={docVersions[version]} key={version}>

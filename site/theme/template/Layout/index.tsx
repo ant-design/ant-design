@@ -4,17 +4,18 @@ import classNames from 'classnames';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
 import themeSwitcher from 'theme-switcher';
-import { setTwoToneColor } from '@ant-design/icons';
+import { setTwoToneColor, TwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import { browserHistory } from 'bisheng/router';
 import zhCN from 'antd/lib/locale/zh_CN';
 import Header from './Header';
-import SiteContext from './SiteContext';
+import SiteContext, { SiteContextProps } from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import { DirectionType } from 'antd/es/config-provider';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -32,12 +33,12 @@ if (typeof window !== 'undefined') {
   require('../../static/style');
 
   // Expose to iframe
-  window.react = React;
-  window['react-dom'] = ReactDOM;
+  (window as any).react = React;
+  (window as any)['react-dom'] = ReactDOM;
   // eslint-disable-next-line global-require
-  window.antd = require('antd');
+  (window as any).antd = require('antd');
   // eslint-disable-next-line global-require
-  window['@ant-design/icons'] = require('@ant-design/icons');
+  (window as any)['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
   window.addEventListener('error', function onError(e) {
@@ -52,7 +53,7 @@ if (typeof window !== 'undefined') {
 const RESPONSIVE_MOBILE = 768;
 
 // for dark.css timestamp to remove cache
-const timestamp = new Date().getTime();
+const timestamp = Date.now();
 const themeMap = {
   dark: `/dark.css?${timestamp}`,
   compact: `/compact.css?${timestamp}`,
@@ -62,12 +63,28 @@ const themeConfig = {
 };
 const { switcher } = themeSwitcher(themeConfig);
 
-export default class Layout extends React.Component {
-  static contextType = SiteContext;
+interface LayoutPropsType {
+  location: any;
+  router: any;
+  helmetContext: any;
+  children: React.ReactNode;
+}
 
+interface LayoutStateType {
+  appLocale: typeof cnLocale | typeof enLocale;
+  theme: string;
+  isMobile: boolean;
+  direction: DirectionType;
+  setTheme: SiteContextProps['setTheme'];
+  setIframeTheme: SiteContextProps['setIframeTheme'];
+}
+
+export default class Layout extends React.Component<LayoutPropsType, LayoutStateType> {
+  static contextType = SiteContext;
+  timer: NodeJS.Timeout | null = null;
   isBeforeComponent = false;
 
-  constructor(props) {
+  constructor(props: LayoutPropsType) {
     super(props);
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
@@ -75,58 +92,51 @@ export default class Layout extends React.Component {
     this.state = {
       appLocale,
       theme: 'default',
-      setTheme: this.setTheme,
       direction: 'ltr',
+      isMobile: false,
+      setTheme: this.setTheme,
       setIframeTheme: this.setIframeTheme,
     };
   }
 
   componentDidMount() {
     const { location, router } = this.props;
-    router.listen(({ pathname, search }) => {
+    router.listen(({ pathname, search }: any) => {
       const { theme } = this.props.location.query;
-      if (typeof window.ga !== 'undefined') {
-        window.ga('send', 'pageview', pathname + search);
+      if (typeof (window as any).ga !== 'undefined') {
+        (window as any).ga('send', 'pageview', pathname + search);
       }
       // eslint-disable-next-line
-      if (typeof window._hmt !== 'undefined') {
+      if (typeof (window as any)._hmt !== 'undefined') {
         // eslint-disable-next-line
-        window._hmt.push(['_trackPageview', pathname + search]);
+        (window as any)._hmt.push(['_trackPageview', pathname + search]);
       }
       const componentPage = /^\/?components/.test(pathname);
 
       // only component page can use `dark` theme
       if (!componentPage) {
         this.isBeforeComponent = false;
-        this.setTheme('default', false);
+        this.setTheme?.('default', false);
       } else if (theme && !this.isBeforeComponent) {
         this.isBeforeComponent = true;
-        this.setTheme(theme, false);
+        this.setTheme?.(theme, false);
       }
     });
 
     if (location.query.theme && /^\/?components/.test(location.pathname)) {
       this.isBeforeComponent = true;
-      this.setTheme(location.query.theme, false);
+      this.setTheme?.(location.query.theme, false);
     } else {
       this.isBeforeComponent = false;
-      this.setTheme('default', false);
+      this.setTheme?.('default', false);
     }
 
-    if (location.query.direction) {
-      this.setState({
-        direction: location.query.direction,
-      });
-    } else {
-      this.setState({
-        direction: 'ltr',
-      });
-    }
+    this.setState({ direction: location.query.direction || 'ltr' });
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
       this.timer = setTimeout(() => {
-        nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
+        nprogressHiddenStyle.parentNode?.removeChild(nprogressHiddenStyle);
       }, 0);
     }
 
@@ -135,8 +145,10 @@ export default class Layout extends React.Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
     window.removeEventListener('resize', this.updateMobileMode);
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
   }
 
   updateMobileMode = () => {
@@ -149,19 +161,16 @@ export default class Layout extends React.Component {
     }
   };
 
-  setIframeTheme = (iframeNode, theme) => {
-    iframeNode.contentWindow.postMessage(
+  setIframeTheme: LayoutStateType['setIframeTheme'] = (iframeNode, theme) => {
+    iframeNode.contentWindow?.postMessage(
       JSON.stringify({
         action: 'change.theme',
-        data: {
-          themeConfig,
-          theme,
-        },
+        data: { themeConfig, theme },
       }),
     );
   };
 
-  setTheme = (theme, persist = true) => {
+  setTheme: LayoutStateType['setTheme'] = (theme: string, persist = true) => {
     if (typeof window === 'undefined') {
       return;
     }
@@ -173,24 +182,23 @@ export default class Layout extends React.Component {
 
     const iframeNodes = document.querySelectorAll('.iframe-demo');
     // loop element node
-    [].forEach.call(iframeNodes, iframeNode => {
-      this.setIframeTheme(iframeNode, theme);
+    [].forEach.call(iframeNodes, (iframeNode: HTMLIFrameElement) => {
+      this.setIframeTheme?.(iframeNode, theme);
     });
 
-    this.setState({
-      theme,
-    });
+    this.setState({ theme });
     const iconTwoToneThemeMap = {
       dark: [presetDarkPalettes.blue.primary, '#111d2c'],
       default: presetPalettes.blue.primary,
-    };
-    setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
+    } as const;
+    setTwoToneColor(
+      (iconTwoToneThemeMap[theme as keyof typeof iconTwoToneThemeMap] ||
+        iconTwoToneThemeMap.default) as TwoToneColor,
+    );
   };
 
-  changeDirection = direction => {
-    this.setState({
-      direction,
-    });
+  changeDirection = (direction: DirectionType): void => {
+    this.setState({ direction });
     const { pathname, hash, query } = this.props.location;
     if (direction === 'ltr') {
       delete query.direction;
@@ -222,9 +230,7 @@ export default class Layout extends React.Component {
             <html
               lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
               data-direction={direction}
-              className={classNames({
-                [`rtl`]: direction === 'rtl',
-              })}
+              className={classNames({ [`rtl`]: direction === 'rtl' })}
             />
             <title>{title}</title>
             <link
@@ -246,7 +252,7 @@ export default class Layout extends React.Component {
             defaultLocale="en-US"
           >
             <ConfigProvider
-              locale={appLocale.locale === 'zh-CN' ? zhCN : null}
+              locale={appLocale.locale === 'zh-CN' ? zhCN : undefined}
               direction={direction}
             >
               <Header {...restProps} changeDirection={this.changeDirection} />
