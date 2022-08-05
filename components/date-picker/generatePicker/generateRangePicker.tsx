@@ -50,7 +50,6 @@ export default function generateRangePicker<DateType>(
       popupClassName,
       dropdownClassName,
       status: customStatus,
-      dropdownClassName,
       ...restProps
     } = props;
 
@@ -113,7 +112,6 @@ export default function generateRangePicker<DateType>(
               }
               disabled={mergedDisabled}
               ref={innerRef}
-              dropdownClassName={popupClassName || dropdownClassName}
               dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
               placeholder={getRangePlaceholder(picker, locale, placeholder)}
               suffixIcon={suffixNode}
@@ -145,7 +143,7 @@ export default function generateRangePicker<DateType>(
               generateConfig={generateConfig}
               components={Components}
               direction={direction}
-              dropdownClassName={classNames(hashId, dropdownClassName)}
+              dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
             />
           );
         }}
