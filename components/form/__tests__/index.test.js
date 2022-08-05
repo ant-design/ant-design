@@ -698,7 +698,6 @@ describe('Form', () => {
   it('validation message should have alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
     const wrapper = mount(
-      // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
@@ -715,9 +714,8 @@ describe('Form', () => {
     );
   });
 
-  it('validation message should have aria-describedby and aria-invalid', async () => {
+  it('invalid input should have aria-describedby and aria-invalid', async () => {
     const wrapper = mount(
-      // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />

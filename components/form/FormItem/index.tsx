@@ -36,12 +36,14 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 interface MemoInputProps {
   value: any;
   update: any;
+  errorIds?: string;
   children: React.ReactNode;
 }
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => prev.value === next.value && prev.update === next.update,
+  (prev, next) =>
+    prev.value === next.value && prev.update === next.update && prev.errorIds === next.errorIds,
 );
 
 export interface FormItemProps<Values = any>
@@ -339,7 +341,11 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           });
 
           childNode = (
-            <MemoInput value={mergedControl[props.valuePropName || 'value']} update={children}>
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={children}
+              errorIds={childProps['aria-describedby']}
+            >
               {cloneElement(children, childProps)}
             </MemoInput>
           );
