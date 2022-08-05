@@ -11,7 +11,7 @@ describe('AutoComplete', () => {
 
   it('AutoComplete with custom Input render perfectly', () => {
     const { container } = render(
-      <AutoComplete dataSource={['12345', '23456', '34567']}>
+      <AutoComplete options={['12345', '23456', '34567']}>
         <textarea />
       </AutoComplete>,
     );
@@ -23,10 +23,10 @@ describe('AutoComplete', () => {
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(3);
   });
 
-  it('AutoComplete should work when dataSource is object array', () => {
+  it('AutoComplete should work when options is object array', () => {
     const { container } = render(
       <AutoComplete
-        dataSource={[
+        options={[
           { text: 'text', value: 'value' },
           { text: 'abc', value: 'xxx' },
         ]}
@@ -41,11 +41,11 @@ describe('AutoComplete', () => {
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(2);
   });
 
-  it('AutoComplete throws error when contains invalid dataSource', () => {
+  it('AutoComplete throws error when contains invalid options', () => {
     const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
     render(
-      <AutoComplete dataSource={[() => {}]}>
+      <AutoComplete options={[() => {}]}>
         <textarea />
       </AutoComplete>,
     );
@@ -53,9 +53,9 @@ describe('AutoComplete', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('legacy dataSource should accept react element option', () => {
+  it('legacy options should accept react element option', () => {
     const { asFragment } = render(
-      <AutoComplete open dataSource={[<span key="key">ReactNode</span>]} />,
+      <AutoComplete open options={[<span key="key">ReactNode</span>]} />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });

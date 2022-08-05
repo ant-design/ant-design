@@ -1,7 +1,6 @@
 /**
  * TODO: 4.0
  *
- * - Remove `dataSource`
  * - `size` not work with customizeInput
  * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
  */
@@ -26,12 +25,6 @@ import warning from '../_util/warning';
 
 const { Option } = Select;
 
-export interface DataSourceItemObject {
-  value: string;
-  text: string;
-}
-export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
-
 export interface AutoCompleteProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -39,7 +32,6 @@ export interface AutoCompleteProps<
     InternalSelectProps<ValueType, OptionType>,
     'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
-  dataSource?: DataSourceItemType[];
   status?: InputStatus;
 }
 
@@ -51,7 +43,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   props,
   ref,
 ) => {
-  const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
+  const { prefixCls: customizePrefixCls, className, children, options } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   // ============================= Input =============================
@@ -70,12 +62,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
 
-  // [Legacy] convert `children` or `dataSource` into option children
+  // [Legacy] convert `children` or `options` into option children
   if (childNodes.length && isSelectOptionOrSelectOptGroup(childNodes[0])) {
     optionChildren = children;
   } else {
-    optionChildren = dataSource
-      ? dataSource.map(item => {
+    optionChildren = options
+      ? options.map(item => {
           if (isValidElement(item)) {
             return item;
           }
@@ -87,10 +79,10 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
                 </Option>
               );
             case 'object': {
-              const { value: optionValue } = item as DataSourceItemObject;
+              const { value: optionValue, label: optionLabel } = item;
               return (
                 <Option key={optionValue} value={optionValue}>
-                  {(item as DataSourceItemObject).text}
+                  {optionLabel}
                 </Option>
               );
             }
@@ -98,19 +90,13 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
               warning(
                 false,
                 'AutoComplete',
-                '`dataSource` is only supports type `string[] | Object[]`.',
+                '`options` is only supports type `string[] | Object[]`.',
               );
               return undefined;
           }
         })
       : [];
   }
-
-  warning(
-    !('dataSource' in props),
-    'AutoComplete',
-    '`dataSource` is deprecated, please use `options` instead.',
-  );
 
   warning(
     !customizeInput || !('size' in props),
@@ -126,7 +112,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         return (
           <Select
             ref={ref}
-            {...omit(props, ['dataSource'])}
+            {...omit(props, ['options'])}
             prefixCls={prefixCls}
             className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}

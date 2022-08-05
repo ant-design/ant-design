@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutoComplete legacy dataSource should accept react element option 1`] = `
+exports[`AutoComplete legacy options should accept react element option 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-open ant-select-show-search"
 >

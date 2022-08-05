@@ -53,7 +53,7 @@ describe('AutoComplete children could be focus', () => {
   it('child.ref should work', () => {
     const mockRef = jest.fn();
     render(
-      <AutoComplete dataSource={[]}>
+      <AutoComplete options={[]}>
         <input ref={mockRef} />
       </AutoComplete>,
     );
@@ -63,7 +63,7 @@ describe('AutoComplete children could be focus', () => {
   it('child.ref instance should support be focused and blured', () => {
     let inputRef;
     render(
-      <AutoComplete dataSource={[]}>
+      <AutoComplete options={[]}>
         <input
           ref={node => {
             inputRef = node;
