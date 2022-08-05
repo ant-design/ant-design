@@ -17,7 +17,7 @@ const Category: React.FC<CategoryProps> = props => {
   const { icons, title, newIcons, theme, intl } = props;
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<NodeJS.Timeout | null>(null);
-  const onCopied = (type: string, text: string) => {
+  const onCopied = React.useCallback((type: string, text: string) => {
     message.success(
       <span>
         <code className="copied-code">{text}</code> copied 🎉
@@ -27,7 +27,7 @@ const Category: React.FC<CategoryProps> = props => {
     copyId.current = setTimeout(() => {
       setJustCopied(null);
     }, 2000);
-  };
+  }, []);
   React.useEffect(
     () => () => {
       if (copyId.current) {
