@@ -24,8 +24,13 @@ import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './i
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
+    /**
+     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+     *   version.Please use `popupClassName` instead.
+     */
+    dropdownClassName?: string;
+    popupClassName?: string;
   };
-
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
     displayName?: string,
@@ -40,16 +45,12 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           bordered = true,
           placement,
           placeholder,
+          popupClassName,
+          dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
           ...restProps
         } = props;
-
-        warning(
-          picker !== 'quarter',
-          displayName!,
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
 
         const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -80,6 +81,18 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         };
         const rootPrefixCls = getPrefixCls();
 
+        // =================== Warning =====================
+        warning(
+          picker !== 'quarter',
+          displayName!,
+          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+        );
+
+        warning(
+          !dropdownClassName,
+          'DatePicker',
+          '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+        );
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
         const mergedSize = customizeSize || size;
@@ -110,6 +123,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={suffixNode}
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                  dropdownClassName={popupClassName || dropdownClassName}
                   clearIcon={<CloseCircleFilled />}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}
