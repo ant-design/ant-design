@@ -170,7 +170,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
     );
   };
 
-  setTheme: LayoutStateType['setTheme'] = (theme: string, persist = true) => {
+  setTheme: LayoutStateType['setTheme'] = (theme, persist = true) => {
     if (typeof window === 'undefined') {
       return;
     }
