@@ -263,7 +263,7 @@ describe('Upload List', () => {
     // Error message
     fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item'));
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 
@@ -574,7 +574,9 @@ describe('Upload List', () => {
       />,
     );
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     unmount();
 
@@ -1138,7 +1140,7 @@ describe('Upload List', () => {
       expect(onChange).toHaveBeenCalled();
 
       // Check for images
-      await act(() => {
+      act(() => {
         jest.runAllTimers();
       });
       const afterImgNode = wrapper.container.querySelectorAll(
@@ -1313,7 +1315,7 @@ describe('Upload List', () => {
 
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
