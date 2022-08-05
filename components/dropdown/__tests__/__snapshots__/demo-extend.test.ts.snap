@@ -4573,7 +4573,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
           style="opacity:0"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
             data-menu-list="true"
             role="menu"
             tabindex="0"
