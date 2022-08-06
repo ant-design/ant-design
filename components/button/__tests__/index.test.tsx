@@ -55,7 +55,7 @@ describe('Button', () => {
     mockWarn.mockRestore();
   });
 
-  it('renders Chinese characters correctly', () => {
+  it('should render Chinese characters with space correctly', () => {
     const { rerender } = render(<Button>按钮</Button>);
     // should insert space when there is icon
     expect(
