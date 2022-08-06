@@ -139,28 +139,21 @@ describe('Button', () => {
     expect((wrapper.find(Button).type() as any).__ANT_BUTTON).toBe(true);
   });
 
-  it('should change loading state instantly by default', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
+  it('should loading like prop loading', () => {
+    // button should not loading by default
+    const { rerender } = render(<Button>Button</Button>);
 
-      enterLoading = () => {
-        this.setState({ loading: true });
-      };
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
 
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
-    const wrapper = render(<DefaultButton />);
-    fireEvent.click(wrapper.container.firstChild!);
-    expect(wrapper.container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+    // button should loading when props loading is true
+    rerender(<Button loading>Button</Button>);
+
+    expect(screen.getByRole('button')).toHaveClass('ant-btn-loading');
+
+    // button should not loading when props loading is false
+    rerender(<Button loading={false}>Button</Button>);
+
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
   });
 
   it('should change loading state with delay', () => {
