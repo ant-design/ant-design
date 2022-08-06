@@ -6,7 +6,7 @@ import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
 
@@ -29,7 +29,16 @@ describe('Button', () => {
 
   it('renders correctly', () => {
     const { container } = render(<Button>Follow</Button>);
-    expect(container.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Follow
+        </span>
+      </button>
+    `);
   });
 
   it('mount correctly', () => {
@@ -47,43 +56,62 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly', () => {
-    expect(render(<Button>按钮</Button>).container.firstChild).toMatchSnapshot();
-    // should not insert space when there is icon
+    const { rerender } = render(<Button>按钮</Button>);
+    // should insert space when there is icon
     expect(
-      render(<Button icon={<SearchOutlined />}>按钮</Button>).container.firstChild,
-    ).toMatchSnapshot();
+      screen.getByRole('button', {
+        name: '按 钮',
+      }),
+    ).toBeInTheDocument();
     // should not insert space when there is icon
+    rerender(<Button icon={<SearchOutlined />}>按钮</Button>);
     expect(
-      render(
-        <Button>
-          <SearchOutlined />
-          按钮
-        </Button>,
-      ).container.firstChild,
-    ).toMatchSnapshot();
+      screen.getByRole('button', {
+        name: 'search 按钮',
+      }),
+    ).toBeInTheDocument();
     // should not insert space when there is icon
+    rerender(
+      <Button>
+        <SearchOutlined />
+        按钮
+      </Button>,
+    );
     expect(
-      render(<Button icon={<SearchOutlined />}>按钮</Button>).container.firstChild,
-    ).toMatchSnapshot();
+      screen.getByRole('button', {
+        name: 'search 按钮',
+      }),
+    ).toBeInTheDocument();
     // should not insert space when there is icon while loading
+    rerender(
+      <Button icon={<SearchOutlined />} loading>
+        按钮
+      </Button>,
+    );
     expect(
-      render(
-        <Button icon={<SearchOutlined />} loading>
-          按钮
-        </Button>,
-      ).container.firstChild,
-    ).toMatchSnapshot();
+      screen.getByRole('button', {
+        name: 'loading 按钮',
+      }),
+    ).toBeInTheDocument();
     // should insert space while loading
-    expect(render(<Button loading>按钮</Button>).container.firstChild).toMatchSnapshot();
+    rerender(<Button loading>按钮</Button>);
+    expect(
+      screen.getByRole('button', {
+        name: 'loading 按 钮',
+      }),
+    ).toBeInTheDocument();
 
     // should insert space while only one nested element
+    rerender(
+      <Button>
+        <span>按钮</span>
+      </Button>,
+    );
     expect(
-      render(
-        <Button>
-          <span>按钮</span>
-        </Button>,
-      ).container.firstChild,
-    ).toMatchSnapshot();
+      screen.getByRole('button', {
+        name: 'loading 按 钮',
+      }),
+    ).toBeInTheDocument();
   });
 
   it('renders Chinese characters correctly in HOC', () => {
