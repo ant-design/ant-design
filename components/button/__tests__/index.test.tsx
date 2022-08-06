@@ -118,11 +118,10 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/18118
   it('should not insert space to link or text button', () => {
-    const wrapper1 = render(<Button type="link">按钮</Button>);
-    expect(wrapper1.getByRole('button')).toHaveTextContent('按钮');
-    wrapper1.unmount();
-    const wrapper2 = render(<Button type="text">按钮</Button>);
-    expect(wrapper2.getByRole('button')).toHaveTextContent('按钮');
+    const { rerender } = render(<Button type="link">按钮</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('按钮');
+    rerender(<Button type="text">按钮</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('按钮');
   });
 
   it('should render empty button without errors', () => {
