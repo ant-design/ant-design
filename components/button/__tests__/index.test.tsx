@@ -201,12 +201,22 @@ describe('Button', () => {
   });
 
   it('should support link button', () => {
-    const wrapper = render(
+    const { container } = render(
       <Button target="_blank" href="https://ant.design">
         link button
       </Button>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchInlineSnapshot(`
+      <a
+        class="ant-btn ant-btn-default"
+        href="https://ant.design"
+        target="_blank"
+      >
+        <span>
+          link button
+        </span>
+      </a>
+    `);
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {
