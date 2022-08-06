@@ -345,12 +345,12 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/30953
   it('should handle fragment as children', () => {
-    const wrapper = render(
+    render(
       <Button>
         {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(screen.getByRole('button')).toHaveTextContent('text');
   });
 });

@@ -44,14 +44,3 @@ exports[`Button rtl render component should be rendered correctly in RTL directi
   class="ant-btn-group ant-btn-group-rtl"
 />
 `;
-
-exports[`Button should handle fragment as children 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    text
-  </span>
-</button>
-`;
