@@ -114,28 +114,30 @@ describe('Button', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders Chinese characters correctly in HOC', () => {
+  it('should render Chinese characters correctly in HOC', () => {
     const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
-    const { container, rerender } = render(
+    const { rerender } = render(
       <Button>
         <Text>按钮</Text>
       </Button>,
     );
-    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+    expect(screen.getByRole('button', { name: '按钮' })).toHaveClass('ant-btn-two-chinese-chars');
 
     rerender(
       <Button>
         <Text>大按钮</Text>
       </Button>,
     );
-    expect(container.querySelector('.ant-btn')).not.toHaveClass('ant-btn-two-chinese-chars');
+    expect(screen.getByRole('button', { name: '大按钮' })).not.toHaveClass(
+      'ant-btn-two-chinese-chars',
+    );
 
     rerender(
       <Button>
         <Text>按钮</Text>
       </Button>,
     );
-    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+    expect(screen.getByRole('button', { name: '按钮' })).toHaveClass('ant-btn-two-chinese-chars');
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
