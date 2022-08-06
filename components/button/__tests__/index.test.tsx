@@ -249,18 +249,18 @@ describe('Button', () => {
   });
 
   it('should support to change loading', async () => {
-    const { rerender, container, unmount } = render(<Button>Button</Button>);
+    const { rerender, unmount } = render(<Button>Button</Button>);
     rerender(<Button loading />);
-    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+    expect(screen.getByRole('button')).toHaveClass('ant-btn-loading');
     rerender(<Button loading={false} />);
-    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
     rerender(<Button loading={{ delay: 50 }} />);
-    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
     await sleep(50);
-    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+    expect(screen.getByRole('button')).toHaveClass('ant-btn-loading');
     rerender(<Button loading={false} />);
     await sleep(50);
-    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
     expect(() => {
       unmount();
     }).not.toThrow();
