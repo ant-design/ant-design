@@ -191,12 +191,12 @@ describe('Button', () => {
 
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
-    const { container } = render(
+    render(
       <Button loading onClick={onClick}>
         button
       </Button>,
     );
-    fireEvent.click(container.firstChild!);
+    fireEvent.click(screen.getByRole('button'));
     expect(onClick).not.toHaveBeenCalledWith();
   });
 
