@@ -229,12 +229,12 @@ describe('Button', () => {
   });
 
   it('should not render as link button when href is undefined', async () => {
-    const wrapper = render(
+    render(
       <Button type="primary" href={undefined}>
         button
       </Button>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 
   // // https://github.com/ant-design/ant-design/issues/15342
