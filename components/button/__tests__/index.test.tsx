@@ -239,13 +239,13 @@ describe('Button', () => {
 
   // // https://github.com/ant-design/ant-design/issues/15342
   it('should merge text if children using variable', () => {
-    const wrapper = render(
+    render(
       <Button>
         {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(screen.getByRole('button')).toHaveTextContent('This is a test 1');
   });
 
   it('should support to change loading', async () => {

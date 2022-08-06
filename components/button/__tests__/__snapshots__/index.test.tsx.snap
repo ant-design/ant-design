@@ -55,25 +55,3 @@ exports[`Button should handle fragment as children 1`] = `
   </span>
 </button>
 `;
-
-exports[`Button should merge text if children using variable 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    This is a test 1
-  </span>
-</button>
-`;
-
-exports[`Button should not render as link button when href is undefined 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    button
-  </span>
-</button>
-`;
