@@ -1,4 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 import { mount } from 'enzyme';
 import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
@@ -9,7 +10,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
-import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
   mountTest(Button);
