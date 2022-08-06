@@ -197,7 +197,7 @@ describe('Button', () => {
       </Button>,
     );
     fireEvent.click(screen.getByRole('button'));
-    expect(onClick).not.toHaveBeenCalledWith();
+    expect(onClick).not.toBeCalled();
   });
 
   it('should support link button', () => {
