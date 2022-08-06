@@ -176,7 +176,7 @@ describe('Button', () => {
 
   it('should reset when loading back of delay', () => {
     jest.useFakeTimers();
-    const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);
+    const { rerender } = render(<Button loading={{ delay: 1000 }} />);
     rerender(<Button loading={{ delay: 2000 }} />);
     rerender(<Button loading={false} />);
 
