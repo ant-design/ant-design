@@ -1,7 +1,7 @@
 import { SmileOutlined } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+import { act } from '../../../tests/utils';
 import message, { getInstance } from '..';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
@@ -58,14 +58,14 @@ describe('message', () => {
 
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
 
+    message.destroy(key1);
     act(() => {
-      message.destroy(key1);
       jest.runAllTimers();
     });
     expect(getInstance().component.state.notices).toHaveLength(1);
 
+    message.destroy(key2);
     act(() => {
-      message.destroy(key2);
       jest.runAllTimers();
     });
     expect(getInstance().component.state.notices).toHaveLength(0);
@@ -82,8 +82,8 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message').length).toBe(1);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
 
+    message.destroy();
     act(() => {
-      message.destroy();
       jest.runAllTimers();
     });
     expect(document.querySelectorAll('.ant-message').length).toBe(0);
@@ -194,7 +194,9 @@ describe('message', () => {
     }
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
@@ -215,9 +217,13 @@ describe('message', () => {
 
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    jest.advanceTimersByTime(1500);
+    act(() => {
+      jest.advanceTimersByTime(1500);
+    });
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 
