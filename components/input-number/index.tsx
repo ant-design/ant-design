@@ -118,8 +118,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       {
         [`${prefixCls}-affix-wrapper-focused`]: focused,
         [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
-        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
