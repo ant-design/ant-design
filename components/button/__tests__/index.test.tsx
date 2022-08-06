@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { Component } from 'react';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -9,6 +9,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
+import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
   mountTest(Button);
@@ -322,14 +323,14 @@ describe('Button', () => {
     });
   });
 
-  it('should not redirect when button is disabled', () => {
+  it('should not redirect when button is disabled', async () => {
     const onClick = jest.fn();
-    const { container } = render(
+    render(
       <Button href="https://ant.design" onClick={onClick} disabled>
         click me
       </Button>,
     );
-    fireEvent.click(container.firstChild!);
+    await userEvent.click(screen.getByRole('link'));
     expect(onClick).not.toHaveBeenCalled();
   });
 
