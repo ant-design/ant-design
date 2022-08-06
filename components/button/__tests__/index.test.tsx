@@ -219,10 +219,13 @@ describe('Button', () => {
     `);
   });
 
-  it('fixbug renders {0} , 0 and {false}', () => {
-    expect(render(<Button>{0}</Button>).container.firstChild).toMatchSnapshot();
-    expect(render(<Button>0</Button>).container.firstChild).toMatchSnapshot();
-    expect(render(<Button>{false}</Button>).container.firstChild).toMatchSnapshot();
+  it('it should render correctly when text is 0 {0} {false}', () => {
+    const { rerender } = render(<Button>{0}</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('0');
+    rerender(<Button>0</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('0');
+    rerender(<Button>{false}</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('');
   });
 
   it('should not render as link button when href is undefined', async () => {

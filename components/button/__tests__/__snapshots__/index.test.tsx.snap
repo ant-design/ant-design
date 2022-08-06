@@ -1,32 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  0
-</button>
-`;
-
-exports[`Button fixbug renders {0} , 0 and {false} 2`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    0
-  </span>
-</button>
-`;
-
-exports[`Button fixbug renders {0} , 0 and {false} 3`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
-/>
-`;
-
 exports[`Button rtl render component should be rendered correctly in RTL direction 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-rtl"
