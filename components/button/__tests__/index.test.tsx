@@ -58,18 +58,10 @@ describe('Button', () => {
   it('should render Chinese characters with space correctly', () => {
     const { rerender } = render(<Button>按钮</Button>);
     // should insert space when there is icon
-    expect(
-      screen.getByRole('button', {
-        name: '按 钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按 钮');
     // should not insert space when there is icon
     rerender(<Button icon={<SearchOutlined />}>按钮</Button>);
-    expect(
-      screen.getByRole('button', {
-        name: 'search 按钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按钮');
     // should not insert space when there is icon
     rerender(
       <Button>
@@ -77,29 +69,17 @@ describe('Button', () => {
         按钮
       </Button>,
     );
-    expect(
-      screen.getByRole('button', {
-        name: 'search 按钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按钮');
     // should not insert space when there is icon while loading
     rerender(
       <Button icon={<SearchOutlined />} loading>
         按钮
       </Button>,
     );
-    expect(
-      screen.getByRole('button', {
-        name: 'loading 按钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按钮');
     // should insert space while loading
     rerender(<Button loading>按钮</Button>);
-    expect(
-      screen.getByRole('button', {
-        name: 'loading 按 钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按 钮');
 
     // should insert space while only one nested element
     rerender(
@@ -107,11 +87,7 @@ describe('Button', () => {
         <span>按钮</span>
       </Button>,
     );
-    expect(
-      screen.getByRole('button', {
-        name: 'loading 按 钮',
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole('button')).toHaveTextContent('按 钮');
   });
 
   it('should render Chinese characters correctly in HOC', () => {
