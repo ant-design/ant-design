@@ -157,27 +157,19 @@ describe('Button', () => {
   });
 
   it('should change loading state with delay', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
+    jest.useFakeTimers();
+    // should delay 1500 to should loading status in button
+    const { rerender } = render(<Button loading={false}>Button</Button>);
 
-      enterLoading = () => {
-        this.setState({ loading: { delay: 1000 } });
-      };
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
 
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
-    const wrapper = render(<DefaultButton />);
-    fireEvent.click(wrapper.container.firstChild!);
-    expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
+    rerender(<Button loading={{ delay: 1500 }}>Button</Button>);
+
+    act(() => {
+      jest.advanceTimersByTime(1500);
+    });
+
+    expect(screen.getByRole('button')).toHaveClass('ant-btn-loading');
   });
 
   it('reset when loading back of delay', () => {
