@@ -170,9 +170,11 @@ describe('Button', () => {
     });
 
     expect(screen.getByRole('button')).toHaveClass('ant-btn-loading');
+
+    jest.useRealTimers();
   });
 
-  it('reset when loading back of delay', () => {
+  it('should reset when loading back of delay', () => {
     jest.useFakeTimers();
     const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);
     rerender(<Button loading={{ delay: 2000 }} />);
@@ -182,7 +184,7 @@ describe('Button', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
+    expect(screen.getByRole('button')).not.toHaveClass('ant-btn-loading');
 
     jest.useRealTimers();
   });
