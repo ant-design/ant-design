@@ -125,13 +125,13 @@ describe('Button', () => {
   });
 
   it('should render empty button without errors', () => {
-    const wrapper = render(
+    render(
       <Button>
         {null}
         {undefined}
       </Button>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
   it('have static property for type detecting', () => {
