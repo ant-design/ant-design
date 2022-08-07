@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { render } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tag', () => {
@@ -74,6 +75,17 @@ describe('Tag', () => {
     wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it('deprecated warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<Tag visible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tag] `visible` will be removed in next major version,you can use `visible && <Tag />` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   describe('visibility', () => {
