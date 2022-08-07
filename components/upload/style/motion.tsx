@@ -32,6 +32,7 @@ const genMotionStyle: GenerateStyle<UploadToken> = token => {
         [`${inlineCls}-appear, ${inlineCls}-enter, ${inlineCls}-leave`]: {
           animationDuration: token.motionDurationSlow,
           animationTimingFunction: token.motionEaseInOutCirc,
+          animationFillMode: 'forwards',
         },
 
         [`${inlineCls}-appear, ${inlineCls}-enter`]: {

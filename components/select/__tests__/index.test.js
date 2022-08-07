@@ -91,6 +91,16 @@ describe('Select', () => {
     expect(container.querySelectorAll('.anticon-down').length).toBe(0);
     expect(container.querySelectorAll('.anticon-search').length).toBe(1);
   });
+
+  it('should show warning when use dropdownClassName', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Select dropdownClassName="myCustomClassName" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Select] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+    errorSpy.mockRestore();
+  });
+
   //
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {

@@ -1,7 +1,7 @@
-import type { MenuThemeToken } from '.';
+import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
+const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
   const {
     componentCls,
     motionDurationSlow,
@@ -10,6 +10,7 @@ const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
     lineWidth,
     lineType,
     menuItemPaddingInline,
+    menuItemMarginInline,
   } = token;
 
   return {
@@ -32,6 +33,7 @@ const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
         display: 'inline-block',
         verticalAlign: 'bottom',
         paddingInline: menuItemPaddingInline,
+        marginInline: menuItemMarginInline,
       },
 
       [`> ${componentCls}-item:hover,

@@ -132,7 +132,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${componentCls}-mark-text`]: {
         position: 'absolute',
         display: 'inline-block',
-        color: token.colorTextSecondary,
+        color: token.colorTextDescription,
         textAlign: 'center',
         wordBreak: 'keep-all',
         cursor: 'pointer',

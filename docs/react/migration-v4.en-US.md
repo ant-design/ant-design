@@ -192,6 +192,14 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
 
 `@ant-design/codemod-v4` will help you migrate to antd v4. Obsolete components will be kept running through @ant-design/compatible. Generally, you don't need to migrate manually. The following sections detail the overall migration and changes.
 
+#### Install compatible package
+
+Install `@ant-design/compatible` with `v4-compatible-v3` tag:
+
+```bash
+npm install --save @ant-design/compatible@v4-compatible-v3
+```
+
 #### Import the obsolete Form and Mention components via @ant-design/compatible package
 
 ```diff

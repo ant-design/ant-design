@@ -87,14 +87,14 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Breadcrumb', token => {
   const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
-    breadcrumbBaseColor: token.colorTextSecondary,
+    breadcrumbBaseColor: token.colorTextDescription,
     breadcrumbFontSize: token.fontSizeBase,
     breadcrumbIconFontSize: token.fontSizeBase,
-    breadcrumbLinkColor: token.colorTextSecondary,
+    breadcrumbLinkColor: token.colorTextDescription,
     breadcrumbLinkColorHover: token.colorText,
     breadcrumbLastItemColor: token.colorText,
     breadcrumbSeparatorMargin: token.paddingXS,
-    breadcrumbSeparatorColor: token.colorTextSecondary,
+    breadcrumbSeparatorColor: token.colorTextDescription,
   });
 
   return [genBreadcrumbStyle(BreadcrumbToken)];

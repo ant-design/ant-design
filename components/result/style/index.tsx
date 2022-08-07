@@ -70,7 +70,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     [`${componentCls} ${componentCls}-subtitle`]: {
-      color: token.colorTextSecondary,
+      color: token.colorTextDescription,
       fontSize: token.resultSubtitleFontSize,
       lineHeight,
       textAlign: 'center',

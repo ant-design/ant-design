@@ -16,7 +16,7 @@ Avoid components clinging together and set a unified space.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \|`center` \|`baseline` \|`stretch` | - | 4.2.0 |
+| align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | The space size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |

@@ -360,7 +360,7 @@ export default genComponentStyleHook('Modal', token => {
     modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
     modalContentBg: token.colorBgElevated,
     modalHeadingColor: token.colorTextHeading,
-    modalCloseColor: token.colorTextSecondary,
+    modalCloseColor: token.colorTextDescription,
     modalFooterBg: 'transparent',
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.controlLineType,

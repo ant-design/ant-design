@@ -1,9 +1,5 @@
 import { generate } from '@ant-design/colors';
-import type {
-  GenerateBgPalettes,
-  GenerateColorPalettes,
-  GenerateTextAlphaPalettes,
-} from '../IPalettes';
+import type { GenerateColorPalettes, GenerateNeutralColorPalettes } from '../IPalettes';
 import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 
 export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) => {
@@ -21,10 +17,16 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
   };
 };
 
-export const generateBgPalettes: GenerateBgPalettes = (
+export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   bgBaseColor: string,
   textBaseColor: string,
 ) => ({
+  colorText: getAlphaColor(textBaseColor, 0.85),
+  // v5 should be 0.65
+  colorTextSecondary: getAlphaColor(textBaseColor, 0.45),
+  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
+  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
+
   colorFill: getAlphaColor(textBaseColor, 0.18),
   colorFillSecondary: getAlphaColor(textBaseColor, 0.12),
   colorFillTertiary: getAlphaColor(textBaseColor, 0.08),
@@ -33,11 +35,8 @@ export const generateBgPalettes: GenerateBgPalettes = (
   colorBgElevated: getSolidColor(bgBaseColor, 12),
   colorBgContainer: getSolidColor(bgBaseColor, 8),
   colorBgLayout: getSolidColor(bgBaseColor, 0),
-});
 
-export const generateTextAlphaPalettes: GenerateTextAlphaPalettes = (textBaseColor: string) => ({
-  colorText: getAlphaColor(textBaseColor, 0.85),
-  colorTextSecondary: getAlphaColor(textBaseColor, 0.65),
-  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
-  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
+  colorBorder: getSolidColor(bgBaseColor, 26),
+  colorBorderSecondary: getSolidColor(bgBaseColor, 19),
+  colorSplit: getAlphaColor(textBaseColor, 0.12),
 });
