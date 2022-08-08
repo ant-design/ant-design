@@ -52,7 +52,6 @@ function Drawer({
   className,
   visible,
   children,
-  zIndex,
   style,
   title,
   headerStyle,
