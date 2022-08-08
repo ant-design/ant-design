@@ -1,8 +1,9 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, act } from '../../../tests/utils';
+import { fireEvent, render, sleep, act, screen } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -21,9 +22,9 @@ describe('Alert', () => {
     jest.useRealTimers();
   });
 
-  it('could be closed', () => {
+  it('could be closed', async () => {
     const onClose = jest.fn();
-    const { container } = render(
+    render(
       <Alert
         message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
@@ -32,13 +33,13 @@ describe('Alert', () => {
       />,
     );
 
-    jest.useFakeTimers();
-    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+    await userEvent.click(screen.getByRole('button', { name: /close/i }));
+
     act(() => {
       jest.runAllTimers();
     });
-    expect(onClose).toHaveBeenCalled();
-    jest.useRealTimers();
+
+    expect(onClose).toBeCalledTimes(1);
   });
 
   describe('action of Alert', () => {
