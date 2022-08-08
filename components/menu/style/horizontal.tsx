@@ -6,7 +6,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
     componentCls,
     motionDurationSlow,
     menuHorizontalHeight,
-    colorBorderSecondary,
+    colorSplit,
     lineWidth,
     lineType,
     menuItemPaddingInline,
@@ -17,7 +17,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
     [`${componentCls}-horizontal`]: {
       lineHeight: `${menuHorizontalHeight}px`,
       border: 0,
-      borderBottom: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
+      borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
       boxShadow: 'none',
 
       '&::after': {
