@@ -86,13 +86,15 @@ describe('Alert', () => {
     // @ts-expect-error
     // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
-    const { container } = render(
+    render(
       <ErrorBoundary>
         <ThrowError />
       </ErrorBoundary>,
     );
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(container.textContent).toContain('ReferenceError: NotExisted is not defined');
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'ReferenceError: NotExisted is not defined',
+    );
     // eslint-disable-next-line no-console
     (console.error as any).mockRestore();
   });
