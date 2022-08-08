@@ -1,10 +1,9 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Select from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../tests/utils';
 import Icon from '../../icon';
 
 const { Option } = Select;
@@ -15,8 +14,8 @@ describe('Select', () => {
   rtlTest(Select);
 
   function toggleOpen(container) {
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
     act(() => {
-      fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
       jest.runAllTimers();
     });
   }
@@ -123,7 +122,9 @@ describe('Select', () => {
           <Option value="1">1</Option>
         </Select>,
       );
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
   });

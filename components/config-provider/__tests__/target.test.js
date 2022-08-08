@@ -3,6 +3,7 @@ import React from 'react';
 import ConfigProvider from '..';
 import Affix from '../../affix';
 import Anchor from '../../anchor';
+import { act } from '../../../tests/utils';
 
 describe('ConfigProvider.getTargetContainer', () => {
   it('Affix', () => {
@@ -16,7 +17,9 @@ describe('ConfigProvider.getTargetContainer', () => {
       </ConfigProvider>,
     );
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(getTargetContainer).toHaveBeenCalled();
     jest.useRealTimers();
@@ -33,7 +36,9 @@ describe('ConfigProvider.getTargetContainer', () => {
       </ConfigProvider>,
     );
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(getTargetContainer).toHaveBeenCalled();
     jest.useRealTimers();
