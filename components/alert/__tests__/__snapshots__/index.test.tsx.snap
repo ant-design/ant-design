@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert action of Alert custom action 1`] = `
+exports[`Alert custom action 1`] = `
 <div
   class="ant-alert ant-alert-success"
   data-show="true"
