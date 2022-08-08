@@ -48,7 +48,6 @@ export const DesignTokenContext = React.createContext<{
   hashed?: string | boolean;
 }>({
   token: defaultSeedToken,
-  hashed: true,
 });
 
 // ================================== Hook ==================================
