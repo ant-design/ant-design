@@ -134,10 +134,10 @@ describe('Alert', () => {
   });
 
   it('could accept none react element icon', () => {
-    const { container } = render(
-      <Alert message="Success Tips" type="success" showIcon icon="icon" />,
-    );
-    expect(container.firstChild).toMatchSnapshot();
+    render(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+
+    expect(screen.getByRole('alert')).toHaveTextContent(/success tips/i);
+    expect(screen.getByRole('alert')).toHaveTextContent(/icon/i);
   });
 
   it('should not render message div when no message', () => {

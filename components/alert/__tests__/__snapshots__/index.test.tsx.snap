@@ -74,29 +74,6 @@ exports[`Alert action of Alert custom action 1`] = `
 </div>
 `;
 
-exports[`Alert could accept none react element icon 1`] = `
-<div
-  class="ant-alert ant-alert-success"
-  data-show="true"
-  role="alert"
->
-  <span
-    class="ant-alert-icon"
-  >
-    icon
-  </span>
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Success Tips
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
