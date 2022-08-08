@@ -1,8 +1,7 @@
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import notification, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
@@ -14,7 +13,9 @@ describe('notification', () => {
   });
 
   afterEach(() => {
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     jest.useRealTimers();
 
     act(() => {
