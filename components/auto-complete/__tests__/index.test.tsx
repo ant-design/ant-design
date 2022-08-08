@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import AutoComplete from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, screen } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
