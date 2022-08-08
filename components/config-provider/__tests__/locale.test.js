@@ -9,6 +9,7 @@ import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
+import { act } from '../../../tests/utils';
 
 describe('ConfigProvider.Locale', () => {
   function $$(className) {
@@ -44,7 +45,9 @@ describe('ConfigProvider.Locale', () => {
           title: 'title',
           content: 'Some descriptions',
         });
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         jest.useRealTimers();
       };
 
