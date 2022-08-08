@@ -1,6 +1,6 @@
 import MockDate from 'mockdate';
 import type { ReactElement } from 'react';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import type { RenderOptions } from '@testing-library/react';
 import { render, act } from '@testing-library/react';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
@@ -26,6 +26,20 @@ export const sleep = async (timeout = 0) => {
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
+
+export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
+  const result = React.createRef<T>();
+
+  const Demo = () => {
+    (result as any).current = func();
+
+    return null;
+  };
+
+  customRender(<Demo />);
+
+  return { result };
+}
 
 export { customRender as render };
 
