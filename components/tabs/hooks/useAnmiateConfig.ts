@@ -41,7 +41,6 @@ export default function useAnimateConfig(
       motionName: getTransitionName(prefixCls, 'switch'),
     };
   }
-  console.log('>>>>>', animated, mergedAnimated);
 
   return mergedAnimated;
 }
