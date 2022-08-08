@@ -79,7 +79,7 @@ describe('Alert', () => {
     });
   });
 
-  it('ErrorBoundary', () => {
+  it('should show error as ErrorBoundary when children have error', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     // eslint-disable-next-line no-console
     expect(console.error).toBeCalledTimes(0);
