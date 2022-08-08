@@ -51,6 +51,7 @@ describe('AutoComplete', () => {
     const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
     render(
+      // @ts-ignore
       <AutoComplete dataSource={[() => {}]}>
         <textarea />
       </AutoComplete>,
@@ -84,7 +85,7 @@ describe('AutoComplete', () => {
     render(<AutoComplete placeholder="input here" allowClear />);
     // eslint-disable-next-line no-console
     expect(console.warn).not.toBeCalled();
-    // eslint-disable-next-line no-console
+    // @ts-ignore
     console.warn.mockRestore();
   });
 
