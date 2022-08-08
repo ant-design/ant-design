@@ -1,7 +1,6 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
 import Form from '../../form';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
@@ -1134,7 +1133,9 @@ describe('Upload List', () => {
       await waitPromise();
 
       // Wait for mock request finish request
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
 
       // Basic called times
       expect(onChange).toHaveBeenCalled();

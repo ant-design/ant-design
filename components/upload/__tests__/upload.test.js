@@ -2,11 +2,10 @@
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';

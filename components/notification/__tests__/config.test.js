@@ -1,6 +1,5 @@
-import { act } from 'react-dom/test-utils';
 import notification, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep, act } from '../../../tests/utils';
 
 describe('notification.config', () => {
   beforeEach(() => {
