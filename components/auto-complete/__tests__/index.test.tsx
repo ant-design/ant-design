@@ -86,6 +86,7 @@ describe('AutoComplete', () => {
     // eslint-disable-next-line no-console
     expect(console.warn).not.toBeCalled();
     // @ts-ignore
+    // eslint-disable-next-line no-console
     console.warn.mockRestore();
   });
 
