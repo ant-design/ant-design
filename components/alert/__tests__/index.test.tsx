@@ -62,23 +62,20 @@ describe('Alert', () => {
   });
 
   describe('data and aria props', () => {
-    it('sets data attributes on input', () => {
-      const { container } = render(<Alert data-test="test-id" data-id="12345" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('data-test')).toBe('test-id');
-      expect(input.getAttribute('data-id')).toBe('12345');
-    });
-
-    it('sets aria attributes on input', () => {
-      const { container } = render(<Alert aria-describedby="some-label" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('aria-describedby')).toBe('some-label');
+    it('should sets data attributes on alert when pass attributes to props', () => {
+      render(
+        <Alert data-test="test-id" data-id="12345" aria-describedby="some-label" message={null} />,
+      );
+      const alert = screen.getByRole('alert');
+      expect(alert).toHaveAttribute('data-test', 'test-id');
+      expect(alert).toHaveAttribute('data-id', '12345');
+      expect(alert).toHaveAttribute('aria-describedby', 'some-label');
     });
 
     it('sets role attribute on input', () => {
-      const { container } = render(<Alert role="status" message={null} />);
-      const input = container.querySelector('.ant-alert')!;
-      expect(input.getAttribute('role')).toBe('status');
+      render(<Alert role="status" message={null} />);
+
+      expect(screen.getByRole('status')).toBeInTheDocument();
     });
   });
 
