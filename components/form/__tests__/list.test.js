@@ -1,7 +1,6 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 
@@ -43,8 +42,8 @@ describe('Form.List', () => {
       );
 
       function operate(className) {
+        fireEvent.click(container.querySelector(className));
         act(() => {
-          fireEvent.click(container.querySelector(className));
           jest.runAllTimers();
         });
       }

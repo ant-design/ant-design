@@ -2,11 +2,10 @@
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
@@ -322,7 +321,9 @@ describe('Upload', () => {
     const { rerender } = render(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
     rerender(<Upload ref={ref} fileList={fileList} />);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(ref.current.fileList).toEqual(fileList);
     jest.useRealTimers();
   });
@@ -725,7 +726,7 @@ describe('Upload', () => {
         await Promise.resolve();
       }
     });
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     await act(async () => {
@@ -945,7 +946,7 @@ describe('Upload', () => {
     });
 
     // Motion leave status change: start > active
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 

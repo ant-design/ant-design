@@ -4,9 +4,9 @@ import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import * as React from 'react';
-import TestUtils, { act } from 'react-dom/test-utils';
+import TestUtils from 'react-dom/test-utils';
 import Modal from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import destroyFns from '../destroyFns';
 
@@ -78,7 +78,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       content: 'some descriptions',
       ...args,
     });
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     jest.useRealTimers();
   }
 
@@ -87,7 +89,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     confirm({
       content: 'some descriptions',
     });
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(document.querySelector('.ant-modal-confirm-title')).toBe(null);
     jest.useRealTimers();
   });
@@ -150,18 +154,26 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       onCancel,
     });
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     await sleep();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
     TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
       keyCode: KeyCode.ESC,
     });
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     await sleep(0);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
     expect(onCancel).toHaveBeenCalledTimes(1);
@@ -197,18 +209,26 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     open();
 
     jest.useFakeTimers();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     await sleep();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect($$('.ant-modal-confirm')).toHaveLength(1);
 
     await sleep();
     $$('.ant-btn')[0].click();
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     await sleep();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect($$('.ant-modal-confirm')).toHaveLength(0);
     jest.useRealTimers();
@@ -358,7 +378,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         expect($$('.ant-modal-confirm-title')[0].innerHTML).toBe('new title');
         expect($$('.ant-modal-confirm-content')[0].innerHTML).toBe('new content');
         instance.destroy();
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         jest.useRealTimers();
       });
     });
@@ -403,7 +425,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         );
         expect($$('.ant-modal-confirm-btns .ant-btn-primary')[0].style.color).toBe('red');
         instance.destroy();
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         jest.useRealTimers();
       });
     });
@@ -487,7 +511,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useFakeTimers();
 
     Modal.destroyAll(); // clear destroyFns
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     const instances = [];
     ['info', 'success', 'warning', 'error'].forEach(type => {
@@ -716,18 +742,26 @@ describe('Modal.confirm triggers callbacks correctly', () => {
           onCancel: close => mock(close),
         });
 
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         await sleep();
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
         TestUtils.Simulate.keyDown($$('.ant-modal')[0], {
           keyCode: KeyCode.ESC,
         });
 
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         await sleep(0);
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
         expect(mock).toBeCalledWith(expect.any(Function));

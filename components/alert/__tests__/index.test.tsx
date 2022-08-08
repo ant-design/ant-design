@@ -1,9 +1,8 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Alert from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
@@ -33,13 +32,13 @@ describe('Alert', () => {
       />,
     );
 
+    jest.useFakeTimers();
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
     act(() => {
-      jest.useFakeTimers();
-      fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
       jest.runAllTimers();
-      jest.useRealTimers();
     });
     expect(onClose).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 
   describe('action of Alert', () => {
