@@ -214,4 +214,11 @@ describe('Avatar Render', () => {
     expect(wrapper.html().includes('crossorigin')).toEqual(false);
     expect(wrapper.find('img').prop('crossOrigin')).toEqual(undefined);
   });
+
+  it('clickable', async () => {
+    const onClick = jest.fn();
+    const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
+    fireEvent.click(container.querySelector('.ant-avatar-string'));
+    expect(onClick).toHaveBeenCalled();
+  });
 });

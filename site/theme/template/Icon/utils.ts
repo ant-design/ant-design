@@ -14,8 +14,8 @@ const fillTester = /-fill$/;
 const outlineTester = /-o$/;
 const twoToneTester = /-twotone$/;
 
-export function getThemeFromTypeName(type) {
-  let result = null;
+export function getThemeFromTypeName(type: string) {
+  let result: string | null = null;
   if (fillTester.test(type)) {
     result = 'filled';
   } else if (outlineTester.test(type)) {
@@ -26,12 +26,12 @@ export function getThemeFromTypeName(type) {
   return result;
 }
 
-export function removeTypeTheme(type) {
+export function removeTypeTheme(type: string): string {
   return type.replace(fillTester, '').replace(outlineTester, '').replace(twoToneTester, '');
 }
 
-export function withThemeSuffix(type, theme) {
-  let result = type;
+export function withThemeSuffix(type: string, theme: string): string {
+  let result: string = type;
   if (theme === 'filled') {
     result += '-fill';
   } else if (theme === 'outlined') {
