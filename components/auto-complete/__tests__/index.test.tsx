@@ -23,10 +23,9 @@ describe('AutoComplete', () => {
     await userEvent.type(screen.getByRole('combobox'), '123');
 
     // should not filter data source by default
-    // the first item is highlight by default
-    expect(screen.getByRole('option', { name: '12345' })).toBeInTheDocument();
-    expect(screen.getByText('23456')).toBeInTheDocument();
-    expect(screen.getByText('34567')).toBeInTheDocument();
+    expect(screen.getByTitle('12345')).toBeInTheDocument();
+    expect(screen.getByTitle('23456')).toBeInTheDocument();
+    expect(screen.getByTitle('34567')).toBeInTheDocument();
   });
 
   it('AutoComplete should work when dataSource is object array', async () => {
@@ -44,9 +43,8 @@ describe('AutoComplete', () => {
     await userEvent.type(screen.getByRole('combobox'), 'a');
 
     // should not filter data source by default
-    // the first item is highlight by default
-    expect(screen.getByRole('option', { name: 'text' })).toBeInTheDocument();
-    expect(screen.getByText('abc')).toBeInTheDocument();
+    expect(screen.getByTitle('text')).toBeInTheDocument();
+    expect(screen.getByTitle('abc')).toBeInTheDocument();
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
@@ -62,10 +60,10 @@ describe('AutoComplete', () => {
   });
 
   it('legacy dataSource should accept react element option', () => {
-    const { asFragment } = render(
-      <AutoComplete open dataSource={[<span key="key">ReactNode</span>]} />,
-    );
-    expect(asFragment().firstChild).toMatchSnapshot();
+    render(<AutoComplete open dataSource={[<span key="key">ReactNode</span>]} />);
+
+    expect(screen.getByRole('combobox')).toBeInTheDocument();
+    expect(screen.getByTitle(/reactnode/i)).toBeInTheDocument();
   });
 
   it('legacy AutoComplete.Option should be compatiable', () => {
