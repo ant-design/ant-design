@@ -343,9 +343,9 @@ const Demo = () => {
 Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
 
 ```tsx
-const CustomInput = ({ value }) => {
+const CustomInput = ({ value, onChange }) => {
   const { status } = Form.Item.useStatus();
-  return <input value={value} className={`custom-input-${status}`} />;
+  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
 };
 
 export default () => (
