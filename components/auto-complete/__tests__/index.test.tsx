@@ -66,16 +66,17 @@ describe('AutoComplete', () => {
     expect(screen.getByTitle(/reactnode/i)).toBeInTheDocument();
   });
 
-  it('legacy AutoComplete.Option should be compatiable', () => {
-    const { container } = render(
+  it('legacy AutoComplete.Option should be compatiable', async () => {
+    render(
       <AutoComplete>
         <AutoComplete.Option value="111">111</AutoComplete.Option>
         <AutoComplete.Option value="222">222</AutoComplete.Option>
       </AutoComplete>,
     );
-    expect(container.querySelectorAll('input').length).toBe(1);
-    fireEvent.change(container.querySelector('input'), { target: { value: '1' } });
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(2);
+    expect(screen.getByRole('combobox')).toBeInTheDocument();
+    await userEvent.type(screen.getByRole('combobox'), '1');
+    expect(screen.getByTitle(/111/i)).toBeInTheDocument();
+    expect(screen.getByTitle(/222/i)).toBeInTheDocument();
   });
 
   it('should not warning when getInputElement is null', () => {
