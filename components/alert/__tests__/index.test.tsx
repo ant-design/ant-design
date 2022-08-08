@@ -22,7 +22,7 @@ describe('Alert', () => {
     jest.useRealTimers();
   });
 
-  it('could be closed', async () => {
+  it('should show close button and could be closed', async () => {
     const onClose = jest.fn();
     render(
       <Alert
@@ -59,18 +59,6 @@ describe('Alert', () => {
       );
       expect(container.firstChild).toMatchSnapshot();
     });
-  });
-
-  it('support closeIcon', () => {
-    const { container } = render(
-      <Alert
-        closable
-        closeIcon={<span>close</span>}
-        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-        type="warning"
-      />,
-    );
-    expect(container.firstChild).toMatchSnapshot();
   });
 
   describe('data and aria props', () => {
