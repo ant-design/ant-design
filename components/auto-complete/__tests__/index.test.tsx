@@ -89,11 +89,11 @@ describe('AutoComplete', () => {
   });
 
   it('should not override custom input className', () => {
-    const { container } = render(
+    render(
       <AutoComplete>
         <Input className="custom" />
       </AutoComplete>,
     );
-    expect(container.querySelector('input').classList.contains('custom')).toBeTruthy();
+    expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 });
