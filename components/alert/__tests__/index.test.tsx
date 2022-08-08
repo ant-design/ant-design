@@ -118,19 +118,18 @@ describe('Alert', () => {
   });
 
   it('could be used with Popconfirm', async () => {
-    const ref = React.createRef<any>();
     jest.useRealTimers();
-    const { container } = render(
-      <Popconfirm ref={ref} title="xxx">
+    render(
+      <Popconfirm title="xxx">
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
         />
       </Popconfirm>,
     );
-    fireEvent.click(container.querySelector('.ant-alert')!);
-    await sleep(0);
-    expect(ref.current.getPopupDomNode()).toBeTruthy();
+    await userEvent.click(screen.getByRole('alert'));
+
+    expect(screen.getByRole('tooltip')).toBeInTheDocument();
     jest.useFakeTimers();
   });
 
