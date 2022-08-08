@@ -28,6 +28,21 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
   render(ui, { wrapper: StrictMode, ...options });
 
 export * from '@testing-library/react';
+
+export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
+  const result = React.createRef<T>();
+
+  const Demo = () => {
+    (result as any).current = func();
+
+    return null;
+  };
+
+  customRender(<Demo />);
+
+  return { result };
+}
+
 export { customRender as render };
 
 export const triggerResize = (target: Element) => {
@@ -42,15 +57,3 @@ export const triggerResize = (target: Element) => {
 
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
-
-export function renderHook<T>(func: () => T): { current: T } {
-  const outerRef = React.createRef<T>();
-  const Demo = React.forwardRef((_, ref: any) => {
-    ref.current = func();
-    return null;
-  });
-
-  render(<Demo ref={outerRef} />);
-
-  return outerRef as any;
-}
