@@ -11,7 +11,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
-import useAnimateConfig from './hooks/useAnmiateConfig';
+import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import TabPane, { TabPaneProps } from './TabPane';
 
