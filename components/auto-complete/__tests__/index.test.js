@@ -1,26 +1,32 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import AutoComplete from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import Input from '../../input';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
   rtlTest(AutoComplete);
 
-  it('AutoComplete with custom Input render perfectly', () => {
-    const { container } = render(
+  it('AutoComplete with custom Input render perfectly', async () => {
+    render(
       <AutoComplete dataSource={['12345', '23456', '34567']}>
         <textarea />
       </AutoComplete>,
     );
 
-    expect(container.querySelectorAll('textarea').length).toBe(1);
-    fireEvent.change(container.querySelector('textarea'), { target: { value: '123' } });
+    expect(screen.getByRole('combobox')).toBeInTheDocument();
 
-    // should not filter data source defaultly
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(3);
+    // should show options when type in input
+    await userEvent.type(screen.getByRole('combobox'), '123');
+
+    // should not filter data source by default
+    // the first item is highlight by default
+    expect(screen.getByRole('option', { name: '12345' })).toBeInTheDocument();
+    expect(screen.getByText('23456')).toBeInTheDocument();
+    expect(screen.getByText('34567')).toBeInTheDocument();
   });
 
   it('AutoComplete should work when dataSource is object array', () => {
