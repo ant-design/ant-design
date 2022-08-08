@@ -58,7 +58,10 @@ async function printLog() {
       type: 'list',
       name: 'fromVersion',
       message: '🏷  Please choose tag to compare with current branch:',
-      choices: tags.all.reverse().slice(0, 10),
+      choices: tags.all
+        .filter(item => !item.includes('experimental'))
+        .reverse()
+        .slice(0, 10),
     },
   ]);
   let { toVersion } = await inquirer.prompt([
