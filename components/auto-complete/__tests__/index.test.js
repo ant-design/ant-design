@@ -29,8 +29,8 @@ describe('AutoComplete', () => {
     expect(screen.getByText('34567')).toBeInTheDocument();
   });
 
-  it('AutoComplete should work when dataSource is object array', () => {
-    const { container } = render(
+  it('AutoComplete should work when dataSource is object array', async () => {
+    render(
       <AutoComplete
         dataSource={[
           { text: 'text', value: 'value' },
@@ -40,11 +40,13 @@ describe('AutoComplete', () => {
         <input />
       </AutoComplete>,
     );
-    expect(container.querySelectorAll('input').length).toBe(1);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+    expect(screen.getByRole('combobox')).toBeInTheDocument();
+    await userEvent.type(screen.getByRole('combobox'), 'a');
 
-    // should not filter data source defaultly
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(2);
+    // should not filter data source by default
+    // the first item is highlight by default
+    expect(screen.getByRole('option', { name: 'text' })).toBeInTheDocument();
+    expect(screen.getByText('abc')).toBeInTheDocument();
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
