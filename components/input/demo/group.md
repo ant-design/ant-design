@@ -30,7 +30,6 @@ import {
   Row,
   Select,
   Tooltip,
-  Form,
 } from 'antd';
 import React from 'react';
 
@@ -193,15 +192,6 @@ const App: React.FC = () => (
       </Select>
       <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
     </Input.Group>
-    <br />
-    <Form>
-      <Form.Item hasFeedback validateStatus="success">
-        <Input.Group compact>
-          <InputNumber style={{ width: "30%" }} />
-          <Input style={{ width: "70%" }} placeholder="Form.Item设置hasFeedback搭配Input.Group使用" />
-        </Input.Group>
-      </Form.Item>
-    </Form>
   </div>
 );
 
