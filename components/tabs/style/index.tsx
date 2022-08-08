@@ -2,12 +2,13 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
+import genMotionStyle from './motion';
 
 export interface ComponentToken {
   zIndexPopup: number;
 }
 
-interface TabsToken extends FullToken<'Tabs'> {
+export interface TabsToken extends FullToken<'Tabs'> {
   tabsCardHorizontalPadding: string;
   tabsCardHeight: number;
   tabsCardGutter: number;
@@ -804,7 +805,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
       // =========================== TabPanes ===========================
       [`${componentCls}-content`]: {
-        display: 'flex',
+        position: 'relative',
         width: '100%',
       },
 
@@ -814,14 +815,10 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         minHeight: 0,
       },
 
-      [`${componentCls}-content-animated`]: {
-        transition: `margin ${token.motionDurationSlow}`,
-      },
-
       [`${componentCls}-tabpane`]: {
-        flex: 'none',
-        width: '100%',
-        outline: 'none',
+        '&-hidden': {
+          display: 'none',
+        },
       },
     },
 
@@ -868,6 +865,7 @@ export default genComponentStyleHook(
       genDropdownStyle(tabsToken),
       genCardStyle(tabsToken),
       genTabsStyle(tabsToken),
+      genMotionStyle(tabsToken),
     ];
   },
   token => ({
