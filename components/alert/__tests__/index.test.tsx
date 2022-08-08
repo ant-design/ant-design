@@ -100,25 +100,21 @@ describe('Alert', () => {
   });
 
   it('could be used with Tooltip', async () => {
-    const ref = React.createRef<any>();
-    jest.useRealTimers();
-    const { container } = render(
-      <Tooltip title="xxx" mouseEnterDelay={0} ref={ref}>
+    render(
+      <Tooltip title="xxx" mouseEnterDelay={0}>
         <Alert
           message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
           type="warning"
         />
       </Tooltip>,
     );
-    // wrapper.find('.ant-alert').simulate('mouseenter');
-    fireEvent.mouseEnter(container.querySelector('.ant-alert')!);
-    await sleep(0);
-    expect(ref.current.getPopupDomNode()).toBeTruthy();
-    jest.useFakeTimers();
+
+    await userEvent.hover(screen.getByRole('alert'));
+
+    expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {
-    jest.useRealTimers();
     render(
       <Popconfirm title="xxx">
         <Alert
@@ -130,7 +126,6 @@ describe('Alert', () => {
     await userEvent.click(screen.getByRole('alert'));
 
     expect(screen.getByRole('tooltip')).toBeInTheDocument();
-    jest.useFakeTimers();
   });
 
   it('could accept none react element icon', () => {
