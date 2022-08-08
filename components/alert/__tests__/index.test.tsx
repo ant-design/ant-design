@@ -91,7 +91,7 @@ describe('Alert', () => {
         <ThrowError />
       </ErrorBoundary>,
     );
-    // eslint-disable-next-line jest/no-standalone-expect
+
     expect(screen.getByRole('alert')).toHaveTextContent(
       'ReferenceError: NotExisted is not defined',
     );
