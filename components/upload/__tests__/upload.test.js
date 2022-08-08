@@ -322,7 +322,9 @@ describe('Upload', () => {
     const { rerender } = render(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
     rerender(<Upload ref={ref} fileList={fileList} />);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(ref.current.fileList).toEqual(fileList);
     jest.useRealTimers();
   });
@@ -725,7 +727,7 @@ describe('Upload', () => {
         await Promise.resolve();
       }
     });
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     await act(async () => {
@@ -945,7 +947,7 @@ describe('Upload', () => {
     });
 
     // Motion leave status change: start > active
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 
