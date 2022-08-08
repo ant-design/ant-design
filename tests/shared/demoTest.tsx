@@ -5,6 +5,7 @@ import { render as enzymeRender } from 'enzyme';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import { ConfigProvider } from '../../components';
 import { excludeWarning } from './excludeWarning';
 import { render, act } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
@@ -109,7 +110,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+        Demo = (
+          <ConfigProvider theme={{ hashed: false }}>
+            <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+          </ConfigProvider>
+        );
 
         if (options?.testingLib) {
           jest.useFakeTimers().setSystemTime(mockDate);
