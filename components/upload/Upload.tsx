@@ -3,6 +3,7 @@ import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import { flushSync } from 'react-dom';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -101,7 +102,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       cloneList = cloneList.slice(0, maxCount);
     }
 
-    setMergedFileList(cloneList);
+    flushSync(() => {
+      setMergedFileList(cloneList);
+    });
 
     const changeInfo: UploadChangeParam<UploadFile> = {
       file: file as UploadFile,
