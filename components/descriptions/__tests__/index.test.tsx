@@ -208,8 +208,8 @@ describe('Descriptions', () => {
     );
 
     function matchSpan(rowIndex: number, spans: number[]) {
-      const tr = Array.from(wrapper.container.querySelectorAll('tr')).at(rowIndex);
-      const tds = Array.from(tr?.querySelectorAll('th')!);
+      const trs = Array.from(wrapper.container.querySelectorAll('tr')).at(rowIndex);
+      const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
         expect(Number(td.getAttribute('colSpan'))).toEqual(spans[index]);
