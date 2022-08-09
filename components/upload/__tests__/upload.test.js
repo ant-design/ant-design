@@ -914,7 +914,7 @@ describe('Upload', () => {
       throw new TypeError("Object doesn't support this action");
     };
 
-    jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    const spyIE = jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
     fireEvent.change(container.querySelector('input'), {
       target: {
         files: [{ file: 'foo.png' }],
@@ -925,6 +925,7 @@ describe('Upload', () => {
     await sleep();
 
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
+    spyIE.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/33819
