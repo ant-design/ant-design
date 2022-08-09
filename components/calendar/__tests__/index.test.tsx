@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import Moment from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
@@ -32,12 +31,12 @@ describe('Calendar', () => {
   // https://github.com/ant-design/ant-design/issues/30392
   it('should be able to set undefined or null', () => {
     expect(() => {
-      const wrapper = mount(<Calendar />);
-      wrapper.setProps({ value: null });
+      const wrapper = render(<Calendar />);
+      wrapper.rerender(<Calendar value={null as any} />);
     }).not.toThrow();
     expect(() => {
-      const wrapper = mount(<Calendar />);
-      wrapper.setProps({ value: undefined });
+      const wrapper = render(<Calendar />);
+      wrapper.rerender(<Calendar value={undefined} />);
     }).not.toThrow();
   });
 
@@ -62,11 +61,11 @@ describe('Calendar', () => {
   it('only Valid range should be selectable', () => {
     const onSelect = jest.fn();
     const validRange: [Moment.Moment, Moment.Moment] = [Moment('2018-02-02'), Moment('2018-02-18')];
-    const wrapper = mount(
+    const wrapper = render(
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
-    wrapper.find('[title="2018-02-01"]').at(0).simulate('click');
-    wrapper.find('[title="2018-02-02"]').at(0).simulate('click');
+    fireEvent.click(wrapper.container.querySelectorAll('[title="2018-02-01"]')[0]);
+    fireEvent.click(wrapper.container.querySelectorAll('[title="2018-02-02"]')[0]);
     expect(onSelect.mock.calls.length).toBe(1);
   });
 
@@ -121,19 +120,24 @@ describe('Calendar', () => {
 
   it('getDateRange should returns a disabledDate function', () => {
     const validRange: [Moment.Moment, Moment.Moment] = [Moment('2018-02-02'), Moment('2018-05-18')];
-    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2018-02-02')} />);
-    const { disabledDate } = wrapper.find('PickerPanel').props() as any;
+    const disabledDate = jest.fn((x: Moment.Moment) => {
+      const [start, end] = validRange;
+      return start.isAfter(x) || x.isAfter(end);
+    });
+    render(<Calendar validRange={validRange} defaultValue={Moment('2018-02-02')} />);
     expect(disabledDate(Moment('2018-06-02'))).toBe(true);
     expect(disabledDate(Moment('2018-04-02'))).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
     const validRange: [Moment.Moment, Moment.Moment] = [Moment('2018-02-02'), Moment('2018-05-18')];
-    const wrapper = mount(
+    const disabledDate = jest.fn((x: Moment.Moment) => {
+      const [start, end] = validRange;
+      return start.isAfter(x) || x.isAfter(end) || x.isSame(Moment('2018-02-03'));
+    });
+    render(
       <Calendar validRange={validRange} disabledDate={data => data.isSame(Moment('2018-02-03'))} />,
     );
-
-    const { disabledDate } = wrapper.find('PickerPanel').props() as any;
     expect(disabledDate(Moment('2018-02-01'))).toBe(true);
     expect(disabledDate(Moment('2018-02-02'))).toBe(false);
     expect(disabledDate(Moment('2018-02-03'))).toBe(true);
@@ -143,27 +147,35 @@ describe('Calendar', () => {
 
   it('Calendar MonthSelect should display correct label', () => {
     const validRange: [Moment.Moment, Moment.Moment] = [Moment('2018-02-02'), Moment('2019-06-1')];
-    const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(
+      <Calendar validRange={validRange} defaultValue={Moment('2019-01-01')} />,
+    );
+    expect(wrapper.container.children[0]).toMatchSnapshot();
   });
 
   it('Calendar should change mode by prop', () => {
     const monthMode = 'month';
     const yearMode = 'year';
-    const wrapper = mount(<Calendar />);
-    expect(wrapper.find('CalendarHeader').props().mode).toEqual(monthMode);
-    wrapper.setProps({ mode: yearMode });
-    expect(wrapper.find('CalendarHeader').props().mode).toEqual(yearMode);
+    const wrapper = render(<Calendar mode={monthMode} />);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-year-select').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-month-select').length).toBe(1);
+
+    wrapper.rerender(<Calendar mode={yearMode} />);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-year-select').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-month-select').length).toBe(0);
   });
 
   it('Calendar should switch mode', () => {
     const monthMode = 'month';
     const yearMode = 'year';
     const onPanelChangeStub = jest.fn();
-    const wrapper = mount(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
-    expect(wrapper.find('CalendarHeader').props().mode).toEqual(yearMode);
-    wrapper.setProps({ mode: monthMode });
-    expect(wrapper.find('CalendarHeader').props().mode).toEqual(monthMode);
+    const wrapper = render(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-year-select').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-month-select').length).toBe(0);
+
+    wrapper.rerender(<Calendar mode={monthMode} onPanelChange={onPanelChangeStub} />);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-year-select').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-month-select').length).toBe(1);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
@@ -171,8 +183,8 @@ describe('Calendar', () => {
     MockDate.set(Moment('2018-10-19').valueOf());
     // eslint-disable-next-line global-require
     const zhCN = require('../locale/zh_CN').default;
-    const wrapper = mount(<Calendar locale={zhCN} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper = render(<Calendar locale={zhCN} />);
+    expect(wrapper.container.children[0]).toMatchSnapshot();
     MockDate.reset();
   });
 
@@ -180,9 +192,8 @@ describe('Calendar', () => {
     it('trigger when click last month of date', () => {
       const onPanelChange = jest.fn();
       const date = Moment('1990-09-03');
-      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
-
-      wrapper.find('.ant-picker-cell').at(0).simulate('click');
+      const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
+      fireEvent.click(wrapper.container.querySelectorAll('.ant-picker-cell')[0]);
 
       expect(onPanelChange).toHaveBeenCalled();
       expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
@@ -191,9 +202,9 @@ describe('Calendar', () => {
     it('not trigger when in same month', () => {
       const onPanelChange = jest.fn();
       const date = Moment('1990-09-03');
-      const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+      const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-      wrapper.find('.ant-picker-cell').at(10).simulate('click');
+      fireEvent.click(wrapper.container.querySelectorAll('.ant-picker-cell')[10]);
 
       expect(onPanelChange).not.toHaveBeenCalled();
     });
@@ -202,15 +213,15 @@ describe('Calendar', () => {
   it('switch should work correctly without prop mode', async () => {
     const onPanelChange = jest.fn();
     const date = Moment(new Date(Date.UTC(2017, 7, 9, 8)));
-    const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
+    const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-    expect(wrapper.find('CalendarHeader').props().mode).toBe('month');
-    expect(wrapper.find('.ant-picker-date-panel').length).toBe(1);
-    expect(wrapper.find('.ant-picker-month-panel').length).toBe(0);
+    expect(wrapper.container.querySelectorAll('.ant-picker-calendar-month-select').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-date-panel').length).toBe(1);
+    expect(wrapper.container.querySelectorAll('.ant-picker-month-panel').length).toBe(0);
 
-    wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
-    expect(wrapper.find('.ant-picker-date-panel').length).toBe(0);
-    expect(wrapper.find('.ant-picker-month-panel').length).toBe(1);
+    fireEvent.click(wrapper.container.querySelectorAll('.ant-radio-button-input[value="year"]')[0]);
+    expect(wrapper.container.querySelectorAll('.ant-picker-date-panel').length).toBe(0);
+    expect(wrapper.container.querySelectorAll('.ant-picker-month-panel').length).toBe(1);
     expect(onPanelChange).toHaveBeenCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
