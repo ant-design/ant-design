@@ -35,7 +35,7 @@ export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   colorBgElevated: getSolidColor(bgBaseColor, 12),
   colorBgContainer: getSolidColor(bgBaseColor, 8),
   colorBgLayout: getSolidColor(bgBaseColor, 0),
-  colorBgSpotlight: getSolidColor('#fff', 45),
+  colorBgSpotlight: getSolidColor(bgBaseColor, 26),
 
   colorBorder: getSolidColor(bgBaseColor, 26),
   colorBorderSecondary: getSolidColor(bgBaseColor, 19),
