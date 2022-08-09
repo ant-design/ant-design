@@ -1,11 +1,15 @@
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import notification, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { UserOutlined } from '@ant-design/icons';
+import notification, { getInstance, type NotificationInstance } from '..';
+import { sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
+  writable: true,
+  value: true,
+});
+
+type NotificationWithIconType = keyof Omit<NotificationInstance, 'open'>;
 
 describe('notification', () => {
   beforeEach(() => {
@@ -14,7 +18,9 @@ describe('notification', () => {
   });
 
   afterEach(() => {
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     jest.useRealTimers();
 
     act(() => {
@@ -79,7 +85,7 @@ describe('notification', () => {
     await act(async () => {
       await Promise.resolve();
     });
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('ant-notification-topRight'))!.component.state.notices).toHaveLength(
       1,
     );
 
@@ -92,7 +98,7 @@ describe('notification', () => {
       await Promise.resolve();
     });
 
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('ant-notification-topRight'))!.component.state.notices).toHaveLength(
       0,
     );
   });
@@ -169,7 +175,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: '' });
   });
 
   it('should be able to config prefixCls', () => {
@@ -195,7 +201,7 @@ describe('notification', () => {
   it('should be able to open with icon', async () => {
     const iconPrefix = '.ant-notification-notice-icon';
 
-    const openNotificationWithIcon = async type => {
+    const openNotificationWithIcon = async (type: NotificationWithIconType) => {
       act(() => {
         notification[type]({
           message: 'Notification Title',
@@ -206,7 +212,7 @@ describe('notification', () => {
       });
     };
 
-    const list = ['success', 'info', 'warning', 'error'];
+    const list: Array<NotificationWithIconType> = ['success', 'info', 'warning', 'error'];
 
     const promises = list.map(type => openNotificationWithIcon(type));
 
@@ -220,7 +226,7 @@ describe('notification', () => {
   });
 
   it('should be able to add parent class for different notification types', async () => {
-    const openNotificationWithIcon = async type => {
+    const openNotificationWithIcon = async (type: NotificationWithIconType) => {
       act(() => {
         notification[type]({
           message: 'Notification Title',
@@ -231,7 +237,7 @@ describe('notification', () => {
       });
     };
 
-    const list = ['success', 'info', 'warning', 'error'];
+    const list: Array<NotificationWithIconType> = ['success', 'info', 'warning', 'error'];
     const promises = list.map(type => openNotificationWithIcon(type));
 
     await act(async () => {
@@ -283,7 +289,7 @@ describe('notification', () => {
   });
 
   it('closeIcon should be update', async () => {
-    const openNotificationWithCloseIcon = async type => {
+    const openNotificationWithCloseIcon = async (type: '1' | '2') => {
       act(() => {
         notification.open({
           message: 'Notification Title',
@@ -293,7 +299,7 @@ describe('notification', () => {
       });
     };
 
-    const list = ['1', '2'];
+    const list: Array<'1' | '2'> = ['1', '2'];
     const promises = list.map(type => openNotificationWithCloseIcon(type));
 
     await act(async () => {

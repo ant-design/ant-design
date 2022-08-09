@@ -5,7 +5,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
@@ -104,7 +104,9 @@ describe('Typography', () => {
           }
 
           fireEvent.mouseEnter(wrapper.querySelector('.ant-typography-copy'));
-          jest.runAllTimers();
+          act(() => {
+            jest.runAllTimers();
+          });
 
           if (tooltips === undefined || tooltips === true) {
             await waitFor(() => {
@@ -271,7 +273,9 @@ describe('Typography', () => {
               expect(onStart).not.toHaveBeenCalled();
             }
             fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-            jest.runAllTimers();
+            act(() => {
+              jest.runAllTimers();
+            });
 
             if (tooltip === undefined || tooltip === true) {
               await waitFor(() => {
