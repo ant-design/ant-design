@@ -86,7 +86,6 @@ export default function genColorMapToken(
     colorInfoText: infoColors[9],
     colorInfoTextActive: infoColors[10],
 
-    colorBgMask: neutralColors.colorTextTertiary,
-    colorBgSpotlight: new TinyColor('#000').setAlpha(0.85).toRgbString(),
+    colorBgMask: new TinyColor('#000').setAlpha(0.45).toRgbString(),
   };
 }
