@@ -102,6 +102,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       cloneList = cloneList.slice(0, maxCount);
     }
 
+    // Prevent React18 auto batch since input[upload] trigger process at same time
+    // which makes fileList closure problem
     flushSync(() => {
       setMergedFileList(cloneList);
     });

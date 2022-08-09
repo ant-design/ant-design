@@ -965,4 +965,58 @@ describe('Upload', () => {
     const { container: wrapper2 } = render(<Upload prefixCls="custom-upload" />);
     expect(wrapper2.querySelectorAll('.custom-upload-list').length).toBeGreaterThan(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/36869
+  it('Prevent auto batch', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', {
+      type: 'image/png',
+    });
+    const mockFile2 = new File(['light'], 'light.png', {
+      type: 'image/png',
+    });
+
+    let info1;
+    let info2;
+
+    const onChange = jest.fn();
+    const { container } = render(
+      <Upload
+        customRequest={info => {
+          if (info.file === mockFile1) {
+            info1 = info;
+          } else {
+            info2 = info;
+          }
+        }}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        files: [mockFile1, mockFile2],
+      },
+    });
+
+    // React 18 is async now
+    await act(async () => {
+      await sleep();
+    });
+    onChange.mockReset();
+
+    // Processing
+    act(() => {
+      info1.onProgress({ percent: 10 }, mockFile1);
+      info2.onProgress({ percent: 20 }, mockFile2);
+    });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        fileList: [
+          expect.objectContaining({ percent: 10 }),
+          expect.objectContaining({ percent: 20 }),
+        ],
+      }),
+    );
+  });
 });
