@@ -222,6 +222,7 @@ export interface NeutralColorMapToken {
   colorBgContainer: string;
   colorBgElevated: string;
   colorBgLayout: string;
+  colorBgSpotlight: string;
 
   // Border
   colorBorder: string;
@@ -291,7 +292,6 @@ export interface ColorMapToken extends NeutralColorMapToken {
   colorInfoTextActive: string; // 10
 
   colorBgMask: string;
-  colorBgSpotlight: string;
 }
 
 export interface CommonMapToken {
