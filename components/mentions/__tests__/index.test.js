@@ -4,6 +4,7 @@ import Mentions from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act } from '../../../tests/utils';
 
 const { getMentions } = Mentions;
 
@@ -68,7 +69,9 @@ describe('Mentions', () => {
     expect(onFocus).toHaveBeenCalled();
 
     wrapper.find('textarea').simulate('blur');
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     wrapper.update();
     expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
     expect(onBlur).toHaveBeenCalled();
