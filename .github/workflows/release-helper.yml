@@ -40,7 +40,7 @@ jobs:
           triger: 'tag'
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
           branch: 'master'
-          dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }}
+          dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }} ${{ secrets.DINGDING_BOT_YUNFENGDIE_TOKEN }}
           dingding-msg: 'CHANGELOG.zh-CN.md'
           dingding-delay-minute: 10
           release: false
