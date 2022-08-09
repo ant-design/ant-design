@@ -89,6 +89,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           width: '100%',
           height: token.controlHeight,
           padding: `0 ${inputPaddingHorizontalBase}px`,
+          boxSizing: 'border-box',
 
           [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
