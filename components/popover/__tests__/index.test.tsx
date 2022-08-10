@@ -95,6 +95,6 @@ describe('Popover', () => {
         </Popover>
       </ConfigProvider>,
     );
-    expect(wrapper.container.children).toMatchSnapshot();
+    expect(Array.from(wrapper.container.children)).toMatchSnapshot();
   });
 });
