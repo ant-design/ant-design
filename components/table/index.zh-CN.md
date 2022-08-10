@@ -178,6 +178,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | 指定树形结构的列名 | string | children |  |
+| columnTitle | 自定义展开列表头 | ReactNode | - | 4.23.0 |
 | columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |

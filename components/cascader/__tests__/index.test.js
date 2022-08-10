@@ -540,7 +540,7 @@ describe('Cascader', () => {
     it('popupClassName', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
-        <Cascader open popupPlacement="bottomLeft" popupClassName="mock-cls" />,
+        <Cascader open popupPlacement="bottomLeft" dropdownClassName="mock-cls" />,
       );
 
       expect(container.querySelector('.mock-cls')).toBeTruthy();
@@ -549,7 +549,7 @@ describe('Cascader', () => {
       expect(global.triggerProps.popupPlacement).toEqual('bottomLeft');
 
       expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
       );
 
       errorSpy.mockRestore();
