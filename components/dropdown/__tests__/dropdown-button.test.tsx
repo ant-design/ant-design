@@ -18,11 +18,13 @@ jest.mock('../dropdown', () => {
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
+  mockedDropdown.defaultProps = ActualDropdownComponent.defaultProps;
+  mockedDropdown.Button = ActualDropdownComponent.Button;
 
   return {
     ...ActualDropdown,
     __esModule: true,
-    default: { ...ActualDropdownComponent, mockedDropdown },
+    default: mockedDropdown,
   };
 });
 
@@ -30,7 +32,7 @@ describe('DropdownButton', () => {
   mountTest(DropdownButton);
   rtlTest(DropdownButton);
 
-  it.only('pass appropriate props to Dropdown', () => {
+  it('pass appropriate props to Dropdown', () => {
     const props: DropdownProps = {
       align: {
         offset: [10, 20],
