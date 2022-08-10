@@ -29,7 +29,7 @@ describe('Popover', () => {
 
     const popover = render(
       <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
-        <span>show me your code</span>
+        <span>show me your code </span>
       </Popover>,
     );
 
