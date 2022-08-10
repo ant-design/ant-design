@@ -25,6 +25,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     fontWeight: 'normal',
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
+    boxSizing: 'border-box',
   };
 };
 
