@@ -1,10 +1,12 @@
-import { SmileOutlined } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import React from 'react';
-import { act } from '../../../tests/utils';
-import message, { getInstance } from '..';
+import { SmileOutlined } from '@ant-design/icons';
+import message, { getInstance, type MessageType } from '..';
+import { act, render, fireEvent } from '../../../tests/utils';
 
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
+  writable: true,
+  value: true,
+});
 
 describe('message', () => {
   beforeEach(() => {
@@ -20,8 +22,8 @@ describe('message', () => {
   });
 
   it('should be able to hide manually', async () => {
-    let hide1;
-    let hide2;
+    let hide1!: MessageType;
+    let hide2!: MessageType;
 
     act(() => {
       hide1 = message.info('whatever', 0);
@@ -31,18 +33,17 @@ describe('message', () => {
     });
 
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
-
     hide1();
     act(() => {
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(1);
+    expect(getInstance()!.component.state.notices).toHaveLength(1);
 
     hide2();
     act(() => {
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()!.component.state.notices).toHaveLength(0);
   });
 
   it('should be able to remove manually with a unique key', () => {
@@ -62,13 +63,13 @@ describe('message', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(1);
+    expect(getInstance()!.component.state.notices).toHaveLength(1);
 
     message.destroy(key2);
     act(() => {
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()!.component.state.notices).toHaveLength(0);
   });
 
   it('should be able to destroy globally', () => {
@@ -100,7 +101,7 @@ describe('message', () => {
     const now = Date.now();
     message.info('whatever', () => {
       // calculate the approximately duration value
-      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      const aboutDuration = parseInt(String((Date.now() - now) / 1000), 10);
       expect(aboutDuration).toBe(defaultDuration);
       done();
     });
@@ -109,21 +110,26 @@ describe('message', () => {
   it('trigger onClick method', () => {
     const onClick = jest.fn();
     class Test extends React.Component {
+      static isFirstRender = true;
+
       componentDidMount() {
-        message.info({
-          onClick,
-          duration: 0,
-          content: 'message info',
-        });
+        if (Test.isFirstRender) {
+          Test.isFirstRender = false;
+          message.info({
+            onClick,
+            duration: 0,
+            content: 'message info',
+          });
+        }
       }
 
       render() {
         return <div>test message onClick method</div>;
       }
     }
-    mount(<Test />);
+    render(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
-    document.querySelectorAll('.ant-message-notice')[0].click();
+    fireEvent.click(document.querySelectorAll('.ant-message-notice')[0]);
     expect(onClick).toHaveBeenCalled();
   });
 
@@ -133,7 +139,7 @@ describe('message', () => {
     const now = Date.now();
     message.info('whatever').then(() => {
       // calculate the approximately duration value
-      const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
+      const aboutDuration = parseInt(String((Date.now() - now) / 1000), 10);
       expect(aboutDuration).toBe(defaultDuration);
       done();
     });
@@ -141,11 +147,16 @@ describe('message', () => {
 
   // https://github.com/ant-design/ant-design/issues/8201
   it('should hide message correctly', () => {
-    let hide;
+    let hide!: MessageType;
     class Test extends React.Component {
+      static isFirstRender = true;
+
       componentDidMount() {
         act(() => {
-          hide = message.loading('Action in progress..', 0);
+          if (Test.isFirstRender) {
+            Test.isFirstRender = false;
+            hide = message.loading('Action in progress..', 0);
+          }
         });
       }
 
@@ -153,14 +164,14 @@ describe('message', () => {
         return <div>test</div>;
       }
     }
-    mount(<Test />);
+    render(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
 
     act(() => {
       hide();
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()!.component.state.notices).toHaveLength(0);
   });
 
   it('should allow custom icon', () => {
@@ -182,17 +193,22 @@ describe('message', () => {
   // https://github.com/ant-design/ant-design/issues/8201
   it('should destroy messages correctly', () => {
     class Test extends React.Component {
+      static isFirstRender = true;
+
       componentDidMount() {
-        message.loading('Action in progress1..', 0);
-        message.loading('Action in progress2..', 0);
-        setTimeout(() => message.destroy(), 1000);
+        if (Test.isFirstRender) {
+          Test.isFirstRender = false;
+          message.loading('Action in progress1..', 0);
+          message.loading('Action in progress2..', 0);
+          setTimeout(() => message.destroy(), 1000);
+        }
       }
 
       render() {
         return <div>test</div>;
       }
     }
-    mount(<Test />);
+    render(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     act(() => {
       jest.runAllTimers();
@@ -215,7 +231,7 @@ describe('message', () => {
       }
     }
 
-    mount(<Test />);
+    render(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
     act(() => {
       jest.advanceTimersByTime(1500);
@@ -231,7 +247,7 @@ describe('message', () => {
     const key = 'updatable';
     class Test extends React.Component {
       componentDidMount() {
-        let hideLoading;
+        let hideLoading: MessageType;
         act(() => {
           hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
         });
@@ -248,11 +264,11 @@ describe('message', () => {
       }
     }
 
-    mount(<Test />);
+    render(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
 
     jest.advanceTimersByTime(1500);
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()!.component.state.notices).toHaveLength(0);
   });
 
   it('should not throw error when pass null', () => {

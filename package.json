@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.22.3",
+  "version": "4.22.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -119,6 +119,7 @@
     "@ant-design/react-slick": "~0.29.1",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
+    "@testing-library/user-event": "^14.4.2",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
@@ -128,7 +129,7 @@
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.3.0",
     "rc-dialog": "~8.9.0",
-    "rc-drawer": "~5.1.0-alpha.1",
+    "rc-drawer": "~5.1.0",
     "rc-dropdown": "~4.0.0",
     "rc-field-form": "~1.27.0",
     "rc-image": "~5.7.0",
