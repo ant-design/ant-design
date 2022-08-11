@@ -3,7 +3,7 @@ import * as React from 'react';
 import type { ProgressProps, ProgressSize } from './progress';
 
 interface ProgressStepsProps extends ProgressProps {
-  steps: number;
+  steps?: number;
   size?: ProgressSize;
   strokeColor?: string | string[];
   trailColor?: string;
@@ -12,7 +12,7 @@ interface ProgressStepsProps extends ProgressProps {
 const Steps: React.FC<ProgressStepsProps> = props => {
   const {
     size,
-    steps,
+    steps = 0,
     percent = 0,
     strokeWidth = 8,
     strokeColor,

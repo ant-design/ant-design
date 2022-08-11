@@ -131,11 +131,13 @@ describe('Progress', () => {
   });
 
   it('get correct line-gradient', () => {
-    expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
+    expect(handleGradient({ from: 'test', to: 'test' }, 'ltr').backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
-    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
+    expect(handleGradient({}, 'ltr').backgroundImage).toBe(
+      'linear-gradient(to right, #1890FF, #1890FF)',
+    );
+    expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }, 'ltr').backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
   });
