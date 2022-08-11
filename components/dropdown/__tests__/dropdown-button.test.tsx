@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import DropdownButton from '../dropdown-button';
 import mountTest from '../../../tests/shared/mountTest';
@@ -61,10 +60,8 @@ describe('DropdownButton', () => {
         <Menu.Item key="1">foo</Menu.Item>
       </Menu>
     );
-    const wrapper = mount(<DropdownButton overlay={menu} />);
-    // const dropdownProps = wrapper.find(Dropdown).props();
-
-    // expect('visible' in dropdownProps).toBe(false);
+    render(<DropdownButton overlay={menu} />);
+    expect('visible' in dropdownProps).toBe(false);
   });
 
   it('should support href like Button', () => {
@@ -73,18 +70,12 @@ describe('DropdownButton', () => {
         <Menu.Item key="1">foo</Menu.Item>
       </Menu>
     );
-    const wrapper = mount(<DropdownButton overlay={menu} href="https://ant.design" />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment } = render(<DropdownButton overlay={menu} href="https://ant.design" />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('have static property for type detecting', () => {
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">foo</Menu.Item>
-      </Menu>
-    );
-    const wrapper = mount(<DropdownButton overlay={menu} />);
-    expect(wrapper.find(DropdownButton).type().__ANT_BUTTON).toBe(true);
+    expect(DropdownButton.__ANT_BUTTON).toBe(true);
   });
 
   it('should pass mouseEnterDelay and mouseLeaveDelay to Dropdown', () => {
@@ -93,11 +84,9 @@ describe('DropdownButton', () => {
         <Menu.Item key="1">foo</Menu.Item>
       </Menu>
     );
-    const wrapper = mount(
-      <DropdownButton mouseEnterDelay={1} mouseLeaveDelay={2} overlay={menu} />,
-    );
-    expect(wrapper.find('Dropdown').props().mouseEnterDelay).toBe(1);
-    expect(wrapper.find('Dropdown').props().mouseLeaveDelay).toBe(2);
+    render(<DropdownButton mouseEnterDelay={1} mouseLeaveDelay={2} overlay={menu} />);
+    expect(dropdownProps.mouseEnterDelay).toBe(1);
+    expect(dropdownProps.mouseLeaveDelay).toBe(2);
   });
 
   it('should support overlayClassName and overlayStyle', () => {
@@ -106,7 +95,7 @@ describe('DropdownButton', () => {
         <Menu.Item key="1">foo</Menu.Item>
       </Menu>
     );
-    const wrapper = mount(
+    const { container } = render(
       <DropdownButton
         overlayClassName="className"
         overlayStyle={{ color: 'red' }}
@@ -114,14 +103,14 @@ describe('DropdownButton', () => {
         visible
       />,
     );
-    expect(wrapper.find('.ant-dropdown').getDOMNode().className).toContain('className');
-    expect(wrapper.find('.ant-dropdown').getDOMNode().style.color).toContain('red');
+    expect(container.querySelector('.ant-dropdown')?.classList).toContain('className');
+    expect((container.querySelector('.ant-dropdown') as HTMLElement).style.color).toContain('red');
   });
 
   it('should support loading', () => {
-    const wrapper = mount(<DropdownButton loading />);
+    const { container } = render(<DropdownButton overlay={<div />} loading />);
 
-    expect(wrapper.find('.ant-dropdown-button .ant-btn-loading').getDOMNode().className).toContain(
+    expect(container.querySelector('.ant-dropdown-button .ant-btn-loading')?.classList).toContain(
       'ant-btn',
     );
   });

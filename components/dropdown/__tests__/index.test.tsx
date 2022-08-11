@@ -1,7 +1,7 @@
 import React from 'react';
 import type { TriggerProps } from 'rc-trigger';
-
 import Dropdown from '..';
+import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
@@ -22,13 +22,13 @@ jest.mock('rc-trigger', () => {
 
 describe('Dropdown', () => {
   mountTest(() => (
-    <Dropdown menu={<Menu />}>
+    <Dropdown overlay={<Menu />}>
       <span />
     </Dropdown>
   ));
 
   rtlTest(() => (
-    <Dropdown menu={<Menu />}>
+    <Dropdown overlay={<Menu />}>
       <span />
     </Dropdown>
   ));
@@ -44,7 +44,7 @@ describe('Dropdown', () => {
 
   it('overlay is string', () => {
     const { asFragment } = render(
-      <Dropdown overlay="string" visible>
+      <Dropdown overlay={'string' as any} visible>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -52,7 +52,7 @@ describe('Dropdown', () => {
   });
 
   it('support Menu expandIcon', async () => {
-    const props = {
+    const props: DropDownProps = {
       overlay: (
         <Menu expandIcon={<span id="customExpandIcon" />}>
           <Menu.Item key="1">foo</Menu.Item>
@@ -78,10 +78,10 @@ describe('Dropdown', () => {
     const error = jest.spyOn(console, 'error');
     render(
       <div>
-        <Dropdown overlay="123" placement="bottomCenter">
+        <Dropdown overlay={'123' as any} placement="bottomCenter">
           <button type="button">bottomCenter</button>
         </Dropdown>
-        <Dropdown overlay="123" placement="topCenter">
+        <Dropdown overlay={'123' as any} placement="topCenter">
           <button type="button">topCenter</button>
         </Dropdown>
       </div>,
@@ -118,7 +118,7 @@ describe('Dropdown', () => {
     jest.useFakeTimers();
     const { container } = render(
       <Dropdown
-        trigger="click"
+        trigger={['click']}
         overlay={
           <Menu
             items={[
