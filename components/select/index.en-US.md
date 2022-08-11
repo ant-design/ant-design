@@ -93,9 +93,9 @@ Select component to select value from options.
 
 | Property  | Description                          | Type             | Default | Version |
 | --------- | ------------------------------------ | ---------------- | ------- | ------- |
+| children  | Label of option                      | ReactNode        | -       |         |
 | className | The additional class to option       | string           | -       |         |
 | disabled  | Disable this option                  | boolean          | false   |         |
-| title     | `title` attribute of Select Option   | string           | -       |         |
 | value     | Default to filter with this property | string \| number | -       |         |
 
 ### OptGroup props
