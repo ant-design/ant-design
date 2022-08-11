@@ -121,15 +121,19 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
     }, [range]);
 
-    ['getTooltipPopupContainer', 'tipFormatter', 'tooltipPlacement', 'tooltipVisible'].forEach(
-      deprecatedProp => {
-        warning(
-          !(deprecatedProp in props),
-          'Slider',
-          `\`${deprecatedProp}\` is deprecated, Please use \`tooltip\` instead.`,
-        );
-      },
-    );
+    [
+      'tooltipPrefixCls',
+      'getTooltipPopupContainer',
+      'tipFormatter',
+      'tooltipPlacement',
+      'tooltipVisible',
+    ].forEach(deprecatedProp => {
+      warning(
+        !(deprecatedProp in props),
+        'Slider',
+        `\`${deprecatedProp}\` is deprecated, Please use \`tooltip\` instead.`,
+      );
+    });
 
     const handleRender: RcSliderProps['handleRender'] = (node, info) => {
       const { index, dragging } = info;
