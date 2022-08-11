@@ -147,7 +147,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       warning(
         !(deprecatedProp in props),
         'Slider',
-        `\`${deprecatedProp}\` is deprecated which will be removed in next major version., Please use \`tooltip\` instead.`,
+        `\`${deprecatedProp}\` is deprecated which will be removed in next major version, Please use \`tooltip\` instead.`,
       );
     });
 

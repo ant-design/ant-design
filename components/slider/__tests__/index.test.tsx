@@ -160,23 +160,23 @@ describe('Slider', () => {
 
     const { rerender } = render(<Slider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'tooltipPrefixCls is deprecated which will be removed in next major version., Please use `tooltip` instead',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
     );
     rerender(<Slider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'getTooltipPopupContainer is deprecated which will be removed in next major version., Please use `tooltip` instead',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
     );
     rerender(<Slider tipFormatter={v => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'tipFormatter is deprecated which will be removed in next major version., Please use `tooltip` instead',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
     );
     rerender(<Slider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'tooltipVisible is deprecated which will be removed in next major version., Please use `tooltip` instead',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
     );
     rerender(<Slider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'tooltipPlacement is deprecated which will be removed in next major version., Please use `tooltip` instead',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
     );
 
     errSpy.mockRestore();
