@@ -39,7 +39,7 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
   });
 
   it('overlay is string', () => {
@@ -48,7 +48,7 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
   });
 
   it('support Menu expandIcon', async () => {
