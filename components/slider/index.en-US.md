@@ -26,7 +26,7 @@ To input a value in a range.
 | range | Dual thumb mode | boolean | false |  |
 | reverse | Reverse the component | boolean | false |  |
 | step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `marks` no null, `step` can be null | number \| null | 1 |  |
-| tooltip | The tooltip relate props | boolean \| [tooltip](#tooltip) | - | 4.23.0 |
+| tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
