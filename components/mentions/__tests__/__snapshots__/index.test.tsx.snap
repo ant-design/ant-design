@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mentions rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-mentions ant-mentions-rtl"
+>
+  <textarea
+    class="rc-textarea"
+    rows="1"
+  />
+</div>
+`;
