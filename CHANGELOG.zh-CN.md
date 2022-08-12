@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 4.22.4
+
+`2022-08-08`
+
+- 🐞 修复 Drawer `zIndex` 属性失效的问题。[#36958](https://github.com/ant-design/ant-design/pull/36958)
+- 💄 修复 PageHeader 返回按钮点击后依然有聚焦样式的问题。[#36902](https://github.com/ant-design/ant-design/pull/36902)
+- 💄 修复抽屉 Drawer 组件嵌套时，子抽屉的样式被父抽屉影响的问题。[#36845](https://github.com/ant-design/ant-design/pull/36845) [@yanm1ng](https://github.com/yanm1ng)
+- 🐞 修复 Mentions 内有滚动条时弹出层偏移的问题。[#36898](https://github.com/ant-design/ant-design/pull/36898) [@JarvisArt](https://github.com/JarvisArt)
+- TypeScript
+  - 🤖 修复 Avatar `onClick` 属性定义丢失的问题。[#36940](https://github.com/ant-design/ant-design/pull/36940) [@kungege](https://github.com/kungege)
+  - 🤖 修复 Table `onChange` 参数 `sorter` 类型报错的问题。[#36710](https://github.com/ant-design/ant-design/pull/36710) [@kungege](https://github.com/kungege)
+  - 🤖 Input `data-*` 属性将不再是必传参数。[#36858](https://github.com/ant-design/ant-design/pull/36858) [@yifanwww](https://github.com/yifanwww)
+
+## 4.22.3
+
+`2022-08-01`
+
+- 🐞 修复在 React 18 版本中 Uploader 的 `fileList` 发生更新后出现闪烁的情况。[#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
+- 🐞 修复 Form.Item 在垂直布局下使用小尺寸的 `labelCol` 和 `wrapperCol` 时不换行的问题。[#36800](https://github.com/ant-design/ant-design/pull/36800)
+- 🐞 修复 Row 在 flex 布局中占据过多空间的问题。[#36770](https://github.com/ant-design/ant-design/pull/36770)
+
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 调整 Collapse 标题文本在 `collapsible=default` 时为完整宽度点击区域。[#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 修复 Drawer 在 360 浏览器不生效的问题。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 回滚将样式恢复至包裹层以防止原本通过 `contentWrapperStyle` 覆盖样式的用法。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 修复兼容以 string 类型作为 `width/height` 的用法，并且警告用户应当使用 number 类型。[#284](https://github.com/react-component/drawer/pull/284)
+
 ## 4.22.1
 
 `2022-07-27`

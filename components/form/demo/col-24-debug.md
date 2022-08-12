@@ -115,7 +115,13 @@ const App: React.FC = () => {
 
       <Divider />
 
-      <Form layout="vertical">{sharedItem}</Form>
+      <Form layout="vertical">
+        {sharedItem}
+
+        <Form.Item label="col12" name="col12" labelCol={{ span: 12 }} wrapperCol={{ span: 12 }}>
+          <Input />
+        </Form.Item>
+      </Form>
     </>
   );
 };

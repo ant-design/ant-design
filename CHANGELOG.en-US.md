@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 4.22.4
+
+`2022-08-08`
+
+- 🐞 Fix Drawer `zIndex` prop not working. [#36958](https://github.com/ant-design/ant-design/pull/36958)
+- 💄 Fix PageHeader focus style stay after clicking it. [#36902](https://github.com/ant-design/ant-design/pull/36902)
+- 💄 Fix Drawer nesting content-wrapper style. [#36845](https://github.com/ant-design/ant-design/pull/36845) [@yanm1ng](https://github.com/yanm1ng)
+- 🐞 Fix Mentions popup shift when contain scrollbar. [#36898](https://github.com/ant-design/ant-design/pull/36898) [@JarvisArt](https://github.com/JarvisArt)
+- TypeScript
+  - 🤖 Fix Avatar `onClick` type missing. [#36940](https://github.com/ant-design/ant-design/pull/36940) [@kungege](https://github.com/kungege)
+  - 🤖 Fix Table `onChange` argument `sorter` type error. [#36710](https://github.com/ant-design/ant-design/pull/36710) [@kungege](https://github.com/kungege)
+  - 🤖 Input `data-*` should not be required. [#36858](https://github.com/ant-design/ant-design/pull/36858) [@yifanwww](https://github.com/yifanwww)
+
+## 4.22.3
+
+`2022-08-01`
+
+- 🐞 Fixed flickering when `fileList` updating in Uploader with React 18. [#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
+- 🐞 Fix Form.Item with small size `labelCol` and `wrapperCol` not break line in vertical layout. [#36800](https://github.com/ant-design/ant-design/pull/36800)
+- 🐞 Fix Row in flex layout takes too wide space by default. [#36770](https://github.com/ant-design/ant-design/pull/36770)
+
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 Adjust Collapse title click region which will be fully width when `collapsible=default` now. [#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 Fix Drawer not work in 360 browser. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Revert back panel style into wrapper dom node in case developer use `contentWrapperStyle` for overwrite. [#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 Fix for the string type as `width/height` value and warning which should use number type instead. [#284](https://github.com/react-component/drawer/pull/284)
+
 ## 4.22.1
 
 `2022-07-27`

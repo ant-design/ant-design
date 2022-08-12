@@ -7,11 +7,10 @@ import {
 } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../tests/utils';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import collapseMotion from '../../_util/motion';
@@ -403,8 +402,8 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
+    wrapper.update();
 
     expect(wrapper.find('ul.ant-menu-root').hasClass('ant-menu-vertical')).toBeTruthy();
     expect(wrapper.find('PopupTrigger').prop('visible')).toBeFalsy();
@@ -413,8 +412,8 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: false });
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
+    wrapper.update();
 
     expect(wrapper.find('ul.ant-menu-sub').last().hasClass('ant-menu-inline')).toBeTruthy();
     expect(wrapper.find('InlineSubMenuList').prop('open')).toBeTruthy();
@@ -733,8 +732,8 @@ describe('Menu', () => {
 
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
+    wrapper.update();
 
     expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
   });
@@ -777,7 +776,9 @@ describe('Menu', () => {
     );
 
     wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     wrapper.update();
 
     expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();

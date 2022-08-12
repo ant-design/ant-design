@@ -68,8 +68,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
+        const mockDate = moment('2016-11-22').valueOf();
 
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(mockDate);
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
@@ -86,7 +87,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         if (options?.testingLib) {
-          jest.useFakeTimers();
+          jest.useFakeTimers().setSystemTime(mockDate);
 
           const { container } = render(Demo);
           act(() => {
