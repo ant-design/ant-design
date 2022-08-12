@@ -138,16 +138,16 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     }, [range]);
 
     [
-      'tooltipPrefixCls',
-      'getTooltipPopupContainer',
-      'tipFormatter',
-      'tooltipPlacement',
-      'tooltipVisible',
-    ].forEach(deprecatedProp => {
+      ['tooltipPrefixCls', 'prefixCls'],
+      ['getTooltipPopupContainer', 'getPopupContainer'],
+      ['tipFormatter', 'formatter'],
+      ['tooltipPlacement', 'placement'],
+      ['tooltipVisible', 'open'],
+    ].forEach(([deprecatedName, newName]) => {
       warning(
-        !(deprecatedProp in props),
+        !(deprecatedName in props),
         'Slider',
-        `\`${deprecatedProp}\` is deprecated which will be removed in next major version, Please use \`tooltip\` instead.`,
+        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`tooltip.${newName}\` instead.`,
       );
     });
 

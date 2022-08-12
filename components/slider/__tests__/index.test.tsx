@@ -142,23 +142,23 @@ describe('Slider', () => {
 
     const { rerender } = render(<Slider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated which will be removed in next major version, please use `tooltip.prefixCls` instead.',
     );
     rerender(<Slider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated which will be removed in next major version, please use `tooltip.getPopupContainer` instead.',
     );
     rerender(<Slider tipFormatter={v => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated which will be removed in next major version, please use `tooltip.formatter` instead.',
     );
     rerender(<Slider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated which will be removed in next major version, please use `tooltip.open` instead.',
     );
     rerender(<Slider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated which will be removed in next major version, Please use `tooltip` instead.',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated which will be removed in next major version, please use `tooltip.placement` instead.',
     );
 
     errSpy.mockRestore();
