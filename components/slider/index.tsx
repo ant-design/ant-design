@@ -63,7 +63,7 @@ export interface SliderBaseProps {
    *   Please use `tooltip.getPopupContainer` instead.
    */
   tooltipPlacement?: TooltipPlacement;
-  tooltip?: boolean | SliderTooltipProps;
+  tooltip?: SliderTooltipProps;
   /**
    * @deprecated `getTooltipPopupContainer` is deprecated which will be removed in next major
    *   version. Please use `tooltip.placement` instead.
@@ -155,24 +155,20 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       const { index, dragging } = info;
 
       const rootPrefixCls = getPrefixCls();
-      const { tooltip, vertical } = props;
+      const { tooltip = {}, vertical } = props;
 
-      let tooltipProps: SliderTooltipProps = {
-        // eslint-disable-next-line func-names
+      const tooltipProps: SliderTooltipProps = {
         formatter:
           props.tipFormatter ??
+          // eslint-disable-next-line func-names
           function (value) {
             return typeof value === 'number' ? value.toString() : '';
           },
         open: props.tooltipVisible,
         placement: props.tooltipPlacement,
         getPopupContainer: props.getTooltipPopupContainer,
+        ...tooltip,
       };
-      if (typeof tooltip === 'boolean') {
-        tooltipProps.open = tooltip;
-      } else if (typeof tooltip === 'object') {
-        tooltipProps = { ...tooltipProps, ...tooltip };
-      }
 
       const {
         open: tooltipOpen,

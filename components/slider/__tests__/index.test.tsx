@@ -57,24 +57,6 @@ describe('Slider', () => {
     expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
   });
 
-  it('should tooltip support boolean type', () => {
-    const { container } = render(<Slider defaultValue={30} tooltip />);
-    expect(
-      container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
-    fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
-    expect(
-      container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
-    fireEvent.click(container.querySelector('.ant-slider-handle')!);
-    expect(
-      container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
-
-    const { container: container2 } = render(<Slider defaultValue={30} tooltip={false} />);
-    expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
-  });
-
   it('when step is null, thumb can only be slided to the specific mark', () => {
     const intentionallyWrongValue = 40;
     const marks = {
