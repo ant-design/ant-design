@@ -14,10 +14,13 @@ jest.mock('rc-trigger', () => {
   Trigger = Trigger.default || Trigger;
   const h: typeof React = jest.requireActual('react');
 
-  return h.forwardRef<unknown, TriggerProps>((props, ref) => {
-    triggerProps = props;
-    return h.createElement(Trigger, { ref, ...props });
-  });
+  return {
+    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+      triggerProps = props;
+      return h.createElement(Trigger, { ref, ...props });
+    }),
+    __esModule: true,
+  };
 });
 
 describe('Dropdown', () => {
