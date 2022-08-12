@@ -315,7 +315,7 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
 
 Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
 
