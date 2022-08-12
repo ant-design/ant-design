@@ -385,7 +385,12 @@ describe('Transfer', () => {
       container.querySelectorAll('.ant-transfer-list').item(0).querySelector('input[type="text"]'),
       { target: { value: 'a' } },
     );
-    getByText('a').click();
+    fireEvent.click(
+      container
+        .querySelectorAll('.ant-transfer-list')
+        .item(0)
+        .querySelector('.ant-transfer-list-header input[type="checkbox"]'),
+    );
 
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b', 'a'], []);
 
