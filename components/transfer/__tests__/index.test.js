@@ -128,10 +128,14 @@ describe('Transfer', () => {
 
   it('should uncheck checkbox when click on checked item', () => {
     const handleSelectChange = jest.fn();
-    const { container } = render(
-      <Transfer {...listCommonProps} onSelectChange={handleSelectChange} />,
+    const { getByTitle } = render(
+      <Transfer
+        {...listCommonProps}
+        onSelectChange={handleSelectChange}
+        render={item => item.title}
+      />,
     );
-    fireEvent.click(container.querySelectorAll('input[type="checkbox"]')[0]);
+    getByTitle('a').click();
 
     expect(handleSelectChange).toHaveBeenLastCalledWith([], []);
   });
