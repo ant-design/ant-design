@@ -464,7 +464,7 @@ describe('ConfigProvider', () => {
           />
         );
       }
-      return <Slider tooltip {...myProps} />;
+      return <Slider tooltip={{ open: true }} {...myProps} />;
     });
 
     // Spin

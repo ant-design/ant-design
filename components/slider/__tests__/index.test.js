@@ -40,17 +40,6 @@ describe('Slider', () => {
     expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
   });
 
-  it('should tooltip support boolean type', () => {
-    let wrapper = mount(<Slider defaultValue={30} tooltip />);
-    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
-    wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
-    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
-    wrapper.find('.ant-slider-handle').at(0).simulate('click');
-    expect(wrapper.find('.ant-tooltip-content').at(0).hasClass('ant-tooltip-hidden')).toBe(false);
-    wrapper = mount(<Slider defaultValue={30} tooltip={false} />);
-    expect(wrapper.find('.ant-tooltip-content').length).toBe(0);
-  });
-
   it('when step is null, thumb can only be slided to the specific mark', () => {
     const intentionallyWrongValue = 40;
     const marks = {
