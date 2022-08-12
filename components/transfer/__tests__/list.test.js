@@ -38,8 +38,16 @@ describe('Transfer.List', () => {
   });
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
-    const wrapper = render(<List {...listCommonProps} />);
-    const willUnmount = jest.spyOn(wrapper.find(List).instance(), 'componentWillUnmount');
+    let instance;
+    const wrapper = render(
+      <List
+        ref={node => {
+          instance = node;
+        }}
+        {...listCommonProps}
+      />,
+    );
+    const willUnmount = jest.spyOn(instance, 'componentWillUnmount');
     wrapper.unmount();
     expect(willUnmount).toHaveBeenCalled();
   });
