@@ -24,7 +24,7 @@ export type HandleGeneratorFn = (config: {
 
 export interface SliderTooltipProps {
   prefixCls?: string;
-  visible?: boolean;
+  open?: boolean;
   placement?: TooltipPlacement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   formatter?: null | ((value?: number) => React.ReactNode);
@@ -44,7 +44,7 @@ export interface SliderBaseProps {
   className?: string;
   id?: string;
   style?: React.CSSProperties;
-  tooltip?: boolean | SliderTooltipProps;
+  tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 }
 
@@ -72,15 +72,15 @@ interface SliderRange {
   draggableTrack?: boolean;
 }
 
-export type Visibles = { [index: number]: boolean };
+export type Opens = { [index: number]: boolean };
 
 const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
   (props, ref: any) => {
     const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
-    const [visibles, setVisibles] = React.useState<Visibles>({});
+    const [opens, setOpens] = React.useState<Opens>({});
 
-    const toggleTooltipVisible = (index: number, visible: boolean) => {
-      setVisibles((prev: Visibles) => ({ ...prev, [index]: visible }));
+    const toggleTooltipOpen = (index: number, open: boolean) => {
+      setOpens((prev: Opens) => ({ ...prev, [index]: open }));
     };
 
     const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
@@ -124,33 +124,29 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       const { index, dragging } = info;
 
       const rootPrefixCls = getPrefixCls();
-      const { tooltip, vertical } = props;
+      const { tooltip = {}, vertical } = props;
 
-      let tooltipProps: SliderTooltipProps = {
+      const tooltipProps: SliderTooltipProps = {
         formatter(value) {
           return typeof value === 'number' ? value.toString() : '';
         },
+        ...tooltip,
       };
-      if (typeof tooltip === 'boolean') {
-        tooltipProps = { visible: tooltip };
-      } else if (typeof tooltip === 'object') {
-        tooltipProps = { ...tooltip, ...tooltipProps };
-      }
       const {
-        visible: tooltipVisible,
+        open: tooltipOpen,
         placement: tooltipPlacement,
         getPopupContainer: getTooltipPopupContainer,
         prefixCls: customizeTooltipPrefixCls,
         formatter: tipFormatter,
       } = tooltipProps;
 
-      const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
-      const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
+      const isTipFormatter = tipFormatter ? opens[index] || dragging : false;
+      const open = tooltipOpen || (tooltipOpen === undefined && isTipFormatter);
 
       const passedProps = {
         ...node.props,
-        onMouseEnter: () => toggleTooltipVisible(index, true),
-        onMouseLeave: () => toggleTooltipVisible(index, false),
+        onMouseEnter: () => toggleTooltipOpen(index, true),
+        onMouseLeave: () => toggleTooltipOpen(index, false),
       };
 
       const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
@@ -159,7 +155,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         <SliderTooltip
           prefixCls={tooltipPrefixCls}
           title={tipFormatter ? tipFormatter(info.value) : ''}
-          visible={visible}
+          visible={open}
           placement={getTooltipPlacement(tooltipPlacement, vertical)}
           transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}

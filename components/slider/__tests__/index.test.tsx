@@ -24,7 +24,9 @@ describe('Slider', () => {
   });
 
   it('should show correct placement tooltip when set tooltipPlacement', () => {
-    const { container } = render(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
+    const { container } = render(
+      <Slider vertical defaultValue={30} tooltip={{ placement: 'left' }} />,
+    );
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
@@ -33,8 +35,8 @@ describe('Slider', () => {
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
   });
 
-  it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
-    const { container: container1 } = render(<Slider defaultValue={30} tooltipVisible />);
+  it('when tooltip.open is true, tooltip should show always, or should never show', () => {
+    const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(
       container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
@@ -49,7 +51,7 @@ describe('Slider', () => {
       container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
-    const { container: container2 } = render(<Slider defaultValue={30} tooltipVisible={false} />);
+    const { container: container2 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
     expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
   });
 
@@ -62,7 +64,12 @@ describe('Slider', () => {
     };
 
     const { container } = render(
-      <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
+      <Slider
+        marks={marks}
+        defaultValue={intentionallyWrongValue}
+        step={null}
+        tooltip={{ open: true }}
+      />,
     );
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('48');
   });
@@ -75,7 +82,7 @@ describe('Slider', () => {
     };
 
     const { container } = render(
-      <Slider marks={marks} defaultValue={49} step={1} tooltipVisible />,
+      <Slider marks={marks} defaultValue={49} step={1} tooltip={{ open: true }} />,
     );
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('49');
   });
@@ -88,7 +95,7 @@ describe('Slider', () => {
     };
 
     const { container } = render(
-      <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
+      <Slider marks={marks} defaultValue={49} step={undefined} tooltip={{ open: true }} />,
     );
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('49');
   });
@@ -96,7 +103,7 @@ describe('Slider', () => {
   it('should render in RTL direction', () => {
     const { container } = render(
       <ConfigProvider direction="rtl">
-        <Slider defaultValue={30} tooltipVisible />
+        <Slider defaultValue={30} tooltip={{ open: true }} />
       </ConfigProvider>,
     );
     expect(container).toMatchSnapshot();
@@ -120,12 +127,12 @@ describe('Slider', () => {
 
   it('tipFormatter should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      render(<Slider value={value as any} tooltipVisible />);
+      render(<Slider value={value as any} tooltip={{ open: true }} />);
     });
   });
   it('step should not crash with undefined value', () => {
     [undefined, null].forEach(value => {
-      render(<Slider step={value} tooltipVisible />);
+      render(<Slider step={value} tooltip={{ open: true }} />);
     });
   });
 });
