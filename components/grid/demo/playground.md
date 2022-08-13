@@ -71,7 +71,7 @@ const App: React.FC = () => {
           onChange={setVgutterKey}
           marks={vgutters}
           step={null}
-          tooltip={{ formatter: value => value && gutters[value] }}
+          tooltip={{ formatter: value => value && vgutters[value] }}
         />
       </div>
       <span>Column Count:</span>
@@ -83,7 +83,7 @@ const App: React.FC = () => {
           onChange={setColCountKey}
           marks={colCounts}
           step={null}
-          tooltip={{ formatter: value => value && gutters[value] }}
+          tooltip={{ formatter: value => value && colCounts[value] }}
         />
       </div>
       <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
