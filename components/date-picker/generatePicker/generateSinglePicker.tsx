@@ -27,11 +27,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
     hashId?: string;
-    /**
-     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-     *   version.Please use `popupClassName` instead.
-     */
-    dropdownClassName?: string;
     popupClassName?: string;
   };
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -48,12 +43,13 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           bordered = true,
           placement,
           placeholder,
-          popupClassName,
           dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
           ...restProps
         } = props;
+        console.log('props', props);
+        console.log('props', props.popupClassName);
 
         const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -93,11 +89,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
 
-        warning(
-          !dropdownClassName,
-          'DatePicker',
-          '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-        );
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
         const mergedSize = customizeSize || size;
@@ -158,7 +149,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
-                  dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+                  dropdownClassName={classNames(hashId, dropdownClassName)}
                 />
               );
             }}

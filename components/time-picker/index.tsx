@@ -14,45 +14,27 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   popupClassName?: string;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
-  const { dropdownClassName, popupClassName } = props;
-  warning(
-    !dropdownClassName,
-    'RangePicker',
-    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
-  return (
-    <InternalRangePicker
-      {...props}
-      dropdownClassName={popupClassName || dropdownClassName}
-      picker="time"
-      mode={undefined}
-      ref={ref}
-    />
-  );
-});
+const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+  <InternalRangePicker
+    {...props}
+    dropdownClassName={props.popupClassName}
+    picker="time"
+    mode={undefined}
+    ref={ref}
+  />
+));
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   status?: InputStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, dropdownClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
@@ -69,15 +51,9 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
       return undefined;
     }, [addon, renderExtraFooter]);
 
-    warning(
-      !dropdownClassName,
-      'TimePicker',
-      '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-
     return (
       <InternalTimePicker
-        dropdownClassName={popupClassName || dropdownClassName}
+        dropdownClassName={popupClassName}
         {...restProps}
         mode={undefined}
         ref={ref}
