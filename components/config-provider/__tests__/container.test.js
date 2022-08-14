@@ -30,12 +30,12 @@ describe('ConfigProvider.GetPopupContainer', () => {
 
   it('Drawer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    const Demo = ({ visible }) => (
+    const Demo = ({ open }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
-        <Drawer visible={visible} />
+        <Drawer open={open} />
       </ConfigProvider>
     );
-    mount(<Demo visible />);
+    mount(<Demo open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
