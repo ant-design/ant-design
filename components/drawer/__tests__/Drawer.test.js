@@ -201,10 +201,7 @@ describe('Drawer', () => {
 
   it('zIndex should work', () => {
     const { container } = render(<Drawer getContainer={false} visible zIndex={903} />);
-    expect(container.querySelector('.ant-drawer-mask')).toHaveStyle({
-      zIndex: 903,
-    });
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+    expect(container.querySelector('.ant-drawer')).toHaveStyle({
       zIndex: 903,
     });
   });

@@ -1,40 +1,39 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
   mountTest(Popover);
 
   it('should show overlay when trigger is clicked', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
 
-    const popover = mount(
+    const popover = render(
       <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
 
     expect(ref.current.getPopupDomNode()).toBe(null);
-
-    popover.find('span').simulate('click');
-    expect(popover.find('Trigger PopupInner').props().visible).toBeTruthy();
+    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    fireEvent.click(popover.container.querySelector('span')!);
+    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
 
-    const popover = mount(
+    const popover = render(
       <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
-        <span>show me your code</span>
+        <span>show me your code </span>
       </Popover>,
     );
 
-    popover.find('span').simulate('click');
+    fireEvent.click(popover.container.querySelector('span')!);
 
     const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
@@ -44,30 +43,31 @@ describe('Popover', () => {
   });
 
   it('handles empty title/content props safely', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
 
-    const popover = mount(
+    const popover = render(
       <Popover trigger="click" ref={ref}>
         <span>show me your code</span>
       </Popover>,
     );
 
-    popover.find('span').simulate('click');
+    fireEvent.click(popover.container.querySelector('span')!);
 
     const popup = ref.current.getPopupDomNode();
     expect(popup).toBe(null);
   });
 
   it('should not render popover when the title & content props is empty', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
 
-    const popover = mount(
+    const popover = render(
       <Popover trigger="click" ref={ref} content="">
         <span>show me your code</span>
       </Popover>,
     );
 
-    popover.find('span').simulate('click');
+    fireEvent.click(popover.container.querySelector('span')!);
+
     const popup = ref.current.getPopupDomNode();
 
     expect(popup).toBe(null);
@@ -88,13 +88,13 @@ describe('Popover', () => {
   });
 
   it(`should be rendered correctly in RTL direction`, () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ConfigProvider direction="rtl">
         <Popover title="RTL" visible>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(Array.from(wrapper.container.children)).toMatchSnapshot();
   });
 });
