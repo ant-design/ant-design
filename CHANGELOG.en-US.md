@@ -24,7 +24,6 @@ timeline: true
 - 🐞 Fix Steps tail position bug when `labelPlacement="vertical"`. [#36996](https://github.com/ant-design/ant-design/pull/36996)
 - 💄 Removed exception error border for `Pagination`. [#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
 - 🐞 Fix Upload trigger mistake files status when upload multiple files at same time in React 18. [#36968](https://github.com/ant-design/ant-design/pull/36968)
-- 🛠 Refactor AutoComplete test cases with `screen` and `userEvent`. [#36953](https://github.com/ant-design/ant-design/pull/36953) [@clean99](https://github.com/clean99)
 - TypeScript
   - 🤖 Fix type error of useWatch. [#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
 

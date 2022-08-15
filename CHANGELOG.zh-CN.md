@@ -24,7 +24,6 @@ timeline: true
 - 🐞 修复 Steps `labelPlacement="vertical"` 时连接线位置偏上的问题。[#36996](https://github.com/ant-design/ant-design/pull/36996)
 - 💄 去掉 Pagination 的异常错误边框。[#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
 - 🐞 修复 Upload 在 React 18 下同时上传多份文件会出现上传状态不正确的问题。[#36968](https://github.com/ant-design/ant-design/pull/36968)
-- 🛠 重构 AutoComplete 的测试用 `screen` 和 `userEvent` 。[#36953](https://github.com/ant-design/ant-design/pull/36953) [@clean99](https://github.com/clean99)
 - TypeScript
   - 🤖 修复 useWatch 的类型错误。[#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
 
