@@ -162,3 +162,4 @@ If you are a collaborator, please follow our [Pull Request principle](https://gi
 
 
 ## How can I support developers?
+- Star our GitHub repo :star:
