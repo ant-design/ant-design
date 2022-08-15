@@ -55,7 +55,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   warning(
     !('visible' in props),
     'Tag',
-    '`visible` will be removed in next major version,you can use `visible && <Tag />` instead.',
+    '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
   );
 
   React.useEffect(() => {

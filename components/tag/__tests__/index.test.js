@@ -4,6 +4,7 @@ import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 describe('Tag', () => {
   mountTest(Tag);
@@ -78,11 +79,12 @@ describe('Tag', () => {
   });
 
   it('deprecated warning', () => {
+    resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     render(<Tag visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` will be removed in next major version,you can use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` will be removed in next major version, please use `visible && <Tag />` instead.',
     );
 
     errSpy.mockRestore();
