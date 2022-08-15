@@ -165,3 +165,5 @@ If you are a collaborator, please follow our [Pull Request principle](https://gi
 - Star our GitHub repo :star:
 - Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
 - Follow [@ITopGun on Github](https://github.com/ITopGun).
+
+## More from ITopGun
