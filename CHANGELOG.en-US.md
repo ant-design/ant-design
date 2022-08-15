@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.22.5
+
+`2022-08-15`
+
+- 🇭🇺 Form add defaultValidateMessages.i18n az_AZ language #23369. [#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)
+- 💄 Popover remove Popover incorrect box-shadow. [#37030](https://github.com/ant-design/ant-design/pull/37030) [@jerrykingxyz](https://github.com/jerrykingxyz)
+- 🐞 Fix Steps tail position bug when `labelPlacement="vertical"`. [#36996](https://github.com/ant-design/ant-design/pull/36996)
+- 💄 Removed exception error border for `Pagination`. [#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
+- 🐞 Fix Upload trigger mistake files status when upload multiple files at same time in React 18. [#36968](https://github.com/ant-design/ant-design/pull/36968)
+- TypeScript
+  - 🤖 Fix type error of useWatch. [#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
+
+## 4.22.4
+
+`2022-08-08`
+
+- 🐞 Fix Drawer `zIndex` prop not working. [#36958](https://github.com/ant-design/ant-design/pull/36958)
+- 💄 Fix PageHeader focus style stay after clicking it. [#36902](https://github.com/ant-design/ant-design/pull/36902)
+- 💄 Fix Drawer nesting content-wrapper style. [#36845](https://github.com/ant-design/ant-design/pull/36845) [@yanm1ng](https://github.com/yanm1ng)
+- 🐞 Fix Mentions popup shift when contain scrollbar. [#36898](https://github.com/ant-design/ant-design/pull/36898) [@JarvisArt](https://github.com/JarvisArt)
+- TypeScript
+  - 🤖 Fix Avatar `onClick` type missing. [#36940](https://github.com/ant-design/ant-design/pull/36940) [@kungege](https://github.com/kungege)
+  - 🤖 Fix Table `onChange` argument `sorter` type error. [#36710](https://github.com/ant-design/ant-design/pull/36710) [@kungege](https://github.com/kungege)
+  - 🤖 Input `data-*` should not be required. [#36858](https://github.com/ant-design/ant-design/pull/36858) [@yifanwww](https://github.com/yifanwww)
+
 ## 4.22.3
 
 `2022-08-01`

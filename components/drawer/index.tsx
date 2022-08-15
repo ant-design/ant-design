@@ -55,7 +55,7 @@ function Drawer({
   drawerStyle,
   visible,
   children,
-  zIndex,
+  style,
   title,
   headerStyle,
   onClose,

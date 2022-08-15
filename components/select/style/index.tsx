@@ -59,6 +59,7 @@ const genStatusStyle = (
   rootSelectCls: string,
   token: {
     componentCls: string;
+    antCls: string;
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
@@ -66,7 +67,7 @@ const genStatusStyle = (
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { componentCls, borderHoverColor, outlineColor } = token;
+  const { componentCls, borderHoverColor, outlineColor, antCls } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
@@ -78,21 +79,22 @@ const genStatusStyle = (
 
   return {
     [rootSelectCls]: {
-      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input)`]: {
-        ...overwriteStyle,
+      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
+        {
+          ...overwriteStyle,
 
-        [`${componentCls}-focused& ${componentCls}-selector`]: {
-          borderColor: borderHoverColor,
-          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
-          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
-          outline: 0,
-        },
+          [`${componentCls}-focused& ${componentCls}-selector`]: {
+            borderColor: borderHoverColor,
+            boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
+            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
+            outline: 0,
+          },
 
-        [`&:hover ${componentCls}-selector`]: {
-          borderColor: borderHoverColor,
-          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
+          [`&:hover ${componentCls}-selector`]: {
+            borderColor: borderHoverColor,
+            borderInlineEndWidth: `${token.controlLineWidth}px !important`,
+          },
         },
-      },
     },
   };
 };

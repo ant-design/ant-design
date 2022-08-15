@@ -315,7 +315,7 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
 
 Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
 
@@ -343,9 +343,9 @@ const Demo = () => {
 Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
 
 ```tsx
-const CustomInput = ({ value }) => {
+const CustomInput = ({ value, onChange }) => {
   const { status } = Form.Item.useStatus();
-  return <input value={value} className={`custom-input-${status}`} />;
+  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
 };
 
 export default () => (
