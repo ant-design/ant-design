@@ -1,11 +1,10 @@
-import { mount, render } from 'enzyme';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import ResponsiveObserve from '../../_util/responsiveObserve';
 import useBreakpoint from '../hooks/useBreakpoint';
+import { render, act } from '../../../tests/utils';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -15,27 +14,23 @@ describe('Grid', () => {
   rtlTest(Col);
 
   it('should render Col', () => {
-    const wrapper = render(<Col span={2} />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Col span={2} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should render Row', () => {
-    const wrapper = render(<Row />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Row />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('when typeof gutter is object', () => {
-    const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.find('div').first().props().style).toEqual(
-      expect.objectContaining({
-        marginLeft: -4,
-        marginRight: -4,
-      }),
-    );
+    const { container } = render(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
   });
 
   it('when typeof gutter is object array', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
@@ -43,16 +38,12 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(wrapper.find('div').first().props().style).toEqual(
-      expect.objectContaining({
-        marginLeft: -4,
-        marginRight: -4,
-      }),
-    );
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('-4px');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
@@ -60,12 +51,12 @@ describe('Grid', () => {
         ]}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders wrapped Col correctly', () => {
     const MyCol = () => <Col span={12} />;
-    const wrapper = render(
+    const { asFragment } = render(
       <Row gutter={20}>
         <div>
           <Col span={12} />
@@ -73,55 +64,50 @@ describe('Grid', () => {
         <MyCol />
       </Row>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('ResponsiveObserve.unsubscribe should be called when unmounted', () => {
     const Unmount = jest.spyOn(ResponsiveObserve, 'unsubscribe');
-    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
+    const { unmount } = render(<Row gutter={{ xs: 20 }} />);
     act(() => {
-      wrapper.unmount();
+      unmount();
     });
     expect(Unmount).toHaveBeenCalled();
   });
 
   it('should work correct when gutter is object', () => {
-    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -10,
-      marginRight: -10,
-    });
+    const { container } = render(<Row gutter={{ xs: 20 }} />);
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('-10px');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('-10px');
   });
 
   it('should work current when gutter is array', () => {
-    const wrapper = mount(<Row gutter={[16, 20]} />);
-    expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -8,
-      marginRight: -8,
-      marginTop: -10,
-      marginBottom: -10,
-    });
+    const { container } = render(<Row gutter={[16, 20]} />);
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('-8px');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('-8px');
+    expect(container.querySelector('div')!.style.marginTop).toEqual('-10px');
+    expect(container.querySelector('div')!.style.marginBottom).toEqual('-10px');
   });
 
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   it('should work with useBreakpoint', () => {
+    let screensVar;
     function Demo() {
       const screens = useBreakpoint();
-
-      return JSON.stringify(screens);
+      screensVar = screens;
+      return <div>{JSON.stringify(screens)}</div>;
     }
-    const wrapper = mount(<Demo />);
+    render(<Demo />);
 
-    expect(wrapper.text()).toEqual(
-      JSON.stringify({
-        xs: true,
-        sm: false,
-        md: false,
-        lg: false,
-        xl: false,
-        xxl: false,
-      }),
-    );
+    expect(screensVar).toEqual({
+      xs: true,
+      sm: false,
+      md: false,
+      lg: false,
+      xl: false,
+      xxl: false,
+    });
   });
 });
