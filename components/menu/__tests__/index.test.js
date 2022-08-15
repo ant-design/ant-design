@@ -188,7 +188,10 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(container.querySelector('.ant-menu-sub')).toBeFalsy();
+    expect(
+      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
+        .textContent,
+    ).toEqual('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
@@ -201,7 +204,11 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
+
+    expect(
+      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
+        .textContent,
+    ).toEqual('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
