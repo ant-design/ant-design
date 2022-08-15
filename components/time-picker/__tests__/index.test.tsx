@@ -46,9 +46,10 @@ describe('TimePicker', () => {
 
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
-    const wrapper = render(<TimePicker clearIcon={clearIcon} />);
-    // 这里不知道怎么写，转成原生的 dom 元素之后获取不到 clearIcon
-    // expect(wrapper.find('Picker').last().prop('clearIcon')).toEqual(clearIcon);
+    const { container } = render(
+      <TimePicker clearIcon={clearIcon} value={moment('00:00:00', 'HH:mm:ss')} />,
+    );
+    expect(container.querySelector('.test-clear-icon')).toBeTruthy();
   });
 
   it('prop locale should works', () => {
@@ -65,26 +66,26 @@ describe('TimePicker', () => {
 
   it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
-    const wrapper = render(
+    const { container } = render(
       <TimePicker
+        open
         defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    // 这里不知道怎么写，转成原生的 dom 元素之后获取不到 myCustomClassName
-    // expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
+    expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
-    const wrapper = render(
+    const { container } = render(
       <TimePicker.RangePicker
+        open
         defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    // 这里不知道怎么写，转成原生的 dom 元素之后获取不到 myCustomClassName
-    // expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
+    expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
   it('should support bordered', () => {
