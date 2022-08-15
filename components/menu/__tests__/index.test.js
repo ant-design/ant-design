@@ -785,7 +785,7 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
 
     rerender(
       <Menu mode="inline" inlineCollapsed>
@@ -795,7 +795,7 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('not title if not collapsed', () => {
@@ -902,7 +902,7 @@ describe('Menu', () => {
         <Menu.SubMenu key="4" icon={<MailOutlined />} title={<span>Navigation One</span>} />
       </Menu>,
     );
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/23755
@@ -1034,7 +1034,7 @@ describe('Menu', () => {
       />,
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
