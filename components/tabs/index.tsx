@@ -11,6 +11,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
+import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import TabPane, { TabPaneProps } from './TabPane';
 
@@ -39,6 +40,7 @@ function Tabs({
   addIcon,
   children,
   items,
+  animated,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
@@ -66,6 +68,8 @@ function Tabs({
 
   const mergedItems = useLegacyItems(items, children);
 
+  const mergedAnimated = useAnimateConfig(prefixCls, animated);
+
   return (
     <SizeContext.Consumer>
       {contextSize => {
@@ -88,6 +92,7 @@ function Tabs({
             editable={editable}
             moreIcon={moreIcon}
             prefixCls={prefixCls}
+            animated={mergedAnimated}
           />
         );
       }}

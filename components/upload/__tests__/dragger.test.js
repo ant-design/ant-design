@@ -1,9 +1,8 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 import { setup, teardown } from './mock';
 
 describe('Upload.Dragger', () => {
@@ -26,7 +25,7 @@ describe('Upload.Dragger', () => {
       },
     });
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 

@@ -217,6 +217,7 @@ class Demo extends React.Component {
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
+        .replace("import React from 'react';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
           /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
@@ -252,9 +253,11 @@ class Demo extends React.Component {
     const riddlePrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       js: `${
+        /import React(\D*)from 'react';/.test(sourceCode) ? '' : `import React from 'react';\n`
+      }${
         react18
-          ? `import React from 'react';\nimport { createRoot } from 'react-dom/client';\n`
-          : ''
+          ? `import { createRoot } from 'react-dom/client';\n`
+          : `import ReactDOM from 'react-dom';\n`
       }${sourceCode.replace(/export default/, 'const ComponentDemo =')}\n\n${
         react18
           ? 'createRoot(mountNode).render(<ComponentDemo />)'
