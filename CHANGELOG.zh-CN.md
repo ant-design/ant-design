@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.22.5
+
+`2022-08-15`
+
+- 🇭🇺 Form `defaultValidateMessages.i18n` 增加匈牙利语。[#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)
+- 💄 移除 Popover 中无效的 `box-shadow` 样式。[#37030](https://github.com/ant-design/ant-design/pull/37030) [@jerrykingxyz](https://github.com/jerrykingxyz)
+- 🐞 修复 Steps `labelPlacement="vertical"` 时连接线位置偏上的问题。[#36996](https://github.com/ant-design/ant-design/pull/36996)
+- 💄 去掉 Pagination 的异常错误边框。[#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
+- 🐞 修复 Upload 在 React 18 下同时上传多份文件会出现上传状态不正确的问题。[#36968](https://github.com/ant-design/ant-design/pull/36968)
+- TypeScript
+  - 🤖 修复 useWatch 的类型错误。[#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
+
 ## 4.22.4
 
 `2022-08-08`
