@@ -314,7 +314,7 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
 
 `4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
