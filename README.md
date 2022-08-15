@@ -167,3 +167,4 @@ If you are a collaborator, please follow our [Pull Request principle](https://gi
 - Follow [@ITopGun on Github](https://github.com/ITopGun).
 
 ## More from ITopGun
+- [✔️React Material Admin](https://github.com/ITopGun/React-MUI-Admin) - React Material Admin — Material-UI Dashboard
