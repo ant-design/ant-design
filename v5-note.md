@@ -16,4 +16,5 @@
   - AutoComplete 组件
   - Cascader 组件
   - Select 组件
+  - TreeSelect 组件
 - open 属性转换：https://github.com/ant-design/ant-design/issues/36609
