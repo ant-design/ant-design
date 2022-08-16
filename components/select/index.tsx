@@ -19,7 +19,6 @@ import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
-import warning from '../_util/warning';
 
 import useStyle from './style';
 import genPurePanel from '../_util/PurePanel';
@@ -57,11 +56,6 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   popupClassName?: string;
 }
 
@@ -73,7 +67,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     bordered = true,
     className,
     getPopupContainer,
-    dropdownClassName,
     popupClassName,
     listHeight = 256,
     placement,
@@ -120,13 +113,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const mergedShowArrow =
     showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
 
-  // =================== Warning =====================
-  warning(
-    !dropdownClassName,
-    'Select',
-    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
-
   // ===================== Form Status =====================
   const {
     status: contextStatus,
@@ -159,7 +145,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
