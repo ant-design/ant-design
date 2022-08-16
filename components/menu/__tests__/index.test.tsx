@@ -5,8 +5,9 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-// import { mount } from 'enzyme';
+import type { MenuMode } from 'rc-menu/lib/interface';
 import React, { useState } from 'react';
+import type { MenuProps } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -15,7 +16,12 @@ import Layout from '../../layout';
 import collapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
+  writable: true,
+  value: true,
+});
+
+type MouseEvent = 'click' | 'mouseEnter' | 'mouseLeave';
 
 const { SubMenu } = Menu;
 
@@ -28,7 +34,12 @@ describe('Menu', () => {
     }
   }
 
-  const expectSubMenuBehavior = (defaultProps, instance, enter = noop, leave = noop) => {
+  const expectSubMenuBehavior = (
+    defaultProps: MenuProps,
+    instance: any,
+    enter = noop,
+    leave = noop,
+  ) => {
     const { container } = instance;
 
     expect(container.querySelectorAll('ul.ant-menu-sub')).toHaveLength(0);
@@ -124,7 +135,7 @@ describe('Menu', () => {
     </Menu>
   ));
 
-  let div;
+  let div: HTMLElement;
 
   beforeEach(() => {
     div = document.createElement('div');
@@ -189,8 +200,8 @@ describe('Menu', () => {
     );
 
     expect(
-      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
-        .textContent,
+      container.querySelector('.ant-menu-submenu-open')!.querySelector('.ant-menu-submenu-title')
+        ?.textContent,
     ).toEqual('submenu1');
   });
 
@@ -206,8 +217,8 @@ describe('Menu', () => {
     );
 
     expect(
-      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
-        .textContent,
+      container.querySelector('.ant-menu-submenu-open')!.querySelector('.ant-menu-submenu-title')
+        ?.textContent,
     ).toEqual('submenu1');
   });
 
@@ -270,11 +281,11 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode horizontal', async () => {
-    const defaultProps = {
+    const defaultProps: MenuProps = {
       mode: 'horizontal',
     };
 
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu {...defaultProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -297,9 +308,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode inline', () => {
-    const defaultProps = { mode: 'inline' };
+    const defaultProps: MenuProps = { mode: 'inline' };
 
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu {...defaultProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -318,9 +329,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode vertical', () => {
-    const defaultProps = { mode: 'vertical', openTransitionName: '' };
+    const defaultProps: MenuProps = { mode: 'vertical' };
 
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu {...defaultProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -342,7 +353,7 @@ describe('Menu', () => {
   describe('allows the overriding of theme at the popup submenu level', () => {
     const menuModesWithPopupSubMenu = ['horizontal', 'vertical'];
 
-    menuModesWithPopupSubMenu.forEach(menuMode => {
+    menuModesWithPopupSubMenu.forEach((menuMode: MenuMode) => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
           <Menu mode={menuMode} openKeys={['1']} theme="dark">
@@ -384,7 +395,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu openKeys={['1']} mode="inline" {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -405,7 +416,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -445,7 +456,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -466,12 +477,12 @@ describe('Menu', () => {
     });
 
     const transitionEndEvent = new Event('transitionend');
-    fireEvent(container.querySelector('ul'), transitionEndEvent);
+    fireEvent(container.querySelector('ul')!, transitionEndEvent);
     act(() => {
       jest.runAllTimers();
     });
 
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-submenu-title'));
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-submenu-title')!);
     triggerAllTimer();
 
     expect(container.querySelector('.ant-menu-submenu')).toHaveClass('ant-menu-submenu-vertical');
@@ -486,7 +497,7 @@ describe('Menu', () => {
         defaultOpenKeys={['not-existed']}
         mode="inline"
         inlineCollapsed
-        getPopupContainer={node => node.parentNode}
+        getPopupContainer={node => node.parentNode as HTMLElement}
       >
         <Menu.Item key="menu1">item</Menu.Item>
         <Menu.Item key="menu2" title="title">
@@ -522,16 +533,16 @@ describe('Menu', () => {
   });
 
   describe('open submenu when click submenu title', () => {
-    const toggleMenu = (instance, index, event) => {
+    const toggleMenu = (instance: any, index: number, event: MouseEvent) => {
       fireEvent[event](instance.container.querySelectorAll('.ant-menu-submenu-title')[index]);
 
       triggerAllTimer();
     };
 
     it('inline', () => {
-      const defaultProps = { mode: 'inline' };
+      const defaultProps: MenuProps = { mode: 'inline' };
 
-      const Demo = props => (
+      const Demo = (props: any) => (
         <Menu {...defaultProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -570,7 +581,7 @@ describe('Menu', () => {
         </Menu>,
       );
 
-      fireEvent.click(container.querySelector('.ant-menu-submenu-title'));
+      fireEvent.click(container.querySelector('.ant-menu-submenu-title')!);
 
       triggerAllTimer();
 
@@ -579,7 +590,7 @@ describe('Menu', () => {
     });
 
     it('vertical with hover(default)', () => {
-      const defaultProps = { mode: 'vertical' };
+      const defaultProps: MenuProps = { mode: 'vertical' };
 
       const Demo = () => (
         <Menu {...defaultProps}>
@@ -602,7 +613,7 @@ describe('Menu', () => {
     });
 
     it('vertical with click', () => {
-      const defaultProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
+      const defaultProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
       const Demo = () => (
         <Menu {...defaultProps}>
           <SubMenu key="1" title="submenu1">
@@ -624,7 +635,7 @@ describe('Menu', () => {
     });
 
     it('horizontal with hover(default)', () => {
-      const defaultProps = { mode: 'horizontal' };
+      const defaultProps: MenuProps = { mode: 'horizontal' };
       const Demo = () => (
         <Menu {...defaultProps}>
           <SubMenu key="1" title="submenu1">
@@ -646,7 +657,7 @@ describe('Menu', () => {
     });
 
     it('horizontal with click', () => {
-      const defaultProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
+      const defaultProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
       const Demo = () => (
         <Menu {...defaultProps}>
           <SubMenu key="1" title="submenu1">
@@ -681,48 +692,45 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     triggerAllTimer();
 
-    expect(container.querySelector('.ant-tooltip-inner').textContent).toBe('bamboo lucky');
+    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('bamboo lucky');
   });
 
   it('render correctly when using with Layout.Sider', () => {
-    class Demo extends React.Component {
-      state = {
-        collapsed: false,
-      };
+    const Demo: React.FC = () => {
+      const [collapsed, setCollapsed] = useState(false);
+      return (
+        <Layout style={{ minHeight: '100vh' }}>
+          <Layout.Sider
+            collapsible
+            collapsed={collapsed}
+            onCollapse={() => setCollapsed(!collapsed)}
+          >
+            <div className="logo" />
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+                <Menu.Item key="3">Tom</Menu.Item>
+                <Menu.Item key="4">Bill</Menu.Item>
+                <Menu.Item key="5">Alex</Menu.Item>
+              </SubMenu>
+            </Menu>
+          </Layout.Sider>
+        </Layout>
+      );
+    };
 
-      onCollapse = collapsed => this.setState({ collapsed });
-
-      render() {
-        const { collapsed } = this.state;
-        return (
-          <Layout style={{ minHeight: '100vh' }}>
-            <Layout.Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-              <div className="logo" />
-              <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-                  <Menu.Item key="3">Tom</Menu.Item>
-                  <Menu.Item key="4">Bill</Menu.Item>
-                  <Menu.Item key="5">Alex</Menu.Item>
-                </SubMenu>
-              </Menu>
-            </Layout.Sider>
-          </Layout>
-        );
-      }
-    }
     const { container } = render(<Demo />);
 
     expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-inline');
 
-    fireEvent.click(container.querySelector('.ant-menu-submenu-title'));
-    fireEvent.click(container.querySelector('.ant-layout-sider-trigger'));
+    fireEvent.click(container.querySelector('.ant-menu-submenu-title')!);
+    fireEvent.click(container.querySelector('.ant-layout-sider-trigger')!);
     triggerAllTimer();
     expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-inline-collapsed');
 
-    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root'));
+    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root')!);
     expect(container.querySelector('ul.ant-menu-root')).not.toHaveClass('ant-menu-inline');
     expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-vertical');
   });
@@ -735,7 +743,7 @@ describe('Menu', () => {
         <Menu.Item key="test2">Navigation Two</Menu.Item>
       </Menu>,
     );
-    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root'));
+    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root')!);
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
@@ -754,10 +762,9 @@ describe('Menu', () => {
           </a>
         </Menu.Item>
       </Menu>,
-      { attachTo: div },
     );
 
-    fireEvent.mouseEnter(container.querySelector('li.ant-menu-item'));
+    fireEvent.mouseEnter(container.querySelector('li.ant-menu-item')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -807,7 +814,7 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -817,45 +824,11 @@ describe('Menu', () => {
     jest.useRealTimers();
   });
 
-  it('props#onOpen and props#onClose do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const onOpen = jest.fn();
-    const onClose = jest.fn();
-    render(
-      <Menu
-        defaultOpenKeys={['1']}
-        mode="inline"
-        onOpen={onOpen}
-        onClose={onClose}
-        items={[
-          {
-            key: '1',
-            label: 'submenu1',
-            children: [
-              { key: 'submenu1', label: 'Option 1' },
-              { key: 'submenu2', label: 'Option 2' },
-            ],
-          },
-          { key: '2', label: 'menu2' },
-        ]}
-      />,
-    );
-
-    expect(errorSpy.mock.calls.length).toBe(1);
-    expect(errorSpy.mock.calls[0][0]).not.toContain(
-      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, see: https://u.ant.design/menu-on-open-change.',
-    );
-    expect(onOpen).not.toHaveBeenCalled();
-    expect(onClose).not.toHaveBeenCalled();
-    errorSpy.mockRestore();
-  });
-
   // https://github.com/ant-design/ant-design/issues/18825
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const Demo = props => (
+    const Demo = (props: any) => (
       <Menu
         mode="inline"
         inlineCollapsed={false}
@@ -873,19 +846,19 @@ describe('Menu', () => {
     );
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 1');
+    expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 1');
     fireEvent.click(container.querySelectorAll('li.ant-menu-item')[1]);
-    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 2');
+    expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 2');
 
     rerender(<Demo inlineCollapsed />);
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('O');
+    expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('O');
 
     rerender(<Demo inlineCollapsed={false} />);
 
-    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 2');
+    expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 2');
     jest.useRealTimers();
   });
 
@@ -930,7 +903,7 @@ describe('Menu', () => {
       );
     }
     const { container } = render(<App />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onOpenChange).toHaveBeenCalledWith([]);
   });
 
@@ -972,7 +945,7 @@ describe('Menu', () => {
   });
 
   it('should support ref', async () => {
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
     const { container } = render(
       <Menu ref={ref}>
         <Menu.Item key="1">Option 1</Menu.Item>
