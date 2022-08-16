@@ -3,6 +3,7 @@ import React from 'react';
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act } from '../../../tests/utils';
 
 describe('Tag', () => {
   mountTest(Tag);
@@ -25,7 +26,9 @@ describe('Tag', () => {
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     wrapper.update();
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
@@ -38,7 +41,9 @@ describe('Tag', () => {
     expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 

@@ -1,8 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Table from '..';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';

@@ -14,6 +14,7 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
     7: colors[6],
     8: colors[7],
     9: colors[8],
+    10: colors[9],
   };
 };
 
@@ -22,8 +23,7 @@ export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   textBaseColor: string,
 ) => ({
   colorText: getAlphaColor(textBaseColor, 0.85),
-  // v5 should be 0.65
-  colorTextSecondary: getAlphaColor(textBaseColor, 0.45),
+  colorTextSecondary: getAlphaColor(textBaseColor, 0.65),
   colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
   colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
 
@@ -35,6 +35,7 @@ export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   colorBgLayout: getSolidColor(bgBaseColor, 4),
   colorBgContainer: getSolidColor(bgBaseColor, 0),
   colorBgElevated: getSolidColor(bgBaseColor, 0),
+  colorBgSpotlight: getAlphaColor(textBaseColor, 0.85),
 
   colorBorder: getSolidColor(bgBaseColor, 15),
   colorBorderSecondary: getSolidColor(bgBaseColor, 6),

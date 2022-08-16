@@ -1,24 +1,28 @@
-import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
-import { createCache, StyleProvider } from '@ant-design/cssinjs';
-import { setTwoToneColor } from '@ant-design/icons';
-import { ConfigProvider, theme as antdTheme } from 'antd';
-import zhCN from 'antd/lib/locale/zh_CN';
-import { browserHistory } from 'bisheng/router';
-import classNames from 'classnames';
-import 'dayjs/locale/zh-cn';
+/* eslint-disable class-methods-use-this */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { IntlProvider } from 'react-intl';
 import themeSwitcher from 'theme-switcher';
+import type { TwoToneColor } from '@ant-design/icons';
+import { setTwoToneColor } from '@ant-design/icons';
+import { ConfigProvider, theme as antdTheme } from 'antd';
+import { browserHistory } from 'bisheng/router';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import type { SeedToken } from 'antd/es/theme';
+import classNames from 'classnames';
+import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
+import zhCN from 'antd/lib/locale/zh_CN';
+import type { DirectionType } from 'antd/es/config-provider';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 import Header from './Header';
+import type { SiteContextProps } from './SiteContext';
 import SiteContext from './SiteContext';
-
 import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
+import 'moment/locale/zh-cn';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -36,12 +40,12 @@ if (typeof window !== 'undefined') {
   require('../../static/style');
 
   // Expose to iframe
-  window.react = React;
-  window['react-dom'] = ReactDOM;
+  (window as any).react = React;
+  (window as any)['react-dom'] = ReactDOM;
   // eslint-disable-next-line global-require
-  window.antd = require('antd');
+  (window as any).antd = require('antd');
   // eslint-disable-next-line global-require
-  window['@ant-design/icons'] = require('@ant-design/icons');
+  (window as any)['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
   window.addEventListener('error', e => {
@@ -56,7 +60,7 @@ if (typeof window !== 'undefined') {
 const RESPONSIVE_MOBILE = 768;
 
 // for dark.css timestamp to remove cache
-const timestamp = new Date().getTime();
+const timestamp = Date.now();
 const themeMap = {
   dark: `/dark.css?${timestamp}`,
   compact: `/compact.css?${timestamp}`,
@@ -69,17 +73,38 @@ const { switcher } = themeSwitcher(themeConfig);
 // Pass to global since bisheng do not have the process for wrapper
 const styleCache = createCache();
 if (typeof global !== 'undefined') {
-  global.styleCache = styleCache;
+  (global as any).styleCache = styleCache;
 }
 
-export default class Layout extends React.Component {
+interface LayoutPropsType {
+  location: any;
+  router: any;
+  helmetContext: any;
+  children: React.ReactNode;
+}
+
+interface LayoutStateType {
+  appLocale: typeof cnLocale | typeof enLocale;
+  theme: string;
+  isMobile: boolean;
+  direction: DirectionType;
+  setTheme: SiteContextProps['setTheme'];
+  setIframeTheme: SiteContextProps['setIframeTheme'];
+  v5theme: string;
+  designToken: SeedToken;
+  hashedStyle: boolean;
+}
+
+export default class Layout extends React.Component<LayoutPropsType, LayoutStateType> {
   static contextType = SiteContext;
+
+  timer: NodeJS.Timeout | null = null;
 
   isBeforeComponent = false;
 
-  syncIframeThemeId = null;
+  syncIframeThemeId?: number;
 
-  constructor(props) {
+  constructor(props: LayoutPropsType) {
     super(props);
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
@@ -87,8 +112,9 @@ export default class Layout extends React.Component {
     this.state = {
       appLocale,
       theme: 'default',
-      setTheme: this.setTheme,
       direction: 'ltr',
+      isMobile: false,
+      setTheme: this.setTheme,
       setIframeTheme: this.setIframeTheme,
       v5theme: 'default',
       designToken: defaultSeedToken,
@@ -98,50 +124,40 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     const { location, router } = this.props;
-    router.listen(({ pathname, search }) => {
+    router.listen(({ pathname, search }: any) => {
       const { theme } = this.props.location.query;
-      if (typeof window.ga !== 'undefined') {
-        window.ga('send', 'pageview', pathname + search);
+      if (typeof (window as any).ga !== 'undefined') {
+        (window as any).ga('send', 'pageview', pathname + search);
       }
-      // eslint-disable-next-line
-      if (typeof window._hmt !== 'undefined') {
-        // eslint-disable-next-line
-        window._hmt.push(['_trackPageview', pathname + search]);
+      if (typeof (window as any)._hmt !== 'undefined') {
+        (window as any)._hmt.push(['_trackPageview', pathname + search]);
       }
       const componentPage = /^\/?components/.test(pathname);
 
       // only component page can use `dark` theme
       if (!componentPage) {
         this.isBeforeComponent = false;
-        this.setTheme('default', false);
+        this.setTheme?.('default', false);
       } else if (theme && !this.isBeforeComponent) {
         this.isBeforeComponent = true;
-        this.setTheme(theme, false);
+        this.setTheme?.(theme, false);
       }
     });
 
     if (location.query.theme && /^\/?components/.test(location.pathname)) {
       this.isBeforeComponent = true;
-      this.setTheme(location.query.theme, false);
+      this.setTheme?.(location.query.theme, false);
     } else {
       this.isBeforeComponent = false;
-      this.setTheme('default', false);
+      this.setTheme?.('default', false);
     }
 
-    if (location.query.direction) {
-      this.setState({
-        direction: location.query.direction,
-      });
-    } else {
-      this.setState({
-        direction: 'ltr',
-      });
-    }
+    this.setState({ direction: location.query.direction || 'ltr' });
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
       this.timer = setTimeout(() => {
-        nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
+        nprogressHiddenStyle.parentNode?.removeChild(nprogressHiddenStyle);
       }, 0);
     }
 
@@ -149,7 +165,7 @@ export default class Layout extends React.Component {
     window.addEventListener('resize', this.updateMobileMode);
 
     // Sync iframe theme with current theme
-    this.syncIframeThemeId = setInterval(() => {
+    this.syncIframeThemeId = window.setInterval(() => {
       const { designToken, hashedStyle } = this.state;
       const content = JSON.stringify({
         action: 'sync.theme',
@@ -157,16 +173,19 @@ export default class Layout extends React.Component {
         hashed: hashedStyle,
       });
 
-      document.querySelectorAll('iframe.iframe-demo').forEach(iframe => {
-        iframe.contentWindow.postMessage(content);
+      document.querySelectorAll<HTMLIFrameElement>('iframe.iframe-demo').forEach(iframe => {
+        iframe.contentWindow?.postMessage(content);
       });
     }, 1000);
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
-    clearInterval(this.syncIframeThemeId);
+    clearTimeout(this.timer as unknown as number);
+    clearInterval(this.syncIframeThemeId as unknown as number);
     window.removeEventListener('resize', this.updateMobileMode);
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
   }
 
   updateMobileMode = () => {
@@ -179,19 +198,16 @@ export default class Layout extends React.Component {
     }
   };
 
-  setIframeTheme = (iframeNode, theme) => {
-    iframeNode.contentWindow.postMessage(
+  setIframeTheme: LayoutStateType['setIframeTheme'] = (iframeNode, theme) => {
+    iframeNode.contentWindow?.postMessage(
       JSON.stringify({
         action: 'change.theme',
-        data: {
-          themeConfig,
-          theme,
-        },
+        data: { themeConfig, theme },
       }),
     );
   };
 
-  setTheme = (theme, persist = true) => {
+  setTheme: LayoutStateType['setTheme'] = (theme, persist = true) => {
     if (typeof window === 'undefined') {
       return;
     }
@@ -203,24 +219,23 @@ export default class Layout extends React.Component {
 
     const iframeNodes = document.querySelectorAll('.iframe-demo');
     // loop element node
-    [].forEach.call(iframeNodes, iframeNode => {
-      this.setIframeTheme(iframeNode, theme);
+    [].forEach.call(iframeNodes, (iframeNode: HTMLIFrameElement) => {
+      this.setIframeTheme?.(iframeNode, theme);
     });
 
-    this.setState({
-      theme,
-    });
+    this.setState({ theme });
     const iconTwoToneThemeMap = {
       dark: [presetDarkPalettes.blue.primary, '#111d2c'],
       default: presetPalettes.blue.primary,
-    };
-    setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
+    } as const;
+    setTwoToneColor(
+      (iconTwoToneThemeMap[theme as keyof typeof iconTwoToneThemeMap] ||
+        iconTwoToneThemeMap.default) as TwoToneColor,
+    );
   };
 
-  changeDirection = direction => {
-    this.setState({
-      direction,
-    });
+  changeDirection = (direction: DirectionType): void => {
+    this.setState({ direction });
     const { pathname, hash, query } = this.props.location;
     if (direction === 'ltr') {
       delete query.direction;
@@ -257,15 +272,14 @@ export default class Layout extends React.Component {
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
       <StyleProvider cache={styleCache}>
+        {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
         <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
           <HelmetProvider context={helmetContext}>
             <Helmet encodeSpecialCharacters={false}>
               <html
                 lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
                 data-direction={direction}
-                className={classNames({
-                  [`rtl`]: direction === 'rtl',
-                })}
+                className={classNames({ [`rtl`]: direction === 'rtl' })}
               />
               <title>{title}</title>
               <link
@@ -286,7 +300,7 @@ export default class Layout extends React.Component {
               defaultLocale="en-US"
             >
               <ConfigProvider
-                locale={appLocale.locale === 'zh-CN' ? zhCN : null}
+                locale={appLocale.locale === 'zh-CN' ? zhCN : undefined}
                 direction={direction}
                 theme={{
                   token: designToken,
@@ -299,17 +313,19 @@ export default class Layout extends React.Component {
                 {children}
 
                 <DynamicTheme
-                  componentName={this.props.params?.children?.replace('-cn', '')}
-                  defaultToken={{
-                    theme: v5theme,
-                    ...designToken,
-                    hashed: hashedStyle,
-                  }}
+                  componentName={(this.props as any).params?.children?.replace('-cn', '')}
+                  defaultToken={
+                    {
+                      theme: v5theme,
+                      ...designToken,
+                      hashed: hashedStyle,
+                    } as any
+                  }
                   onChangeTheme={newToken => {
                     console.log('Change Theme:', newToken);
-                    const { hashed, theme, ...restToken } = newToken;
+                    const { hashed, newTheme, ...restToken } = newToken as any;
                     this.setState({
-                      v5theme: theme,
+                      v5theme: newTheme,
                       designToken: restToken,
                       hashedStyle: hashed,
                     });

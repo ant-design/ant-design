@@ -10,6 +10,7 @@ export interface ColorPalettes {
   7: string;
   8: string;
   9: string;
+  10: string;
 }
 
 export type GenerateColorPalettes = (baseColor: string) => ColorPalettes;

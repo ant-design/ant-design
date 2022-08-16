@@ -1,4 +1,5 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { SelectToken } from '.';
 import { mergeToken } from '../../theme';
 
@@ -17,6 +18,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
+        ...resetComponent(token),
+
         display: 'flex',
         [`${componentCls}-selection-search`]: {
           position: 'absolute',

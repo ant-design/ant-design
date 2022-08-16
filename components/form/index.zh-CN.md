@@ -314,7 +314,7 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
 
 `4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
@@ -342,9 +342,9 @@ const Demo = () => {
 `4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`：
 
 ```tsx
-const CustomInput = ({ value }) => {
+const CustomInput = ({ value, onChange }) => {
   const { status } = Form.Item.useStatus();
-  return <input value={value} className={`custom-input-${status}`} />;
+  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
 };
 
 export default () => (

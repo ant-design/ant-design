@@ -198,4 +198,11 @@ describe('Drawer', () => {
 
     errorSpy.mockRestore();
   });
+
+  it('zIndex should work', () => {
+    const { container } = render(<Drawer getContainer={false} visible zIndex={903} />);
+    expect(container.querySelector('.ant-drawer')).toHaveStyle({
+      zIndex: 903,
+    });
+  });
 });

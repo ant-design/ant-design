@@ -1,9 +1,9 @@
-import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import React from 'react';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -20,7 +20,7 @@ describe('Descriptions', () => {
   });
 
   it('when max-width: 575px，column=1', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
@@ -29,14 +29,14 @@ describe('Descriptions', () => {
         <Descriptions.Item>No-Label</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('tr')).toHaveLength(5);
-    expect(wrapper.find('.ant-descriptions-item-label')).toHaveLength(4);
+    expect(wrapper.container.querySelectorAll('tr')).toHaveLength(5);
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(4);
     wrapper.unmount();
   });
 
   it('when max-width: 575px，column=2', () => {
     // eslint-disable-next-line global-require
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions column={{ xs: 2 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
@@ -44,26 +44,26 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('tr')).toHaveLength(2);
+    expect(wrapper.container.querySelectorAll('tr')).toHaveLength(2);
     wrapper.unmount();
   });
 
   it('column is number', () => {
     // eslint-disable-next-line global-require
-    const wrapper = mount(
-      <Descriptions column="3">
+    const wrapper = render(
+      <Descriptions column={3}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
         <Descriptions.Item label="time">18:00:00</Descriptions.Item>
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
     wrapper.unmount();
   });
 
   it('when typeof column is object', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions column={{ xs: 8, sm: 16, md: 24 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
@@ -71,14 +71,19 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(8);
+    expect(
+      Array.from(wrapper.container.querySelectorAll('td'))
+        .map(i => Number(i.getAttribute('colspan')))
+        .filter(Boolean)
+        .reduce((total, cur) => total + cur, 0),
+    ).toBe(8);
     wrapper.unmount();
   });
 
   it('warning if ecceed the row span', () => {
     resetWarned();
 
-    mount(
+    render(
       <Descriptions column={3}>
         <Descriptions.Item label="Product" span={2}>
           Cloud Database
@@ -95,7 +100,7 @@ describe('Descriptions', () => {
 
   it('when item is rendered conditionally', () => {
     const hasDiscount = false;
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
@@ -104,13 +109,13 @@ describe('Descriptions', () => {
         {hasDiscount && <Descriptions.Item label="Discount">$20.00</Descriptions.Item>}
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
     wrapper.unmount();
   });
 
   it('vertical layout', () => {
     // eslint-disable-next-line global-require
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions layout="vertical">
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
@@ -118,47 +123,46 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
     wrapper.unmount();
   });
 
   it('Descriptions.Item support className', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product" className="my-class">
           Cloud Database
         </Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('Descriptions support colon', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions colon={false}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('Descriptions support style', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions style={{ backgroundColor: '#e8e8e8' }}>
         <Descriptions.Item>Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('keep key', () => {
-    const wrapper = mount(
+    render(
       <Descriptions>
-        <Descriptions.Item key="bamboo" />
+        <Descriptions.Item key="bamboo">1</Descriptions.Item>
       </Descriptions>,
     );
-
-    expect(wrapper.find('Cell').key()).toBe('item-bamboo');
+    expect(jest.spyOn(document, 'createElement')).not.toBeCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/19887
@@ -166,7 +170,7 @@ describe('Descriptions', () => {
     if (!React.Fragment) {
       return;
     }
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
         <>
@@ -176,12 +180,12 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/20255
   it('columns 5 with customize', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions layout="vertical" column={4}>
         {/* 1 1 1 1 */}
         <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
@@ -203,12 +207,12 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    function matchSpan(rowIndex, spans) {
-      const tr = wrapper.find('tr').at(rowIndex);
-      const tds = tr.find('th');
+    function matchSpan(rowIndex: number, spans: number[]) {
+      const trs = Array.from(wrapper.container.querySelectorAll('tr')).at(rowIndex);
+      const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
-        expect(td.props().colSpan).toEqual(spans[index]);
+        expect(Number(td.getAttribute('colSpan'))).toEqual(spans[index]);
       });
     }
 
@@ -218,35 +222,38 @@ describe('Descriptions', () => {
   });
 
   it('number value should render correct', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions bordered>
-        <Descriptions.Item label={0}>{0}</Descriptions.Item>
+        <Descriptions.Item label={0}>0</Descriptions.Item>
       </Descriptions>,
     );
-
-    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
-    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
+    expect(wrapper.container.querySelector('th')).toHaveClass('ant-descriptions-item-label');
+    expect(wrapper.container.querySelector('td')).toHaveClass('ant-descriptions-item-content');
   });
 
   it('Descriptions support extra', () => {
-    const wrapper = mount(
+    const wrapper1 = render(
       <Descriptions extra="Edit">
         <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(true);
-    wrapper.setProps({ extra: undefined });
-    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
+    const wrapper2 = render(
+      <Descriptions>
+        <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper1.container.querySelector('.ant-descriptions-extra')).toBeTruthy();
+    expect(wrapper2.container.querySelector('.ant-descriptions-extra')).toBeFalsy();
   });
 
   it('number 0 should render correct', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions>
         <Descriptions.Item label={0} labelStyle={{ color: 'red' }} contentStyle={{ color: 'red' }}>
           {0}
         </Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 });
