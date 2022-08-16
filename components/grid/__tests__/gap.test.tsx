@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Col, Row } from '..';
@@ -22,19 +21,15 @@ describe('Grid.Gap', () => {
   });
 
   it('should use gap', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Row gutter={[16, 8]}>
         <Col />
       </Row>,
     );
 
-    expect(wrapper.find('.ant-row').props().style).toEqual(
-      expect.objectContaining({
-        marginLeft: -8,
-        rowGap: 8,
-        marginRight: -8,
-      }),
-    );
+    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginLeft).toEqual('-8px');
+    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginRight).toEqual('-8px');
+    expect((container.querySelector('.ant-row') as HTMLElement)!.style.rowGap).toEqual('8px');
   });
 
   it('not break ssr', () => {
