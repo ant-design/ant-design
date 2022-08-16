@@ -1,5 +1,5 @@
 import { generate } from '@ant-design/colors';
-import type { DerivativeFunc } from '@ant-design/cssinjs/es/Theme';
+import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';

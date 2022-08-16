@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { DerivativeFunc } from '@ant-design/cssinjs/es/Theme';
+import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import type { MapToken, OverrideToken, SeedToken } from '../theme/interface';
