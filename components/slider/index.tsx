@@ -137,19 +137,22 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
     }, [range]);
 
-    [
-      ['tooltipPrefixCls', 'prefixCls'],
-      ['getTooltipPopupContainer', 'getPopupContainer'],
-      ['tipFormatter', 'formatter'],
-      ['tooltipPlacement', 'placement'],
-      ['tooltipVisible', 'open'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Slider',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`tooltip.${newName}\` instead.`,
-      );
-    });
+    // Warning for deprecated usage
+    if (process.env.NODE_ENV !== 'production') {
+      [
+        ['tooltipPrefixCls', 'prefixCls'],
+        ['getTooltipPopupContainer', 'getPopupContainer'],
+        ['tipFormatter', 'formatter'],
+        ['tooltipPlacement', 'placement'],
+        ['tooltipVisible', 'open'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning(
+          !(deprecatedName in props),
+          'Slider',
+          `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`tooltip.${newName}\` instead.`,
+        );
+      });
+    }
 
     const handleRender: RcSliderProps['handleRender'] = (node, info) => {
       const { index, dragging } = info;
