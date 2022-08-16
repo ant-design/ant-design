@@ -1,12 +1,27 @@
 import MockDate from 'mockdate';
 import moment from 'moment';
 import React from 'react';
-import type { RangeValue } from 'rc-picker/lib/interface';
-import { mount } from 'enzyme';
+import type { TriggerProps } from 'rc-trigger';
 import { fireEvent, render } from '../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import type { PickerLocale } from '../generatePicker';
+
+let triggerProps: TriggerProps;
+
+jest.mock('rc-trigger', () => {
+  let Trigger = jest.requireActual('rc-trigger/lib/mock');
+  Trigger = Trigger.default || Trigger;
+  const h: typeof React = jest.requireActual('react');
+
+  return {
+    default: h.forwardRef<unknown, TriggerProps>((props, ref) => {
+      triggerProps = props;
+      return h.createElement(Trigger, { ref, ...props });
+    }),
+    __esModule: true,
+  };
+});
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -222,48 +237,32 @@ describe('DatePicker', () => {
   });
 
   it('placement api work correctly', () => {
-    const popupAlignDefault = (points: [string, string], offset: [number, number]) => ({
-      points,
-      offset,
-      overflow: { adjustX: 1, adjustY: 1 },
-    });
-
-    const wrapper1 = mount(
-      <DatePicker.RangePicker
-        defaultValue={moment() as unknown as RangeValue<any>}
-        placement="bottomLeft"
-      />,
-    );
-    const wrapper2 = mount(
-      <DatePicker.RangePicker
-        defaultValue={moment() as unknown as RangeValue<any>}
-        placement="bottomRight"
-      />,
-    );
-    const wrapper3 = mount(
-      <DatePicker.RangePicker
-        defaultValue={moment() as unknown as RangeValue<any>}
-        placement="topLeft"
-      />,
-    );
-    const wrapper4 = mount(
-      <DatePicker.RangePicker
-        defaultValue={moment() as unknown as RangeValue<any>}
-        placement="topRight"
-      />,
+    const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
+    expect(triggerProps?.builtinPlacements).toEqual(
+      expect.objectContaining({
+        topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
+      }),
     );
 
-    expect(wrapper1.find('Trigger').prop('popupAlign')).toEqual(
-      popupAlignDefault(['tl', 'bl'], [0, 4]),
+    rerender(<DatePicker.RangePicker open placement="topRight" />);
+    expect(triggerProps?.builtinPlacements).toEqual(
+      expect.objectContaining({
+        topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
+      }),
     );
-    expect(wrapper2.find('Trigger').prop('popupAlign')).toEqual(
-      popupAlignDefault(['tr', 'br'], [0, 4]),
+
+    rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
+    expect(triggerProps?.builtinPlacements).toEqual(
+      expect.objectContaining({
+        bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
+      }),
     );
-    expect(wrapper3.find('Trigger').prop('popupAlign')).toEqual(
-      popupAlignDefault(['bl', 'tl'], [0, -4]),
-    );
-    expect(wrapper4.find('Trigger').prop('popupAlign')).toEqual(
-      popupAlignDefault(['br', 'tr'], [0, -4]),
+
+    rerender(<DatePicker.RangePicker open placement="bottomRight" />);
+    expect(triggerProps?.builtinPlacements).toEqual(
+      expect.objectContaining({
+        bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
+      }),
     );
   });
 });
