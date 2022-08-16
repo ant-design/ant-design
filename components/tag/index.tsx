@@ -8,6 +8,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
 import Wave from '../_util/wave';
+import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
 
 import useStyle from './style';
@@ -20,6 +21,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
+  /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
@@ -51,6 +53,12 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
+
+  warning(
+    !('visible' in props),
+    'Tag',
+    '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+  );
 
   React.useEffect(() => {
     if ('visible' in props) {

@@ -9,7 +9,7 @@ import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import PurePanel from './PurePanel';
 
@@ -229,7 +229,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   }
 
   const child = getDisabledCompatibleChildren(
-    isValidElement(children) ? children : <span>{children}</span>,
+    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
     prefixCls,
   );
   const childProps = child.props;
