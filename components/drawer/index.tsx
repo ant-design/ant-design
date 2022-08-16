@@ -62,6 +62,7 @@ function Drawer({
   getContainer: customizeGetContainer,
   extra,
   afterVisibleChange,
+  maskStyle,
   ...rest
 }: DrawerProps) {
   const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -150,6 +151,7 @@ function Drawer({
         prefixCls={prefixCls}
         onClose={onClose}
         {...rest}
+        maskStyle={visible ? maskStyle : {}}
         open={visible}
         mask={mask}
         push={push}
