@@ -51,7 +51,9 @@ describe('Slider', () => {
       container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
     ).toBeFalsy();
 
-    const { container: container2 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
+    const { container: container2 } = render(
+      <Slider defaultValue={30} tooltip={{ open: false }} />,
+    );
     expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
   });
 
