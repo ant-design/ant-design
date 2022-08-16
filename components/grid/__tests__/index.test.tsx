@@ -13,6 +13,10 @@ describe('Grid', () => {
   rtlTest(Row);
   rtlTest(Col);
 
+  afterEach(() => {
+    ResponsiveObserve.unregister();
+  });
+
   it('should render Col', () => {
     const { asFragment } = render(<Col span={2} />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -43,7 +47,18 @@ describe('Grid', () => {
   });
 
   it('when typeof gutter is object array in large screen', () => {
-    const { asFragment } = render(
+    jest.spyOn(window, 'matchMedia').mockImplementation(
+      query =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(min-width: 1200px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(min-width: 1200px)',
+        } as any),
+    );
+
+    const { container, asFragment } = render(
       <Row
         gutter={[
           { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
@@ -52,6 +67,11 @@ describe('Grid', () => {
       />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
+
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('-20px');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('-20px');
+    expect(container.querySelector('div')!.style.marginTop).toEqual('-200px');
+    expect(container.querySelector('div')!.style.marginBottom).toEqual('-200px');
   });
 
   it('renders wrapped Col correctly', () => {
@@ -64,6 +84,7 @@ describe('Grid', () => {
         <MyCol />
       </Row>,
     );
+
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -93,11 +114,23 @@ describe('Grid', () => {
   // By jsdom mock, actual jsdom not implemented matchMedia
   // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
   it('should work with useBreakpoint', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      query =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        } as any),
+    );
+
     let screensVar;
     function Demo() {
       const screens = useBreakpoint();
       screensVar = screens;
-      return <div>{JSON.stringify(screens)}</div>;
+      return <div />;
     }
     render(<Demo />);
 
