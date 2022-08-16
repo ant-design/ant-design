@@ -17,7 +17,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/antfincdn/EfSt1N5LCk/Ant.Design.Components.4.0.zip
+  - https://gw.alipayobjects.com/os/bmw-prod/82c08c51-9993-4568-90c1-249c8301c0af.sketch
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - 移动组件 Sketch 模板
