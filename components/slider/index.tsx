@@ -60,13 +60,13 @@ export interface SliderBaseProps {
   tooltipVisible?: boolean;
   /**
    * @deprecated `tooltipPlacement` is deprecated which will be removed in next major version.
-   *   Please use `tooltip.getPopupContainer` instead.
+   *   Please use `tooltip.placement` instead.
    */
   tooltipPlacement?: TooltipPlacement;
   tooltip?: SliderTooltipProps;
   /**
    * @deprecated `getTooltipPopupContainer` is deprecated which will be removed in next major
-   *   version. Please use `tooltip.placement` instead.
+   *   version. Please use `tooltip.getPopupContainer` instead.
    */
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   autoFocus?: boolean;
