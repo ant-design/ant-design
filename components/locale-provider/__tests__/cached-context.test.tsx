@@ -1,7 +1,7 @@
-import { mount } from 'enzyme';
 import React, { memo, useContext, useRef, useState } from 'react';
 import LocaleProvider, { ANT_MARK } from '..';
 import LocaleContext from '../context';
+import { render, fireEvent } from '../../../tests/utils';
 
 const defaultLocale = {
   locale: 'locale',
@@ -41,13 +41,13 @@ const CacheOuter = () => {
 };
 
 it("Rendering on LocaleProvider won't trigger rendering on child component.", () => {
-  const wrapper = mount(<CacheOuter />);
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('2');
+  const { container } = render(<CacheOuter />);
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(container.querySelector('#parent_count')?.textContent).toBe('2');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe('1');
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('3');
+  expect(container.querySelector('#child_count')?.textContent).toBe('1');
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(container.querySelector('#parent_count')?.textContent).toBe('3');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe('1');
+  expect(container.querySelector('#child_count')?.textContent).toBe('1');
 });

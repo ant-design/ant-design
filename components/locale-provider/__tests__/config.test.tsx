@@ -1,24 +1,19 @@
-import { mount } from 'enzyme';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { act } from 'react-dom/test-utils';
 import { Modal } from '../..';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
-class Demo extends React.Component {
-  static defaultProps = {};
-
-  componentDidMount() {
-    if (this.props.type === 'dashboard') {
+const Demo: React.FC<{ type: string }> = ({ type }) => {
+  useEffect(() => {
+    if (type === 'dashboard') {
       Modal.confirm({ title: 'Hello World!' });
     }
-  }
+  }, []);
 
-  render() {
-    return <div>{this.props.type}</div>;
-  }
-}
+  return <div>{type}</div>;
+};
 
 describe('Locale Provider demo', () => {
   it('change type', async () => {
@@ -49,15 +44,14 @@ describe('Locale Provider demo', () => {
         </div>
       );
     };
-    const wrapper = mount(<BasicExample />);
-
-    wrapper.find('.about').at(0).simulate('click');
+    const { container } = render(<BasicExample />);
+    fireEvent.click(container.querySelector('.about')!);
     await act(async () => {
       jest.runAllTimers();
       await sleep();
     });
 
-    wrapper.find('.dashboard').at(0).simulate('click');
+    fireEvent.click(container.querySelector('.dashboard')!);
     await act(async () => {
       jest.runAllTimers();
       await sleep();

@@ -1,5 +1,3 @@
-/* eslint-disable react/no-multi-comp */
-import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import React from 'react';
@@ -16,7 +14,7 @@ import {
   Transfer,
 } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
-import { act } from '../../../tests/utils';
+import { act, render } from '../../../tests/utils';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
@@ -188,7 +186,7 @@ const App = () => (
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
     </Popconfirm>
-    <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
+    <Transfer dataSource={[]} showSearch targetKeys={[]} render={(item: any) => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" visible getContainer={false}>
@@ -214,12 +212,12 @@ describe('Locale Provider', () => {
 
   locales.forEach(locale => {
     it(`should display the text as ${locale.locale}`, () => {
-      const wrapper = mount(
+      const { asFragment } = render(
         <LocaleProvider locale={locale}>
           <App />
         </LocaleProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
 
@@ -241,7 +239,7 @@ describe('Locale Provider', () => {
       }
     }
     locales.forEach(locale => {
-      mount(
+      render(
         <LocaleProvider locale={locale}>
           <ModalDemo />
         </LocaleProvider>,
@@ -258,13 +256,13 @@ describe('Locale Provider', () => {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }
-      expect(cancelButtonText).toBe(locale.Modal.cancelText);
-      expect(okButtonText).toBe(locale.Modal.okText);
+      expect(cancelButtonText).toBe(locale.Modal!.cancelText);
+      expect(okButtonText).toBe(locale.Modal!.okText);
     });
   });
 
   it('set moment locale when locale changes', () => {
-    const Test = ({ locale }) => (
+    const Test = ({ locale }: any) => (
       <LocaleProvider locale={locale}>
         <div>
           <DatePicker defaultValue={moment()} open />
@@ -272,11 +270,11 @@ describe('Locale Provider', () => {
       </LocaleProvider>
     );
 
-    const wrapper = mount(<Test locale={zhCN} />);
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: frFR });
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: null });
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment, rerender } = render(<Test locale={zhCN} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+    rerender(<Test locale={frFR} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+    rerender(<Test locale={null} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });
