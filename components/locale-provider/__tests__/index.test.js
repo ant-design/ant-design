@@ -191,7 +191,7 @@ const App = () => (
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
-    <Modal title="Locale Modal" visible getContainer={false}>
+    <Modal title="Locale Modal" open getContainer={false}>
       <p>Locale Modal</p>
     </Modal>
   </div>
