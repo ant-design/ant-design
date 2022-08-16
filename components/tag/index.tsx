@@ -106,7 +106,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   warning(
     !('visible' in props),
     'Tag',
-    '`visible` is removed, you can use `visible && <Tag />` instead.',
+    '`visible` is removed, please use `visible && <Tag />` instead.',
   );
 
   const isNeedWave =
