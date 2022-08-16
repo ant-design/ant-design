@@ -18,7 +18,6 @@ import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import enUS from '../locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
-import warning from '../../_util/warning';
 
 import useStyle from '../style';
 
@@ -30,11 +29,6 @@ export default function generateRangePicker<DateType>(
   const RangePicker = forwardRef<
     InternalRangePickerProps | CommonPickerMethods,
     RangePickerProps<DateType> & {
-      /**
-       * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-       *   version.Please use `popupClassName` instead.
-       */
-      dropdownClassName: string;
       popupClassName?: string;
     }
   >((props, ref) => {
@@ -48,7 +42,6 @@ export default function generateRangePicker<DateType>(
       bordered = true,
       placeholder,
       popupClassName,
-      dropdownClassName,
       status: customStatus,
       ...restProps
     } = props;
@@ -67,12 +60,6 @@ export default function generateRangePicker<DateType>(
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
       ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
     };
-
-    warning(
-      !dropdownClassName,
-      'RangePicker',
-      '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
@@ -143,7 +130,7 @@ export default function generateRangePicker<DateType>(
               generateConfig={generateConfig}
               components={Components}
               direction={direction}
-              dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+              dropdownClassName={classNames(hashId, popupClassName)}
             />
           );
         }}
