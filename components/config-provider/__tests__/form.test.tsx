@@ -52,7 +52,7 @@ describe('ConfigProvider.Form', () => {
       return [container, formRef] as const;
     };
 
-    it('set locale zhCN', async () => {
+    it('should show validate message correctly when set locale zhCN', async () => {
       const { formRef } = setup({});
 
       await act(async () => {
@@ -76,8 +76,8 @@ describe('ConfigProvider.Form', () => {
       expect(screen.getByText('请输入姓名')).toBeInTheDocument();
     });
 
-    it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
-      const [container, formRef] = renderComponent({ validateMessages: { required: '必须' } });
+    it('should set locale zhCN and set correspond validate messages when use use validateMessages, others use default message', async () => {
+      const { formRef } = setup({ validateMessages: { required: '必须' } });
 
       await act(async () => {
         try {
@@ -87,19 +87,20 @@ describe('ConfigProvider.Form', () => {
         }
       });
 
-      await act(async () => {
+      act(() => {
         jest.runAllTimers();
-        await Promise.resolve();
       });
+
+      await Promise.resolve();
 
       act(() => {
         jest.runAllTimers();
       });
 
-      const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));
-
-      expect(explains[0]).toHaveTextContent('必须');
-      expect(explains[explains.length - 1]).toHaveTextContent('年龄必须等于17');
+      // first field is required, it should be set as validateMessage's message
+      expect(screen.getAllByRole('alert')[0]).toHaveTextContent('必须');
+      // second field is not set in validateMessage so it should be default message
+      expect(screen.getAllByRole('alert')[1]).toHaveTextContent('年龄必须等于17');
     });
   });
 
