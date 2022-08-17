@@ -1,16 +1,41 @@
 import React from 'react';
 import Slider from '..';
+import type { SliderSingleProps } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { sleep, render, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import SliderTooltip from '../SliderTooltip';
+import type { TooltipProps } from '../../tooltip';
+
+function tooltipProps(): TooltipProps {
+  return (global as any).tooltipProps;
+}
+
+jest.mock('../../tooltip', () => {
+  const ReactReal = jest.requireActual('React');
+  const Tooltip = jest.requireActual('../../tooltip');
+  const TooltipComponent = Tooltip.default;
+  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+    (global as any).tooltipProps = props;
+    return <TooltipComponent {...props} ref={ref} />;
+  });
+});
 
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
   focusTest(Slider, { testLib: true });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 
   it('should show tooltip when hovering slider handler', () => {
     const { container } = render(<Slider defaultValue={30} />);
@@ -23,38 +48,58 @@ describe('Slider', () => {
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
   });
 
-  it('should show correct placement tooltip when set tooltipPlacement', () => {
-    const { container } = render(
-      <Slider vertical defaultValue={30} tooltip={{ placement: 'left' }} />,
-    );
+  describe('should show correct placement tooltip when set tooltipPlacement', () => {
+    function test(name: string, props: Partial<SliderSingleProps>) {
+      it(name, () => {
+        const { container } = render(<Slider vertical defaultValue={30} {...props} />);
 
-    fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
-    expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        expect(tooltipProps().placement).toEqual('left');
+      });
+    }
 
-    fireEvent.mouseLeave(container.querySelector('.ant-slider-handle')!);
-    expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
+    test('new', { tooltip: { placement: 'left' } });
+    test('legacy', { tooltipPlacement: 'left' });
   });
 
-  it('when tooltip.open is true, tooltip should show always, or should never show', () => {
-    const { container: container1 } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
-    expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
+  describe('when tooltip.open is true, tooltip should show always, or should never show', () => {
+    function test(
+      name: string,
+      showProps: Partial<SliderSingleProps>,
+      hideProps: Partial<SliderSingleProps>,
+    ) {
+      it(name, () => {
+        const { container, rerender } = render(<Slider defaultValue={30} {...showProps} />);
+        expect(
+          container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+        ).toBeFalsy();
 
-    fireEvent.mouseEnter(container1.querySelector('.ant-slider-handle')!);
-    expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        expect(
+          container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+        ).toBeFalsy();
 
-    fireEvent.click(container1.querySelector('.ant-slider-handle')!);
-    expect(
-      container1.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
-    ).toBeFalsy();
+        fireEvent.click(container.querySelector('.ant-slider-handle')!);
+        expect(
+          container.querySelector('.ant-tooltip-content')!.className.includes('ant-tooltip-hidden'),
+        ).toBeFalsy();
 
-    const { container: container2 } = render(
-      <Slider defaultValue={30} tooltip={{ open: false }} />,
-    );
-    expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
+        // Force hide
+        rerender(<Slider defaultValue={30} {...hideProps} />);
+
+        act(() => {
+          jest.runAllTimers();
+        });
+        if (container.querySelector('.ant-zoom-down-leave-active')) {
+          fireEvent.animationEnd(container.querySelector('.ant-zoom-down-leave-active')!);
+        }
+
+        expect(container.querySelector('.ant-tooltip-hidden')!).toBeTruthy();
+      });
+    }
+
+    test('new', { tooltip: { open: true } }, { tooltip: { open: false } });
+    test('legacy', { tooltipVisible: true }, { tooltipVisible: false });
   });
 
   it('when step is null, thumb can only be slided to the specific mark', () => {
@@ -123,7 +168,9 @@ describe('Slider', () => {
       />,
     );
     ref.forcePopupAlign = jest.fn();
-    await sleep(20);
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(ref.forcePopupAlign).toHaveBeenCalled();
   });
 

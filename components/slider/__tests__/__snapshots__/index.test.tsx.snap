@@ -80,7 +80,7 @@ exports[`Slider should render in RTL direction 1`] = `
 </div>
 `;
 
-exports[`Slider should show correct placement tooltip when set tooltipPlacement 1`] = `
+exports[`Slider should show correct placement tooltip when set tooltipPlacement legacy 1`] = `
 <div
   class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
   style="opacity: 0;"
@@ -105,7 +105,57 @@ exports[`Slider should show correct placement tooltip when set tooltipPlacement 
 </div>
 `;
 
-exports[`Slider should show correct placement tooltip when set tooltipPlacement 2`] = `
+exports[`Slider should show correct placement tooltip when set tooltipPlacement legacy 2`] = `
+<div
+  class="ant-tooltip ant-slider-tooltip ant-zoom-down-leave ant-zoom-down-leave-start ant-zoom-down"
+  style="pointer-events: none;"
+>
+  <div
+    class="ant-tooltip-content"
+  >
+    <div
+      class="ant-tooltip-arrow"
+    >
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-inner"
+      role="tooltip"
+    >
+      30
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider should show correct placement tooltip when set tooltipPlacement new 1`] = `
+<div
+  class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+  style="opacity: 0;"
+>
+  <div
+    class="ant-tooltip-content"
+  >
+    <div
+      class="ant-tooltip-arrow"
+    >
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-inner"
+      role="tooltip"
+    >
+      30
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider should show correct placement tooltip when set tooltipPlacement new 2`] = `
 <div
   class="ant-tooltip ant-slider-tooltip ant-zoom-down-leave ant-zoom-down-leave-start ant-zoom-down"
   style="pointer-events: none;"
