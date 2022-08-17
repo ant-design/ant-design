@@ -116,6 +116,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -157,6 +158,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -198,6 +200,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -239,6 +242,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
