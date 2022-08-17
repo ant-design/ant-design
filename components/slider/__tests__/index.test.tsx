@@ -4,7 +4,7 @@ import type { SliderSingleProps } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent, act } from '../../../tests/utils';
+import { render, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import SliderTooltip from '../SliderTooltip';
 import type { TooltipProps } from '../../tooltip';
