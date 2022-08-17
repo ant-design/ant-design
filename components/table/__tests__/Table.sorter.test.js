@@ -1025,7 +1025,7 @@ describe('Table.sorter', () => {
         },
       },
     ];
-    const data = [
+    const tableData = [
       {
         key: '1',
         name: 'John Brown',
@@ -1058,7 +1058,9 @@ describe('Table.sorter', () => {
 
     const onChange = jest.fn();
 
-    const { container } = render(<Table columns={columns} dataSource={data} onChange={onChange} />);
+    const { container } = render(
+      <Table columns={columns} dataSource={tableData} onChange={onChange} />,
+    );
     const sorterColumns = Array.from(container.querySelectorAll('.ant-table-column-has-sorters'));
     expect(sorterColumns.length).toBe(3);
     fireEvent.click(sorterColumns[0]);
