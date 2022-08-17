@@ -1,20 +1,6 @@
 import { fireEvent } from '../../../tests/utils';
 import type { render } from '../../../tests/utils';
 
-export function selectDate(wrapper: any, date: any, index?: number) {
-  let calendar = wrapper;
-  if (index !== undefined) {
-    calendar = wrapper.find('.ant-calendar-range-part').at(index);
-  }
-  calendar.find({ title: date.format('LL'), role: 'gridcell' }).simulate('click');
-}
-
-export function hasSelected(wrapper: any, date: any) {
-  return wrapper
-    .find({ title: date.format('LL'), role: 'gridcell' })
-    .hasClass('ant-calendar-selected-day');
-}
-
 export function openPanel(wrapper: ReturnType<typeof render>) {
   fireEvent.click(wrapper.container.querySelector('.ant-calendar-picker-input')!);
 }
@@ -41,15 +27,16 @@ export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
 }
 
 export function selectCell(wrapper: ReturnType<typeof render>, text: string | number, index = 0) {
-  const matchCell = Array.from(
-    wrapper.container?.querySelectorAll('table')?.[index]?.querySelectorAll('td'),
-  ).find(
-    td => td.querySelector<HTMLDivElement>('.ant-picker-cell-inner')?.innerText === String(text),
-  );
+  let matchCell: HTMLTableCellElement | null = null;
+  const tds = wrapper.container?.querySelectorAll('table')?.[index]?.querySelectorAll('td');
+  tds.forEach(td => {
+    if (td.querySelector('div')?.innerHTML === String(text) && td.className.includes('-in-view')) {
+      matchCell = td;
+      fireEvent.click(td);
+    }
+  });
 
-  if (matchCell) {
-    fireEvent.click(matchCell);
-  } else {
+  if (!matchCell) {
     throw new Error('Cell not match in picker panel.');
   }
 

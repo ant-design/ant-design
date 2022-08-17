@@ -1,5 +1,5 @@
 import moment from 'moment';
-// import type { RangeValue } from 'rc-picker/lib/interface';
+import type { RangeValue } from 'rc-picker/lib/interface';
 import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -53,55 +53,58 @@ describe('RangePicker', () => {
 
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
-    // it('the cell status is correct', () => {
-    //   class Test extends React.Component {
-    //     state = {
-    //       value: null,
-    //     };
-    //     onPanelChange = <DateType extends any>(value: RangeValue<DateType>) => {
-    //       this.setState({ value });
-    //     };
-    //     render() {
-    //       return (
-    //         <RangePicker
-    //           value={this.state.value}
-    //           mode={['month', 'month']}
-    //           onPanelChange={this.onPanelChange}
-    //         />
-    //       );
-    //     }
-    //   }
-    //   const wrapper = render(<Test />);
-    //   openPicker(wrapper);
-    //   selectCell(wrapper, 'Feb');
-    //   openPicker(wrapper, 1);
-    //   selectCell(wrapper, 'Feb');
-    //   closePicker(wrapper, 1);
-    //   // const { value } = wrapper.find(Test).state();
-    //   // expect(value[0].isSame(value[1], 'date')).toBeTruthy();
-    // });
+    it('the cell status is correct', () => {
+      let rangePickerValue = [] as unknown as RangeValue<any>;
+      class Test extends React.Component {
+        state = { value: null };
+
+        render() {
+          return (
+            <RangePicker
+              value={this.state.value}
+              mode={['month', 'month']}
+              onPanelChange={value => {
+                this.setState({ value });
+                rangePickerValue = value;
+              }}
+            />
+          );
+        }
+      }
+      const wrapper = render(<Test />);
+
+      openPicker(wrapper);
+      selectCell(wrapper, 'Feb');
+      openPicker(wrapper, 1);
+      selectCell(wrapper, 'Feb');
+      closePicker(wrapper, 1);
+
+      const [start, end] = rangePickerValue as [moment.Moment, moment.Moment];
+
+      expect(start.isSame(end, 'date')).toBeTruthy();
+    });
   });
 
   describe('ranges', () => {
     it('RangePicker support presetted ranges with Tags', () => {
-      const wrapper = render(
+      const { container } = render(
         <RangePicker
+          open
           ranges={{
             Today: [moment(), moment()],
             'This Month': [moment().startOf('month'), moment().endOf('month')],
           }}
-          open
         />,
       );
-      expect(wrapper.container.firstChild).toMatchSnapshot();
+      expect(Array.from(container.children)).toMatchSnapshot();
     });
   });
 
   it('placeholder', () => {
     const { container } = render(<RangePicker placeholder={undefined} />);
-    const list = container.querySelectorAll('input');
-    expect(list[0]?.placeholder).toEqual('Start date');
-    expect(list[list.length - 1].placeholder).toEqual('End date');
+    const inputLists = container.querySelectorAll('input');
+    expect(inputLists[0]?.placeholder).toEqual('Start date');
+    expect(inputLists[inputLists.length - 1].placeholder).toEqual('End date');
   });
 
   it('RangePicker picker quarter placeholder', () => {

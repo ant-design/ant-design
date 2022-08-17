@@ -44,14 +44,14 @@ describe('Picker format by locale', () => {
 describe('MonthPicker and WeekPicker', () => {
   it('render MonthPicker', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
-    const wrapper = render(<MonthPicker open value={birthday} />);
-    expect(wrapper.baseElement).toMatchSnapshot();
+    const { container } = render(<MonthPicker open value={birthday} />);
+    expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
     const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
-    const wrapper = render(<WeekPicker open value={birthday} />);
-    expect(wrapper.baseElement).toMatchSnapshot();
+    const { container } = render(<WeekPicker open value={birthday} />);
+    expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });
 });
 
