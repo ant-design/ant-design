@@ -66,7 +66,10 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
           },
         }}
       >
-        <div ref={holderRef} style={{ paddingBottom: popupHeight, position: 'relative' }}>
+        <div
+          ref={holderRef}
+          style={{ paddingBottom: popupHeight, position: 'relative', width: 'fit-content' }}
+        >
           <Component
             {...props}
             style={{
