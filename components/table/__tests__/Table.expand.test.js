@@ -81,6 +81,13 @@ describe('Table.expand', () => {
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
     expect(container.querySelector('.indent-level-1').style.paddingLeft).toEqual('0px');
   });
+  
+  it('has right aria-expanded state', () => {
+    const { container } = render(<Table columns={columns} dataSource={data} />);
+    expect(container.querySelector('[aria-expanded=false]')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(container.querySelector('[aria-expanded=true]')).toBeTruthy();
+  });
 
   describe('expandIconColumnIndex', () => {
     it('basic', () => {
