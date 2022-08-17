@@ -21,7 +21,12 @@ const { RangePicker } = DatePicker;
 
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
-    <RangePicker picker="month" onPanelChange={v => console.log(v)} />
+    <RangePicker />
+    <RangePicker showTime />
+    <RangePicker picker="week" />
+    <RangePicker picker="month" />
+    <RangePicker picker="quarter" />
+    <RangePicker picker="year" />
   </Space>
 );
 
