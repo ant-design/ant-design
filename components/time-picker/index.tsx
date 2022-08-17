@@ -13,7 +13,9 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {}
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
+  popupClassName?: string;
+}
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
@@ -21,11 +23,12 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
+  popupClassName?: string;
   status?: InputStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
