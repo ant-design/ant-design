@@ -20,6 +20,7 @@ timeline: true
 `2022-08-17`
 
 - 🐞 Revert [#36710](https://github.com/ant-design/ant-design/pull/36710) to fix Table `onChange` argument `sorter` error in multiple columns sort.
+- 🐞 Fix Drawer can not close when config `opacity` on the `maskStyle`. [#37100](https://github.com/ant-design/ant-design/pull/37100)
 
 ## 4.22.5
 
