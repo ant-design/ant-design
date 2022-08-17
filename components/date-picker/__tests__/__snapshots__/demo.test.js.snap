@@ -3261,7 +3261,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
 
 exports[`renders ./components/date-picker/demo/render-panel.md correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative"
+  style="padding-bottom:0;position:relative;width:fit-content"
 >
   <div
     class="ant-picker"
