@@ -8,6 +8,7 @@ import zhCN from '../../locale/zh_CN';
 describe('ConfigProvider.Form', () => {
   beforeAll(() => {
     jest.useFakeTimers();
+    jest.spyOn(console, 'warn').mockImplementation(() => {});
   });
 
   afterAll(() => {
