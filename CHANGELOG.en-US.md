@@ -17,6 +17,12 @@ timeline: true
 
 ## 4.22.5
 
+`2022-08-17`
+
+- 🐞 Revert [#36710](https://github.com/ant-design/ant-design/pull/36710) to fix Table `onChange` argument `sorter` error in multiple columns sort.
+
+## 4.22.5
+
 `2022-08-15`
 
 - 🇭🇺 Form add defaultValidateMessages.i18n az_AZ language #23369. [#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)

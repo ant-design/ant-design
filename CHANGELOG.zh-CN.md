@@ -17,6 +17,12 @@ timeline: true
 
 ## 4.22.5
 
+`2022-08-17`
+
+- 🐞 回滚 [#36710](https://github.com/ant-design/ant-design/pull/36710) 以修复 Table 多列排序时 `onChange` 中 `sorter` 参数错误的问题。
+
+## 4.22.5
+
 `2022-08-15`
 
 - 🇭🇺 Form `defaultValidateMessages.i18n` 增加匈牙利语。[#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)
