@@ -13,6 +13,7 @@ describe('ConfigProvider.Form', () => {
 
   afterAll(() => {
     jest.useRealTimers();
+    jest.clearAllMocks();
   });
 
   describe('form validateMessages', () => {
