@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.22.6
+
+`2022-08-17`
+
+- 🐞 回滚 [#36710](https://github.com/ant-design/ant-design/pull/36710) 以修复 Table 多列排序时 `onChange` 中 `sorter` 参数错误的问题。
+- 🐞 修复 Drawer 的 `maskStyle` 配置 `opacity` 样式时无法关闭的问题。[#37100](https://github.com/ant-design/ant-design/pull/37100)
+
 ## 4.22.5
 
 `2022-08-15`
