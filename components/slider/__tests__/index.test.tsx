@@ -14,7 +14,7 @@ function tooltipProps(): TooltipProps {
 }
 
 jest.mock('../../tooltip', () => {
-  const ReactReal = jest.requireActual('React');
+  const ReactReal = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
   return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
