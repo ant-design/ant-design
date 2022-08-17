@@ -16,7 +16,6 @@ export interface TimePickerLocale {
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
 }
-
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
