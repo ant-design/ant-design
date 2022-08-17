@@ -1,7 +1,8 @@
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { screen, render } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
 
@@ -35,7 +36,7 @@ describe('Card', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('onTabChange should work', () => {
+  it('onTabChange should work', async () => {
     const tabList = [
       {
         key: 'tab1',
@@ -47,12 +48,12 @@ describe('Card', () => {
       },
     ];
     const onTabChange = jest.fn();
-    const { container } = render(
+    render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx
       </Card>,
     );
-    fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: /tab2/i }));
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
