@@ -8,9 +8,10 @@ const { spawnSync } = require('child_process');
 
 const DEPRECIATED_VERSION = {
   '>= 4.21.6 < 4.22.0': ['https://github.com/ant-design/ant-design/pull/36682'],
-  '>=4.22.2 <=4.22.3': [
+  '>=4.22.2 <=4.22.5': [
     'https://github.com/ant-design/ant-design/issues/36932',
     'https://github.com/ant-design/ant-design/pull/36800',
+    'https://github.com/ant-design/ant-design/issues/37024',
   ],
 };
 
