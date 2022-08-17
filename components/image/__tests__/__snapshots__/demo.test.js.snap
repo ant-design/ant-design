@@ -8,7 +8,6 @@ exports[`renders ./components/image/demo/basic.md correctly 1`] = `
   <img
     class="ant-image-img"
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    width="200"
   />
   <div
     class="ant-image-mask"
@@ -59,11 +58,9 @@ Array [
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
       style="display:none"
-      width="200"
     />
     <div
       class="ant-image-mask"
-      style="display:none"
     >
       <div
         class="ant-image-mask-info"
@@ -101,10 +98,8 @@ exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
 >
   <img
     class="ant-image-img"
-    height="200"
     src="error"
     style="height:200px"
-    width="200"
   />
   <div
     class="ant-image-mask"
@@ -152,7 +147,6 @@ exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
       <img
         class="ant-image-img"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?undefined"
-        width="200"
       />
       <div
         aria-hidden="true"
@@ -165,7 +159,6 @@ exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
           <img
             class="ant-image-img"
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-            width="200"
           />
         </div>
       </div>
@@ -223,7 +216,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-      width="200"
     />
     <div
       class="ant-image-mask"
@@ -261,7 +253,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-      width="200"
     />
     <div
       class="ant-image-mask"
@@ -304,7 +295,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-      width="150"
     />
     <div
       class="ant-image-mask"
@@ -342,7 +332,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-      width="150"
     />
     <div
       class="ant-image-mask"
@@ -380,7 +369,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-      width="150"
     />
     <div
       class="ant-image-mask"
@@ -423,7 +411,6 @@ Array [
     <img
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
-      width="200"
     />
     <div
       class="ant-image-mask"
@@ -577,7 +564,6 @@ exports[`renders ./components/image/demo/preview-mask.md correctly 1`] = `
   <img
     class="ant-image-img"
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    width="96"
   />
   <div
     class="ant-image-mask customize-mask"
@@ -627,7 +613,6 @@ exports[`renders ./components/image/demo/previewSrc.md correctly 1`] = `
   <img
     class="ant-image-img"
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-    width="200"
   />
   <div
     class="ant-image-mask"
