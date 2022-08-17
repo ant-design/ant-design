@@ -58,13 +58,14 @@ describe('Card', () => {
   });
 
   it('should not render when actions is number', () => {
-    const { container } = render(
+    const numberStub = 11;
+    render(
       // @ts-ignore ingnore for the wrong action value
-      <Card title="Card title" actions={11}>
+      <Card title="Card title" actions={numberStub}>
         <p>Card content</p>
       </Card>,
     );
-    expect(container.querySelectorAll('.ant-card-actions').length).toBe(0);
+    expect(screen.queryByText(numberStub)).not.toBeInTheDocument();
   });
 
   it('with tab props', () => {
