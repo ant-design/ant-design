@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import ConfigProvider from '..';
 import DatePicker from '../../date-picker';
-import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
+import { closePicker, openPicker, selectCell } from './utils';
 import LocaleProvider from '../../locale-provider';
 import enUS from '../../locale/en_US';
 import zhCN from '../../locale/zh_CN';
