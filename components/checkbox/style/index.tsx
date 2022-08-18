@@ -100,7 +100,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           direction: 'ltr',
           backgroundColor: token.colorBgContainer,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          borderRadius: token.controlRadius,
+          borderRadius: token.controlRadiusSM,
           borderCollapse: 'separate',
           transition: `all ${token.motionDurationSlow}`,
 
@@ -193,7 +193,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           width: '100%',
           height: '100%',
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
-          borderRadius: token.controlRadius,
+          borderRadius: token.controlRadiusSM,
           visibility: 'hidden',
           animationName: antCheckboxEffect,
           animationDuration: token.motionDurationSlow,

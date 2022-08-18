@@ -44,9 +44,10 @@ export default function genCommonMapToken(token: SeedToken): CommonMapToken {
     lineWidthBold: lineWidth + 1,
 
     // radius
-    radiusSM: radiusBase / 2,
-    radiusLG: radiusBase * 2,
-    radiusXL: radiusBase * 4,
+    radiusXS: radiusBase / 3,
+    radiusSM: (radiusBase * 2) / 3,
+    radiusLG: (radiusBase * 4) / 3,
+    radiusOuter: (radiusBase * 4) / 3,
 
     // control
     controlHeightSM: controlHeight * 0.75,

@@ -29,7 +29,6 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
 function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
-    borderRadius: token.controlRadius,
     boxShadow: token.boxShadowSegmentedSelectedItem,
   };
 }
@@ -54,7 +53,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       padding: token.segmentedContainerPadding,
       color: token.labelColor,
       backgroundColor: token.bgColor,
-      borderRadius: token.radiusBase,
+      borderRadius: token.controlRadius,
       transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
       [`${componentCls}-group`]: {
@@ -96,6 +95,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getSegmentedItemSelectedStyle(token),
+          borderRadius: token.controlRadiusSM,
           color: token.labelColorHover,
         },
 
@@ -127,17 +127,29 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // size styles
-      [`&&-lg ${componentCls}-item-label`]: {
-        minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
-        lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
-        padding: `0 ${token.segmentedPaddingHorizontal}px`,
-        fontSize: token.fontSizeLG,
+      '&&-lg': {
+        borderRadius: token.controlRadiusLG,
+        [`${componentCls}-item-label`]: {
+          minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
+          lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
+          padding: `0 ${token.segmentedPaddingHorizontal}px`,
+          fontSize: token.fontSizeLG,
+        },
+        [`${componentCls}-item-selected`]: {
+          borderRadius: token.controlRadius,
+        },
       },
 
-      [`&&-sm ${componentCls}-item-label`]: {
-        minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
-        lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
-        padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
+      '&&-sm': {
+        borderRadius: token.controlRadiusSM,
+        [`&&-sm ${componentCls}-item-label`]: {
+          minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
+          lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
+          padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
+        },
+        [`${componentCls}-item-selected`]: {
+          borderRadius: token.controlRadiusXS,
+        },
       },
 
       // disabled styles
