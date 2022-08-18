@@ -1,6 +1,6 @@
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import type { ConfigConsumerProps, CSPConfig } from '..';
+import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -15,15 +15,16 @@ describe('ConfigProvider', () => {
     </ConfigProvider>
   ));
 
-  it('Content Security Policy', () => {
-    const csp: CSPConfig = { nonce: 'test-antd' };
-    const { container } = render(
-      <ConfigProvider csp={csp}>
-        <Button />
-      </ConfigProvider>,
-    );
-    // expect(container.hasAttribute('csp')).toBeTruthy();
-  });
+  // eslint-disable-next-line jest/no-commented-out-tests
+  // it('Content Security Policy', () => {
+  //   const csp: CSPConfig = { nonce: 'test-antd' };
+  //   const { container } = render(
+  //     <ConfigProvider csp={csp}>
+  //       <Button />
+  //     </ConfigProvider>,
+  //   );
+  //   expect(container.hasAttribute('csp')).toBeTruthy();
+  // });
 
   it('autoInsertSpaceInButton', () => {
     const text = '确定';
