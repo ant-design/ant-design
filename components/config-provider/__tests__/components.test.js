@@ -456,15 +456,14 @@ describe('ConfigProvider', () => {
     // Slider
     testPair('Slider', props => {
       const myProps = { ...props };
+      const tooltip = {
+        open: true,
+      };
+
       if (myProps.prefixCls) {
-        return (
-          <Slider
-            tooltip={{ open: true, prefixCls: `${myProps.prefixCls}-tooltip` }}
-            {...myProps}
-          />
-        );
+        tooltip.prefixCls = `${myProps.prefixCls}-tooltip`;
       }
-      return <Slider tooltip={{ open: true }} {...myProps} />;
+      return <Slider tooltip={tooltip} {...myProps} />;
     });
 
     // Spin

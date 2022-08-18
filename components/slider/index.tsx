@@ -33,11 +33,6 @@ export interface SliderTooltipProps {
 
 export interface SliderBaseProps {
   prefixCls?: string;
-  /**
-   * @deprecated `tooltipPrefixCls` is deprecated which will be removed in next major version.
-   *   Please use `tooltip.prefixCls` instead.
-   */
-  tooltipPrefixCls?: string;
   reverse?: boolean;
   min?: number;
   max?: number;
@@ -47,30 +42,10 @@ export interface SliderBaseProps {
   included?: boolean;
   disabled?: boolean;
   vertical?: boolean;
-  /**
-   * @deprecated `tipFormatter` is deprecated which will be removed in next major version. Please
-   *   use `tooltip.formatter` instead.
-   */
-  tipFormatter?: null | ((value?: number) => React.ReactNode);
   className?: string;
   id?: string;
   style?: React.CSSProperties;
-  /**
-   * @deprecated `tooltipVisible` is deprecated which will be removed in next major version. Please
-   *   use `tooltip.open` instead.
-   */
-  tooltipVisible?: boolean;
-  /**
-   * @deprecated `tooltipPlacement` is deprecated which will be removed in next major version.
-   *   Please use `tooltip.placement` instead.
-   */
-  tooltipPlacement?: TooltipPlacement;
   tooltip?: SliderTooltipProps;
-  /**
-   * @deprecated `getTooltipPopupContainer` is deprecated which will be removed in next major
-   *   version. Please use `tooltip.getPopupContainer` instead.
-   */
-  getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   autoFocus?: boolean;
 }
 
@@ -158,7 +133,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         warning(
           !(deprecatedName in props),
           'Slider',
-          `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`tooltip.${newName}\` instead.`,
+          `\`${deprecatedName}\` is removed in v5, please use \`tooltip.${newName}\` instead.`,
         );
       });
     }
@@ -170,18 +145,11 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       const { tooltip = {}, vertical } = props;
 
       const tooltipProps: SliderTooltipProps = {
-        formatter:
-          props.tipFormatter ??
-          // eslint-disable-next-line func-names
-          function (value) {
-            return typeof value === 'number' ? value.toString() : '';
-          },
-        open: props.tooltipVisible,
-        placement: props.tooltipPlacement,
-        getPopupContainer: props.getTooltipPopupContainer,
+        formatter(value) {
+          return typeof value === 'number' ? value.toString() : '';
+        },
         ...tooltip,
       };
-
       const {
         open: tooltipOpen,
         placement: tooltipPlacement,
