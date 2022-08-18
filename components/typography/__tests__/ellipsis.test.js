@@ -14,6 +14,7 @@ describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy;
+  let getWidthTimes = 0;
 
   beforeAll(() => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
@@ -26,7 +27,10 @@ describe('Typography.Ellipsis', () => {
         },
       },
       offsetWidth: {
-        get: () => 100,
+        get: () => {
+          getWidthTimes += 1;
+          return 100;
+        },
       },
       getBoundingClientRect() {
         let html = this.innerHTML;
@@ -39,6 +43,7 @@ describe('Typography.Ellipsis', () => {
 
   afterEach(() => {
     errorSpy.mockReset();
+    getWidthTimes = 0;
   });
 
   afterAll(() => {
@@ -223,28 +228,66 @@ describe('Typography.Ellipsis', () => {
 
   it('should have custom expand style', async () => {
     const symbol = 'more';
-    const { container: wrapper } = render(
+    const { container } = render(
       <Base ellipsis={{ expandable: true, symbol }} component="p">
         {fullStr}
       </Base>,
     );
-    expect(wrapper.querySelector('.ant-typography-expand').textContent).toEqual('more');
+    expect(container.querySelector('.ant-typography-expand').textContent).toEqual('more');
   });
 
-  it('can use css ellipsis', () => {
-    const { container: wrapper } = render(<Base ellipsis component="p" />);
-    expect(wrapper.querySelectorAll('.ant-typography-ellipsis-single-line').length).toBeGreaterThan(
-      0,
-    );
-  });
+  describe('native css ellipsis', () => {
+    it('can use css ellipsis', () => {
+      const { container } = render(<Base ellipsis component="p" />);
+      expect(container.querySelector('.ant-typography-ellipsis-single-line')).toBeTruthy();
+    });
 
-  it('should calculate padding', () => {
-    const { container: wrapper } = render(
-      <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
-    );
-    expect(wrapper.querySelectorAll('.ant-typography-ellipsis-single-line').length).toBeGreaterThan(
-      0,
-    );
+    // https://github.com/ant-design/ant-design/issues/36786
+    it('Tooltip should recheck on parent visible change', () => {
+      const originIntersectionObserver = global.IntersectionObserver;
+
+      let elementChangeCallback;
+      const observeFn = jest.fn();
+      const disconnectFn = jest.fn();
+
+      global.IntersectionObserver = class MockIntersectionObserver {
+        constructor(callback) {
+          elementChangeCallback = callback;
+        }
+
+        observe = observeFn;
+
+        disconnect = disconnectFn;
+      };
+
+      const { container, unmount } = render(<Base ellipsis component="p" />);
+
+      expect(observeFn).toHaveBeenCalled();
+
+      // Hide first
+      elementChangeCallback();
+
+      // Trigger visible should trigger recheck
+      getWidthTimes = 0;
+      Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
+        get: () => document.body,
+      });
+      elementChangeCallback();
+
+      expect(getWidthTimes).toBeGreaterThan(0);
+
+      unmount();
+      expect(disconnectFn).toHaveBeenCalled();
+
+      global.IntersectionObserver = originIntersectionObserver;
+    });
+
+    it('should calculate padding', () => {
+      const { container } = render(
+        <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
+      );
+      expect(container.querySelector('.ant-typography-ellipsis-single-line')).toBeTruthy();
+    });
   });
 
   describe('should tooltip support', () => {
