@@ -3,14 +3,39 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { render, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import SliderTooltip from '../SliderTooltip';
+import type { TooltipProps } from '../../tooltip';
+import { resetWarned } from '../../_util/warning';
+
+function tooltipProps(): TooltipProps {
+  return (global as any).tooltipProps;
+}
+
+jest.mock('../../tooltip', () => {
+  const ReactReal = jest.requireActual('react');
+  const Tooltip = jest.requireActual('../../tooltip');
+  const TooltipComponent = Tooltip.default;
+  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+    (global as any).tooltipProps = props;
+    return <TooltipComponent {...props} ref={ref} />;
+  });
+});
 
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
   focusTest(Slider, { testLib: true });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 
   it('should show tooltip when hovering slider handler', () => {
     const { container } = render(<Slider defaultValue={30} />);
@@ -29,10 +54,7 @@ describe('Slider', () => {
     );
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
-    expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
-
-    fireEvent.mouseLeave(container.querySelector('.ant-slider-handle')!);
-    expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
+    expect(tooltipProps().placement).toEqual('left');
   });
 
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
@@ -123,7 +145,9 @@ describe('Slider', () => {
       />,
     );
     ref.forcePopupAlign = jest.fn();
-    await sleep(20);
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(ref.forcePopupAlign).toHaveBeenCalled();
   });
 
@@ -136,5 +160,35 @@ describe('Slider', () => {
     [undefined, null].forEach(value => {
       render(<Slider step={value} tooltip={{ open: true }} />);
     });
+  });
+  it('deprecated warning', () => {
+    resetWarned();
+
+    const TSSlider = Slider as any;
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Slider] `tooltipPrefixCls` is removed in v5, please use `tooltip.prefixCls` instead.',
+    );
+    rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is removed in v5, please use `tooltip.getPopupContainer` instead.',
+    );
+    rerender(<TSSlider tipFormatter={(v: any) => v} />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Slider] `tipFormatter` is removed in v5, please use `tooltip.formatter` instead.',
+    );
+    rerender(<TSSlider tooltipVisible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Slider] `tooltipVisible` is removed in v5, please use `tooltip.open` instead.',
+    );
+    rerender(<TSSlider tooltipPlacement="left" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Slider] `tooltipPlacement` is removed in v5, please use `tooltip.placement` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 });

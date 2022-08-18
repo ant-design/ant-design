@@ -4,6 +4,7 @@ import RcSlider from 'rc-slider';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { TooltipPlacement } from '../tooltip';
+import warning from '../_util/warning';
 import SliderTooltip from './SliderTooltip';
 
 import useStyle from './style';
@@ -119,6 +120,23 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 
       return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
     }, [range]);
+
+    // Warning for deprecated usage
+    if (process.env.NODE_ENV !== 'production') {
+      [
+        ['tooltipPrefixCls', 'prefixCls'],
+        ['getTooltipPopupContainer', 'getPopupContainer'],
+        ['tipFormatter', 'formatter'],
+        ['tooltipPlacement', 'placement'],
+        ['tooltipVisible', 'open'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning(
+          !(deprecatedName in props),
+          'Slider',
+          `\`${deprecatedName}\` is removed in v5, please use \`tooltip.${newName}\` instead.`,
+        );
+      });
+    }
 
     const handleRender: RcSliderProps['handleRender'] = (node, info) => {
       const { index, dragging } = info;

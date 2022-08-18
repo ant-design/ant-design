@@ -5,14 +5,12 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { mount } from 'enzyme';
 import React, { useState } from 'react';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
 import Layout from '../../layout';
-import Tooltip from '../../tooltip';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
@@ -137,7 +135,7 @@ describe('Menu', () => {
   });
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultSelectedKeys={['1-3-2']} mode="vertical">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="1-1">Option 1</Menu.Item>
@@ -150,11 +148,11 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('li.ant-menu-submenu-selected').length).toBe(1);
+    expect(container.querySelectorAll('li.ant-menu-submenu-selected').length).toBe(1);
   });
 
   it('forceSubMenuRender', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Menu mode="horizontal">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="1-1">
@@ -164,14 +162,22 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(wrapper.find('.bamboo').hostNodes()).toHaveLength(0);
+    expect(container.querySelector('.bamboo')).toBeFalsy();
 
-    wrapper.setProps({ forceSubMenuRender: true });
-    expect(wrapper.find('.bamboo').hostNodes()).toHaveLength(1);
+    rerender(
+      <Menu mode="horizontal" forceSubMenuRender>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="1-1">
+            <span className="bamboo" />
+          </Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(container.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('should accept defaultOpenKeys in mode horizontal', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultOpenKeys={['1']} mode="horizontal">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -180,11 +186,15 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.exists('.ant-menu-sub')).toBeFalsy();
+
+    expect(
+      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
+        .textContent,
+    ).toEqual('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode inline', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultOpenKeys={['1']} mode="inline">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -193,11 +203,15 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
+
+    expect(
+      container.querySelector('.ant-menu-submenu-open').querySelector('.ant-menu-submenu-title')
+        .textContent,
+    ).toEqual('submenu1');
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultOpenKeys={['1']} mode="vertical">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -206,11 +220,11 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('PopupTrigger').first().prop('visible')).toBeTruthy();
+    expect(container.querySelector('.ant-menu-sub')).toBeFalsy();
   });
 
   it('should accept openKeys in mode horizontal', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu openKeys={['1']} mode="horizontal">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -219,11 +233,14 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('PopupTrigger').first().prop('visible')).toBeTruthy();
+    triggerAllTimer();
+    expect(container.querySelector('div.ant-menu-submenu-popup')).not.toHaveClass(
+      'ant-menu-submenu-hidden',
+    );
   });
 
   it('should accept openKeys in mode inline', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu openKeys={['1']} mode="inline">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -232,11 +249,11 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('InlineSubMenuList').first().prop('open')).toBeTruthy();
+    expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
   });
 
   it('should accept openKeys in mode vertical', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu openKeys={['1']} mode="vertical">
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -245,7 +262,10 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('PopupTrigger').first().prop('visible')).toBeTruthy();
+    triggerAllTimer();
+    expect(container.querySelector('div.ant-menu-submenu-popup')).not.toHaveClass(
+      'ant-menu-submenu-hidden',
+    );
   });
 
   it('test submenu in mode horizontal', async () => {
@@ -359,8 +379,8 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const wrapper = mount(
-      <Menu defaultOpenKeys={['1']} mode="inline">
+    const Demo = props => (
+      <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
         </Menu.Item>
@@ -368,30 +388,34 @@ describe('Menu', () => {
           <Menu.Item key="submenu1">Option</Menu.Item>
           <Menu.Item key="submenu2">Option</Menu.Item>
         </SubMenu>
-      </Menu>,
+      </Menu>
     );
+    const { container, rerender } = render(<Demo />);
 
-    expect(wrapper.find('InlineSubMenuList').prop('open')).toBeTruthy();
-
+    expect(container.querySelector('li.ant-menu-submenu-inline')).toHaveClass(
+      'ant-menu-submenu-open',
+    );
     // inlineCollapsed
-    wrapper.setProps({ inlineCollapsed: true });
+    rerender(<Demo inlineCollapsed />);
+
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.find('ul.ant-menu-root').hasClass('ant-menu-vertical')).toBeTruthy();
-    expect(wrapper.find('PopupTrigger').prop('visible')).toBeFalsy();
+    expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-vertical');
+    expect(container.querySelector('.ant-menu-submenu-popup')).toBeFalsy();
 
     // !inlineCollapsed
-    wrapper.setProps({ inlineCollapsed: false });
+    rerender(<Demo inlineCollapsed={false} />);
+
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.find('ul.ant-menu-sub').last().hasClass('ant-menu-inline')).toBeTruthy();
-    expect(wrapper.find('InlineSubMenuList').prop('open')).toBeTruthy();
+    expect(container.querySelector('ul.ant-menu-sub')).toHaveClass('ant-menu-inline');
+    expect(container.querySelector('li.ant-menu-submenu-inline')).toHaveClass(
+      'ant-menu-submenu-open',
+    );
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
@@ -431,7 +455,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed Menu.Item Tooltip can be removed', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu
         defaultOpenKeys={['not-existed']}
         mode="inline"
@@ -456,12 +480,19 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find(Menu.Item).at(0).find(Tooltip).props().title).toBe('item');
-    expect(wrapper.find(Menu.Item).at(1).find(Tooltip).props().title).toBe('title');
-    expect(wrapper.find(Menu.Item).at(2).find(Tooltip).props().title).toBe('item');
-    expect(wrapper.find(Menu.Item).at(3).find(Tooltip).props().title).toBe(null);
-    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
-    expect(wrapper.find(Menu.Item).at(4).find(Tooltip).props().title).toBe('');
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[0]);
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[1]);
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[2]);
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[3]);
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[4]);
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[5]);
+
+    triggerAllTimer();
+    // when title is null or '' and false, tooltip will not render.
+    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(3);
+    expect(container.querySelectorAll('.ant-tooltip-inner')[0].textContent).toBe('item');
+    expect(container.querySelectorAll('.ant-tooltip-inner')[1].textContent).toBe('title');
+    expect(container.querySelectorAll('.ant-tooltip-inner')[2].textContent).toBe('item');
   });
 
   describe('open submenu when click submenu title', () => {
@@ -612,7 +643,7 @@ describe('Menu', () => {
   });
 
   it('inline title', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu mode="inline" inlineCollapsed>
         <Menu.Item key="1" title="bamboo lucky" icon={<PieChartOutlined />}>
           Option 1
@@ -624,13 +655,10 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-
-    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
     triggerAllTimer();
-    wrapper.update();
 
-    const text = wrapper.find('.ant-tooltip-inner').text();
-    expect(text).toBe('bamboo lucky');
+    expect(container.querySelector('.ant-tooltip-inner').textContent).toBe('bamboo lucky');
   });
 
   it('render correctly when using with Layout.Sider', () => {
@@ -659,34 +687,34 @@ describe('Menu', () => {
         );
       }
     }
-    const wrapper = mount(<Demo />);
-    expect(wrapper.find(Menu).at(0).getDOMNode().classList.contains('ant-menu-inline')).toBe(true);
-    wrapper.find('.ant-menu-submenu-title').simulate('click');
-    wrapper.find('.ant-layout-sider-trigger').simulate('click');
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-inline');
+
+    fireEvent.click(container.querySelector('.ant-menu-submenu-title'));
+    fireEvent.click(container.querySelector('.ant-layout-sider-trigger'));
     triggerAllTimer();
-    wrapper.update();
-    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline-collapsed')).toBe(
-      true,
-    );
-    wrapper.find(Menu).simulate('mouseenter');
-    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-inline')).toBe(false);
-    expect(wrapper.find(Menu).getDOMNode().classList.contains('ant-menu-vertical')).toBe(true);
+    expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-inline-collapsed');
+
+    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root'));
+    expect(container.querySelector('ul.ant-menu-root')).not.toHaveClass('ant-menu-inline');
+    expect(container.querySelector('ul.ant-menu-root')).toHaveClass('ant-menu-vertical');
   });
 
   it('onMouseEnter should work', () => {
     const onMouseEnter = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Menu onMouseEnter={onMouseEnter} defaultSelectedKeys={['test1']}>
         <Menu.Item key="test1">Navigation One</Menu.Item>
         <Menu.Item key="test2">Navigation Two</Menu.Item>
       </Menu>,
     );
-    wrapper.find('ul.ant-menu-root').simulate('mouseenter');
+    fireEvent.mouseEnter(container.querySelector('ul.ant-menu-root'));
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultSelectedKeys={['mail']} defaultOpenKeys={['mail']} mode="horizontal">
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
@@ -703,29 +731,27 @@ describe('Menu', () => {
       { attachTo: div },
     );
 
-    wrapper.find('li.ant-menu-item').first().simulate('mouseenter');
-
+    fireEvent.mouseEnter(container.querySelector('li.ant-menu-item'));
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.find('.ant-tooltip-inner').length).toBe(0);
+    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
   });
 
   it('MenuItem should render icon and icon should be the first child when icon exists', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu>
         <Menu.Item key="mail" icon={<MailOutlined />}>
           Navigation One
         </Menu.Item>
       </Menu>,
     );
-    expect(wrapper.find('.ant-menu-item .anticon').hasClass('anticon-mail')).toBe(true);
+    expect(container.querySelector('.ant-menu-item .anticon')).toHaveClass('anticon-mail');
   });
 
   it('should controlled collapse work', () => {
-    const wrapper = mount(
+    const { asFragment, rerender } = render(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           Option 1
@@ -733,30 +759,34 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
 
-    wrapper.setProps({ inlineCollapsed: true });
+    rerender(
+      <Menu mode="inline" inlineCollapsed>
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
+          Option 1
+        </Menu.Item>
+      </Menu>,
+    );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('not title if not collapsed', () => {
     jest.useFakeTimers();
-    const wrapper = mount(
+    const { container } = render(
       <Menu mode="inline" inlineCollapsed={false}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
       </Menu>,
     );
-
-    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+    expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
 
     jest.useRealTimers();
   });
@@ -799,45 +829,42 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const wrapper = mount(
+    const Demo = props => (
       <Menu
         mode="inline"
         inlineCollapsed={false}
         defaultSelectedKeys={['1']}
         collapsedWidth={0}
         openKeys={['3']}
+        {...props}
       >
         <Menu.Item key="1">Option 1</Menu.Item>
         <Menu.Item key="2">Option 2</Menu.Item>
         <Menu.SubMenu key="3" title="Option 3">
           <Menu.Item key="4">Option 4</Menu.Item>
         </Menu.SubMenu>
-      </Menu>,
+      </Menu>
     );
-    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
-    wrapper.find('li.ant-menu-item').at(1).simulate('click');
-    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
-    wrapper.setProps({ inlineCollapsed: true });
 
+    const { container, rerender } = render(<Demo />);
+    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 1');
+    fireEvent.click(container.querySelectorAll('li.ant-menu-item')[1]);
+    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 2');
+
+    rerender(<Demo inlineCollapsed />);
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
+    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('O');
 
-    expect(
-      wrapper
-        .find('PopupTrigger')
-        .map(node => node.prop('popupVisible'))
-        .findIndex(node => !!node),
-    ).toBe(-1);
+    rerender(<Demo inlineCollapsed={false} />);
 
-    wrapper.setProps({ inlineCollapsed: false });
-    expect(wrapper.find('li.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    expect(container.querySelector('li.ant-menu-item-selected').textContent).toBe('Option 2');
     jest.useRealTimers();
   });
 
   it('Menu.Item with icon children auto wrap span', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Menu>
         <Menu.Item key="1" icon={<MailOutlined />}>
           Navigation One
@@ -849,7 +876,7 @@ describe('Menu', () => {
         <Menu.SubMenu key="4" icon={<MailOutlined />} title={<span>Navigation One</span>} />
       </Menu>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/23755
@@ -876,25 +903,29 @@ describe('Menu', () => {
         </>
       );
     }
-    const wrapper = mount(<App />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('button'));
     expect(onOpenChange).toHaveBeenCalledWith([]);
   });
 
   it('Use first char as Icon when collapsed', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu mode="inline" inlineCollapsed>
         <Menu.SubMenu title="Light" />
         <Menu.Item>Bamboo</Menu.Item>
       </Menu>,
     );
 
-    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').first().text()).toEqual('L');
-    expect(wrapper.find('.ant-menu-inline-collapsed-noicon').last().text()).toEqual('B');
+    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[0].textContent).toEqual(
+      'L',
+    );
+    expect(container.querySelectorAll('.ant-menu-inline-collapsed-noicon')[1].textContent).toEqual(
+      'B',
+    );
   });
 
   it('divider should show', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu mode="vertical">
         <SubMenu key="sub1" title="Navigation One">
           <Menu.Item key="1">Option 1</Menu.Item>
@@ -910,8 +941,8 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(wrapper.find('li.ant-menu-item-divider').length).toBe(2);
-    expect(wrapper.find('li.ant-menu-item-divider-dashed').length).toBe(1);
+    expect(container.querySelectorAll('li.ant-menu-item-divider').length).toBe(2);
+    expect(container.querySelectorAll('li.ant-menu-item-divider-dashed').length).toBe(1);
   });
 
   it('should support ref', async () => {
@@ -927,7 +958,7 @@ describe('Menu', () => {
   });
 
   it('expandIcon', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Menu defaultOpenKeys={['1']} mode="inline" expandIcon={() => <span className="bamboo" />}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -935,11 +966,11 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    expect(wrapper.exists('.bamboo')).toBeTruthy();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
   });
 
   it('all types must be available in the "items" syntax', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Menu
         mode="inline"
         defaultOpenKeys={['submenu', 'group-submenu']}
@@ -977,12 +1008,12 @@ describe('Menu', () => {
       />,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    mount(<Menu items={undefined} />);
+    render(<Menu items={undefined} />);
     expect(errorSpy).not.toHaveBeenCalledWith(
       expect.stringContaining('`children` will be removed in next major version'),
     );

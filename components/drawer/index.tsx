@@ -141,6 +141,7 @@ function Drawer({
     motionAppear: true,
     motionEnter: true,
     motionLeave: true,
+    motionDeadline: 500,
   };
 
   const panelMotion: RcDrawerProps['motion'] = motionPlacement => ({
@@ -148,6 +149,7 @@ function Drawer({
     motionAppear: true,
     motionEnter: true,
     motionLeave: true,
+    motionDeadline: 500,
   });
 
   // =========================== Render ===========================
