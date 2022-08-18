@@ -61,17 +61,18 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name: string, renderComponent: (props: any) => React.ReactElement): void {
+      const isArray = ['Menu', 'TimePicker', 'Tooltip'].includes(name);
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
           const { container } = render(renderComponent({}));
-          expect(container.firstChild).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         // prefixCls
         it('prefixCls', () => {
           const { container } = render(renderComponent({ prefixCls: `prefix-${name}` }));
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         // configProvider
@@ -81,7 +82,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentSize large', () => {
@@ -90,7 +91,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentSize middle', () => {
@@ -99,7 +100,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentDisabled', () => {
@@ -108,7 +109,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider virtual and dropdownMatchSelectWidth', () => {
@@ -117,7 +118,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(container.children).toMatchSnapshot();
+          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
         });
       });
     }
