@@ -196,6 +196,45 @@ exports[`Breadcrumb should render a menu 1`] = `
 </nav>
 `;
 
+exports[`Breadcrumb should support Breadcrumb routes key prop 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/routePath1"
+        >
+          route 1
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          route 2
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
 exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -233,6 +272,41 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
       >
         Application Center
       </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
+
+exports[`Breadcrumb should support Breadcrumb.Item key prop 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <a
+        class="ant-breadcrumb-link"
+        href="itemPath1"
+      >
+        item 1
+      </a>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <a
+        class="ant-breadcrumb-link"
+        href="itemPath2"
+      >
+        item 2
+      </a>
       <span
         class="ant-breadcrumb-separator"
       >

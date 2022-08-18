@@ -156,4 +156,36 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/37134
+  it('should support Breadcrumb.Item key prop', () => {
+    const { asFragment } = render(
+      <Breadcrumb>
+        <Breadcrumb.Item key="itemKey1" href="itemPath1">item 1</Breadcrumb.Item>
+        <Breadcrumb.Item key="itemKey2" href="itemPath2">item 2</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/37134
+  it('should support Breadcrumb routes key prop', () => {
+    const routes = [
+      {
+        path: "routePath1",
+        breadcrumbName: "route 1",
+        key: "routeKey1",
+      },
+      {
+        path: "routePath2",
+        breadcrumbName: "route 2",
+        key: "routeKey2",
+      },
+    ]
+
+    const { asFragment } = render(
+      <Breadcrumb routes={routes} />,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
 });

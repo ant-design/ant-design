@@ -109,7 +109,11 @@ const Breadcrumb: BreadcrumbInterface = ({
       }
 
       return (
-        <BreadcrumbItem overlay={overlay} separator={separator} key={path || route.breadcrumbName}>
+        <BreadcrumbItem
+          overlay={overlay}
+          separator={separator}
+          key={route.key || path || route.breadcrumbName}
+        >
           {itemRender(route, params, routes, paths)}
         </BreadcrumbItem>
       );
