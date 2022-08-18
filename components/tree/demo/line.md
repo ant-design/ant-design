@@ -14,7 +14,7 @@ title:
 Tree with connected line between nodes, turn on by `showLine`, customize the preseted icon by `switcherIcon`.
 
 ```tsx
-import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
+import { CarryOutOutlined, CheckOutlined, FormOutlined } from '@ant-design/icons';
 import { Switch, Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import React, { useState } from 'react';
@@ -85,7 +85,11 @@ const treeData: DataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [showLine, setShowLine] = useState<boolean | { showLeafIcon: boolean }>(true);
+  const [showLine, setShowLine] = useState<
+    | boolean
+    | { showLeafIcon: boolean; leafIcon?: ReactNode | ((props: AntTreeNodeProps) => ReactNode) }
+  >({ showLeafIcon: true });
+  const [customLeafIcon, setCustomLeafIcon] = useState<boolean>(false);
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
 
@@ -95,11 +99,21 @@ const App: React.FC = () => {
 
   const onSetLeafIcon = (checked: boolean) => {
     setShowLeafIcon(checked);
-    setShowLine({ showLeafIcon: checked });
+    setShowLine(value =>
+      typeof value === 'boolean' ? { showLeafIcon: checked } : { ...value, showLeafIcon: checked },
+    );
   };
 
   const onSetShowLine = (checked: boolean) => {
-    setShowLine(checked ? { showLeafIcon } : false);
+    console.log(customLeafIcon);
+    setShowLine(checked ? { showLeafIcon, leafIcon: customLeafIcon && <CheckOutlined /> } : false);
+  };
+
+  const onSetCustomLeafIcon = (checked: boolean) => {
+    setCustomLeafIcon(checked);
+    setShowLine(value =>
+      typeof value === 'boolean' ? value : { ...value, leafIcon: checked && <CheckOutlined /> },
+    );
   };
 
   return (
@@ -112,6 +126,9 @@ const App: React.FC = () => {
         <br />
         <br />
         showLeafIcon: <Switch checked={showLeafIcon} onChange={onSetLeafIcon} />
+        <br />
+        <br />
+        customLeafIcon: <Switch checked={customLeafIcon} onChange={onSetCustomLeafIcon} />
       </div>
       <Tree
         showLine={showLine}
