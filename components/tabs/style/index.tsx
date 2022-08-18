@@ -498,12 +498,18 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
         [`&${componentCls}-right`]: {
           [`> ${componentCls}-nav ${componentCls}-tab`]: {
-            borderRadius: `0 ${token.radiusBase}px ${token.radiusBase}px 0`,
+            borderRadius: {
+              _skip_check_: true,
+              value: `0 ${token.radiusBase}px ${token.radiusBase}px 0`,
+            },
           },
         },
         [`&${componentCls}-left`]: {
           [`> ${componentCls}-nav ${componentCls}-tab`]: {
-            borderRadius: `${token.radiusBase}px 0 0 ${token.radiusBase}px`,
+            borderRadius: {
+              _skip_check_: true,
+              value: `${token.radiusBase}px 0 0 ${token.radiusBase}px`,
+            },
           },
         },
       },
