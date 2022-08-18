@@ -11,6 +11,7 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 export interface Route {
   path: string;
   breadcrumbName: string;
+  key: string;
   children?: Omit<Route, 'children'>[];
 }
 
@@ -100,7 +101,7 @@ const Breadcrumb: BreadcrumbInterface = ({
         overlay = (
           <Menu
             items={route.children.map(child => ({
-              key: child.path || child.breadcrumbName,
+              key: child.key || child.path || child.breadcrumbName,
               label: itemRender(child, params, routes, addChildPath(paths, child.path, params)),
             }))}
           />
