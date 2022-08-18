@@ -28,7 +28,7 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
