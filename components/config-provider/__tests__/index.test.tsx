@@ -17,12 +17,12 @@ describe('ConfigProvider', () => {
 
   it('Content Security Policy', () => {
     const csp: CSPConfig = { nonce: 'test-antd' };
-    render(
+    const { container } = render(
       <ConfigProvider csp={csp}>
         <Button />
       </ConfigProvider>,
     );
-    // expect(csp).toBe(csp);
+    // expect(container.hasAttribute('csp')).toBeTruthy();
   });
 
   it('autoInsertSpaceInButton', () => {
