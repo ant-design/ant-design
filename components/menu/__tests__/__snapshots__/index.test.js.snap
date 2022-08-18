@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu Menu.Item with icon children auto wrap span 1`] = `
-Array [
+<DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical"
     data-menu-list="true"
@@ -154,16 +154,16 @@ Array [
         />
       </div>
     </li>
-  </ul>,
+  </ul>
   <div
     aria-hidden="true"
     style="display: none;"
-  />,
-]
+  />
+</DocumentFragment>
 `;
 
 exports[`Menu all types must be available in the "items" syntax 1`] = `
-Array [
+<DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
@@ -315,12 +315,12 @@ Array [
         </li>
       </ul>
     </li>
-  </ul>,
+  </ul>
   <div
     aria-hidden="true"
     style="display: none;"
-  />,
-]
+  />
+</DocumentFragment>
 `;
 
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
@@ -381,7 +381,7 @@ Array [
 `;
 
 exports[`Menu should controlled collapse work 1`] = `
-Array [
+<DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
@@ -420,16 +420,16 @@ Array [
         Option 1
       </span>
     </li>
-  </ul>,
+  </ul>
   <div
     aria-hidden="true"
     style="display: none;"
-  />,
-]
+  />
+</DocumentFragment>
 `;
 
 exports[`Menu should controlled collapse work 2`] = `
-Array [
+<DocumentFragment>
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
     data-menu-list="true"
@@ -468,10 +468,10 @@ Array [
         Option 1
       </span>
     </li>
-  </ul>,
+  </ul>
   <div
     aria-hidden="true"
     style="display: none;"
-  />,
-]
+  />
+</DocumentFragment>
 `;
