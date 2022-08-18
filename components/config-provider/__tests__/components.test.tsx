@@ -1,4 +1,3 @@
-import { render } from 'enzyme';
 import moment from 'moment';
 import React from 'react';
 import ConfigProvider from '..';
@@ -44,6 +43,7 @@ import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import type { ColumnsType } from '../../table';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
@@ -54,72 +54,70 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
+import { render } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
-    function testPair(name, renderComponent) {
+    function testPair(name: string, renderComponent: (props: any) => React.ReactElement): void {
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
-          expect(render(renderComponent({}))).toMatchSnapshot();
+          const { container } = render(renderComponent({}));
+          expect(container.children).toMatchSnapshot();
         });
 
         // prefixCls
         it('prefixCls', () => {
-          expect(render(renderComponent({ prefixCls: `prefix-${name}` }))).toMatchSnapshot();
+          const { container } = render(renderComponent({ prefixCls: `prefix-${name}` }));
+          expect(container.children).toMatchSnapshot();
         });
 
         // configProvider
         it('configProvider', () => {
-          expect(
-            render(
-              <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
-                {renderComponent({})}
-              </ConfigProvider>,
-            ),
-          ).toMatchSnapshot();
+          const { container } = render(
+            <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(container.children).toMatchSnapshot();
         });
 
         it('configProvider componentSize large', () => {
-          expect(
-            render(
-              <ConfigProvider componentSize="large" prefixCls="config">
-                {renderComponent({})}
-              </ConfigProvider>,
-            ),
-          ).toMatchSnapshot();
+          const { container } = render(
+            <ConfigProvider componentSize="large" prefixCls="config">
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(container.children).toMatchSnapshot();
         });
 
         it('configProvider componentSize middle', () => {
-          expect(
-            render(
-              <ConfigProvider componentSize="middle" prefixCls="config">
-                {renderComponent({})}
-              </ConfigProvider>,
-            ),
-          ).toMatchSnapshot();
+          const { container } = render(
+            <ConfigProvider componentSize="middle" prefixCls="config">
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(container.children).toMatchSnapshot();
         });
 
         it('configProvider componentDisabled', () => {
-          expect(
-            render(
-              <ConfigProvider componentDisabled prefixCls="config">
-                {renderComponent({})}
-              </ConfigProvider>,
-            ),
-          ).toMatchSnapshot();
+          const { container } = render(
+            <ConfigProvider componentDisabled prefixCls="config">
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(container.children).toMatchSnapshot();
         });
 
         it('configProvider virtual and dropdownMatchSelectWidth', () => {
-          expect(
-            render(
-              <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
-                {renderComponent({})}
-              </ConfigProvider>,
-            ),
-          ).toMatchSnapshot();
+          const { container } = render(
+            <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
+              {renderComponent({})}
+            </ConfigProvider>,
+          );
+          expect(container.children).toMatchSnapshot();
         });
       });
     }
@@ -147,9 +145,7 @@ describe('ConfigProvider', () => {
 
     // Badge
     testPair('Badge', props => {
-      const newProps = {
-        ...props,
-      };
+      const newProps = { ...props };
 
       // Hook for additional `scrollNumberPrefixCls` prop
       if (props.prefixCls) {
@@ -161,7 +157,6 @@ describe('ConfigProvider', () => {
           <Badge {...newProps} count={5}>
             <span />
           </Badge>
-
           <Badge {...newProps} dot>
             <span />
           </Badge>
@@ -230,7 +225,7 @@ describe('ConfigProvider', () => {
     // Collapse
     testPair('Collapse', props => (
       <Collapse {...props}>
-        <Collapse.Panel header="Bamboo">
+        <Collapse.Panel key="Collapse" header="Bamboo">
           <p>Light</p>
         </Collapse.Panel>
       </Collapse>
@@ -308,8 +303,8 @@ describe('ConfigProvider', () => {
 
     // Grid
     testPair('Grid', props => {
-      const rowProps = {};
-      const colProps = {};
+      const rowProps: { prefixCls?: string } = {};
+      const colProps: { prefixCls?: string } = {};
       if (props.prefixCls) {
         rowProps.prefixCls = 'prefix-row';
         colProps.prefixCls = 'prefix-col';
@@ -339,10 +334,10 @@ describe('ConfigProvider', () => {
 
     // Layout
     testPair('Layout', props => {
-      const siderProps = {};
-      const headerProps = {};
-      const contentProps = {};
-      const footerProps = {};
+      const siderProps: { prefixCls?: string } = {};
+      const headerProps: { prefixCls?: string } = {};
+      const contentProps: { prefixCls?: string } = {};
+      const footerProps: { prefixCls?: string } = {};
       if (props.prefixCls) {
         siderProps.prefixCls = 'prefix-sider';
         headerProps.prefixCls = 'prefix-header';
@@ -499,24 +494,16 @@ describe('ConfigProvider', () => {
 
     // Table
     testPair('Table', props => {
-      const columns = [
+      const columns: ColumnsType<any> = [
         {
           title: 'Name',
           dataIndex: 'name',
           filters: [
-            {
-              text: 'Joe',
-              value: 'Joe',
-            },
+            { text: 'Joe', value: 'Joe' },
             {
               text: 'Submenu',
               value: 'Submenu',
-              children: [
-                {
-                  text: 'Green',
-                  value: 'Green',
-                },
-              ],
+              children: [{ text: 'Green', value: 'Green' }],
             },
           ],
           filterDropdownVisible: true,
@@ -576,7 +563,6 @@ describe('ConfigProvider', () => {
         <Tree {...props}>
           <Tree.TreeNode title="bamboo" />
         </Tree>
-
         <Tree.DirectoryTree {...props}>
           <Tree.TreeNode title="bamboo" />
         </Tree.DirectoryTree>
@@ -592,16 +578,7 @@ describe('ConfigProvider', () => {
 
     // Upload
     testPair('Upload', props => (
-      <Upload
-        {...props}
-        defaultFileList={[
-          {
-            uid: '1',
-            name: 'xxx.png',
-            status: 'done',
-          },
-        ]}
-      >
+      <Upload {...props} defaultFileList={[{ uid: '1', name: 'xxx.png', status: 'done' }]}>
         <span />
       </Upload>
     ));

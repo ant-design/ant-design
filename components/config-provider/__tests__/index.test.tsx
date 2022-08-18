@@ -1,6 +1,6 @@
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import type { ConfigConsumerProps } from '..';
+import type { ConfigConsumerProps, CSPConfig } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -16,34 +16,35 @@ describe('ConfigProvider', () => {
   ));
 
   it('Content Security Policy', () => {
-    const csp = { nonce: 'test-antd' };
-    const wrapper = render(
+    const csp: CSPConfig = { nonce: 'test-antd' };
+    render(
       <ConfigProvider csp={csp}>
         <Button />
       </ConfigProvider>,
     );
-
-    // expect(wrapper.find('InternalWave').instance().csp).toBe(csp);
+    // expect(csp).toBe(csp);
   });
 
   it('autoInsertSpaceInButton', () => {
-    const wrapper = render(
+    const text = '确定';
+    const { container } = render(
       <ConfigProvider autoInsertSpaceInButton={false}>
-        <Button>确定</Button>
+        <Button>{text}</Button>
       </ConfigProvider>,
     );
-
-    // expect(wrapper.find('Button').text()).toBe('确定');
+    expect(container.querySelector('span')?.innerHTML).toBe(text);
   });
 
   it('renderEmpty', () => {
-    const wrapper = render(
-      <ConfigProvider renderEmpty={() => <div>empty placeholder</div>}>
+    const text = 'empty placeholder';
+    const { container } = render(
+      <ConfigProvider renderEmpty={() => <div>{text}</div>}>
         <Table />
       </ConfigProvider>,
     );
-
-    // expect(wrapper.text()).toContain('empty placeholder');
+    expect(container.querySelector('.ant-table-placeholder')?.querySelector('div')?.innerHTML).toBe(
+      text,
+    );
   });
 
   it('nest prefixCls', () => {
