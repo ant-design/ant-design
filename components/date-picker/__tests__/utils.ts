@@ -19,6 +19,7 @@ export function selectCell(wrapper: ReturnType<typeof render>, text: string | nu
       fireEvent.click(td);
     }
   });
+  /* istanbul ignore next */
   if (!matchCell) {
     throw new Error('Cell not match in picker panel.');
   }
