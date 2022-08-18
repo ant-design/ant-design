@@ -139,6 +139,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
     filterDropdownOpen,
     onFilterDropdownOpenChange,
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
   } = column;
@@ -151,10 +153,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
     onFilterDropdownOpenChange?.(newVisible);
+    onFilterDropdownVisibleChange?.(newVisible);
   };
 
-  const mergedVisible = typeof filterDropdownOpen === 'boolean' ? filterDropdownOpen : visible;
-
+  let mergedVisible: boolean;
+  if (typeof filterDropdownOpen === 'boolean') {
+    mergedVisible = filterDropdownOpen;
+  } else {
+    mergedVisible = typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
+  }
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
