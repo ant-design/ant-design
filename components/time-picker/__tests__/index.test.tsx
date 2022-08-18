@@ -89,14 +89,14 @@ describe('TimePicker', () => {
   });
 
   it('RangePicker should show warning when use dropdownClassName', () => {
-    mount(<TimePicker.RangePicker dropdownClassName="myCustomClassName" />);
+    render(<TimePicker.RangePicker dropdownClassName="myCustomClassName" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
   });
 
   it('TimePicker should show warning when use dropdownClassName', () => {
-    mount(<TimePicker dropdownClassName="myCustomClassName" />);
+    render(<TimePicker dropdownClassName="myCustomClassName" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
