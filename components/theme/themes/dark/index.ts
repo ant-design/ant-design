@@ -1,11 +1,12 @@
 import { generate } from '@ant-design/colors';
+import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './palettes';
 
-export default function derivative(token: SeedToken): MapToken {
+const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
       const colors = generate(token[colorKey], { theme: 'dark' });
@@ -28,6 +29,11 @@ export default function derivative(token: SeedToken): MapToken {
 
   return {
     ...token,
+
+    // Other tokens
+    ...(mapToken ?? genCommonMapToken(token)),
+
+    // Dark tokens
     ...colorPalettes,
     colorBgBase,
     colorTextBase,
@@ -39,7 +45,7 @@ export default function derivative(token: SeedToken): MapToken {
         generateNeutralColorPalettes,
       },
     ),
-
-    ...genCommonMapToken(token),
   };
-}
+};
+
+export default derivative;

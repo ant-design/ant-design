@@ -2,8 +2,9 @@ import { mount } from 'enzyme';
 import React from 'react';
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { render, act } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 describe('Tag', () => {
   mountTest(Tag);
@@ -81,36 +82,16 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const wrapper = mount(<Tag visible />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+  it('deprecated warning', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    it('can be controlled by visible with hidden as initial value', () => {
-      const wrapper = mount(<Tag visible={false} />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+    render(<Tag visible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tag] `visible` is removed, please use `visible && <Tag />` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   describe('CheckableTag', () => {
