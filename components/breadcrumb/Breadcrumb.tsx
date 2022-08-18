@@ -11,7 +11,7 @@ import BreadcrumbSeparator from './BreadcrumbSeparator';
 export interface Route {
   path: string;
   breadcrumbName: string;
-  key: string;
+  key?: string;
   children?: Omit<Route, 'children'>[];
 }
 
