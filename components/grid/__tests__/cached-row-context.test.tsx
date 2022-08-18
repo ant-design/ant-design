@@ -1,7 +1,7 @@
-import { mount } from 'enzyme';
 import React, { memo, useContext, useRef, useState } from 'react';
 import Row from '../row';
 import RowContext from '../RowContext';
+import { render, fireEvent } from '../../../tests/utils';
 
 const CacheInner = memo(() => {
   const countRef = useRef(0);
@@ -33,16 +33,16 @@ const CacheOuter = () => {
 };
 
 it('Cached RowContext is working', () => {
-  const wrapper = mount(<CacheOuter />);
-  const childCount = wrapper.find('#child_count').text();
+  const { container } = render(<CacheOuter />);
+  const childCount = container.querySelector('#child_count')?.textContent;
 
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('2');
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(container.querySelector('#parent_count')?.textContent).toBe('2');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
+  expect(container.querySelector('#child_count')?.textContent).toBe(childCount);
 
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('3');
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(container.querySelector('#parent_count')?.textContent).toBe('3');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
+  expect(container.querySelector('#child_count')?.textContent).toBe(childCount);
 });
