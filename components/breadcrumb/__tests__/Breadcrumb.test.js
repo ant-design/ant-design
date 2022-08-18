@@ -156,4 +156,40 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/37134
+  it('Breadcrumb.Item should support key prop', () => {
+    const path = 'same-path';
+    render(
+      <Breadcrumb>
+        <Breadcrumb.Item key="itemKey1" href={path}>
+          item 1
+        </Breadcrumb.Item>
+        <Breadcrumb.Item key="itemKey2" href={path}>
+          item 2
+        </Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/37134
+  it('should support multiple items with same path with different keys using routes', () => {
+    const path = 'same-path';
+    const routes = [
+      {
+        path,
+        breadcrumbName: 'route 1',
+        key: 'routeKey1',
+      },
+      {
+        path,
+        breadcrumbName: 'route 2',
+        key: 'routeKey2',
+      },
+    ];
+
+    render(<Breadcrumb routes={routes} />);
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
 });

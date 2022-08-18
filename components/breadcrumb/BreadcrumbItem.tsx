@@ -12,6 +12,7 @@ export interface BreadcrumbItemProps {
   overlay?: DropdownProps['overlay'];
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
+  key?: string;
   className?: string;
   children?: React.ReactNode;
 }
