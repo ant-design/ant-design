@@ -65,7 +65,7 @@ describe('ConfigProvider', () => {
         // normal
         it('normal', () => {
           const { container } = render(renderComponent({}));
-          expect(container.children).toMatchSnapshot();
+          expect(container.firstChild).toMatchSnapshot();
         });
 
         // prefixCls
