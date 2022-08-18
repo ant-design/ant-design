@@ -49,6 +49,7 @@ exports[`Table.expand click to expand 1`] = `
                       style="padding-left: 0px;"
                     />
                     <button
+                      aria-expanded="true"
                       aria-label="Collapse row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                       type="button"
@@ -67,6 +68,7 @@ exports[`Table.expand click to expand 1`] = `
                       style="padding-left: 15px;"
                     />
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                       type="button"

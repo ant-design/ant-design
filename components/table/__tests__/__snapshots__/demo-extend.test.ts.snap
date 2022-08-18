@@ -3672,6 +3672,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -3775,6 +3776,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -3878,6 +3880,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -3981,6 +3984,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4084,6 +4088,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4187,6 +4192,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4290,6 +4296,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4393,6 +4400,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4496,6 +4504,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -4599,6 +4608,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -6817,6 +6827,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -6853,6 +6864,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -6889,6 +6901,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                       type="button"
@@ -6925,6 +6938,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -15952,6 +15966,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -16003,6 +16018,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -16054,6 +16070,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -16276,6 +16293,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -17054,6 +17072,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -17105,6 +17124,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -17317,6 +17337,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -18095,6 +18116,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -18146,6 +18168,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -18358,6 +18381,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -19136,6 +19160,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -19187,6 +19212,7 @@ Array [
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     >
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -19416,6 +19442,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -19464,6 +19491,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -19512,6 +19540,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -19560,6 +19589,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -26481,6 +26511,7 @@ Array [
                         style="padding-left:0px"
                       />
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                         type="button"
@@ -26529,6 +26560,7 @@ Array [
                         style="padding-left:0px"
                       />
                       <button
+                        aria-expanded="false"
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"
@@ -26788,6 +26820,7 @@ Array [
                         style="padding-left:0px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -26843,6 +26876,7 @@ Array [
                         style="padding-left:15px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"
@@ -26898,6 +26932,7 @@ Array [
                         style="padding-left:15px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -26953,6 +26988,7 @@ Array [
                         style="padding-left:30px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"
@@ -27008,6 +27044,7 @@ Array [
                         style="padding-left:15px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -27063,6 +27100,7 @@ Array [
                         style="padding-left:30px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
                         type="button"
@@ -27118,6 +27156,7 @@ Array [
                         style="padding-left:45px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"
@@ -27173,6 +27212,7 @@ Array [
                         style="padding-left:45px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"
@@ -27228,6 +27268,7 @@ Array [
                         style="padding-left:0px"
                       />
                       <button
+                        aria-expanded="true"
                         aria-label="Collapse row"
                         class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                         type="button"

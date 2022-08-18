@@ -186,7 +186,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
       );
   }, [location]);
 
-  const getNextDirectionText = useMemo<string>(
+  const nextDirectionText = useMemo<string>(
     () => (direction !== 'rtl' ? 'RTL' : 'LTR'),
     [direction],
   );
@@ -242,7 +242,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
             isMobile={isMobile}
             showTechUIButton={showTechUIButton}
             pathname={pathname}
-            directionText={getNextDirectionText}
+            directionText={nextDirectionText}
             onLangChange={onLangChange}
             onDirectionChange={onDirectionChange}
           />
@@ -275,7 +275,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
             className="header-button header-direction-button"
             key="direction-button"
           >
-            {getNextDirectionText}
+            {nextDirectionText}
           </Button>,
           <More key="more" {...sharedProps} />,
           <Github key="github" responsive={responsive} />,
