@@ -1,5 +1,6 @@
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { fireEvent, render, sleep, triggerResize, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 // eslint-disable-next-line no-unused-vars
@@ -265,14 +266,18 @@ describe('Typography.Ellipsis', () => {
       expect(observeFn).toHaveBeenCalled();
 
       // Hide first
-      elementChangeCallback();
+      act(() => {
+        elementChangeCallback();
+      });
 
       // Trigger visible should trigger recheck
       getWidthTimes = 0;
       Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
         get: () => document.body,
       });
-      elementChangeCallback();
+      act(() => {
+        elementChangeCallback();
+      });
 
       expect(getWidthTimes).toBeGreaterThan(0);
 
