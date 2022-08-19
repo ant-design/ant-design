@@ -108,7 +108,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     RcTreeProps<T>,
     'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
   > {
-  showLine?: boolean | { showLeafIcon: boolean; leafIcon?: LeafIcon };
+  showLine?: boolean | { showLeafIcon: boolean | LeafIcon };
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
