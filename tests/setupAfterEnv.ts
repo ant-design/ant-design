@@ -1,7 +1,14 @@
 import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
-import { defaultTokenContext } from '../components/theme';
+import { defaultConfig } from '../components/theme';
 
-defaultTokenContext.hashed = false;
+// Test env do not need compare hashed since this will change every version
+if (process.env.LIB_DIR === 'dist') {
+  /* eslint-disable-next-line global-require */
+  const antd = require('../dist/antd');
+  antd.theme.defaultConfig.hashed = false;
+} else {
+  defaultConfig.hashed = false;
+}
 
 expect.extend(toHaveNoViolations);
