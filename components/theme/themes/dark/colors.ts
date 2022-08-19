@@ -1,8 +1,8 @@
 import { generate } from '@ant-design/colors';
-import type { GenerateColorPalettes, GenerateNeutralColorPalettes } from '../IPalettes';
+import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 
-export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) => {
+export const generateColorPalettes: GenerateColorMap = (baseColor: string) => {
   const colors = generate(baseColor, { theme: 'dark' });
   return {
     1: colors[0],
@@ -18,7 +18,7 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
   };
 };
 
-export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
+export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
   bgBaseColor: string,
   textBaseColor: string,
 ) => {

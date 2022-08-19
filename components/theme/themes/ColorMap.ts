@@ -1,6 +1,6 @@
 import type { NeutralColorMapToken } from 'antd/es/theme/interface';
 
-export interface ColorPalettes {
+export interface ColorMap {
   1: string;
   2: string;
   3: string;
@@ -13,8 +13,8 @@ export interface ColorPalettes {
   10: string;
 }
 
-export type GenerateColorPalettes = (baseColor: string) => ColorPalettes;
-export type GenerateNeutralColorPalettes = (
+export type GenerateColorMap = (baseColor: string) => ColorMap;
+export type GenerateNeutralColorMap = (
   bgBaseColor: string,
   textBaseColor: string,
 ) => NeutralColorMapToken;
