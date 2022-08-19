@@ -96,8 +96,12 @@ export default function DynamicTheme({
                   value: 'dark',
                 },
                 {
-                  label: 'v4',
-                  value: 'v4',
+                  label: 'Default-V4',
+                  value: 'defaultV4',
+                },
+                {
+                  label: 'Dark-V4',
+                  value: 'darkV4',
                 },
               ]}
             />
