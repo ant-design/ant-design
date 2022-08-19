@@ -41,10 +41,10 @@ export type {
 };
 
 // ================================ Context =================================
-/** @private Internal Usage. Do not consume this */
-export const defaultConfig = {
+// Test env do not care about hashed
+const defaultConfig = {
   token: defaultSeedToken,
-  hashed: true,
+  hashed: process.env.NODE_ENV !== 'test',
 };
 
 export const DesignTokenContext = React.createContext<{
