@@ -41,15 +41,18 @@ export type {
 };
 
 // ================================ Context =================================
+/** @private Internal Usage. Do not consume this */
+export const defaultTokenContext = {
+  token: defaultSeedToken,
+  hashed: true,
+};
+
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
   theme?: Theme<SeedToken, MapToken>;
   override?: OverrideToken;
   hashed?: string | boolean;
-}>({
-  token: defaultSeedToken,
-  hashed: true,
-});
+}>(defaultTokenContext);
 
 // ================================== Hook ==================================
 // In dev env, we refresh salt per hour to avoid user use this

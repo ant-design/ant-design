@@ -8,6 +8,7 @@ import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { excludeWarning } from './excludeWarning';
 import { render, act } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
+import { ConfigProvider } from '../../components';
 
 type CheerIO = ReturnType<typeof enzymeRender>;
 type CheerIOElement = CheerIO[0];
