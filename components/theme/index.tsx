@@ -41,7 +41,7 @@ export type {
 };
 
 // ================================ Context =================================
-// Test env do not care about hashed
+// To ensure snapshot stable. We disable hashed in test env.
 const defaultConfig = {
   token: defaultSeedToken,
   hashed: process.env.NODE_ENV !== 'test',
