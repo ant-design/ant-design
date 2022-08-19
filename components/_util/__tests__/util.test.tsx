@@ -114,7 +114,7 @@ describe('Test utils function', () => {
       bamboo = true;
     }, 3);
 
-    // Do  nothing, but insert in the frame
+    // Do nothing, but insert in the frame
     // https://github.com/ant-design/ant-design/issues/16290
     delayRaf(() => {}, 3);
 
