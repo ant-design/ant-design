@@ -15,7 +15,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -24,7 +24,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
@@ -117,7 +117,7 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -126,7 +126,7 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
@@ -310,7 +310,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -319,7 +319,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 500px;"
     >
       <div
@@ -467,7 +467,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -476,7 +476,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 720px;"
     >
       <div
@@ -2512,7 +2512,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -2521,7 +2521,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 520px; transform: translateX(-180px);"
     >
       <div
@@ -2561,7 +2561,7 @@ HTMLCollection [
               tabindex="-1"
             >
               <div
-                class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+                class="ant-drawer-mask"
               />
               <div
                 aria-hidden="true"
@@ -2570,7 +2570,7 @@ HTMLCollection [
                 tabindex="0"
               />
               <div
-                class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+                class="ant-drawer-content-wrapper"
                 style="width: 320px;"
               >
                 <div
@@ -2644,7 +2644,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 333px; background: red; border-radius: 20px; box-shadow: -5px 0 5px green; overflow: hidden;"
     >
       <div
@@ -2828,7 +2828,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -2837,7 +2837,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
@@ -2909,7 +2909,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -2918,7 +2918,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
@@ -3083,7 +3083,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -3092,7 +3092,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
       <div
@@ -3315,7 +3315,7 @@ HTMLCollection [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
+      class="ant-drawer-mask"
     />
     <div
       aria-hidden="true"
@@ -3324,7 +3324,7 @@ HTMLCollection [
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right"
+      class="ant-drawer-content-wrapper"
       style="width: 640px;"
     >
       <div

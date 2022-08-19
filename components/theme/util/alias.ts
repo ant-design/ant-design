@@ -95,6 +95,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
+    controlRadiusXS: mergedToken.radiusXS,
+    controlRadiusSM: mergedToken.radiusSM,
+    controlRadiusLG: mergedToken.radiusLG,
 
     fontWeightStrong: 600,
 

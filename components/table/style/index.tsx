@@ -239,7 +239,7 @@ export default genComponentStyleHook('Table', token => {
     opacityLoading,
     colorBgContainer,
     colorFillSecondary,
-    radiusBase,
+    radiusLG,
     colorFillContent,
     controlInteractiveSize: checkboxSize,
   } = token;
@@ -253,7 +253,7 @@ export default genComponentStyleHook('Table', token => {
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
     tableBg: colorBgContainer,
-    tableRadius: radiusBase,
+    tableRadius: radiusLG,
 
     tablePaddingVertical: padding,
     tablePaddingHorizontal: padding,

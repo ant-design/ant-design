@@ -258,6 +258,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
     controlHeightSM,
     paddingXS,
     controlRadius,
+    controlRadiusSM,
+    controlRadiusLG,
     radioDotColor,
     radioButtonFocusShadow,
     radioButtonCheckedBg,
@@ -308,19 +310,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
         height: '100%',
       },
 
-      [`${componentCls}-group-large &`]: {
-        height: controlHeightLG,
-        fontSize: fontSizeLG,
-        lineHeight: `${controlHeightLG - controlLineWidth * 2}px`,
-      },
-
-      [`${componentCls}-group-small &`]: {
-        height: controlHeightSM,
-        paddingInline: paddingXS - controlLineWidth,
-        paddingBlock: 0,
-        lineHeight: `${controlHeightSM - controlLineWidth * 2}px`,
-      },
-
       '&:not(:first-child)': {
         '&::before': {
           position: 'absolute',
@@ -351,6 +340,39 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
 
       '&:first-child:last-child': {
         borderRadius: controlRadius,
+      },
+
+      [`${componentCls}-group-large &`]: {
+        height: controlHeightLG,
+        fontSize: fontSizeLG,
+        lineHeight: `${controlHeightLG - controlLineWidth * 2}px`,
+
+        '&:first-child': {
+          borderStartStartRadius: controlRadiusLG,
+          borderEndStartRadius: controlRadiusLG,
+        },
+
+        '&:last-child': {
+          borderStartEndRadius: controlRadiusLG,
+          borderEndEndRadius: controlRadiusLG,
+        },
+      },
+
+      [`${componentCls}-group-small &`]: {
+        height: controlHeightSM,
+        paddingInline: paddingXS - controlLineWidth,
+        paddingBlock: 0,
+        lineHeight: `${controlHeightSM - controlLineWidth * 2}px`,
+
+        '&:first-child': {
+          borderStartStartRadius: controlRadiusSM,
+          borderEndStartRadius: controlRadiusSM,
+        },
+
+        '&:last-child': {
+          borderStartEndRadius: controlRadiusSM,
+          borderEndEndRadius: controlRadiusSM,
+        },
       },
 
       '&:hover': {

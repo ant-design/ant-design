@@ -27,7 +27,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
     boxShadow,
     fontSizeLG,
     notificationMarginBottom,
-    radiusBase,
+    radiusLG,
     colorSuccess,
     colorInfo,
     colorWarning,
@@ -161,7 +161,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         lineHeight,
         wordWrap: 'break-word',
         background: notificationBg,
-        borderRadius: radiusBase,
+        borderRadius: radiusLG,
         boxShadow,
 
         [`${componentCls}-close-icon`]: {

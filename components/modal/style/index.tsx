@@ -161,7 +161,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           backgroundColor: token.modalContentBg,
           backgroundClip: 'padding-box',
           border: 0,
-          borderRadius: token.controlRadius,
+          borderRadius: token.radiusLG,
           boxShadow: token.boxShadow,
           pointerEvents: 'auto',
         },
@@ -205,7 +205,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           color: token.colorText,
           background: token.modalHeaderBg,
           borderBottom: `${token.modalHeaderBorderWidth}px ${token.modalHeaderBorderStyle} ${token.modalHeaderBorderColorSplit}`,
-          borderRadius: `${token.controlRadius}px ${token.controlRadius}px 0 0`,
+          borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
         },
 
         [`${componentCls}-body`]: {
@@ -220,7 +220,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           textAlign: 'end',
           background: token.modalFooterBg,
           borderTop: `${token.modalFooterBorderWidth}px ${token.modalFooterBorderStyle} ${token.modalFooterBorderColorSplit}`,
-          borderRadius: `0 0 ${token.controlRadius}px ${token.controlRadius}px`,
+          borderRadius: `0 0 ${token.radiusLG}px ${token.radiusLG}px`,
 
           [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
             marginBottom: 0,

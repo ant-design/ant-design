@@ -13,7 +13,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = token => {
         textAlign: 'center',
         background: token.colorFillAlter,
         border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
-        borderRadius: token.radiusBase,
+        borderRadius: token.controlRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 

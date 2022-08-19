@@ -14,7 +14,6 @@ type AvatarToken = FullToken<'Avatar'> & {
   avatarFontSizeBase: number;
   avatarFontSizeLG: number;
   avatarFontSizeSM: number;
-  avatarBorderRadius: number;
   avatarGroupOverlapping: number;
   avatarGroupSpace: number;
   avatarGroupBorderColor: string;
@@ -34,17 +33,23 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
     avatarFontSizeBase,
     avatarFontSizeLG,
     avatarFontSizeSM,
-    avatarBorderRadius,
+    controlRadius,
+    controlRadiusLG,
+    controlRadiusSM,
     lineWidth,
     lineType,
   } = token;
 
   // Avatar size style
-  const avatarSizeStyle = (size: number, fontSize: number): CSSObject => ({
+  const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
     width: size,
     height: size,
     lineHeight: `${size - lineWidth * 2}px`,
     borderRadius: '50%',
+
+    [`&${componentCls}-square`]: {
+      borderRadius: radius,
+    },
 
     [`${componentCls}-string`]: {
       position: 'absolute',
@@ -84,18 +89,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase),
+      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase, controlRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG),
+        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG, controlRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM),
-      },
-
-      [`&-square`]: {
-        borderRadius: avatarBorderRadius,
+        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM, controlRadiusSM),
       },
 
       '> img': {
@@ -161,7 +162,6 @@ export default genComponentStyleHook('Avatar', token => {
     avatarFontSizeBase: Math.round((fontSizeLG + fontSizeXL) / 2),
     avatarFontSizeLG: fontSizeHeading3,
     avatarFontSizeSM: fontSize,
-    avatarBorderRadius: token.radiusBase,
     avatarGroupOverlapping: marginXS,
     avatarGroupSpace: marginXS,
     avatarGroupBorderColor: colorBorderBg,

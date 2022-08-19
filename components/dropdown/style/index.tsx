@@ -126,7 +126,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           width: sizePopupArrow,
           height: sizePopupArrow,
 
-          ...roundedArrow(sizePopupArrow, 5, colorBgElevated),
+          ...roundedArrow(sizePopupArrow, token.radiusXS, token.radiusOuter, colorBgElevated),
         },
 
         [`
@@ -261,7 +261,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           listStyleType: 'none',
           backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
-          borderRadius: token.controlRadius,
+          borderRadius: token.controlRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadow,
 

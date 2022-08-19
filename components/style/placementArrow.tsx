@@ -12,7 +12,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   colorBg: string,
   showArrowCls?: string,
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, marginXXS } = token;
+  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter } = token;
 
   const dropdownArrowOffset = (sizePopupArrow / Math.sqrt(2)) * 2;
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
@@ -28,7 +28,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           width: sizePopupArrow,
           height: sizePopupArrow,
 
-          ...roundedArrow(sizePopupArrow, 5, colorBg),
+          ...roundedArrow(sizePopupArrow, radiusXS, radiusOuter, colorBg),
 
           '&:before': {
             background: colorBg,
