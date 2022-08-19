@@ -30,7 +30,17 @@ export default function renderSwitcherIcon(
     }
 
     if (typeof showLeafIcon !== 'boolean' && !!showLeafIcon) {
-      return typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon;
+      const leafIcon =
+        typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon;
+      const leafCls = `${prefixCls}-switcher-line-custom-icon`;
+
+      if (isValidElement(leafIcon)) {
+        return cloneElement(leafIcon, {
+          className: classNames(leafIcon.props.className || '', leafCls),
+        });
+      }
+
+      return leafIcon;
     }
 
     return showLeafIcon ? (
