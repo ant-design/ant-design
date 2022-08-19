@@ -249,6 +249,20 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
     });
   };
 
+  getAlgorithm = () => {
+    switch (this.state.v5theme) {
+      case 'dark':
+        return antdTheme.darkAlgorithm;
+      case 'defaultV4':
+        return antdTheme.defaultAlgorithmV4;
+      case 'darkV4':
+        return antdTheme.darkAlgorithmV4;
+      case 'default':
+      default:
+        return antdTheme.defaultAlgorithm;
+    }
+  };
+
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
     const {
@@ -306,8 +320,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  algorithm:
-                    v5theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+                  algorithm: this.getAlgorithm(),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
@@ -324,7 +337,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                   }
                   onChangeTheme={newToken => {
                     console.log('Change Theme:', newToken);
-                    const { hashed, newTheme, ...restToken } = newToken as any;
+                    const { hashed, theme: newTheme, ...restToken } = newToken as any;
                     this.setState({
                       v5theme: newTheme,
                       designToken: restToken,

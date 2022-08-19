@@ -1,10 +1,10 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
-import type { GenerateColorPalettes, GenerateNeutralColorPalettes } from '../IPalettes';
+import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 
 interface PaletteGenerators {
-  generateColorPalettes: GenerateColorPalettes;
-  generateNeutralColorPalettes: GenerateNeutralColorPalettes;
+  generateColorPalettes: GenerateColorMap;
+  generateNeutralColorPalettes: GenerateNeutralColorMap;
 }
 
 export default function genColorMapToken(
