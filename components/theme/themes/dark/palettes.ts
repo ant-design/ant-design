@@ -21,23 +21,31 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
 export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   bgBaseColor: string,
   textBaseColor: string,
-) => ({
-  colorText: getAlphaColor(textBaseColor, 0.85),
-  colorTextSecondary: getAlphaColor(textBaseColor, 0.65),
-  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
-  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
+) => {
+  const colorBgBase = bgBaseColor || '#000';
+  const colorTextBase = textBaseColor || '#fff';
 
-  colorFill: getAlphaColor(textBaseColor, 0.18),
-  colorFillSecondary: getAlphaColor(textBaseColor, 0.12),
-  colorFillTertiary: getAlphaColor(textBaseColor, 0.08),
-  colorFillQuaternary: getAlphaColor(textBaseColor, 0.04),
+  return {
+    colorBgBase,
+    colorTextBase,
 
-  colorBgElevated: getSolidColor(bgBaseColor, 12),
-  colorBgContainer: getSolidColor(bgBaseColor, 8),
-  colorBgLayout: getSolidColor(bgBaseColor, 0),
-  colorBgSpotlight: getSolidColor(bgBaseColor, 26),
+    colorText: getAlphaColor(colorTextBase, 0.85),
+    colorTextSecondary: getAlphaColor(colorTextBase, 0.65),
+    colorTextTertiary: getAlphaColor(colorTextBase, 0.45),
+    colorTextQuaternary: getAlphaColor(colorTextBase, 0.25),
 
-  colorBorder: getSolidColor(bgBaseColor, 26),
-  colorBorderSecondary: getSolidColor(bgBaseColor, 19),
-  colorSplit: getAlphaColor(textBaseColor, 0.12),
-});
+    colorFill: getAlphaColor(colorTextBase, 0.18),
+    colorFillSecondary: getAlphaColor(colorTextBase, 0.12),
+    colorFillTertiary: getAlphaColor(colorTextBase, 0.08),
+    colorFillQuaternary: getAlphaColor(colorTextBase, 0.04),
+
+    colorBgElevated: getSolidColor(colorBgBase, 12),
+    colorBgContainer: getSolidColor(colorBgBase, 8),
+    colorBgLayout: getSolidColor(colorBgBase, 0),
+    colorBgSpotlight: getSolidColor(colorBgBase, 26),
+
+    colorBorder: getSolidColor(colorBgBase, 26),
+    colorBorderSecondary: getSolidColor(colorBgBase, 19),
+    colorSplit: getAlphaColor(colorTextBase, 0.12),
+  };
+};

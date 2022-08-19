@@ -24,9 +24,6 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
       return prev;
     }, {} as ColorPalettes);
 
-  const colorBgBase = token.colorBgBase || '#000';
-  const colorTextBase = token.colorTextBase || '#fff';
-
   return {
     ...token,
 
@@ -35,16 +32,11 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
 
     // Dark tokens
     ...colorPalettes,
-    colorBgBase,
-    colorTextBase,
     // Colors
-    ...genColorMapToken(
-      { ...token, colorBgBase, colorTextBase },
-      {
-        generateColorPalettes,
-        generateNeutralColorPalettes,
-      },
-    ),
+    ...genColorMapToken(token, {
+      generateColorPalettes,
+      generateNeutralColorPalettes,
+    }),
   };
 };
 

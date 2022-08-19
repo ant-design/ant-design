@@ -206,6 +206,10 @@ export interface SeedToken extends PresetColorType {
 }
 
 export interface NeutralColorMapToken {
+  // Base
+  colorTextBase: string;
+  colorBgBase: string;
+
   // Text
   colorText: string;
   colorTextSecondary: string;

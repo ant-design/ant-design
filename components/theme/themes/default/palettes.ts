@@ -21,23 +21,31 @@ export const generateColorPalettes: GenerateColorPalettes = (baseColor: string) 
 export const generateNeutralColorPalettes: GenerateNeutralColorPalettes = (
   bgBaseColor: string,
   textBaseColor: string,
-) => ({
-  colorText: getAlphaColor(textBaseColor, 0.85),
-  colorTextSecondary: getAlphaColor(textBaseColor, 0.65),
-  colorTextTertiary: getAlphaColor(textBaseColor, 0.45),
-  colorTextQuaternary: getAlphaColor(textBaseColor, 0.25),
+) => {
+  const colorBgBase = bgBaseColor || '#fff';
+  const colorTextBase = textBaseColor || '#000';
 
-  colorFill: getAlphaColor(textBaseColor, 0.06),
-  colorFillSecondary: getAlphaColor(textBaseColor, 0.04),
-  colorFillTertiary: getAlphaColor(textBaseColor, 0.03),
-  colorFillQuaternary: getAlphaColor(textBaseColor, 0.02),
+  return {
+    colorBgBase,
+    colorTextBase,
 
-  colorBgLayout: getSolidColor(bgBaseColor, 4),
-  colorBgContainer: getSolidColor(bgBaseColor, 0),
-  colorBgElevated: getSolidColor(bgBaseColor, 0),
-  colorBgSpotlight: getAlphaColor(textBaseColor, 0.85),
+    colorText: getAlphaColor(colorTextBase, 0.85),
+    colorTextSecondary: getAlphaColor(colorTextBase, 0.65),
+    colorTextTertiary: getAlphaColor(colorTextBase, 0.45),
+    colorTextQuaternary: getAlphaColor(colorTextBase, 0.25),
 
-  colorBorder: getSolidColor(bgBaseColor, 15),
-  colorBorderSecondary: getSolidColor(bgBaseColor, 6),
-  colorSplit: getAlphaColor(textBaseColor, 0.06),
-});
+    colorFill: getAlphaColor(colorTextBase, 0.06),
+    colorFillSecondary: getAlphaColor(colorTextBase, 0.04),
+    colorFillTertiary: getAlphaColor(colorTextBase, 0.03),
+    colorFillQuaternary: getAlphaColor(colorTextBase, 0.02),
+
+    colorBgLayout: getSolidColor(colorBgBase, 4),
+    colorBgContainer: getSolidColor(colorBgBase, 0),
+    colorBgElevated: getSolidColor(colorBgBase, 0),
+    colorBgSpotlight: getAlphaColor(colorTextBase, 0.85),
+
+    colorBorder: getSolidColor(colorBgBase, 15),
+    colorBorderSecondary: getSolidColor(colorBgBase, 6),
+    colorSplit: getAlphaColor(colorTextBase, 0.06),
+  };
+};

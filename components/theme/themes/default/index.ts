@@ -23,22 +23,14 @@ export default function derivative(token: SeedToken): MapToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const colorBgBase = token.colorBgBase || '#fff';
-  const colorTextBase = token.colorTextBase || '#000';
-
   return {
     ...token,
     ...colorPalettes,
-    colorBgBase,
-    colorTextBase,
     // Colors
-    ...genColorMapToken(
-      { ...token, colorBgBase, colorTextBase },
-      {
-        generateColorPalettes,
-        generateNeutralColorPalettes,
-      },
-    ),
+    ...genColorMapToken(token, {
+      generateColorPalettes,
+      generateNeutralColorPalettes,
+    }),
 
     ...genCommonMapToken(token),
   };
