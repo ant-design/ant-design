@@ -2,6 +2,7 @@
 import { useToken as useInternalToken, defaultConfig } from '.';
 import defaultAlgorithm from './themes/default';
 import darkAlgorithm from './themes/dark';
+import { defaultAlgorithmV4, darkAlgorithmV4 } from './themes/v4';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
@@ -14,9 +15,12 @@ function useToken() {
 }
 
 export default {
+  /** @private Internal Test usage. Do not modify this */
+  defaultConfig,
+
   useToken,
   defaultAlgorithm,
   darkAlgorithm,
-  /** @private Internal Test usage. Do not modify this */
-  defaultConfig,
+  defaultAlgorithmV4,
+  darkAlgorithmV4,
 };
