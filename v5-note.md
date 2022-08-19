@@ -12,4 +12,6 @@
 - antd.css 替换为 reset.css
 - Tag
   - 移除 visible 属性
+- 组件 `dropdownClassName` 替换为 `popupClassName`
+  - AutoComplete 组件
 - open 属性转换：https://github.com/ant-design/ant-design/issues/36609
