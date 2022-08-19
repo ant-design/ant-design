@@ -11,8 +11,9 @@ import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
-import Group, { GroupSizeContext } from './button-group';
+import Group from './button-group';
 import LoadingIcon from './LoadingIcon';
+import { GroupSizeContext } from '../space/Group';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);

@@ -37,6 +37,8 @@ export { default as Breadcrumb } from './breadcrumb';
 export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
 export { default as Button } from './button';
 export type { ButtonProps } from './button';
+export { default as Group } from './space/Group';
+
 export { default as Calendar } from './calendar';
 export type { CalendarProps } from './calendar';
 export { default as Card } from './card';
