@@ -22,7 +22,7 @@ import React from 'react';
 
 const getGroup = (props?: ButtonGroupProps) => (
   <div>
-    <Group {...props}>
+    <Group {...props} type="btn">
       <Button type="primary">Button 1</Button>
       <Button type="primary">Button 2</Button>
       <Tooltip title="Tooltip">

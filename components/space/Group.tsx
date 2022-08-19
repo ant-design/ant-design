@@ -5,10 +5,12 @@ import type { SizeType } from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
 export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
+  type: 'btn' | 'input';
   size?: SizeType;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
+  compact?: boolean;
   children?: React.ReactNode;
 }
 
@@ -19,6 +21,7 @@ const Group: React.FC<GroupProps> = props => {
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('group', customizePrefixCls);
+  const groupPrefixClx = getPrefixCls(`${props.type}-group`, customizePrefixCls);
 
   const sizeCls = React.useMemo(() => {
     // large => lg
@@ -32,16 +35,18 @@ const Group: React.FC<GroupProps> = props => {
       case undefined:
         return '';
       default:
-        warning(!size, 'Button.Group', 'Invalid prop `size`.');
+        warning(!size, 'Group', 'Invalid prop `size`.');
         return '';
     }
   }, [size]);
 
   const classes = classNames(
     prefixCls,
+    groupPrefixClx,
     {
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${groupPrefixClx}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-compact`]: props.compact,
     },
     className,
   );

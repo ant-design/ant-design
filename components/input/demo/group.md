@@ -30,6 +30,7 @@ import {
   Row,
   Select,
   Tooltip,
+  Group,
 } from 'antd';
 import React from 'react';
 
@@ -72,17 +73,31 @@ const options = [
 
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
+    <Group size="large" type="input">
+      <Row gutter={8}>
+        <Col span={5}>
+          <Input defaultValue="0571" />
+        </Col>
+        <Col span={8}>
+          <Input defaultValue="grouptest" />
+        </Col>
+      </Row>
+    </Group>
     <Input.Group size="large">
       <Row gutter={8}>
         <Col span={5}>
           <Input defaultValue="0571" />
         </Col>
         <Col span={8}>
-          <Input defaultValue="26888888" />
+          <Input defaultValue="original" />
         </Col>
       </Row>
     </Input.Group>
     <br />
+    <Group type="input" compact>
+      <Input style={{ width: '20%' }} defaultValue="0571" />
+      <Input style={{ width: '30%' }} defaultValue="26888888" />
+    </Group>
     <Input.Group compact>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
