@@ -245,7 +245,7 @@ export default genComponentStyleHook('Collapse', token => {
     collapseContentPadding: token.padding,
     collapseHeaderBg: token.colorFillAlter,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    collapsePanelBorderRadius: token.radiusBase,
+    collapsePanelBorderRadius: token.radiusLG,
   });
 
   return [

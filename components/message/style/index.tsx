@@ -31,7 +31,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
     motionDurationSlow,
     marginXS,
     paddingXS,
-    radiusBase,
+    radiusLG,
     zIndexPopup,
     // Custom token
     messageNoticeContentPadding,
@@ -128,7 +128,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
           display: 'inline-block',
           padding: messageNoticeContentPadding,
           background: colorBgElevated,
-          borderRadius: radiusBase,
+          borderRadius: radiusLG,
           boxShadow,
           pointerEvents: 'all',
         },

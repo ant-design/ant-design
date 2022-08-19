@@ -110,8 +110,6 @@ const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token
 });
 
 const genSolidButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
-  borderRadius: token.controlRadius,
-
   ...genSolidDisabledButtonStyle(token),
 });
 
@@ -266,8 +264,6 @@ const genLinkButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
 
 // Type: Text
 const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
-  borderRadius: token.controlRadius,
-
   ...genHoverActiveButtonStyle(
     {
       backgroundColor: token.colorBgTextHover,
@@ -317,6 +313,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
         fontSize: token.fontSize,
         height: token.controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
+        borderRadius: token.controlRadius,
 
         [`&${iconOnlyCls}`]: {
           width: token.controlHeight,
@@ -357,18 +354,20 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = token => genSizeButtonStyle(token);
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
-  const largeToken = mergeToken<ButtonToken>(token, {
+  const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
+    controlRadius: token.controlRadiusSM,
   });
 
-  return genSizeButtonStyle(largeToken, `${token.componentCls}-sm`);
+  return genSizeButtonStyle(smallToken, `${token.componentCls}-sm`);
 };
 
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.fontSizeLG,
+    controlRadius: token.controlRadiusLG,
   });
 
   return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);

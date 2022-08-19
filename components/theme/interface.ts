@@ -321,9 +321,10 @@ export interface CommonMapToken {
   motionDurationSlow: string;
 
   // Radius
+  radiusXS: number;
   radiusSM: number;
   radiusLG: number;
-  radiusXL: number;
+  radiusOuter: number;
 
   // Control
   /** @private Only Used for control inside component like Multiple Select inner selection item */
@@ -407,6 +408,9 @@ export interface AliasToken extends MapToken {
   controlLineWidth: number;
   controlLineType: string;
   controlRadius: number;
+  controlRadiusXS: number;
+  controlRadiusSM: number;
+  controlRadiusLG: number;
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color

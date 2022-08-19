@@ -114,7 +114,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     width: listWidth,
     height: listHeight,
     border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-    borderRadius: token.radiusBase,
+    borderRadius: token.controlRadiusLG,
 
     '&-with-pagination': {
       width: listWidthLG,
@@ -139,7 +139,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       color: token.colorText,
       background: token.colorBgContainer,
       borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
-      borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
+      borderRadius: `${token.controlRadiusLG}px ${token.controlRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
         marginInlineEnd: marginXXS,

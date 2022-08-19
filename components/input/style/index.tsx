@@ -55,16 +55,18 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { inputPaddingVerticalLG, inputPaddingHorizontal, fontSizeLG } = token;
+  const { inputPaddingVerticalLG, inputPaddingHorizontal, fontSizeLG, controlRadiusLG } = token;
 
   return {
     padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontal}px`,
     fontSize: fontSizeLG,
+    borderRadius: controlRadiusLG,
   };
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
+  borderRadius: token.controlRadiusSM,
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
@@ -653,7 +655,8 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, colorError, colorSuccess } = token;
+  const { prefixCls, colorError, colorSuccess, componentCls, controlRadiusLG, controlRadiusSM } =
+    token;
 
   return {
     [`.${prefixCls}-group`]: {
@@ -673,6 +676,18 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&-rtl': {
           direction: 'rtl',
+        },
+
+        // Size
+        '&-lg': {
+          [`${componentCls}-group-addon`]: {
+            borderRadius: controlRadiusLG,
+          },
+        },
+        '&-sm': {
+          [`${componentCls}-group-addon`]: {
+            borderRadius: controlRadiusSM,
+          },
         },
 
         // Status

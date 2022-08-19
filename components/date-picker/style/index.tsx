@@ -80,7 +80,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       minWidth: token.pickerPanelCellHeight,
       height: token.pickerPanelCellHeight,
       lineHeight: `${token.pickerPanelCellHeight}px`,
-      borderRadius: token.radiusBase,
+      borderRadius: token.controlRadiusSM,
       transition: `background ${token.motionDurationSlow}, border ${token.motionDurationSlow}`,
     },
 
@@ -103,7 +103,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         insetInlineStart: 0,
         zIndex: 1,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
-        borderRadius: token.radiusBase,
+        borderRadius: token.controlRadiusSM,
         content: '""',
       },
     },
@@ -187,8 +187,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     // range start border-radius
     [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${pickerCellInnerCls}`]:
       {
-        borderStartStartRadius: token.radiusBase,
-        borderEndStartRadius: token.radiusBase,
+        borderStartStartRadius: token.controlRadiusSM,
+        borderEndStartRadius: token.controlRadiusSM,
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -198,8 +198,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
-        borderStartEndRadius: token.radiusBase,
-        borderEndEndRadius: token.radiusBase,
+        borderStartEndRadius: token.controlRadiusSM,
+        borderEndEndRadius: token.controlRadiusSM,
       },
 
     '&-range-hover:is(&-range-end)::after': {
@@ -265,7 +265,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         textAlign: 'center',
         background: token.colorBgContainer,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-        borderRadius: token.radiusBase,
+        borderRadius: token.controlRadiusLG,
         outline: 'none',
 
         '&-focused': {
@@ -563,8 +563,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         [`${componentCls}-cell-range-hover-start::after`]: {
           insetInlineStart: hoverCellFixedDistance,
           borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-          borderStartStartRadius: token.radiusBase,
-          borderBottomStartRadius: token.radiusBase,
+          borderStartStartRadius: token.controlRadiusSM,
+          borderBottomStartRadius: token.controlRadiusSM,
           borderStartEndRadius: 0,
           borderBottomEndRadius: 0,
 
@@ -573,8 +573,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
             borderStartStartRadius: 0,
             borderBottomStartRadius: 0,
-            borderStartEndRadius: token.radiusBase,
-            borderBottomEndRadius: token.radiusBase,
+            borderStartEndRadius: token.controlRadiusSM,
+            borderBottomEndRadius: token.controlRadiusSM,
           },
         },
         [`${componentCls}-cell-range-hover-end::after`]: {
@@ -582,14 +582,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
           borderStartStartRadius: 0,
           borderBottomStartRadius: 0,
-          borderStartEndRadius: token.radiusBase,
-          borderBottomEndRadius: token.radiusBase,
+          borderStartEndRadius: token.controlRadius,
+          borderBottomEndRadius: token.controlRadius,
 
           [`${componentCls}-panel-rtl &`]: {
             insetInlineStart: hoverCellFixedDistance,
             borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-            borderStartStartRadius: token.radiusBase,
-            borderBottomStartRadius: token.radiusBase,
+            borderStartStartRadius: token.controlRadius,
+            borderBottomStartRadius: token.controlRadius,
             borderStartEndRadius: 0,
             borderBottomEndRadius: 0,
           },
@@ -834,7 +834,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       alignItems: 'center',
       background: token.colorBgContainer,
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-      borderRadius: token.radiusBase,
+      borderRadius: token.controlRadius,
       transition: `border ${token.motionDurationSlow}, box-shadow ${token.motionDurationSlow}`,
 
       '&:hover, &-focused': {
@@ -1141,14 +1141,19 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
           boxShadow: token.boxShadowPopoverArrowBottom,
           transition: `left ${token.motionDurationSlow} ease-out`,
-          ...roundedArrow(token.sizePopupArrow, 5, token.colorBgElevated),
+          ...roundedArrow(
+            token.sizePopupArrow,
+            token.radiusXS,
+            token.radiusOuter,
+            token.colorBgElevated,
+          ),
         },
 
         [`${componentCls}-panel-container`]: {
           overflow: 'hidden',
           verticalAlign: 'top',
           background: token.colorBgElevated,
-          borderRadius: token.radiusBase,
+          borderRadius: token.controlRadiusLG,
           boxShadow: token.boxShadow,
           transition: `margin ${token.motionDurationSlow}`,
 
