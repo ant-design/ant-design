@@ -1,9 +1,9 @@
 import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
-import { theme } from '../components';
+import { defaultConfig } from '../components/theme/index';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
-theme.defaultConfig.hashed = false;
+defaultConfig.hashed = false;
 
 if (process.env.LIB_DIR === 'dist') {
   jest.mock('../dist/antd', () => {
