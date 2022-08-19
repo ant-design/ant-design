@@ -42,9 +42,9 @@ export type {
 
 // ================================ Context =================================
 // To ensure snapshot stable. We disable hashed in test env.
-const defaultConfig = {
+export const defaultConfig = {
   token: defaultSeedToken,
-  hashed: process.env.NODE_ENV !== 'test',
+  hashed: true,
 };
 
 export const DesignTokenContext = React.createContext<{
