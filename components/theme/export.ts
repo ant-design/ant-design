@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { useToken as useInternalToken } from '.';
+import { useToken as useInternalToken, defaultConfig } from '.';
 import defaultAlgorithm from './themes/default';
 import darkAlgorithm from './themes/dark';
 import { defaultAlgorithmV4, darkAlgorithmV4 } from './themes/v4';
@@ -15,6 +15,9 @@ function useToken() {
 }
 
 export default {
+  /** @private Test Usage. Do not use in production. */
+  defaultConfig,
+
   useToken,
   defaultAlgorithm,
   darkAlgorithm,
