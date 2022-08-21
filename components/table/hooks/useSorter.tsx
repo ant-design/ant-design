@@ -132,6 +132,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
+          role="presentation"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -139,6 +140,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
+          role="presentation"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
@@ -210,6 +212,8 @@ function injectSorter<RecordType>(
             } else {
               cell['aria-sort'] = 'descending';
             }
+          } else {
+            cell['aria-label'] = `${renderColumnTitle(column.title, {})} sortable`;
           }
 
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
