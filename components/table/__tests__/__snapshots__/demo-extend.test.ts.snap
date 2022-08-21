@@ -35,6 +35,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
+                    aria-label="Name sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -55,7 +56,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -74,7 +75,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -1515,6 +1516,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                     </div>
                   </th>
                   <th
+                    aria-label="Address sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -1541,7 +1543,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                               <span
                                 aria-label="caret-up"
                                 class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                role="img"
+                                role="presentation"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1560,7 +1562,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
+                                role="presentation"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -3265,6 +3267,7 @@ Array [
                       Name
                     </th>
                     <th
+                      aria-label="Age sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -3285,7 +3288,7 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3304,7 +3307,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3575,6 +3578,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-label="Action sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -3595,7 +3599,7 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -3614,7 +3618,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -7530,6 +7534,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                     </div>
                   </th>
                   <th
+                    aria-label="Age sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -7550,7 +7555,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -7569,7 +7574,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -8350,6 +8355,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                     </div>
                   </th>
                   <th
+                    aria-label="Age sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -8370,7 +8376,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -8389,7 +8395,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -12222,6 +12228,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                 </tr>
                 <tr>
                   <th
+                    aria-label="Age sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
                     tabindex="0"
@@ -12243,7 +12250,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -12262,7 +12269,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -13329,6 +13336,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
+                    aria-label="Name sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -13355,7 +13363,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <span
                                 aria-label="caret-down"
                                 class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                role="img"
+                                role="presentation"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -13833,7 +13841,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -13852,7 +13860,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down active"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14675,6 +14683,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     Name
                   </th>
                   <th
+                    aria-label="Chinese Score sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14695,7 +14704,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14714,7 +14723,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14759,6 +14768,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
+                    aria-label="Math Score sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14779,7 +14789,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14798,7 +14808,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14843,6 +14853,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
+                    aria-label="English Score sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14863,7 +14874,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -14882,7 +14893,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -20359,6 +20370,7 @@ Array [
                 >
                   <tr>
                     <th
+                      aria-label="Name sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -20385,7 +20397,7 @@ Array [
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
+                                  role="presentation"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20404,7 +20416,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
+                                  role="presentation"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20664,6 +20676,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-label="Age sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -20684,7 +20697,7 @@ Array [
                             <span
                               aria-label="caret-up"
                               class="anticon anticon-caret-up ant-table-column-sorter-up"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -20703,7 +20716,7 @@ Array [
                             <span
                               aria-label="caret-down"
                               class="anticon anticon-caret-down ant-table-column-sorter-down"
-                              role="img"
+                              role="presentation"
                             >
                               <svg
                                 aria-hidden="true"
@@ -20748,6 +20761,7 @@ Array [
                       </div>
                     </th>
                     <th
+                      aria-label="Address sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -20774,7 +20788,7 @@ Array [
                                 <span
                                   aria-label="caret-up"
                                   class="anticon anticon-caret-up ant-table-column-sorter-up"
-                                  role="img"
+                                  role="presentation"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -20793,7 +20807,7 @@ Array [
                                 <span
                                   aria-label="caret-down"
                                   class="anticon anticon-caret-down ant-table-column-sorter-down"
-                                  role="img"
+                                  role="presentation"
                                 >
                                   <svg
                                     aria-hidden="true"
@@ -21289,6 +21303,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                     />
                   </th>
                   <th
+                    aria-label="Amount sortable"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     tabindex="0"
                   >
@@ -21309,7 +21324,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                           <span
                             aria-label="caret-up"
                             class="anticon anticon-caret-up ant-table-column-sorter-up"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
@@ -21328,7 +21343,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                           <span
                             aria-label="caret-down"
                             class="anticon anticon-caret-down ant-table-column-sorter-down"
-                            role="img"
+                            role="presentation"
                           >
                             <svg
                               aria-hidden="true"
