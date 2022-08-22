@@ -524,7 +524,7 @@ describe('ConfigProvider', () => {
               ],
             },
           ],
-          filterDropdownVisible: true,
+          filterDropdownOpen: true,
           onFilter: (value, record) => record.name.indexOf(value) === 0,
           sorter: (a, b) => a.name.length - b.name.length,
         },
