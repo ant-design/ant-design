@@ -6,12 +6,12 @@ import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import type { AntTreeNodeProps, LeafIcon, SwitcherIcon } from '../Tree';
+import type { AntTreeNodeProps, TreeLeafIcon, SwitcherIcon } from '../Tree';
 
 export default function renderSwitcherIcon(
   prefixCls: string,
   switcherIcon: SwitcherIcon,
-  showLine: boolean | { showLeafIcon: boolean | LeafIcon } | undefined,
+  showLine: boolean | { showLeafIcon: boolean | TreeLeafIcon } | undefined,
   treeNodeProps: AntTreeNodeProps,
 ): React.ReactNode {
   const { isLeaf, expanded, loading } = treeNodeProps;
@@ -19,7 +19,7 @@ export default function renderSwitcherIcon(
   if (loading) {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
-  let showLeafIcon: boolean | LeafIcon;
+  let showLeafIcon: boolean | TreeLeafIcon;
   if (showLine && typeof showLine === 'object') {
     showLeafIcon = showLine.showLeafIcon;
   }
