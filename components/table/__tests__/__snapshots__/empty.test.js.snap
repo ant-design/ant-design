@@ -349,7 +349,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -358,7 +357,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -367,7 +365,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -376,7 +373,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -385,7 +381,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -394,7 +389,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -403,7 +397,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -412,7 +405,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -421,7 +413,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -430,7 +421,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -439,7 +429,6 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
