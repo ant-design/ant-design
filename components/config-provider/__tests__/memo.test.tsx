@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ConfigProvider from '..';
 import Tooltip from '../../tooltip';
-import { render, fireEvent } from '../../../tests/utils';
+import { pureRender, fireEvent } from '../../../tests/utils';
 
 type SpyFn = () => void;
 
@@ -42,7 +42,7 @@ describe('ConfigProvider', () => {
       );
     };
 
-    const { container } = render(<App />);
+    const { container } = pureRender(<App />);
 
     fireEvent.click(container.querySelector('.render')!);
     expect(spy.mock.calls.length).toEqual(1);
@@ -77,7 +77,7 @@ describe('ConfigProvider', () => {
       );
     };
 
-    const { container } = render(<App />);
+    const { container } = pureRender(<App />);
 
     fireEvent.click(container.querySelector('.render')!);
     expect(spy.mock.calls.length).toEqual(1);

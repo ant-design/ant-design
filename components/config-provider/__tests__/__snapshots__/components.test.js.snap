@@ -26378,10 +26378,8 @@ exports[`ConfigProvider components Statistic configProvider 1`] = `
       <span
         class="config-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26400,10 +26398,8 @@ exports[`ConfigProvider components Statistic configProvider componentDisabled 1`
       <span
         class="config-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26422,10 +26418,8 @@ exports[`ConfigProvider components Statistic configProvider componentSize large 
       <span
         class="config-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26444,10 +26438,8 @@ exports[`ConfigProvider components Statistic configProvider componentSize middle
       <span
         class="config-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26466,10 +26458,8 @@ exports[`ConfigProvider components Statistic configProvider virtual and dropdown
       <span
         class="ant-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26488,10 +26478,8 @@ exports[`ConfigProvider components Statistic normal 1`] = `
       <span
         class="ant-statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
@@ -26510,10 +26498,8 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
       <span
         class="prefix-Statistic-content-value-int"
       >
-        
         0
       </span>
-      
     </span>
   </div>
 </div>
