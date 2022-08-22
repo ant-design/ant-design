@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 import Table from '../../table';
@@ -15,16 +15,25 @@ describe('ConfigProvider', () => {
     </ConfigProvider>
   ));
 
-  // eslint-disable-next-line jest/no-commented-out-tests
-  // it('Content Security Policy', () => {
-  //   const csp: CSPConfig = { nonce: 'test-antd' };
-  //   const { container } = render(
-  //     <ConfigProvider csp={csp}>
-  //       <Button />
-  //     </ConfigProvider>,
-  //   );
-  //   expect(container.hasAttribute('csp')).toBeTruthy();
-  // });
+  it('Content Security Policy', () => {
+    jest.useFakeTimers();
+
+    const csp = { nonce: 'test-antd' };
+    const { container } = render(
+      <ConfigProvider csp={csp}>
+        <Button />
+      </ConfigProvider>,
+    );
+
+    fireEvent.click(container.querySelector('button')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    const styles = Array.from(document.body.querySelectorAll<HTMLStyleElement>('style'));
+    expect(styles[styles.length - 1].nonce).toEqual(csp.nonce);
+
+    jest.useRealTimers();
+  });
 
   it('autoInsertSpaceInButton', () => {
     const text = '确定';
