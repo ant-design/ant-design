@@ -121,7 +121,7 @@ const columns = [
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
@@ -152,10 +152,8 @@ const columns = [
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-
-<<<<<<< HEAD | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - | | ======= | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(open) {} | - | 4.23.0 |
-
-> > > > > > > origin/next | onHeaderCell | 设置头部单元格属性 | function(column) | - | |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
+| onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup
 
