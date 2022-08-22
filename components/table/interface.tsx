@@ -114,18 +114,8 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
-  /**
-   * @deprecated `filterDropdownVisible` is deprecated which will be removed in next major version.
-   *   Please use `filterDropdownOpen` instead.
-   */
-  filterDropdownVisible?: boolean;
   filterDropdownOpen?: boolean;
-  /**
-   * @deprecated `onFilterDropdownVisibleChange` is deprecated which will be removed in next major
-   *   version. Please use `onFilterDropdownOpenChange` instead.
-   */
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
-  onFilterDropdownOpenChange?: (open: boolean) => void;
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive

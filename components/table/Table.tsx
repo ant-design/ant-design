@@ -145,6 +145,12 @@ function InternalTable<RecordType extends object = any>(
     'Table',
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
   );
+  warning(
+    !('filterDropdownVisible' in props || 'onFilterDropdownVisibleChange' in props),
+    'Table',
+    '`filterDropdownVisible` and `onFilterDropdownVisibleChange` is deprecated, ' +
+      'please use `filterDropdownOpen` and `onFilterDropdownOpenChange` instead.',
+  );
 
   [
     ['filterDropdownVisible', 'filterDropdownOpen'],

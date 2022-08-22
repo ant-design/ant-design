@@ -274,7 +274,6 @@ describe('Table.filter', () => {
     }
 
     test('filterDropdownOpen');
-    test('filterDropdownVisible');
   });
 
   it('if the filter is visible it should ignore the selectedKeys changes', () => {
@@ -326,21 +325,18 @@ describe('Table.filter', () => {
 
   it('fires change event when visible change', () => {
     const onFilterDropdownOpenChange = jest.fn();
-    const onFilterDropdownVisibleChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
           {
             ...column,
             onFilterDropdownOpenChange,
-            onFilterDropdownVisibleChange,
           },
         ],
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
-    expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {
