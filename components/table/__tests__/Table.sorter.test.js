@@ -104,6 +104,33 @@ describe('Table.sorter', () => {
     expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
   });
 
+  it('should have aria-lable if the column is sortable and is not sorted', () => {
+    const { container } = render(
+      createTable(
+        {
+          sortDirections: ['descend', 'ascend'],
+        },
+        {
+          defaultSortOrder: 'descend',
+        },
+      ),
+    );
+
+    const getNameColumn = () => container.querySelector('th');
+
+    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn().getAttribute('aria-label')).toEqual(null);
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn().getAttribute('aria-label')).toEqual(null);
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn().getAttribute('aria-label')).toEqual('Name sortable');
+  });
+
   it('sort records', () => {
     const { container } = render(createTable());
     const getNameColumn = () => container.querySelector('th');
