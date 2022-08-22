@@ -21,9 +21,10 @@ import format, { plugins } from 'pretty-format';
  */
 expect.addSnapshotSerializer({
   test: element =>
-    element instanceof HTMLElement ||
-    element instanceof HTMLCollection ||
-    (Array.isArray(element) && element[0] instanceof HTMLElement),
+    typeof HTMLElement !== 'undefined' &&
+    (element instanceof HTMLElement ||
+      element instanceof HTMLCollection ||
+      (Array.isArray(element) && element[0] instanceof HTMLElement)),
   print: element => {
     const htmlContent = format(element, {
       plugins: [plugins.DOMCollection, plugins.DOMElement],
