@@ -3,7 +3,7 @@
 exports[`renders ./components/menu/demo/deprecated.md extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -140,7 +140,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup"
           style="opacity:0"
         >
           <ul
@@ -272,7 +272,7 @@ Array [
 exports[`renders ./components/menu/demo/horizontal.md extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -502,7 +502,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup"
           style="opacity:0"
         >
           <ul
@@ -678,7 +678,7 @@ Array [
 exports[`renders ./components/menu/demo/inline.md extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -726,7 +726,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -1112,7 +1112,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -1210,7 +1210,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -1335,7 +1335,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -1785,7 +1785,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md extend context corre
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1991,7 +1991,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md extend context corre
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -2321,7 +2321,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md extend context corre
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -2419,7 +2419,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md extend context corre
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -2756,7 +2756,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md extend context corre
 exports[`renders ./components/menu/demo/sider-current.md extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2804,7 +2804,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -3134,7 +3134,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -3232,7 +3232,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -3357,7 +3357,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -3797,7 +3797,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -3844,7 +3844,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -3945,7 +3945,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -3999,7 +3999,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -4090,7 +4090,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-vertical"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -4138,7 +4138,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -4470,7 +4470,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -4624,7 +4624,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -4722,7 +4722,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -4899,7 +4899,7 @@ Array [
           </div>
           <div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
               style="opacity:0"
             >
               <ul
@@ -5022,7 +5022,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -5499,7 +5499,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -5547,7 +5547,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -5877,7 +5877,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -5975,7 +5975,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -6100,7 +6100,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -6523,7 +6523,7 @@ Array [
 exports[`renders ./components/menu/demo/vertical.md extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -6570,7 +6570,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -6782,7 +6782,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul
@@ -6877,7 +6877,7 @@ Array [
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
                   style="opacity:0"
                 >
                   <ul
@@ -6999,7 +6999,7 @@ Array [
       </div>
       <div>
         <div
-          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
           style="opacity:0"
         >
           <ul

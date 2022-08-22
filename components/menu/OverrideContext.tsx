@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { MenuProps } from '.';
+import type { MenuProps } from './menu';
 
 // Used for Dropdown only
 export interface OverrideContextProps {

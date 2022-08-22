@@ -61,7 +61,7 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
             },
 
             [iconCls]: {
-              color: token.colorTextSecondary,
+              color: token.colorTextDescription,
               transition: `all ${token.motionDurationSlow}`,
             },
 
@@ -71,7 +71,7 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
           },
 
           [`${componentCls}-icon ${iconCls}`]: {
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             fontSize: fontSizeBase,
           },
 

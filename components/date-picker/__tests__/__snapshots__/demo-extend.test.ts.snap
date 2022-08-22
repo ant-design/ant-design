@@ -39393,7 +39393,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
 
 exports[`renders ./components/date-picker/demo/render-panel.md extend context correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative"
+  style="padding-bottom:0;position:relative;width:fit-content"
 >
   <div
     class="ant-picker"

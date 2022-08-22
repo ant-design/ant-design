@@ -152,6 +152,17 @@ function InternalTable<RecordType extends object = any>(
       'please use `filterDropdownOpen` and `onFilterDropdownOpenChange` instead.',
   );
 
+  [
+    ['filterDropdownVisible', 'filterDropdownOpen'],
+    ['onFilterDropdownVisibleChange', 'onFilterDropdownOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Table',
+      `\`${deprecatedName}\` is deprecated which will be removed in next major version.Please use \`${newName}\` instead. `,
+    );
+  });
+
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],

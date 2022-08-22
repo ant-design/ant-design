@@ -151,8 +151,10 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
-| onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
-| onHeaderCell | Set props on per header cell | function(column) | - |  |
+
+<<<<<<< HEAD | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - | | ======= | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(open) {} | - | 4.23.0 |
+
+> > > > > > > origin/next | onHeaderCell | Set props on per header cell | function(column) | - | |
 
 ### ColumnGroup
 
@@ -177,6 +179,7 @@ Properties for expandable.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | The column contains children to display | string | children |  |
+| columnTitle | Set the title of the expand column | ReactNode | - | 4.23.0 |
 | columnWidth | Set the width of the expand column | string \| number | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | false |  |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |

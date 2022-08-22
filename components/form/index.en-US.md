@@ -20,7 +20,7 @@ High performance Form component with data scope management. Including data colle
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
-| disabled | Set form component disable, only available for antd components | boolean | false |
+| disabled | Set form component disable, only available for antd components | boolean | false | 4.21.0 |
 | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
@@ -315,7 +315,7 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance): Value`
 
 Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
 
@@ -343,9 +343,9 @@ const Demo = () => {
 Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
 
 ```tsx
-const CustomInput = ({ value }) => {
+const CustomInput = ({ value, onChange }) => {
   const { status } = Form.Item.useStatus();
-  return <input value={value} className={`custom-input-${status}`} />;
+  return <input value={value} onChange={onChange} className={`custom-input-${status}`} />;
 };
 
 export default () => (

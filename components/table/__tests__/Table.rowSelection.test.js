@@ -1,7 +1,6 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Table from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
 

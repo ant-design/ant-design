@@ -1,11 +1,12 @@
 import { generate } from '@ant-design/colors';
+import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import genCommonMapToken from '../shared/genCommonMapToken';
-import { generateBgPalettes, generateColorPalettes, generateTextAlphaPalettes } from './palettes';
+import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
 
-export default function derivative(token: SeedToken): MapToken {
+const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
       const colors = generate(token[colorKey], { theme: 'dark' });
@@ -23,24 +24,20 @@ export default function derivative(token: SeedToken): MapToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const colorBgBase = token.colorBgBase || '#000';
-  const colorTextBase = token.colorTextBase || '#fff';
-
   return {
     ...token,
-    ...colorPalettes,
-    colorBgBase,
-    colorTextBase,
-    // Colors
-    ...genColorMapToken(
-      { ...token, colorBgBase, colorTextBase },
-      {
-        generateColorPalettes,
-        generateBgPalettes,
-        generateTextAlphaPalettes,
-      },
-    ),
 
-    ...genCommonMapToken(token),
+    // Other tokens
+    ...(mapToken ?? genCommonMapToken(token)),
+
+    // Dark tokens
+    ...colorPalettes,
+    // Colors
+    ...genColorMapToken(token, {
+      generateColorPalettes,
+      generateNeutralColorPalettes,
+    }),
   };
-}
+};
+
+export default derivative;

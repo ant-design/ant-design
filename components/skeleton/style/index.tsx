@@ -171,14 +171,14 @@ const genSkeletonElementButtonSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
-  const { radiusBase, skeletonButtonCls, controlHeight, controlHeightLG, controlHeightSM, color } =
+  const { radiusSM, skeletonButtonCls, controlHeight, controlHeightLG, controlHeightSM, color } =
     token;
   return {
     [`${skeletonButtonCls}`]: {
       display: 'inline-block',
       verticalAlign: 'top',
       background: color,
-      borderRadius: radiusBase,
+      borderRadius: radiusSM,
       width: controlHeight * 2,
       minWidth: controlHeight * 2,
       ...genSkeletonElementButtonSize(controlHeight),
@@ -353,7 +353,7 @@ export default genComponentStyleHook(
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: token.controlHeight * 1.5,
       skeletonTitleHeight: token.controlHeight / 2,
-      skeletonBlockRadius: token.radiusLG,
+      skeletonBlockRadius: token.radiusSM,
       skeletonParagraphLineHeight: token.controlHeight / 2,
       skeletonParagraphMarginTop: token.marginLG + token.marginXXS,
       borderRadius: 100, // Large number to make capsule shape

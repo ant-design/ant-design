@@ -17,7 +17,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
           height: uploadThumbnailSize + token.controlLineWidth * 2 + token.paddingXS * 2,
           padding: token.paddingXS,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          borderRadius: token.radiusBase,
+          borderRadius: token.controlRadiusLG,
 
           '&:hover': {
             background: 'transparent',
@@ -101,7 +101,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
         border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
-        borderRadius: token.radiusBase,
+        borderRadius: token.controlRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 

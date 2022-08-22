@@ -38,6 +38,10 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         pointerEvents: 'none',
       },
 
+      [`${componentCls}-cell-fix-left-all::after`]: {
+        display: 'none',
+      },
+
       [`
         ${componentCls}-cell-fix-right-first::after,
         ${componentCls}-cell-fix-right-last::after

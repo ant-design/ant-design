@@ -12,7 +12,7 @@ import renderSwitcherIcon from './utils/iconUtil';
 
 import useStyle from './style';
 
-export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -97,7 +97,8 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-type DraggableFn = (node: AntTreeNode) => boolean;
+type DraggableFn = (node: DataNode) => boolean;
+
 interface DraggableConfig {
   icon?: React.ReactNode | false;
   nodeDraggable?: DraggableFn;

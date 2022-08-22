@@ -152,8 +152,10 @@ const columns = [
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
-| onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
+
+<<<<<<< HEAD | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - | | ======= | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(open) {} | - | 4.23.0 |
+
+> > > > > > > origin/next | onHeaderCell | 设置头部单元格属性 | function(column) | - | |
 
 ### ColumnGroup
 
@@ -178,6 +180,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | 指定树形结构的列名 | string | children |  |
+| columnTitle | 自定义展开列表头 | ReactNode | - | 4.23.0 |
 | columnWidth | 自定义展开列宽度 | string \| number | - |  |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |

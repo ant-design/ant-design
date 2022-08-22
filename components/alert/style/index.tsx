@@ -33,7 +33,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     fontSize,
     fontSizeLG,
     lineHeight,
-    controlRadius: borderRadius,
+    radiusLG: borderRadius,
     motionEaseInOutCirc,
     alertIconSizeLG,
     colorText,

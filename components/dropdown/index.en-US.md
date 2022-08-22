@@ -42,6 +42,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
 | loading | Set the loading status of button | boolean \| { delay: number } | false |  |
+| danger | Set the danger status of button | boolean | - | 4.23.0 |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |

@@ -228,7 +228,7 @@ export default genComponentStyleHook(
   'Spin',
   token => {
     const spinToken = mergeToken<SpinToken>(token, {
-      spinDotDefault: token.colorTextSecondary,
+      spinDotDefault: token.colorTextDescription,
       spinDotSize: token.controlHeightLG / 2,
       spinDotSizeSM: token.controlHeightLG * 0.35,
       spinDotSizeLG: token.controlHeight,

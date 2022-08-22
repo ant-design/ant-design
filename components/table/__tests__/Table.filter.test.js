@@ -1,8 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Table from '..';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -243,32 +242,38 @@ describe('Table.filter', () => {
     expect(renderSelectedKeys).toEqual([43]);
   });
 
-  it('can be controlled by filterDropdownOpen', () => {
-    const { container, rerender } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterDropdownOpen: true,
-          },
-        ],
-      }),
-    );
+  describe('filterDropdownOpen & filterDropdownVisible', () => {
+    function test(propName) {
+      it(`can be controlled by ${propName}`, () => {
+        const { container, rerender } = render(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filterDropdownOpen: true,
+              },
+            ],
+          }),
+        );
 
-    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+        expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
-    rerender(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterDropdownOpen: false,
-          },
-        ],
-      }),
-    );
+        rerender(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filterDropdownOpen: false,
+              },
+            ],
+          }),
+        );
 
-    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+        expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+      });
+    }
+
+    test('filterDropdownOpen');
   });
 
   it('if the filter is visible it should ignore the selectedKeys changes', () => {
@@ -319,19 +324,19 @@ describe('Table.filter', () => {
   });
 
   it('fires change event when visible change', () => {
-    const handleChange = jest.fn();
+    const onFilterDropdownOpenChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
           {
             ...column,
-            onFilterDropdownOpenChange: handleChange,
+            onFilterDropdownOpenChange,
           },
         ],
       }),
     );
     fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
-    expect(handleChange).toHaveBeenCalledWith(true);
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {

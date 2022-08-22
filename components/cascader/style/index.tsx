@@ -123,7 +123,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
 
                 [iconCls]: {
                   marginInlineStart: token.paddingXXS,
-                  color: token.colorTextSecondary,
+                  color: token.colorTextDescription,
                   fontSize: token.fontSizeIcon,
                 },
 

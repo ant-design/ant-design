@@ -126,7 +126,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           width: sizePopupArrow,
           height: sizePopupArrow,
 
-          ...roundedArrow(sizePopupArrow, 5, colorBgElevated),
+          ...roundedArrow(sizePopupArrow, token.radiusXS, token.radiusOuter, colorBgElevated),
         },
 
         [`
@@ -261,13 +261,13 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           listStyleType: 'none',
           backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
-          borderRadius: token.controlRadius,
+          borderRadius: token.controlRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadow,
 
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             transition: `all ${motionDurationSlow}`,
           },
 
@@ -365,7 +365,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
               [`${componentCls}-menu-submenu-arrow-icon`]: {
                 marginInlineEnd: '0 !important',
-                color: token.colorTextSecondary,
+                color: token.colorTextDescription,
                 fontSize: fontSizeIcon,
                 fontStyle: 'normal',
               },
