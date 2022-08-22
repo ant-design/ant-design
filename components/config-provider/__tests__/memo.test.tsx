@@ -3,16 +3,18 @@ import ConfigProvider from '..';
 import Tooltip from '../../tooltip';
 import { render, fireEvent } from '../../../tests/utils';
 
-type SpyFn = () => void;
+interface Props {
+  spy: () => void;
+}
 
 // https://github.com/ant-design/ant-design/issues/27617
 describe('ConfigProvider', () => {
-  const Child: React.FC<{ spy: SpyFn }> = ({ spy }) => {
-    React.useEffect(spy);
+  const Child: React.FC<Props> = ({ spy }) => {
+    React.useEffect(() => spy());
     return <div />;
   };
 
-  const Sibling: React.FC<{ spy: SpyFn }> = ({ spy }) => (
+  const Sibling: React.FC<Props> = ({ spy }) => (
     <Tooltip>
       <Child spy={spy} />
     </Tooltip>
@@ -27,7 +29,7 @@ describe('ConfigProvider', () => {
 
       return (
         <ConfigProvider pageHeader={pageHeader}>
-          <button type="button" className="render" onClick={forceRender}>
+          <button type="button" className="render" onClick={() => forceRender()}>
             Force Render
           </button>
           <button
@@ -61,7 +63,7 @@ describe('ConfigProvider', () => {
       return (
         <ConfigProvider pageHeader={pageHeader}>
           <ConfigProvider>
-            <button type="button" className="render" onClick={forceRender}>
+            <button type="button" className="render" onClick={() => forceRender()}>
               Force Render
             </button>
             <button
