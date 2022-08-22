@@ -20,7 +20,8 @@ import format, { plugins } from 'pretty-format';
  * These diff is nothing important in front end but will break in snapshot diff.
  */
 expect.addSnapshotSerializer({
-  test: element => element instanceof HTMLElement,
+  test: element =>
+    element instanceof HTMLElement || (Array.isArray(element) && element[0] instanceof HTMLElement),
   print: element => {
     const htmlContent = format(element, {
       plugins: [plugins.DOMCollection, plugins.DOMElement],
