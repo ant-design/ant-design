@@ -23,6 +23,7 @@ expect.addSnapshotSerializer({
   test: element =>
     typeof HTMLElement !== 'undefined' &&
     (element instanceof HTMLElement ||
+      element instanceof DocumentFragment ||
       element instanceof HTMLCollection ||
       (Array.isArray(element) && element[0] instanceof HTMLElement)),
   print: element => {
