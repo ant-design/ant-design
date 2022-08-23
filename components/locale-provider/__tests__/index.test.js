@@ -2,7 +2,7 @@
 import MockDate from 'mockdate';
 import moment from 'moment';
 import React from 'react';
-import { render, act } from '../../../tests/utils';
+import { render } from '../../../tests/utils';
 import LocaleProvider from '..';
 import {
   Calendar,
@@ -161,17 +161,9 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    filters: [
-      {
-        text: 'filter1',
-        value: 'filter1',
-      },
-    ],
+    filters: [{ text: 'filter1', value: 'filter1' }],
   },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-  },
+  { title: 'Age', dataIndex: 'age' },
 ];
 
 const App = () => (
@@ -223,33 +215,21 @@ describe('Locale Provider', () => {
   });
 
   it('should change locale of Modal.xxx', () => {
-    class ModalDemo extends React.Component {
-      componentDidMount() {
-        jest.useFakeTimers();
-        Modal.confirm({ title: 'Hello World!' });
-        act(() => {
-          jest.runAllTimers();
-        });
-        jest.useRealTimers();
-      }
-
-      render() {
-        return null;
-      }
-    }
     locales.forEach(locale => {
-      render(
+      const { container } = render(
         <LocaleProvider locale={locale}>
-          <ModalDemo />
+          <Modal title="Locale Modal" visible getContainer={false}>
+            Modal
+          </Modal>
         </LocaleProvider>,
       );
-      const confirmNodes = document.querySelectorAll('.ant-modal-confirm');
-      const currentConfirmNode = confirmNodes[confirmNodes.length - 1];
-      let cancelButtonText = currentConfirmNode.querySelectorAll(
-        '.ant-btn:not(.ant-btn-primary) span',
-      )[0]?.innerHTML;
-      let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0]?.innerHTML;
-      if (locale.locale.indexOf('zh-') === 0) {
+      let cancelButtonText = container.firstChild.querySelector(
+        'button.ant-btn-default span',
+      )?.innerHTML;
+      let okButtonText = container.firstChild.querySelector(
+        'button.ant-btn-primary span',
+      )?.innerHTML;
+      if (locale.locale.includes('zh-')) {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }
