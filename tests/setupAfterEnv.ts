@@ -1,5 +1,6 @@
 import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
+import format, { plugins } from 'pretty-format';
 import { defaultConfig } from '../components/theme/index';
 
 // Not use dynamic hashed for test env since version will change hash dynamically.
@@ -22,7 +23,6 @@ if (process.env.LIB_DIR === 'dist') {
     return esTheme;
   });
 }
-import format, { plugins } from 'pretty-format';
 
 /**
  * React 17 & 18 will have different behavior in some special cases:
