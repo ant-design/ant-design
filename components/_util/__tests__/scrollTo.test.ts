@@ -2,7 +2,7 @@ import { sleep } from '../../../tests/utils';
 import scrollTo from '../scrollTo';
 
 describe('Test ScrollTo function', () => {
-  let dateNowMock;
+  let dateNowMock: jest.SpyInstance;
 
   beforeEach(() => {
     dateNowMock = jest
@@ -16,7 +16,7 @@ describe('Test ScrollTo function', () => {
   });
 
   it('test scrollTo', async () => {
-    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });

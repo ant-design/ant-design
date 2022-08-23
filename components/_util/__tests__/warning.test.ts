@@ -23,9 +23,7 @@ describe('Test warning', () => {
 
     expect(value).toBe(undefined);
     expect(spy).not.toHaveBeenCalled();
-    expect(() => {
-      noop();
-    }).not.toThrow();
+    expect(noop).not.toThrow();
   });
 
   describe('process.env.NODE_ENV !== "production"', () => {

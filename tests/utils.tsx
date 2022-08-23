@@ -41,7 +41,14 @@ export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
   return { result };
 }
 
-export { customRender as render };
+/**
+ * Pure render like `@testing-lib` render which will not wrap with StrictMode.
+ *
+ * Please only use with render times times of memo usage case.
+ */
+const pureRender = render;
+
+export { customRender as render, pureRender };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
