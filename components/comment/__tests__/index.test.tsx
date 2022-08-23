@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -9,7 +9,7 @@ describe('Comment', () => {
   rtlTest(Comment);
 
   it('should support empty actions', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Comment
         actions={[]}
         author={<a>Han Solo</a>}
@@ -23,6 +23,6 @@ describe('Comment', () => {
         datetime="YYYY-MM-DD HH:mm:ss"
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 });
