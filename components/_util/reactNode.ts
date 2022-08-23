@@ -2,6 +2,10 @@ import * as React from 'react';
 
 export const { isValidElement } = React;
 
+export function isFragment(child: React.ReactElement): boolean {
+  return child && child.type === React.Fragment;
+}
+
 type AnyObject = Record<any, any>;
 
 type RenderProps = undefined | AnyObject | ((originProps: AnyObject) => AnyObject | undefined);
