@@ -1,15 +1,15 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import ConfigProvider from '..';
 import Cascader from '../../cascader';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
 import Slider from '../../slider';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    mount(
+    render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <DatePicker open />
       </ConfigProvider>,
@@ -19,29 +19,29 @@ describe('ConfigProvider.GetPopupContainer', () => {
 
   it('Slider', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    const wrapper = mount(
+    const wrapper = render(
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <Slider />
       </ConfigProvider>,
     );
-    wrapper.find('.ant-slider-handle').first().simulate('mouseenter');
+    fireEvent.mouseEnter(wrapper.container.querySelector('.ant-slider-handle')!);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('Drawer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    const Demo = ({ open }) => (
+    const Demo: React.FC<{ open?: boolean }> = ({ open }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
         <Drawer open={open} />
       </ConfigProvider>
     );
-    mount(<Demo open />);
+    render(<Demo open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('Cascader', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    mount(<Cascader getPopupContainer={getPopupContainer} open />);
+    render(<Cascader getPopupContainer={getPopupContainer} open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 });

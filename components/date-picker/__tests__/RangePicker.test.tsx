@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { mount } from 'enzyme';
 import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { resetMockDate, setMockDate } from '../../../tests/utils';
+import { render, resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
+
 import { closePicker, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
@@ -26,82 +26,92 @@ describe('RangePicker', () => {
   // issue: https://github.com/ant-design/ant-design/issues/5872
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
-    const wrapper = mount(<RangePicker value={[birthday, birthday]} open />);
-    wrapper.setProps({ value: [] });
+    const wrapper1 = render(<RangePicker value={[birthday, birthday]} open />);
+    const wrapper2 = render(<RangePicker value={[] as unknown as null} open />);
 
     expect(() => {
-      openPicker(wrapper);
-      selectCell(wrapper, 3);
-      closePicker(wrapper);
+      openPicker(wrapper1);
+      selectCell(wrapper1, 3);
+      closePicker(wrapper1);
 
-      openPicker(wrapper, 1);
-      selectCell(wrapper, 5, 1);
-      closePicker(wrapper, 1);
+      openPicker(wrapper1, 1);
+      selectCell(wrapper1, 5, 1);
+      closePicker(wrapper1, 1);
+
+      openPicker(wrapper2);
+      selectCell(wrapper2, 3);
+      closePicker(wrapper2);
+
+      openPicker(wrapper2, 1);
+      selectCell(wrapper2, 5, 1);
+      closePicker(wrapper2, 1);
     }).not.toThrow();
   });
 
   it('customize separator', () => {
-    const wrapper = mount(<RangePicker separator="test" />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container } = render(<RangePicker separator="test" />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
+      let rangePickerValue: dayjs.Dayjs[] = [] as any;
       class Test extends React.Component {
-        state = {
-          value: null,
-        };
-
-        onPanelChange = value => {
-          this.setState({ value });
-        };
+        state = { value: null };
 
         render() {
           return (
             <RangePicker
               value={this.state.value}
               mode={['month', 'month']}
-              onPanelChange={this.onPanelChange}
+              onPanelChange={value => {
+                this.setState({ value });
+                rangePickerValue = value as any;
+              }}
             />
           );
         }
       }
-      const wrapper = mount(<Test />);
+      const wrapper = render(<Test />);
+
       openPicker(wrapper);
       selectCell(wrapper, 'Feb');
       openPicker(wrapper, 1);
       selectCell(wrapper, 'Feb');
       closePicker(wrapper, 1);
-      const { value } = wrapper.find(Test).state();
-      expect(value[0].isSame(value[1], 'date')).toBeTruthy();
+
+      const [start, end] = rangePickerValue;
+
+      expect(start.isSame(end, 'date')).toBeTruthy();
     });
   });
 
   describe('ranges', () => {
     it('RangePicker support presetted ranges with Tags', () => {
-      const wrapper = mount(
+      const { container } = render(
         <RangePicker
+          open
           ranges={{
             Today: [dayjs(), dayjs()],
             'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
           }}
-          open
         />,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(Array.from(container.children)).toMatchSnapshot();
     });
   });
 
   it('placeholder', () => {
-    const wrapper = mount(<RangePicker placeholder={undefined} />);
-    expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
-    expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
+    const { container } = render(<RangePicker placeholder={undefined} />);
+    const inputLists = container.querySelectorAll('input');
+    expect(inputLists[0]?.placeholder).toEqual('Start date');
+    expect(inputLists[inputLists.length - 1].placeholder).toEqual('End date');
   });
 
   it('RangePicker picker quarter placeholder', () => {
-    const wrapper = mount(<RangePicker picker="quarter" locale={enUS} />);
-    expect(wrapper.find('input').at(0).props().placeholder).toEqual('Start quarter');
-    expect(wrapper.find('input').at(1).props().placeholder).toEqual('End quarter');
+    const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
+    expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
+    expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
   });
 });

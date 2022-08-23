@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Extra actions should be placed at corner of drawer in Ant Design, you can using `extra` prop for that.
+Extra actions should be placed at corner of drawer in Ant Design, you can use `extra` prop for that.
 
 ```tsx
 import { Button, Drawer, Radio, Space } from 'antd';

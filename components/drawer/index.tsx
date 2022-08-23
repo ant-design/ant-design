@@ -86,6 +86,17 @@ function Drawer(props: DrawerProps) {
     </button>
   );
 
+  [
+    ['visible', 'open'],
+    ['afterVisibleChange', 'afterOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Drawer',
+      `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+    );
+  });
+
   function renderHeader() {
     if (!title && !closable) {
       return null;

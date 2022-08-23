@@ -18,19 +18,19 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
+      <Button type="primary" onClick={() => setOpen(true)}>
         Open Modal of 1000px width
       </Button>
       <Modal
         title="Modal 1000px width"
         centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
+        open={open}
+        onOk={() => setOpen(false)}
+        onCancel={() => setOpen(false)}
         width={1000}
       >
         <p>some contents...</p>

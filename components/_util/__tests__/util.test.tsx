@@ -1,9 +1,8 @@
 /* eslint-disable class-methods-use-this */
-import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import raf from 'rc-util/lib/raf';
 import React from 'react';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
@@ -141,20 +140,24 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const ref = React.createRef();
-      mount(<TransButton ref={ref}>TransButton</TransButton>);
-      expect(typeof ref.current.focus).toBe('function');
-      expect(typeof ref.current.blur).toBe('function');
+      const ref = React.createRef<any>();
+      render(<TransButton ref={ref}>TransButton</TransButton>);
+      expect(typeof ref.current?.focus).toBe('function');
+      expect(typeof ref.current?.blur).toBe('function');
     });
 
     it('should trigger onClick when press enter', () => {
       const onClick = jest.fn();
-      const preventDefault = jest.fn();
-      const wrapper = mount(<TransButton onClick={onClick}>TransButton</TransButton>);
-      wrapper.simulate('keyUp', { keyCode: KeyCode.ENTER });
-      expect(onClick).toHaveBeenCalled();
-      wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });
-      expect(preventDefault).toHaveBeenCalled();
+
+      const { container } = render(<TransButton onClick={onClick}>TransButton</TransButton>);
+
+      // callback should trigger
+      fireEvent.keyUp(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
+      expect(onClick).toHaveBeenCalledTimes(1);
+
+      // callback should not trigger
+      fireEvent.keyDown(container.querySelector('div')!, { keyCode: KeyCode.ENTER });
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -167,7 +170,7 @@ describe('Test utils function', () => {
     it('isStyleSupport return false in service side', () => {
       const spy = jest
         .spyOn(window.document, 'documentElement', 'get')
-        .mockImplementation(() => undefined);
+        .mockImplementation(() => undefined as unknown as HTMLElement);
       expect(isStyleSupport('color')).toBe(false);
       expect(isStyleSupport('not-existed')).toBe(false);
       spy.mockRestore();

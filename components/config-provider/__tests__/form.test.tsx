@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
@@ -16,9 +15,8 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form validateMessages', () => {
-    const renderComponent = ({ validateMessages }) => {
-      const formRef = React.createRef();
-
+    const renderComponent = ({ validateMessages }: { validateMessages?: any }) => {
+      const formRef = React.createRef<any>();
       const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>
@@ -31,8 +29,7 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-
-      return [container, formRef];
+      return [container, formRef] as const;
     };
 
     it('set locale zhCN', async () => {
@@ -40,7 +37,7 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         try {
-          await formRef.current.validateFields();
+          await formRef.current?.validateFields();
         } catch (e) {
           // Do nothing
         }
@@ -63,7 +60,7 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         try {
-          await formRef.current.validateFields();
+          await formRef.current?.validateFields();
         } catch (e) {
           // Do nothing
         }
@@ -86,8 +83,8 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form requiredMark', () => {
-    it('set requiredMark optional', async () => {
-      const wrapper = mount(
+    it('set requiredMark optional', () => {
+      const { container } = render(
         <ConfigProvider form={{ requiredMark: 'optional' }}>
           <Form initialValues={{ age: 18 }}>
             <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
@@ -96,14 +93,13 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
   describe('form colon', () => {
-    it('set colon false', async () => {
-      const wrapper = mount(
+    it('set colon false', () => {
+      const { container } = render(
         <ConfigProvider form={{ colon: false }}>
           <Form>
             <Form.Item label="没有冒号">
@@ -112,12 +108,11 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-
-      expect(wrapper.exists('.ant-form-item-no-colon')).toBeTruthy();
+      expect(container.querySelector('.ant-form-item-no-colon')).toBeTruthy();
     });
 
-    it('set colon default', async () => {
-      const wrapper = mount(
+    it('set colon default', () => {
+      const { container } = render(
         <ConfigProvider>
           <Form>
             <Form.Item label="姓名">
@@ -126,8 +121,7 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-
-      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+      expect(container.querySelector('.ant-form-item-no-colon')).toBeFalsy();
     });
   });
 });
