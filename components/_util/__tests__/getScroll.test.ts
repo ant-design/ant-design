@@ -41,7 +41,7 @@ describe('getScroll', () => {
   });
 
   it('getScroll documentElement', async () => {
-    const div = {};
+    const div: any = {};
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       div.scrollLeft = null;
       div.scrollTop = null;

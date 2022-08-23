@@ -57,6 +57,8 @@ function Drawer(props: DrawerProps) {
     drawerStyle,
     open,
     children,
+    className,
+    style,
     title,
     headerStyle,
     onClose,
@@ -85,6 +87,17 @@ function Drawer(props: DrawerProps) {
       {closeIcon}
     </button>
   );
+
+  [
+    ['visible', 'open'],
+    ['afterVisibleChange', 'afterOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Drawer',
+      `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+    );
+  });
 
   function renderHeader() {
     if (!title && !closable) {
@@ -183,6 +196,7 @@ function Drawer(props: DrawerProps) {
         height={mergedHeight}
         rootClassName={drawerClassName}
         getContainer={getContainer}
+        rootStyle={style}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}

@@ -1,14 +1,15 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { mount, render } from 'enzyme';
 import React from 'react';
 import DatePicker from '..';
 import ConfigProvider from '../../config-provider';
+import type { Locale } from '../../locale-provider';
 import LocaleProvider from '../../locale-provider';
 import locale from '../../locale-provider/zh_CN';
 import jaJP from '../../locale/ja_JP';
 import zhTW from '../locale/zh_TW';
+import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 
@@ -27,15 +28,14 @@ describe('Picker format by locale', () => {
   };
 
   const date = dayjs('2000-01-01', 'YYYY-MM-DD');
-  function matchPicker(name, Picker, props) {
+  function matchPicker(name: string, Picker: typeof MonthPicker | typeof WeekPicker, props?: any) {
     it(name, () => {
-      const wrapper = mount(
-        <LocaleProvider locale={myLocale}>
+      const { container } = render(
+        <LocaleProvider locale={myLocale as Locale}>
           <Picker value={date} {...props} />
         </LocaleProvider>,
       );
-
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   }
 
@@ -48,35 +48,33 @@ describe('Picker format by locale', () => {
 describe('MonthPicker and WeekPicker', () => {
   it('render MonthPicker', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
-    const wrapper = mount(<MonthPicker open />);
-    wrapper.setProps({ value: birthday });
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    const { container } = render(<MonthPicker open value={birthday} />);
+    expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
-    const wrapper = mount(<WeekPicker open />);
-    wrapper.setProps({ value: birthday });
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    const { container } = render(<WeekPicker open value={birthday} />);
+    expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });
 });
 
 describe('Override locale setting of the ConfigProvider', () => {
   it('DatePicker', () => {
-    const wrapper = mount(
+    const { container } = render(
       <ConfigProvider locale={jaJP}>
         <DatePicker locale={zhTW} />
       </ConfigProvider>,
     );
-    expect(wrapper.find('input').props().placeholder).toEqual('請選擇日期');
+    expect(container.querySelector('input')?.placeholder).toEqual('請選擇日期');
   });
   it('RangePicker', () => {
-    const wrapper = mount(
+    const { container } = render(
       <ConfigProvider locale={jaJP}>
         <DatePicker.RangePicker locale={zhTW} />
       </ConfigProvider>,
     );
-    expect(wrapper.find('input').at(0).props().placeholder).toEqual('開始日期');
-    expect(wrapper.find('input').at(1).props().placeholder).toEqual('結束日期');
+    expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('開始日期');
+    expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('結束日期');
   });
 });

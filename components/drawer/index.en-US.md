@@ -48,7 +48,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
 | size | presetted size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
-| open | Whether the Drawer dialog is visible or not | boolean | false |  |
-| width | Width of the Drawer dialog | string \| number | 378 |  |
-| zIndex | The `z-index` of the Drawer | number | 1000 |  |
-| onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
+
+<<<<<<< HEAD | open | Whether the Drawer dialog is visible or not | boolean | false | | ======= | open | Whether the Drawer dialog is visible or not | boolean | false | 4.23.0 |
+
+> > > > > > > feature | width | Width of the Drawer dialog | string \| number | 378 | | | zIndex | The `z-index` of the Drawer | number | 1000 | | | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - | |

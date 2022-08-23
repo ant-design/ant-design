@@ -1,15 +1,14 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import ConfigProvider from '..';
 import Affix from '../../affix';
 import Anchor from '../../anchor';
-import { act } from '../../../tests/utils';
+import { act, render } from '../../../tests/utils';
 
 describe('ConfigProvider.getTargetContainer', () => {
   it('Affix', () => {
     jest.useFakeTimers();
-    const getTargetContainer = jest.fn(() => window);
-    mount(
+    const getTargetContainer = jest.fn(() => window as unknown as HTMLElement);
+    render(
       <ConfigProvider getTargetContainer={getTargetContainer}>
         <Affix>
           <span />
@@ -27,8 +26,8 @@ describe('ConfigProvider.getTargetContainer', () => {
 
   it('Anchor', () => {
     jest.useFakeTimers();
-    const getTargetContainer = jest.fn(() => window);
-    mount(
+    const getTargetContainer = jest.fn(() => window as unknown as HTMLElement);
+    render(
       <ConfigProvider getTargetContainer={getTargetContainer}>
         <Anchor>
           <Anchor.Link href="#API" title="API" />
