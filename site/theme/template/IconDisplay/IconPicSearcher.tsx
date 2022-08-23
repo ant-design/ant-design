@@ -146,7 +146,7 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
       </Popover>
       <Modal
         title={messages[`app.docs.components.icon.pic-searcher.title`]}
-        visible={state.modalOpen}
+        open={state.modalOpen}
         onCancel={toggleModal}
         footer={null}
       >
