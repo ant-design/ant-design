@@ -43,6 +43,7 @@ import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
 import Switch from '../../switch';
+import type { ColumnsType } from '../../table';
 import Table from '../../table';
 import Tabs from '../../tabs';
 import Tag from '../../tag';
@@ -59,7 +60,7 @@ jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
   describe('components', () => {
-    function testPair(name, renderComponent) {
+    function testPair(name: string, renderComponent: (props?: any) => React.ReactElement): void {
       const isArray = ['Menu', 'TimePicker', 'Tooltip'].includes(name);
       describe(`${name}`, () => {
         // normal
@@ -303,8 +304,8 @@ describe('ConfigProvider', () => {
 
     // Grid
     testPair('Grid', props => {
-      const rowProps = {};
-      const colProps = {};
+      const rowProps: { prefixCls?: string } = {};
+      const colProps: { prefixCls?: string } = {};
       if (props.prefixCls) {
         rowProps.prefixCls = 'prefix-row';
         colProps.prefixCls = 'prefix-col';
@@ -334,10 +335,10 @@ describe('ConfigProvider', () => {
 
     // Layout
     testPair('Layout', props => {
-      const siderProps = {};
-      const headerProps = {};
-      const contentProps = {};
-      const footerProps = {};
+      const siderProps: { prefixCls?: string } = {};
+      const headerProps: { prefixCls?: string } = {};
+      const contentProps: { prefixCls?: string } = {};
+      const footerProps: { prefixCls?: string } = {};
       if (props.prefixCls) {
         siderProps.prefixCls = 'prefix-sider';
         headerProps.prefixCls = 'prefix-header';
@@ -494,7 +495,7 @@ describe('ConfigProvider', () => {
 
     // Table
     testPair('Table', props => {
-      const columns = [
+      const columns: ColumnsType<any> = [
         {
           title: 'Name',
           dataIndex: 'name',
