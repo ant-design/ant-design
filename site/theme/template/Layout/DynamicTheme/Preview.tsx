@@ -11,7 +11,7 @@ import Token from './Token';
 hljs.registerLanguage('css', css);
 
 export interface PreviewProps {
-  visible: boolean;
+  open: boolean;
   componentName: string;
   onClose: () => void;
 }
@@ -52,7 +52,7 @@ function formatStyle(style: string) {
   return formatted;
 }
 
-export default function Preview({ visible, onClose }: PreviewProps) {
+export default function Preview({ open, onClose }: PreviewProps) {
   const [styleList, setStyleList] = React.useState<{ text: string; path: string }[]>([]);
 
   React.useEffect(() => {
@@ -72,7 +72,7 @@ export default function Preview({ visible, onClose }: PreviewProps) {
     return () => {
       observer.disconnect();
     };
-  }, [visible]);
+  }, [open]);
 
   const formatStyles = React.useMemo(
     () =>
@@ -135,7 +135,7 @@ export default function Preview({ visible, onClose }: PreviewProps) {
     <Drawer
       title="cssinjs"
       placement="left"
-      visible={visible}
+      open={open}
       mask={false}
       width="45vw"
       onClose={onClose}

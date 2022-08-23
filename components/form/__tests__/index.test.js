@@ -1237,7 +1237,7 @@ describe('Form', () => {
           </Modal>
         </Form.Item>
         <Form.Item validateStatus="error">
-          <Drawer visible>
+          <Drawer open>
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>

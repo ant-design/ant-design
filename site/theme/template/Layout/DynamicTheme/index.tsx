@@ -22,8 +22,8 @@ export default function DynamicTheme({
   componentName,
 }: ThemeConfigProps) {
   const { formatMessage } = useIntl();
-  const [visible, setVisible] = React.useState(false);
-  const [previewVisible, setPreviewVisible] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [previewOpen, setPreviewOpen] = React.useState(false);
   const [form] = Form.useForm();
   const [showDiff, setShowDiff] = useState(false);
 
@@ -50,7 +50,7 @@ export default function DynamicTheme({
           cursor: 'pointer',
           zIndex: 1,
         }}
-        onClick={() => setVisible(true)}
+        onClick={() => setOpen(true)}
       >
         <BugOutlined /> Dynamic Theme
       </div>
@@ -58,9 +58,9 @@ export default function DynamicTheme({
       <Drawer
         mask={false}
         zIndex={10001}
-        visible={visible}
+        open={open}
         onClose={() => {
-          setVisible(false);
+          setOpen(false);
         }}
         title={formatMessage({ id: 'app.theme.switch.dynamic' })}
         extra={
@@ -68,7 +68,7 @@ export default function DynamicTheme({
             <Checkbox checked={showDiff} onChange={e => setShowDiff(e.target.checked)}>
               Diff
             </Checkbox>
-            <Button icon={<EyeOutlined />} onClick={() => setPreviewVisible(true)} />
+            <Button icon={<EyeOutlined />} onClick={() => setPreviewOpen(true)} />
             <Button onClick={form.submit} type="primary">
               Submit
             </Button>
@@ -152,9 +152,9 @@ export default function DynamicTheme({
       </Drawer>
 
       <Preview
-        visible={previewVisible}
+        open={previewOpen}
         componentName={componentName}
-        onClose={() => setPreviewVisible(false)}
+        onClose={() => setPreviewOpen(false)}
       />
     </>
   );

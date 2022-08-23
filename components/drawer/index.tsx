@@ -8,6 +8,7 @@ import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 // CSSINJS
 import useStyle from './style';
@@ -32,41 +33,41 @@ export interface DrawerProps extends RcDrawerProps {
   footerStyle?: React.CSSProperties;
 
   title?: React.ReactNode;
-  visible?: boolean;
+  open?: boolean;
 
   footer?: React.ReactNode;
   extra?: React.ReactNode;
 
-  afterVisibleChange?: (visible: boolean) => void;
+  afterOpenChange?: (open: boolean) => void;
 }
 
 const defaultPushState: PushState = { distance: 180 };
 
-function Drawer({
-  rootClassName,
-  width,
-  height,
-  size = 'default',
-  closable = true,
-  mask = true,
-  push = defaultPushState,
-  closeIcon = <CloseOutlined />,
-  bodyStyle,
-  drawerStyle,
-  visible,
-  children,
-  style,
-  title,
-  headerStyle,
-  onClose,
-  footer,
-  footerStyle,
-  prefixCls: customizePrefixCls,
-  getContainer: customizeGetContainer,
-  extra,
-  afterVisibleChange,
-  ...rest
-}: DrawerProps) {
+function Drawer(props: DrawerProps) {
+  const {
+    rootClassName,
+    width,
+    height,
+    size = 'default',
+    closable = true,
+    mask = true,
+    push = defaultPushState,
+    closeIcon = <CloseOutlined />,
+    bodyStyle,
+    drawerStyle,
+    open,
+    children,
+    title,
+    headerStyle,
+    onClose,
+    footer,
+    footerStyle,
+    prefixCls: customizePrefixCls,
+    getContainer: customizeGetContainer,
+    extra,
+    ...rest
+  } = props;
+
   const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
@@ -128,6 +129,20 @@ function Drawer({
     hashId,
   );
 
+  // ========================== Warning ===========================
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['afterVisibleChange', 'afterOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Drawer',
+        `\`${deprecatedName}\` is removed, please use \`${newName}\` instead.`,
+      );
+    });
+  }
+
   // ============================ Size ============================
   const mergedWidth = React.useMemo(() => width ?? (size === 'large' ? 736 : 378), [width, size]);
   const mergedHeight = React.useMemo(
@@ -161,16 +176,13 @@ function Drawer({
         maskMotion={maskMotion}
         motion={panelMotion}
         {...rest}
-        open={visible}
+        open={open}
         mask={mask}
         push={push}
         width={mergedWidth}
         height={mergedHeight}
         rootClassName={drawerClassName}
         getContainer={getContainer}
-        afterOpenChange={open => {
-          afterVisibleChange?.(open);
-        }}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
@@ -203,7 +215,7 @@ function PurePanel({ style, ...restProps }: PurePanelProps) {
         ...style,
       }}
     >
-      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} visible />
+      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} open />
     </div>
   );
 }

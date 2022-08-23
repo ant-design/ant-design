@@ -22,7 +22,7 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocus | 抽屉展开后是否将焦点切换至其 Dom 节点 | boolean | true | 4.17.0 |
-| afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | - |  |
+| afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
 | bodyStyle | 可用于设置 Drawer 内容部分的样式 | CSSProperties | - |  |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | closable | 是否显示左上角的关闭按钮 | boolean | true |  |
@@ -47,7 +47,7 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
-| visible | Drawer 是否可见 | boolean | - |  |
+| open | Drawer 是否可见 | boolean | - |  |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
