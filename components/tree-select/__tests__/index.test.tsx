@@ -1,5 +1,5 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { render } from '../../../tests/utils';
 import TreeSelect, { TreeNode } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -12,7 +12,7 @@ describe('TreeSelect', () => {
 
   describe('TreeSelect Custom Icons', () => {
     it('should support customized icons', () => {
-      const wrapper = mount(
+      const { container } = render(
         <TreeSelect
           showSearch
           clearIcon={<span>clear</span>}
@@ -32,22 +32,23 @@ describe('TreeSelect', () => {
         </TreeSelect>,
       );
 
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
 
     it('should `treeIcon` work', () => {
-      const wrapper = mount(
+      const { container } = render(
         <TreeSelect treeIcon open>
           <TreeNode value="parent 1" title="parent 1" icon={<span>Bamboo</span>} />
         </TreeSelect>,
       );
 
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
   it('should support notFoundContent', () => {
-    const wrapper = mount(<TreeSelect treeIcon open notFoundContent="notFoundContent" />);
-    expect(wrapper.text()).toBe('notFoundContent');
+    const content = 'notFoundContent';
+    const { container } = render(<TreeSelect treeIcon open notFoundContent={content} />);
+    expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 });
