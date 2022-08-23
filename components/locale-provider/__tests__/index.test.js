@@ -226,9 +226,7 @@ describe('Locale Provider', () => {
     class ModalDemo extends React.Component {
       componentDidMount() {
         jest.useFakeTimers();
-        Modal.confirm({
-          title: 'Hello World!',
-        });
+        Modal.confirm({ title: 'Hello World!' });
         act(() => {
           jest.runAllTimers();
         });
@@ -245,13 +243,11 @@ describe('Locale Provider', () => {
           <ModalDemo />
         </LocaleProvider>,
       );
-      const currentConfirmNode =
-        document.querySelectorAll('.ant-modal-confirm')[
-          document.querySelectorAll('.ant-modal-confirm').length - 1
-        ];
+      const confirmNodes = document.querySelectorAll('.ant-modal-confirm');
+      const currentConfirmNode = confirmNodes[confirmNodes.length - 1];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
-      )[0].innerHTML;
+      )[0]?.innerHTML;
       let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0]?.innerHTML;
       if (locale.locale.indexOf('zh-') === 0) {
         cancelButtonText = cancelButtonText.replace(' ', '');
