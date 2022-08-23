@@ -52,11 +52,14 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
-  warning(
-    !('visible' in props),
-    'Tag',
-    '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
-  );
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('visible' in props),
+      'Tag',
+      '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+    );
+  }
 
   React.useEffect(() => {
     if ('visible' in props) {

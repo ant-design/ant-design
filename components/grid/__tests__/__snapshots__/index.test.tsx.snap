@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid renders wrapped Col correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left: -10px; margin-right: -10px;"
+>
+  <div>
+    <div
+      class="ant-col ant-col-12"
+      style="padding-left: 10px; padding-right: 10px;"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 10px; padding-right: 10px;"
+  />
+</div>
+`;
+
+exports[`Grid rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-row ant-row-rtl"
+/>
+`;
+
+exports[`Grid rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-col ant-col-rtl"
+/>
+`;
+
+exports[`Grid should render Col 1`] = `
+<div
+  class="ant-col ant-col-2"
+/>
+`;
+
+exports[`Grid should render Row 1`] = `
+<div
+  class="ant-row"
+/>
+`;
+
+exports[`Grid when typeof gutter is object array in large screen 1`] = `
+<div
+  class="ant-row"
+  style="margin: -200px -20px -200px -20px;"
+/>
+`;

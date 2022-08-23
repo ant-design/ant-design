@@ -4,7 +4,7 @@ import { act, fireEvent, render } from '../../../tests/utils';
 
 describe('Drawer', () => {
   const getDrawer = props => (
-    <Drawer visible getContainer={false} {...props}>
+    <Drawer open getContainer={false} {...props}>
       Here is content of Drawer
     </Drawer>
   );
@@ -21,7 +21,7 @@ describe('Drawer', () => {
     const { container, asFragment, rerender } = render(getDrawer());
     expect(container.querySelector('.ant-drawer-body')).toBeTruthy();
 
-    rerender(getDrawer({ visible: false }));
+    rerender(getDrawer({ open: false }));
 
     expect(container.querySelector('.ant-drawer-body').textContent).toEqual(
       'Here is content of Drawer',
@@ -58,7 +58,7 @@ describe('Drawer', () => {
     const { container, rerender } = render(getDrawer({ destroyOnClose: true }));
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
-    rerender(getDrawer({ destroyOnClose: true, visible: false }));
+    rerender(getDrawer({ destroyOnClose: true, open: false }));
     act(() => {
       jest.runAllTimers();
     });
@@ -70,7 +70,7 @@ describe('Drawer', () => {
     const { container, rerender } = render(getDrawer());
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
-    rerender(getDrawer({ visible: false }));
+    rerender(getDrawer({ open: false }));
     act(() => {
       jest.runAllTimers();
     });
@@ -80,11 +80,11 @@ describe('Drawer', () => {
   });
 
   it('dom should be existed after close twice when getContainer is false', () => {
-    const { container, rerender } = render(getDrawer({ visible: true, getContainer: false }));
+    const { container, rerender } = render(getDrawer({ open: true, getContainer: false }));
     expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
 
     // Hide
-    rerender(getDrawer({ visible: false, getContainer: false }));
+    rerender(getDrawer({ open: false, getContainer: false }));
     act(() => {
       jest.runAllTimers();
     });
@@ -92,12 +92,12 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
 
     // Show
-    rerender(getDrawer({ visible: true, getContainer: false }));
+    rerender(getDrawer({ open: true, getContainer: false }));
     expect(container.querySelector('.ant-drawer-content-wrapper')).toBeTruthy();
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeFalsy();
 
     // Hide
-    rerender(getDrawer({ visible: false, getContainer: false }));
+    rerender(getDrawer({ open: false, getContainer: false }));
     act(() => {
       jest.runAllTimers();
     });
@@ -107,8 +107,8 @@ describe('Drawer', () => {
 
   it('test afterVisibleChange', async () => {
     const afterVisibleChange = jest.fn();
-    const { container, rerender } = render(getDrawer({ afterVisibleChange, visible: true }));
-    rerender(getDrawer({ afterVisibleChange, visible: false }));
+    const { container, rerender } = render(getDrawer({ afterVisibleChange, open: true }));
+    rerender(getDrawer({ afterVisibleChange, open: false }));
 
     act(() => {
       jest.runAllTimers();
@@ -128,18 +128,18 @@ describe('Drawer', () => {
 
     const RefDemo = () => {
       const ref = React.useRef();
-      const [visible, setVisible] = React.useState(false);
+      const [open, setOpen] = React.useState(false);
 
       React.useEffect(() => {
-        if (visible) {
+        if (open) {
           refCallback(ref.current);
         }
-      }, [visible]);
+      }, [open]);
 
       return (
         <>
-          <a onClick={() => setVisible(true)}>open</a>
-          <Drawer visible={visible}>
+          <a onClick={() => setOpen(true)}>open</a>
+          <Drawer open={open}>
             <div ref={ref} />
           </Drawer>
         </>
