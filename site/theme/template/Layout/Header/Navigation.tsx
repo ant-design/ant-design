@@ -13,7 +13,6 @@ import './Navigation.less';
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  isRTL: boolean;
   pathname: string;
   responsive: null | 'narrow' | 'crowded';
   location: { pathname: string; query: any };

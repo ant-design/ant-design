@@ -8,7 +8,7 @@ import { useToken } from '../../theme';
 import theme from '../../theme/export';
 import { resetWarned } from '../../_util/warning';
 
-const { darkAlgorithm } = theme;
+const { defaultAlgorithm, darkAlgorithm, defaultAlgorithmV4, darkAlgorithmV4 } = theme;
 
 let mockCanUseDom = true;
 
@@ -66,6 +66,51 @@ describe('ConfigProvider.Theme', () => {
     };
     render(
       <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimary).toBe('#177ddc');
+  });
+
+  it('defaultAlgorithmV4 should work', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: defaultAlgorithmV4 }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimaryText).toBe('#1890ff');
+  });
+
+  it('darkAlgorithmV4 should work', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: darkAlgorithmV4 }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+  });
+
+  it('should support algorithm array', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ algorithm: [defaultAlgorithm, darkAlgorithm] }}>
         <Demo />
       </ConfigProvider>,
     );

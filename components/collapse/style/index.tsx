@@ -69,6 +69,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
 
+          [`> ${componentCls}-header-text`]: {
+            flex: 'auto',
+          },
+
           '&:focus': {
             outline: 'none',
           },
@@ -100,6 +104,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           cursor: 'default',
 
           [`${componentCls}-header-text`]: {
+            flex: 'none',
             cursor: 'pointer',
           },
         },
@@ -138,22 +143,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         `]: {
           color: colorTextDisabled,
           cursor: 'not-allowed',
-        },
-      },
-
-      // ============================== Ghost ==============================
-      [`&-ghost`]: {
-        backgroundColor: 'transparent',
-        border: 0,
-        [`> ${componentCls}-item`]: {
-          borderBottom: 0,
-          [`> ${componentCls}-content`]: {
-            backgroundColor: 'transparent',
-            border: 0,
-            [`> ${componentCls}-content-box`]: {
-              paddingBlock: paddingSM,
-            },
-          },
         },
       },
 
@@ -234,18 +223,40 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
+const genGhostStyle: GenerateStyle<CollapseToken> = token => {
+  const { componentCls, paddingSM } = token;
+
+  return {
+    [`${componentCls}-ghost`]: {
+      backgroundColor: 'transparent',
+      border: 0,
+      [`> ${componentCls}-item`]: {
+        borderBottom: 0,
+        [`> ${componentCls}-content`]: {
+          backgroundColor: 'transparent',
+          border: 0,
+          [`> ${componentCls}-content-box`]: {
+            paddingBlock: paddingSM,
+          },
+        },
+      },
+    },
+  };
+};
+
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
     collapseContentBg: token.colorBgContainer,
     collapseContentPadding: token.padding,
     collapseHeaderBg: token.colorFillAlter,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    collapsePanelBorderRadius: token.radiusBase,
+    collapsePanelBorderRadius: token.radiusLG,
   });
 
   return [
     genBaseStyle(collapseToken),
     genBorderlessStyle(collapseToken),
+    genGhostStyle(collapseToken),
     genArrowStyle(collapseToken),
     genCollapseMotion(collapseToken),
   ];

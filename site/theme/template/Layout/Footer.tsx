@@ -1,8 +1,6 @@
-import React from 'react';
-import { message } from 'antd';
+import React, { useMemo } from 'react';
 import RcFooter from 'rc-footer';
 import { Link } from 'bisheng/router';
-import { presetPalettes } from '@ant-design/colors';
 import type { WrappedComponentProps } from 'react-intl';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import {
@@ -19,21 +17,13 @@ import {
   QuestionCircleOutlined,
   BgColorsOutlined,
 } from '@ant-design/icons';
-import ColorPicker from '../Color/ColorPicker';
-import { loadScript, getLocalizedPathname } from '../utils';
+import type { FooterColumn } from 'rc-footer/lib/column';
+import { getLocalizedPathname } from '../utils';
 
-class Footer extends React.Component<WrappedComponentProps & { location: any }> {
-  lessLoaded = false;
-
-  state = {
-    color: presetPalettes.blue.primary,
-  };
-
-  getColumns() {
-    const { intl, location } = this.props;
-
+const Footer: React.FC<WrappedComponentProps & { location: any }> = props => {
+  const { intl, location } = props;
+  const getColumns = useMemo<FooterColumn[]>(() => {
     const isZhCN = intl.locale === 'zh-CN';
-
     const getLinkHash = (path: string, hash: { zhCN: string; enUS: string }) => {
       const pathName = getLocalizedPathname(path, isZhCN, location.query, hash);
       const { pathname, query = {} } = pathName;
@@ -182,7 +172,7 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
           enUS: 'JoinUs',
         }),
         LinkComponent: Link,
-      } as any);
+      } as unknown as typeof col2['items'][number]);
     }
 
     const col3 = {
@@ -318,82 +308,23 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
         },
       ],
     };
-
     return [col1, col2, col3, col4];
-  }
+  }, [intl.locale, location.query]);
 
-  handleColorChange = (color: string) => {
-    const {
-      intl: { messages },
-    } = this.props;
-    message.loading({
-      content: messages['app.footer.primary-color-changing'] as string,
-      key: 'change-primary-color',
-    });
-    const changeColor = () => {
-      (window as any).less
-        .modifyVars({
-          '@primary-color': color,
-        })
-        .then(() => {
-          message.success({
-            content: messages['app.footer.primary-color-changed'] as string,
-            key: 'change-primary-color',
-          });
-          this.setState({ color });
-        });
-    };
-
-    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less/3.10.3/dist/less.min.js';
-
-    if (this.lessLoaded) {
-      changeColor();
-    } else {
-      (window as any).less = {
-        async: true,
-        javascriptEnabled: true,
-      };
-      loadScript(lessUrl).then(() => {
-        this.lessLoaded = true;
-        changeColor();
-      });
-    }
-  };
-
-  renderThemeChanger() {
-    const { color } = this.state;
-    const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
-    return (
-      <ColorPicker
-        small
-        color={color}
-        position="top"
-        presetColors={[
-          ...colors.map(c => presetPalettes[c][5]),
-          ...colors.map(c => presetPalettes[c][4]),
-          ...colors.map(c => presetPalettes[c][6]),
-        ]}
-        onChangeComplete={this.handleColorChange}
-      />
-    );
-  }
-
-  render() {
-    return (
-      <RcFooter
-        columns={this.getColumns()}
-        bottom={
-          <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by
-            {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
-            <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
-              <FormattedMessage id="app.footer.company" />
-            </a>
-          </>
-        }
-      />
-    );
-  }
-}
+  return (
+    <RcFooter
+      columns={getColumns}
+      bottom={
+        <>
+          Made with <span style={{ color: '#fff' }}>❤</span> by
+          {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
+          <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
+            <FormattedMessage id="app.footer.company" />
+          </a>
+        </>
+      }
+    />
+  );
+};
 
 export default injectIntl(Footer);

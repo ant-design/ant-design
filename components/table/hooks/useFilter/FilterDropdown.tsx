@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import type { FieldDataNode } from 'rc-tree';
 import * as React from 'react';
+import type { MenuProps } from '../../../menu';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
 import Button from '../../../button';
@@ -11,7 +12,6 @@ import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
@@ -137,8 +137,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } = props;
 
   const {
-    filterDropdownVisible,
-    onFilterDropdownVisibleChange,
+    filterDropdownOpen,
+    onFilterDropdownOpenChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
   } = column;
@@ -150,11 +150,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
-    onFilterDropdownVisibleChange?.(newVisible);
+    onFilterDropdownOpenChange?.(newVisible);
   };
 
-  const mergedVisible =
-    typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
+  const mergedVisible = typeof filterDropdownOpen === 'boolean' ? filterDropdownOpen : visible;
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;

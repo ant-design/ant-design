@@ -56,14 +56,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${componentCls}-rail`]: {
         position: 'absolute',
         backgroundColor: token.colorFillSecondary,
-        borderRadius: token.controlRadius,
+        borderRadius: token.controlRadiusXS,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimaryBorder,
-        borderRadius: token.controlRadius,
+        borderRadius: token.controlRadiusXS,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
@@ -132,7 +132,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${componentCls}-mark-text`]: {
         position: 'absolute',
         display: 'inline-block',
-        color: token.colorTextSecondary,
+        color: token.colorTextDescription,
         textAlign: 'center',
         wordBreak: 'keep-all',
         cursor: 'pointer',

@@ -25,6 +25,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     fontWeight: 'normal',
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
+    boxSizing: 'border-box',
   };
 };
 
@@ -51,7 +52,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
         backgroundColor: token.colorBgElevated,
-        borderRadius: token.controlRadius,
+        borderRadius: token.controlRadiusLG,
         outline: 'none',
         boxShadow: token.boxShadow,
 
@@ -98,7 +99,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
 
           // =========== Group ============
           '&-group': {
-            color: token.colorTextSecondary,
+            color: token.colorTextDescription,
             fontSize: token.fontSizeSM,
             cursor: 'default',
           },

@@ -456,10 +456,14 @@ describe('ConfigProvider', () => {
     // Slider
     testPair('Slider', props => {
       const myProps = { ...props };
+      const tooltip = {
+        open: true,
+      };
+
       if (myProps.prefixCls) {
-        myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
+        tooltip.prefixCls = `${myProps.prefixCls}-tooltip`;
       }
-      return <Slider tooltipVisible {...myProps} />;
+      return <Slider tooltip={tooltip} {...myProps} />;
     });
 
     // Spin
@@ -506,7 +510,7 @@ describe('ConfigProvider', () => {
               ],
             },
           ],
-          filterDropdownVisible: true,
+          filterDropdownOpen: true,
           onFilter: (value, record) => record.name.indexOf(value) === 0,
           sorter: (a, b) => a.name.length - b.name.length,
         },

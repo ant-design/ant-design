@@ -148,42 +148,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="space-align-block"
-  >
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-stretch"
-    >
-      <div
-        class="ant-space-item"
-        style="margin-right:8px"
-      >
-        stretch
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right:8px"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-      >
-        <span
-          class="mock-block"
-        >
-          Block
-        </span>
-      </div>
-    </div>
-  </div>
 </div>
 `;
 

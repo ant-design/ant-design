@@ -54,6 +54,7 @@ exports[`Radio should render correctly 1`] = `
     <input
       class="ant-radio-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-inner"

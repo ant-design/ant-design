@@ -37,7 +37,7 @@ const App: React.FC = () => {
           Open
         </Button>
         <Drawer
-          style={{ position: 'absolute' }}
+          rootStyle={{ position: 'absolute' }}
           title="ConfigProvider"
           placement="right"
           onClose={onClose}

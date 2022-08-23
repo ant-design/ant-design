@@ -56,6 +56,7 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  popupClassName?: string;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -66,7 +67,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     bordered = true,
     className,
     getPopupContainer,
-    dropdownClassName,
+    popupClassName,
     listHeight = 256,
     placement,
     listItemHeight = 24,
@@ -144,7 +145,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropdownClassName = classNames(
-    dropdownClassName,
+    popupClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },

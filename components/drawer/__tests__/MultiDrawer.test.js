@@ -113,8 +113,10 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer placement="right" />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateX(-180px)');
+
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateX(-180px)',
+    });
     expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
 
@@ -122,8 +124,10 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer placement="left" />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateX(180px)');
+
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateX(180px)',
+    });
     expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
     fireEvent.click(wrapper.querySelector('.Two-level .ant-drawer-close'));
     expect(wrapper.querySelector('.childrenDrawer').innerHTML).toEqual('false');
@@ -133,8 +137,9 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer placement="top" />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateY(180px)');
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateY(180px)',
+    });
     expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
 
@@ -143,11 +148,18 @@ describe('Drawer', () => {
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
     fireEvent.click(wrapper.querySelector('button#remove_drawer'));
-    let translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('');
+
+    // Strange, testing-lib get wrong style in next branch.
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper').style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
+
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateY(180px)');
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateY(180px)',
+    });
     expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
 
@@ -155,23 +167,28 @@ describe('Drawer', () => {
     const { container: wrapper } = render(<MultiDrawer push={{ distance: 256 }} />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateX(-256px)');
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateX(-256px)',
+    });
   });
 
   it('custom MultiDrawer push with true', () => {
     const { container: wrapper } = render(<MultiDrawer push />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('translateX(-180px)');
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+      transform: 'translateX(-180px)',
+    });
   });
 
   it('custom MultiDrawer push with false', () => {
     const { container: wrapper } = render(<MultiDrawer push={false} />);
     fireEvent.click(wrapper.querySelector('button#open_drawer'));
     fireEvent.click(wrapper.querySelector('button#open_two_drawer'));
-    const translateX = wrapper.querySelectorAll('.ant-drawer.test_drawer')[0].style.transform;
-    expect(translateX).toEqual('');
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper').style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
   });
 });

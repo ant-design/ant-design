@@ -54,6 +54,7 @@ export interface TreeSelectProps<
   size?: SizeType;
   disabled?: boolean;
   placement?: SelectCommonPlacement;
+  popupClassName?: string;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -76,7 +77,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     switcherIcon,
     treeLine,
     getPopupContainer,
-    dropdownClassName,
+    popupClassName,
     treeIcon = false,
     transitionName,
     choiceTransitionName = '',
@@ -112,7 +113,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(
-    dropdownClassName,
+    popupClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',

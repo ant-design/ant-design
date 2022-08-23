@@ -81,6 +81,7 @@ import {
   Transfer,
 } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
+import { act } from '../../../tests/utils';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
@@ -296,7 +297,9 @@ describe('Locale Provider', () => {
         Modal.confirm({
           title: 'Hello World!',
         });
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         jest.useRealTimers();
       }
 

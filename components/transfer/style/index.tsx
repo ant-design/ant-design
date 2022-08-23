@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { operationUnit, resetComponent, resetIcon } from '../../style';
+import { resetComponent, resetIcon } from '../../style';
 
 export interface ComponentToken {
   listWidth: number;
@@ -105,6 +105,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     paddingSM,
     controlLineType,
     iconCls,
+    motionDurationSlow,
   } = token;
 
   return {
@@ -113,7 +114,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     width: listWidth,
     height: listHeight,
     border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-    borderRadius: token.radiusBase,
+    borderRadius: token.controlRadiusLG,
 
     '&-with-pagination': {
       width: listWidthLG,
@@ -138,7 +139,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       color: token.colorText,
       background: token.colorBgContainer,
       borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
-      borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
+      borderRadius: `${token.controlRadiusLG}px ${token.controlRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
         marginInlineEnd: marginXXS,
@@ -195,7 +196,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         alignItems: 'center',
         minHeight: transferItemHeight,
         padding: `${transferItemPaddingVertical}px ${paddingSM}px`,
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${motionDurationSlow}`,
 
         '> *:not(:last-child)': {
           marginInlineEnd: marginXS,
@@ -213,18 +214,20 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-remove': {
-          ...operationUnit(token),
           position: 'relative',
           color: colorBorder,
+
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
+
+          '&:hover': {
+            color: token.colorLinkHover,
+          },
 
           '&::after': {
             position: 'absolute',
             insert: `-${transferItemPaddingVertical}px -50%`,
             content: '""',
-          },
-
-          '&:hover': {
-            color: token.colorLinkHover,
           },
         },
 

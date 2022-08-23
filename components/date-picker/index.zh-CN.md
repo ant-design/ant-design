@@ -60,7 +60,7 @@ import locale from 'antd/es/locale/zh_CN';
 | dateRender | 自定义日期单元格的内容 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - |  |
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs) => boolean | - |  |
-| dropdownClassName | 额外的弹出日历 className | string | - |  |
+| popupClassName | 额外的弹出日历 className | string | - | 4.23.0 |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |

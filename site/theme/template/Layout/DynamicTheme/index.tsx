@@ -95,6 +95,14 @@ export default function DynamicTheme({
                   label: 'Dark',
                   value: 'dark',
                 },
+                {
+                  label: 'Default-V4',
+                  value: 'defaultV4',
+                },
+                {
+                  label: 'Dark-V4',
+                  value: 'darkV4',
+                },
               ]}
             />
           </Form.Item>

@@ -74,13 +74,13 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       [`${prefixCls}-${size}`]: !!size,
     });
 
-    const omittedProps = {
+    const omittedProps: InputProps = {
       ...omit(restProps, ['suffix', 'iconRender']),
       type: visible ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,
       suffix: suffixIcon,
-    } as InputProps;
+    };
 
     if (size) {
       omittedProps.size = size;

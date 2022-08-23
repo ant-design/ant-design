@@ -41,14 +41,18 @@ export type {
 };
 
 // ================================ Context =================================
+// To ensure snapshot stable. We disable hashed in test env.
+export const defaultConfig = {
+  token: defaultSeedToken,
+  hashed: true,
+};
+
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
   theme?: Theme<SeedToken, MapToken>;
   override?: OverrideToken;
   hashed?: string | boolean;
-}>({
-  token: defaultSeedToken,
-});
+}>(defaultConfig);
 
 // ================================== Hook ==================================
 // In dev env, we refresh salt per hour to avoid user use this
