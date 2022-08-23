@@ -101,6 +101,8 @@ describe('Modal', () => {
       'Warning: [antd: Modal] `visible` will be removed in next major version, please use `open` instead.',
     );
 
+    expect(document.querySelector('.ant-modal')).toBeTruthy();
+
     errSpy.mockRestore();
   });
 });

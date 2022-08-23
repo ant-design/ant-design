@@ -378,12 +378,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
                 <Button type="primary" onClick={showModal}>
                   Open Modal
                 </Button>
-                <Modal
-                  title="پنچره ساده"
-                  visible={modalOpen}
-                  onOk={handleOk}
-                  onCancel={handleCancel}
-                >
+                <Modal title="پنچره ساده" open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>
