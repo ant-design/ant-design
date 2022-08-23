@@ -57,8 +57,6 @@ function Drawer(props: DrawerProps) {
     drawerStyle,
     open,
     children,
-    className,
-    style,
     title,
     headerStyle,
     onClose,
@@ -196,7 +194,6 @@ function Drawer(props: DrawerProps) {
         height={mergedHeight}
         rootClassName={drawerClassName}
         getContainer={getContainer}
-        rootStyle={style}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
