@@ -7,12 +7,22 @@ import Wave from '../wave';
 describe('Wave component', () => {
   mountTest(Wave);
 
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
+
   afterEach(() => {
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
     }
   });
+
+  function filterStyles(styles: any) {
+    return Array.from<HTMLStyleElement>(styles).filter(
+      (style: HTMLStyleElement) => !style.hasAttribute('data-css-hash'),
+    );
+  }
 
   it('isHidden works', () => {
     const TEST_NODE_ENV = process.env.NODE_ENV;
@@ -60,9 +70,10 @@ describe('Wave component', () => {
     );
     container.querySelector('button')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(0);
     unmount();
   });
@@ -77,9 +88,10 @@ describe('Wave component', () => {
     );
     container.querySelector('button')?.click();
     await sleep(200);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
@@ -93,9 +105,10 @@ describe('Wave component', () => {
     );
     container.querySelector('div')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: blue;');
     unmount();
@@ -109,9 +122,10 @@ describe('Wave component', () => {
     );
     container.querySelector('div')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: green;');
     unmount();
@@ -125,9 +139,10 @@ describe('Wave component', () => {
     );
     container.querySelector('div')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: yellow;');
     unmount();
@@ -143,9 +158,10 @@ describe('Wave component', () => {
     );
     container.querySelector('button')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles.length).toBe(0);
     unmount();
   });
@@ -160,9 +176,10 @@ describe('Wave component', () => {
     );
     container.querySelector('button')?.click();
     await sleep(0);
-    const styles = (
+    let styles: HTMLCollectionOf<HTMLStyleElement> | HTMLStyleElement[] = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
+    styles = filterStyles(styles);
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
     unmount();
   });
@@ -226,9 +243,10 @@ describe('Wave component', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     await sleep(200);
-    const styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
+    let styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
       'style',
     );
+    styles = filterStyles(styles);
     expect(styles.length).toBe(1);
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
@@ -244,10 +262,11 @@ describe('Wave component', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     await sleep(200);
-    const styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
+    let styles = (container.querySelector('button')!.getRootNode() as any).getElementsByTagName(
       'style',
     );
-    expect(styles.length).toBe(1);
+    styles = filterStyles(styles);
+
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     unmount();
   });
