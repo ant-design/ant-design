@@ -18,18 +18,16 @@ describe('ConfigProvider.Theme', () => {
     it(colorName, () => {
       ConfigProvider.config({
         prefixCls: 'bamboo',
-        theme: {
-          [colorName]: '#0000FF',
-        },
+        theme: { [colorName]: '#0000FF' },
       });
 
-      const styles: any[] = Array.from(document.querySelectorAll('style'));
+      const styles: HTMLStyleElement[] = Array.from(document.querySelectorAll('style'));
       const themeStyle = styles.find(style =>
-        style.getAttribute('rc-util-key').includes('-dynamic-theme'),
+        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
 
-      expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
+      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
     });
   });
 
@@ -40,9 +38,7 @@ describe('ConfigProvider.Theme', () => {
     mockCanUseDom = false;
     expect(canUseDom()).toBeFalsy();
 
-    ConfigProvider.config({
-      theme: {},
-    });
+    ConfigProvider.config({ theme: {} });
 
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: ConfigProvider] SSR do not support dynamic theme with css variables.',
