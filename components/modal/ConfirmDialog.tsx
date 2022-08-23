@@ -24,6 +24,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     zIndex,
     afterClose,
     visible,
+    open,
     keyboard,
     centered,
     getContainer,
@@ -90,8 +91,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
           { [`${contentPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close({ triggerCancel: true })}
-        visible={visible}
+        onCancel={() => close?.({ triggerCancel: true })}
+        open={open || visible}
         title=""
         footer=""
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}

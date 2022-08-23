@@ -1232,7 +1232,7 @@ describe('Form', () => {
     const Demo = () => (
       <Form>
         <Form.Item labelCol={4} validateStatus="error">
-          <Modal visible>
+          <Modal open>
             <Select className="modal-select" />
           </Modal>
         </Form.Item>
