@@ -105,17 +105,17 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
-  it('test afterVisibleChange', async () => {
-    const afterVisibleChange = jest.fn();
-    const { container, rerender } = render(getDrawer({ afterVisibleChange, open: true }));
-    rerender(getDrawer({ afterVisibleChange, open: false }));
+  it('test afterOpenChange', async () => {
+    const afterOpenChange = jest.fn();
+    const { container, rerender } = render(getDrawer({ afterOpenChange, open: true }));
+    rerender(getDrawer({ afterOpenChange, open: false }));
 
     act(() => {
       jest.runAllTimers();
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper'));
 
-    expect(afterVisibleChange).toBeCalledTimes(1);
+    expect(afterOpenChange).toBeCalledTimes(1);
   });
 
   it('should support children ref', () => {
