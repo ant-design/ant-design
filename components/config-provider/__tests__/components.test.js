@@ -275,7 +275,7 @@ describe('ConfigProvider', () => {
     testPair('Divider', props => <Divider {...props} />);
 
     // Drawer
-    testPair('Drawer', props => <Drawer {...props} visible getContainer={false} />);
+    testPair('Drawer', props => <Drawer {...props} open getContainer={false} />);
 
     // Dropdown
     testPair('Dropdown', props => {
