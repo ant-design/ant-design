@@ -3,6 +3,7 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import React from 'react';
 import { render } from '../../../tests/utils';
+import type { Locale } from '..';
 import LocaleProvider from '..';
 import {
   Calendar,
@@ -166,7 +167,7 @@ const columns = [
   { title: 'Age', dataIndex: 'age' },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <div>
     <Pagination defaultCurrent={1} total={50} showSizeChanger />
     <Select showSearch style={{ width: 200 }}>
@@ -179,7 +180,7 @@ const App = () => (
     <Popconfirm title="Question?" visible>
       <a>Click to confirm</a>
     </Popconfirm>
-    <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
+    <Transfer dataSource={[]} showSearch targetKeys={[]} render={(item: any) => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" visible getContainer={false}>
@@ -223,15 +224,11 @@ describe('Locale Provider', () => {
           </Modal>
         </LocaleProvider>,
       );
-      let cancelButtonText = container.firstChild.querySelector(
-        'button.ant-btn-default span',
-      )?.innerHTML;
-      let okButtonText = container.firstChild.querySelector(
-        'button.ant-btn-primary span',
-      )?.innerHTML;
+      let cancelButtonText = container?.querySelector('button.ant-btn-default span')?.innerHTML;
+      let okButtonText = container?.querySelector('button.ant-btn-primary span')?.innerHTML;
       if (locale.locale.includes('zh-')) {
-        cancelButtonText = cancelButtonText.replace(' ', '');
-        okButtonText = okButtonText.replace(' ', '');
+        cancelButtonText = cancelButtonText?.replace(' ', '');
+        okButtonText = okButtonText?.replace(' ', '');
       }
       expect(cancelButtonText).toBe(locale.Modal?.cancelText);
       expect(okButtonText).toBe(locale.Modal?.okText);
@@ -239,7 +236,7 @@ describe('Locale Provider', () => {
   });
 
   it('set moment locale when locale changes', () => {
-    const Test = ({ locale }) => (
+    const Test: React.FC<{ locale?: Locale }> = ({ locale }) => (
       <LocaleProvider locale={locale}>
         <div>
           <DatePicker defaultValue={moment()} open />
