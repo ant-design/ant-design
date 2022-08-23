@@ -1,12 +1,11 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { Modal } from '../..';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
-class Demo extends React.Component {
+class Demo extends React.Component<{ type: string }> {
   static defaultProps = {};
 
   componentDidMount() {
@@ -24,8 +23,8 @@ describe('Locale Provider demo', () => {
   it('change type', async () => {
     jest.useFakeTimers();
 
-    const BasicExample = () => {
-      const [type, setType] = React.useState('');
+    const BasicExample: React.FC = () => {
+      const [type, setType] = React.useState<string>('');
       return (
         <div>
           <a className="about" onClick={() => setType('about')}>
@@ -49,21 +48,21 @@ describe('Locale Provider demo', () => {
         </div>
       );
     };
-    const wrapper = mount(<BasicExample />);
+    const { container } = render(<BasicExample />);
 
-    wrapper.find('.about').at(0).simulate('click');
+    fireEvent.click(container.querySelector('.about')!);
     await act(async () => {
       jest.runAllTimers();
       await sleep();
     });
 
-    wrapper.find('.dashboard').at(0).simulate('click');
+    fireEvent.click(container.querySelector('.dashboard')!);
     await act(async () => {
       jest.runAllTimers();
       await sleep();
     });
 
-    expect(document.body.querySelectorAll('.ant-btn-primary span')[0].textContent).toBe('确 定');
+    expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();
     jest.useRealTimers();
   });

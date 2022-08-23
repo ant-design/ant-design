@@ -1,8 +1,8 @@
 /* eslint-disable react/no-multi-comp */
-import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import React from 'react';
+import { render, act } from '../../../tests/utils';
 import LocaleProvider from '..';
 import {
   Calendar,
@@ -16,7 +16,6 @@ import {
   Transfer,
 } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
-import { act } from '../../../tests/utils';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
@@ -214,12 +213,12 @@ describe('Locale Provider', () => {
 
   locales.forEach(locale => {
     it(`should display the text as ${locale.locale}`, () => {
-      const wrapper = mount(
+      const { container } = render(
         <LocaleProvider locale={locale}>
           <App />
         </LocaleProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
@@ -241,7 +240,7 @@ describe('Locale Provider', () => {
       }
     }
     locales.forEach(locale => {
-      mount(
+      render(
         <LocaleProvider locale={locale}>
           <ModalDemo />
         </LocaleProvider>,
@@ -253,13 +252,13 @@ describe('Locale Provider', () => {
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',
       )[0].innerHTML;
-      let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0].innerHTML;
+      let okButtonText = currentConfirmNode.querySelectorAll('.ant-btn-primary span')[0]?.innerHTML;
       if (locale.locale.indexOf('zh-') === 0) {
         cancelButtonText = cancelButtonText.replace(' ', '');
         okButtonText = okButtonText.replace(' ', '');
       }
-      expect(cancelButtonText).toBe(locale.Modal.cancelText);
-      expect(okButtonText).toBe(locale.Modal.okText);
+      expect(cancelButtonText).toBe(locale.Modal?.cancelText);
+      expect(okButtonText).toBe(locale.Modal?.okText);
     });
   });
 
@@ -272,11 +271,13 @@ describe('Locale Provider', () => {
       </LocaleProvider>
     );
 
-    const wrapper = mount(<Test locale={zhCN} />);
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: frFR });
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ locale: null });
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container, rerender } = render(<Test locale={zhCN} />);
+    expect(container.firstChild).toMatchSnapshot();
+
+    rerender(<Test locale={frFR} />);
+    expect(container.firstChild).toMatchSnapshot();
+
+    rerender(<Test />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
