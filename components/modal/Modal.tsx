@@ -160,7 +160,7 @@ const Modal: React.FC<ModalProps> = props => {
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      props.visible !== undefined,
+      props.visible === undefined,
       'Modal',
       `\`visible\` is removed in v5, please use \`open\` instead.`,
     );
