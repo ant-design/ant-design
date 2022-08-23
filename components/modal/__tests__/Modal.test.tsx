@@ -101,8 +101,6 @@ describe('Modal', () => {
       'Warning: [antd: Modal] `visible` is removed in v5, please use `open` instead.',
     );
 
-    expect(document.querySelector('.ant-modal')).toBeTruthy();
-
     errSpy.mockRestore();
   });
 });
