@@ -824,6 +824,41 @@ describe('Menu', () => {
     jest.useRealTimers();
   });
 
+  it('props#onOpen and props#onClose do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpen = jest.fn();
+    const onClose = jest.fn();
+    render(
+      <Menu
+        defaultOpenKeys={['1']}
+        mode="inline"
+        // @ts-ignore
+        onOpen={onOpen}
+        onClose={onClose}
+        items={[
+          {
+            key: '1',
+            label: 'submenu1',
+            children: [
+              { key: 'submenu1', label: 'Option 1' },
+              { key: 'submenu2', label: 'Option 2' },
+            ],
+          },
+          { key: '2', label: 'menu2' },
+        ]}
+      />,
+    );
+
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0][0]).not.toContain(
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, see: https://u.ant.design/menu-on-open-change.',
+    );
+    expect(onOpen).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
+  });
+
   // https://github.com/ant-design/ant-design/issues/18825
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
