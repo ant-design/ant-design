@@ -58,22 +58,18 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
   - Online library and prototype
   - https://www.xiaopiu.com/topic/ant-design
-  - -
 - UI Kit for Figma
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Library of components for Desktop
   - https://www.antforfigma.com
-  - -
 - UI Kit for Adobe XD
   - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
   - Library of components for Desktop
   - https://www.antforxd.com
-  - -
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
-  - -
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart
@@ -83,22 +79,18 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://cdn.modao.cc/logo_mockingbot.svg
   - Rich component resources
   - https://modao.cc/square/ant-design
-  - -
 - JiShi Design
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - Use fully components and templates on JiShi Design
   - https://js.design/antd
-  - -
 - Ant for Plasmic
   - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
   - Drag/drop live Ant components and manipulate props in this React visual builder
   - https://www.plasmic.app/ant-design
-  - -
 - MasterGo
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
-  - -
 
 ## Articles
 

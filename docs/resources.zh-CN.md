@@ -58,17 +58,14 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
   - 可在线编辑的组件库和交互原型
   - https://www.xiaopiu.com/topic/ant-design
-  - -
 - Figma 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 在 Figma 使用 Ant Design 进行设计
   - https://www.antforfigma.com
-  - -
 - Figma 开源组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 代码级精确度的免费开源 Figma 完全组件库
   - https://www.figma.com/community/file/831698976089873405
-  - -
 - 全新 Chart 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - 桌面组件 Chart 模板包
@@ -78,17 +75,14 @@ toc: false
   - https://cdn.modao.cc/logo_mockingbot.svg
   - 内置丰富的 Ant Design 组件资源
   - https://modao.cc/square/ant-design
-  - -
 - 全套资源包（即时设计）
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - 可在「即时设计」在线免费使用的全套组件和模板
   - https://js.design/antd
-  - -
 - MasterGo 组件包
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - 可在「MasterGo」在线免费使用的全套组件和模板
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
-  - -
 
 ## 文章
 
