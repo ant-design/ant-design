@@ -1,11 +1,11 @@
+import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import { render, fireEvent } from '../../../tests/utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
 jest.mock('../../grid/hooks/useBreakpoint');
@@ -213,5 +213,12 @@ describe('Avatar Render', () => {
     const wrapper = mount(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
     expect(wrapper.html().includes('crossorigin')).toEqual(false);
     expect(wrapper.find('img').prop('crossOrigin')).toEqual(undefined);
+  });
+
+  it('clickable', async () => {
+    const onClick = jest.fn();
+    const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
+    fireEvent.click(container.querySelector('.ant-avatar-string'));
+    expect(onClick).toHaveBeenCalled();
   });
 });

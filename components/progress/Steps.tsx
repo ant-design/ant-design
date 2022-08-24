@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import type { ProgressProps, ProgressSize } from './progress';
 
 interface ProgressStepsProps extends ProgressProps {
@@ -22,10 +22,10 @@ const Steps: React.FC<ProgressStepsProps> = props => {
   } = props;
   const current = Math.round(steps * (percent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
-  const styledSteps = [];
-  for (let i = 0; i < steps; i += 1) {
+  const styledSteps: React.ReactNode[] = new Array(steps);
+  for (let i = 0; i < steps; i++) {
     const color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
-    styledSteps.push(
+    styledSteps[i] = (
       <div
         key={i}
         className={classNames(`${prefixCls}-steps-item`, {
@@ -36,7 +36,7 @@ const Steps: React.FC<ProgressStepsProps> = props => {
           width: stepWidth,
           height: strokeWidth,
         }}
-      />,
+      />
     );
   }
   return (

@@ -65,7 +65,6 @@
     background-clip: padding-box;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-    box-shadow: ~'0 0 8px @{shadow-color} \9';
   }
 
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -129,6 +128,7 @@
     pointer-events: none;
 
     &-content {
+      --antd-arrow-background-color: @popover-bg;
       position: absolute;
       top: 0;
       right: 0;
@@ -138,10 +138,9 @@
       width: @popover-arrow-width;
       height: @popover-arrow-width;
       margin: auto;
-      background-color: @popover-bg;
       content: '';
       pointer-events: auto;
-      .roundedArrow(@popover-arrow-width, 5px, @popover-bg);
+      .roundedArrow(@popover-arrow-width, 5px);
     }
   }
 

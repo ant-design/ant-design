@@ -15,8 +15,8 @@ Use `rowSelection.selections` custom selections, default no select dropdown, sho
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
-import type { TableRowSelection } from 'antd/lib/table/interface';
+import type { ColumnsType } from 'antd/es/table';
+import type { TableRowSelection } from 'antd/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {

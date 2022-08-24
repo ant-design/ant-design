@@ -3481,8 +3481,8 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             />
                           </div>
                           <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option year-item"
+                            aria-selected="true"
+                            class="ant-select-item ant-select-item-option year-item ant-select-item-option-selected"
                             title="2016"
                           >
                             <div

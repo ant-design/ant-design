@@ -4,7 +4,7 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import Password from '../Password';
 
 describe('Input.Password', () => {
@@ -26,12 +26,11 @@ describe('Input.Password', () => {
     const { asFragment, container } = render(<Password size="large" />);
     expect(container.querySelector('.ant-input-affix-wrapper-lg')).toBeTruthy();
     expect(asFragment().firstChild).toMatchSnapshot();
-
   });
 
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input.Password />);
-    fireEvent.change(container.querySelector('input'), { target: { value: '111' } })
+    fireEvent.change(container.querySelector('input'), { target: { value: '111' } });
     expect(asFragment().firstChild).toMatchSnapshot();
 
     fireEvent.click(container.querySelector('.ant-input-password-icon'));
@@ -46,7 +45,6 @@ describe('Input.Password', () => {
     expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
     rerender(<Input.Password visibilityToggle />);
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
-
   });
 
   it('should not toggle visibility when disabled prop is true', () => {
@@ -85,10 +83,10 @@ describe('Input.Password', () => {
     fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
     await sleep();
     expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
-    fireEvent.blur(container.querySelector('input'))
+    fireEvent.blur(container.querySelector('input'));
     await sleep();
     expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
-    fireEvent.focus(container.querySelector('input'))
+    fireEvent.focus(container.querySelector('input'));
     await sleep();
     expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
   });

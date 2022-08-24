@@ -15,7 +15,7 @@ For long table，need to scroll to view the header and scroll bar，then you can
 
 ```tsx
 import { Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 
 interface DataType {

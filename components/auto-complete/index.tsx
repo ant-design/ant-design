@@ -6,11 +6,13 @@
  * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
  */
 
-import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import type { BaseSelectRef } from 'rc-select';
+import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -18,11 +20,9 @@ import type {
   RefSelectProps,
 } from '../select';
 import Select from '../select';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import warning from '../_util/warning';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 const { Option } = Select;
 

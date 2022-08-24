@@ -19,7 +19,7 @@ Rows can be selectable by making first column as a selectable column. You can us
 
 ```tsx
 import { Divider, Radio, Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 
 interface DataType {

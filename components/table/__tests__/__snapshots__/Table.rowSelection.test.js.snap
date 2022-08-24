@@ -85,7 +85,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -94,7 +93,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -103,7 +101,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
@@ -116,6 +113,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -157,6 +155,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -198,6 +197,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -239,6 +239,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     style="position: sticky; left: 0px;"
                   >
                     <button
+                      aria-expanded="false"
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
@@ -439,7 +440,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -448,7 +448,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
@@ -724,7 +723,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </div>
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Name
@@ -745,7 +744,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -754,7 +752,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
@@ -784,7 +781,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Jack
@@ -816,7 +813,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Lucy
@@ -848,7 +845,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Tom
@@ -880,7 +877,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Jerry

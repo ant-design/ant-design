@@ -1,16 +1,16 @@
-import * as React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
-import type { TreeProps as RcTreeProps, BasicDataNode } from 'rc-tree';
-import RcTree, { TreeNode } from 'rc-tree';
 import classNames from 'classnames';
+import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
+import RcTree, { TreeNode } from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
-import DirectoryTree from './DirectoryTree';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
-import renderSwitcherIcon from './utils/iconUtil';
+import DirectoryTree from './DirectoryTree';
 import dropIndicatorRender from './utils/dropIndicator';
+import renderSwitcherIcon from './utils/iconUtil';
 
-export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -95,14 +95,18 @@ export interface AntTreeNodeDropEvent {
 // [Legacy] Compatible for v3
 export type TreeNodeNormal = DataNode;
 
-type DraggableFn = (node: AntTreeNode) => boolean;
+type DraggableFn = (node: DataNode) => boolean;
+
 interface DraggableConfig {
   icon?: React.ReactNode | false;
   nodeDraggable?: DraggableFn;
 }
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
+  extends Omit<
+    RcTreeProps<T>,
+    'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
+  > {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
@@ -139,8 +143,11 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
-  switcherIcon?: SwitcherIcon;
+  icon?:
+    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
+    | React.ReactNode
+    | RcTreeProps<T>['icon'];
+  switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;

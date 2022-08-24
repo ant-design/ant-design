@@ -1,7 +1,6 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
 import Form from '../../form';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
@@ -263,7 +262,7 @@ describe('Upload List', () => {
     // Error message
     fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item'));
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 
@@ -574,7 +573,9 @@ describe('Upload List', () => {
       />,
     );
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     unmount();
 
@@ -928,6 +929,35 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('upload svg file with <foreignObject> should not have CORS error', async () => {
+    const mockFile = new File(
+      [
+        '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
+      ],
+      'bar.svg',
+      { type: 'image/svg+xml' },
+    );
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }]}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then(dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+    });
+    unmount();
+  });
+
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
@@ -1103,13 +1133,15 @@ describe('Upload List', () => {
       await waitPromise();
 
       // Wait for mock request finish request
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
 
       // Basic called times
       expect(onChange).toHaveBeenCalled();
 
       // Check for images
-      await act(() => {
+      act(() => {
         jest.runAllTimers();
       });
       const afterImgNode = wrapper.container.querySelectorAll(
@@ -1284,7 +1316,7 @@ describe('Upload List', () => {
 
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
@@ -1498,5 +1530,85 @@ describe('Upload List', () => {
       expect(imgNode.getAttribute('crossOrigin')).toBe(file.crossOrigin);
     });
     unmount();
+  });
+
+  describe('should not display upload file-select button when listType is picture-card and children is empty', () => {
+    it('when showUploadList is true', () => {
+      const list = [
+        {
+          uid: '0',
+          name: 'xxx.png',
+          status: 'done',
+          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        },
+      ];
+      const { container: wrapper, unmount } = render(
+        <Upload fileList={list} listType="picture-card" />,
+      );
+      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
+      unmount();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/36183
+    it('when showUploadList is false', () => {
+      const list = [
+        {
+          uid: '0',
+          name: 'xxx.png',
+          status: 'done',
+          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        },
+      ];
+      const { container: wrapper, unmount } = render(
+        <Upload fileList={list} showUploadList={false} listType="picture-card" />,
+      );
+      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
+      unmount();
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/36286
+  it('remove should keep origin className', async () => {
+    jest.useFakeTimers();
+
+    const onChange = jest.fn();
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'error',
+      },
+    ];
+    const { container } = render(
+      <Upload fileList={list} listType="picture-card" onChange={onChange} />,
+    );
+
+    fireEvent.click(container.querySelector('.anticon-delete'));
+
+    // Wait for Upload sync
+    for (let i = 0; i < 10; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await Promise.resolve();
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        file: expect.objectContaining({
+          status: 'removed',
+        }),
+      }),
+    );
+
+    expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });

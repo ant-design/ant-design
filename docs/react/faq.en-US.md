@@ -11,6 +11,20 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
 
+## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
+
+**Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
+
+As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
+
+But in antd, `undefined` is treated as uncontrolled, and `null` is used as an explicit empty value of controlled components. To deal with some cases (e.g. `allowClear`) like clearing the `value` when the `value` is non-primitive. If you need a component controlled with the `value` valid, just set the `value` as `null`.
+
+Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
+
+## Can I use internal API which is not documented on the site?
+
+NOT RECOMMEND. Internal API is not guaranteed to be compatible with future versions. It may be removed or changed in some versions. If you really need to use it, you should to make sure these API is still valid when upgrading to a new version or just lock version for usage.
+
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
 This is an old bug that has been fixed since `v3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentElement}>` to render a component inside Popover. (Or other `getXxxxContainer` props)
@@ -84,6 +98,36 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 ## How do I extend antd's components?
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
+
+## How to get the definition which is not export?
+
+antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取： antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+
+```tsx
+import { Table } from 'antd';
+
+type Props<T extends (...args: any) => any> = Parameters<T>[0];
+
+type TableProps = Props<typeof Table<{ key: string, name: string, age: number }>>;
+type DataSource = TableProps['dataSource'];
+```
+
+## Date-related components locale is not working?
+
+Please check whether import moment locale correctly.
+
+```jsx
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+```
+
+Please check whether there is two version of moment installed.
+
+```jsx
+npm ls moment
+```
+
+If you are using a mismatched version of moment with [antd's moment](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 

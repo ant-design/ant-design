@@ -15,6 +15,154 @@ timeline: true
 
 ---
 
+## 4.22.7
+
+`2022-08-21`
+
+- 🐞 修复 Typography 可见度切换时有时候省略不会显示 Tooltip 的问题。[#37147](https://github.com/ant-design/ant-design/pull/37147)
+- 🐞 修复 InputNumber 样式不跟随控件 less 变量改变的问题。[#37070](https://github.com/ant-design/ant-design/pull/37070) [@coldice945](https://github.com/coldice945)
+
+## 4.22.6
+
+`2022-08-17`
+
+- 🐞 回滚 [#36710](https://github.com/ant-design/ant-design/pull/36710) 以修复 Table 多列排序时 `onChange` 中 `sorter` 参数错误的问题。
+- 🐞 修复 Drawer 的 `maskStyle` 配置 `opacity` 样式时无法关闭的问题。[#37100](https://github.com/ant-design/ant-design/pull/37100)
+
+## 4.22.5
+
+`2022-08-15`
+
+- 🇭🇺 Form `defaultValidateMessages.i18n` 增加匈牙利语。[#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)
+- 💄 移除 Popover 中无效的 `box-shadow` 样式。[#37030](https://github.com/ant-design/ant-design/pull/37030) [@jerrykingxyz](https://github.com/jerrykingxyz)
+- 🐞 修复 Steps `labelPlacement="vertical"` 时连接线位置偏上的问题。[#36996](https://github.com/ant-design/ant-design/pull/36996)
+- 💄 去掉 Pagination 的异常错误边框。[#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
+- 🐞 修复 Upload 在 React 18 下同时上传多份文件会出现上传状态不正确的问题。[#36968](https://github.com/ant-design/ant-design/pull/36968)
+- TypeScript
+  - 🤖 修复 useWatch 的类型错误。[#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
+
+## 4.22.4
+
+`2022-08-08`
+
+- 🐞 修复 Drawer `zIndex` 属性失效的问题。[#36958](https://github.com/ant-design/ant-design/pull/36958)
+- 💄 修复 PageHeader 返回按钮点击后依然有聚焦样式的问题。[#36902](https://github.com/ant-design/ant-design/pull/36902)
+- 💄 修复抽屉 Drawer 组件嵌套时，子抽屉的样式被父抽屉影响的问题。[#36845](https://github.com/ant-design/ant-design/pull/36845) [@yanm1ng](https://github.com/yanm1ng)
+- 🐞 修复 Mentions 内有滚动条时弹出层偏移的问题。[#36898](https://github.com/ant-design/ant-design/pull/36898) [@JarvisArt](https://github.com/JarvisArt)
+- TypeScript
+  - 🤖 修复 Avatar `onClick` 属性定义丢失的问题。[#36940](https://github.com/ant-design/ant-design/pull/36940) [@kungege](https://github.com/kungege)
+  - 🤖 修复 Table `onChange` 参数 `sorter` 类型报错的问题。[#36710](https://github.com/ant-design/ant-design/pull/36710) [@kungege](https://github.com/kungege)
+  - 🤖 Input `data-*` 属性将不再是必传参数。[#36858](https://github.com/ant-design/ant-design/pull/36858) [@yifanwww](https://github.com/yifanwww)
+
+## 4.22.3
+
+`2022-08-01`
+
+- 🐞 修复在 React 18 版本中 Uploader 的 `fileList` 发生更新后出现闪烁的情况。[#36801](https://github.com/ant-design/ant-design/pull/36801) [@zhengjitf](https://github.com/zhengjitf)
+- 🐞 修复 Form.Item 在垂直布局下使用小尺寸的 `labelCol` 和 `wrapperCol` 时不换行的问题。[#36800](https://github.com/ant-design/ant-design/pull/36800)
+- 🐞 修复 Row 在 flex 布局中占据过多空间的问题。[#36770](https://github.com/ant-design/ant-design/pull/36770)
+
+## 4.22.2
+
+`2022-07-28`
+
+- 💄 调整 Collapse 标题文本在 `collapsible=default` 时为完整宽度点击区域。[#36761](https://github.com/ant-design/ant-design/pull/36761)
+- Drawer
+  - 🐞 修复 Drawer 在 360 浏览器不生效的问题。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 回滚将样式恢复至包裹层以防止原本通过 `contentWrapperStyle` 覆盖样式的用法。[#36748](https://github.com/ant-design/ant-design/pull/36748)
+  - 🐞 修复兼容以 string 类型作为 `width/height` 的用法，并且警告用户应当使用 number 类型。[#284](https://github.com/react-component/drawer/pull/284)
+
+## 4.22.1
+
+`2022-07-27`
+
+- 🐞 修复 Drawer 使用百分比宽度时的展示问题。[#36729](https://github.com/ant-design/ant-design/pull/36729)
+
+## 4.22.0
+
+`2022-07-26`
+
+- Form
+  - 🔥 Form 新增 `Form.Item.useStatus` 用于获取 Form.Item 的校验状态。[#36486](https://github.com/ant-design/ant-design/pull/36486)
+  - 🆕 Form 支持 `setFieldValue` 以简化设置数字单个值的操作流程。[#36058](https://github.com/ant-design/ant-design/pull/36058)
+  - 🐞 修复 Form.Item 在快速切换校验状态时高度抖动的问题。[#36575](https://github.com/ant-design/ant-design/pull/36575)
+- 🆕 Radio.Group 支持 `onBlur` 和 `onFocus` 属性。[#36041](https://github.com/ant-design/ant-design/pull/36041)
+- 🆕 Typography `ellipsis.tooltip` 属性支持传入一个对象。[#36099](https://github.com/ant-design/ant-design/pull/36099)
+- 🛠 重构 Drawer 移除直接的 dom 操作以使其更符合 React 运作方式。[#36672](https://github.com/ant-design/ant-design/pull/36672)
+- 🛠 重构 Sketelon.Button square shape 样式为宽高相等，之前的 square 改为默认样式。[#36123](https://github.com/ant-design/ant-design/pull/36123) [@alanhaledc](https://github.com/alanhaledc)
+- 🐞 修复 Modal.confirm 中 `onCancel(close)` 参数有时候不是 function 的问题。[#36600](https://github.com/ant-design/ant-design/pull/36600) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 回滚 [#36439](https://github.com/ant-design/ant-design/pull/36439) 以修复上传和删除文件时状态不对的问题，并再次修复 Upload 移除文件时状态色会变化的问题。[#36706](https://github.com/ant-design/ant-design/pull/36706)
+- Tree
+  - 🛠 Tree/TreeSelect `switcherIcon` 参数现在支持完整 TreeNode 属性，从 `{ expanded: boolean }` 变为 `AntTreeNodeProps`。[#36651](https://github.com/ant-design/ant-design/pull/36651) [@alanhaledc](https://github.com/alanhaledc)
+  - 🐞 修改 Tree `draggable` 函数的参数类型由 AntTreeNode 改为 DataNode。[#36648](https://github.com/ant-design/ant-design/pull/36648) [@tianyuan233](https://github.com/tianyuan233)
+- Table
+  - 💄 修复 Table 固定列额外阴影和滚动条样式的问题。[#36606](https://github.com/ant-design/ant-design/pull/36606) [@dashaowang](https://github.com/dashaowang)
+  - 💄 修复 Table 树形数据固定列的省略样式错位的问题。[#36608](https://github.com/ant-design/ant-design/pull/36608)
+- 🌐 国际化
+  - 🇱🇰 添加斯里兰卡语言。[#36149](https://github.com/ant-design/ant-design/pull/36149) [@sayuri-gi](https://github.com/sayuri-gi)
+
+## 4.21.7
+
+`2022-07-18`
+
+- 🆕 新增 Skeleton.Node 子组件，允许用户自定义 Skeleton 的内容。[#36441](https://github.com/ant-design/ant-design/pull/36441) [@DawnLck](https://github.com/DawnLck)
+- Form
+  - 🐞 修复 Form 下设置 Select 百分比宽度时会有未预期空行问题。[#36484](https://github.com/ant-design/ant-design/pull/36484)
+  - 🐞 修复 Form 设为禁用时、内部的 Upload 组件仍能上传文件的问题。[#36573](https://github.com/ant-design/ant-design/pull/36573) [@cwjTerrace](https://github.com/cwjTerrace)
+- 🐞 修复 Tree 非 `draggable` 依然展示可拖拽图标的问题。[#36511](https://github.com/ant-design/ant-design/pull/36511) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Upload 在预览包含 `<foreignObject>` 及跨域链接的 SVG 文件时发生错误的问题。[#36402](https://github.com/ant-design/ant-design/pull/36402) [@jonioni](https://github.com/jonioni)
+- 🐞 修复 Tooltip 在被禁用的 Radio 上时无法自动关闭的问题。[#36483](https://github.com/ant-design/ant-design/pull/36483)
+- 💄 添加 Modal Less 变量 `@modal-border-radius`。[#36527](https://github.com/ant-design/ant-design/pull/36527) [@kkkisme](https://github.com/kkkisme)
+- 💄 修复 Table 开启固定和省略功能的列内的展开按钮换行样式。[#36496](https://github.com/ant-design/ant-design/pull/36496)
+
+## 4.21.6
+
+`2022-07-11`
+
+- 🐞 修复 Skeleton 在 Safari 下开启 active 时圆角丢失的问题。[#36445](https://github.com/ant-design/ant-design/pull/36445)
+- 🐞 修复 Breadcrumb 作为 List 最后一个元素时，分割线丢失的问题。[#36448](https://github.com/ant-design/ant-design/pull/36448) [@LeonKattendick](https://github.com/LeonKattendick)
+- 🐞 修复 Upload 移除文件时状态色会变化的问题。[#36439](https://github.com/ant-design/ant-design/pull/36439)
+- 🐞 修复 DatePicker 配置 `status` 时的样式问题。[#35685](https://github.com/ant-design/ant-design/pull/35685) [@simplejason](https://github.com/simplejason)
+- Table
+  - 🐞 修复 Table 横向滚动的阴影样式问题。[#36420](https://github.com/ant-design/ant-design/pull/36420) [@shunyue1320](https://github.com/shunyue1320)
+  - 🐞 修复 Table 鼠标悬浮时的性能问题。[#36383](https://github.com/ant-design/ant-design/pull/36383)
+- 💄 微调 Modal 标题上关闭按钮尺寸。[#36309](https://github.com/ant-design/ant-design/pull/36309) [@cw1997](https://github.com/cw1997)
+- 🐞 修复 Form.ErrorList 在校验状态很快的时候视觉抖动问题。[#36358](https://github.com/ant-design/ant-design/pull/36358)
+- 💄 修复 Radio 聚焦时的阴影样式在非白底背景下的问题。[#36335](https://github.com/ant-design/ant-design/pull/36335)
+- 🐞 修复 Table 配置有 `title` 时的圆角样式。[#36384](https://github.com/ant-design/ant-design/pull/36384) [@Unuuuuu](https://github.com/Unuuuuu)
+
+## 4.21.5
+
+`2022-07-03`
+
+- 🐞 修复 Checkbox 不会被 Form `disabled` 属性禁用的问题。[#36345](https://github.com/ant-design/ant-design/pull/36345)
+- 🐞 修复 Button `loading` 属性传入 `null` 时错误问题。[#36288](https://github.com/ant-design/ant-design/pull/36288) [@kejianfeng](https://github.com/kejianfeng)
+- 🐞 修复弹出框箭头在某些浏览器上的兼容性问题。[#36266](https://github.com/ant-design/ant-design/pull/36266)
+- 🐞 修复 Table 滚动阴影在内嵌表格内出现的问题。[#36277](https://github.com/ant-design/ant-design/pull/36277)
+- 🐞 修复 Divider 部分类名无法自定义的问题。[#36271](https://github.com/ant-design/ant-design/pull/36271) [@alanhaledc](https://github.com/alanhaledc)
+- 🇧🇾 调整白俄罗斯国际化语言。[#36265](https://github.com/ant-design/ant-design/pull/36265)
+
+## 4.21.4
+
+`2022-06-27`
+
+- Table
+  - 🐞 修复 Table 展开图标未居中的问题。[#36215](https://github.com/ant-design/ant-design/pull/36215)
+  - 💄 修复 Table 内嵌 Table 时的边距问题。[#36209](https://github.com/ant-design/ant-design/pull/36209)
+  - 🐞 Table 取消选择或批量操作时重置上一次选择的 key。[#34705](https://github.com/ant-design/ant-design/pull/34705) [@Dunqing](https://github.com/Dunqing)
+  - 🐞 修复 Table 过滤列表在某些场景下多级展开无法关闭的问题。[#36132](https://github.com/ant-design/ant-design/pull/36132)
+- 🐞 修复 Upload `listType="picture-card"` 当 children 为空时上传文件按钮没有隐藏的问题。[#36196](https://github.com/ant-design/ant-design/pull/36196)
+- 🐞 修复 Popover 自定义 `color` 时箭头颜色问题。[#36241](https://github.com/ant-design/ant-design/pull/36241) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Menu `item={undefined}` 时会有废弃警告的问题。[#36190](https://github.com/ant-design/ant-design/pull/36190)
+- 💄 修复 Button `loading` 图标的间距丢失的问题。[#36168](https://github.com/ant-design/ant-design/pull/36168)
+- 🐞 修复 Dropdown 中 Menu 分组下的 Item 点击不会关闭的问题。[#36148](https://github.com/ant-design/ant-design/pull/36148)
+- 💄 优化 Slider 拖拽手柄的可交互区域。[#36018](https://github.com/ant-design/ant-design/pull/36018) [@slotDumpling](https://github.com/slotDumpling)
+- 🐞 修复重复添加 readOnly 的 css 类名，它已在 rc-input-number 中被声明了。[#36120](https://github.com/ant-design/ant-design/pull/36120) [@RainyLiao](https://github.com/RainyLiao)
+- 💄 修复 Skeleton 在 `active` 时的背景色样式。[#36116](https://github.com/ant-design/ant-design/pull/36116)
+- TypeScript
+  - 🤖 修复 TreeSelect `switcherIcon` 类型不兼容。[#36189](https://github.com/ant-design/ant-design/pull/36189) [@Dunqing](https://github.com/Dunqing)
+  - 🤖 从 `Upload` 导出类型 `UploadFile`。[#34733](https://github.com/ant-design/ant-design/pull/34733) [@chentsulin](https://github.com/chentsulin)
+
 ## 4.21.3
 
 `2022-06-17`

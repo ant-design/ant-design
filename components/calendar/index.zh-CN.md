@@ -44,5 +44,14 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 
 ## FAQ
 
-- [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#Calendar)
-- [如何给日期类组件配置国际化](/components/date-picker/#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)
+### 如何在 Calendar 中使用自定义日期库（如 dayjs ）
+
+参考 [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#Calendar)。
+
+### 如何给日期类组件配置国际化？
+
+参考 [如何给日期类组件配置国际化](/components/date-picker/#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)。
+
+### 为什么时间类组件的国际化 locale 设置不生效？
+
+参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效？)。

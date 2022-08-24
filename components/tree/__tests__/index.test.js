@@ -76,7 +76,7 @@ describe('Tree', () => {
   it('switcherIcon in Tree could be render prop function', () => {
     const { container } = render(
       <Tree
-        switcherIcon={expanded =>
+        switcherIcon={({ expanded }) =>
           expanded ? <span className="open" /> : <span className="close" />
         }
         defaultExpandAll

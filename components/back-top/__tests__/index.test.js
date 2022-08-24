@@ -1,8 +1,8 @@
 import React from 'react';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import BackTop from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import BackTop from '..';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 
 describe('BackTop', () => {
   mountTest(BackTop);

@@ -1,17 +1,17 @@
-import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import copy from 'copy-to-clipboard';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import copy from 'copy-to-clipboard';
-import Title from '../Title';
+import React from 'react';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
+import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
-import Base from '../Base';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import Title from '../Title';
 import Typography from '../Typography';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -104,7 +104,9 @@ describe('Typography', () => {
           }
 
           fireEvent.mouseEnter(wrapper.querySelector('.ant-typography-copy'));
-          jest.runAllTimers();
+          act(() => {
+            jest.runAllTimers();
+          });
 
           if (tooltips === undefined || tooltips === true) {
             await waitFor(() => {
@@ -271,7 +273,9 @@ describe('Typography', () => {
               expect(onStart).not.toHaveBeenCalled();
             }
             fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-edit')[0]);
-            jest.runAllTimers();
+            act(() => {
+              jest.runAllTimers();
+            });
 
             if (tooltip === undefined || tooltip === true) {
               await waitFor(() => {

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
+import { fireEvent, render } from '../../../tests/utils';
 
 const columns = [
   {
@@ -80,6 +80,13 @@ describe('Table.expand', () => {
 
     fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
     expect(container.querySelector('.indent-level-1').style.paddingLeft).toEqual('0px');
+  });
+
+  it('has right aria-expanded state', () => {
+    const { container } = render(<Table columns={columns} dataSource={data} />);
+    expect(container.querySelector('[aria-expanded=false]')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(container.querySelector('[aria-expanded=true]')).toBeTruthy();
   });
 
   describe('expandIconColumnIndex', () => {

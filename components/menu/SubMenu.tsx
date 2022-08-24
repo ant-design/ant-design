@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import classNames from 'classnames';
+import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
-import { isValidElement, cloneElement } from '../_util/reactNode';
 
 interface TitleEventEntity {
   key: string;

@@ -31,7 +31,7 @@ If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/lib/table';
+import type { ColumnsType, TableProps } from 'antd/es/table';
 import React from 'react';
 
 interface DataType {
