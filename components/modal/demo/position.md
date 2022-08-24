@@ -29,7 +29,7 @@ const App: React.FC = () => {
       <Modal
         title="20px to Top"
         style={{ top: 20 }}
-        visible={modal1Open}
+        open={modal1Open}
         onOk={() => setModal1Open(false)}
         onCancel={() => setModal1Open(false)}
       >
@@ -45,7 +45,7 @@ const App: React.FC = () => {
       <Modal
         title="Vertically centered modal dialog"
         centered
-        visible={modal2Open}
+        open={modal2Open}
         onOk={() => setModal2Open(false)}
         onCancel={() => setModal2Open(false)}
       >

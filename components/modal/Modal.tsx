@@ -34,11 +34,6 @@ if (canUseDocElement()) {
 
 export interface ModalProps {
   /** 对话框是否可见 */
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: boolean;
   open?: boolean;
   /** 确定按钮 loading */
   confirmLoading?: boolean;
@@ -94,11 +89,6 @@ type getContainerFunc = () => HTMLElement;
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: boolean;
   open?: boolean;
   title?: React.ReactNode;
   closable?: boolean;
@@ -160,7 +150,7 @@ const Modal: React.FC<ModalProps> = props => {
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      props.visible === undefined,
+      !('visible' in props),
       'Modal',
       `\`visible\` is removed in v5, please use \`open\` instead.`,
     );
@@ -187,6 +177,13 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
+
+  warning(
+    !('visible' in props),
+    'Modal',
+    `\`visible\` is deprecated, please use \`open\` instead.`,
+  );
+
   return wrapSSR(
     <NoFormStyle status override>
       <Dialog
@@ -219,7 +216,6 @@ Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
   open: false,
-  okType: 'primary' as LegacyButtonType,
 };
 
 export default Modal;
