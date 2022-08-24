@@ -14,7 +14,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
     componentCls,
     marginXXS,
     padding,
-    colorTextSecondary,
+    colorTextDescription,
     statisticTitleFontSize,
     colorTextHeading,
     statisticContentFontSize,
@@ -26,7 +26,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
       ...resetComponent(token),
       [`${componentCls}-title`]: {
         marginBottom: marginXXS,
-        color: colorTextSecondary,
+        color: colorTextDescription,
         fontSize: statisticTitleFontSize,
       },
 

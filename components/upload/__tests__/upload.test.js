@@ -2,11 +2,10 @@
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
@@ -322,7 +321,9 @@ describe('Upload', () => {
     const { rerender } = render(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
     rerender(<Upload ref={ref} fileList={fileList} />);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(ref.current.fileList).toEqual(fileList);
     jest.useRealTimers();
   });
@@ -725,7 +726,7 @@ describe('Upload', () => {
         await Promise.resolve();
       }
     });
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
     await act(async () => {
@@ -913,7 +914,7 @@ describe('Upload', () => {
       throw new TypeError("Object doesn't support this action");
     };
 
-    jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    const spyIE = jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
     fireEvent.change(container.querySelector('input'), {
       target: {
         files: [{ file: 'foo.png' }],
@@ -924,6 +925,7 @@ describe('Upload', () => {
     await sleep();
 
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
+    spyIE.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/33819
@@ -945,7 +947,7 @@ describe('Upload', () => {
     });
 
     // Motion leave status change: start > active
-    await act(() => {
+    act(() => {
       jest.runAllTimers();
     });
 
@@ -963,5 +965,59 @@ describe('Upload', () => {
 
     const { container: wrapper2 } = render(<Upload prefixCls="custom-upload" />);
     expect(wrapper2.querySelectorAll('.custom-upload-list').length).toBeGreaterThan(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/36869
+  it('Prevent auto batch', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', {
+      type: 'image/png',
+    });
+    const mockFile2 = new File(['light'], 'light.png', {
+      type: 'image/png',
+    });
+
+    let info1;
+    let info2;
+
+    const onChange = jest.fn();
+    const { container } = render(
+      <Upload
+        customRequest={info => {
+          if (info.file === mockFile1) {
+            info1 = info;
+          } else {
+            info2 = info;
+          }
+        }}
+        onChange={onChange}
+      />,
+    );
+
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        files: [mockFile1, mockFile2],
+      },
+    });
+
+    // React 18 is async now
+    await act(async () => {
+      await sleep();
+    });
+    onChange.mockReset();
+
+    // Processing
+    act(() => {
+      info1.onProgress({ percent: 10 }, mockFile1);
+      info2.onProgress({ percent: 20 }, mockFile2);
+    });
+
+    expect(onChange).toHaveBeenCalledWith(
+      expect.objectContaining({
+        fileList: [
+          expect.objectContaining({ percent: 10 }),
+          expect.objectContaining({ percent: 20 }),
+        ],
+      }),
+    );
   });
 });

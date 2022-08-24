@@ -33,7 +33,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlHeightSM,
     colorError,
     inputPaddingHorizontalSM,
-    colorTextSecondary,
+    colorTextDescription,
     motionDurationFast,
     colorPrimary,
     controlHeight,
@@ -42,6 +42,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorBgContainer,
     motionDurationMid,
     colorTextDisabled,
+    controlRadiusSM,
+    controlRadiusLG,
     controlWidth,
   } = token;
 
@@ -70,6 +72,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-lg': {
           padding: 0,
           fontSize: fontSizeLG,
+          borderRadius: controlRadiusLG,
 
           [`input${componentCls}-input`]: {
             height: controlHeightLG - 2 * controlLineWidth,
@@ -78,6 +81,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-sm': {
           padding: 0,
+          borderRadius: controlRadiusSM,
 
           [`input${componentCls}-input`]: {
             height: controlHeightSM - 2 * controlLineWidth,
@@ -119,6 +123,18 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
             [`${componentCls}-affix-wrapper`]: {
               width: '100%',
+            },
+
+            // Size
+            '&-lg': {
+              [`${componentCls}-group-addon`]: {
+                borderRadius: controlRadiusLG,
+              },
+            },
+            '&-sm': {
+              [`${componentCls}-group-addon`]: {
+                borderRadius: controlRadiusSM,
+              },
             },
           },
         },
@@ -196,7 +212,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-handler`]: {
           height: '50%',
           overflow: 'hidden',
-          color: colorTextSecondary,
+          color: colorTextDescription,
           fontWeight: 'bold',
           lineHeight: 0,
           textAlign: 'center',
@@ -222,7 +238,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-up-inner, &-down-inner': {
             ...resetIcon(),
 
-            color: colorTextSecondary,
+            color: colorTextDescription,
             transition: `all ${motionDurationFast} linear`,
             userSelect: 'none',
           },
@@ -275,7 +291,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 };
 
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
-  const { componentCls, inputPaddingHorizontal, inputAffixPadding, controlWidth } = token;
+  const {
+    componentCls,
+    inputPaddingHorizontal,
+    inputAffixPadding,
+    controlWidth,
+    controlRadiusLG,
+    controlRadiusSM,
+  } = token;
 
   return {
     [`${componentCls}-affix-wrapper`]: {
@@ -287,6 +310,14 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       width: controlWidth,
       padding: 0,
       paddingInlineStart: inputPaddingHorizontal,
+
+      '&-lg': {
+        borderRadius: controlRadiusLG,
+      },
+
+      '&-sm': {
+        borderRadius: controlRadiusSM,
+      },
 
       '&:not(&-disabled):hover': {
         ...genHoverStyle(token),

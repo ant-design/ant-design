@@ -72,7 +72,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       whiteSpace: 'nowrap',
       background: token.tagDefaultBg,
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-      borderRadius: token.controlRadius,
+      borderRadius: token.radiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationSlow}`,
       textAlign: 'start',
@@ -88,7 +88,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       [`${token.componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
-        color: token.colorTextSecondary,
+        color: token.colorTextDescription,
         fontSize: token.tagIconSize,
         cursor: 'pointer',
         transition: `all ${token.motionDurationSlow}`,

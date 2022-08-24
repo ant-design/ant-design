@@ -20,8 +20,6 @@ import React, { useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const { TabPane } = Tabs;
-
 const type = 'DraggableTabNode';
 interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
   index: React.Key;
@@ -62,16 +60,16 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   );
 };
 
-const DraggableTabs: React.FC<{ children: React.ReactNode }> = props => {
-  const { children } = props;
+const DraggableTabs: React.FC<TabsProps> = props => {
+  const { items = [] } = props;
   const [order, setOrder] = useState<React.Key[]>([]);
 
   const moveTabNode = (dragKey: React.Key, hoverKey: React.Key) => {
     const newOrder = order.slice();
 
-    React.Children.forEach(children, (c: React.ReactElement) => {
-      if (c.key && newOrder.indexOf(c.key) === -1) {
-        newOrder.push(c.key);
+    items.forEach(item => {
+      if (item.key && newOrder.indexOf(item.key) === -1) {
+        newOrder.push(item.key);
       }
     });
 
@@ -94,12 +92,7 @@ const DraggableTabs: React.FC<{ children: React.ReactNode }> = props => {
     </DefaultTabBar>
   );
 
-  const tabs: React.ReactElement[] = [];
-  React.Children.forEach(children, (c: React.ReactElement) => {
-    tabs.push(c);
-  });
-
-  const orderTabs = tabs.slice().sort((a, b) => {
+  const orderItems = [...items].sort((a, b) => {
     const orderA = order.indexOf(a.key!);
     const orderB = order.indexOf(b.key!);
 
@@ -113,33 +106,30 @@ const DraggableTabs: React.FC<{ children: React.ReactNode }> = props => {
       return 1;
     }
 
-    const ia = tabs.indexOf(a);
-    const ib = tabs.indexOf(b);
+    const ia = items.indexOf(a);
+    const ib = items.indexOf(b);
 
     return ia - ib;
   });
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <Tabs renderTabBar={renderTabBar} {...props}>
-        {orderTabs}
-      </Tabs>
+      <Tabs renderTabBar={renderTabBar} {...props} items={orderItems} />
     </DndProvider>
   );
 };
 
 const App: React.FC = () => (
-  <DraggableTabs>
-    <TabPane tab="tab 1" key="1">
-      Content of Tab Pane 1
-    </TabPane>
-    <TabPane tab="tab 2" key="2">
-      Content of Tab Pane 2
-    </TabPane>
-    <TabPane tab="tab 3" key="3">
-      Content of Tab Pane 3
-    </TabPane>
-  </DraggableTabs>
+  <DraggableTabs
+    items={new Array(3).fill(null).map((_, i) => {
+      const id = String(i + 1);
+      return {
+        label: `tab ${id}`,
+        key: id,
+        children: `Content of Tab Pane ${id}`,
+      };
+    })}
+  />
 );
 
 export default App;

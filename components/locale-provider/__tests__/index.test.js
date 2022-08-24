@@ -81,6 +81,7 @@ import {
   Transfer,
 } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
+import { act } from '../../../tests/utils';
 import arEG from '../ar_EG';
 import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
@@ -257,7 +258,7 @@ const App = () => (
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
     <Calendar fullscreen={false} value={dayjs()} />
     <Table dataSource={[]} columns={columns} />
-    <Modal title="Locale Modal" visible getContainer={false}>
+    <Modal title="Locale Modal" open getContainer={false}>
       <p>Locale Modal</p>
     </Modal>
   </div>
@@ -296,7 +297,9 @@ describe('Locale Provider', () => {
         Modal.confirm({
           title: 'Hello World!',
         });
-        jest.runAllTimers();
+        act(() => {
+          jest.runAllTimers();
+        });
         jest.useRealTimers();
       }
 

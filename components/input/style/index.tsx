@@ -55,16 +55,18 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { inputPaddingVerticalLG, inputPaddingHorizontal, fontSizeLG } = token;
+  const { inputPaddingVerticalLG, inputPaddingHorizontal, fontSizeLG, controlRadiusLG } = token;
 
   return {
     padding: `${inputPaddingVerticalLG}px ${inputPaddingHorizontal}px`,
     fontSize: fontSizeLG,
+    borderRadius: controlRadiusLG,
   };
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
+  borderRadius: token.controlRadiusSM,
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
@@ -180,7 +182,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genInputGroupStyle = (token: InputToken): CSSObject => {
-  const { prefixCls } = token;
+  const { prefixCls, antCls } = token;
 
   return {
     position: 'relative',
@@ -208,11 +210,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     },
 
     // Fix https://github.com/ant-design/ant-design/issues/5754
-    '&-lg .ant-select-single .ant-select-selector': {
+    [`&-lg ${antCls}-select-single ${antCls}-select-selector`]: {
       height: token.controlHeightLG,
     },
 
-    '&-sm .ant-select-single .ant-select-selector': {
+    [`&-sm ${antCls}-select-single ${antCls}-select-selector`]: {
       height: token.controlHeightSM,
     },
 
@@ -253,11 +255,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         transition: `all ${token.motionDurationSlow}`,
 
         // Reset Select's style in addon
-        '.ant-select': {
+        [`${antCls}-select`]: {
           margin: `-${token.inputPaddingVertical + 1}px -${token.inputPaddingHorizontal}px`,
 
-          '&.ant-select-single:not(.ant-select-customize-input)': {
-            '.ant-select-selector': {
+          [`&${antCls}-select-single:not(${antCls}-select-customize-input)`]: {
+            [`${antCls}-select-selector`]: {
               backgroundColor: 'inherit',
               border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
               boxShadow: 'none',
@@ -265,17 +267,17 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
           },
 
           '&-open, &-focused': {
-            '.ant-select-selector': {
+            [`${antCls}-select-selector`]: {
               color: token.colorPrimary,
             },
           },
         },
 
         // https://github.com/ant-design/ant-design/issues/31333
-        '.ant-cascader-picker': {
+        [`${antCls}-cascader-picker`]: {
           margin: `-9px -${token.inputPaddingHorizontal}px`,
           backgroundColor: 'transparent',
-          '.ant-cascader-input': {
+          [`${antCls}-cascader-input`]: {
             textAlign: 'start',
             border: 0,
             boxShadow: 'none',
@@ -319,7 +321,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndEndRadius: 0,
 
       // Reset Select's style in addon
-      '.ant-select .ant-select-selector': {
+      [`${antCls}-select ${antCls}-select-selector`]: {
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -342,7 +344,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndStartRadius: 0,
 
       // Reset Select's style in addon
-      '.ant-select .ant-select-selector': {
+      [`${antCls}-select ${antCls}-select-selector`]: {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
@@ -393,7 +395,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         display: 'inline-flex',
       },
 
-      '& > .ant-picker-range': {
+      [`& > ${antCls}-picker-range`]: {
         display: 'inline-flex',
       },
 
@@ -408,9 +410,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-      [`& > .ant-select > .ant-select-selector,
-      & > .ant-select-auto-complete .${prefixCls},
-      & > .ant-cascader-picker .${prefixCls},
+      [`& > ${antCls}-select > ${antCls}-select-selector,
+      & > ${antCls}-select-auto-complete .${prefixCls},
+      & > ${antCls}-cascader-picker .${prefixCls},
       & > .${prefixCls}-group-wrapper .${prefixCls}`]: {
         borderInlineEndWidth: token.controlLineWidth,
         borderRadius: 0,
@@ -424,34 +426,34 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         },
       },
 
-      '& > .ant-select-focused': {
+      [`& > ${antCls}-select-focused`]: {
         zIndex: 1,
       },
 
       // update z-index for arrow icon
-      '& > .ant-select > .ant-select-arrow': {
+      [`& > ${antCls}-select > ${antCls}-select-arrow`]: {
         zIndex: 1, // https://github.com/ant-design/ant-design/issues/20371
       },
 
       [`& > *:first-child,
-      & > .ant-select:first-child > .ant-select-selector,
-      & > .ant-select-auto-complete:first-child .${prefixCls},
-      & > .ant-cascader-picker:first-child .${prefixCls}`]: {
+      & > ${antCls}-select:first-child > ${antCls}-select-selector,
+      & > ${antCls}-select-auto-complete:first-child .${prefixCls},
+      & > ${antCls}-cascader-picker:first-child .${prefixCls}`]: {
         borderStartStartRadius: token.controlRadius,
         borderEndStartRadius: token.controlRadius,
       },
 
       [`& > *:last-child,
-      & > .ant-select:last-child > .ant-select-selector,
-      & > .ant-cascader-picker:last-child .${prefixCls},
-      & > .ant-cascader-picker-focused:last-child .${prefixCls}`]: {
+      & > ${antCls}-select:last-child > ${antCls}-select-selector,
+      & > ${antCls}-cascader-picker:last-child .${prefixCls},
+      & > ${antCls}-cascader-picker-focused:last-child .${prefixCls}`]: {
         borderInlineEndWidth: token.controlLineWidth,
         borderStartEndRadius: token.controlRadius,
         borderEndEndRadius: token.controlRadius,
       },
 
       // https://github.com/ant-design/ant-design/issues/12493
-      [`& > .ant-select-auto-complete .${prefixCls}`]: {
+      [`& > ${antCls}-select-auto-complete .${prefixCls}`]: {
         verticalAlign: 'top',
       },
 
@@ -524,7 +526,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       transition: `color ${token.motionDurationSlow}`,
 
       '&:hover': {
-        color: token.colorTextSecondary,
+        color: token.colorTextDescription,
       },
 
       '&:active': {
@@ -559,7 +561,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     prefixCls,
     inputAffixPadding,
-    colorTextSecondary,
+    colorTextDescription,
     motionDurationSlow,
     colorIcon,
     colorIconHover,
@@ -617,7 +619,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-suffix': {
-          color: colorTextSecondary,
+          color: colorTextDescription,
         },
 
         '&-show-count-has-suffix': {
@@ -653,7 +655,8 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, colorError, colorSuccess } = token;
+  const { prefixCls, colorError, colorSuccess, componentCls, controlRadiusLG, controlRadiusSM } =
+    token;
 
   return {
     [`.${prefixCls}-group`]: {
@@ -675,6 +678,18 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           direction: 'rtl',
         },
 
+        // Size
+        '&-lg': {
+          [`${componentCls}-group-addon`]: {
+            borderRadius: controlRadiusLG,
+          },
+        },
+        '&-sm': {
+          [`${componentCls}-group-addon`]: {
+            borderRadius: controlRadiusSM,
+          },
+        },
+
         // Status
         '&-status-error': {
           [`.${prefixCls}-group-addon`]: {
@@ -694,7 +709,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls } = token;
+  const { prefixCls, antCls } = token;
   const searchPrefixCls = `.${prefixCls}-search`;
   return {
     [searchPrefixCls]: {
@@ -734,10 +749,10 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderEndStartRadius: 0,
           },
 
-          [`${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-            color: token.colorTextSecondary,
+          [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
+            color: token.colorTextDescription,
 
-            '&.ant-btn-loading::before': {
+            [`&${antCls}-btn-loading::before`]: {
               insetInlineStart: 0,
               insetInlineEnd: 0,
               insetBlockStart: 0,
@@ -834,7 +849,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
           position: 'absolute',
           bottom: 0,
           insetInlineEnd: 0,
-          color: token.colorTextSecondary,
+          color: token.colorTextDescription,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',

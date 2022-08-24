@@ -130,7 +130,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     transitionName,
     choiceTransitionName = '',
     popupClassName,
-    dropdownClassName,
     expandIcon,
     placement,
     showSearch,
@@ -167,11 +166,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================
-  warning(
-    popupClassName === undefined,
-    'Cascader',
-    '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-  );
 
   warning(
     !multiple || !props.displayRender,
@@ -192,7 +186,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // =================== Dropdown ====================
   const mergedDropdownClassName = classNames(
-    dropdownClassName || popupClassName,
+    popupClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',

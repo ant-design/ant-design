@@ -1,19 +1,15 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorMapToken, SeedToken } from '../../interface';
-import type {
-  GenerateBgPalettes,
-  GenerateColorPalettes,
-  GenerateTextAlphaPalettes,
-} from '../IPalettes';
+import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 
 interface PaletteGenerators {
-  generateColorPalettes: GenerateColorPalettes;
-  generateTextAlphaPalettes: GenerateTextAlphaPalettes;
-  generateBgPalettes: GenerateBgPalettes;
+  generateColorPalettes: GenerateColorMap;
+  generateNeutralColorPalettes: GenerateNeutralColorMap;
 }
 
 export default function genColorMapToken(
   seed: SeedToken,
-  { generateColorPalettes, generateTextAlphaPalettes, generateBgPalettes }: PaletteGenerators,
+  { generateColorPalettes, generateNeutralColorPalettes }: PaletteGenerators,
 ): ColorMapToken {
   const {
     colorSuccess: colorSuccessBase,
@@ -30,12 +26,10 @@ export default function genColorMapToken(
   const warningColors = generateColorPalettes(colorWarningBase);
   const errorColors = generateColorPalettes(colorErrorBase);
   const infoColors = generateColorPalettes(colorInfoBase);
-  const bgColors = generateBgPalettes(colorBgBase, colorTextBase);
-  const textColors = generateTextAlphaPalettes(colorTextBase);
+  const neutralColors = generateNeutralColorPalettes(colorBgBase, colorTextBase);
 
   return {
-    ...bgColors,
-    ...textColors,
+    ...neutralColors,
 
     colorPrimaryBg: primaryColors[1],
     colorPrimaryBgHover: primaryColors[2],
@@ -44,8 +38,9 @@ export default function genColorMapToken(
     colorPrimaryHover: primaryColors[5],
     colorPrimary: primaryColors[6],
     colorPrimaryActive: primaryColors[7],
-    colorPrimaryText: primaryColors[8],
-    colorPrimaryTextHover: primaryColors[9],
+    colorPrimaryTextHover: primaryColors[8],
+    colorPrimaryText: primaryColors[9],
+    colorPrimaryTextActive: primaryColors[10],
 
     colorSuccessBg: successColors[1],
     colorSuccessBgHover: successColors[2],
@@ -54,8 +49,9 @@ export default function genColorMapToken(
     colorSuccessHover: successColors[5],
     colorSuccess: successColors[6],
     colorSuccessActive: successColors[7],
-    colorSuccessText: successColors[8],
-    colorSuccessTextHover: successColors[9],
+    colorSuccessTextHover: successColors[8],
+    colorSuccessText: successColors[9],
+    colorSuccessTextActive: successColors[10],
 
     colorErrorBg: errorColors[1],
     colorErrorBgHover: errorColors[2],
@@ -64,8 +60,9 @@ export default function genColorMapToken(
     colorErrorHover: errorColors[5],
     colorError: errorColors[6],
     colorErrorActive: errorColors[7],
-    colorErrorText: errorColors[8],
-    colorErrorTextHover: errorColors[9],
+    colorErrorTextHover: errorColors[8],
+    colorErrorText: errorColors[9],
+    colorErrorTextActive: errorColors[10],
 
     colorWarningBg: warningColors[1],
     colorWarningBgHover: warningColors[2],
@@ -74,8 +71,9 @@ export default function genColorMapToken(
     colorWarningHover: warningColors[5],
     colorWarning: warningColors[6],
     colorWarningActive: warningColors[7],
-    colorWarningText: warningColors[8],
-    colorWarningTextHover: warningColors[9],
+    colorWarningTextHover: warningColors[8],
+    colorWarningText: warningColors[9],
+    colorWarningTextActive: warningColors[10],
 
     colorInfoBg: infoColors[1],
     colorInfoBgHover: infoColors[2],
@@ -84,7 +82,10 @@ export default function genColorMapToken(
     colorInfoHover: infoColors[5],
     colorInfo: infoColors[6],
     colorInfoActive: infoColors[7],
-    colorInfoText: infoColors[8],
-    colorInfoTextHover: infoColors[9],
+    colorInfoTextHover: infoColors[8],
+    colorInfoText: infoColors[9],
+    colorInfoTextActive: infoColors[10],
+
+    colorBgMask: new TinyColor('#000').setAlpha(0.45).toRgbString(),
   };
 }

@@ -121,7 +121,7 @@ export interface InputProps
   disabled?: boolean;
   status?: InputStatus;
   bordered?: boolean;
-  [key: `data-${string}`]: string;
+  [key: `data-${string}`]: string | undefined;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {

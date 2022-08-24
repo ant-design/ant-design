@@ -8,11 +8,11 @@ const { useToken } = theme;
 
 describe('Theme', () => {
   it('useTheme', () => {
-    const result = renderHook(() => useToken());
+    const { result } = renderHook(() => useToken());
 
-    expect(result.current.theme instanceof Theme).toBeTruthy();
-    expect(result.current.hashId).toBeFalsy();
-    expect(result.current.token).toEqual(
+    expect(result.current!.theme instanceof Theme).toBeTruthy();
+    expect(result.current!.hashId).toBeFalsy();
+    expect(result.current!.token).toEqual(
       expect.objectContaining({
         colorPrimary: '#1890ff',
       }),
