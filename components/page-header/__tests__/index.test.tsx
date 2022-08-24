@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, triggerResize } from '../../../tests/utils';
+import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
 import PageHeader from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -120,7 +120,7 @@ describe('PageHeader', () => {
   it('change container width', async () => {
     const { container } = render(<PageHeader title="Page Title" extra="extra" />);
     triggerResize(container.firstChild as HTMLDivElement);
-    await Promise.resolve();
+    await sleep(100);
     expect(container.querySelector('div.ant-page-header')).toHaveClass('ant-page-header-compact');
   });
 });
