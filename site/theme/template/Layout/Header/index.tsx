@@ -304,7 +304,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
                 trigger="click"
                 open={menuVisible}
                 arrowPointAtCenter
-                onVisibleChange={onMenuVisibleChange}
+                onOpenChange={onMenuVisibleChange}
               >
                 <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
               </Popover>
