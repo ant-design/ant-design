@@ -119,8 +119,8 @@ describe('PageHeader', () => {
 
   it('change container width', async () => {
     const { container } = render(<PageHeader title="Page Title" extra="extra" />);
-    triggerResize(container.querySelector<HTMLDivElement>('.ant-page-header')!);
+    triggerResize(container.firstChild as HTMLDivElement);
     await Promise.resolve();
-    expect(container.querySelector('.ant-page-header')).toHaveClass('ant-page-header-compact');
+    expect(container.querySelector('div.ant-page-header')).toHaveClass('ant-page-header-compact');
   });
 });
