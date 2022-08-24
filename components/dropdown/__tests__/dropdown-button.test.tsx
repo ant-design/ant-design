@@ -43,8 +43,8 @@ describe('DropdownButton', () => {
       ),
       disabled: false,
       trigger: ['hover'],
-      visible: true,
-      onVisibleChange: () => {},
+      open: true,
+      onOpenChange: () => {},
     };
 
     render(<DropdownButton {...props} />);
@@ -100,7 +100,7 @@ describe('DropdownButton', () => {
         overlayClassName="className"
         overlayStyle={{ color: 'red' }}
         overlay={menu}
-        visible
+        open
       />,
     );
     expect(container.querySelector('.ant-dropdown')?.classList).toContain('className');

@@ -51,8 +51,8 @@ export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
-  onVisibleChange?: (visible: boolean) => void;
-  visible?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
   align?: Align;
@@ -81,6 +81,17 @@ const Dropdown: DropdownInterface = props => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
+
+  [
+    ['visible', 'open'],
+    ['onVisibleChange', 'onOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Dropdown',
+      `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+    );
+  });
 
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
@@ -121,8 +132,8 @@ const Dropdown: DropdownInterface = props => {
     disabled,
     getPopupContainer,
     overlayClassName,
-    visible,
-    onVisibleChange,
+    open,
+    onOpenChange,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -147,14 +158,14 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  // =========================== Visible ============================
-  const [mergedVisible, setVisible] = useMergedState(false, {
-    value: visible,
+  // =========================== Open ============================
+  const [mergedOpen, setOpen] = useMergedState(false, {
+    value: open,
   });
 
-  const onInnerVisibleChange = useEvent((nextVisible: boolean) => {
-    onVisibleChange?.(nextVisible);
-    setVisible(nextVisible);
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    onOpenChange?.(nextOpen);
+    setOpen(nextOpen);
   });
 
   // =========================== Overlay ============================
@@ -168,7 +179,7 @@ const Dropdown: DropdownInterface = props => {
   });
 
   const onMenuClick = React.useCallback(() => {
-    setVisible(false);
+    setOpen(false);
   }, []);
 
   const renderOverlay = () => {
@@ -216,7 +227,7 @@ const Dropdown: DropdownInterface = props => {
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
-      visible={mergedVisible}
+      visible={mergedOpen}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
@@ -226,7 +237,7 @@ const Dropdown: DropdownInterface = props => {
       trigger={triggerActions}
       overlay={renderOverlay}
       placement={getPlacement()}
-      onVisibleChange={onInnerVisibleChange}
+      onVisibleChange={onInnerOpenChange}
     >
       {dropdownTrigger}
     </RcDropdown>,

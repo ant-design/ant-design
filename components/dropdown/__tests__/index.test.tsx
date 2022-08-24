@@ -38,7 +38,7 @@ describe('Dropdown', () => {
 
   it('overlay is function and has custom transitionName', () => {
     const { asFragment } = render(
-      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" visible>
+      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -47,7 +47,7 @@ describe('Dropdown', () => {
 
   it('overlay is string', () => {
     const { asFragment } = render(
-      <Dropdown overlay={'string' as any} visible>
+      <Dropdown overlay={'string' as any} open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -64,7 +64,7 @@ describe('Dropdown', () => {
           </Menu.SubMenu>
         </Menu>
       ),
-      visible: true,
+      open: true,
       getPopupContainer: node => node,
     };
 
@@ -100,7 +100,7 @@ describe('Dropdown', () => {
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
     render(
-      <Dropdown overlay={<div>menu</div>} visible>
+      <Dropdown overlay={<div>menu</div>} open>
         <button type="button">button</button>
       </Dropdown>,
     );
