@@ -54,7 +54,7 @@ describe('TreeSelect', () => {
 
   it('should show warning when use dropdownClassName', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<TreeSelect dropdownClassName="myCustomClassName" />);
+    render(<TreeSelect dropdownClassName="myCustomClassName" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
