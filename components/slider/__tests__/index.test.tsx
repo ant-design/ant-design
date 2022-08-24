@@ -138,7 +138,7 @@ describe('Slider', () => {
     render(
       <SliderTooltip
         title="30"
-        visible
+        open
         ref={node => {
           ref = node;
         }}

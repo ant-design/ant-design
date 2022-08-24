@@ -173,7 +173,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         <SliderTooltip
           prefixCls={tooltipPrefixCls}
           title={tipFormatter ? tipFormatter(info.value) : ''}
-          visible={open}
+          open={open}
           placement={getTooltipPlacement(tooltipPlacement, vertical)}
           transitionName={`${rootPrefixCls}-zoom-down`}
           key={index}

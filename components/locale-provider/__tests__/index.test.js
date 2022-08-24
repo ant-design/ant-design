@@ -252,7 +252,7 @@ const App = () => (
     <DatePicker open />
     <TimePicker open defaultOpenValue={dayjs()} />
     <RangePicker open style={{ width: 200 }} />
-    <Popconfirm title="Question?" visible>
+    <Popconfirm title="Question?" open>
       <a>Click to confirm</a>
     </Popconfirm>
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />

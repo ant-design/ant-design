@@ -36,7 +36,7 @@ class Demo extends React.Component {
   state = {
     codeExpand: false,
     copied: false,
-    copyTooltipVisible: false,
+    copyTooltipOpen: false,
   };
 
   componentDidMount() {
@@ -47,12 +47,12 @@ class Demo extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { codeExpand, copied, copyTooltipVisible } = this.state;
+    const { codeExpand, copied, copyTooltipOpen } = this.state;
     const { expand, theme, showRiddleButton, react18 } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      copyTooltipOpen !== nextState.copyTooltipOpen ||
       nextProps.theme !== theme ||
       nextProps.showRiddleButton !== showRiddleButton ||
       nextProps.react18 !== react18
@@ -90,16 +90,16 @@ class Demo extends React.Component {
     });
   };
 
-  onCopyTooltipVisibleChange = visible => {
-    if (visible) {
+  onCopyTooltipOpenChange = open => {
+    if (open) {
       this.setState({
-        copyTooltipVisible: visible,
+        copyTooltipOpen: open,
         copied: false,
       });
       return;
     }
     this.setState({
-      copyTooltipVisible: visible,
+      copyTooltipOpen: open,
     });
   };
 
@@ -139,7 +139,7 @@ class Demo extends React.Component {
       showRiddleButton,
       react18,
     } = props;
-    const { copied, copyTooltipVisible } = state;
+    const { copied, copyTooltipOpen } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -447,16 +447,13 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
             </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                visible={copyTooltipVisible}
-                onVisibleChange={this.onCopyTooltipVisibleChange}
+                open={copyTooltipOpen}
+                onOpenChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                {React.createElement(
-                  copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
-                  {
-                    className: 'code-box-code-copy code-box-code-action',
-                  },
-                )}
+                {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
+                  className: 'code-box-code-copy code-box-code-action',
+                })}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip

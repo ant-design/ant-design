@@ -891,7 +891,7 @@ describe('Table.filter', () => {
 
   it('renders custom filter icon with right Tooltip title', () => {
     const filterIcon = () => (
-      <Tooltip title="title" visible>
+      <Tooltip title="title" open>
         Tooltip
       </Tooltip>
     );

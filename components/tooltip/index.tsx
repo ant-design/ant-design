@@ -11,6 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 
 import useStyle from './style';
@@ -43,7 +44,21 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 
-export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'children'>> {
+// remove this after RcTooltip switch visible to open.
+interface TempTooltipProps
+  extends Partial<
+    Omit<
+      RcTooltipProps,
+      'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
+    >
+  > {
+  open?: RcTooltipProps['visible'];
+  defaultOpen?: RcTooltipProps['defaultVisible'];
+  onOpenChange?: RcTooltipProps['onVisibleChange'];
+  afterOpenChange?: RcTooltipProps['afterVisibleChange'];
+}
+
+export interface AbstractTooltipProps extends TempTooltipProps {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
@@ -138,9 +153,22 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     direction,
   } = React.useContext(ConfigContext);
 
-  const [visible, setVisible] = useMergedState(false, {
-    value: props.visible,
-    defaultValue: props.defaultVisible,
+  [
+    ['visible', 'open'],
+    ['defaultVisible', 'defaultOpen'],
+    ['onVisibleChange', 'onOpenChange'],
+    ['afterVisibleChange', 'afterOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Tooltip',
+      `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+    );
+  });
+
+  const [open, setOpen] = useMergedState(false, {
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   const isNoTitle = () => {
@@ -148,11 +176,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return !title && !overlay && title !== 0; // overlay for old version compatibility
   };
 
-  const onVisibleChange = (vis: boolean) => {
-    setVisible(isNoTitle() ? false : vis);
+  const onOpenChange = (vis: boolean) => {
+    setOpen(isNoTitle() ? false : vis);
 
     if (!isNoTitle()) {
-      props.onVisibleChange?.(vis);
+      props.onOpenChange?.(vis);
     }
   };
 
@@ -222,10 +250,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const injectFromPopover = (props as any)['data-popover-inject'];
 
-  let tempVisible = visible;
+  let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('visible' in props) && isNoTitle()) {
-    tempVisible = false;
+  if (!('open' in props) && isNoTitle()) {
+    tempOpen = false;
   }
 
   const child = getDisabledCompatibleChildren(
@@ -270,8 +298,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       ref={ref}
       builtinPlacements={getTooltipPlacements()}
       overlay={getOverlay()}
-      visible={tempVisible}
-      onVisibleChange={onVisibleChange}
+      visible={tempOpen}
+      onVisibleChange={onOpenChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
@@ -280,7 +308,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         motionDeadline: 1000,
       }}
     >
-      {tempVisible ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>,
   );
 }) as React.ForwardRefExoticComponent<
