@@ -63,7 +63,7 @@ interface ChangeEventInfo<RecordType> {
     total?: number;
   };
   filters: Record<string, FilterValue | null>;
-  sorter: SorterResult<RecordType> | SorterResult<RecordType[]>;
+  sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 
   filterStates: FilterState<RecordType>[];
   sorterStates: SortState<RecordType>[];
@@ -94,7 +94,7 @@ export interface TableProps<RecordType>
   onChange?: (
     pagination: TablePaginationConfig,
     filters: Record<string, FilterValue | null>,
-    sorter: SorterResult<RecordType> | SorterResult<RecordType[]>,
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
@@ -145,6 +145,23 @@ function InternalTable<RecordType extends object = any>(
     'Table',
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
   );
+  warning(
+    !('filterDropdownVisible' in props || 'onFilterDropdownVisibleChange' in props),
+    'Table',
+    '`filterDropdownVisible` and `onFilterDropdownVisibleChange` is deprecated, ' +
+      'please use `filterDropdownOpen` and `onFilterDropdownOpenChange` instead.',
+  );
+
+  [
+    ['filterDropdownVisible', 'filterDropdownOpen'],
+    ['onFilterDropdownVisibleChange', 'onFilterDropdownOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Table',
+      `\`${deprecatedName}\` is deprecated which will be removed in next major version.Please use \`${newName}\` instead. `,
+    );
+  });
 
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
@@ -265,7 +282,7 @@ function InternalTable<RecordType extends object = any>(
 
   // ============================ Sorter =============================
   const onSorterChange = (
-    sorter: SorterResult<RecordType> | SorterResult<RecordType[]>,
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     sorterStates: SortState<RecordType>[],
   ) => {
     triggerOnChange(

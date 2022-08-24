@@ -31,6 +31,7 @@ export interface OptionProps {
 export interface MentionProps extends RcMentionsProps {
   loading?: boolean;
   status?: InputStatus;
+  popupClassName?: string;
 }
 
 export interface MentionState {
@@ -64,7 +65,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     children,
     notFoundContent,
     status: customStatus,
-    dropdownClassName,
+    popupClassName,
     ...restProps
   },
   ref,
@@ -149,7 +150,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       filterOption={getFilterOption()}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(dropdownClassName, hashId)}
+      dropdownClassName={classNames(popupClassName, hashId)}
       ref={mergedRef as any}
     >
       {getOptions()}

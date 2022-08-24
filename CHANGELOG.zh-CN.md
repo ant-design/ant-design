@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.22.7
+
+`2022-08-21`
+
+- 🐞 修复 Typography 可见度切换时有时候省略不会显示 Tooltip 的问题。[#37147](https://github.com/ant-design/ant-design/pull/37147)
+- 🐞 修复 InputNumber 样式不跟随控件 less 变量改变的问题。[#37070](https://github.com/ant-design/ant-design/pull/37070) [@coldice945](https://github.com/coldice945)
+
+## 4.22.6
+
+`2022-08-17`
+
+- 🐞 回滚 [#36710](https://github.com/ant-design/ant-design/pull/36710) 以修复 Table 多列排序时 `onChange` 中 `sorter` 参数错误的问题。
+- 🐞 修复 Drawer 的 `maskStyle` 配置 `opacity` 样式时无法关闭的问题。[#37100](https://github.com/ant-design/ant-design/pull/37100)
+
 ## 4.22.5
 
 `2022-08-15`

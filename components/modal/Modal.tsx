@@ -7,9 +7,9 @@ import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
+import warning from '../_util/warning';
 import { renderCloseIcon, renderFooter } from './PurePanel';
 import useStyle from './style';
-import warning from '../_util/warning';
 
 let mousePosition: { x: number; y: number } | null;
 
@@ -147,6 +147,14 @@ const Modal: React.FC<ModalProps> = props => {
     const { onOk } = props;
     onOk?.(e);
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('visible' in props),
+      'Modal',
+      `\`visible\` is removed in v5, please use \`open\` instead.`,
+    );
+  }
 
   const {
     prefixCls: customizePrefixCls,

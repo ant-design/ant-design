@@ -56,6 +56,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
+        borderRadius: token.controlRadius,
 
         [`${componentCls}-show-search&`]: {
           cursor: 'text',
@@ -95,7 +96,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
         background: token.colorFillSecondary,
         border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
-        borderRadius: token.controlRadius,
+        borderRadius: token.controlRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         userSelect: 'none',
@@ -196,6 +197,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
   const smallToken = mergeToken<SelectToken>(token, {
     controlHeight: token.controlHeightSM,
     controlHeightSM: token.controlHeightXS,
+    controlRadius: token.controlRadiusSM,
+    controlRadiusSM: token.controlRadiusXS,
   });
   const [, smSelectItemMargin] = getSelectItemStyle(token);
 
@@ -227,6 +230,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
         fontSize: token.fontSizeLG,
         controlHeight: token.controlHeightLG,
         controlHeightSM: token.controlHeight,
+        controlRadius: token.controlRadiusLG,
+        controlRadiusSM: token.controlRadius,
       }),
       'lg',
     ),

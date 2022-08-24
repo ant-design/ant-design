@@ -522,6 +522,33 @@ Array [
     </span>
     [After]
   </p>,
+  <div
+    style="display:none"
+  >
+    <span
+      aria-label="默认display none 样式的超长文字， 悬停tooltip失效了"
+      class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+      style="width:100px"
+    >
+      默认display none 样式的超长文字， 悬停tooltip失效了
+      <span
+        aria-hidden="true"
+        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      >
+        lg
+      </span>
+      <span
+        aria-hidden="true"
+        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      >
+        <span
+          aria-hidden="true"
+        >
+          ...
+        </span>
+      </span>
+    </span>
+  </div>,
 ]
 `;
 

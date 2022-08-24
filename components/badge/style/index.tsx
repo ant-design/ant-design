@@ -281,7 +281,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
-      borderRadius: token.controlRadius,
+      borderRadius: token.controlRadiusSM,
       [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',

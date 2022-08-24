@@ -54,11 +54,6 @@ export interface TreeSelectProps<
   size?: SizeType;
   disabled?: boolean;
   placement?: SelectCommonPlacement;
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   popupClassName?: string;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
@@ -82,7 +77,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     switcherIcon,
     treeLine,
     getPopupContainer,
-    dropdownClassName,
     popupClassName,
     treeIcon = false,
     transitionName,
@@ -111,13 +105,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   );
 
   const rootPrefixCls = getPrefixCls();
-
-  warning(
-    !dropdownClassName,
-    'TreeSelect',
-    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
-
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
@@ -126,7 +113,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(
-    popupClassName || dropdownClassName,
+    popupClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',

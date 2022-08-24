@@ -88,42 +88,10 @@ describe('Tag', () => {
 
     render(<Tag visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is removed, please use `visible && <Tag />` instead.',
     );
 
     errSpy.mockRestore();
-  });
-
-  describe('visibility', () => {
-    it('can be controlled by visible with visible as initial value', () => {
-      const wrapper = mount(<Tag visible />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-
-    it('can be controlled by visible with hidden as initial value', () => {
-      const wrapper = mount(<Tag visible={false} />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
-      act(() => {
-        jest.runAllTimers();
-      });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
   });
 
   describe('CheckableTag', () => {

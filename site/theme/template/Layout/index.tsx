@@ -249,6 +249,20 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
     });
   };
 
+  getAlgorithm = () => {
+    switch (this.state.v5theme) {
+      case 'dark':
+        return antdTheme.darkAlgorithm;
+      case 'defaultV4':
+        return antdTheme.defaultAlgorithmV4;
+      case 'darkV4':
+        return antdTheme.darkAlgorithmV4;
+      case 'default':
+      default:
+        return antdTheme.defaultAlgorithm;
+    }
+  };
+
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
     const {
@@ -270,6 +284,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
       appLocale.locale === 'zh-CN'
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
+
     return (
       <StyleProvider cache={styleCache}>
         {/* eslint-disable-next-line react/jsx-no-constructed-context-values */}
@@ -305,8 +320,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  algorithm:
-                    v5theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+                  algorithm: this.getAlgorithm(),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
@@ -323,7 +337,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                   }
                   onChangeTheme={newToken => {
                     console.log('Change Theme:', newToken);
-                    const { hashed, newTheme, ...restToken } = newToken as any;
+                    const { hashed, theme: newTheme, ...restToken } = newToken as any;
                     this.setState({
                       v5theme: newTheme,
                       designToken: restToken,

@@ -4,6 +4,7 @@ import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -89,5 +90,17 @@ describe('Modal', () => {
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
     ).toBeTruthy();
+  });
+
+  it('deprecated warning', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<Modal visible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `visible` is removed in v5, please use `open` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 });

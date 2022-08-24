@@ -10,3 +10,11 @@
   - close 改名为 destroy 和 message 保持一致
 - Drawer style & className 迁移至 Drawer Panel 中，原属性替换为 `rootClassName` 和 `rootStyle`
 - antd.css 替换为 reset.css
+- Tag
+  - 移除 visible 属性
+- 组件 `dropdownClassName` 替换为 `popupClassName`
+  - AutoComplete 组件
+  - Cascader 组件
+  - Select 组件
+  - TreeSelect 组件
+- open 属性转换：https://github.com/ant-design/ant-design/issues/36609

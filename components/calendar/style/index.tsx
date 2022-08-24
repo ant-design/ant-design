@@ -67,13 +67,13 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`${calendarCls}-mini`]: {
-      borderRadius: token.radiusBase,
+      borderRadius: token.controlRadiusLG,
       [`${calendarCls}-header`]: {
         paddingInlineEnd: token.paddingXS,
         paddingInlineStart: token.paddingXS,
       },
       [`${componentCls}-panel`]: {
-        borderRadius: `0 0 ${token.radiusBase}px ${token.radiusBase}px`,
+        borderRadius: `0 0 ${token.controlRadiusLG}px ${token.controlRadiusLG}px`,
       },
       [`${componentCls}-content`]: {
         height: token.miniContentHeight,
