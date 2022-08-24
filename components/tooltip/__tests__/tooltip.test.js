@@ -424,7 +424,7 @@ describe('Tooltip', () => {
   });
 
   it('should work with Fragment children', () => {
-    const onVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const ref = React.createRef();
 
     const { container } = render(
@@ -432,7 +432,7 @@ describe('Tooltip', () => {
         title="Have a nice day!"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
+        onOpenChange={onOpenChange}
         ref={ref}
       >
         <>
@@ -444,12 +444,12 @@ describe('Tooltip', () => {
 
     const divElement = container.querySelector('.hello');
     fireEvent.mouseEnter(divElement);
-    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement);
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
