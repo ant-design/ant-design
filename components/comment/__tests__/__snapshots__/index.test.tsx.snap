@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-comment ant-comment-rtl"
+>
+  <div
+    class="ant-comment-inner"
+  >
+    <div
+      class="ant-comment-content"
+    >
+      <div
+        class="ant-comment-content-detail"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Comment should support empty actions 1`] = `
+<div
+  class="ant-comment"
+>
+  <div
+    class="ant-comment-inner"
+  >
+    <div
+      class="ant-comment-content"
+    >
+      <div
+        class="ant-comment-content-author"
+      >
+        <span
+          class="ant-comment-content-author-name"
+        >
+          <a>
+            Han Solo
+          </a>
+        </span>
+        <span
+          class="ant-comment-content-author-time"
+        >
+          YYYY-MM-DD HH:mm:ss
+        </span>
+      </div>
+      <div
+        class="ant-comment-content-detail"
+      >
+        <p>
+          We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
