@@ -252,7 +252,7 @@
     "mockdate": "^3.0.0",
     "open": "^8.0.1",
     "prettier": "^2.3.2",
-    "prettier-plugin-jsdoc": "^0.3.0",
+    "prettier-plugin-jsdoc": "^0.4.2",
     "pretty-format": "^28.1.3",
     "pretty-quick": "^3.0.0",
     "qs": "^6.10.1",
