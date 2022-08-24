@@ -1,5 +1,5 @@
-import { render } from '../../../tests/utils';
 import React from 'react';
+import { render } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Comment from '../index';
