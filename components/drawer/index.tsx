@@ -8,20 +8,10 @@ import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import { tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 // CSSINJS
 import useStyle from './style';
-
-type EventType =
-  | React.KeyboardEvent<HTMLDivElement>
-  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
-
-type getContainerFunc = () => HTMLElement;
-
-type ILevelMove = number | [number, number];
-
-const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
-type placementType = typeof PlacementTypes[number];
 
 const SizeTypes = tuple('default', 'large');
 type sizeType = typeof SizeTypes[number];
@@ -29,72 +19,55 @@ type sizeType = typeof SizeTypes[number];
 export interface PushState {
   distance: string | number;
 }
-export interface DrawerProps {
-  autoFocus?: boolean;
+
+// Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
+export interface DrawerProps extends RcDrawerProps {
+  size?: sizeType;
   closable?: boolean;
   closeIcon?: React.ReactNode;
-  destroyOnClose?: boolean;
-  forceRender?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false;
-  maskClosable?: boolean;
-  mask?: boolean;
-  maskStyle?: React.CSSProperties;
-  style?: React.CSSProperties;
-  size?: sizeType;
+
   /** Wrapper dom node style of header and body */
   drawerStyle?: React.CSSProperties;
   headerStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
-  contentWrapperStyle?: React.CSSProperties;
-  title?: React.ReactNode;
-  visible?: boolean;
-  width?: number | string;
-  height?: number | string;
-  zIndex?: number;
-  prefixCls?: string;
-  push?: boolean | PushState;
-  placement?: placementType;
-  onClose?: (e: EventType) => void;
-  afterVisibleChange?: (visible: boolean) => void;
-  className?: string;
-  handler?: React.ReactNode;
-  keyboard?: boolean;
-  extra?: React.ReactNode;
-  footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
-  level?: string | string[] | null | undefined;
-  levelMove?: ILevelMove | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
-  children?: React.ReactNode;
+
+  title?: React.ReactNode;
+  open?: boolean;
+
+  footer?: React.ReactNode;
+  extra?: React.ReactNode;
+
+  afterOpenChange?: (open: boolean) => void;
 }
 
 const defaultPushState: PushState = { distance: 180 };
 
-function Drawer({
-  width,
-  height,
-  size = 'default',
-  closable = true,
-  mask = true,
-  push = defaultPushState,
-  closeIcon = <CloseOutlined />,
-  bodyStyle,
-  drawerStyle,
-  className,
-  visible,
-  children,
-  zIndex,
-  style,
-  title,
-  headerStyle,
-  onClose,
-  footer,
-  footerStyle,
-  prefixCls: customizePrefixCls,
-  getContainer: customizeGetContainer,
-  extra,
-  afterVisibleChange,
-  ...rest
-}: DrawerProps) {
+function Drawer(props: DrawerProps) {
+  const {
+    rootClassName,
+    width,
+    height,
+    size = 'default',
+    closable = true,
+    mask = true,
+    push = defaultPushState,
+    closeIcon = <CloseOutlined />,
+    bodyStyle,
+    drawerStyle,
+    open,
+    children,
+    title,
+    headerStyle,
+    onClose,
+    footer,
+    footerStyle,
+    prefixCls: customizePrefixCls,
+    getContainer: customizeGetContainer,
+    extra,
+    ...rest
+  } = props;
+
   const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
@@ -112,6 +85,17 @@ function Drawer({
       {closeIcon}
     </button>
   );
+
+  [
+    ['visible', 'open'],
+    ['afterVisibleChange', 'afterOpenChange'],
+  ].forEach(([deprecatedName, newName]) => {
+    warning(
+      !(deprecatedName in props),
+      'Drawer',
+      `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+    );
+  });
 
   function renderHeader() {
     if (!title && !closable) {
@@ -152,9 +136,23 @@ function Drawer({
       'no-mask': !mask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    className,
+    rootClassName,
     hashId,
   );
+
+  // ========================== Warning ===========================
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['afterVisibleChange', 'afterOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Drawer',
+        `\`${deprecatedName}\` is removed, please use \`${newName}\` instead.`,
+      );
+    });
+  }
 
   // ============================ Size ============================
   const mergedWidth = React.useMemo(() => width ?? (size === 'large' ? 736 : 378), [width, size]);
@@ -169,6 +167,7 @@ function Drawer({
     motionAppear: true,
     motionEnter: true,
     motionLeave: true,
+    motionDeadline: 500,
   };
 
   const panelMotion: RcDrawerProps['motion'] = motionPlacement => ({
@@ -176,6 +175,7 @@ function Drawer({
     motionAppear: true,
     motionEnter: true,
     motionLeave: true,
+    motionDeadline: 500,
   });
 
   // =========================== Render ===========================
@@ -184,20 +184,16 @@ function Drawer({
       <RcDrawer
         prefixCls={prefixCls}
         onClose={onClose}
+        maskMotion={maskMotion}
+        motion={panelMotion}
         {...rest}
-        open={visible}
+        open={open}
         mask={mask}
         push={push}
         width={mergedWidth}
         height={mergedHeight}
         rootClassName={drawerClassName}
         getContainer={getContainer}
-        afterOpenChange={open => {
-          afterVisibleChange?.(open);
-        }}
-        maskMotion={maskMotion}
-        motion={panelMotion}
-        rootStyle={style}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
@@ -214,5 +210,27 @@ function Drawer({
 if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
+
+interface PurePanelProps extends DrawerProps {}
+
+function PurePanel({ style, ...restProps }: PurePanelProps) {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        minHeight: 100,
+        overflow: 'hidden',
+        ...style,
+      }}
+    >
+      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} open />
+    </div>
+  );
+}
+
+Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Drawer;

@@ -1,9 +1,8 @@
-import type { RenderOptions } from '@testing-library/react';
-import { render } from '@testing-library/react';
 import MockDate from 'mockdate';
 import type { ReactElement } from 'react';
 import React, { StrictMode } from 'react';
-import { act } from 'react-dom/test-utils';
+import type { RenderOptions } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 
@@ -29,7 +28,29 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
   render(ui, { wrapper: StrictMode, ...options });
 
 export * from '@testing-library/react';
-export { customRender as render };
+
+export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
+  const result = React.createRef<T>();
+
+  const Demo = () => {
+    (result as any).current = func();
+
+    return null;
+  };
+
+  customRender(<Demo />);
+
+  return { result };
+}
+
+/**
+ * Pure render like `@testing-lib` render which will not wrap with StrictMode.
+ *
+ * Please only use with render times times of memo usage case.
+ */
+const pureRender = render;
+
+export { customRender as render, pureRender };
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
@@ -43,15 +64,3 @@ export const triggerResize = (target: Element) => {
 
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
-
-export function renderHook<T>(func: () => T): { current: T } {
-  const outerRef = React.createRef<T>();
-  const Demo = React.forwardRef((_, ref: any) => {
-    ref.current = func();
-    return null;
-  });
-
-  render(<Demo ref={outerRef} />);
-
-  return outerRef as any;
-}

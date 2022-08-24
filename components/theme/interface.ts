@@ -205,29 +205,36 @@ export interface SeedToken extends PresetColorType {
   opacityImage: number;
 }
 
-export interface TextMapToken {
+export interface NeutralColorMapToken {
+  // Base
+  colorTextBase: string;
+  colorBgBase: string;
+
+  // Text
   colorText: string;
   colorTextSecondary: string;
   colorTextTertiary: string;
   colorTextQuaternary: string;
-}
 
-export interface BgMapToken {
-  // 作为比较重的描边或者填充内容
+  // Fill
   colorFill: string;
-  // 表达 选中态，或者作为弱一级的实色 border
   colorFillSecondary: string;
-  // 另外一种 hover 色 或者禁用的背景色
-  // 用于表达选中态或用于与区分 BgComponent 区分
   colorFillTertiary: string;
   colorFillQuaternary: string;
-  // Container 类型
+
+  // Background
   colorBgContainer: string;
   colorBgElevated: string;
   colorBgLayout: string;
+  colorBgSpotlight: string;
+
+  // Border
+  colorBorder: string;
+  colorBorderSecondary: string;
+  colorSplit: string;
 }
 
-export interface ColorMapToken extends BgMapToken, TextMapToken {
+export interface ColorMapToken extends NeutralColorMapToken {
   // Primary
   colorPrimaryBg: string; // 1
   colorPrimaryBgHover: string; // 2
@@ -236,8 +243,9 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorPrimaryHover: string; // 5
   colorPrimary: string; // 6
   colorPrimaryActive: string; // 7
-  colorPrimaryText: string; // 8
-  colorPrimaryTextHover: string; // 9
+  colorPrimaryTextHover: string; // 8
+  colorPrimaryText: string; // 9
+  colorPrimaryTextActive: string; // 10
 
   // Success
   colorSuccessBg: string; // 1
@@ -247,8 +255,9 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorSuccessHover: string; // 5
   colorSuccess: string; // 6
   colorSuccessActive: string; // 7
-  colorSuccessText: string; // 8
-  colorSuccessTextHover: string; // 9
+  colorSuccessTextHover: string; // 8
+  colorSuccessText: string; // 9
+  colorSuccessTextActive: string; // 10
 
   // Warning
   colorWarningBg: string; // 1
@@ -258,8 +267,9 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorWarningHover: string; // 5
   colorWarning: string; // 6
   colorWarningActive: string; // 7
-  colorWarningText: string; // 8
-  colorWarningTextHover: string; // 9
+  colorWarningTextHover: string; // 8
+  colorWarningText: string; // 9
+  colorWarningTextActive: string; // 10
 
   // Error
   colorErrorBg: string; // 1
@@ -269,8 +279,9 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorErrorHover: string; // 5
   colorError: string; // 6
   colorErrorActive: string; // 7
-  colorErrorText: string; // 8
-  colorErrorTextHover: string; // 9
+  colorErrorTextHover: string; // 8
+  colorErrorText: string; // 9
+  colorErrorTextActive: string; // 10
 
   // Info
   colorInfoBg: string; // 1
@@ -280,8 +291,11 @@ export interface ColorMapToken extends BgMapToken, TextMapToken {
   colorInfoHover: string; // 5
   colorInfo: string; // 6
   colorInfoActive: string; // 7
-  colorInfoText: string; // 8
-  colorInfoTextHover: string; // 9
+  colorInfoTextHover: string; // 8
+  colorInfoText: string; // 9
+  colorInfoTextActive: string; // 10
+
+  colorBgMask: string;
 }
 
 export interface CommonMapToken {
@@ -311,9 +325,10 @@ export interface CommonMapToken {
   motionDurationSlow: string;
 
   // Radius
+  radiusXS: number;
   radiusSM: number;
   radiusLG: number;
-  radiusXL: number;
+  radiusOuter: number;
 
   // Control
   /** @private Only Used for control inside component like Multiple Select inner selection item */
@@ -338,22 +353,17 @@ export interface AliasToken extends MapToken {
   colorFillContentHover: string;
   colorFillAlter: string;
   colorBgContainerDisabled: string;
-
-  colorBgMask: string;
-  colorBgSpotlight: string;
   colorFillContent: string;
 
   // Border
-  colorBorder: string;
   colorBorderBg: string;
-  colorBorderSecondary: string;
-  colorSplit: string;
 
   // Text
   colorTextPlaceholder: string;
   colorTextDisabled: string;
   colorTextHeading: string;
   colorTextLabel: string;
+  colorTextDescription: string;
 
   /** Weak action. Such as `allowClear` or Alert close button */
   colorIcon: string;
@@ -402,6 +412,9 @@ export interface AliasToken extends MapToken {
   controlLineWidth: number;
   controlLineType: string;
   controlRadius: number;
+  controlRadiusXS: number;
+  controlRadiusSM: number;
+  controlRadiusLG: number;
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color

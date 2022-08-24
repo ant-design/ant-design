@@ -41,6 +41,7 @@ export interface AutoCompleteProps<
   > {
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
+  popupClassName?: string;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -51,7 +52,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   props,
   ref,
 ) => {
-  const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
+  const { prefixCls: customizePrefixCls, className, popupClassName, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   // ============================= Input =============================
@@ -128,6 +129,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
             ref={ref}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
+            dropdownClassName={popupClassName}
             className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
             {...{

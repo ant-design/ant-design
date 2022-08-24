@@ -113,6 +113,19 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果你需要一些 antd 没有包含的功能，你可以尝试通过 [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775) 拓展 antd 的组件。 [更多](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+## 如何获取未导出的属性定义？
+
+antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
+
+```tsx
+import { Table } from 'antd';
+
+type Props<T extends (...args: any) => any> = Parameters<T>[0];
+
+type TableProps = Props<typeof Table<{ key: string, name: string, age: number }>>;
+type DataSource = TableProps['dataSource'];
+```
+
 ## 我的组件默认语言是英文的？如何切回中文的。
 
 请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。

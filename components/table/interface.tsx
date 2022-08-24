@@ -114,8 +114,8 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
-  filterDropdownVisible?: boolean;
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
+  filterDropdownOpen?: boolean;
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive

@@ -21,7 +21,6 @@ Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题
 import { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generatePicker from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 
 const DatePicker = generatePicker<Moment>(momentGenerateConfig);
 
@@ -61,7 +60,6 @@ export default TimePicker;
 import { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
-import 'antd/es/calendar/style';
 
 const Calendar = generateCalendar<Moment>(momentGenerateConfig);
 

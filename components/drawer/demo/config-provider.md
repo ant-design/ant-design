@@ -20,14 +20,14 @@ import React, { useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -37,11 +37,11 @@ const App: React.FC = () => {
           Open
         </Button>
         <Drawer
-          style={{ position: 'absolute' }}
+          rootStyle={{ position: 'absolute' }}
           title="ConfigProvider"
           placement="right"
           onClose={onClose}
-          visible={visible}
+          open={open}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>
