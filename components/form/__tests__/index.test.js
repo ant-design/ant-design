@@ -600,7 +600,7 @@ describe('Form', () => {
     }).not.toThrow();
   });
 
-  it.only('change `help` should not warning', async () => {
+  it('change `help` should not warning', async () => {
     const Demo = () => {
       const [error, setError] = React.useState(null);
 
@@ -630,21 +630,22 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it('`label` support template', async () => {
-    const wrapper = mount(
+  it.only('`label` support template', async () => {
+    render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
         <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
           <input />
         </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
       </Form>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
   });
 
   // https://github.com/ant-design/ant-design/issues/33691
