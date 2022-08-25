@@ -16,8 +16,8 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form validateMessages', () => {
-    const setup = ({ validateMessages }) => {
-      const formRef = React.createRef();
+    const setup = ({ validateMessages }: { validateMessages?: any }) => {
+      const formRef = React.createRef<any>();
 
       const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
@@ -33,23 +33,6 @@ describe('ConfigProvider.Form', () => {
       );
 
       return { container, formRef };
-    };
-    const renderComponent = ({ validateMessages }) => {
-      const formRef = React.createRef();
-
-      const { container } = render(
-        <ConfigProvider locale={zhCN} form={{ validateMessages }}>
-          <Form ref={formRef} initialValues={{ age: 18 }}>
-            <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
-              <input />
-            </Form.Item>
-            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
-              <input />
-            </Form.Item>
-          </Form>
-        </ConfigProvider>,
-      );
-      return [container, formRef] as const;
     };
 
     it('should show validate message correctly when set locale zhCN', async () => {
