@@ -454,7 +454,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20948
-  it.only('not repeat render when Form.Item is not a real Field', async () => {
+  it('not repeat render when Form.Item is not a real Field', async () => {
     const shouldNotRender = jest.fn();
     const StaticInput = () => {
       shouldNotRender();
@@ -490,22 +490,12 @@ describe('Form', () => {
     expect(shouldRender).toHaveBeenCalledTimes(5);
   });
 
-  it('empty help should also render', () => {
-    const wrapper = mount(
-      <Form.Item help="">
-        <input />
-      </Form.Item>,
-    );
-    expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
-  });
-
-  it('Form.Item with `help` should display error style when validate failed', async () => {
-    jest.useFakeTimers();
-
+  it.only('Form.Item with `help` should display error style when validate failed', async () => {
     const { container } = render(
       <Form>
         <Form.Item
           name="test"
+          label="test"
           help="help"
           initialValue="bamboo"
           rules={[{ required: true, message: 'message' }]}
@@ -515,11 +505,12 @@ describe('Form', () => {
       </Form>,
     );
 
-    await change(container, 0, '', true);
-    expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
-    expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('help');
+    await userEvent.type(screen.getByLabelText('test'), 'test');
+    await userEvent.clear(screen.getByLabelText('test'));
 
-    jest.useRealTimers();
+    // should have alert with help text and form item with style
+    expect(screen.getByRole('alert')).toHaveTextContent('help');
+    expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
   });
 
   it('clear validation message when ', async () => {
