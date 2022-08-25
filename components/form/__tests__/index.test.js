@@ -670,7 +670,7 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('请输入Bamboo');
   });
 
-  it.only('`name` support template when label is not provided', async () => {
+  it('`name` support template when label is not provided', async () => {
     render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
@@ -688,21 +688,22 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
   });
 
-  it('`messageVariables` support validate', async () => {
-    const wrapper = mount(
+  it.only('`messageVariables` support validate', async () => {
+    render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
         <Form.Item name="test" messageVariables={{ label: 'Bamboo' }} rules={[{ required: true }]}>
           <input />
         </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
       </Form>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
   });
 
   it('validation message should has alert role', async () => {
