@@ -21,7 +21,7 @@ import React from 'react';
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalAutoComplete } = AutoComplete;
 
 const App: React.FC = () => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Space direction="vertical" style={{ display: 'flex' }}>
