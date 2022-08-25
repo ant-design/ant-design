@@ -307,7 +307,7 @@ describe('Form', () => {
     );
   });
 
-  it.only('dynamic change required', async () => {
+  it('dynamic change required', async () => {
     render(
       <Form>
         <Form.Item label="light" name="light" valuePropName="checked">
@@ -338,30 +338,28 @@ describe('Form', () => {
     await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'bamboo' is required");
   });
 
-  describe('should show related className when customize help', () => {
-    it('normal', () => {
-      const wrapper = mount(
-        <Form>
-          <Form.Item help="good">
-            <input />
-          </Form.Item>
-        </Form>,
-      );
+  it.only('should show alert with string when help is non-empty string', () => {
+    render(
+      <Form>
+        <Form.Item help="good">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
-    });
+    expect(screen.getByRole('alert')).toHaveTextContent('good');
+  });
 
-    it('empty string', () => {
-      const wrapper = mount(
-        <Form>
-          <Form.Item help="">
-            <input />
-          </Form.Item>
-        </Form>,
-      );
+  it('empty string', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
-    });
+    expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
   });
 
   it('warning when use v3 function', () => {
