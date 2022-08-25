@@ -119,8 +119,8 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form colon', () => {
-    it('set colon false', () => {
-      const { container } = render(
+    it('should set form item colon false when set form colon false in provider', async () => {
+      render(
         <ConfigProvider form={{ colon: false }}>
           <Form>
             <Form.Item label="没有冒号">
@@ -129,11 +129,12 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-      expect(container.querySelector('.ant-form-item-no-colon')).toBeTruthy();
+
+      expect(screen.getByTitle('没有冒号')).toHaveClass('ant-form-item-no-colon');
     });
 
-    it('set colon default', () => {
-      const { container } = render(
+    it("should not set form item colon false when colon doesn't set in provider", async () => {
+      render(
         <ConfigProvider>
           <Form>
             <Form.Item label="姓名">
@@ -142,7 +143,8 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-      expect(container.querySelector('.ant-form-item-no-colon')).toBeFalsy();
+
+      expect(screen.getByTitle('姓名')).not.toHaveClass('ant-form-item-no-colonn');
     });
   });
 });
