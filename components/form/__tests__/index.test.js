@@ -153,7 +153,7 @@ describe('Form', () => {
     });
   });
 
-  it.only('`shouldUpdate` should work with render props', () => {
+  it('`shouldUpdate` should work with render props', () => {
     render(
       <Form>
         <Form.Item>{() => null}</Form.Item>
@@ -163,8 +163,8 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
     );
   });
-  it("`shouldUpdate` shouldn't work with `dependencies`", () => {
-    mount(
+  it.only("`shouldUpdate` shouldn't work with `dependencies`", () => {
+    render(
       <Form>
         <Form.Item shouldUpdate dependencies={[]}>
           {() => null}
