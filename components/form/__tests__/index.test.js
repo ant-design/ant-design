@@ -338,7 +338,7 @@ describe('Form', () => {
     await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'bamboo' is required");
   });
 
-  it.only('should show alert with string when help is non-empty string', () => {
+  it('should show alert with string when help is non-empty string', () => {
     render(
       <Form>
         <Form.Item help="good">
@@ -350,7 +350,7 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('good');
   });
 
-  it.only('should show alert with empty string when help is empty string', () => {
+  it('should show alert with empty string when help is empty string', () => {
     render(
       <Form>
         <Form.Item help="">
@@ -370,13 +370,12 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20706
-  it('Error change should work', async () => {
-    jest.useFakeTimers();
-
-    const { container } = render(
+  it.only('Error change should work', async () => {
+    render(
       <Form>
         <Form.Item
-          name="name"
+          name="test"
+          label="test"
           rules={[
             { required: true },
             {
@@ -394,21 +393,25 @@ describe('Form', () => {
       </Form>,
     );
 
-    /* eslint-disable no-await-in-loop */
-    for (let i = 0; i < 3; i += 1) {
-      await change(container, 0, 'bamboo', true);
-      await change(container, 0, '', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual(
-        "'name' is required",
-      );
+    // user type something and clear
+    await userEvent.type(screen.getByLabelText('test'), 'bamboo');
+    await userEvent.clear(screen.getByLabelText('test'));
 
-      await change(container, 0, 'p', true);
-      await sleep(100);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('not a p');
-    }
-    /* eslint-enable */
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'test' is required");
 
-    jest.useRealTimers();
+    // user type value that fulfill the validator
+    await userEvent.type(screen.getByLabelText('test'), 'p');
+
+    await sleep(100);
+
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('not a p');
+
+    // user clear field again
+    await userEvent.clear(screen.getByLabelText('test'));
+
+    await sleep(100);
+
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'test' is required");
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
