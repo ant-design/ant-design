@@ -1909,8 +1909,8 @@ exports[`renders ./components/auto-complete/demo/render-panel.md extend context 
     style="margin-bottom:8px"
   >
     <button
-      aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      aria-checked="false"
+      class="ant-switch"
       role="switch"
       type="button"
     >
@@ -1929,7 +1929,7 @@ exports[`renders ./components/auto-complete/demo/render-panel.md extend context 
       style="padding-bottom:0;position:relative;width:fit-content"
     >
       <div
-        class="ant-select ant-select-auto-complete ant-select-single ant-select-open ant-select-show-search"
+        class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
         style="width:120px;margin:0"
       >
         <div
@@ -1942,7 +1942,7 @@ exports[`renders ./components/auto-complete/demo/render-panel.md extend context 
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
