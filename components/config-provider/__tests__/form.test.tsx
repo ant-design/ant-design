@@ -105,8 +105,8 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form requiredMark', () => {
-    it('set requiredMark optional', () => {
-      const { container } = render(
+    it('should set form item requiredMark optional when set requiredMark optional in provider', async () => {
+      render(
         <ConfigProvider form={{ requiredMark: 'optional' }}>
           <Form initialValues={{ age: 18 }}>
             <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
@@ -115,7 +115,8 @@ describe('ConfigProvider.Form', () => {
           </Form>
         </ConfigProvider>,
       );
-      expect(container.firstChild).toMatchSnapshot();
+
+      expect(screen.getByTitle('年龄')).toHaveClass('ant-form-item-required-mark-optional');
     });
   });
 
