@@ -549,7 +549,7 @@ describe('Form', () => {
     expect(screen.getByTitle('test')).toHaveClass('ant-form-item-required');
   });
 
-  it.only('0 is a validate Field', () => {
+  it('0 is a validate Field', () => {
     render(
       <Form.Item name={0} label="0">
         <input />
@@ -560,14 +560,15 @@ describe('Form', () => {
     expect(screen.getByLabelText('0')).toBeInTheDocument();
   });
 
-  it('`null` triggers warning and is treated as `undefined`', () => {
-    const wrapper = mount(
-      <Form.Item name={null}>
+  it.only('`null` triggers warning and is treated as `undefined`', () => {
+    render(
+      <Form.Item name={null} label="test">
         <input />
       </Form.Item>,
     );
 
-    expect(wrapper.find('Field')).toHaveLength(0);
+    // if getByLabelText can get element, then it is a validate field with form control and label
+    expect(screen.queryByLabelText('test')).not.toBeInTheDocument();
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `null` is passed as `name` property',
     );
