@@ -122,7 +122,7 @@ describe('PageHeader', () => {
     const { container } = render(<PageHeader title="Page Title" extra="extra" />);
     triggerResize(container.firstChild as HTMLDivElement);
     await act(async () => {
-      jest.runAllTimers();
+      await jest.runAllTimers();
       await sleep();
     });
     expect(container.querySelector('div.ant-page-header')).toHaveClass('ant-page-header-compact');
