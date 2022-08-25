@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import userEvent from '@testing-library/user-event';
 import classNames from 'classnames';
 import Form from '..';
 import * as Util from '../util';
@@ -20,7 +20,7 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -72,28 +72,29 @@ describe('Form', () => {
   });
 
   describe('noStyle Form.Item', () => {
-    it('work', async () => {
-      jest.useFakeTimers();
-
+    it.only('should show alert when form field is required but empty', async () => {
       const onChange = jest.fn();
 
       const { container } = render(
         <Form>
           <Form.Item>
-            <Form.Item name="test" initialValue="bamboo" rules={[{ required: true }]}>
+            <Form.Item name="test" label="test" initialValue="bamboo" rules={[{ required: true }]}>
               <Input onChange={onChange} />
             </Form.Item>
           </Form.Item>
         </Form>,
       );
 
-      await change(container, 0, '', true);
-      expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
+      // user type something and clear
+      await userEvent.type(screen.getByLabelText('test'), 'test');
+      await userEvent.clear(screen.getByLabelText('test'));
+
+      // should show alert with correct message and show correct styles
+      await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'test' is required");
+      expect(screen.getByLabelText('test')).toHaveClass('ant-input-status-error');
       expect(container.querySelectorAll('.ant-form-item-has-error').length).toBeTruthy();
 
       expect(onChange).toHaveBeenCalled();
-
-      jest.useRealTimers();
     });
 
     it('should clean up', async () => {
