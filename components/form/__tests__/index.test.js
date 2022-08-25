@@ -72,7 +72,7 @@ describe('Form', () => {
   });
 
   describe('noStyle Form.Item', () => {
-    it.only('should show alert when form field is required but empty', async () => {
+    it('should show alert when form field is required but empty', async () => {
       const onChange = jest.fn();
 
       const { container } = render(
@@ -97,9 +97,8 @@ describe('Form', () => {
       expect(onChange).toHaveBeenCalled();
     });
 
-    it('should clean up', async () => {
+    it.only('should clean up', async () => {
       jest.useFakeTimers();
-
       const Demo = () => {
         const [form] = Form.useForm();
 
@@ -144,11 +143,11 @@ describe('Form', () => {
 
       const { container } = render(<Demo />);
       await change(container, 0, '1', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
+      expect(screen.getByRole('alert')).toHaveTextContent('aaa');
       await change(container, 0, '2', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('ccc');
+      expect(screen.getByRole('alert')).toHaveTextContent('ccc');
       await change(container, 0, '1', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
+      expect(screen.getByRole('alert')).toHaveTextContent('aaa');
 
       jest.useRealTimers();
     });
