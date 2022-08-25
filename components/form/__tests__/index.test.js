@@ -189,7 +189,7 @@ describe('Form', () => {
     );
   });
 
-  it.only('children is array has name props', () => {
+  it('children is array has name props', () => {
     render(
       <Form>
         <Form.Item name="test">
@@ -221,7 +221,7 @@ describe('Form', () => {
           );
         };
 
-        const wrapper = mount(<Demo />, { attachTo: document.body });
+        render(<Demo />);
 
         expect(scrollIntoView).not.toHaveBeenCalled();
         const form = callGetForm();
@@ -234,8 +234,6 @@ describe('Form', () => {
           block: 'start',
           scrollMode: 'if-needed',
         });
-
-        wrapper.unmount();
       });
     }
 
@@ -262,29 +260,29 @@ describe('Form', () => {
     });
   });
 
-  it('scrollToFirstError', async () => {
+  it.only('scrollToFirstError', async () => {
     const onFinishFailed = jest.fn();
 
-    const wrapper = mount(
+    render(
       <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
+        </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>,
       { attachTo: document.body },
     );
 
     expect(scrollIntoView).not.toHaveBeenCalled();
-    wrapper.find('form').simulate('submit');
-    await sleep(50);
+    await userEvent.click(screen.getByRole('button', { name: /submit/i }));
     const inputNode = document.getElementById('test');
     expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
       block: 'center',
       scrollMode: 'if-needed',
     });
     expect(onFinishFailed).toHaveBeenCalled();
-
-    wrapper.unmount();
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
