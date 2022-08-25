@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Form from '../../form';
 import zhCN from '../../locale/zh_CN';
 
@@ -15,8 +15,27 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form validateMessages', () => {
-    const renderComponent = ({ validateMessages }: { validateMessages?: any }) => {
-      const formRef = React.createRef<any>();
+    const setup = ({ validateMessages }) => {
+      const formRef = React.createRef();
+
+      const { container } = render(
+        <ConfigProvider locale={zhCN} form={{ validateMessages }}>
+          <Form ref={formRef} initialValues={{ age: 18 }}>
+            <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
+              <input />
+            </Form.Item>
+            <Form.Item name="age" label="年龄" rules={[{ type: 'number', len: 17 }]}>
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      return { container, formRef };
+    };
+    const renderComponent = ({ validateMessages }) => {
+      const formRef = React.createRef();
+
       const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>
@@ -33,7 +52,7 @@ describe('ConfigProvider.Form', () => {
     };
 
     it('set locale zhCN', async () => {
-      const [container, formRef] = renderComponent({});
+      const { formRef } = setup({});
 
       await act(async () => {
         try {
@@ -43,16 +62,17 @@ describe('ConfigProvider.Form', () => {
         }
       });
 
-      await act(async () => {
+      act(() => {
         jest.runAllTimers();
-        await Promise.resolve();
       });
+
+      await Promise.resolve();
 
       act(() => {
         jest.runAllTimers();
       });
 
-      expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
+      expect(screen.getByText('请输入姓名')).toBeInTheDocument();
     });
 
     it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
