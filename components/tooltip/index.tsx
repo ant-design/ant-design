@@ -187,7 +187,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const [open, setOpen] = useMergedState(false, {
     value: props.open !== undefined ? props.open : props.visible,
-    defaultValue: props.defaultOpen || props.defaultVisible,
+    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
   });
 
   const isNoTitle = () => {

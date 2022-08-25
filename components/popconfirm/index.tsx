@@ -44,8 +44,8 @@ export interface PopconfirmState {
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
-    value: props.open || props.visible,
-    defaultValue: props.defaultOpen || props.defaultVisible,
+    value: props.open !== undefined ? props.open : props.visible,
+    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
   });
 
   // const isDestroyed = useDestroyed();
