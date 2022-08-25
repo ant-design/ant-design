@@ -18,7 +18,7 @@ import { message, Popconfirm, Switch } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [condition, setCondition] = useState(true);
 
   const changeCondition = (checked: boolean) => {
@@ -26,18 +26,18 @@ const App: React.FC = () => {
   };
 
   const confirm = () => {
-    setVisible(false);
+    setOpen(false);
     message.success('Next step.');
   };
 
   const cancel = () => {
-    setVisible(false);
+    setOpen(false);
     message.error('Click on cancel.');
   };
 
-  const handleVisibleChange = (newVisible: boolean) => {
-    if (!newVisible) {
-      setVisible(newVisible);
+  const handleOpenChange = (newOpen: boolean) => {
+    if (!newOpen) {
+      setOpen(newOpen);
       return;
     }
     // Determining condition before show the popconfirm.
@@ -45,7 +45,7 @@ const App: React.FC = () => {
     if (condition) {
       confirm(); // next step
     } else {
-      setVisible(newVisible);
+      setOpen(newOpen);
     }
   };
 
@@ -53,8 +53,8 @@ const App: React.FC = () => {
     <div>
       <Popconfirm
         title="Are you sure delete this task?"
-        visible={visible}
-        onVisibleChange={handleVisibleChange}
+        open={open}
+        onOpenChange={handleOpenChange}
         onConfirm={confirm}
         onCancel={cancel}
         okText="Yes"
