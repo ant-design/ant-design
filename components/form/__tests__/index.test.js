@@ -176,7 +176,7 @@ describe('Form', () => {
     );
   });
 
-  it.only('`name` should not work with render props', () => {
+  it('`name` should not work with render props', () => {
     render(
       <Form>
         <Form.Item name="test" shouldUpdate>
@@ -189,8 +189,8 @@ describe('Form', () => {
     );
   });
 
-  it('children is array has name props', () => {
-    mount(
+  it.only('children is array has name props', () => {
+    render(
       <Form>
         <Form.Item name="test">
           <div>one</div>
