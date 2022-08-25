@@ -688,7 +688,7 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
   });
 
-  it.only('`messageVariables` support validate', async () => {
+  it('`messageVariables` support validate', async () => {
     render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
@@ -706,24 +706,23 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
   });
 
-  it('validation message should has alert role', async () => {
+  it.only('validation message should has alert role', async () => {
     // https://github.com/ant-design/ant-design/issues/25711
-    const wrapper = mount(
+    render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: 'name is good!' }}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
       </Form>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
-      'alert',
-    );
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('name is good!');
   });
 
   it('return same form instance', () => {
