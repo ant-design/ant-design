@@ -490,7 +490,7 @@ describe('Form', () => {
     expect(shouldRender).toHaveBeenCalledTimes(5);
   });
 
-  it.only('Form.Item with `help` should display error style when validate failed', async () => {
+  it('Form.Item with `help` should display error style when validate failed', async () => {
     const { container } = render(
       <Form>
         <Form.Item
@@ -513,27 +513,27 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
   });
 
-  it('clear validation message when ', async () => {
-    jest.useFakeTimers();
-
-    const { container } = render(
+  it.only('should clear validation message when input something', async () => {
+    render(
       <Form>
-        <Form.Item name="username" rules={[{ required: true, message: 'message' }]}>
+        <Form.Item name="test" label="test" rules={[{ required: true, message: 'message' }]}>
           <Input />
         </Form.Item>
       </Form>,
     );
-    await change(container, 0, '1', true);
-    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
 
-    await change(container, 0, '', true);
-    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeTruthy();
+    await userEvent.type(screen.getByLabelText('test'), 'test');
 
-    await change(container, 0, '123', true);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+
+    await userEvent.clear(screen.getByLabelText('test'));
+
+    expect(screen.queryByRole('alert')).toBeInTheDocument();
+
+    await userEvent.type(screen.getByLabelText('test'), 'test');
     await sleep(800);
-    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
 
-    jest.useRealTimers();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   // https://github.com/ant-design/ant-design/issues/21167
