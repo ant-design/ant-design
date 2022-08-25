@@ -20,16 +20,16 @@ import { Dropdown, Menu, Space } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleMenuClick: MenuProps['onClick'] = e => {
     if (e.key === '3') {
-      setVisible(false);
+      setOpen(false);
     }
   };
 
-  const handleVisibleChange = (flag: boolean) => {
-    setVisible(flag);
+  const handleOpenChange = (flag: boolean) => {
+    setOpen(flag);
   };
 
   const menu = (
@@ -53,7 +53,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Dropdown overlay={menu} onVisibleChange={handleVisibleChange} visible={visible}>
+    <Dropdown overlay={menu} onOpenChange={handleOpenChange} open={open}>
       <a onClick={e => e.preventDefault()}>
         <Space>
           Hover me
