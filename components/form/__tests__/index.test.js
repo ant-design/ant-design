@@ -575,7 +575,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/21415
-  it.only('should not throw error when Component.props.onChange is null', () => {
+  it('should not throw error when Component.props.onChange is null', () => {
     // eslint-disable-next-line react/prefer-stateless-function
     class CustomComponent extends Component {
       static defaultProps = {
@@ -600,7 +600,7 @@ describe('Form', () => {
     }).not.toThrow();
   });
 
-  it('change `help` should not warning', () => {
+  it.only('change `help` should not warning', async () => {
     const Demo = () => {
       const [error, setError] = React.useState(null);
 
@@ -624,8 +624,8 @@ describe('Form', () => {
       );
     };
 
-    const { container } = render(<Demo />);
-    fireEvent.click(container.querySelector('button'));
+    render(<Demo />);
+    await userEvent.click(screen.getByRole('button'));
 
     expect(errorSpy).not.toHaveBeenCalled();
   });
