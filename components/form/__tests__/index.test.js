@@ -350,8 +350,8 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('good');
   });
 
-  it('empty string', () => {
-    const wrapper = mount(
+  it.only('should show alert with empty string when help is empty string', () => {
+    render(
       <Form>
         <Form.Item help="">
           <input />
@@ -359,7 +359,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
+    expect(screen.getByRole('alert')).toHaveTextContent('');
   });
 
   it('warning when use v3 function', () => {
