@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
+import { act, fireEvent, render, triggerResize } from '../../../tests/utils';
 import PageHeader from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -13,10 +13,12 @@ describe('PageHeader', () => {
   const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
   beforeAll(() => {
+    jest.useFakeTimers();
     mockGetBoundingClientRect.mockReturnValue({ width: 100 } as DOMRect);
   });
 
   afterAll(() => {
+    jest.useRealTimers();
     mockGetBoundingClientRect.mockRestore();
   });
 
@@ -120,7 +122,9 @@ describe('PageHeader', () => {
   it('change container width', async () => {
     const { container } = render(<PageHeader title="Page Title" extra="extra" />);
     triggerResize(container.firstChild as HTMLDivElement);
-    await sleep(100);
+    await act(() => {
+      jest.runAllTimers();
+    });
     expect(container.querySelector('div.ant-page-header')).toHaveClass('ant-page-header-compact');
   });
 });

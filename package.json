@@ -92,7 +92,7 @@
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"bisheng start -c ./site/bisheng.config.js\"",
-    "test": "jest --config .jest.js --cache=false",
+    "test": "jest --config .jest.js --cache=false components/page-header/__tests__/index.test.tsx",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --cache=false",
