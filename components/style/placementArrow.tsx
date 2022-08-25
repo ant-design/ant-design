@@ -12,9 +12,10 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   colorBg: string,
   showArrowCls?: string,
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter } = token;
+  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter, boxShadowPopoverArrow } =
+    token;
 
-  const dropdownArrowOffset = (sizePopupArrow / Math.sqrt(2)) * 2;
+  const dropdownArrowOffset = 0;
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
 
   return {
@@ -25,10 +26,8 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           position: 'absolute',
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
-          width: sizePopupArrow,
-          height: sizePopupArrow,
 
-          ...roundedArrow(sizePopupArrow, radiusXS, radiusOuter, colorBg),
+          ...roundedArrow(sizePopupArrow, radiusXS, radiusOuter, colorBg, boxShadowPopoverArrow),
 
           '&:before': {
             background: colorBg,
@@ -45,8 +44,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-topRight ${componentCls}-arrow`,
       ].join(',')]: {
         bottom: 0,
-        boxShadow: token.boxShadowPopoverArrow,
-        transform: 'translateY(50%) rotate(45deg)',
+        transform: 'translateY(100%) rotate(180deg)',
       },
 
       [`&-placement-top ${componentCls}-arrow`]: {
@@ -54,7 +52,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateX(-50%) translateY(50%) rotate(45deg)',
+        transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
@@ -78,8 +76,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
         top: 0,
-        boxShadow: token.boxShadowPopoverArrowBottom,
-        transform: `translateY(-50%) rotate(-135deg)`,
+        transform: `translateY(-100%)`,
       },
 
       [`&-placement-bottom ${componentCls}-arrow`]: {
@@ -87,7 +84,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: `translateX(-50%) translateY(-50%) rotate(-135deg)`,
+        transform: `translateX(-50%) translateY(-100%)`,
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {
@@ -114,8 +111,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        boxShadow: token.boxShadowPopoverArrow,
-        transform: 'translateX(50%) rotate(-45deg)',
+        transform: 'translateX(100%) rotate(90deg)',
       },
 
       [`&-placement-left ${componentCls}-arrow`]: {
@@ -123,7 +119,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) translateX(50%) rotate(-45deg)',
+        transform: 'translateY(-50%) translateX(100%) rotate(90deg)',
       },
 
       [`&-placement-leftTop ${componentCls}-arrow`]: {
@@ -144,8 +140,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        boxShadow: token.boxShadowPopoverArrow,
-        transform: 'translateX(-50%) rotate(135deg)',
+        transform: 'translateX(-100%) rotate(-90deg)',
       },
 
       [`&-placement-right ${componentCls}-arrow`]: {
@@ -153,7 +148,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
+        transform: 'translateY(-50%) translateX(-100%) rotate(-90deg)',
       },
 
       [`&-placement-rightTop ${componentCls}-arrow`]: {

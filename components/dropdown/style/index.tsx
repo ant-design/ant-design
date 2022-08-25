@@ -46,6 +46,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     fontSizeIcon,
     controlPaddingHorizontal,
     colorBgElevated,
+    boxShadowPopoverArrow,
   } = token;
 
   return [
@@ -123,10 +124,14 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           position: 'absolute',
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
-          width: sizePopupArrow,
-          height: sizePopupArrow,
 
-          ...roundedArrow(sizePopupArrow, token.radiusXS, token.radiusOuter, colorBgElevated),
+          ...roundedArrow(
+            sizePopupArrow,
+            token.radiusXS,
+            token.radiusOuter,
+            colorBgElevated,
+            boxShadowPopoverArrow,
+          ),
         },
 
         [`
@@ -134,9 +139,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         &-placement-topLeft > ${componentCls}-arrow,
         &-placement-topRight > ${componentCls}-arrow
       `]: {
-          bottom: sizePopupArrow * Math.sqrt(1 / 2) + 2,
-          boxShadow: token.boxShadowPopoverArrow,
-          transform: 'rotate(45deg)',
+          bottom: dropdownArrowDistance,
+          transform: 'translateY(100%) rotate(180deg)',
         },
 
         [`&-placement-top > ${componentCls}-arrow`]: {
@@ -144,7 +148,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             _skip_check_: true,
             value: '50%',
           },
-          transform: 'translateX(-50%) rotate(45deg)',
+          transform: 'translateX(-50%) translateY(100%) rotate(180deg)',
         },
 
         [`&-placement-topLeft > ${componentCls}-arrow`]: {
@@ -166,9 +170,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           &-placement-bottomLeft > ${componentCls}-arrow,
           &-placement-bottomRight > ${componentCls}-arrow
         `]: {
-          top: (sizePopupArrow + 2) * Math.sqrt(1 / 2),
-          boxShadow: token.boxShadowPopoverArrowBottom, // FIXME: hardcode
-          transform: `rotate(-135deg) translateY(-0.5px)`, // FIXME: hardcode
+          top: dropdownArrowDistance,
+          transform: `translateY(-100%)`,
         },
 
         [`&-placement-bottom > ${componentCls}-arrow`]: {
@@ -176,7 +179,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             _skip_check_: true,
             value: '50%',
           },
-          transform: `translateX(-50%) rotate(-135deg) translateY(-0.5px)`,
+          transform: `translateY(-100%) translateX(-50%)`,
         },
 
         [`&-placement-bottomLeft > ${componentCls}-arrow`]: {

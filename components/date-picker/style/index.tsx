@@ -823,7 +823,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
 };
 
 const genPickerStyle: GenerateStyle<PickerToken> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, boxShadowPopoverArrow } = token;
 
   return {
     [componentCls]: {
@@ -1055,17 +1055,17 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&&-placement-bottomLeft': {
           [`${componentCls}-range-arrow`]: {
-            top: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
+            top: 0,
             display: 'block',
-            transform: 'rotate(-135deg) translateY(1px)',
+            transform: 'translateY(-100%)',
           },
         },
 
         '&&-placement-topLeft': {
           [`${componentCls}-range-arrow`]: {
-            bottom: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
+            bottom: 0,
             display: 'block',
-            transform: 'rotate(45deg)',
+            transform: 'translateY(100%) rotate(180deg)',
           },
         },
 
@@ -1130,22 +1130,21 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         [`${componentCls}-range-wrapper`]: {
           display: 'flex',
+          position: 'relative',
         },
 
         [`${componentCls}-range-arrow`]: {
           position: 'absolute',
           zIndex: 1,
           display: 'none',
-          width: token.sizePopupArrow,
-          height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
-          boxShadow: token.boxShadowPopoverArrowBottom,
           transition: `left ${token.motionDurationSlow} ease-out`,
           ...roundedArrow(
             token.sizePopupArrow,
             token.radiusXS,
             token.radiusOuter,
             token.colorBgElevated,
+            boxShadowPopoverArrow,
           ),
         },
 
@@ -1161,6 +1160,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
             display: 'inline-flex',
             flexWrap: 'nowrap',
             direction: 'ltr',
+
+            '&:last-child': {
+              [`${componentCls}-panel`]: {
+                borderWidth: 0,
+              },
+            },
           },
 
           [`${componentCls}-panel`]: {

@@ -6,38 +6,57 @@ export const roundedArrow = (
   innerRadius: number,
   outerRadius: number,
   bgColor: string,
+  boxShadow: string,
 ): CSSObject => {
-  const cornerHeight = outerRadius * (1 - 1 / Math.sqrt(2));
+  const unitWidth = width / 2;
 
-  const ax = width - cornerHeight;
-  const ay = 2 * width + cornerHeight;
-  const bx = ax + outerRadius * (1 / Math.sqrt(2));
-  const by = 2 * width;
-  const cx = 2 * width - innerRadius;
-  const cy = 2 * width;
-  const dx = 2 * width;
-  const dy = 2 * width - innerRadius;
-  const fx = 2 * width + cornerHeight;
-  const fy = width - cornerHeight;
-  const ex = 2 * width;
-  const ey = fy + outerRadius * (1 / Math.sqrt(2));
+  const ax = unitWidth - outerRadius * (Math.sqrt(2) - 1);
+  const ay = unitWidth;
+  const bx = unitWidth + outerRadius * (1 - 1 / Math.sqrt(2));
+  const by = unitWidth - outerRadius * (1 - 1 / Math.sqrt(2));
+  const cx = 2 * unitWidth - innerRadius * (1 / Math.sqrt(2));
+  const cy = innerRadius * (1 / Math.sqrt(2));
+  const dx = 4 * unitWidth - cx;
+  const dy = cy;
+  const ex = 4 * unitWidth - bx;
+  const ey = by;
+  const fx = 4 * unitWidth - ax;
+  const fy = ay;
 
   return {
-    borderRadius: { _skip_check_: true, value: `0 0 2px` },
+    borderRadius: { _skip_check_: true, value: `0 0 ${innerRadius}px` },
     pointerEvents: 'none',
+    width: width * 2,
+    height: width * 2,
+    overflow: 'hidden',
+
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      width: width / Math.sqrt(2),
+      height: width / Math.sqrt(2),
+      bottom: 0,
+      insetInline: 0,
+      margin: 'auto',
+      borderRadius: {
+        _skip_check_: true,
+        value: `0 0 ${innerRadius}px 0`,
+      },
+      transform: 'translateY(50%) rotate(-135deg)',
+      boxShadow,
+      zIndex: 0,
+      background: 'transparent',
+    },
 
     '&::before': {
       position: 'absolute',
-      top: -width,
-      insetInlineStart: -width,
-      width: width * 3,
-      height: width * 3,
+      bottom: 0,
+      insetInlineStart: 0,
+      width: width * 2,
+      height: width / 2,
       background: bgColor,
-      // Hack firefox: https://github.com/ant-design/ant-design/pull/33710#issuecomment-1015287825
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: `${Math.ceil(-width + 1)}px ${Math.ceil(-width + 1)}px`,
+      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
       content: '""',
-      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 1 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 0 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 1 ${fx} ${fy} Z')`,
     },
   };
 };

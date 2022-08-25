@@ -33,8 +33,6 @@ const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = toke
         backgroundColor: lightColor,
       },
       [`${componentCls}-arrow`]: {
-        background: lightColor,
-
         '--antd-arrow-background-color': lightColor,
       },
     };
