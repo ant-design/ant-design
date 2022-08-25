@@ -442,7 +442,7 @@ describe('Form', () => {
     expect(screen.getAllByRole('alert')[0]).toHaveStyle('opacity: 0');
   });
 
-  it.only('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
+  it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
     render(
       <Form>
         <Form.Item dependencies={[]}>text</Form.Item>
@@ -454,7 +454,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20948
-  it('not repeat render when Form.Item is not a real Field', async () => {
+  it.only('not repeat render when Form.Item is not a real Field', async () => {
     const shouldNotRender = jest.fn();
     const StaticInput = () => {
       shouldNotRender();
@@ -469,29 +469,25 @@ describe('Form', () => {
 
     const formRef = React.createRef();
 
-    mount(
-      <div>
-        <Form ref={formRef}>
-          <Form.Item>
-            <StaticInput />
-          </Form.Item>
-          <Form.Item name="light">
-            <DynamicInput />
-          </Form.Item>
-        </Form>
-      </div>,
-      {
-        strictMode: false,
-      },
+    render(
+      <Form ref={formRef}>
+        <Form.Item>
+          <StaticInput />
+        </Form.Item>
+        <Form.Item name="light">
+          <DynamicInput />
+        </Form.Item>
+      </Form>,
     );
 
-    expect(shouldNotRender).toHaveBeenCalledTimes(1);
-    expect(shouldRender).toHaveBeenCalledTimes(1);
+    expect(shouldNotRender).toHaveBeenCalledTimes(2);
+    expect(shouldRender).toHaveBeenCalledTimes(2);
 
     formRef.current.setFieldsValue({ light: 'bamboo' });
     await Promise.resolve();
-    expect(shouldNotRender).toHaveBeenCalledTimes(1);
-    expect(shouldRender).toHaveBeenCalledTimes(2);
+
+    expect(shouldNotRender).toHaveBeenCalledTimes(2);
+    expect(shouldRender).toHaveBeenCalledTimes(5);
   });
 
   it('empty help should also render', () => {
