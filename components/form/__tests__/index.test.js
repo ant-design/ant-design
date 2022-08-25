@@ -630,7 +630,7 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it.only('`label` support template', async () => {
+  it('`label` support template', async () => {
     render(
       // eslint-disable-next-line no-template-curly-in-string
       <Form validateMessages={{ required: '${label} is good!' }}>
@@ -649,24 +649,25 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/33691
-  it('should keep upper locale in nested ConfigProvider', async () => {
-    const wrapper = mount(
+  it.only('should keep upper locale in nested ConfigProvider', async () => {
+    render(
       <ConfigProvider locale={zhCN}>
         <ConfigProvider>
           <Form>
             <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
               <input />
             </Form.Item>
+            <Form.Item>
+              <Button htmlType="submit">Submit</Button>
+            </Form.Item>
           </Form>
         </ConfigProvider>
       </ConfigProvider>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入Bamboo');
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('请输入Bamboo');
   });
 
   it('`name` support template when label is not provided', async () => {
