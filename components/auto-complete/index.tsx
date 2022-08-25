@@ -20,6 +20,7 @@ import type {
   RefSelectProps,
 } from '../select';
 import Select from '../select';
+import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -156,8 +157,14 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
   },
 ) => React.ReactElement) & {
   Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(RefAutoComplete);
+
 RefAutoComplete.Option = Option;
+RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default RefAutoComplete;
