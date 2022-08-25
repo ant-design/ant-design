@@ -170,7 +170,7 @@ const Dropdown: DropdownInterface = props => {
 
   // =========================== Visible ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open || visible,
+    value: open !== undefined ? open : visible,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
