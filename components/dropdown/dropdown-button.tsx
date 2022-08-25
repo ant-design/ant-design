@@ -75,7 +75,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlay,
     disabled,
     trigger: disabled ? [] : trigger,
-    onVisibleChange: onOpenChange || onVisibleChange,
+    onOpenChange: onOpenChange || onVisibleChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
