@@ -285,7 +285,7 @@ describe('Form', () => {
     expect(onFinishFailed).toHaveBeenCalled();
   });
 
-  it.only('Form.Item should support data-*、aria-* and custom attribute', () => {
+  it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const { container } = render(
       <Form>
         <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
@@ -296,8 +296,8 @@ describe('Form', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('warning when use `name` but children is not validate element', () => {
-    mount(
+  it.only('warning when use `name` but children is not validate element', () => {
+    render(
       <Form>
         <Form.Item name="warning">text</Form.Item>
       </Form>,
