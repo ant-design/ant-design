@@ -93,13 +93,13 @@ class Demo extends React.Component {
   onCopyTooltipOpenChange = open => {
     if (open) {
       this.setState({
-        copyTooltipVisible: open,
+        copyTooltipOpen: open,
         copied: false,
       });
       return;
     }
     this.setState({
-      copyTooltipVisible: open,
+      copyTooltipOpen: open,
     });
   };
 
@@ -449,7 +449,7 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 open={copyTooltipOpen}
-                onVisibleChange={this.onCopyTooltipOpenChange}
+                onOpenChange={this.onCopyTooltipOpenChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
                 {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
