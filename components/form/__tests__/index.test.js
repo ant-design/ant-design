@@ -97,7 +97,7 @@ describe('Form', () => {
       expect(onChange).toHaveBeenCalled();
     });
 
-    it.only('should clean up', async () => {
+    it('should clean up', async () => {
       jest.useFakeTimers();
       const Demo = () => {
         const [form] = Form.useForm();
@@ -153,8 +153,8 @@ describe('Form', () => {
     });
   });
 
-  it('`shouldUpdate` should work with render props', () => {
-    mount(
+  it.only('`shouldUpdate` should work with render props', () => {
+    render(
       <Form>
         <Form.Item>{() => null}</Form.Item>
       </Form>,
