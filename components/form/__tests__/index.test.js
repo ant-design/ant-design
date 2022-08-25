@@ -370,7 +370,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20706
-  it.only('Error change should work', async () => {
+  it('Error change should work', async () => {
     render(
       <Form>
         <Form.Item
@@ -415,7 +415,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
-  it('should update help directly when provided', () => {
+  it.only('should update help directly when provided', async () => {
     function App() {
       const [message, updateMessage] = React.useState('');
       return (
@@ -428,10 +428,18 @@ describe('Form', () => {
       );
     }
 
-    const wrapper = mount(<App />);
-    wrapper.find('button').simulate('click');
-    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
-    expect(wrapper.find('.ant-form-item-explain').text()).toEqual('bamboo');
+    render(<App />);
+
+    // should show initial text
+    expect(screen.getByRole('alert')).toHaveTextContent('');
+
+    await userEvent.click(screen.getByRole('button'));
+    await sleep(100);
+
+    // should show bamboo alert without opacity and hide first alert with opacity: 0
+    expect(screen.getAllByRole('alert')[1]).toHaveTextContent('bamboo');
+    expect(screen.getAllByRole('alert')[1]).not.toHaveStyle('opacity: 0');
+    expect(screen.getAllByRole('alert')[0]).toHaveStyle('opacity: 0');
   });
 
   it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
