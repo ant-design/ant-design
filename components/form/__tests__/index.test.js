@@ -511,7 +511,7 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
   });
 
-  it.only('should clear validation message when input something', async () => {
+  it('should clear validation message when input something', async () => {
     render(
       <Form>
         <Form.Item name="test" label="test" rules={[{ required: true, message: 'message' }]}>
@@ -539,14 +539,14 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/21167
-  it('`require` without `name`', () => {
-    const wrapper = mount(
-      <Form.Item label="test" required>
+  it.only('`require` without `name`', () => {
+    render(
+      <Form.Item label="test" name="test" required>
         <input />
       </Form.Item>,
     );
 
-    expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+    expect(screen.getByTitle('test')).toHaveClass('ant-form-item-required');
   });
 
   it('0 is a validate Field', () => {
