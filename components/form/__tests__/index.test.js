@@ -560,7 +560,7 @@ describe('Form', () => {
     expect(screen.getByLabelText('0')).toBeInTheDocument();
   });
 
-  it.only('`null` triggers warning and is treated as `undefined`', () => {
+  it('`null` triggers warning and is treated as `undefined`', () => {
     render(
       <Form.Item name={null} label="test">
         <input />
@@ -575,7 +575,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/21415
-  it('Component.props.onChange is null', () => {
+  it.only('should not throw error when Component.props.onChange is null', () => {
     // eslint-disable-next-line react/prefer-stateless-function
     class CustomComponent extends Component {
       static defaultProps = {
@@ -586,15 +586,17 @@ describe('Form', () => {
         return <input {...this.props} />;
       }
     }
-    expect(() => {
-      const wrapper = mount(
-        <Form>
-          <Form.Item name="custom">
-            <CustomComponent />
-          </Form.Item>
-        </Form>,
-      );
-      wrapper.find(CustomComponent).simulate('change', { value: '123' });
+
+    render(
+      <Form>
+        <Form.Item name="custom">
+          <CustomComponent />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(async () => {
+      await userEvent.type(screen.getByRole('textbox'), 'aaa');
     }).not.toThrow();
   });
 
