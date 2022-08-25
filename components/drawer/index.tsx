@@ -211,9 +211,7 @@ if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
 
-interface PurePanelProps extends DrawerProps {}
-
-function PurePanel({ style, ...restProps }: PurePanelProps) {
+function PurePanel({ style, ...restProps }: DrawerProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   return (
