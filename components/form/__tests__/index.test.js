@@ -539,7 +539,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/21167
-  it.only('`require` without `name`', () => {
+  it('`require` without `name`', () => {
     render(
       <Form.Item label="test" name="test" required>
         <input />
@@ -549,14 +549,15 @@ describe('Form', () => {
     expect(screen.getByTitle('test')).toHaveClass('ant-form-item-required');
   });
 
-  it('0 is a validate Field', () => {
-    const wrapper = mount(
-      <Form.Item name={0}>
+  it.only('0 is a validate Field', () => {
+    render(
+      <Form.Item name={0} label="0">
         <input />
       </Form.Item>,
     );
 
-    expect(wrapper.find('Field')).toHaveLength(1);
+    // if getByLabelText can get element, then it is a validate field with form control and label
+    expect(screen.getByLabelText('0')).toBeInTheDocument();
   });
 
   it('`null` triggers warning and is treated as `undefined`', () => {
