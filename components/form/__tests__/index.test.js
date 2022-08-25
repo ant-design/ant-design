@@ -296,7 +296,7 @@ describe('Form', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it.only('warning when use `name` but children is not validate element', () => {
+  it('warning when use `name` but children is not validate element', () => {
     render(
       <Form>
         <Form.Item name="warning">text</Form.Item>
@@ -307,8 +307,8 @@ describe('Form', () => {
     );
   });
 
-  it('dynamic change required', () => {
-    const wrapper = mount(
+  it.only('dynamic change required', async () => {
+    render(
       <Form>
         <Form.Item label="light" name="light" valuePropName="checked">
           <input type="checkbox" />
@@ -324,11 +324,18 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(wrapper.find('.ant-form-item-required')).toHaveLength(0);
+    // should not show alert by default
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 
-    wrapper.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
-    wrapper.update();
-    expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+    // click to change the light field value to true
+    await userEvent.click(screen.getByLabelText('light'));
+
+    // user input something and clear
+    await userEvent.type(screen.getByLabelText('bamboo'), '1');
+    await userEvent.clear(screen.getByLabelText('bamboo'));
+
+    // should show alert says that the field is required
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'bamboo' is required");
   });
 
   describe('should show related className when customize help', () => {
