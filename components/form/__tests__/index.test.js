@@ -415,7 +415,7 @@ describe('Form', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
-  it.only('should update help directly when provided', async () => {
+  it('should update help directly when provided', async () => {
     function App() {
       const [message, updateMessage] = React.useState('');
       return (
@@ -442,8 +442,8 @@ describe('Form', () => {
     expect(screen.getAllByRole('alert')[0]).toHaveStyle('opacity: 0');
   });
 
-  it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
-    mount(
+  it.only('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
+    render(
       <Form>
         <Form.Item dependencies={[]}>text</Form.Item>
       </Form>,
