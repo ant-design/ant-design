@@ -67,34 +67,36 @@ exports[`Form Form item hidden should work 1`] = `
 `;
 
 exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
-<form
-  class="ant-form ant-form-horizontal"
->
-  <div
-    class="ant-form-item"
+<div>
+  <form
+    class="ant-form ant-form-horizontal"
   >
     <div
-      aria-hidden="true"
-      cccc="bbbb"
-      class="ant-row ant-form-item-row"
-      data-text="123"
+      class="ant-form-item"
     >
       <div
-        class="ant-col ant-form-item-control"
+        aria-hidden="true"
+        cccc="bbbb"
+        class="ant-row ant-form-item-row"
+        data-text="123"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-col ant-form-item-control"
         >
           <div
-            class="ant-form-item-control-input-content"
+            class="ant-form-item-control-input"
           >
-            text
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              text
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
 `;
 
 exports[`Form form should support disabled 1`] = `

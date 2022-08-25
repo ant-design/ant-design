@@ -260,7 +260,7 @@ describe('Form', () => {
     });
   });
 
-  it.only('scrollToFirstError', async () => {
+  it('scrollToFirstError', async () => {
     const onFinishFailed = jest.fn();
 
     render(
@@ -285,15 +285,15 @@ describe('Form', () => {
     expect(onFinishFailed).toHaveBeenCalled();
   });
 
-  it('Form.Item should support data-*、aria-* and custom attribute', () => {
-    const wrapper = mount(
+  it.only('Form.Item should support data-*、aria-* and custom attribute', () => {
+    const { container } = render(
       <Form>
         <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
           text
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('warning when use `name` but children is not validate element', () => {
