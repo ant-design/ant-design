@@ -434,12 +434,10 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('');
 
     await userEvent.click(screen.getByRole('button'));
-    await sleep(100);
+    await sleep(800);
 
     // should show bamboo alert without opacity and hide first alert with opacity: 0
-    expect(screen.getAllByRole('alert')[1]).toHaveTextContent('bamboo');
-    expect(screen.getAllByRole('alert')[1]).not.toHaveStyle('opacity: 0');
-    expect(screen.getAllByRole('alert')[0]).toHaveStyle('opacity: 0');
+    expect(screen.getByRole('alert')).toHaveTextContent('bamboo');
   });
 
   it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
@@ -524,15 +522,19 @@ describe('Form', () => {
 
     await userEvent.type(screen.getByLabelText('test'), 'test');
 
+    // should not show alert when field have value
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 
     await userEvent.clear(screen.getByLabelText('test'));
+    await sleep(800);
 
-    expect(screen.queryByRole('alert')).toBeInTheDocument();
+    // should show alert when field value clear
+    expect(screen.getByRole('alert')).toBeInTheDocument();
 
     await userEvent.type(screen.getByLabelText('test'), 'test');
     await sleep(800);
 
+    // should not show alert when type something in field again
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
