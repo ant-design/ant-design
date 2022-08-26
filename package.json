@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.22.7",
+  "version": "4.22.8",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -252,7 +252,7 @@
     "mockdate": "^3.0.0",
     "open": "^8.0.1",
     "prettier": "^2.3.2",
-    "prettier-plugin-jsdoc": "^0.3.0",
+    "prettier-plugin-jsdoc": "^0.4.2",
     "pretty-format": "^28.1.3",
     "pretty-quick": "^3.0.0",
     "qs": "^6.10.1",
@@ -290,7 +290,7 @@
     "stylelint": "^14.9.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^27.0.0",
+    "stylelint-config-standard": "^28.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",

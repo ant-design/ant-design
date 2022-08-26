@@ -14,6 +14,7 @@ const localeValues: Locale = {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
+    filterCheckall: 'Sélectionner la page actuelle',
   },
   Modal: {
     okText: 'OK',
