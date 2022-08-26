@@ -183,6 +183,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     virtual,
     dropdownMatchSelectWidth,
     getPrefixCls,
+    iconPrefixCls: iconPrefixCls ?? defaultIconPrefixCls,
     theme: mergedTheme,
   };
 
