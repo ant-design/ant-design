@@ -66,44 +66,47 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     }));
 
     return [
-      useStyleRegister({ theme, token, hashId, path: [component, prefixCls] }, () => {
-        const { token: proxyToken, flush } = statisticToken(token);
+      useStyleRegister(
+        { theme, token, hashId, path: [component, prefixCls, iconPrefixCls] },
+        () => {
+          const { token: proxyToken, flush } = statisticToken(token);
 
-        const defaultComponentToken =
-          typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-        const overrideComponentToken = token[component] as any;
+          const defaultComponentToken =
+            typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
+          const overrideComponentToken = token[component] as any;
 
-        // Only merge token specified in interface
-        const mergedComponentToken = { ...defaultComponentToken } as any;
-        if (overrideComponentToken) {
-          Object.keys(mergedComponentToken).forEach(key => {
-            mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
-          });
-        }
+          // Only merge token specified in interface
+          const mergedComponentToken = { ...defaultComponentToken } as any;
+          if (overrideComponentToken) {
+            Object.keys(mergedComponentToken).forEach(key => {
+              mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
+            });
+          }
 
-        const componentCls = `.${prefixCls}`;
-        const mergedToken = mergeToken<
-          TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
-        >(
-          proxyToken,
-          {
-            componentCls,
+          const componentCls = `.${prefixCls}`;
+          const mergedToken = mergeToken<
+            TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
+          >(
+            proxyToken,
+            {
+              componentCls,
+              prefixCls,
+              iconCls: `.${iconPrefixCls}`,
+              antCls: `.${rootPrefixCls}`,
+            },
+            mergedComponentToken,
+          );
+
+          const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
+            hashId,
             prefixCls,
-            iconCls: `.${iconPrefixCls}`,
-            antCls: `.${rootPrefixCls}`,
-          },
-          mergedComponentToken,
-        );
-
-        const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
-          hashId,
-          prefixCls,
-          rootPrefixCls,
-          iconPrefixCls,
-        });
-        flush(component, mergedComponentToken);
-        return styleInterpolation;
-      }),
+            rootPrefixCls,
+            iconPrefixCls,
+          });
+          flush(component, mergedComponentToken);
+          return styleInterpolation;
+        },
+      ),
       hashId,
     ];
   };
