@@ -99,7 +99,7 @@ describe('notification.hooks', () => {
       const [api] = notification.useNotification();
       React.useEffect(() => {
         count += 1;
-        expect(count).not.toBe(1);
+        expect(count).toEqual(1);
         forceUpdate([]);
       }, [api]);
 
