@@ -41,7 +41,7 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 // remove this after RcTooltip switch visible to open.
-interface TempTooltipProps
+interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
@@ -74,7 +74,7 @@ interface TempTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export interface AbstractTooltipProps extends TempTooltipProps {
+export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
