@@ -23,6 +23,7 @@ describe('Tooltip', () => {
 
   it('check `onOpenChange` arguments', () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
     const { container, rerender } = render(
@@ -31,6 +32,7 @@ describe('Tooltip', () => {
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
         ref={ref}
       >
         <div id="hello">Hello world!</div>
@@ -41,11 +43,13 @@ describe('Tooltip', () => {
     const divElement = container.querySelector('#hello');
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).not.toHaveBeenCalled();
+    expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange).not.toHaveBeenCalled();
+    expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
@@ -56,6 +60,7 @@ describe('Tooltip', () => {
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
         ref={ref}
       >
         <div id="hello">Hello world!</div>
@@ -63,12 +68,14 @@ describe('Tooltip', () => {
     );
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
 
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
 
@@ -79,6 +86,7 @@ describe('Tooltip', () => {
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
         ref={ref}
         open={false}
       >
@@ -87,6 +95,7 @@ describe('Tooltip', () => {
     );
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onOpenChange.mock.calls.length;
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
@@ -94,12 +103,14 @@ describe('Tooltip', () => {
     // always trigger onOpenChange
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange.mock.calls.length).toBe(lastCount); // no change with lastCount
+    expect(onVisibleChange.mock.calls.length).toBe(lastCount);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   it('should hide when mouse leave native disabled button', () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
     const { container } = render(
@@ -108,6 +119,7 @@ describe('Tooltip', () => {
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
         ref={ref}
       >
         <button type="button" disabled>
@@ -121,11 +133,13 @@ describe('Tooltip', () => {
 
     fireEvent.mouseEnter(button);
     expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(button);
     expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
@@ -134,6 +148,7 @@ describe('Tooltip', () => {
     function testComponent(name, Component) {
       it(name, () => {
         const onOpenChange = jest.fn();
+        const onVisibleChange = jest.fn();
         const ref = React.createRef();
         const { container } = render(
           <Tooltip
@@ -141,6 +156,7 @@ describe('Tooltip', () => {
             mouseEnterDelay={0}
             mouseLeaveDelay={0}
             onOpenChange={onOpenChange}
+            onVisibleChange={onVisibleChange}
             ref={ref}
           >
             <Component disabled />
@@ -152,11 +168,13 @@ describe('Tooltip', () => {
 
         fireEvent.mouseEnter(button);
         expect(onOpenChange).toHaveBeenCalledWith(true);
+        expect(onVisibleChange).toHaveBeenCalledWith(true);
         expect(ref.current.props.visible).toBe(true);
         expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
         fireEvent.mouseLeave(button);
         expect(onOpenChange).toHaveBeenCalledWith(false);
+        expect(onVisibleChange).toHaveBeenCalledWith(false);
         expect(ref.current.props.visible).toBe(false);
         expect(container.querySelector('.ant-tooltip-open')).toBeNull();
       });
@@ -237,10 +255,16 @@ describe('Tooltip', () => {
 
   it('should works for date picker', async () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
     const { container } = render(
-      <Tooltip title="date picker" onOpenChange={onOpenChange} ref={ref}>
+      <Tooltip
+        title="date picker"
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+      >
         <DatePicker />
       </Tooltip>,
     );
@@ -251,21 +275,29 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(picker);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(picker);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 
   it('should works for input group', async () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const ref = React.createRef();
     const { container } = render(
-      <Tooltip title="hello" onOpenChange={onOpenChange} ref={ref}>
+      <Tooltip
+        title="hello"
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+      >
         <Group>
           <Input style={{ width: '50%' }} />
           <Input style={{ width: '50%' }} />
@@ -278,12 +310,14 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(inputGroup);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(inputGroup);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(onOpeonVisibleChangenChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
@@ -388,12 +422,14 @@ describe('Tooltip', () => {
 
   it('should work with loading switch', () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
       >
         <Switch loading defaultChecked />
       </Tooltip>,
@@ -402,17 +438,20 @@ describe('Tooltip', () => {
     expect(wrapperEl).toHaveLength(1);
     fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
 
   it('should work with disabled Radio', () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const { container } = render(
       <Tooltip
         title="loading tips"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
       >
         <Radio disabled />
       </Tooltip>,
@@ -421,11 +460,13 @@ describe('Tooltip', () => {
     expect(wrapperEl).toHaveLength(1);
     fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
 
   it('should work with Fragment children', () => {
     const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
     const { container } = render(
@@ -434,6 +475,7 @@ describe('Tooltip', () => {
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
         onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
         ref={ref}
       >
         <>
@@ -446,11 +488,13 @@ describe('Tooltip', () => {
     const divElement = container.querySelector('.hello');
     fireEvent.mouseEnter(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(divElement);
     expect(onOpenChange).toHaveBeenLastCalledWith(false);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
