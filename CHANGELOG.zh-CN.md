@@ -24,7 +24,6 @@ timeline: true
   - 🐞 优化 Table 排序功能的无障碍体验。[#37167](https://github.com/ant-design/ant-design/pull/37167) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
 - 💄 优化 Popconfirm 组件按钮间距。[#37183](https://github.com/ant-design/ant-design/pull/37183) [@jiangmaniu](https://github.com/jiangmaniu)
 - 💄 去除 Card 重复的 less 样式属性定义。[#37170](https://github.com/ant-design/ant-design/pull/37170) [@yanquanfahei](https://github.com/yanquanfahei)
-
 - TypeScript
   - 🤖 导出 Menu 条目相关定义。[#36681](https://github.com/ant-design/ant-design/pull/36681) [@cravend](https://github.com/cravend)
 
