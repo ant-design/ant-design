@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import RCPicker from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
-import type { PickerRefConfig } from 'rc-picker/lib/Picker';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { PickerDateProps, PickerLocale, PickerProps, PickerTimeProps } from '.';
@@ -25,7 +24,6 @@ import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './i
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
-    ref?: React.Ref<PickerRefConfig>;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(

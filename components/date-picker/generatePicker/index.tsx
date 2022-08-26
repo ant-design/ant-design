@@ -19,6 +19,7 @@ import PickerButton from '../PickerButton';
 import PickerTag from '../PickerTag';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
+import type { DatePickRef } from './interface';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -146,6 +147,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     RangePicker: typeof RangePicker;
     TimePicker: typeof TimePicker;
     QuarterPicker: typeof QuarterPicker;
+    ref: DatePickRef<DateType>;
   };
 
   const MergedDatePicker = DatePicker as MergedDatePickerType;
