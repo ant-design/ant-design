@@ -14,7 +14,7 @@ describe('Theme', () => {
     expect(result.current!.hashId).toBeFalsy();
     expect(result.current!.token).toEqual(
       expect.objectContaining({
-        colorPrimary: '#1890ff',
+        colorPrimary: '#1677ff',
       }),
     );
   });

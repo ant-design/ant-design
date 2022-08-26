@@ -266,7 +266,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           backgroundClip: 'padding-box',
           borderRadius: token.controlRadiusLG,
           outline: 'none',
-          boxShadow: token.boxShadow,
+          boxShadow: token.boxShadowSecondary,
 
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,

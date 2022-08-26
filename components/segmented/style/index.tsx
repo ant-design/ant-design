@@ -29,7 +29,7 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
 function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
-    boxShadow: token.boxShadowSegmentedSelectedItem,
+    boxShadow: token.boxShadow,
   };
 }
 

@@ -76,7 +76,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           _skip_check_: true,
           value: 0,
         },
-        boxShadow: token.boxShadowDrawerRight,
+        boxShadow: token.boxShadowDrawerLeft,
       },
       [`&-right > ${wrapperCls}`]: {
         top: 0,
@@ -85,17 +85,17 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           value: 0,
         },
         bottom: 0,
-        boxShadow: token.boxShadowDrawerLeft,
+        boxShadow: token.boxShadowDrawerRight,
       },
       [`&-top > ${wrapperCls}`]: {
         top: 0,
         insetInline: 0,
-        boxShadow: token.boxShadowDrawerDown,
+        boxShadow: token.boxShadowDrawerUp,
       },
       [`&-bottom > ${wrapperCls}`]: {
         bottom: 0,
         insetInline: 0,
-        boxShadow: token.boxShadowDrawerUp,
+        boxShadow: token.boxShadowDrawerDown,
       },
 
       [`${componentCls}-content`]: {

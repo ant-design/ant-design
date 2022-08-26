@@ -65,7 +65,7 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: darkAlgorithm }}>
         <Demo />
       </ConfigProvider>,
     );
@@ -110,7 +110,9 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ algorithm: [defaultAlgorithm, darkAlgorithm] }}>
+      <ConfigProvider
+        theme={{ token: { colorPrimary: '#1890ff' }, algorithm: [defaultAlgorithm, darkAlgorithm] }}
+      >
         <Demo />
       </ConfigProvider>,
     );

@@ -429,6 +429,7 @@ export interface AliasToken extends MapToken {
   margin: number;
 
   boxShadow: string;
+  boxShadowSecondary: string;
 
   linkDecoration: React.CSSProperties['textDecoration'];
   linkHoverDecoration: React.CSSProperties['textDecoration'];
@@ -442,12 +443,14 @@ export interface AliasToken extends MapToken {
   paddingXXS: number;
   paddingLG: number;
   paddingXL: number;
+  paddingTmp: number;
   marginXXS: number;
   marginXS: number;
   marginSM: number;
   marginLG: number;
   marginXL: number;
   marginXXL: number;
+  marginTmp: number;
 
   // Media queries breakpoints
   screenXS: number;
@@ -474,8 +477,6 @@ export interface AliasToken extends MapToken {
 
   // FIXME: component box-shadow, should be removed
   boxShadowPopoverArrow: string;
-  boxShadowPopoverArrowBottom: string;
-  boxShadowSegmentedSelectedItem: string;
   boxShadowCard: string;
   boxShadowDrawerRight: string;
   boxShadowDrawerLeft: string;

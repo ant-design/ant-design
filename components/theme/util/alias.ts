@@ -118,6 +118,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     paddingSM: 12,
     paddingLG: 24,
     paddingXL: 32,
+    paddingTmp: 20,
 
     marginXXS: 4,
     marginXS: 8,
@@ -125,10 +126,16 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginLG: 24,
     marginXL: 32,
     marginXXL: 48,
+    marginTmp: 20,
 
     boxShadow: `
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 1px 2px 0 rgba(0, 0, 0, 0.03),
+      0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+    `,
+    boxShadowSecondary: `
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
 
@@ -153,25 +160,31 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,
-    boxShadowPopoverArrowBottom: `2px 2px 5px rgba(0, 0, 0, 0.1)`,
-    boxShadowSegmentedSelectedItem: [
-      `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
-      `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-      `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
-    ].join(','),
     boxShadowCard: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
       0 5px 12px 4px ${new TinyColor('rgba(0, 0, 0, 0.09)').toRgbString()}
     `,
-    boxShadowDrawerRight:
-      '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),12px 0 48px 16px rgba(0, 0, 0, 0.03)',
-    boxShadowDrawerLeft:
-      '-6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03)',
-    boxShadowDrawerUp:
-      '0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),0 -12px 48px 16px rgba(0, 0, 0, 0.12)',
-    boxShadowDrawerDown:
-      '0 6px 16px -8px rgba(0, 0, 0, 0.32), 0 9px 28px 0 rgba(0, 0, 0, 0.2), 0 12px 48px 16px rgba(0, 0, 0, 0.12)',
+    boxShadowDrawerRight: `
+      -6px 0 16px 0 rgba(0, 0, 0, 0.08),
+      -3px 0 6px -4px rgba(0, 0, 0, 0.12),
+      -9px 0 28px 8px rgba(0, 0, 0, 0.05)
+    `,
+    boxShadowDrawerLeft: `
+      6px 0 16px 0 rgba(0, 0, 0, 0.08),
+      3px 0 6px -4px rgba(0, 0, 0, 0.12),
+      9px 0 28px 8px rgba(0, 0, 0, 0.05)
+    `,
+    boxShadowDrawerUp: `
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
+    boxShadowDrawerDown: `
+      0 -6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 -3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 -9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
     boxShadowTabsOverflowLeft: `inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
     boxShadowTabsOverflowRight: `inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)`,
     boxShadowTabsOverflowTop: `inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)`,

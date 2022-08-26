@@ -49,7 +49,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
     tooltipBorderRadius,
     zIndexPopup,
     controlHeight,
-    boxShadow,
+    boxShadowSecondary,
     paddingSM,
     paddingXS,
   } = token;
@@ -81,7 +81,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
           wordWrap: 'break-word',
           backgroundColor: tooltipBg,
           borderRadius: tooltipBorderRadius,
-          boxShadow,
+          boxShadow: boxShadowSecondary,
         },
 
         [`${componentCls}-content`]: {
