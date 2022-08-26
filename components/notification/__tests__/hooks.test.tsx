@@ -98,8 +98,8 @@ describe('notification.hooks', () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = notification.useNotification();
       React.useEffect(() => {
-        count += 1;
-        expect(count).toEqual(1);
+        count++;
+        expect(count).not.toBe(0);
         forceUpdate([]);
       }, [api]);
 
