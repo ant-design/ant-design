@@ -417,7 +417,7 @@ describe('ConfigProvider', () => {
     // Popconfirm
     testPair('Popconfirm', props => (
       <div>
-        <Popconfirm {...props} visible>
+        <Popconfirm {...props} open>
           <span>Bamboo</span>
         </Popconfirm>
       </div>
@@ -426,7 +426,7 @@ describe('ConfigProvider', () => {
     // Popover
     testPair('Popover', props => (
       <div>
-        <Popover {...props} visible>
+        <Popover {...props} open>
           <span>Light</span>
         </Popover>
       </div>
@@ -555,7 +555,7 @@ describe('ConfigProvider', () => {
 
     // Tooltip
     testPair('Tooltip', props => (
-      <Tooltip {...props} title="Bamboo" visible>
+      <Tooltip {...props} title="Bamboo" open>
         <span>Light</span>
       </Tooltip>
     ));
