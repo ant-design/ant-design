@@ -317,7 +317,7 @@ describe('Tooltip', () => {
     fireEvent.mouseLeave(inputGroup);
     await sleep(100);
     expect(onOpenChange).toHaveBeenCalledWith(false);
-    expect(onOpeonVisibleChangenChange).toHaveBeenCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
