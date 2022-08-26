@@ -54,7 +54,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
     fontSizeLG,
     motionDurationSlow,
     paddingXS,
-    boxShadow,
+    boxShadowSecondary,
   } = token;
 
   return [
@@ -72,7 +72,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
       [`${componentCls}-submenu-popup`]: {
         [`${componentCls}-vertical`]: {
           ...getVerticalInlineStyle(token),
-          boxShadow,
+          boxShadow: boxShadowSecondary,
         },
       },
     },

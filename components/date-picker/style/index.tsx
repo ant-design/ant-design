@@ -1153,7 +1153,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           verticalAlign: 'top',
           background: token.colorBgElevated,
           borderRadius: token.controlRadiusLG,
-          boxShadow: token.boxShadow,
+          boxShadow: token.boxShadowSecondary,
           transition: `margin ${token.motionDurationSlow}`,
 
           [`${componentCls}-panels`]: {

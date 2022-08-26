@@ -30,7 +30,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     lineType,
     fontWeightStrong,
 
-    boxShadow,
+    boxShadowSecondary,
     colorSplit,
     colorTextHeading,
     radiusLG: borderRadius,
@@ -68,7 +68,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
           borderRadius,
-          boxShadow,
+          boxShadow: boxShadowSecondary,
         },
 
         [`${componentCls}-title`]: {

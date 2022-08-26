@@ -54,7 +54,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         backgroundColor: token.colorBgElevated,
         borderRadius: token.controlRadiusLG,
         outline: 'none',
-        boxShadow: token.boxShadow,
+        boxShadow: token.boxShadowSecondary,
 
         [`
             &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
