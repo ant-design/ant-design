@@ -20,7 +20,7 @@ describe('notification.config', () => {
       act(() => {
         notification.open({
           message: 'Notification message',
-          key: i.toString(),
+          key: i as unknown as string,
         });
       });
     }

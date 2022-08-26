@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
+import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
 import ConfigProvider from '../../config-provider';
 
@@ -98,14 +98,14 @@ describe('notification.hooks', () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = notification.useNotification();
       React.useEffect(() => {
-        count++;
-        expect(count).not.toBe(0);
+        count += 1;
+        expect(count).not.toBe(1);
         forceUpdate([]);
       }, [api]);
 
       return null;
     };
 
-    render(<Demo />);
+    pureRender(<Demo />);
   });
 });
