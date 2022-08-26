@@ -1,9 +1,9 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import type { ArgsProps, MessageType } from '..';
 import message, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
+import { render, fireEvent, pureRender } from '../../../tests/utils';
 
 describe('message.hooks', () => {
   beforeAll(() => {
@@ -48,8 +48,8 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
     expect(document.querySelector('.hook-test-result')?.innerHTML).toEqual('bamboo');
   });
@@ -84,8 +84,8 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
     expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-test-result')?.innerHTML).toEqual('bamboo');
@@ -110,9 +110,8 @@ describe('message.hooks', () => {
         </>
       );
     };
-
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
     jest.useFakeTimers();
   });
 
@@ -126,7 +125,9 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              api.open({ content: 'good', duration: 1 }).then(done);
+              api.open({ content: 'good', duration: 1 }).then(() => {
+                done();
+              });
             }}
           >
             test
@@ -136,8 +137,8 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
     jest.useFakeTimers();
   });
 
@@ -160,8 +161,8 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
 
     act(() => {
       jest.runAllTimers();
@@ -181,17 +182,16 @@ describe('message.hooks', () => {
     const Demo: React.FC = () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = message.useMessage();
-
       React.useEffect(() => {
-        count++;
-        expect(count).not.toBe(0);
+        count += 1;
+        expect(count).toEqual(1);
         forceUpdate([]);
       }, [api]);
 
       return null;
     };
 
-    mount(<Demo />);
+    pureRender(<Demo />);
   });
 
   it("should use ConfigProvider's getPopupContainer as message container", () => {
@@ -221,14 +221,12 @@ describe('message.hooks', () => {
         </ConfigProvider>
       );
     };
-
-    const wrapper = mount(<Demo />);
-
-    wrapper.find('button').simulate('click');
+    const { container, baseElement } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
     expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-content')?.innerHTML).toEqual('happy');
     expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
-    expect(wrapper.find(`#${containerId}`).children.length).toBe(1);
+    expect(baseElement.querySelectorAll(`#${containerId}`).length).toBe(1);
   });
 });
