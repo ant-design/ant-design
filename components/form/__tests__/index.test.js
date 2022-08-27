@@ -980,7 +980,7 @@ describe('Form', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('_internalItemRender api test', () => {
+  it.only('_internalItemRender api test', () => {
     const wrapper = mount(
       <Form>
         <Form.Item
