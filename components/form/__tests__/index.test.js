@@ -800,7 +800,7 @@ describe('Form', () => {
     );
   });
 
-  it.only('should remove Field and also reset error', async () => {
+  it('should remove Field and also reset error', async () => {
     const Demo = ({ showA }) => (
       <Form>
         {showA ? (
@@ -835,8 +835,8 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it('should customize id work', () => {
-    const wrapper = mount(
+  it.only('should customize id when pass with id', () => {
+    render(
       <Form>
         <Form.Item name="light">
           <Input id="bamboo" />
@@ -844,7 +844,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(wrapper.find('input').prop('id')).toEqual('bamboo');
+    expect(screen.getByRole('textbox')).toHaveAttribute('id', 'bamboo');
   });
 
   it('Form validateTrigger', () => {
