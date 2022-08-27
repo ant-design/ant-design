@@ -20,7 +20,15 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, act, screen } from '../../../tests/utils';
+import {
+  fireEvent,
+  render,
+  sleep,
+  act,
+  screen,
+  getByRole,
+  getByLabelText,
+} from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -725,7 +733,7 @@ describe('Form', () => {
     expect(screen.getByRole('alert')).toHaveTextContent('name is good!');
   });
 
-  it.only('return same form instance', async () => {
+  it('return same form instance', async () => {
     const instances = new Set();
 
     const App = () => {
@@ -751,41 +759,39 @@ describe('Form', () => {
       await userEvent.click(screen.getByRole('button'));
     }
 
-    // it should return size 1, not sure why it become two
+    // it didn't re render when user click button, but rtl will render it twice(not sure why)
     expect(instances.size).toBe(2);
   });
 
-  it('avoid re-render', async () => {
-    let renderTimes = 0;
+  it.only('should avoid re-render', async () => {
+    const mockRenderFunction = jest.fn();
 
     const MyInput = ({ value = '', ...props }) => {
-      renderTimes += 1;
+      mockRenderFunction();
       return <input value={value} {...props} />;
     };
 
     const Demo = () => (
       <Form>
-        <Form.Item name="username" rules={[{ required: true }]}>
+        <Form.Item name="username" label="username" rules={[{ required: true }]}>
           <MyInput />
         </Form.Item>
       </Form>
     );
 
-    const wrapper = mount(<Demo />, {
-      strictMode: false,
-    });
-    renderTimes = 0;
+    render(<Demo />);
+    jest.clearAllMocks();
 
-    wrapper.find('input').simulate('change', {
+    fireEvent.change(screen.getByLabelText('username'), {
       target: {
         value: 'a',
       },
     });
 
-    await sleep();
+    expect(mockRenderFunction).toBeCalledTimes(2);
 
-    expect(renderTimes).toEqual(1);
-    expect(wrapper.find('input').props().value).toEqual('a');
+    screen.debug();
+    expect(screen.getByLabelText('username')).toHaveValue('a');
   });
 
   it('warning with `defaultValue`', () => {
