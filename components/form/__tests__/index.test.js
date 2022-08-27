@@ -868,7 +868,7 @@ describe('Form', () => {
   });
 
   describe('Form item hidden', () => {
-    it.only('should hide when pass hidden prop', () => {
+    it('should hide when pass hidden prop', () => {
       const { container } = render(
         <Form>
           <Form.Item name="light" hidden>
@@ -879,15 +879,15 @@ describe('Form', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('noStyle should not work when hidden', () => {
-      const wrapper = mount(
+    it.only('noStyle should not work when hidden', () => {
+      const { container } = render(
         <Form>
           <Form.Item name="light" hidden noStyle>
             <Input />
           </Form.Item>
         </Form>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
