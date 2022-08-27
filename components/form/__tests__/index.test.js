@@ -20,15 +20,7 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import {
-  fireEvent,
-  render,
-  sleep,
-  act,
-  screen,
-  getByRole,
-  getByLabelText,
-} from '../../../tests/utils';
+import { fireEvent, render, sleep, act, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -763,7 +755,7 @@ describe('Form', () => {
     expect(instances.size).toBe(2);
   });
 
-  it.only('should avoid re-render', async () => {
+  it('should avoid re-render', async () => {
     const mockRenderFunction = jest.fn();
 
     const MyInput = ({ value = '', ...props }) => {
@@ -794,8 +786,8 @@ describe('Form', () => {
     expect(screen.getByLabelText('username')).toHaveValue('a');
   });
 
-  it('warning with `defaultValue`', () => {
-    mount(
+  it.only('should warning with `defaultValue`', () => {
+    render(
       <Form>
         <Form.Item name="light">
           <input defaultValue="should warning" />
