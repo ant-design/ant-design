@@ -980,7 +980,7 @@ describe('Form', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it.only('_internalItemRender api test', () => {
+  it('_internalItemRender api test', () => {
     render(
       <Form>
         <Form.Item
@@ -1005,7 +1005,7 @@ describe('Form', () => {
     expect(screen.getByRole('heading')).toHaveTextContent(/warning title/i);
   });
 
-  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
+  it.only('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
     // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
@@ -1016,7 +1016,7 @@ describe('Form', () => {
       return (
         <>
           <Form>
-            <Form.Item name={itemName}>
+            <Form.Item name={itemName} label={itemName}>
               <Select
                 className="form_item_parentNode"
                 defaultValue="lucy"
@@ -1041,23 +1041,21 @@ describe('Form', () => {
       );
     };
 
-    const wrapper = mount(<Demo />, { attachTo: document.body });
+    const { rerender } = render(<Demo />);
     expect(mockFn).toHaveBeenCalled();
     expect(Util.getFieldId()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(wrapper.find(`#${itemName}`).exists()).toBeTruthy();
-    act(() => {
-      wrapper.find('button').simulate('click');
-    });
-    expect(wrapper.find('button').text()).toBe('show');
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
+
+    await userEvent.click(screen.getByRole('button'));
+
+    expect(screen.getByRole('button')).toHaveTextContent('show');
 
     mockFn.mockRestore();
-    // https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/update.html
-    // setProps instead of update
-    wrapper.setProps({});
-    expect(wrapper.find(`#form_item_${itemName}`).exists()).toBeTruthy();
-    wrapper.unmount();
+
+    rerender(<Demo />);
+    expect(screen.getByLabelText(itemName)).toBeInTheDocument();
   });
 
   describe('tooltip', () => {
