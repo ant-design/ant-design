@@ -891,7 +891,7 @@ describe('Form', () => {
     });
   });
 
-  it.only('legacy hideRequiredMark', () => {
+  it('legacy hideRequiredMark', () => {
     render(
       // todo: form should have form role by default
       <Form hideRequiredMark role="form">
@@ -904,7 +904,7 @@ describe('Form', () => {
     expect(screen.getByRole('form')).toHaveClass('ant-form-hide-required-mark');
   });
 
-  it('form should support disabled', () => {
+  it.only('form should support disabled', () => {
     const App = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
         <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
@@ -975,9 +975,9 @@ describe('Form', () => {
       </Form>
     );
 
-    const wrapper = mount(<App />);
+    const { container } = render(<App />);
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('_internalItemRender api test', () => {
