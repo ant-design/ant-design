@@ -847,7 +847,7 @@ describe('Form', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('id', 'bamboo');
   });
 
-  it.only('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
+  it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
     render(
       <Form validateTrigger="onBlur">
         <Form.Item name="light" label="light" rules={[{ len: 3 }]}>
@@ -868,15 +868,15 @@ describe('Form', () => {
   });
 
   describe('Form item hidden', () => {
-    it('should work', () => {
-      const wrapper = mount(
+    it.only('should hide when pass hidden prop', () => {
+      const { container } = render(
         <Form>
           <Form.Item name="light" hidden>
             <Input />
           </Form.Item>
         </Form>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it('noStyle should not work when hidden', () => {
