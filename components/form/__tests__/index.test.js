@@ -904,7 +904,7 @@ describe('Form', () => {
     expect(screen.getByRole('form')).toHaveClass('ant-form-hide-required-mark');
   });
 
-  it.only('form should support disabled', () => {
+  it('form should support disabled', () => {
     const App = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
         <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
@@ -981,14 +981,15 @@ describe('Form', () => {
   });
 
   it.only('_internalItemRender api test', () => {
-    const wrapper = mount(
+    render(
       <Form>
         <Form.Item
           name="light"
           _internalItemRender={{
             mark: 'pro_table_render',
             render: (_, doms) => (
-              <div id="_test">
+              <div>
+                <h1>warning title</h1>
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -1000,7 +1001,8 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.find('#_test').exists()).toBeTruthy();
+
+    expect(screen.getByRole('heading')).toHaveTextContent(/warning title/i);
   });
 
   it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
