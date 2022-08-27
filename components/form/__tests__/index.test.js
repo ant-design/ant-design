@@ -786,7 +786,7 @@ describe('Form', () => {
     expect(screen.getByLabelText('username')).toHaveValue('a');
   });
 
-  it.only('should warning with `defaultValue`', () => {
+  it('should warning with `defaultValue`', () => {
     render(
       <Form>
         <Form.Item name="light">
@@ -800,7 +800,7 @@ describe('Form', () => {
     );
   });
 
-  it('Remove Field should also reset error', async () => {
+  it.only('should remove Field and also reset error', async () => {
     const Demo = ({ showA }) => (
       <Form>
         {showA ? (
@@ -815,14 +815,13 @@ describe('Form', () => {
       </Form>
     );
 
-    const wrapper = mount(<Demo showA />);
-    await Promise.resolve();
-    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
+    const { rerender } = render(<Demo showA />);
 
-    wrapper.setProps({ showA: false });
-    await Promise.resolve();
-    wrapper.update();
-    expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+
+    rerender(<Demo showA={false} />);
+
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
   it('no warning of initialValue & getValueProps & preserve', () => {
