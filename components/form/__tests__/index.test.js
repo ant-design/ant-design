@@ -835,7 +835,7 @@ describe('Form', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
-  it.only('should customize id when pass with id', () => {
+  it('should customize id when pass with id', () => {
     render(
       <Form>
         <Form.Item name="light">
@@ -847,16 +847,24 @@ describe('Form', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('id', 'bamboo');
   });
 
-  it('Form validateTrigger', () => {
-    const wrapper = mount(
+  it.only('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
+    render(
       <Form validateTrigger="onBlur">
-        <Form.Item name="light">
+        <Form.Item name="light" label="light" rules={[{ len: 3 }]}>
           <Input />
         </Form.Item>
       </Form>,
     );
 
-    expect(wrapper.find('input').prop('onBlur')).toBeTruthy();
+    // type a invalidate value, not trigger validation
+    await userEvent.type(screen.getByRole('textbox'), '7777');
+
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+
+    // tab(onBlur) the input field, trigger and see the alert
+    await userEvent.tab(screen.getByRole('textbox'));
+
+    expect(screen.getByRole('alert')).toBeInTheDocument();
   });
 
   describe('Form item hidden', () => {
