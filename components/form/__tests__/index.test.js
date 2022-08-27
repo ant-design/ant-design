@@ -879,7 +879,7 @@ describe('Form', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it.only('noStyle should not work when hidden', () => {
+    it('noStyle should not work when hidden', () => {
       const { container } = render(
         <Form>
           <Form.Item name="light" hidden noStyle>
@@ -891,16 +891,17 @@ describe('Form', () => {
     });
   });
 
-  it('legacy hideRequiredMark', () => {
-    const wrapper = mount(
-      <Form hideRequiredMark>
-        <Form.Item name="light" required>
+  it.only('legacy hideRequiredMark', () => {
+    render(
+      // todo: form should have form role by default
+      <Form hideRequiredMark role="form">
+        <Form.Item name="light" label="light" required>
           <Input />
         </Form.Item>
       </Form>,
     );
 
-    expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+    expect(screen.getByRole('form')).toHaveClass('ant-form-hide-required-mark');
   });
 
   it('form should support disabled', () => {
