@@ -108,10 +108,7 @@ describe('Avatar Render', () => {
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
-        if (this.className === 'ant-avatar-string') {
-          return 100;
-        }
-        return 40;
+        return this.className === 'ant-avatar-string' ? 100 : 40;
       },
     });
 
