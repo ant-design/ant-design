@@ -1119,7 +1119,7 @@ describe('Form', () => {
 
   it('not warning when remove on validate', async () => {
     jest.useFakeTimers();
-    let rejectFn = jest.fn();
+    let rejectFn: (reason?: any) => void = jest.fn();
 
     const { container, unmount } = render(
       <Form>
