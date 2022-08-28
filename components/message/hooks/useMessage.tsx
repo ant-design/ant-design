@@ -17,7 +17,7 @@ export default function createUseMessage(
   ) => void,
   getRCNoticeProps: (args: ArgsProps, prefixCls: string) => RCNoticeContent,
 ) {
-  const useMessage = (): [MessageInstance, React.ReactElement] => {
+  const useMessage = (): readonly [MessageInstance, React.ReactElement] => {
     // We can only get content by render
     let getPrefixCls: ConfigConsumerProps['getPrefixCls'];
     let getPopupContainer: ConfigConsumerProps['getPopupContainer'];
@@ -83,7 +83,7 @@ export default function createUseMessage(
           return holder;
         }}
       </ConfigConsumer>,
-    ];
+    ] as const;
   };
 
   return useMessage;
