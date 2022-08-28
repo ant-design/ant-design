@@ -645,7 +645,7 @@ describe('Form', () => {
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('Bamboo is good!');
   });
 
   // https://github.com/ant-design/ant-design/issues/33691
@@ -667,7 +667,7 @@ describe('Form', () => {
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByRole('alert')).toHaveTextContent('请输入Bamboo');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('请输入Bamboo');
   });
 
   it('`name` support template when label is not provided', async () => {
@@ -685,7 +685,7 @@ describe('Form', () => {
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('Bamboo is good!');
   });
 
   it('`messageVariables` support validate', async () => {
@@ -703,7 +703,7 @@ describe('Form', () => {
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByRole('alert')).toHaveTextContent('Bamboo is good!');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('Bamboo is good!');
   });
 
   it('validation message should has alert role', async () => {
@@ -722,7 +722,7 @@ describe('Form', () => {
 
     await userEvent.click(screen.getByRole('button'));
 
-    expect(screen.getByRole('alert')).toHaveTextContent('name is good!');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('name is good!');
   });
 
   it('return same form instance', async () => {
@@ -782,7 +782,6 @@ describe('Form', () => {
 
     expect(mockRenderFunction).toBeCalledTimes(2);
 
-    screen.debug();
     expect(screen.getByLabelText('username')).toHaveValue('a');
   });
 
@@ -862,9 +861,9 @@ describe('Form', () => {
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 
     // tab(onBlur) the input field, trigger and see the alert
-    await userEvent.tab(screen.getByRole('textbox'));
+    fireEvent.blur(screen.getByRole('textbox'));
 
-    expect(screen.getByRole('alert')).toBeInTheDocument();
+    await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
   });
 
   describe('Form item hidden', () => {
@@ -1059,7 +1058,7 @@ describe('Form', () => {
   });
 
   describe('tooltip', () => {
-    it.only('ReactNode', async () => {
+    it('ReactNode', async () => {
       render(
         <Form>
           <Form.Item label="light" tooltip={<span>Bamboo</span>}>
