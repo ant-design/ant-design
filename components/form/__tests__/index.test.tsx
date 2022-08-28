@@ -1168,7 +1168,7 @@ describe('Form', () => {
       expect(screen.getByText('姓名')).not.toHaveClass('ant-form-item-no-colon');
     });
 
-    it.only('set Form.Item colon false', () => {
+    it('set Form.Item colon false', () => {
       render(
         <Form colon>
           <Form.Item colon={false} label="姓名" name="姓名">
@@ -1180,16 +1180,16 @@ describe('Form', () => {
       expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
 
-    it('set Form colon false', () => {
-      const wrapper = mount(
+    it.only('set Form colon false', () => {
+      render(
         <Form colon={false}>
-          <Form.Item label="姓名">
+          <Form.Item label="姓名" name="姓名">
             <Input />
           </Form.Item>
         </Form>,
       );
 
-      expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
+      expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
   });
 
