@@ -344,7 +344,7 @@ describe('Form', () => {
     await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'bamboo' is required");
   });
 
-  it('should show alert with string when help is non-empty string', () => {
+  it('should show alert with string when help is non-empty string', async () => {
     render(
       <Form>
         <Form.Item help="good">
@@ -353,10 +353,10 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(screen.getByRole('alert')).toHaveTextContent('good');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('good');
   });
 
-  it('should show alert with empty string when help is empty string', () => {
+  it('should show alert with empty string when help is empty string', async () => {
     render(
       <Form>
         <Form.Item help="">
@@ -365,7 +365,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(screen.getByRole('alert')).toHaveTextContent('');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('');
   });
 
   it('warning when use v3 function', () => {
@@ -437,13 +437,12 @@ describe('Form', () => {
     render(<App />);
 
     // should show initial text
-    expect(screen.getByRole('alert')).toHaveTextContent('');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('');
 
     await userEvent.click(screen.getByRole('button'));
-    await sleep(800);
 
     // should show bamboo alert without opacity and hide first alert with opacity: 0
-    expect(screen.getByRole('alert')).toHaveTextContent('bamboo');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('bamboo');
   });
 
   it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
@@ -513,7 +512,8 @@ describe('Form', () => {
     await userEvent.clear(screen.getByLabelText('test'));
 
     // should have alert with help text and form item with style
-    expect(screen.getByRole('alert')).toHaveTextContent('help');
+    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('help');
+    screen.debug();
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
   });
 
@@ -535,7 +535,7 @@ describe('Form', () => {
     await sleep(800);
 
     // should show alert when field value clear
-    expect(screen.getByRole('alert')).toBeInTheDocument();
+    await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
 
     await userEvent.type(screen.getByLabelText('test'), 'test');
     await sleep(800);
@@ -823,7 +823,7 @@ describe('Form', () => {
 
     const { rerender } = render(<Demo showA />);
 
-    expect(screen.getByRole('alert')).toBeInTheDocument();
+    await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
 
     rerender(<Demo showA={false} />);
 
@@ -1122,6 +1122,8 @@ describe('Form', () => {
     await userEvent.type(screen.getByLabelText('test'), 'test');
     await userEvent.clear(screen.getByLabelText('test'));
 
+    await sleep(1000);
+
     expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
     expect(container.querySelectorAll('.ant-form-item-has-warning').length).toBeTruthy();
   });
@@ -1317,6 +1319,8 @@ describe('Form', () => {
     };
 
     const { container } = render(<Demo />);
+
+    await sleep(1000);
 
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-',
