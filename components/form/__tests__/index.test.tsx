@@ -1180,7 +1180,7 @@ describe('Form', () => {
       expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
 
-    it.only('set Form colon false', () => {
+    it('set Form colon false', () => {
       render(
         <Form colon={false}>
           <Form.Item label="姓名" name="姓名">
@@ -1275,12 +1275,12 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
-  it('Form.Item.useStatus should work', async () => {
+  it.only('Form.Item.useStatus should work', async () => {
     const {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput = ({ className, value }) => {
+    const CustomInput = ({ className, value }: { className: string; value?: string }) => {
       const { status } = useStatus();
       return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
     };
@@ -1322,8 +1322,8 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
-    fireEvent.click(container.querySelector('.submit-button'));
-    await sleep(0);
+    await userEvent.click(screen.getByRole('button', { name: /submit/i }));
+
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-error',
     );
