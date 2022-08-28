@@ -1177,7 +1177,7 @@ describe('Form', () => {
         </Form>,
       );
 
-      expect(screen.getByText('姓名')).not.toHaveClass('ant-form-item-no-colon');
+      expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
     });
 
     it('set Form colon false', () => {
