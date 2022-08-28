@@ -1005,7 +1005,7 @@ describe('Form', () => {
     expect(screen.getByRole('heading')).toHaveTextContent(/warning title/i);
   });
 
-  it.only('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
+  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
     const mockFn = jest.spyOn(Util, 'getFieldId');
     const itemName = 'parentNode';
     // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
@@ -1059,8 +1059,8 @@ describe('Form', () => {
   });
 
   describe('tooltip', () => {
-    it('ReactNode', () => {
-      const wrapper = mount(
+    it.only('ReactNode', async () => {
+      render(
         <Form>
           <Form.Item label="light" tooltip={<span>Bamboo</span>}>
             <Input />
@@ -1068,8 +1068,17 @@ describe('Form', () => {
         </Form>,
       );
 
-      const tooltipProps = wrapper.find('Tooltip').props();
-      expect(tooltipProps.title).toEqual(<span>Bamboo</span>);
+      await userEvent.hover(screen.getByRole('img', { name: 'question-circle' }));
+      await expect(screen.findByRole('tooltip')).resolves.toMatchInlineSnapshot(`
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          <span>
+            Bamboo
+          </span>
+        </div>
+      `);
     });
 
     it('config', () => {
