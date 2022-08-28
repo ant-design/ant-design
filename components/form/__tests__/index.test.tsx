@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import userEvent from '@testing-library/user-event';
@@ -38,10 +37,15 @@ describe('Form', () => {
   rtlTest(Form);
   rtlTest(Form.Item);
 
-  scrollIntoView.mockImplementation(() => {});
+  (scrollIntoView as any).mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  async function change(container, index, value, executeMockTimer) {
+  async function change(
+    container: HTMLElement,
+    index: number,
+    value: string,
+    executeMockTimer: boolean,
+  ) {
     fireEvent.change(container.querySelectorAll('input')[index], {
       target: { value },
     });
@@ -59,7 +63,7 @@ describe('Form', () => {
 
   beforeEach(() => {
     jest.useRealTimers();
-    scrollIntoView.mockReset();
+    (scrollIntoView as any).mockReset();
   });
 
   afterEach(() => {
@@ -68,7 +72,7 @@ describe('Form', () => {
 
   afterAll(() => {
     errorSpy.mockRestore();
-    scrollIntoView.mockRestore();
+    (scrollIntoView as any).mockRestore();
   });
 
   describe('noStyle Form.Item', () => {
@@ -204,9 +208,9 @@ describe('Form', () => {
   });
 
   describe('scrollToField', () => {
-    function test(name, genForm) {
+    function test(name: string, genForm: any) {
       it(name, () => {
-        let callGetForm;
+        let callGetForm: any;
 
         const Demo = () => {
           const { props, getForm } = genForm();
@@ -248,10 +252,10 @@ describe('Form', () => {
 
     // ref
     test('ref', () => {
-      let form;
+      let form: any;
       return {
         props: {
-          ref: instance => {
+          ref: (instance: any) => {
             form = instance;
           },
         },
@@ -272,7 +276,6 @@ describe('Form', () => {
           <Button htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>,
-      { attachTo: document.body },
     );
 
     expect(scrollIntoView).not.toHaveBeenCalled();
@@ -288,6 +291,7 @@ describe('Form', () => {
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const { container } = render(
       <Form>
+        {/* @ts-ignore */}
         <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
           text
         </Form.Item>
@@ -465,7 +469,7 @@ describe('Form', () => {
       return <Input />;
     };
 
-    const formRef = React.createRef();
+    const formRef = React.createRef<any>();
 
     render(
       <Form ref={formRef}>
@@ -562,6 +566,7 @@ describe('Form', () => {
 
   it('`null` triggers warning and is treated as `undefined`', () => {
     render(
+      // @ts-ignore
       <Form.Item name={null} label="test">
         <input />
       </Form.Item>,
@@ -602,7 +607,7 @@ describe('Form', () => {
 
   it('change `help` should not warning', async () => {
     const Demo = () => {
-      const [error, setError] = React.useState(null);
+      const [error, setError] = React.useState(false);
 
       return (
         <Form>
@@ -800,7 +805,7 @@ describe('Form', () => {
   });
 
   it('should remove Field and also reset error', async () => {
-    const Demo = ({ showA }) => (
+    const Demo = ({ showA }: { showA: boolean }) => (
       <Form>
         {showA ? (
           <Form.Item name="a" help="error">
@@ -826,7 +831,7 @@ describe('Form', () => {
   it('no warning of initialValue & getValueProps & preserve', () => {
     render(
       <Form>
-        <Form.Item initialValue="bamboo" getValueProps={() => null} preserve={false}>
+        <Form.Item initialValue="bamboo" getValueProps={() => ({})} preserve={false}>
           <Input />
         </Form.Item>
       </Form>,
@@ -984,9 +989,10 @@ describe('Form', () => {
       <Form>
         <Form.Item
           name="light"
+          // @ts-ignore
           _internalItemRender={{
             mark: 'pro_table_render',
-            render: (_, doms) => (
+            render: (_: any, doms: any) => (
               <div>
                 <h1>warning title</h1>
                 {doms.input}
@@ -1042,7 +1048,7 @@ describe('Form', () => {
 
     const { rerender } = render(<Demo />);
     expect(mockFn).toHaveBeenCalled();
-    expect(Util.getFieldId()).toBe(itemName);
+    expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
     expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
@@ -1080,7 +1086,7 @@ describe('Form', () => {
       `);
     });
 
-    it.only('config tooltip should show when hover on icon', async () => {
+    it('config tooltip should show when hover on icon', async () => {
       render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
@@ -1257,7 +1263,7 @@ describe('Form', () => {
   it('should not affect Popup children style', () => {
     const Demo = () => (
       <Form>
-        <Form.Item labelCol={4} validateStatus="error">
+        <Form.Item labelCol={4 as any} validateStatus="error">
           <Modal visible>
             <Select className="modal-select" />
           </Modal>
@@ -1331,9 +1337,12 @@ describe('Form', () => {
   });
 
   it('item customize margin', async () => {
-    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
-      marginBottom: 24,
-    }));
+    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(
+      () =>
+        ({
+          marginBottom: 24,
+        } as any),
+    );
 
     const { container } = render(
       <Form>
@@ -1343,7 +1352,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    fireEvent.change(container.querySelector('input'), {
+    fireEvent.change(container.querySelector('input') as HTMLInputElement, {
       target: {
         value: '',
       },
