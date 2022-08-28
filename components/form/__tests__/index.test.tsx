@@ -1080,8 +1080,8 @@ describe('Form', () => {
       `);
     });
 
-    it('config', () => {
-      const wrapper = mount(
+    it.only('config tooltip should show when hover on icon', async () => {
+      render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
             <Input />
@@ -1089,8 +1089,9 @@ describe('Form', () => {
         </Form>,
       );
 
-      const tooltipProps = wrapper.find('Tooltip').props();
-      expect(tooltipProps.title).toEqual('Bamboo');
+      await userEvent.hover(screen.getByRole('img', { name: 'question-circle' }));
+
+      await expect(screen.findByRole('tooltip')).resolves.toHaveTextContent('Bamboo');
     });
   });
 
@@ -1275,7 +1276,7 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
-  it.only('Form.Item.useStatus should work', async () => {
+  it('Form.Item.useStatus should work', async () => {
     const {
       Item: { useStatus },
     } = Form;
