@@ -39,6 +39,7 @@ describe('Form', () => {
 
   (scrollIntoView as any).mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
   async function change(
     container: HTMLElement,
@@ -72,6 +73,7 @@ describe('Form', () => {
 
   afterAll(() => {
     errorSpy.mockRestore();
+    warnSpy.mockRestore();
     (scrollIntoView as any).mockRestore();
   });
 
