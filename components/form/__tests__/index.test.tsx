@@ -1094,7 +1094,7 @@ describe('Form', () => {
     });
   });
 
-  it.only('warningOnly validate', async () => {
+  it('warningOnly validate', async () => {
     const { container } = render(
       <Form>
         <Form.Item>
@@ -1156,16 +1156,16 @@ describe('Form', () => {
   });
 
   describe('form colon', () => {
-    it('default colon', () => {
-      const wrapper = mount(
+    it.only('default colon', () => {
+      render(
         <Form>
-          <Form.Item label="姓名">
+          <Form.Item label="姓名" name="姓名">
             <input />
           </Form.Item>
         </Form>,
       );
 
-      expect(wrapper.exists('.ant-form-item-no-colon')).toBeFalsy();
+      expect(screen.getByText('姓名')).not.toHaveClass('ant-form-item-no-colon');
     });
 
     it('set Form.Item colon false', () => {
