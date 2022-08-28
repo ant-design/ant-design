@@ -1094,14 +1094,13 @@ describe('Form', () => {
     });
   });
 
-  it('warningOnly validate', async () => {
-    jest.useFakeTimers();
-
+  it.only('warningOnly validate', async () => {
     const { container } = render(
       <Form>
         <Form.Item>
           <Form.Item
             name="test"
+            label="test"
             initialValue="bamboo"
             rules={[{ required: true, warningOnly: true }]}
           >
@@ -1111,11 +1110,11 @@ describe('Form', () => {
       </Form>,
     );
 
-    await change(container, 0, '', true);
+    await userEvent.type(screen.getByLabelText('test'), 'test');
+    await userEvent.clear(screen.getByLabelText('test'));
+
     expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
     expect(container.querySelectorAll('.ant-form-item-has-warning').length).toBeTruthy();
-
-    jest.useRealTimers();
   });
 
   it('not warning when remove on validate', async () => {
