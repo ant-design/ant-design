@@ -5,6 +5,9 @@ on:
     types: [opened, synchronize, reopened]
   push:
 
+permissions:
+  contents: read
+
 # Cancel prev CI if new commit come
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
