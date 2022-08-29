@@ -100,6 +100,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
         fontSize: alertIconSizeLG,
+        lineHeight: 1,
       },
 
       [`${componentCls}-message`]: {
