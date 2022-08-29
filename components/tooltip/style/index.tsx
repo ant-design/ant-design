@@ -105,6 +105,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
       }),
       'var(--antd-arrow-background-color)',
       '',
+      0,
     ),
 
     // Pure Render

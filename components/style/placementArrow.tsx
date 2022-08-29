@@ -11,11 +11,19 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   token: Token,
   colorBg: string,
   showArrowCls?: string,
+  arrowMargin?: number,
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter, boxShadowPopoverArrow } =
-    token;
+  const {
+    componentCls,
+    sizePopupArrow,
+    marginXXS,
+    radiusXS,
+    radiusOuter,
+    boxShadowPopoverArrow,
+    marginXS,
+  } = token;
 
-  const dropdownArrowOffset = 0;
+  const dropdownArrowOffset = arrowMargin ?? marginXS;
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
 
   return {

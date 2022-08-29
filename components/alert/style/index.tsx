@@ -7,8 +7,6 @@ export interface ComponentToken {}
 
 type AlertToken = FullToken<'Alert'> & {
   alertIconSizeLG: number;
-  alertPadding: number;
-  alertPaddingLG: number;
 };
 
 const genAlertTypeStyle = (
@@ -30,6 +28,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     componentCls,
     motionDurationSlow: duration,
     marginXS,
+    marginSM,
     fontSize,
     fontSizeLG,
     lineHeight,
@@ -37,9 +36,10 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     motionEaseInOutCirc,
     alertIconSizeLG,
     colorText,
-    alertPadding,
-    alertPaddingLG,
-    marginXXS,
+    paddingSM,
+    paddingXS,
+    paddingTmp,
+    paddingLG,
   } = token;
 
   return {
@@ -48,7 +48,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${alertPadding}px ${alertPaddingLG}px`,
+      padding: `${paddingXS}px ${paddingSM}px`,
       wordWrap: 'break-word',
       borderRadius,
 
@@ -94,18 +94,18 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      paddingInline: alertPaddingLG,
-      paddingBlock: alertPaddingLG,
+      paddingInline: paddingLG,
+      paddingBlock: paddingTmp,
 
       [`${componentCls}-icon`]: {
-        marginInlineStart: alertPadding,
-        marginInlineEnd: alertPaddingLG,
+        marginInlineEnd: marginSM,
         fontSize: alertIconSizeLG,
+        lineHeight: 1,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
-        marginBottom: marginXXS,
+        marginBottom: marginXS,
         color: colorText,
         fontSize: fontSizeLG,
       },
@@ -227,12 +227,10 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
 ];
 
 export default genComponentStyleHook('Alert', token => {
-  const { fontSizeHeading3, paddingXS, padding } = token;
+  const { fontSizeHeading3 } = token;
 
   const alertToken = mergeToken<AlertToken>(token, {
     alertIconSizeLG: fontSizeHeading3,
-    alertPadding: paddingXS,
-    alertPaddingLG: padding,
   });
 
   return [genAlertStyle(alertToken)];

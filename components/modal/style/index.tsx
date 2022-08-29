@@ -164,6 +164,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           borderRadius: token.radiusLG,
           boxShadow: token.boxShadowSecondary,
           pointerEvents: 'auto',
+          padding: `${token.paddingTmp}px ${token.paddingLG}px`,
         },
 
         [`${componentCls}-close`]: {
@@ -201,26 +202,22 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         },
 
         [`${componentCls}-header`]: {
-          padding: token.modalHeaderPadding,
           color: token.colorText,
           background: token.modalHeaderBg,
-          borderBottom: `${token.modalHeaderBorderWidth}px ${token.modalHeaderBorderStyle} ${token.modalHeaderBorderColorSplit}`,
           borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
+          marginBottom: token.marginXS,
         },
 
         [`${componentCls}-body`]: {
-          padding: token.modalBodyPadding,
           fontSize: token.fontSizeBase,
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
         },
 
         [`${componentCls}-footer`]: {
-          padding: `${token.modalFooterPaddingVertical}px ${token.modalFooterPaddingHorizontal}px`,
           textAlign: 'end',
           background: token.modalFooterBg,
-          borderTop: `${token.modalFooterBorderWidth}px ${token.modalFooterBorderStyle} ${token.modalFooterBorderColorSplit}`,
-          borderRadius: `0 0 ${token.radiusLG}px ${token.radiusLG}px`,
+          marginTop: token.marginSM,
 
           [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
             marginBottom: 0,
@@ -256,9 +253,6 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
       [`${token.antCls}-modal-header`]: {
         display: 'none',
       },
-      [`${token.antCls}-modal-body`]: {
-        padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
-      },
       [`${confirmComponentCls}-body-wrapper`]: {
         ...clearFix(),
       },
@@ -286,12 +280,12 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
 
         [`> ${token.iconCls}`]: {
           flex: 'none',
-          marginInlineEnd: token.margin,
+          marginInlineEnd: token.marginSM,
           fontSize: token.modalConfirmIconSize,
 
           // `content` after `icon` should set marginLeft
           [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
-            marginInlineStart: token.modalConfirmIconSize + token.margin,
+            marginInlineStart: token.modalConfirmIconSize + token.marginSM,
             marginBlockStart: token.marginXS,
             flexBasis: '100%',
           },
@@ -299,7 +293,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
       },
       [`${confirmComponentCls}-btns`]: {
         textAlign: 'end',
-        marginTop: token.marginLG,
+        marginTop: token.marginSM,
 
         [`${token.antCls}-btn + ${token.antCls}-btn`]: {
           marginBottom: 0,
