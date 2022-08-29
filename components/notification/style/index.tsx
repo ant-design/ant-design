@@ -203,7 +203,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         [`${noticeCls}-icon`]: {
           position: 'absolute',
           fontSize: notificationIconSize,
-          lineHeight: 1,
+          lineHeight: 0,
 
           // icon-font
           [`&-success${iconCls}`]: {
