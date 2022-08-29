@@ -47,11 +47,14 @@ describe('DropdownButton', () => {
       onOpenChange: () => {},
     };
 
-    render(<DropdownButton {...props} />);
+    const { rerender } = render(<DropdownButton {...props} />);
 
     Object.keys(props).forEach((key: keyof DropdownProps) => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
+
+    rerender(<DropdownButton overlay={<div>123</div>} visible />);
+    expect(dropdownProps.open).toBe(true);
   });
 
   it("don't pass open to Dropdown if it's not exits", () => {
