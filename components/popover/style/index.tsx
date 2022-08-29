@@ -12,9 +12,7 @@ export interface ComponentToken {
 export type PopoverToken = FullToken<'Popover'> & {
   popoverBg: string;
   popoverColor: string;
-  popoverPaddingHorizontal: number;
-  popoverTitlePaddingBlockTop: number;
-  popoverTitlePaddingBlockBottom: number;
+  popoverPadding: number;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
@@ -23,19 +21,13 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     popoverBg,
     popoverColor,
     width,
-    popoverPaddingHorizontal,
-    popoverTitlePaddingBlockTop,
-    popoverTitlePaddingBlockBottom,
-    lineWidth,
-    lineType,
     fontWeightStrong,
-
+    popoverPadding,
     boxShadowSecondary,
-    colorSplit,
     colorTextHeading,
     radiusLG: borderRadius,
-    paddingSM,
     zIndexPopup,
+    marginXS,
   } = token;
 
   return [
@@ -69,19 +61,17 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
           backgroundClip: 'padding-box',
           borderRadius,
           boxShadow: boxShadowSecondary,
+          padding: popoverPadding,
         },
 
         [`${componentCls}-title`]: {
           minWidth: width,
-          margin: 0,
-          padding: `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`,
+          marginBottom: marginXS,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
-          borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
         },
 
         [`${componentCls}-inner-content`]: {
-          padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
           color: popoverColor,
         },
       },
@@ -131,15 +121,12 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const { controlHeight, fontSize, lineHeight, lineWidth, colorBgElevated } = token;
-    const titlePaddingBlockDist = controlHeight - Math.round(fontSize * lineHeight);
+    const { colorBgElevated, colorText, paddingSM } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverBg: colorBgElevated,
-      popoverColor: token.colorText,
-      popoverTitlePaddingBlockTop: titlePaddingBlockDist / 2,
-      popoverTitlePaddingBlockBottom: titlePaddingBlockDist / 2 - lineWidth,
-      popoverPaddingHorizontal: token.padding,
+      popoverColor: colorText,
+      popoverPadding: paddingSM,
     });
 
     return [

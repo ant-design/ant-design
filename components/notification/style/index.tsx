@@ -18,6 +18,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   animationMaxHeight: number;
+  notificationIconSize: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
@@ -41,6 +42,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
     fontSizeBase,
     lineHeight,
     width,
+    notificationIconSize,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -185,13 +187,13 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         },
 
         [`${noticeCls}-with-icon ${noticeCls}-message`]: {
-          marginBottom: token.marginXXS,
-          marginInlineStart: token.marginXXL,
+          marginBottom: token.marginXS,
+          marginInlineStart: token.marginSM + notificationIconSize,
           fontSize: fontSizeLG,
         },
 
         [`${noticeCls}-with-icon ${noticeCls}-description`]: {
-          marginInlineStart: token.marginXXL,
+          marginInlineStart: token.marginSM + notificationIconSize,
           fontSize: fontSizeBase,
         },
 
@@ -200,8 +202,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         // https://github.com/ant-design/ant-design/issues/15512
         [`${noticeCls}-icon`]: {
           position: 'absolute',
-          marginInlineStart: token.marginXXS,
-          fontSize: token.fontSizeLG * token.lineHeightLG,
+          fontSize: notificationIconSize,
+          lineHeight: 1,
 
           // icon-font
           [`&-success${iconCls}`]: {
@@ -232,7 +234,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 
         [`${noticeCls}-btn`]: {
           float: 'right',
-          marginTop: token.margin,
+          marginTop: token.marginSM,
         },
       },
     },
@@ -250,7 +252,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 export default genComponentStyleHook(
   'Notification',
   token => {
-    const notificationPaddingVertical = token.padding;
+    const notificationPaddingVertical = token.paddingTmp;
     const notificationPaddingHorizontal = token.paddingLG;
 
     const notificationToken = mergeToken<NotificationToken>(token, {
@@ -263,6 +265,7 @@ export default genComponentStyleHook(
       notificationMarginBottom: token.margin,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
+      notificationIconSize: token.fontSizeLG * token.lineHeightLG,
     });
 
     return [genNotificationStyle(notificationToken)];
