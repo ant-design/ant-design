@@ -294,6 +294,9 @@ jobs:
       - name: coverage
         uses: codecov/codecov-action@v3
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        with:
+          # use own token to upload coverage reports
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       # node test
       - name: node test
