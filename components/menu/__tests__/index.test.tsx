@@ -822,26 +822,28 @@ describe('Menu', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onOpen = jest.fn();
     const onClose = jest.fn();
-    const menuProps = useMemo(() => ({ onOpen, onClose }), []);
-    render(
-      <Menu
-        {...menuProps}
-        defaultOpenKeys={['1']}
-        mode="inline"
-        items={[
-          {
-            key: '1',
-            label: 'submenu1',
-            children: [
-              { key: 'submenu1', label: 'Option 1' },
-              { key: 'submenu2', label: 'Option 2' },
-            ],
-          },
-          { key: '2', label: 'menu2' },
-        ]}
-      />,
-    );
-
+    const Demo: React.FC = () => {
+      const menuProps = useMemo(() => ({ onOpen, onClose }), []);
+      return (
+        <Menu
+          {...menuProps}
+          defaultOpenKeys={['1']}
+          mode="inline"
+          items={[
+            {
+              key: '1',
+              label: 'submenu1',
+              children: [
+                { key: 'submenu1', label: 'Option 1' },
+                { key: 'submenu2', label: 'Option 2' },
+              ],
+            },
+            { key: '2', label: 'menu2' },
+          ]}
+        />
+      );
+    };
+    render(<Demo />);
     expect(errorSpy.mock.calls.length).toBe(1);
     expect(errorSpy.mock.calls[0][0]).not.toContain(
       '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, see: https://u.ant.design/menu-on-open-change.',
@@ -855,23 +857,25 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const menuProps = useMemo(() => ({ collapsedWidth: 0 }), []);
-    const Demo: React.FC<MenuProps> = props => (
-      <Menu
-        mode="inline"
-        inlineCollapsed={false}
-        defaultSelectedKeys={['1']}
-        openKeys={['3']}
-        {...menuProps}
-        {...props}
-      >
-        <Menu.Item key="1">Option 1</Menu.Item>
-        <Menu.Item key="2">Option 2</Menu.Item>
-        <Menu.SubMenu key="3" title="Option 3">
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </Menu.SubMenu>
-      </Menu>
-    );
+    const Demo: React.FC<MenuProps> = props => {
+      const menuProps = useMemo(() => ({ collapsedWidth: 0 }), []);
+      return (
+        <Menu
+          mode="inline"
+          inlineCollapsed={false}
+          defaultSelectedKeys={['1']}
+          openKeys={['3']}
+          {...menuProps}
+          {...props}
+        >
+          <Menu.Item key="1">Option 1</Menu.Item>
+          <Menu.Item key="2">Option 2</Menu.Item>
+          <Menu.SubMenu key="3" title="Option 3">
+            <Menu.Item key="4">Option 4</Menu.Item>
+          </Menu.SubMenu>
+        </Menu>
+      );
+    };
 
     const { container, rerender } = render(<Demo />);
     expect(container.querySelector('li.ant-menu-item-selected')?.textContent).toBe('Option 1');
