@@ -23,7 +23,7 @@ interface PicSearcherProps {
 
 interface PicSearcherState {
   loading: boolean;
-  modalVisible: boolean;
+  modalOpen: boolean;
   popoverVisible: boolean;
   icons: iconObject[];
   fileList: any[];
@@ -40,7 +40,7 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
   const { messages } = intl;
   const [state, setState] = useState<PicSearcherState>({
     loading: false,
-    modalVisible: false,
+    modalOpen: false,
     popoverVisible: false,
     icons: [],
     fileList: [],
@@ -104,7 +104,7 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
   const toggleModal = useCallback(() => {
     setState(prev => ({
       ...prev,
-      modalVisible: !prev.modalVisible,
+      modalOpen: !prev.modalOpen,
       popoverVisible: false,
       fileList: [],
       icons: [],
@@ -140,13 +140,13 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
     <div className="icon-pic-searcher">
       <Popover
         content={messages[`app.docs.components.icon.pic-searcher.intro`]}
-        visible={state.popoverVisible}
+        open={state.popoverVisible}
       >
         <AntdIcons.CameraOutlined className="icon-pic-btn" onClick={toggleModal} />
       </Popover>
       <Modal
         title={messages[`app.docs.components.icon.pic-searcher.title`]}
-        visible={state.modalVisible}
+        open={state.modalOpen}
         onCancel={toggleModal}
         footer={null}
       >

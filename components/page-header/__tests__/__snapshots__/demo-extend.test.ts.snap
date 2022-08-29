@@ -1637,13 +1637,6 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
             role="tabpanel"
             tabindex="0"
           />
-          <div
-            aria-hidden="true"
-            class="ant-tabs-tabpane"
-            role="tabpanel"
-            style="display:none"
-            tabindex="-1"
-          />
         </div>
       </div>
     </div>

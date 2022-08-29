@@ -21,14 +21,14 @@ import React, { useState } from 'react';
 const { Option } = Select;
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -40,7 +40,7 @@ const App: React.FC = () => {
         title="Create a new account"
         width={720}
         onClose={onClose}
-        visible={visible}
+        open={open}
         bodyStyle={{ paddingBottom: 80 }}
         extra={
           <Space>

@@ -9,8 +9,9 @@ import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import warning from '../_util/warning';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -39,8 +40,41 @@ export interface TooltipAlignConfig {
   useCssBottom?: boolean;
   useCssTransform?: boolean;
 }
+// remove this after RcTooltip switch visible to open.
+interface LegacyTooltipProps
+  extends Partial<
+    Omit<
+      RcTooltipProps,
+      'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
+    >
+  > {
+  /**
+   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
+   *   `open` instead.
+   */
+  visible?: RcTooltipProps['visible'];
+  open?: RcTooltipProps['visible'];
+  /**
+   * @deprecated `defaultVisible` is deprecated which will be removed in next major version. Please
+   *   use `defaultOpen` instead.
+   */
+  defaultVisible?: RcTooltipProps['defaultVisible'];
+  defaultOpen?: RcTooltipProps['defaultVisible'];
+  /**
+   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
+   *   use `onOpenChange` instead.
+   */
+  onVisibleChange?: RcTooltipProps['onVisibleChange'];
+  onOpenChange?: RcTooltipProps['onVisibleChange'];
+  /**
+   * @deprecated `afterVisibleChange` is deprecated which will be removed in next major version.
+   *   Please use `afterOpenChange` instead.
+   */
+  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
+  afterOpenChange?: RcTooltipProps['afterVisibleChange'];
+}
 
-export interface AbstractTooltipProps extends Partial<Omit<RcTooltipProps, 'children'>> {
+export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
@@ -135,9 +169,25 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     direction,
   } = React.useContext(ConfigContext);
 
-  const [visible, setVisible] = useMergedState(false, {
-    value: props.visible,
-    defaultValue: props.defaultVisible,
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['defaultVisible', 'defaultOpen'],
+      ['onVisibleChange', 'onOpenChange'],
+      ['afterVisibleChange', 'afterOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Tooltip',
+        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+      );
+    });
+  }
+
+  const [open, setOpen] = useMergedState(false, {
+    value: props.open !== undefined ? props.open : props.visible,
+    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
   });
 
   const isNoTitle = () => {
@@ -145,10 +195,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return !title && !overlay && title !== 0; // overlay for old version compatibility
   };
 
-  const onVisibleChange = (vis: boolean) => {
-    setVisible(isNoTitle() ? false : vis);
+  const onOpenChange = (vis: boolean) => {
+    setOpen(isNoTitle() ? false : vis);
 
     if (!isNoTitle()) {
+      props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
     }
   };
@@ -217,14 +268,14 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  let tempVisible = visible;
+  let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('visible' in props) && isNoTitle()) {
-    tempVisible = false;
+  if (!('open' in props) && !('visible' in props) && isNoTitle()) {
+    tempOpen = false;
   }
 
   const child = getDisabledCompatibleChildren(
-    isValidElement(children) ? children : <span>{children}</span>,
+    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
     prefixCls,
   );
   const childProps = child.props;
@@ -254,8 +305,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       ref={ref}
       builtinPlacements={getTooltipPlacements()}
       overlay={getOverlay()}
-      visible={tempVisible}
-      onVisibleChange={onVisibleChange}
+      visible={tempOpen}
+      onVisibleChange={onOpenChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
@@ -264,7 +315,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
         motionDeadline: 1000,
       }}
     >
-      {tempVisible ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
 });

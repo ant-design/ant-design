@@ -30,12 +30,12 @@ describe('ConfigProvider.GetPopupContainer', () => {
 
   it('Drawer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
-    const Demo: React.FC<{ visible?: boolean }> = ({ visible }) => (
+    const Demo: React.FC<{ open?: boolean }> = ({ open }) => (
       <ConfigProvider getPopupContainer={getPopupContainer}>
-        <Drawer visible={visible} />
+        <Drawer open={open} />
       </ConfigProvider>
     );
-    render(<Demo visible />);
+    render(<Demo open />);
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
