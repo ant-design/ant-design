@@ -140,7 +140,7 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
     <div className="icon-pic-searcher">
       <Popover
         content={messages[`app.docs.components.icon.pic-searcher.intro`]}
-        visible={state.popoverVisible}
+        open={state.popoverVisible}
       >
         <AntdIcons.CameraOutlined className="icon-pic-btn" onClick={toggleModal} />
       </Popover>

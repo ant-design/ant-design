@@ -104,7 +104,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ## 链接
 
-- [首页](/)
+- [首页](/index)
 - [组件库](/components/overview)
 - [Ant Design Pro](https://pro.ant.design/)
 - [Ant Design Charts](https://charts.ant.design)

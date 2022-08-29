@@ -55,9 +55,9 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
     if (!siderCollapsed && !inlineCollapsed) {
       tooltipProps.title = null;
-      // Reset `visible` to fix control mode tooltip display not correct
+      // Reset `open` to fix control mode tooltip display not correct
       // ref: https://github.com/ant-design/ant-design/issues/16742
-      tooltipProps.visible = false;
+      tooltipProps.open = false;
     }
     const childrenLength = toArray(children).length;
 

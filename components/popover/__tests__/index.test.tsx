@@ -90,7 +90,7 @@ describe('Popover', () => {
   it(`should be rendered correctly in RTL direction`, () => {
     const wrapper = render(
       <ConfigProvider direction="rtl">
-        <Popover title="RTL" visible>
+        <Popover title="RTL" open>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,
