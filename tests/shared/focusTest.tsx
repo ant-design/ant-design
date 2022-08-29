@@ -58,10 +58,10 @@ export default function focusTest(
     }
 
     // ======================== Enzyme ========================
-    let container: HTMLElement;
+    let containerHtml: HTMLElement;
     beforeEach(() => {
-      container = document.createElement('div');
-      document.body.appendChild(container);
+      containerHtml = document.createElement('div');
+      document.body.appendChild(containerHtml);
       focused = false;
       blurred = false;
     });
@@ -72,17 +72,14 @@ export default function focusTest(
     });
 
     afterEach(() => {
-      document.body.removeChild(container);
+      document.body.removeChild(containerHtml);
     });
 
-    const getElement = (container: any) => {
-      return (
-        container.querySelector('input') ||
-        container.querySelector('button') ||
-        container.querySelector('textarea') ||
-        container.querySelector('div[tabIndex]')
-      );
-    };
+    const getElement = (container: { querySelector: Function }) =>
+      container.querySelector('input') ||
+      container.querySelector('button') ||
+      container.querySelector('textarea') ||
+      container.querySelector('div[tabIndex]');
 
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
