@@ -694,7 +694,7 @@ describe('Menu', () => {
 
   it('render correctly when using with Layout.Sider', () => {
     const Demo: React.FC = () => {
-      const [collapsed, setCollapsed] = useState(false);
+      const [collapsed, setCollapsed] = useState<boolean>(false);
       return (
         <Layout style={{ minHeight: '100vh' }}>
           <Layout.Sider
@@ -823,7 +823,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo(() => ({ onOpen, onClose }), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
       return (
         <Menu
           {...menuProps}
@@ -858,7 +858,7 @@ describe('Menu', () => {
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = props => {
-      const menuProps = useMemo(() => ({ collapsedWidth: 0 }), []);
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
       return (
         <Menu
           mode="inline"
