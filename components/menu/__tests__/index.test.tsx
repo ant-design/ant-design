@@ -6,7 +6,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuMode } from 'rc-menu/lib/interface';
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { MenuProps } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -822,9 +822,10 @@ describe('Menu', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onOpen = jest.fn();
     const onClose = jest.fn();
+    const menuProps = useMemo(() => ({ onOpen, onClose }), []);
     render(
       <Menu
-        {...{ onOpen, onClose }}
+        {...menuProps}
         defaultOpenKeys={['1']}
         mode="inline"
         items={[
@@ -854,24 +855,22 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
+    const menuProps = useMemo(() => ({ collapsedWidth: 0 }), []);
     const Demo: React.FC<MenuProps> = props => (
-      <Layout style={{ minHeight: '100vh' }}>
-        <Layout.Sider collapsedWidth={0}>
-          <Menu
-            mode="inline"
-            inlineCollapsed={false}
-            defaultSelectedKeys={['1']}
-            openKeys={['3']}
-            {...props}
-          >
-            <Menu.Item key="1">Option 1</Menu.Item>
-            <Menu.Item key="2">Option 2</Menu.Item>
-            <Menu.SubMenu key="3" title="Option 3">
-              <Menu.Item key="4">Option 4</Menu.Item>
-            </Menu.SubMenu>
-          </Menu>
-        </Layout.Sider>
-      </Layout>
+      <Menu
+        mode="inline"
+        inlineCollapsed={false}
+        defaultSelectedKeys={['1']}
+        openKeys={['3']}
+        {...menuProps}
+        {...props}
+      >
+        <Menu.Item key="1">Option 1</Menu.Item>
+        <Menu.Item key="2">Option 2</Menu.Item>
+        <Menu.SubMenu key="3" title="Option 3">
+          <Menu.Item key="4">Option 4</Menu.Item>
+        </Menu.SubMenu>
+      </Menu>
     );
 
     const { container, rerender } = render(<Demo />);
