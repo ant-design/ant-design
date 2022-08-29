@@ -302,7 +302,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = token => {
     [`${componentCls}-primary`]: genPrimaryButtonStyle(token),
     [`${componentCls}-dashed`]: genDashedButtonStyle(token),
     [`${componentCls}-link`]: genLinkButtonStyle(token),
-    [`&${componentCls}-text`]: genTextButtonStyle(token),
+    [`${componentCls}-text`]: genTextButtonStyle(token),
   };
 };
 
