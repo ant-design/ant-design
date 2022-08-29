@@ -63,6 +63,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginXS,
+        lineHeight: 0,
       },
 
       [`&-description`]: {
@@ -100,7 +101,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
         fontSize: alertIconSizeLG,
-        lineHeight: 1,
+        lineHeight: 0,
       },
 
       [`${componentCls}-message`]: {
