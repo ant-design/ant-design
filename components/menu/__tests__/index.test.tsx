@@ -855,20 +855,21 @@ describe('Menu', () => {
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
     const Demo: React.FC<MenuProps> = props => (
-      <Menu
-        mode="inline"
-        inlineCollapsed={false}
-        defaultSelectedKeys={['1']}
-        openKeys={['3']}
-        {...{ collapsedWidth: 0 }}
-        {...props}
-      >
-        <Menu.Item key="1">Option 1</Menu.Item>
-        <Menu.Item key="2">Option 2</Menu.Item>
-        <Menu.SubMenu key="3" title="Option 3">
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </Menu.SubMenu>
-      </Menu>
+      <Layout.Sider collapsedWidth={0}>
+        <Menu
+          mode="inline"
+          inlineCollapsed={false}
+          defaultSelectedKeys={['1']}
+          openKeys={['3']}
+          {...props}
+        >
+          <Menu.Item key="1">Option 1</Menu.Item>
+          <Menu.Item key="2">Option 2</Menu.Item>
+          <Menu.SubMenu key="3" title="Option 3">
+            <Menu.Item key="4">Option 4</Menu.Item>
+          </Menu.SubMenu>
+        </Menu>
+      </Layout.Sider>
     );
 
     const { container, rerender } = render(<Demo />);
