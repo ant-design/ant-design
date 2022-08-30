@@ -18,24 +18,25 @@ export default function focusTest(Component: React.ComponentType<any>) {
       });
     });
 
-    let containerHtml: HTMLElement;
-    beforeEach(() => {
-      containerHtml = document.createElement('div');
-      document.body.appendChild(containerHtml);
-      focused = false;
-      blurred = false;
-    });
-
     afterAll(() => {
       mockFocus.mockRestore();
       mockBlur.mockRestore();
     });
 
-    afterEach(() => {
-      document.body.removeChild(containerHtml);
+    const containerHtml = document.createElement('div');
+    beforeEach(() => {
+      document.body.appendChild(containerHtml);
+      focused = false;
+      blurred = false;
     });
 
-    const getElement = (container: { querySelector: Function }) =>
+    afterEach(() => {
+      document.body.removeChild(containerHtml);
+      focused = false;
+      blurred = false;
+    });
+
+    const getElement = (container: HTMLElement) =>
       container.querySelector('input') ||
       container.querySelector('button') ||
       container.querySelector('textarea') ||
@@ -52,7 +53,7 @@ export default function focusTest(Component: React.ComponentType<any>) {
       ref.current.focus();
       expect(focused).toBeTruthy();
 
-      fireEvent.focus(getElement(container));
+      fireEvent.focus(getElement(container)!);
       expect(onFocus).toHaveBeenCalled();
     });
 
@@ -69,7 +70,7 @@ export default function focusTest(Component: React.ComponentType<any>) {
       ref.current.blur();
       expect(blurred).toBeTruthy();
 
-      fireEvent.blur(getElement(container));
+      fireEvent.blur(getElement(container)!);
       await sleep(0);
       expect(onBlur).toHaveBeenCalled();
     });
@@ -80,7 +81,7 @@ export default function focusTest(Component: React.ComponentType<any>) {
 
       expect(focused).toBeTruthy();
 
-      fireEvent.focus(getElement(container));
+      fireEvent.focus(getElement(container)!);
       expect(onFocus).toHaveBeenCalled();
     });
   });
