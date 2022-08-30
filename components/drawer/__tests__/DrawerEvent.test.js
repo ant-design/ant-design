@@ -115,7 +115,7 @@ describe('Drawer', () => {
     });
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper'));
 
-    expect(afterOpenChange).toBeCalledTimes(1);
+    expect(afterOpenChange).toHaveBeenCalledTimes(1);
   });
 
   it('should support children ref', () => {
