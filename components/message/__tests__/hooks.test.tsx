@@ -2,7 +2,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { triggerMotionEnd } from './util';
-import type { ArgsProps, MessageType } from '..';
+import type { ArgsProps } from '..';
 import message from '..';
 import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';

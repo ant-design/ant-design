@@ -37,6 +37,7 @@ import Radio from '../../radio';
 import Rate from '../../rate';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
+import type { SliderTooltipProps } from '../../slider';
 import Slider from '../../slider';
 // eslint-disable-next-line import/no-named-as-default
 import Spin from '../../spin';
@@ -452,7 +453,7 @@ describe('ConfigProvider', () => {
     // Slider
     testPair('Slider', props => {
       const myProps = { ...props };
-      const tooltip = {
+      const tooltip: SliderTooltipProps = {
         open: true,
       };
 
