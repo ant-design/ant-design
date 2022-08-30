@@ -14,6 +14,7 @@ const localeValues: Locale = {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
+    filterCheckall: 'Sélectionner la page actuelle',
     selectAll: 'Sélectionner la page actuelle',
     selectInvert: 'Inverser la sélection de la page actuelle',
     selectionAll: 'Sélectionner toutes les données',

@@ -824,7 +824,7 @@ describe('Upload List', () => {
     const btn = wrapper.querySelector('.ant-btn');
     expect(btn.getAttribute('title')).toBe('Download file');
     fireEvent.click(btn);
-    expect(downloadFunc).toBeCalled();
+    expect(downloadFunc).toHaveBeenCalled();
 
     unmount();
   });

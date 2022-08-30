@@ -248,7 +248,7 @@ describe('Table', () => {
       },
     ];
     render(<Table columns={columns} rowKey={(record, index) => record + index} />);
-    expect(warnSpy).toBeCalledWith(
+    expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
@@ -262,7 +262,7 @@ describe('Table', () => {
       },
     ];
     render(<Table columns={columns} rowKey={record => record.key} />);
-    expect(warnSpy).not.toBeCalled();
+    expect(warnSpy).not.toHaveBeenCalled();
   });
 
   it('should support ref', () => {
@@ -279,6 +279,6 @@ describe('Table', () => {
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
-    expect(warnSpy).not.toBeCalled();
+    expect(warnSpy).not.toHaveBeenCalled();
   });
 });
