@@ -126,13 +126,15 @@ describe('Menu', () => {
     </Menu>
   ));
 
-  rtlTest(() => (
+  const RtlDemo: React.FC = () => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />
       <Menu.SubMenu />
     </Menu>
-  ));
+  );
+
+  rtlTest(RtlDemo, { componentName: 'menu' });
 
   let div: HTMLDivElement;
 
