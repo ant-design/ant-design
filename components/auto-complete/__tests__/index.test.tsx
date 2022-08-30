@@ -84,7 +84,7 @@ describe('AutoComplete', () => {
     jest.spyOn(console, 'warn').mockImplementation(() => undefined);
     render(<AutoComplete placeholder="input here" allowClear />);
     // eslint-disable-next-line no-console
-    expect(console.warn).not.toBeCalled();
+    expect(console.warn).not.toHaveBeenCalled();
     // @ts-ignore
     // eslint-disable-next-line no-console
     console.warn.mockRestore();
