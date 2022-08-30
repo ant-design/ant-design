@@ -333,7 +333,7 @@ jobs:
           npx nyc merge persist-coverage/ coverage/coverage-final.json
           npx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
-      - name: coverage
+      - name: Upload coverage to codecov
         uses: codecov/codecov-action@v3
         with:
           # use own token to upload coverage reports
