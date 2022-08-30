@@ -2406,7 +2406,7 @@ describe('Table.filter', () => {
         data: tableData,
       }),
     );
-    expect(errorSpy).not.toBeCalled();
+    expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockReset();
     columns[0].filteredValue = [];
     render(
@@ -2415,7 +2415,7 @@ describe('Table.filter', () => {
         data: tableData,
       }),
     );
-    expect(errorSpy).toBeCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
     errorSpy.mockReset();
@@ -2426,7 +2426,7 @@ describe('Table.filter', () => {
         data: tableData,
       }),
     );
-    expect(errorSpy).not.toBeCalled();
+    expect(errorSpy).not.toHaveBeenCalled();
   });
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).

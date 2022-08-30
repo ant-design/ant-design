@@ -449,6 +449,6 @@ describe('Calendar', () => {
       />,
     );
     fireEvent.click(container.querySelectorAll('.bamboo')[0]);
-    expect(onClick).toBeCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });

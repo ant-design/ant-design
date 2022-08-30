@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-import { mount } from 'enzyme';
 import React from 'react';
+import { render, fireEvent, pureRender } from '../../../tests/utils';
 import notification from '..';
-import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
@@ -17,7 +15,7 @@ describe('notification.hooks', () => {
   it('should work', () => {
     const Context = React.createContext('light');
 
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [api, holder] = notification.useNotification();
 
       return (
@@ -36,7 +34,9 @@ describe('notification.hooks', () => {
                   duration: 0,
                 });
               }}
-            />
+            >
+              test
+            </button>
             {holder}
           </Context.Provider>
         </ConfigProvider>
@@ -46,7 +46,6 @@ describe('notification.hooks', () => {
     const { container } = render(<Demo />);
 
     fireEvent.click(container.querySelector('button')!);
-
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
@@ -54,7 +53,7 @@ describe('notification.hooks', () => {
   it('should work with success', () => {
     const Context = React.createContext('light');
 
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [api, holder] = notification.useNotification();
 
       return (
@@ -73,7 +72,9 @@ describe('notification.hooks', () => {
                   duration: 0,
                 });
               }}
-            />
+            >
+              test
+            </button>
             {holder}
           </Context.Provider>
         </ConfigProvider>
@@ -82,7 +83,6 @@ describe('notification.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
@@ -91,20 +91,19 @@ describe('notification.hooks', () => {
   it('should be same hook', () => {
     let count = 0;
 
-    const Demo = () => {
-      const [, forceUpdate] = React.useState({});
+    const Demo: React.FC = () => {
+      const [, forceUpdate] = React.useState([]);
       const [api] = notification.useNotification();
-
       React.useEffect(() => {
         count += 1;
         expect(count).toEqual(1);
-        forceUpdate({});
+        forceUpdate([]);
       }, [api]);
 
       return null;
     };
 
-    mount(<Demo />);
+    pureRender(<Demo />);
   });
 
   describe('not break in effect', () => {

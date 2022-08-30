@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 4.22.8
+
+`2022-08-26`
+
+- Table
+  - 🌐 Add Table missing French `filterCheckAll` localization. [#37246](https://github.com/ant-design/ant-design/pull/37246) [@Mar-he](https://github.com/Mar-he)
+  - 🐞 Improve Table sort panel accessibility experience. [#37167](https://github.com/ant-design/ant-design/pull/37167) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
+- 💄 Optimize the button spacing of the Popconfirm component. [#37183](https://github.com/ant-design/ant-design/pull/37183) [@jiangmaniu](https://github.com/jiangmaniu)
+- 💄 Remove Card duplicate less style attribute definitions. [#37170](https://github.com/ant-design/ant-design/pull/37170) [@yanquanfahei](https://github.com/yanquanfahei)
+- TypeScript
+  - 🤖 Export Menu Item type declarations. [#36681](https://github.com/ant-design/ant-design/pull/36681) [@cravend](https://github.com/cravend)
+
 ## 4.22.7
 
 `2022-08-21`

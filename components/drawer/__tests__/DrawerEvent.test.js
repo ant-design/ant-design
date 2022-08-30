@@ -147,6 +147,6 @@ describe('Drawer', () => {
     };
     const { container } = render(<RefDemo />);
     fireEvent.click(container.querySelector('a'));
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
   });
 });

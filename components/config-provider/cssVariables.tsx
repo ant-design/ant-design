@@ -28,7 +28,7 @@ export function getStyle(globalPrefixCls: string, theme: Theme) {
     variables[`${type}-color`] = formatColor(baseColor);
     variables[`${type}-color-disabled`] = colorPalettes[1];
     variables[`${type}-color-hover`] = colorPalettes[4];
-    variables[`${type}-color-active`] = colorPalettes[7];
+    variables[`${type}-color-active`] = colorPalettes[6];
     variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
     variables[`${type}-color-deprecated-bg`] = colorPalettes[1];
     variables[`${type}-color-deprecated-border`] = colorPalettes[3];
