@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import message from '..';
-import { fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import { triggerMotionEnd } from './util';
+import type { ArgsProps } from '..';
+import message from '..';
+import ConfigProvider from '../../config-provider';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('message.hooks', () => {
   beforeEach(() => {
@@ -18,7 +19,7 @@ describe('message.hooks', () => {
   it('should work', () => {
     const Context = React.createContext('light');
 
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -28,15 +29,17 @@ describe('message.hooks', () => {
               type="button"
               onClick={() => {
                 api.open({
+                  duration: 0,
                   content: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
-                  duration: 0,
                 });
               }}
-            />
+            >
+              test
+            </button>
             {holder}
           </Context.Provider>
         </ConfigProvider>
@@ -45,7 +48,6 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
@@ -53,7 +55,7 @@ describe('message.hooks', () => {
   it('should work with success', () => {
     const Context = React.createContext('light');
 
-    const Demo = () => {
+    const Demo: React.FC = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -63,15 +65,17 @@ describe('message.hooks', () => {
               type="button"
               onClick={() => {
                 api.success({
+                  duration: 0,
                   content: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
                     </Context.Consumer>
                   ),
-                  duration: 0,
                 });
               }}
-            />
+            >
+              test
+            </button>
             {holder}
           </Context.Provider>
         </ConfigProvider>
@@ -80,7 +84,6 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
     expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
@@ -94,15 +97,11 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              api.open({
-                content: 'amazing',
-                duration: 1,
-                onClose() {
-                  done();
-                },
-              });
+              api.open({ content: 'amazing', duration: 1, onClose: done });
             }}
-          />
+          >
+            test
+          </button>
           {holder}
         </>
       );
@@ -122,16 +121,13 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              api
-                .open({
-                  content: 'good',
-                  duration: 1,
-                })
-                .then(() => {
-                  done();
-                });
+              api.open({ content: 'good', duration: 1 }).then(() => {
+                done();
+              });
             }}
-          />
+          >
+            test
+          </button>
           {holder}
         </>
       );
@@ -152,12 +148,11 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              hide = api.open({
-                content: 'nice',
-                duration: 0,
-              });
+              hide = api.open({ ontent: 'nice', duration: 0 } as unknown as ArgsProps);
             }}
-          />
+          >
+            test
+          </button>
           {holder}
         </ConfigProvider>
       );
@@ -179,10 +174,9 @@ describe('message.hooks', () => {
   it('should be same hook', () => {
     let cacheAPI: any;
 
-    const Demo = () => {
-      const [, forceUpdate] = React.useState({});
+    const Demo: React.FC = () => {
+      const [, forceUpdate] = React.useState([]);
       const [api] = message.useMessage();
-
       React.useEffect(() => {
         if (!cacheAPI) {
           cacheAPI = api;
@@ -190,7 +184,7 @@ describe('message.hooks', () => {
           expect(cacheAPI).toBe(api);
         }
 
-        forceUpdate({});
+        forceUpdate([]);
       }, [api]);
 
       return null;
@@ -216,11 +210,13 @@ describe('message.hooks', () => {
             type="button"
             onClick={() => {
               api.success({
-                content: <span className="hook-content">happy</span>,
                 duration: 0,
+                content: <span className="hook-content">happy</span>,
               });
             }}
-          />
+          >
+            test
+          </button>
         </ConfigProvider>
       );
     };
