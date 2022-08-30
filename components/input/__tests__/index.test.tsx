@@ -380,7 +380,7 @@ describe('Input allowClear', () => {
     fireEvent.mouseUp(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.focus(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(onBlur).not.toBeCalled();
+    expect(onBlur).not.toHaveBeenCalled();
     unmount();
   });
 

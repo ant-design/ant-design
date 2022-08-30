@@ -540,7 +540,7 @@ describe('Table.pagination', () => {
     );
     fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
-    expect(onChange).toBeCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 
   it('dynamic warning', () => {

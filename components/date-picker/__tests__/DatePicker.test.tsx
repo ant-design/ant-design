@@ -168,8 +168,8 @@ describe('DatePicker', () => {
     const mouseDownEvent = () => {
       fireEvent.mouseDown(container.querySelector('input')!);
     };
-    expect(fuousEvent).not.toThrowError();
-    expect(mouseDownEvent).not.toThrowError();
+    expect(fuousEvent).not.toThrow();
+    expect(mouseDownEvent).not.toThrow();
   });
 
   it('12 hours', () => {

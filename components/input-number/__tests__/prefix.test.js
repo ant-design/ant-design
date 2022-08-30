@@ -19,6 +19,6 @@ describe('prefix', () => {
 
     const mockFocus = jest.spyOn(container.querySelector('input'), 'focus');
     fireEvent.mouseUp(container.querySelector('i'));
-    expect(mockFocus).toBeCalled();
+    expect(mockFocus).toHaveBeenCalled();
   });
 });
