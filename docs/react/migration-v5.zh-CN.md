@@ -29,7 +29,7 @@ title: 从 v4 到 v5
 
 ### 兼容性调整
 
-- 不再支持 IE 浏览器
+- 不再支持 IE 浏览器。
 
 #### 组件 API 调整
 
@@ -71,6 +71,24 @@ title: 从 v4 到 v5
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
+```
+
+#### 将已废弃的 `PageHeader` 和 `Comment` 组件通过 `@ant-design/compatible` 包引入
+
+```diff
+- import { PageHeader, Comment, Input, Button } from 'antd';
++ import { PageHeader, Comment } from '@ant-design/compatible';
++ import '@ant-design/compatible/assets/index.css';
++ import { Input, Button } from 'antd';
+
+  const App: React.FC = () => (
+    <div>
+      <PageHeader />
+      <Comment />
+    </div>
+  );
+
+  export default App;
 ```
 
 ## 遇到问题
