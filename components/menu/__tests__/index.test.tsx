@@ -5,7 +5,6 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuMode } from 'rc-menu/lib/interface';
 import React, { useState, useMemo } from 'react';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
