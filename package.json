@@ -281,7 +281,7 @@
     "remark-cli": "^11.0.0",
     "remark-lint": "^9.0.0",
     "remark-preset-lint-recommended": "^6.0.0",
-    "remove-files-webpack-plugin": "1.4.4",
+    "remove-files-webpack-plugin": "1.5.0",
     "rimraf": "^3.0.0",
     "scrollama": "^3.0.0",
     "semver": "^7.3.5",
