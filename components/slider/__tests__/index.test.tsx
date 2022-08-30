@@ -10,7 +10,7 @@ import SliderTooltip from '../SliderTooltip';
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, { testLib: true });
+  focusTest(Slider);
 
   it('should show tooltip when hovering slider handler', () => {
     const { container } = render(<Slider defaultValue={30} />);

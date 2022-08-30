@@ -9,7 +9,7 @@ import Icon from '../../icon';
 const { Option } = Select;
 
 describe('Select', () => {
-  focusTest(Select, { refFocus: true });
+  focusTest(Select);
   mountTest(Select);
   rtlTest(Select);
 

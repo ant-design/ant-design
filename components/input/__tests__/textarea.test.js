@@ -6,7 +6,7 @@ import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
-focusTest(TextArea, { refFocus: true });
+focusTest(TextArea);
 
 describe('TextArea', () => {
   const originalGetComputedStyle = window.getComputedStyle;

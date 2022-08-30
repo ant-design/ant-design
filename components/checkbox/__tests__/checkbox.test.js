@@ -7,7 +7,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Checkbox', () => {
-  focusTest(Checkbox, { refFocus: true });
+  focusTest(Checkbox);
   mountTest(Checkbox);
   rtlTest(Checkbox);
 

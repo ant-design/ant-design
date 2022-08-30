@@ -8,7 +8,7 @@ import { fireEvent, render, sleep } from '../../../tests/utils';
 import Password from '../Password';
 
 describe('Input.Password', () => {
-  focusTest(Input.Password, { refFocus: true });
+  focusTest(Input.Password);
   mountTest(Input.Password);
   rtlTest(Input.Password);
 

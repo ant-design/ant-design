@@ -67,7 +67,7 @@ describe('Mentions', () => {
     expect(onBlur).toHaveBeenCalled();
   });
 
-  focusTest(Mentions, { refFocus: true });
+  focusTest(Mentions);
   mountTest(Mentions);
   rtlTest(Mentions);
 

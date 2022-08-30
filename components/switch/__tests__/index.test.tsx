@@ -7,7 +7,7 @@ import { sleep, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Switch', () => {
-  focusTest(Switch, { refFocus: true });
+  focusTest(Switch);
   mountTest(Switch);
   rtlTest(Switch);
 

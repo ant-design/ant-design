@@ -69,7 +69,7 @@ function filter(inputValue, path) {
 describe('Cascader', () => {
   excludeAllWarning();
 
-  focusTest(Cascader, { refFocus: true });
+  focusTest(Cascader);
   mountTest(Cascader);
   rtlTest(Cascader);
 

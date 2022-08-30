@@ -7,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render, fireEvent } from '../../../tests/utils';
 
 describe('Radio', () => {
-  focusTest(Radio, { refFocus: true });
+  focusTest(Radio);
   mountTest(Radio);
   mountTest(Group);
   mountTest(Button);

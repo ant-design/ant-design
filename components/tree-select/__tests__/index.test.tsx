@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TreeSelect', () => {
-  focusTest(TreeSelect, { refFocus: true });
+  focusTest(TreeSelect);
   mountTest(TreeSelect);
   rtlTest(TreeSelect);
 

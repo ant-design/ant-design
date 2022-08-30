@@ -7,7 +7,7 @@ import Button from '../../button';
 import Search from '../Search';
 
 describe('Input.Search', () => {
-  focusTest(Search, { refFocus: true });
+  focusTest(Search);
   mountTest(Search);
   rtlTest(Search);
 

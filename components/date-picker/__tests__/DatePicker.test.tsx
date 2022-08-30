@@ -26,7 +26,7 @@ jest.mock('rc-trigger', () => {
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  focusTest(DatePicker, { refFocus: true });
+  focusTest(DatePicker);
 
   beforeEach(() => {
     MockDate.set(moment('2016-11-22').valueOf());

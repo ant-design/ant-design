@@ -4,7 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Rate', () => {
-  focusTest(Rate, { refFocus: true });
+  focusTest(Rate);
   mountTest(Rate);
   rtlTest(Rate);
 });
