@@ -39,6 +39,20 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - TreeSelect
   - TimePicker
   - DatePicker
+
+```diff
+  import { Select } from 'antd';
+
+  const App: React.FC = () => (
+    <Select
+-     dropdownClassName="my-select-popup"
++     popupClassName="my-select-popup"
+    />
+  );
+
+  export default App;
+```
+
 - The controlled visible API of the component popup is unified to `open`, and `visible` and other similar APIs will be replaced.
   - Drawer `visible` changed to `open`.
   - Modal `visible` changed to `open`.
@@ -47,6 +61,42 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - Tag `visible` is removed.
   - Slider `tooltip` related API converged to `tooltip` property.
   - Table `filterDropdownVisible` changed to `filterDropdownOpen`.
+
+```diff
+  import { Modal, Tag, Table, Slider } from 'antd';
+
+  const App: React.FC = () => {
+    const [visible, setVisible] = useState(true);
+
+    return (
+      <>
+-       <Modal visible={visible}>content</Modal>
++       <Modal open={visible}>content</Modal>
+
+-       <Tag visible={visible}>tag</Tag>
++       {visible && <Tag>tag</Tag>}
+
+        <Table
+          data={[]}
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+-             filterDropdownVisible: visible,
++             filterDropdownOpen: visible,
+            }
+          ]}
+        />
+
+-       <Slider tooltipVisible={visible} />
++       <Slider tooltip={{ open: visible }} />
+      </>
+    );
+  }
+
+  export default App;
+```
+
 - `getPopupContainer`: All `getPopupContainer` are guaranteed to return a unique div. This method will be called repeatedly under React 18 concurrent mode.
 - Dropdown
   - The style of the wrapper element has been removed, please use the Space component.

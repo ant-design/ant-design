@@ -40,6 +40,20 @@ title: 从 v4 到 v5
   - TreeSelect 组件
   - TimePicker 组件
   - DatePicker 组件
+
+```diff
+  import { Select } from 'antd';
+
+  const App: React.FC = () => (
+    <Select
+-     dropdownClassName="my-select-popup"
++     popupClassName="my-select-popup"
+    />
+  );
+
+  export default App;
+```
+
 - 组件弹框的受控可见 API 统一为 `open`，`visible` 等类似 API 都会被替换。
   - Drawer 组件 `visible` 变为 `open`。
   - Modal 组件 `visible` 变为 `open`。
@@ -48,6 +62,42 @@ title: 从 v4 到 v5
   - Tag 组件 `visible` 已移除。
   - Slider 组件 `tooltip` 相关 API 收敛到 `tooltip` 属性中。
   - Table 组件 `filterDropdownVisible` 变为 `filterDropdownOpen`。
+
+```diff
+  import { Modal, Tag, Table, Slider } from 'antd';
+
+  const App: React.FC = () => {
+    const [visible, setVisible] = useState(true);
+
+    return (
+      <>
+-       <Modal visible={visible}>content</Modal>
++       <Modal open={visible}>content</Modal>
+
+-       <Tag visible={visible}>tag</Tag>
++       {visible && <Tag>tag</Tag>}
+
+        <Table
+          data={[]}
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+-             filterDropdownVisible: visible,
++             filterDropdownOpen: visible,
+            }
+          ]}
+        />
+
+-       <Slider tooltipVisible={visible} />
++       <Slider tooltip={{ open: visible }} />
+      </>
+    );
+  }
+
+  export default App;
+```
+
 - `getPopupContainer`: 所有的 `getPopupContainer` 都需要保证返回的是唯一的 div。React 18 concurrent 下会反复调用该方法。
 - Dropdown
   - 魔改包裹元素样式移除，请使用 Space 组件。
