@@ -20,17 +20,17 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 ### Technology adjustment
 
-- Deprecate less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
-  - All less files are deprecated, and less variables are no longer exported.
+- Remove less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
+  - All less files are removed, and less variables are no longer exported.
   - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
-- Deprecated css variables and dynamic theme built on top of them.
-- Deprecate `lib`, only provide `dist` and `es` in package.
+- Remove css variables and dynamic theme built on top of them.
+- Remove `lib`, only provide `dist` and `es` in package.
 
 ### Compatibility
 
 - DO NOT support IE browser anymore.
 
-#### Component API
+#### Component API adjustment
 
 - The classname API of the component popup box is unified to `popupClassName`, and `dropdownClassName` and other similar APIs will be replaced.
   - AutoComplete
@@ -44,7 +44,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - Modal `visible` changed to `open`.
   - Dropdown `visible` changed to `open`.
   - Tooltip `visible` changed to `open`.
-  - Tag `visible` is deprecated.
+  - Tag `visible` is removed.
   - Slider `tooltip` related API converged to `tooltip` property.
   - Table `filterDropdownVisible` changed to `filterDropdownOpen`.
 - `getPopupContainer`: All `getPopupContainer` are guaranteed to return a unique div. This method will be called repeatedly under React 18 concurrent mode.
@@ -58,9 +58,9 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 - Drawer
   - `style` & `className` are migrated to Drawer Panel, the original properties are replaced by `rootClassName` and `rootStyle`.
 
-#### Component refactoring and deprecation
+#### Component refactoring and removal
 
-- PageHeader and Comment components are deprecated in ant-design and moved to [pro-components](https://github.com/ant-design/pro-components) for maintenance. If you still need to use them, you can import them from the compatible package.
+- PageHeader and Comment components are removed in ant-design and moved to [pro-components](https://github.com/ant-design/pro-components) for maintenance. If you still need to use them, you can [import them from the compatible package](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package).
 
 ## Start upgrading
 

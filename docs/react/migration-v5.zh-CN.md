@@ -22,10 +22,10 @@ title: 从 v4 到 v5
 ### 技术调整
 
 - 弃用 less，采用 CSS-in-JS，更好地支持动态主题。底层使用 [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) 作为解决方案。
-  - 所有 less 文件全部废弃，less 变量不再支持透出。
-  - 产物中不再包含 css 文件。由于 CSS-in-JS 支持按需引入，原本的 `antd/dist/antd.css` 也已经废弃，如果需要重置一些基本样式请引入 `antd/dist/reset.css`。
-- 废弃 css variables 以及在此之上构筑的动态主题方案。
-- 废弃 `lib` 产物，只提供 `dist` 和 `es` 产物。
+  - 所有 less 文件全部移除，less 变量不再支持透出。
+  - 产物中不再包含 css 文件。由于 CSS-in-JS 支持按需引入，原本的 `antd/dist/antd.css` 也已经移除，如果需要重置一些基本样式请引入 `antd/dist/reset.css`。
+- 移除 css variables 以及在此之上构筑的动态主题方案。
+- 移除 `lib` 产物，只提供 `dist` 和 `es` 产物。
 
 ### 兼容性调整
 
@@ -45,7 +45,7 @@ title: 从 v4 到 v5
   - Modal 组件 `visible` 变为 `open`。
   - Dropdown 组件 `visible` 变为 `open`。
   - Tooltip 组件 `visible` 变为 `open`。
-  - Tag 组件 `visible` 已废弃。
+  - Tag 组件 `visible` 已移除。
   - Slider 组件 `tooltip` 相关 API 收敛到 `tooltip` 属性中。
   - Table 组件 `filterDropdownVisible` 变为 `filterDropdownOpen`。
 - `getPopupContainer`: 所有的 `getPopupContainer` 都需要保证返回的是唯一的 div。React 18 concurrent 下会反复调用该方法。
@@ -59,9 +59,9 @@ title: 从 v4 到 v5
 - Drawer
   - `style` & `className` 迁移至 Drawer Panel 中，原属性替换为 `rootClassName` 和 `rootStyle`。
 
-#### 组件重构与废弃
+#### 组件重构与移除
 
-- PageHeader 和 Comment 组件在 ant-design 中废弃，移至 [pro-components](https://github.com/ant-design/pro-components) 中维护，如果仍需使用可以从兼容包中引入。
+- PageHeader 和 Comment 组件在 ant-design 中移除，移至 [pro-components](https://github.com/ant-design/pro-components) 中维护，如果仍需使用可以[从兼容包中引入](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package)。
 
 ## 开始升级
 
@@ -73,7 +73,7 @@ title: 从 v4 到 v5
 npm install --save @ant-design/compatible@v5-compatible-v4
 ```
 
-#### 将已废弃的 `PageHeader` 和 `Comment` 组件通过 `@ant-design/compatible` 包引入
+#### 将已移除的 `PageHeader` 和 `Comment` 组件通过 `@ant-design/compatible` 包引入
 
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
