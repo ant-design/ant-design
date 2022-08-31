@@ -14,12 +14,20 @@ export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-export const GroupSizeContext = React.createContext<SizeType | undefined>(undefined);
+export const GroupSizeContext = React.createContext<{
+  size: SizeType;
+  compact: boolean;
+  inGroup: boolean;
+}>({
+  size: undefined,
+  compact: false,
+  inGroup: false,
+});
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, size, className, ...others } = props;
+  const { prefixCls: customizePrefixCls, size, className, compact, ...others } = props;
   const prefixCls = getPrefixCls('group', customizePrefixCls);
   const groupPrefixClx = getPrefixCls(`${props.type}-group`, customizePrefixCls);
 
@@ -45,14 +53,23 @@ const Group: React.FC<GroupProps> = props => {
     groupPrefixClx,
     {
       [`${groupPrefixClx}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-compact`]: props.compact,
+      [`${groupPrefixClx}-rtl`]: direction === 'rtl',
+      [`${groupPrefixClx}-compact`]: compact,
     },
     className,
   );
 
+  const sizeValue = React.useMemo(
+    () => ({
+      size,
+      compact: !!compact,
+      inGroup: true,
+    }),
+    [size, compact],
+  );
+
   return (
-    <GroupSizeContext.Provider value={size}>
+    <GroupSizeContext.Provider value={sizeValue}>
       <div {...others} className={classes} />
     </GroupSizeContext.Provider>
   );
