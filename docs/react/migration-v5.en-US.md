@@ -112,18 +112,6 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 
 - PageHeader and Comment components are removed in ant-design and moved to [pro-components](https://github.com/ant-design/pro-components) for maintenance. If you still need to use them, you can [import them from the compatible package](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package).
 
-## Start upgrading
-
-#### Install compatible package
-
-Install `@ant-design/compatible` with `v5-compatible-v4` tag:
-
-```bash
-npm install --save @ant-design/compatible@v5-compatible-v4
-```
-
-#### Import the obsolete PageHeader and Comment components via @ant-design/compatible package
-
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
 + import { PageHeader, Comment } from '@ant-design/compatible';
@@ -138,6 +126,52 @@ npm install --save @ant-design/compatible@v5-compatible-v4
   );
 
   export default App;
+```
+
+## Start upgrading
+
+#### Migrate with codemod
+
+```bash
+# Run directly through npx
+npx -p @ant-design/codemod-v5 antd5-codemod src
+
+# Or global installation
+# Use npm
+npm i -g @ant-design/codemod-v5
+# Use yarn
+yarn global add @ant-design/codemod-v5
+
+# Execute
+antd5-codemod src
+```
+
+> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+
+At the same time, you can also use the codemod tool to apply a single change for a certain change. The following is a description of all the migration scripts:
+
+##### popup-visible-to-open
+
+Change prop of components with popup from `visible` to `open`。
+
+```bash
+antd5-codemod popup-visible-to-open <path>
+```
+
+##### popup-classname-to-popupClassName
+
+Change `className` of popup in components to `popupClassName`。
+
+```bash
+antd5-codemod popup-classname-to-popupClassName <path>
+```
+
+#### Install compatible package
+
+Install `@ant-design/compatible` with `v5-compatible-v4` tag:
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
 ```
 
 ## Encounter problems

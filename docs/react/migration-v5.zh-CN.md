@@ -111,19 +111,7 @@ title: 从 v4 到 v5
 
 #### 组件重构与移除
 
-- PageHeader 和 Comment 组件在 ant-design 中移除，移至 [pro-components](https://github.com/ant-design/pro-components) 中维护，如果仍需使用可以[从兼容包中引入](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package)。
-
-## 开始升级
-
-#### 安装兼容包
-
-安装 `@ant-design/compatible` 通过指定 `v5-compatible-v4` tag 确认为 v5 兼容 v4 版本：
-
-```bash
-npm install --save @ant-design/compatible@v5-compatible-v4
-```
-
-#### 将已移除的 `PageHeader` 和 `Comment` 组件通过 `@ant-design/compatible` 包引入
+- PageHeader 和 Comment 组件在 ant-design 中移除，移至 [pro-components](https://github.com/ant-design/pro-components) 中维护，如果仍需使用可以从兼容包中引入。
 
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
@@ -139,6 +127,52 @@ npm install --save @ant-design/compatible@v5-compatible-v4
   );
 
   export default App;
+```
+
+## 开始升级
+
+#### 使用迁移工具修改
+
+```bash
+# 通过 npx 直接运行
+npx -p @ant-design/codemod-v5 antd5-codemod <path>
+
+# 或者全局安装
+# 使用 npm
+npm i -g @ant-design/codemod-v5
+# 或者使用 yarn
+yarn global add @ant-design/codemod-v5
+
+# 运行
+antd5-codemod src
+```
+
+> 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
+
+同时也可以针对某项改动使用迁移工具单独执行，下面是所有迁移脚本的说明：
+
+##### popup-visible-to-open
+
+将含有弹出框的组件属性 `visible` 改为 `open`。
+
+```bash
+antd5-codemod popup-visible-to-open <path>
+```
+
+##### popup-classname-to-popupClassName
+
+将弹出框的 `className` 属性统一为 `popupClassName`。
+
+```bash
+antd5-codemod popup-classname-to-popupClassName <path>
+```
+
+#### 安装兼容包
+
+安装 `@ant-design/compatible` 通过指定 `v5-compatible-v4` tag 确认为 v5 兼容 v4 版本：
+
+```bash
+npm install --save @ant-design/compatible@v5-compatible-v4
 ```
 
 ## 遇到问题
