@@ -1,11 +1,9 @@
-import type { ReactWrapper } from 'enzyme';
-import { mount } from 'enzyme';
 import React from 'react';
 import type { AffixProps, AffixState, InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep } from '../../../tests/utils';
+import { render, sleep, triggerResize, act } from '../../../tests/utils';
 import Button from '../../button';
 import { getObserverEntities } from '../utils';
 
@@ -59,23 +57,12 @@ describe('Affix Render', () => {
   accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
-  let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
 
-  const classRect: Record<string, DOMRect> = {
-    container: {
-      top: 0,
-      bottom: 100,
-    } as DOMRect,
-  };
+  const classRect: Record<string, DOMRect> = { container: { top: 0, bottom: 100 } as DOMRect };
 
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
-      return (
-        classRect[this.className] || {
-          top: 0,
-          bottom: 0,
-        }
-      );
+      return classRect[this.className] || { top: 0, bottom: 0 };
     });
   });
 
@@ -84,16 +71,11 @@ describe('Affix Render', () => {
   });
 
   const movePlaceholder = async (top: number) => {
-    classRect.fixed = {
-      top,
-      bottom: top,
-    } as DOMRect;
+    classRect.fixed = { top, bottom: top } as DOMRect;
     if (events.scroll == null) {
       throw new Error('scroll should be set');
     }
-    events.scroll({
-      type: 'scroll',
-    });
+    events.scroll({ type: 'scroll' });
     await sleep(20);
   };
 
@@ -143,26 +125,25 @@ describe('Affix Render', () => {
 
   describe('updatePosition when target changed', () => {
     it('function change', async () => {
-      document.body.innerHTML = '<div id="mounter" />';
-      const container = document.querySelector('#id') as HTMLDivElement;
-      const getTarget = () => container;
+      document.body.innerHTML = `<div id="mounter" />`;
+      const container = document.querySelector<HTMLDivElement>('#mounter');
       let affixInstance: InternalAffixClass;
       const { rerender } = render(
         <Affix
+          target={() => container}
           ref={node => {
             affixInstance = node as InternalAffixClass;
           }}
-          target={getTarget}
         >
           {null}
         </Affix>,
       );
       rerender(
         <Affix
+          target={() => null}
           ref={node => {
             affixInstance = node as InternalAffixClass;
           }}
-          target={() => null}
         >
           {null}
         </Affix>,
@@ -197,32 +178,33 @@ describe('Affix Render', () => {
     it.each([
       { name: 'inner', index: 0 },
       { name: 'outer', index: 1 },
-    ])('inner or outer', async ({ index }) => {
-      document.body.innerHTML = '<div id="mounter" />';
-
+    ])('inner or outer', async () => {
+      jest.useFakeTimers();
+      document.body.innerHTML = `<div id="mounter" />`;
       const updateCalled = jest.fn();
-      affixMounterWrapper = mount(
+      const wrapper = document.querySelector<HTMLDivElement>('mounter');
+      const { container, rerender } = render(
         <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
-        {
-          attachTo: document.getElementById('mounter'),
-        },
+        { container: wrapper! },
       );
-
-      await sleep(20);
-
       await movePlaceholder(300);
-      expect(
-        (affixMounterWrapper.find(AffixMounter).instance() as any).affix.state.affixStyle,
-      ).toBeTruthy();
-      await sleep(20);
-      affixMounterWrapper.update();
+      await act(async () => {
+        await jest.runAllTimers();
+      });
+      expect(container.querySelector<HTMLDivElement>('.ant-affix')?.style).toBeTruthy();
+      await act(async () => {
+        await jest.runAllTimers();
+      });
+      rerender(<AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />);
 
       // Mock trigger resize
       updateCalled.mockReset();
-      (affixMounterWrapper as any).triggerResize(index);
-      await sleep(20);
-
+      triggerResize(container.firstChild as HTMLElement);
+      await act(async () => {
+        await jest.runAllTimers();
+      });
       expect(updateCalled).toHaveBeenCalled();
+      jest.useRealTimers();
     });
   });
 });
