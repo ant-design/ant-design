@@ -60,12 +60,6 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   return {
     ...mergedMapToken,
 
-    // Radius
-    radiusLG: token.radiusBase,
-    radiusSM: token.radiusBase,
-    radiusXS: token.radiusBase,
-    radiusOuter: 5,
-
     // Colors
     ...genColorMapToken(token, {
       generateColorPalettes,
