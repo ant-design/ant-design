@@ -20,8 +20,6 @@ Cloud-oriented financial services, used by financial institutions that benefit f
 
 ![Ant Financial Technology](https://gw.alipayobjects.com/zos/rmsportal/zQMWTCnhWwYNzEURbDUn.png)
 
----
-
 ### OceanBase Cloud Platform
 
 OceanBase Cloud is a distributed relational database in a real sense, and OceanBase Cloud Platform is the OceanBase cloud-based database service that can help users quickly create and use OceanBase service.
@@ -30,8 +28,6 @@ OceanBase Cloud is a distributed relational database in a real sense, and OceanB
 
 ![OceanBase Cloud Platform](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 
----
-
 ### Ant Design Pro
 
 Based on Ant Design's design values, Ant Design Pro is an enterprise-class frontend/design solution that continues to build up and refine typical template/business components/ancillary design resources based on design specifications and foundation components, Further enhance the experience of "users" and "designers" in the design and development of enterprise-class product design.
@@ -39,8 +35,6 @@ Based on Ant Design's design values, Ant Design Pro is an enterprise-class front
 [Visit](https://pro.ant.design)
 
 ![Ant Design Pro](https://gw.alipayobjects.com/zos/rmsportal/KZIUjJJZTEqMOgBHQkCb.png)
-
----
 
 ### Alibaba Cloud StreamCompute
 
