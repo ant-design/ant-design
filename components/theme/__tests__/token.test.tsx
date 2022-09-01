@@ -58,7 +58,8 @@ describe('Theme', () => {
       10: { radiusBase: 10, radiusLG: 12, radiusSM: 6, radiusXS: 2, radiusOuter: 6 },
       12: { radiusBase: 12, radiusLG: 14, radiusSM: 6, radiusXS: 2, radiusOuter: 6 },
       14: { radiusBase: 14, radiusLG: 16, radiusSM: 7, radiusXS: 2, radiusOuter: 6 },
-      16: { radiusBase: 999, radiusLG: 999, radiusSM: 999, radiusXS: 2, radiusOuter: 6 },
+      16: { radiusBase: 16, radiusLG: 16, radiusSM: 8, radiusXS: 2, radiusOuter: 6 },
+      20: { radiusBase: 20, radiusLG: 20, radiusSM: 10, radiusXS: 2, radiusOuter: 6 },
     };
 
     Object.entries(radiusGroup).forEach(([base, result]) => {
