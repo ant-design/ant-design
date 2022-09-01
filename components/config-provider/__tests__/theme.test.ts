@@ -31,6 +31,34 @@ describe('ConfigProvider.Theme', () => {
     });
   });
 
+  it('should generate the same css variable as less algorithm', () => {
+    const prefixCls = 'test';
+    const infoColor = {
+      hover: '#40a9ff',
+      active: '#096dd9',
+      deprecatedBg: '#e6f7ff',
+      deprecatedBorder: '#91d5ff',
+    };
+
+    ConfigProvider.config({
+      prefixCls,
+      theme: {
+        infoColor: '#1890ff',
+      },
+    });
+
+    const styles: any[] = Array.from(document.querySelectorAll('style'));
+    const themeStyle = styles.find(style =>
+      style.getAttribute('rc-util-key').includes('-dynamic-theme'),
+    );
+
+    (Object.keys(infoColor) as Array<keyof typeof infoColor>).forEach(key => {
+      expect(themeStyle.innerHTML).toContain(
+        `--${prefixCls}-info-color-${kebabCase(key)}: ${infoColor[key]}`,
+      );
+    });
+  });
+
   it('warning for SSR', () => {
     resetWarned();
 
