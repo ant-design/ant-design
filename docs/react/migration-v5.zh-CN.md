@@ -50,6 +50,7 @@ export default {
   - TreeSelect 组件
   - TimePicker 组件
   - DatePicker 组件
+  - Mentions 组件
 
 ```diff
   import { Select } from 'antd';

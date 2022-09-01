@@ -49,6 +49,7 @@ export default {
   - TreeSelect
   - TimePicker
   - DatePicker
+  - Mentions
 
 ```diff
   import { Select } from 'antd';
