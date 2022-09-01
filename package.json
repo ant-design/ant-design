@@ -171,7 +171,7 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^14.4.2",
     "@types/enzyme": "^3.10.5",
-    "@types/gtag.js": "^0.0.10",
+    "@types/gtag.js": "^0.0.11",
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
