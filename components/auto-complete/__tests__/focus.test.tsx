@@ -8,7 +8,7 @@ describe('AutoComplete children could be focus', () => {
     jest.useFakeTimers();
   });
 
-  let container;
+  let container: HTMLDivElement;
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
@@ -24,10 +24,8 @@ describe('AutoComplete children could be focus', () => {
 
   it('focus() and onFocus', () => {
     const handleFocus = jest.fn();
-    const { container: wrapper } = render(<AutoComplete onFocus={handleFocus} />, {
-      attachTo: container,
-    });
-    wrapper.querySelector('input').focus();
+    const { container: wrapper } = render(<AutoComplete onFocus={handleFocus} />, { container });
+    wrapper.querySelector('input')?.focus();
     act(() => {
       jest.runAllTimers();
     });
@@ -36,14 +34,12 @@ describe('AutoComplete children could be focus', () => {
 
   it('blur() and onBlur', () => {
     const handleBlur = jest.fn();
-    const { container: wrapper } = render(<AutoComplete onBlur={handleBlur} />, {
-      attachTo: container,
-    });
-    wrapper.querySelector('input').focus();
+    const { container: wrapper } = render(<AutoComplete onBlur={handleBlur} />, { container });
+    wrapper.querySelector('input')?.focus();
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.querySelector('input').blur();
+    wrapper.querySelector('input')?.blur();
     act(() => {
       jest.runAllTimers();
     });
@@ -61,17 +57,17 @@ describe('AutoComplete children could be focus', () => {
   });
 
   it('child.ref instance should support be focused and blured', () => {
-    let inputRef;
+    let inputRef: HTMLInputElement;
     render(
       <AutoComplete dataSource={[]}>
         <input
           ref={node => {
-            inputRef = node;
+            inputRef = node!;
           }}
         />
       </AutoComplete>,
     );
-    expect(typeof inputRef.focus).toBe('function');
-    expect(typeof inputRef.blur).toBe('function');
+    expect(typeof inputRef!.focus).toBe('function');
+    expect(typeof inputRef!.blur).toBe('function');
   });
 });
