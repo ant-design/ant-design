@@ -5,6 +5,8 @@ import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
+import type { CheckboxValueType } from '../Group';
+import type { CheckboxGroupProps } from '../index';
 import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
@@ -60,9 +62,11 @@ describe('CheckboxGroup', () => {
 
   it('all children should have a name property', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
-    [...container.querySelectorAll('input[type="checkbox"]')].forEach(el => {
-      expect(el.getAttribute('name')).toEqual('checkboxgroup');
-    });
+    Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
+      el => {
+        expect(el.getAttribute('name')).toEqual('checkboxgroup');
+      },
+    );
   });
 
   it('passes prefixCls down to checkbox', () => {
@@ -81,10 +85,10 @@ describe('CheckboxGroup', () => {
       { label: 'Apple', value: 'Apple' },
       { label: 'Orange', value: 'Orange' },
     ];
-    const renderCheckbox = props => <Checkbox.Group {...props} />;
+    const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' }));
+    rerender(renderCheckbox({ options, value: 'Apple' as unknown as CheckboxValueType[] }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
@@ -116,7 +120,7 @@ describe('CheckboxGroup', () => {
         <Checkbox key={2} value={2} />
       </Checkbox.Group>,
     );
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
 
     expect(onChange).toHaveBeenCalledWith([2]);
   });
@@ -164,7 +168,7 @@ describe('CheckboxGroup', () => {
     const { container } = render(
       <Checkbox.Group>
         <Collapse bordered={false}>
-          <Collapse.Panel header="test panel">
+          <Collapse.Panel key="test panel" header="test panel">
             <div>
               <Checkbox value="1">item</Checkbox>
             </div>
@@ -174,11 +178,11 @@ describe('CheckboxGroup', () => {
     );
 
     fireEvent.click(
-      container.querySelector('.ant-collapse-item').querySelector('.ant-collapse-header'),
+      container.querySelector('.ant-collapse-item')?.querySelector('.ant-collapse-header')!,
     );
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
   });
 
@@ -210,12 +214,12 @@ describe('CheckboxGroup', () => {
   });
 
   it('should get div ref', () => {
-    const refCalls = [];
+    const refCalls: HTMLDivElement[] = [];
     render(
       <Checkbox.Group
         options={['Apple', 'Pear', 'Orange']}
         ref={node => {
-          refCalls.push(node);
+          refCalls.push(node!);
         }}
       />,
     );
@@ -230,18 +234,20 @@ describe('CheckboxGroup', () => {
       <Checkbox.Group options={[1, 'Pear', 'Orange']} onChange={onChange} />,
     );
 
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith([1]);
   });
 
   it('should store latest checkbox value if changed', () => {
     const onChange = jest.fn();
 
-    const Demo = () => {
-      const [v, setV] = useState('');
+    const Demo: React.FC = () => {
+      const [v, setV] = useState<string>('');
 
       React.useEffect(() => {
-        setTimeout(setV('1'), 1000);
+        setTimeout(() => {
+          setV('1');
+        }, 1000);
       }, []);
 
       return (
@@ -257,12 +263,12 @@ describe('CheckboxGroup', () => {
     };
 
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith([]);
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['length1']);
-    fireEvent.change(container.querySelector('.ant-input'), { target: { value: '' } });
-    fireEvent.click(container.querySelector('.ant-checkbox-input'));
+    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '' } });
+    fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['A']);
   });
 });
