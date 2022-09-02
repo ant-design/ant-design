@@ -8,6 +8,11 @@ const { spawnSync } = require('child_process');
 
 const DEPRECIATED_VERSION = {
   '>= 4.21.6 < 4.22.0': ['https://github.com/ant-design/ant-design/pull/36682'],
+  '>=4.22.2 <=4.22.5': [
+    'https://github.com/ant-design/ant-design/issues/36932',
+    'https://github.com/ant-design/ant-design/pull/36800',
+    'https://github.com/ant-design/ant-design/issues/37024',
+  ],
 };
 
 function matchDeprecated(version) {
@@ -82,7 +87,12 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
 
   // Not find to use the latest version instead
   defaultVersionObj = defaultVersionObj || defaultVersionList[defaultVersionList.length - 1];
-  const defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
+  let defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
+
+  // If default version is less than current, use current
+  if (semver.compare(defaultVersion, distTags.conch) < 0) {
+    defaultVersion = distTags.conch;
+  }
 
   // Selection
   let { conchVersion } = await inquirer.prompt([
@@ -95,11 +105,24 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
         const { value, publishTime, depreciated } = info;
         const desc = moment(publishTime).fromNow();
 
+        //
+
         return {
           ...info,
-          name: `${depreciated ? '🚨' : '✅'} ${value} (${desc}) ${
-            value === defaultVersion ? '(default)' : ''
-          }`,
+          name: [
+            // Warning
+            depreciated ? '🚨' : '✅',
+            // Version
+            value,
+            // Date Diff
+            `(${desc})`,
+            // Default Mark
+            value === defaultVersion ? '(default)' : '',
+            // Current Mark
+            value === distTags.conch ? chalk.gray('- current') : '',
+          ]
+            .filter(str => String(str).trim())
+            .join(' '),
         };
       }),
     },

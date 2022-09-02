@@ -15,6 +15,44 @@ timeline: true
 
 ---
 
+## 4.22.8
+
+`2022-08-26`
+
+- Table
+  - 🌐 Add Table missing French `filterCheckAll` localization. [#37246](https://github.com/ant-design/ant-design/pull/37246) [@Mar-he](https://github.com/Mar-he)
+  - 🐞 Improve Table sort panel accessibility experience. [#37167](https://github.com/ant-design/ant-design/pull/37167) [@dartamonov-vertex](https://github.com/dartamonov-vertex)
+- 💄 Optimize the button spacing of the Popconfirm component. [#37183](https://github.com/ant-design/ant-design/pull/37183) [@jiangmaniu](https://github.com/jiangmaniu)
+- 💄 Remove Card duplicate less style attribute definitions. [#37170](https://github.com/ant-design/ant-design/pull/37170) [@yanquanfahei](https://github.com/yanquanfahei)
+- TypeScript
+  - 🤖 Export Menu Item type declarations. [#36681](https://github.com/ant-design/ant-design/pull/36681) [@cravend](https://github.com/cravend)
+
+## 4.22.7
+
+`2022-08-21`
+
+- 🐞 Fix Typography visible change some time Tooltip not work with ellipsis. [#37147](https://github.com/ant-design/ant-design/pull/37147)
+- 🐞 Fix InputNumber that style cannot be customized with controls less variables. [#37070](https://github.com/ant-design/ant-design/pull/37070) [@coldice945](https://github.com/coldice945)
+
+## 4.22.6
+
+`2022-08-17`
+
+- 🐞 Revert [#36710](https://github.com/ant-design/ant-design/pull/36710) to fix Table `onChange` argument `sorter` error in multiple columns sort.
+- 🐞 Fix Drawer can not close when config `opacity` on the `maskStyle`. [#37100](https://github.com/ant-design/ant-design/pull/37100)
+
+## 4.22.5
+
+`2022-08-15`
+
+- 🇭🇺 Form add defaultValidateMessages.i18n az_AZ language #23369. [#36967](https://github.com/ant-design/ant-design/pull/36967) [@YMiemie-cy](https://github.com/YMiemie-cy)
+- 💄 Popover remove Popover incorrect box-shadow. [#37030](https://github.com/ant-design/ant-design/pull/37030) [@jerrykingxyz](https://github.com/jerrykingxyz)
+- 🐞 Fix Steps tail position bug when `labelPlacement="vertical"`. [#36996](https://github.com/ant-design/ant-design/pull/36996)
+- 💄 Removed exception error border for `Pagination`. [#36972](https://github.com/ant-design/ant-design/pull/36972) [@hydraZty](https://github.com/hydraZty)
+- 🐞 Fix Upload trigger mistake files status when upload multiple files at same time in React 18. [#36968](https://github.com/ant-design/ant-design/pull/36968)
+- TypeScript
+  - 🤖 Fix type error of useWatch. [#37013](https://github.com/ant-design/ant-design/pull/37013) [@LiZhiHao97](https://github.com/LiZhiHao97)
+
 ## 4.22.4
 
 `2022-08-08`

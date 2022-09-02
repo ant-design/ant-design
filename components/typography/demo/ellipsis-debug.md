@@ -26,6 +26,13 @@ const App: React.FC = () => {
   const [copyable, setCopyable] = useState(false);
   const [editable, setEditable] = useState(false);
   const [expandable, setExpandable] = useState(false);
+  const [display, setDisplay] = useState('none');
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setDisplay('block');
+    }, 100);
+  }, []);
 
   return (
     <>
@@ -60,6 +67,12 @@ const App: React.FC = () => {
       <p>
         [Before]<Text ellipsis>not ellipsis</Text>[After]
       </p>
+
+      <div style={{ display }}>
+        <Text style={{ width: 100 }} ellipsis={{ tooltip: 'I am ellipsis now!' }}>
+          默认display none 样式的超长文字， 悬停tooltip失效了
+        </Text>
+      </div>
     </>
   );
 };

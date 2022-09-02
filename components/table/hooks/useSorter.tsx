@@ -132,6 +132,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === ASCEND,
           })}
+          role="presentation"
         />
       );
       const downNode: React.ReactNode = sortDirections.includes(DESCEND) && (
@@ -139,6 +140,7 @@ function injectSorter<RecordType>(
           className={classNames(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === DESCEND,
           })}
+          role="presentation"
         />
       );
       const { cancelSort, triggerAsc, triggerDesc } = tableLocale || {};
@@ -210,6 +212,8 @@ function injectSorter<RecordType>(
             } else {
               cell['aria-sort'] = 'descending';
             }
+          } else {
+            cell['aria-label'] = `${renderColumnTitle(column.title, {})} sortable`;
           }
 
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
@@ -247,7 +251,7 @@ function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
 
 function generateSorterInfo<RecordType>(
   sorterStates: SortState<RecordType>[],
-): SorterResult<RecordType> | SorterResult<RecordType[]> {
+): SorterResult<RecordType> | SorterResult<RecordType>[] {
   const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
 
   // =========== Legacy compatible support ===========
@@ -259,7 +263,11 @@ function generateSorterInfo<RecordType>(
     };
   }
 
-  return list[0] || {};
+  if (list.length <= 1) {
+    return list[0] || {};
+  }
+
+  return list;
 }
 
 export function getSortData<RecordType>(
@@ -320,7 +328,7 @@ interface SorterConfig<RecordType> {
   prefixCls: string;
   mergedColumns: ColumnsType<RecordType>;
   onSorterChange: (
-    sorterResult: SorterResult<RecordType> | SorterResult<RecordType[]>,
+    sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
   ) => void;
   sortDirections: SortOrder[];
@@ -339,7 +347,7 @@ export default function useFilterSorter<RecordType>({
   TransformColumns<RecordType>,
   SortState<RecordType>[],
   ColumnTitleProps<RecordType>,
-  () => SorterResult<RecordType> | SorterResult<RecordType[]>,
+  () => SorterResult<RecordType> | SorterResult<RecordType>[],
 ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),

@@ -726,7 +726,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         });
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-        expect(mock).toBeCalledWith(expect.any(Function));
+        expect(mock).toHaveBeenCalledWith(expect.any(Function));
 
         jest.useRealTimers();
       });
@@ -764,7 +764,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         });
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-        expect(mock).toBeCalledWith(expect.any(Function));
+        expect(mock).toHaveBeenCalledWith(expect.any(Function));
 
         jest.useRealTimers();
       });
@@ -796,7 +796,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         });
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
-        expect(mock).toBeCalledWith(expect.any(Function));
+        expect(mock).toHaveBeenCalledWith(expect.any(Function));
 
         jest.useRealTimers();
       });
@@ -823,7 +823,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       await sleep();
     });
 
-    expect(mock).toBeCalledWith(expect.any(Function));
+    expect(mock).toHaveBeenCalledWith(expect.any(Function));
 
     jest.useRealTimers();
   });

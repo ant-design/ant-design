@@ -43,7 +43,7 @@ interface ResourcesProps {
 }
 
 function getUnitString(unit: ContentUnit[]): string {
-  if (!unit) return '';
+  if (!unit || unit.length <= 1) return '';
 
   const last = unit[unit.length - 1];
   return Array.isArray(last) ? getUnitString(last) : (last as string);
@@ -53,8 +53,9 @@ function toCardList([, ...items]: ContentUnit[]): ContentUnit[] {
   return [
     'div',
     { className: 'ant-row resource-cards', style: 'margin: -12px -12px 0 -12px' },
-    ...items.map(([, title, [, image, description, link]]: any) => {
+    ...items.map(([, title, [, image, description, link, badge]]: any) => {
       let titleStr = getUnitString(title);
+      const badgeStr = getUnitString(badge);
       const imageStr = getUnitString(image);
       const descStr = getUnitString(description);
       const linkStr = getUnitString(link);
@@ -90,9 +91,17 @@ function toCardList([, ...items]: ContentUnit[]): ContentUnit[] {
                 : {},
             },
           ],
+          badgeStr &&
+            badgeStr !== '-' && [
+              'div',
+              {
+                className: 'resource-card-badge',
+              },
+              badgeStr,
+            ],
           ['p', { className: 'resource-card-title' }, titleStr],
           ['p', { className: 'resource-card-description' }, descStr],
-        ],
+        ].filter(c => c),
       ];
     }),
   ];
@@ -123,9 +132,10 @@ const Resources = (props: ResourcesProps) => {
   const { localizedPageData, location } = props;
   const { locale } = useIntl();
 
-  const content = React.useMemo(() => injectCards(localizedPageData.content), [
-    localizedPageData.content,
-  ]);
+  const content = React.useMemo(
+    () => injectCards(localizedPageData.content),
+    [localizedPageData.content],
+  );
 
   return (
     <div id="resources-page">

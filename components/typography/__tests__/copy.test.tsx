@@ -219,7 +219,7 @@ describe('Typography copy', () => {
         </div>,
       );
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-      expect(onDivClick).not.toBeCalled();
+      expect(onDivClick).not.toHaveBeenCalled();
     });
 
     it('the first parameter of onCopy is the click event', () => {
