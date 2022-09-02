@@ -1,4 +1,6 @@
 import React from 'react';
+import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import type { BaseOptionType, DefaultOptionType } from '..';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
@@ -9,22 +11,27 @@ import { fireEvent, render } from '../../../tests/utils';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
-function toggleOpen(container) {
-  fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+function toggleOpen(container: ReturnType<typeof render>['container']) {
+  fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
 }
 
-function isOpen(container) {
-  return container.querySelector('.ant-cascader').className.includes('ant-select-open');
+function isOpen(container: ReturnType<typeof render>['container']) {
+  return container.querySelector('.ant-cascader')?.className.includes('ant-select-open');
 }
 
-function getDropdown(container) {
+function getDropdown(container: ReturnType<typeof render>['container']) {
   return container.querySelector('.ant-select-dropdown');
 }
 
-function clickOption(container, menuIndex, itemIndex, type = 'click') {
+function clickOption(
+  container: ReturnType<typeof render>['container'],
+  menuIndex: number,
+  itemIndex: number,
+  type = 'click',
+) {
   const menu = container.querySelectorAll('ul.ant-cascader-menu')[menuIndex];
   const itemList = menu.querySelectorAll('li.ant-cascader-menu-item');
-  fireEvent[type](itemList[itemIndex]);
+  fireEvent?.[type as keyof typeof fireEvent]?.(itemList[itemIndex]);
 }
 
 const options = [
@@ -62,8 +69,11 @@ const options = [
   },
 ];
 
-function filter(inputValue, path) {
-  return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+function filter<OptionType extends BaseOptionType = DefaultOptionType>(
+  inputValue: string,
+  path: OptionType[],
+): boolean {
+  return path.some(option => option.label.toLowerCase().includes(inputValue.toLowerCase()));
 }
 
 describe('Cascader', () => {
@@ -133,31 +143,25 @@ describe('Cascader', () => {
 
   it('backspace should work with `Cascader[showSearch]`', () => {
     const { container } = render(<Cascader options={options} showSearch />);
-    fireEvent.change(container.querySelector('input'), { target: { value: '123' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: '123' } });
     expect(isOpen(container)).toBeTruthy();
 
-    fireEvent.keyDown(container.querySelector('input'), {
-      key: 'Backspace',
-      keyCode: 8,
-    });
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Backspace', keyCode: 8 });
     expect(isOpen(container)).toBeTruthy();
 
-    fireEvent.change(container.querySelector('input'), { target: { value: '' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: '' } });
     expect(isOpen(container)).toBeTruthy();
 
-    fireEvent.keyDown(container.querySelector('input'), {
-      key: 'Backspace',
-      keyCode: 8,
-    });
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Backspace', keyCode: 8 });
     expect(isOpen(container)).toBeFalsy();
   });
 
   it('should highlight keyword and filter when search in Cascader', () => {
     const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'z' } });
 
     // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
-    expect(getDropdown(container).innerHTML).toMatchSnapshot();
+    expect(getDropdown(container)?.innerHTML).toMatchSnapshot();
   });
 
   it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
@@ -180,8 +184,11 @@ describe('Cascader', () => {
         ],
       },
     ];
-    function customFilter(inputValue, path) {
-      return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    function customFilter<OptionType extends BaseOptionType = DefaultOptionType>(
+      inputValue: string,
+      path: OptionType[],
+    ): boolean {
+      return path.some(option => option.name.toLowerCase().includes(inputValue.toLowerCase()));
     }
     const { container } = render(
       <Cascader
@@ -190,15 +197,15 @@ describe('Cascader', () => {
         showSearch={{ filter: customFilter }}
       />,
     );
-    fireEvent.change(container.querySelector('input'), { target: { value: 'z' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'z' } });
 
     // React 18 with testing lib will have additional space. We have to compare innerHTML. Sad.
-    expect(getDropdown(container).innerHTML).toMatchSnapshot();
+    expect(getDropdown(container)?.innerHTML).toMatchSnapshot();
   });
 
   it('should render not found content', () => {
     const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
-    fireEvent.change(container.querySelector('input'), {
+    fireEvent.change(container.querySelector('input')!, {
       target: { value: '__notfoundkeyword__' },
     });
     expect(getDropdown(container)).toMatchSnapshot();
@@ -208,10 +215,10 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
+    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
       'Zhejiang / Hangzhou',
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-clear'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
     expect(container.querySelector('.ant-select-selection-item')).toBeFalsy();
   });
 
@@ -219,14 +226,14 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} showSearch />,
     );
-    fireEvent.change(container.querySelector('input'), { target: { value: 'xxx' } });
-    fireEvent.mouseDown(container.querySelector('.ant-select-clear'));
-    expect(container.querySelector('input').value).toEqual('');
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'xxx' } });
+    fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
+    expect(container.querySelector('input')?.value).toEqual('');
   });
 
   it('should change filtered item when options are changed', () => {
     const { container, rerender } = render(<Cascader options={options} showSearch={{ filter }} />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'a' } });
     expect(container.querySelectorAll('.ant-cascader-menu-item').length).toBe(2);
 
     rerender(<Cascader options={[options[0]]} showSearch={{ filter }} />);
@@ -235,14 +242,11 @@ describe('Cascader', () => {
 
   it('should select item immediately when searching and pressing down arrow key', () => {
     const { container } = render(<Cascader options={options} showSearch={{ filter }} />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'a' } });
 
     expect(container.querySelectorAll('.ant-cascader-menu-item').length).toBe(2);
     expect(container.querySelectorAll('.ant-cascader-menu-item-active').length).toBe(0);
-    fireEvent.keyDown(container.querySelector('input'), {
-      key: 'Down',
-      keyCode: 40,
-    });
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Down', keyCode: 40 });
     expect(container.querySelectorAll('.ant-cascader-menu-item-active').length).toBe(1);
   });
 
@@ -300,14 +304,14 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
+    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 
   it('should show not found content when options.length is 0', () => {
-    const customerOptions = [];
+    const customerOptions: any[] = [];
     const { container } = render(<Cascader options={customerOptions} />);
     toggleOpen(container);
     expect(getDropdown(container)).toMatchSnapshot();
@@ -329,7 +333,7 @@ describe('Cascader', () => {
       const { container } = render(
         <Cascader options={options} showSearch={{ filter, limit: 1 }} />,
       );
-      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'a' } });
       expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(1);
     });
 
@@ -337,7 +341,7 @@ describe('Cascader', () => {
       const { container } = render(
         <Cascader options={options} showSearch={{ filter, limit: false }} />,
       );
-      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'a' } });
       expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(2);
     });
 
@@ -345,8 +349,8 @@ describe('Cascader', () => {
       const { container } = render(
         <Cascader options={options} showSearch={{ filter, limit: -1 }} />,
       );
-      fireEvent.click(container.querySelector('input'));
-      fireEvent.change(container.querySelector('input'), { target: { value: 'a' } });
+      fireEvent.click(container.querySelector('input')!);
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'a' } });
       expect(container.querySelectorAll('.ant-cascader-menu-item')).toHaveLength(2);
     });
   });
@@ -384,11 +388,11 @@ describe('Cascader', () => {
 
   it('placeholder works correctly', () => {
     const { container, rerender } = render(<Cascader options={[]} />);
-    expect(container.querySelector('.ant-select-selection-placeholder').textContent).toEqual('');
+    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual('');
 
     const customPlaceholder = 'Custom placeholder';
     rerender(<Cascader options={[]} placeholder={customPlaceholder} />);
-    expect(container.querySelector('.ant-select-selection-placeholder').textContent).toEqual(
+    expect(container.querySelector('.ant-select-selection-placeholder')?.textContent).toEqual(
       customPlaceholder,
     );
   });
@@ -410,7 +414,7 @@ describe('Cascader', () => {
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
-    expect(global.triggerProps.popupPlacement).toEqual('topRight');
+    expect((global as any)?.triggerProps.popupPlacement).toEqual('topRight');
   });
 
   it('popup correctly with defaultValue RTL', () => {
@@ -489,7 +493,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-selection-item').textContent).toEqual(
+    expect(container.querySelector('.ant-select-selection-item')?.textContent).toEqual(
       'options1 / options2',
     );
   });
@@ -497,7 +501,7 @@ describe('Cascader', () => {
   it('can be selected when showSearch', () => {
     const onChange = jest.fn();
     const { container } = render(<Cascader options={options} onChange={onChange} showSearch />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'Zh' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'Zh' } });
 
     expect(container.querySelectorAll('.ant-cascader-menu').length).toBe(1);
     clickOption(container, 0, 0);
@@ -506,14 +510,11 @@ describe('Cascader', () => {
 
   it('options should open after press esc and then search', () => {
     const { container } = render(<Cascader options={options} showSearch />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'jin' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
-    fireEvent.keyDown(container.querySelector('input'), {
-      key: 'Esc',
-      keyCode: 27,
-    });
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Esc', keyCode: 27 });
     expect(isOpen(container)).toBeFalsy();
-    fireEvent.change(container.querySelector('input'), { target: { value: 'jin' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'jin' } });
     expect(isOpen(container)).toBeTruthy();
   });
 
@@ -523,7 +524,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
-    fireEvent.change(container.querySelector('input'), { target: { value: 'est' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'est' } });
     clickOption(container, 0, 0);
     expect(onChange).toHaveBeenCalledWith(['Zhejiang', 'Hangzhou', 'West Lake'], expect.anything());
   });
@@ -533,7 +534,7 @@ describe('Cascader', () => {
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
-    expect(global.triggerProps.popupPlacement).toEqual('bottomRight');
+    expect((global as any).triggerProps.popupPlacement).toEqual('bottomRight');
   });
 
   describe('legacy props', () => {
@@ -546,7 +547,7 @@ describe('Cascader', () => {
       expect(container.querySelector('.mock-cls')).toBeTruthy();
 
       // Inject in tests/__mocks__/rc-trigger.js
-      expect(global.triggerProps.popupPlacement).toEqual('bottomLeft');
+      expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
@@ -595,8 +596,8 @@ describe('Cascader', () => {
         },
       ];
 
-      let selectedValue;
-      const onChange = function onChange(value) {
+      let selectedValue: SingleValueType[];
+      const onChange = function onChange(value: SingleValueType[]) {
         selectedValue = value;
       };
 
@@ -615,9 +616,9 @@ describe('Cascader', () => {
       clickOption(container, 1, 0);
       clickOption(container, 2, 0);
       clickOption(container, 2, 1);
-      expect(selectedValue[0].join(',')).toBe('zhejiang,hangzhou,xihu');
-      expect(selectedValue[1].join(',')).toBe('zhejiang,hangzhou,donghu');
-      expect(selectedValue.join(',')).toBe('zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu');
+      expect(selectedValue![0].join(',')).toBe('zhejiang,hangzhou,xihu');
+      expect(selectedValue![1].join(',')).toBe('zhejiang,hangzhou,donghu');
+      expect(selectedValue!.join(',')).toBe('zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu');
     });
 
     it('should support showCheckedStrategy parent', () => {
@@ -660,8 +661,8 @@ describe('Cascader', () => {
         },
       ];
 
-      let selectedValue;
-      const onChange = function onChange(value) {
+      let selectedValue: SingleValueType[];
+      const onChange = function onChange(value: SingleValueType[]) {
         selectedValue = value;
       };
 
@@ -680,8 +681,8 @@ describe('Cascader', () => {
       clickOption(container, 2, 0);
       clickOption(container, 2, 1);
 
-      expect(selectedValue.length).toBe(1);
-      expect(selectedValue.join(',')).toBe('zhejiang');
+      expect(selectedValue!.length).toBe(1);
+      expect(selectedValue!.join(',')).toBe('zhejiang');
     });
   });
 });
