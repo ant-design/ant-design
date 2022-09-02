@@ -5,12 +5,14 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
+import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 const { confirm } = Modal;
 
@@ -20,7 +22,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
   Object.keys(MockCSSMotion).forEach(key => {
-    CSSMotion[key] = MockCSSMotion[key];
+    (CSSMotion as any)[key] = (MockCSSMotion as any)[key];
   });
 
   // // Mock for rc-util raf
@@ -67,11 +69,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     errorSpy.mockRestore();
   });
 
-  function $$(className) {
-    return document.body.querySelectorAll(className);
+  function $$(className: string) {
+    return document.body.querySelectorAll<HTMLElement>(className);
   }
 
-  function open(args) {
+  function open(args?: ModalFuncProps) {
     jest.useFakeTimers();
     confirm({
       title: 'Want to delete these items?',
@@ -242,23 +244,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('allows extra props on buttons', async () => {
-    open({ okButtonProps: { disabled: true }, cancelButtonProps: { 'data-test': 'baz' } });
+    open({
+      okButtonProps: { disabled: true },
+      cancelButtonProps: { 'data-test': 'baz' } as ModalFuncProps['cancelButtonProps'],
+    });
 
     await sleep();
     expect($$('.ant-btn')).toHaveLength(2);
-    expect($$('.ant-btn')[0].attributes['data-test'].value).toBe('baz');
-    expect($$('.ant-btn')[1].disabled).toBe(true);
+    expect(($$('.ant-btn')[0].attributes as any)['data-test'].value).toBe('baz');
+    expect(($$('.ant-btn')[1] as HTMLButtonElement).disabled).toBe(true);
   });
 
   describe('should close modals when click confirm button', () => {
-    ['info', 'success', 'warning', 'error'].forEach(type => {
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(type, async () => {
         jest.useFakeTimers();
-        Modal[type]({
-          title: 'title',
-          content: 'content',
-        });
-
+        Modal[type]?.({ title: 'title', content: 'content' });
         await act(async () => {
           jest.runAllTimers();
           await sleep();
@@ -325,10 +326,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   describe('should not close modals when click confirm button when onOk has argument', () => {
-    ['confirm', 'info', 'success', 'warning', 'error'].forEach(type => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(type, async () => {
         jest.useFakeTimers();
-        Modal[type]({
+        Modal[type]?.({
           title: 'title',
           content: 'content',
           onOk: close => null, // eslint-disable-line no-unused-vars
@@ -351,10 +352,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   describe('could be update by new config', () => {
-    ['info', 'success', 'warning', 'error'].forEach(type => {
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(type, async () => {
         jest.useFakeTimers();
-        const instance = Modal[type]({
+        const instance = Modal[type]?.({
           title: 'title',
           content: 'content',
         });
@@ -387,17 +388,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   describe('could be update by call function', () => {
-    ['info', 'success', 'warning', 'error'].forEach(type => {
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(type, () => {
         jest.useFakeTimers();
-        const instance = Modal[type]({
+        const instance = Modal[type]?.({
           title: 'title',
-          okButtonProps: {
-            loading: true,
-            style: {
-              color: 'red',
-            },
-          },
+          okButtonProps: { loading: true, style: { color: 'red' } },
         });
         act(() => {
           jest.runAllTimers();
@@ -434,10 +430,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   describe('could be destroy', () => {
-    ['info', 'success', 'warning', 'error'].forEach(type => {
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
       jest.useFakeTimers();
       it(type, async () => {
-        const instance = Modal[type]({
+        const instance = Modal[type]?.({
           title: 'title',
           content: 'content',
         });
@@ -462,8 +458,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useFakeTimers();
 
     // Show
-    ['info', 'success', 'warning', 'error'].forEach(type => {
-      Modal[type]({
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
+      Modal[type]?.({
         title: 'title',
         content: 'content',
       });
@@ -515,9 +511,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       jest.runAllTimers();
     });
 
-    const instances = [];
-    ['info', 'success', 'warning', 'error'].forEach(type => {
-      const instance = Modal[type]({
+    const instances: ReturnType<ModalFunc>[] = [];
+    (['info', 'success', 'warning', 'error'] as const).forEach(type => {
+      const instance = Modal[type]?.({
         title: 'title',
         content: 'content',
       });
@@ -588,8 +584,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('ok button should trigger onOk multiple times when onOk has close argument', async () => {
     const onOk = jest.fn();
     open({
-      onOk: close => {
+      onOk(close?: any) {
         onOk();
+        // @ts-ignore
         (() => {})(close); // do nothing
       },
     });
@@ -615,7 +612,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
     expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: undefined });
     jest.useRealTimers();
   });
 
@@ -702,12 +699,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   describe('the callback close should be a method when onCancel has a close parameter', () => {
-    ['confirm', 'info', 'success', 'warning', 'error'].forEach(type => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(`click the close icon to trigger ${type} onCancel`, async () => {
         jest.useFakeTimers();
         const mock = jest.fn();
 
-        Modal[type]({
+        Modal[type]?.({
           closable: true,
           onCancel: close => mock(close),
         });
@@ -732,12 +729,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       });
     });
 
-    ['confirm', 'info', 'success', 'warning', 'error'].forEach(type => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(`press ESC to trigger ${type} onCancel`, async () => {
         jest.useFakeTimers();
         const mock = jest.fn();
 
-        Modal[type]({
+        Modal[type]?.({
           keyboard: true,
           onCancel: close => mock(close),
         });
@@ -770,12 +767,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       });
     });
 
-    ['confirm', 'info', 'success', 'warning', 'error'].forEach(type => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach(type => {
       it(`click the mask to trigger ${type} onCancel`, async () => {
         jest.useFakeTimers();
         const mock = jest.fn();
 
-        Modal[type]({
+        Modal[type]?.({
           maskClosable: true,
           onCancel: close => mock(close),
         });

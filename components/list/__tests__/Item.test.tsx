@@ -49,7 +49,7 @@ describe('List Item Layout', () => {
       />,
     );
     expect(
-      wrapper.querySelector('.ant-list-item').classList.contains('ant-list-item-no-flex'),
+      wrapper.querySelector('.ant-list-item')?.classList.contains('ant-list-item-no-flex'),
     ).toBe(false);
   });
 
@@ -188,17 +188,17 @@ describe('List Item Layout', () => {
   });
 
   it('should ref', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<HTMLElement>();
 
     render(<List.Item ref={ref}>Item</List.Item>);
     expect(ref.current).toHaveClass('ant-list-item');
   });
 
   it('should grid ref', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<HTMLElement>();
 
     render(
-      <List grid>
+      <List grid={{}}>
         <List.Item ref={ref}>Item</List.Item>,
       </List>,
     );

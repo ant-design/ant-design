@@ -6,9 +6,7 @@ import List from '..';
 
 describe('List', () => {
   it('renders empty loading', () => {
-    const loading = {
-      spinning: true,
-    };
+    const loading = { spinning: true };
     const { container: wrapper } = render(
       <List loading={loading} dataSource={[]} renderItem={() => <List.Item />} />,
     );

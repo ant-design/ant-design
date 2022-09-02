@@ -1,4 +1,6 @@
 import React from 'react';
+import type { OptionFC } from 'rc-select/lib/Option';
+import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -11,7 +13,7 @@ describe('Pagination', () => {
   rtlTest(Pagination);
 
   it('should pass disabled to prev and next buttons', () => {
-    const itemRender = (current, type, originalElement) => {
+    const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
       if (type === 'prev') {
         return <button type="button">prev</button>;
       }
@@ -23,12 +25,12 @@ describe('Pagination', () => {
     const { container } = render(
       <Pagination defaultCurrent={1} total={50} itemRender={itemRender} />,
     );
-    expect(container.querySelector('button').disabled).toBe(true);
+    expect(container.querySelector('button')?.disabled).toBe(true);
   });
 
   it('should autometically be small when size is not specified', async () => {
     const { container } = render(<Pagination responsive />);
-    expect(container.querySelector('ul').className.includes('ant-pagination-mini')).toBe(true);
+    expect(container.querySelector('ul')?.className.includes('ant-pagination-mini')).toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
@@ -45,7 +47,7 @@ describe('Pagination', () => {
       />,
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
 
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
@@ -53,9 +55,10 @@ describe('Pagination', () => {
   });
 
   it('should support custom selectComponentClass', () => {
-    const CustomSelect = ({ className, ...props }) => (
-      <Select className={`${className} custom-select`} {...props} />
-    );
+    const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
+      className,
+      ...props
+    }) => <Select className={`${className} custom-select`} {...props} />;
 
     CustomSelect.Option = Select.Option;
 

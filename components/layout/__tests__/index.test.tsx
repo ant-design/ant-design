@@ -31,14 +31,14 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
     unmount();
   });
 
   it('umount from multiple siders', async () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [hide1, setHide1] = useState(false);
       const [hide2, setHide2] = useState(false);
       return (
@@ -57,15 +57,15 @@ describe('Layout', () => {
       );
     };
     const { container } = render(<App />);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
     fireEvent.click(container.querySelectorAll('button')[0]);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
     fireEvent.click(container.querySelectorAll('button')[1]);
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       false,
     );
   });
@@ -79,7 +79,7 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       true,
     );
   });
@@ -96,7 +96,7 @@ describe('Layout', () => {
     expect(
       container
         .querySelector('.ant-layout-sider')
-        .className.includes('ant-layout-sider-has-trigger'),
+        ?.className.includes('ant-layout-sider-has-trigger'),
     ).toBe(true);
   });
 
@@ -109,8 +109,8 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout-sider').style.width).toBe('50%');
-    expect(container.querySelector('.ant-layout-sider').style.flex).toBe('0 0 50%');
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.width).toBe('50%');
+    expect(container.querySelector<HTMLElement>('.ant-layout-sider')?.style.flex).toBe('0 0 50%');
   });
 
   describe('zeroWidth', () => {
@@ -126,7 +126,7 @@ describe('Layout', () => {
       expect(
         container
           .querySelector('.ant-layout-sider')
-          .className.includes('ant-layout-sider-zero-width'),
+          ?.className.includes('ant-layout-sider-zero-width'),
       ).toBe(true);
     });
 
@@ -144,12 +144,12 @@ describe('Layout', () => {
         );
 
         onCollapse.mockReset();
-        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger'));
+        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger')!);
         expect(onCollapse).toHaveBeenCalledTimes(1);
       });
 
       it('controlled', () => {
-        const Demo = () => {
+        const Demo: React.FC = () => {
           const [collapsed, setCollapsed] = React.useState(true);
 
           return (
@@ -170,7 +170,7 @@ describe('Layout', () => {
 
         const { container } = render(<Demo />);
         expect(container.querySelector('.ant-layout-sider-collapsed')).toBeTruthy();
-        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger'));
+        fireEvent.click(container.querySelector('.ant-layout-sider-zero-width-trigger')!);
         expect(container.querySelector('.ant-layout-sider-collapsed')).toBeFalsy();
       });
     });
@@ -179,14 +179,14 @@ describe('Layout', () => {
   it('detect ant-layout-sider-dark as default theme', async () => {
     const { container } = render(<Sider>Sider</Sider>);
     expect(
-      container.querySelector('.ant-layout-sider').className.includes('ant-layout-sider-dark'),
+      container.querySelector('.ant-layout-sider')?.className.includes('ant-layout-sider-dark'),
     ).toBe(true);
   });
 
   it('detect ant-layout-sider-light when set light theme', async () => {
     const { container } = render(<Sider theme="light">Sider</Sider>);
     expect(
-      container.querySelector('.ant-layout-sider').className.includes('ant-layout-sider-light'),
+      container.querySelector('.ant-layout-sider')?.className.includes('ant-layout-sider-light'),
     ).toBe(true);
   });
 
@@ -208,41 +208,41 @@ describe('Layout', () => {
         <Sider>Sider</Sider>
       </Layout>,
     );
-    expect(container.querySelector('.ant-layout').className.includes('ant-layout-has-sider')).toBe(
+    expect(container.querySelector('.ant-layout')?.className.includes('ant-layout-has-sider')).toBe(
       false,
     );
   });
 
   it('render correct with Tooltip', () => {
     jest.useFakeTimers();
+    const type = { type: 'user' } as any;
     const { container, rerender } = render(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
           <Menu.Item key="1">
-            <Icon type="user" />
+            <Icon {...type} />
             <span>Light</span>
           </Menu.Item>
         </Menu>
       </Sider>,
     );
 
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelectorAll('.ant-tooltip-inner').length).toBeFalsy();
-
     rerender(
       <Sider collapsible collapsed>
         <Menu mode="inline">
           <Menu.Item key="1">
-            <Icon type="user" />
+            <Icon {...type} />
             <span>Light</span>
           </Menu.Item>
         </Menu>
       </Sider>,
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-item'));
+    fireEvent.mouseEnter(container.querySelector('.ant-menu-item')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -286,44 +286,46 @@ describe('Sider', () => {
   });
 
   it('zeroWidthTriggerStyle should work', () => {
+    const type = { type: 'user' } as any;
     const { container } = render(
       <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
-            <Icon type="user" />
+            <Icon {...type} />
             <span>nav 1</span>
           </Menu.Item>
         </Menu>
       </Sider>,
     );
     expect(
-      container.querySelector('.ant-layout-sider-zero-width-trigger').style.background,
+      container.querySelector<HTMLDivElement>('.ant-layout-sider-zero-width-trigger')?.style
+        .background,
     ).toEqual('rgb(255, 153, 102)');
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {
+    const type = { type: 'user' } as any;
     const { container } = render(
       <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
-            <Icon type="user" />
+            <Icon {...type} />
             <span>nav 1</span>
           </Menu.Item>
         </Menu>
       </Sider>,
     );
     expect(
-      container.querySelector('.ant-layout-sider-zero-width-trigger').querySelector('.my-trigger'),
+      container.querySelector('.ant-layout-sider-zero-width-trigger')?.querySelector('.my-trigger'),
     ).toBeTruthy();
   });
 
   ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
     const ComponentMap = { Layout, Header, Footer, Sider };
     it(`should get ${tag} element from ref`, () => {
-      const ref = React.createRef();
+      const ref = React.createRef<any>();
       const onSelect = jest.fn();
-      const Component = ComponentMap[tag];
-
+      const Component = ComponentMap[tag as keyof typeof ComponentMap];
       render(
         <Component onSelect={onSelect} ref={ref}>
           {tag}
