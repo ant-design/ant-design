@@ -138,7 +138,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           fontWeight: fontWeightStrong,
           textAlign: 'start',
           background: tableHeaderBg,
-          borderBottom: tableBorder,
           transition: `background ${motionDurationSlow} ease`,
 
           "&[colspan]:not([colspan='1'])": {
@@ -168,7 +167,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> td': {
-            borderBottom: tableBorder,
+            borderTop: tableBorder,
             transition: `background ${motionDurationSlow}`,
 
             // ========================= Nest Table ===========================
@@ -191,12 +190,27 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             },
           },
 
+          [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
+            [`+ tr${componentCls}-row > td`]: {
+              borderTopColor: 'transparent',
+            },
+          },
+
+          '&:last-child > td': {
+            borderBottom: tableBorder,
+          },
+
+          [`&${componentCls}-row:last-child:hover > td,
+            &${componentCls}-row${componentCls}-row-selected > td`]: {
+            borderBottomColor: 'transparent',
+          },
+
           [`
             &${componentCls}-row:hover > td,
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,
-            borderBottomColor: 'transparent',
+            borderTopColor: 'transparent',
 
             '&:first-child': {
               borderStartStartRadius: tableRadius,
@@ -212,7 +226,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           [`&${componentCls}-row-selected`]: {
             '> td': {
               background: tableSelectedRowBg,
-              borderBottomColor: 'transparent',
+              borderTopColor: 'transparent',
 
               '&:first-child': {
                 borderStartStartRadius: tableRadius,
