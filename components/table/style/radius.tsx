@@ -7,11 +7,11 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = token => {
   return {
     [`${componentCls}-wrapper`]: {
       [componentCls]: {
-        '&-title': {
+        [`${componentCls}-title`]: {
           borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
         },
 
-        '&-title + &-container': {
+        [`${componentCls}-title + ${componentCls}-container`]: {
           borderStartStartRadius: 0,
           borderStartEndRadius: 0,
 
