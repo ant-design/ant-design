@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import type { RouterProps } from 'react-router-dom';
 import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Breadcrumb from '../index';
 import { render, fireEvent } from '../../../tests/utils';
 
-const Apps = () => (
+const Apps: React.FC = () => (
   <ul className="app-list">
     <li>
       <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
@@ -33,7 +34,7 @@ describe('react router', () => {
 
   // https://github.com/airbnb/enzyme/issues/875
   it('react router 6', () => {
-    const Home = () => {
+    const Home: React.FC = () => {
       const location = useLocation();
       const navigate = useNavigate();
       const pathSnippets = location.pathname.split('/').filter(i => i);
@@ -41,7 +42,7 @@ describe('react router', () => {
         const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
         return (
           <Breadcrumb.Item key={url}>
-            <Link to={url}>{breadcrumbNameMap[url]}</Link>
+            <Link to={url}>{breadcrumbNameMap[url as keyof typeof breadcrumbNameMap]}</Link>
           </Breadcrumb.Item>
         );
       });
@@ -50,6 +51,14 @@ describe('react router', () => {
           <Link to="/">Home</Link>
         </Breadcrumb.Item>,
       ].concat(extraBreadcrumbItems);
+      const componentProps = useMemo<RouterProps>(
+        () => ({ component: Apps } as unknown as RouterProps),
+        [],
+      );
+      const renderProps = useMemo<RouterProps>(
+        () => ({ render: () => <span>Home Page</span> } as unknown as RouterProps),
+        [],
+      );
       return (
         <div className="demo">
           <div className="demo-nav">
@@ -57,8 +66,8 @@ describe('react router', () => {
             <a onClick={() => navigate('/apps')}>Application List</a>
           </div>
           <Routes>
-            <Route path="/apps" component={Apps} />
-            <Route render={() => <span>Home Page</span>} />
+            <Route path="/apps" {...componentProps} />
+            <Route {...renderProps} />
           </Routes>
           <Breadcrumb>{breadcrumbItems}</Breadcrumb>
         </div>

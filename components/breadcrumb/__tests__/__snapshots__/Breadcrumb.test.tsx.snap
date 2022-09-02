@@ -50,27 +50,6 @@ exports[`Breadcrumb should accept undefined routes 1`] = `
 </nav>
 `;
 
-exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
-<nav
-  class="ant-breadcrumb"
->
-  <ol>
-    <li>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        Home
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </li>
-  </ol>
-</nav>
-`;
-
 exports[`Breadcrumb should not display Breadcrumb Item when its children is falsy 1`] = `
 <nav
   class="ant-breadcrumb"
