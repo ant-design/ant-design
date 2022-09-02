@@ -1,5 +1,5 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
+import type { InputRef } from '..';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -13,12 +13,12 @@ describe('Input.Password', () => {
   rtlTest(Input.Password);
 
   it('should get input element from ref', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<InputRef>();
     const onSelect = jest.fn();
 
     const { container } = render(<Input.Password onSelect={onSelect} ref={ref} />);
-    expect(ref.current.input instanceof HTMLInputElement).toBe(true);
-    fireEvent.select(container.querySelector('input'));
+    expect(ref.current?.input instanceof HTMLInputElement).toBe(true);
+    fireEvent.select(container.querySelector('input')!);
     expect(onSelect).toHaveBeenCalled();
   });
 
@@ -30,13 +30,13 @@ describe('Input.Password', () => {
 
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input.Password />);
-    fireEvent.change(container.querySelector('input'), { target: { value: '111' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -50,7 +50,7 @@ describe('Input.Password', () => {
   it('should not toggle visibility when disabled prop is true', () => {
     const { container } = render(<Input.Password disabled />);
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
-    fireEvent.click(container.querySelector('.anticon-eye-invisible'));
+    fireEvent.click(container.querySelector('.anticon-eye-invisible')!);
     expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
   });
 
@@ -59,43 +59,43 @@ describe('Input.Password', () => {
       container: document.body,
     });
     expect(document.activeElement).toBe(container.querySelector('input'));
-    document.activeElement.setSelectionRange(2, 2);
-    expect(document.activeElement.selectionStart).toBe(2);
-    fireEvent.mouseDown(container.querySelector('.ant-input-password-icon'));
-    fireEvent.mouseUp(container.querySelector('.ant-input-password-icon'));
-    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    (document?.activeElement as any)?.setSelectionRange(2, 2);
+    expect((document?.activeElement as any)?.selectionStart).toBe(2);
+    fireEvent.mouseDown(container.querySelector('.ant-input-password-icon')!);
+    fireEvent.mouseUp(container.querySelector('.ant-input-password-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     expect(document.activeElement).toBe(container.querySelector('input'));
-    expect(document.activeElement.selectionStart).toBe(2);
+    expect((document?.activeElement as any).selectionStart).toBe(2);
     unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('should not show value attribute in input element', async () => {
     const { container } = render(<Input.Password />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
     await sleep();
-    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/24526
   it('should not show value attribute in input element after blur it', async () => {
     const { container } = render(<Input.Password />);
-    fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
     await sleep();
-    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
-    fireEvent.blur(container.querySelector('input'));
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    fireEvent.blur(container.querySelector('input')!);
     await sleep();
-    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
-    fireEvent.focus(container.querySelector('input'));
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    fireEvent.focus(container.querySelector('input')!);
     await sleep();
-    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('could be unmount without errors', () => {
     expect(() => {
       const { container, unmount } = render(<Input.Password />);
-      fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
+      fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
       unmount();
     }).not.toThrow();
   });
@@ -104,6 +104,6 @@ describe('Input.Password', () => {
   it('should not contain value attribute in input element with defaultValue', async () => {
     const { container } = render(<Input.Password defaultValue="value" />);
     await sleep();
-    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
 });
