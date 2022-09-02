@@ -11,60 +11,58 @@ describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
   it('Image preview props set false', () => {
-    const { container: wrapper } = render(<Image src={src} preview={false} />);
+    const { container } = render(<Image src={src} preview={false} />);
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-    expect(wrapper.querySelector('.ant-image-preview-root')).toBe(null);
+    fireEvent.click(container.querySelector('.ant-image')!);
+    expect(container.querySelector('.ant-image-preview-root')).toBe(null);
   });
   it('Group preview props set false', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <Image.PreviewGroup preview={false}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
+    fireEvent.click(container.querySelector('.ant-image')!);
 
-    expect(wrapper.querySelector('.ant-image-preview-root')).toBe(null);
+    expect(container.querySelector('.ant-image-preview-root')).toBe(null);
   });
 
   it('Default preview props', () => {
-    const { container: wrapper, baseElement } = render(
-      <Image src={src} preview={{ visible: true }} />,
-    );
+    const { container, baseElement } = render(<Image src={src} preview={{ visible: true }} />);
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
+    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
   });
   it('Default Group preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const { container, baseElement } = render(
       <Image.PreviewGroup preview={{ visible: true }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
+    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
   });
   it('Customize preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const { container, baseElement } = render(
       <Image
         src={src}
         preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
       />,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
+    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
   });
   it('Customize Group preview props', () => {
-    const { container: wrapper, baseElement } = render(
+    const { container, baseElement } = render(
       <Image.PreviewGroup
         preview={{ visible: true, transitionName: 'abc', maskTransitionName: 'def' }}
       >
@@ -72,22 +70,21 @@ describe('Image', () => {
       </Image.PreviewGroup>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-image'));
+    fireEvent.click(container.querySelector('.ant-image')!);
 
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
   });
   it('ConfigProvider getPopupContainer', () => {
-    const { container: wrapper, baseElement } = render(
+    const { container, baseElement } = render(
       <>
         <div className="container" />
-        <ConfigProvider getPopupContainer={() => document.querySelector('.container')}>
+        <ConfigProvider getPopupContainer={() => document.querySelector('.container')!}>
           <Image src={src} />
         </ConfigProvider>
       </>,
     );
-    fireEvent.click(wrapper.querySelector('.ant-image'));
-    const containerElement = baseElement.querySelector('.container');
-    expect(containerElement.children.length).not.toBe(0);
+    fireEvent.click(container.querySelector('.ant-image')!);
+    expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
 });

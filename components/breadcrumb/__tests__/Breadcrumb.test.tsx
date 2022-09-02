@@ -3,6 +3,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import type { Route } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -22,7 +23,7 @@ describe('Breadcrumb', () => {
 
   // https://github.com/airbnb/enzyme/issues/875
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
-    const MyCom = () => <div>foo</div>;
+    const MyCom: React.FC = () => <div>foo</div>;
     render(
       <Breadcrumb>
         <MyCom />
@@ -104,7 +105,7 @@ describe('Breadcrumb', () => {
       {
         path: 'third',
       },
-    ];
+    ] as Route[];
     const { asFragment } = render(<Breadcrumb routes={routes} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
@@ -142,7 +143,7 @@ describe('Breadcrumb', () => {
 
   // https://github.com/ant-design/ant-design/issues/25975
   it('should support Breadcrumb.Item default separator', () => {
-    const MockComponent = () => (
+    const MockComponent: React.FC = () => (
       <span>
         <Breadcrumb.Item>Mock Node</Breadcrumb.Item>
       </span>

@@ -4,6 +4,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
+import type { InputRef } from '../Input';
 import Search from '../Search';
 
 describe('Input.Search', () => {
@@ -42,24 +43,16 @@ describe('Input.Search', () => {
     const { container } = render(
       <Search defaultValue="search text" onSearch={onSearch} disabled />,
     );
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(0);
   });
 
   it('should trigger onSearch when click search icon', () => {
     const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'click',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   it('should trigger onSearch when click search button', () => {
@@ -67,17 +60,9 @@ describe('Input.Search', () => {
     const { container } = render(
       <Search defaultValue="search text" enterButton onSearch={onSearch} />,
     );
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'click',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   it('should trigger onSearch when click search button with text', () => {
@@ -85,17 +70,9 @@ describe('Input.Search', () => {
     const { container } = render(
       <Search defaultValue="search text" enterButton="button text" onSearch={onSearch} />,
     );
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'click',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   it('should trigger onSearch when click search button with customize button', () => {
@@ -107,17 +84,9 @@ describe('Input.Search', () => {
         onSearch={onSearch}
       />,
     );
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'click',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   it('should trigger onSearch when click search button of native', () => {
@@ -134,56 +103,32 @@ describe('Input.Search', () => {
         onSearch={onSearch}
       />,
     );
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'click',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
     expect(onButtonClick).toHaveBeenCalledTimes(1);
   });
 
   it('should trigger onSearch when press enter', () => {
     const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
-    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'keydown',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   // https://github.com/ant-design/ant-design/issues/34844
   it('should not trigger onSearch when press enter using chinese inputting method', () => {
     const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
-    fireEvent.compositionStart(container.querySelector('input'));
-    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });
+    fireEvent.compositionStart(container.querySelector('input')!);
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).not.toHaveBeenCalled();
 
-    fireEvent.compositionEnd(container.querySelector('input'));
-    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });
+    fireEvent.compositionEnd(container.querySelector('input')!);
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith(
-      'search text',
-      expect.anything(),
-      // FIXME: should use following code
-      // expect.objectContaining({
-      //   type: 'keydown',
-      //   preventDefault: expect.any(Function),
-      // }),
-    );
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
   });
 
   // https://github.com/ant-design/ant-design/issues/14785
@@ -204,7 +149,7 @@ describe('Input.Search', () => {
     const { container } = render(
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
-    fireEvent.click(container.querySelector('.ant-input-clear-icon'));
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
     expect(onChange).toHaveBeenCalled();
   });
@@ -236,13 +181,13 @@ describe('Input.Search', () => {
   });
 
   it('should prevent search button mousedown event', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<InputRef>();
     const { container } = render(<Search ref={ref} enterButton="button text" />, {
       container: document.body,
     });
-    ref.current.focus();
+    ref.current?.focus();
     expect(document.activeElement).toBe(container.querySelector('input'));
-    fireEvent.mouseDown(container.querySelector('button'));
+    fireEvent.mouseDown(container.querySelector('button')!);
     expect(document.activeElement).toBe(container.querySelector('input'));
   });
 
@@ -250,7 +195,7 @@ describe('Input.Search', () => {
     const ref = jest.fn();
     const { container } = render(<Search ref={ref} enterButton />);
     expect(() => {
-      fireEvent.mouseDown(container.querySelector('button'));
+      fireEvent.mouseDown(container.querySelector('button')!);
     }).not.toThrow();
   });
 
@@ -258,10 +203,10 @@ describe('Input.Search', () => {
   it('Search with allowClear should have one className only', () => {
     const { container } = render(<Search allowClear className="className" />);
     expect(
-      container.querySelector('.ant-input-group-wrapper').classList.contains('className'),
+      container.querySelector('.ant-input-group-wrapper')?.classList.contains('className'),
     ).toBe(true);
     expect(
-      container.querySelector('.ant-input-affix-wrapper').classList.contains('className'),
+      container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
     ).toBe(false);
   });
 });

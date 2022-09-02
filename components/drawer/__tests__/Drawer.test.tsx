@@ -1,12 +1,13 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import type { DrawerProps } from '..';
 import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-const DrawerTest = ({ getContainer }) => (
+const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
     <Drawer visible width={400} getContainer={getContainer}>
       Here is content of Drawer
@@ -59,35 +60,37 @@ describe('Drawer', () => {
   });
 
   it('getContainer return undefined', () => {
-    const { container: wrapper, rerender } = render(<DrawerTest getContainer={() => undefined} />);
+    const { container, rerender } = render(
+      <DrawerTest getContainer={() => undefined as unknown as HTMLElement} />,
+    );
     triggerMotion();
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
 
     rerender(<DrawerTest getContainer={false} />);
     triggerMotion();
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('render top drawer', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <Drawer visible height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
 
     triggerMotion();
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('have a title', () => {
-    const { container: wrapper } = render(
+    const { container } = render(
       <Drawer visible title="Test Title" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
 
     triggerMotion();
-    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('closable is false', () => {
