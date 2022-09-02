@@ -47,11 +47,11 @@ const getGroup = (props?: ButtonGroupProps) => (
 
 const App: React.FC = () => (
   <>
-    {getGroup({ size: 'small' })}
+    {getGroup({ size: 'small', compact: true })}
     <br />
-    {getGroup()}
+    {getGroup({ compact: true })}
     <br />
-    {getGroup({ size: 'large' })}
+    {getGroup({ size: 'large', compact: true })}
   </>
 );
 

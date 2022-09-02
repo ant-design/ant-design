@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
+import type { SizeType, inGroup } from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
 export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -14,7 +14,7 @@ export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
 }
 
-export const GroupSizeContext = React.createContext<{
+export const GroupContext = React.createContext<{
   size: SizeType;
   compact: boolean;
   inGroup: boolean;
@@ -26,10 +26,16 @@ export const GroupSizeContext = React.createContext<{
 
 const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const contextSize = React.useContext(SizeContext);
 
-  const { prefixCls: customizePrefixCls, size, className, compact, ...others } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    size = contextSize,
+    className,
+    compact,
+    ...restProps
+  } = props;
   const prefixCls = getPrefixCls('group', customizePrefixCls);
-  const groupPrefixClx = getPrefixCls(`${props.type}-group`, customizePrefixCls);
 
   const sizeCls = React.useMemo(() => {
     // large => lg
@@ -50,11 +56,10 @@ const Group: React.FC<GroupProps> = props => {
 
   const classes = classNames(
     prefixCls,
-    groupPrefixClx,
     {
-      [`${groupPrefixClx}-${sizeCls}`]: sizeCls,
-      [`${groupPrefixClx}-rtl`]: direction === 'rtl',
-      [`${groupPrefixClx}-compact`]: compact,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-compact`]: compact,
     },
     className,
   );
@@ -69,9 +74,9 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   return (
-    <GroupSizeContext.Provider value={sizeValue}>
-      <div {...others} className={classes} />
-    </GroupSizeContext.Provider>
+    <GroupContext.Provider value={sizeValue}>
+      <div {...restProps} className={classes} />
+    </GroupContext.Provider>
   );
 };
 

@@ -13,7 +13,7 @@ import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import Group from './button-group';
 import LoadingIcon from './LoadingIcon';
-import { GroupSizeContext } from '../space/Group';
+import { GroupContext } from '../space/Group';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -165,7 +165,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled || disabled;
 
-  const groupSize = React.useContext(GroupSizeContext);
+  const { size: groupSize, compact, inGroup } = React.useContext(GroupContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
@@ -263,6 +263,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-disabled`]: linkButtonRestProps.href !== undefined && mergedDisabled,
+      [`${prefixCls}-in-group`]: inGroup,
+      [`${prefixCls}-in-compact-group`]: compact,
     },
     className,
   );

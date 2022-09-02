@@ -73,7 +73,7 @@ const options = [
 
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
-    <Group size="large" type="input">
+    <Group size="large">
       <Row gutter={8}>
         <Col span={5}>
           <Input defaultValue="0571" />
@@ -94,7 +94,7 @@ const App: React.FC = () => (
       </Row>
     </Input.Group>
     <br />
-    <Group type="input" compact>
+    <Group compact>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
     </Group>
