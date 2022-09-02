@@ -39,13 +39,7 @@ describe('BackTop', () => {
 
   it('invalid target', async () => {
     const onClick = jest.fn();
-    const { container } = render(
-      <BackTop
-        onClick={onClick}
-        visible
-        target={() => ({ documentElement: {} } as unknown as HTMLElement)}
-      />,
-    );
+    const { container } = render(<BackTop onClick={onClick} visible target={undefined} />);
     fireEvent.click(container.querySelector('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
