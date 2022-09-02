@@ -6934,7 +6934,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/dropdown/demo/overlay-visible.md extend context correctly 1`] = `
+exports[`renders ./components/dropdown/demo/overlay-open.md extend context correctly 1`] = `
 Array [
   <a
     class="ant-dropdown-trigger"

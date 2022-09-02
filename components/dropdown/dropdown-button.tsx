@@ -52,7 +52,9 @@ const DropdownButton: DropdownButtonInterface = props => {
     trigger,
     align,
     visible,
+    open,
     onVisibleChange,
+    onOpenChange,
     placement,
     getPopupContainer,
     href,
@@ -73,7 +75,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlay,
     disabled,
     trigger: disabled ? [] : trigger,
-    onVisibleChange,
+    onOpenChange: onOpenChange || onVisibleChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
@@ -82,8 +84,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     destroyPopupOnHide,
   } as DropdownProps;
 
-  if ('visible' in props) {
-    dropdownProps.visible = visible;
+  if ('open' in props) {
+    dropdownProps.open = open;
+  } else if ('visible' in props) {
+    dropdownProps.open = visible;
   }
 
   if ('placement' in props) {

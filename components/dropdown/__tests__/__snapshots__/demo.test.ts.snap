@@ -755,7 +755,7 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
 </a>
 `;
 
-exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
+exports[`renders ./components/dropdown/demo/overlay-open.md correctly 1`] = `
 <a
   class="ant-dropdown-trigger"
 >
