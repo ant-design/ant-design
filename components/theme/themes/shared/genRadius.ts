@@ -14,7 +14,7 @@ const genRadius = (
   } else if (radiusBase < 16 && radiusBase >= 6) {
     radiusLG = radiusBase + 2;
   } else if (radiusBase >= 16) {
-    radiusLG = radiusBase;
+    radiusLG = 16;
   }
 
   // radiusSM
@@ -27,7 +27,7 @@ const genRadius = (
   } else if (radiusBase < 16 && radiusBase >= 14) {
     radiusSM = 7;
   } else if (radiusBase >= 16) {
-    radiusSM = radiusBase / 2;
+    radiusSM = 8;
   }
 
   // radiusXS
@@ -45,7 +45,7 @@ const genRadius = (
   }
 
   return {
-    radiusBase,
+    radiusBase: radiusBase > 16 ? 16 : radiusBase,
     radiusXS,
     radiusSM,
     radiusLG,
