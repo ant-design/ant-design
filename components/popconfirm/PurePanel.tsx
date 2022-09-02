@@ -54,7 +54,7 @@ export function Overlay(props: OverlayProps) {
       {(popconfirmLocale: PopconfirmLocale) => (
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
-            {icon}
+            {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
             <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
