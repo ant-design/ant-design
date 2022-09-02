@@ -190,19 +190,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             },
           },
 
-          [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
-            [`+ tr${componentCls}-row > td`]: {
-              borderTopColor: 'transparent',
-            },
-          },
-
           '&:last-child > td': {
             borderBottom: tableBorder,
-          },
-
-          [`&${componentCls}-row:last-child:hover > td,
-            &${componentCls}-row${componentCls}-row-selected > td`]: {
-            borderBottomColor: 'transparent',
           },
 
           [`
@@ -210,38 +199,47 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,
-            borderTopColor: 'transparent',
-
-            '&:first-child': {
-              borderStartStartRadius: tableRadius,
-              borderEndStartRadius: tableRadius,
-            },
-
-            '&:last-child': {
-              borderStartEndRadius: tableRadius,
-              borderEndEndRadius: tableRadius,
-            },
           },
 
           [`&${componentCls}-row-selected`]: {
             '> td': {
               background: tableSelectedRowBg,
-              borderTopColor: 'transparent',
-
-              '&:first-child': {
-                borderStartStartRadius: tableRadius,
-                borderEndStartRadius: tableRadius,
-              },
-
-              '&:last-child': {
-                borderStartEndRadius: tableRadius,
-                borderEndEndRadius: tableRadius,
-              },
             },
 
             '&:hover > td': {
               background: tableSelectedRowHoverBg,
             },
+          },
+        },
+      },
+
+      [`${componentCls}:not(${componentCls}-bordered) ${componentCls}-tbody > tr`]: {
+        [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
+          [`+ tr${componentCls}-row > td`]: {
+            borderTopColor: 'transparent',
+          },
+        },
+
+        [`&${componentCls}-row:last-child:hover > td,
+          &${componentCls}-row${componentCls}-row-selected:last-child > td`]: {
+          borderBottomColor: 'transparent',
+        },
+
+        [`
+          &${componentCls}-row:hover > td,
+          > td${componentCls}-cell-row-hover,
+          &${componentCls}-row${componentCls}-row-selected > td
+        `]: {
+          borderTopColor: 'transparent',
+
+          '&:first-child': {
+            borderStartStartRadius: tableRadius,
+            borderEndStartRadius: tableRadius,
+          },
+
+          '&:last-child': {
+            borderStartEndRadius: tableRadius,
+            borderEndEndRadius: tableRadius,
           },
         },
       },
