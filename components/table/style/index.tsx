@@ -138,6 +138,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           fontWeight: fontWeightStrong,
           textAlign: 'start',
           background: tableHeaderBg,
+          borderBottom: tableBorder,
           transition: `background ${motionDurationSlow} ease`,
 
           "&[colspan]:not([colspan='1'])": {
@@ -192,6 +193,11 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
           '&:last-child > td': {
             borderBottom: tableBorder,
+          },
+
+          [`&:first-child > td,
+            &${componentCls}-measure-row + tr > td`]: {
+            borderTop: 'none',
           },
 
           [`
