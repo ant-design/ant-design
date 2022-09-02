@@ -1,5 +1,6 @@
 import type { CommonMapToken, SeedToken } from '../../interface';
 import genFontSizes from './genFontSizes';
+import genRadius from './genRadius';
 
 export default function genCommonMapToken(token: SeedToken): CommonMapToken {
   const {
@@ -44,10 +45,7 @@ export default function genCommonMapToken(token: SeedToken): CommonMapToken {
     lineWidthBold: lineWidth + 1,
 
     // radius
-    radiusXS: radiusBase / 3,
-    radiusSM: (radiusBase * 2) / 3,
-    radiusLG: (radiusBase * 4) / 3,
-    radiusOuter: (radiusBase * 4) / 3,
+    ...genRadius(radiusBase),
 
     // control
     controlHeightSM: controlHeight * 0.75,
