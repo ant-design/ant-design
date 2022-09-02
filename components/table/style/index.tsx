@@ -196,11 +196,33 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             > td${componentCls}-cell-row-hover
           `]: {
             background: tableRowHoverBg,
+            borderBottomColor: 'transparent',
+
+            '&:first-child': {
+              borderStartStartRadius: tableRadius,
+              borderEndStartRadius: tableRadius,
+            },
+
+            '&:last-child': {
+              borderStartEndRadius: tableRadius,
+              borderEndEndRadius: tableRadius,
+            },
           },
 
           [`&${componentCls}-row-selected`]: {
             '> td': {
               background: tableSelectedRowBg,
+              borderBottomColor: 'transparent',
+
+              '&:first-child': {
+                borderStartStartRadius: tableRadius,
+                borderEndStartRadius: tableRadius,
+              },
+
+              '&:last-child': {
+                borderStartEndRadius: tableRadius,
+                borderEndEndRadius: tableRadius,
+              },
             },
 
             '&:hover > td': {
