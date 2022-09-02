@@ -332,7 +332,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         Modal[type]?.({
           title: 'title',
           content: 'content',
-          onOk: close => null, // eslint-disable-line no-unused-vars
+          onOk: _ => null, // eslint-disable-line no-unused-vars
         });
         await act(async () => {
           jest.runAllTimers();
