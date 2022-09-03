@@ -1,7 +1,6 @@
 import React from 'react';
 import Space from '..';
 import { render } from '../../../tests/utils';
-// eslint-disable-next-line no-unused-vars
 
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
@@ -17,7 +16,15 @@ describe('flex gap', () => {
         <span />
       </Space>,
     );
-    expect(container.querySelector('div.ant-space').style['column-gap']).toBe('8px');
-    expect(container.querySelector('div.ant-space').style['row-gap']).toBe('8px');
+    expect(
+      container.querySelector<HTMLDivElement>('div.ant-space')?.style[
+        'column-gap' as keyof CSSStyleDeclaration
+      ],
+    ).toBe('8px');
+    expect(
+      container.querySelector<HTMLDivElement>('div.ant-space')?.style[
+        'row-gap' as keyof CSSStyleDeclaration
+      ],
+    ).toBe('8px');
   });
 });

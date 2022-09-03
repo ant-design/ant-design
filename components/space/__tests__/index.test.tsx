@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import Space from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -65,8 +66,12 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginRight).toBe('10px');
-    expect(container.querySelectorAll('div.ant-space-item')[1].style.marginRight).toBe('');
+    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
+      '10px',
+    );
+    expect(
+      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginRight,
+    ).toBe('');
   });
 
   it('should render width size 0', () => {
@@ -77,7 +82,9 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginRight).toBe('0px');
+    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginRight).toBe(
+      '0px',
+    );
   });
 
   it('should render vertical space width customize size', () => {
@@ -88,8 +95,12 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(container.querySelector('div.ant-space-item').style.marginBottom).toBe('10px');
-    expect(container.querySelectorAll('div.ant-space-item')[1].style.marginBottom).toBe('');
+    expect(container.querySelector<HTMLDivElement>('div.ant-space-item')?.style.marginBottom).toBe(
+      '10px',
+    );
+    expect(
+      container.querySelectorAll<HTMLDivElement>('div.ant-space-item')[1]?.style.marginBottom,
+    ).toBe('');
   });
 
   it('should render correct with children', () => {
@@ -147,11 +158,11 @@ describe('Space', () => {
 
     expect(container.querySelector('#demo')).toHaveTextContent('1');
 
-    fireEvent.click(container.querySelector('#demo'));
+    fireEvent.click(container.querySelector('#demo')!);
 
     expect(container.querySelector('#demo')).toHaveTextContent('2');
 
-    fireEvent.click(container.querySelector('p'));
+    fireEvent.click(container.querySelector('p')!);
 
     expect(container.querySelector('#demo')).toHaveTextContent('2');
   });
@@ -179,13 +190,11 @@ describe('Space', () => {
         <div />
       </Space>,
     );
-    // eslint-disable-next-line no-console
     expect(console.error).not.toHaveBeenCalledWith(
       expect.stringContaining('Encountered two children with the same key'),
       expect.anything(),
       expect.anything(),
     );
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    (console.error as any).mockRestore();
   });
 });
