@@ -1,4 +1,5 @@
 import React from 'react';
+import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -162,7 +163,9 @@ describe('Progress', () => {
   // https://github.com/ant-design/ant-design/pull/15951#discussion_r273062969
   it('should show success status when status is invalid', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container: wrapper } = render(<Progress percent={100} status="invalid" />);
+    const { container: wrapper } = render(
+      <Progress percent={100} status={'invalid' as ProgressProps['status']} />,
+    );
     expect(wrapper.querySelectorAll('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
   });
@@ -183,21 +186,23 @@ describe('Progress', () => {
     const { container: wrapper, rerender } = render(
       <Progress steps={5} percent={60} strokeColor="#1890ff" />,
     );
-    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[0].style.backgroundColor).toBe(
-      'rgb(24, 144, 255)',
-    );
+    expect(
+      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
+    ).toBe('rgb(24, 144, 255)');
     rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
-    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[2].style.backgroundColor).toBe('');
-    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[1].style.backgroundColor).toBe(
-      'rgb(24, 144, 255)',
-    );
+    expect(
+      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
+    ).toBe('');
+    expect(
+      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
+    ).toBe('rgb(24, 144, 255)');
   });
 
   it('steps should support trailColor', () => {
     const { container: wrapper } = render(<Progress steps={5} percent={20} trailColor="#1890ee" />);
-    expect(wrapper.querySelectorAll('.ant-progress-steps-item')[1].style.backgroundColor).toBe(
-      'rgb(24, 144, 238)',
-    );
+    expect(
+      wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
+    ).toBe('rgb(24, 144, 238)');
   });
 
   it('should display correct step', () => {
@@ -210,8 +215,8 @@ describe('Progress', () => {
   });
 
   it('steps should have default percent 0', () => {
-    const { container: wrapper } = render(<ProgressSteps />);
-    expect(wrapper.firstChild).toMatchSnapshot();
+    const { container } = render(<ProgressSteps steps={0} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should warnning if use `progress` in success', () => {

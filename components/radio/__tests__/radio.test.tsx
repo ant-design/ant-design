@@ -27,10 +27,10 @@ describe('Radio', () => {
 
     const { container } = render(<Radio onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
 
-    fireEvent.mouseEnter(container.querySelector('label'));
+    fireEvent.mouseEnter(container.querySelector('label')!);
     expect(onMouseEnter).toHaveBeenCalled();
 
-    fireEvent.mouseLeave(container.querySelector('label'));
+    fireEvent.mouseLeave(container.querySelector('label')!);
     expect(onMouseLeave).toHaveBeenCalled();
   });
 });

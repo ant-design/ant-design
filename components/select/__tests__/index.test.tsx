@@ -1,4 +1,5 @@
 import React from 'react';
+import type { SelectProps } from '..';
 import Select from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -13,8 +14,8 @@ describe('Select', () => {
   mountTest(Select);
   rtlTest(Select);
 
-  function toggleOpen(container) {
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+  function toggleOpen(container: ReturnType<typeof render>['container']): void {
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -42,14 +43,19 @@ describe('Select', () => {
   });
 
   it('should not have default notFoundContent when mode is combobox', () => {
-    const { container } = render(<Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} />);
+    const { container } = render(
+      <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']} />,
+    );
     toggleOpen(container);
     expect(container.querySelector('.ant-empty')).toBeFalsy();
   });
 
   it('should not have notFoundContent when mode is combobox and notFoundContent is set', () => {
     const { container } = render(
-      <Select mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE} notFoundContent="not at all" />,
+      <Select
+        mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
+        notFoundContent="not at all"
+      />,
     );
     toggleOpen(container);
     expect(container.querySelector('.ant-select-item-option')).toBeFalsy();
@@ -58,9 +64,9 @@ describe('Select', () => {
 
   it('should be controlled by open prop', () => {
     const onDropdownVisibleChange = jest.fn();
-    const TestComponent = () => {
+    const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange = value => {
+      const handleChange: SelectProps['onDropdownVisibleChange'] = value => {
         onDropdownVisibleChange(value);
         setOpen(value);
       };
@@ -93,6 +99,7 @@ describe('Select', () => {
   //
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
+      const count = { count: 10 };
       const { rerender, asFragment } = render(
         <Select
           removeIcon={<Icon type="close" />}
@@ -104,7 +111,7 @@ describe('Select', () => {
       );
       rerender(
         <Select
-          count={10}
+          {...count}
           removeIcon={<Icon type="close" />}
           clearIcon={<Icon type="close" />}
           menuItemSelectedIcon={<Icon type="close" />}
@@ -122,7 +129,7 @@ describe('Select', () => {
   describe('Deprecated', () => {
     it('should ignore mode="combobox"', () => {
       const { asFragment } = render(
-        <Select mode="combobox">
+        <Select mode={'combobox' as SelectProps['mode']}>
           <Option value="1">1</Option>
         </Select>,
       );
