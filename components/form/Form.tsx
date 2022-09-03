@@ -27,7 +27,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
-  form?: FormInstance<Values>;
+  form?: Ref<FormInstance<Values>>;
   size?: SizeType;
   disabled?: boolean;
   scrollToFirstError?: Options | boolean;
