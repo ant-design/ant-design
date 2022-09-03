@@ -521,6 +521,33 @@
   & + & {
     margin-left: -1px;
   }
+
+  & .@{btnClassName}-primary:not(:first-child):not(:last-child) {
+    border-right-color: @btn-group-border;
+    border-left-color: @btn-group-border;
+
+    &[disabled] {
+      border-color: @btn-default-border;
+    }
+  }
+
+  & .@{btnClassName}-primary:first-child:not(:last-child) {
+    border-right-color: @btn-group-border;
+
+    &[disabled] {
+      border-right-color: @btn-default-border;
+    }
+  }
+
+  & .@{btnClassName}-primary:last-child:not(:first-child),
+  & .@{btnClassName}-primary + .@{btnClassName}-primary {
+    border-left-color: @btn-group-border;
+
+    &[disabled] {
+      border-left-color: @btn-default-border;
+    }
+  }
+
   .@{btnClassName}-primary + .@{btnClassName}:not(.@{btnClassName}-primary):not([disabled]) {
     border-left-color: transparent;
   }
