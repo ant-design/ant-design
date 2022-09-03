@@ -1,6 +1,6 @@
 import warning from '../_util/warning';
 
-const Icon: React.FC<any> = () => {
+const Icon = () => {
   warning(false, 'Icon', 'Empty Icon');
   return null;
 };
