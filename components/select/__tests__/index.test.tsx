@@ -100,11 +100,12 @@ describe('Select', () => {
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const count = { count: 10 };
+      const type = { type: 'close' } as any;
       const { rerender, asFragment } = render(
         <Select
-          removeIcon={<Icon type="close" />}
-          clearIcon={<Icon type="close" />}
-          menuItemSelectedIcon={<Icon type="close" />}
+          removeIcon={<Icon {...type} />}
+          clearIcon={<Icon {...type} />}
+          menuItemSelectedIcon={<Icon {...type} />}
         >
           <Option value="1">1</Option>
         </Select>,
@@ -112,9 +113,9 @@ describe('Select', () => {
       rerender(
         <Select
           {...count}
-          removeIcon={<Icon type="close" />}
-          clearIcon={<Icon type="close" />}
-          menuItemSelectedIcon={<Icon type="close" />}
+          removeIcon={<Icon {...type} />}
+          clearIcon={<Icon {...type} />}
+          menuItemSelectedIcon={<Icon {...type} />}
         >
           <Option value="1">1</Option>
         </Select>,
