@@ -177,13 +177,13 @@ const App: React.FC = () => (
     <DatePicker open />
     <TimePicker open defaultOpenValue={moment()} />
     <RangePicker open style={{ width: 200 }} />
-    <Popconfirm title="Question?" visible>
+    <Popconfirm title="Question?" open>
       <a>Click to confirm</a>
     </Popconfirm>
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={(item: any) => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
-    <Modal title="Locale Modal" visible getContainer={false}>
+    <Modal title="Locale Modal" open getContainer={false}>
       <p>Locale Modal</p>
     </Modal>
   </div>

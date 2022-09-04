@@ -18,20 +18,20 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -41,7 +41,7 @@ const App: React.FC = () => {
       </Button>
       <Modal
         title="Basic Modal"
-        visible={visible}
+        open={open}
         onOk={handleOk}
         onCancel={handleCancel}
         okButtonProps={{ disabled: true }}

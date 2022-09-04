@@ -120,7 +120,7 @@ return <Menu items={items} />;
 #### SubMenuType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | children | 子菜单的菜单项 | [ItemType\[\]](#ItemType) | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - |  |

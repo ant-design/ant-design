@@ -17,8 +17,6 @@ You can add extra actions to the right or left or even both side of Tabs.
 import { Button, Checkbox, Divider, Tabs } from 'antd';
 import React, { useMemo, useState } from 'react';
 
-const { TabPane } = Tabs;
-
 const CheckboxGroup = Checkbox.Group;
 
 const operations = <Button>Extra Action</Button>;
@@ -31,6 +29,15 @@ const OperationsSlot: Record<PositionType, React.ReactNode> = {
 const options = ['left', 'right'];
 
 type PositionType = 'left' | 'right';
+
+const items = new Array(3).fill(null).map((_, i) => {
+  const id = String(i + 1);
+  return {
+    label: `Tab ${id}`,
+    key: id,
+    children: `Content of tab ${id}`,
+  };
+});
 
 const App: React.FC = () => {
   const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
@@ -46,17 +53,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Tabs tabBarExtraContent={operations}>
-        <TabPane tab="Tab 1" key="1">
-          Content of tab 1
-        </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of tab 2
-        </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of tab 3
-        </TabPane>
-      </Tabs>
+      <Tabs tabBarExtraContent={operations} items={items} />
       <br />
       <br />
       <br />
@@ -71,17 +68,7 @@ const App: React.FC = () => {
       />
       <br />
       <br />
-      <Tabs tabBarExtraContent={slot}>
-        <TabPane tab="Tab 1" key="1">
-          Content of tab 1
-        </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of tab 2
-        </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of tab 3
-        </TabPane>
-      </Tabs>
+      <Tabs tabBarExtraContent={slot} items={items} />
     </>
   );
 };

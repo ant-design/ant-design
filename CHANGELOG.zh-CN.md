@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 4.23.0
+
+`2022-09-04`
+
+- 🆕 Tooltip 支持 Fragment 子节点展示气泡。[#37045](https://github.com/ant-design/ant-design/pull/37045) [@HQ-Lin](https://github.com/HQ-Lin)
+- 🆕 Dropdown.Button 支持 `danger` 样式。[#36810](https://github.com/ant-design/ant-design/pull/36810) [@nuintun](https://github.com/nuintun)
+- 🆕 Input.TextArea 组件 `showCount.formatter` API 添加 `value` 参数。[#36793](https://github.com/ant-design/ant-design/pull/36793) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Table 新增 `expandable.columnTitle` 属性以支持自定义展开列表头。[#36794](https://github.com/ant-design/ant-design/pull/36794) [@losgif](https://github.com/losgif)
+- 🛠 废弃所有弹窗组件的 `visible` 属性，统一为 `open`。
+  - 🛠 Dropdown 的 `visible` 改为 `open`。[#37232](https://github.com/ant-design/ant-design/pull/37232) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 Modal 组件的 `visible` 改为 `open`。[#37084](https://github.com/ant-design/ant-design/pull/37084) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 Drawer 的 `visible` 改为 `open`。[#37047](https://github.com/ant-design/ant-design/pull/37047) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 Table 组件 `columns` 中的 `filterDropdownVisible` 改为 `filterDropdownOpen`。[#37026](https://github.com/ant-design/ant-design/pull/37026) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 Tooltip, Popover 和 Popconfirm 中的 `visible` 改为 `open`。[#37241](https://github.com/ant-design/ant-design/pull/37241) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 Slider 的 `tooltip` 相关属性合并到 `tooltip` 属性中。[#37000](https://github.com/ant-design/ant-design/pull/37000) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 移除 Tag 组件的 `visible` 属性。[#36934](https://github.com/ant-design/ant-design/pull/36934) [@yykoypj](https://github.com/yykoypj)
+- 🛠 废弃所有组件的 `dropdownClassName`，统一为 `popupClassName`。[#36880](https://github.com/ant-design/ant-design/pull/36880) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 Tabs 支持 `items` 属性，并且废弃原 jsx 语法糖用法。[#36889](https://github.com/ant-design/ant-design/pull/36889)
+- 🐞 修复 css 变量与 less 变量不一致的问题。
+  - [#37064](https://github.com/ant-design/ant-design/pull/37064) [@TrickyPi](https://github.com/TrickyPi)
+  - [#37304](https://github.com/ant-design/ant-design/pull/37304) [@peritot](https://github.com/peritot)
+- 🐞 修复 Menu 禁用项依然有 focus 样式的问题。[#37332](https://github.com/ant-design/ant-design/pull/37332)
+- 💄 `@border-radius-sm` 变量默认值不与 `@border-radius-base` 关联，以修复 Checkbox 等组件圆角样式异常。[#37309](https://github.com/ant-design/ant-design/pull/37309)
+- 💄 支持使用 `@slider-handle-margin-left` 定制样式。[#37001](https://github.com/ant-design/ant-design/pull/37001) [@alanhaledc](https://github.com/alanhaledc)
+- 💄 替换 Tabs 切换样式为渐隐过渡，以提升在切换时的体验。[#36943](https://github.com/ant-design/ant-design/pull/36943)
+- ⌨️ 改进 Form 校验无障碍体验。[#36762](https://github.com/ant-design/ant-design/pull/36762) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
+- 🌐 补全 `ru_RU` 中 `filterCheckall` 的翻译。[#37311](https://github.com/ant-design/ant-design/pull/37311) [@HelLuv](https://github.com/HelLuv)
+- 🌐 补全 `cs_CZ` 的翻译。[#37388](https://github.com/ant-design/ant-design/pull/37388) [@ZdenekKrcal](https://github.com/ZdenekKrcal)
+
+---
+
 ## 4.22.8
 
 `2022-08-26`

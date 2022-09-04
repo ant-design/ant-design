@@ -4,18 +4,18 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 
 class MultiDrawer extends React.Component {
-  state = { visible: false, childrenDrawer: false, hasChildren: true };
+  state = { open: false, childrenDrawer: false, hasChildren: true };
 
   showDrawer = () => {
     this.setState({
-      visible: true,
+      open: true,
       hasChildren: true,
     });
   };
 
   onClose = () => {
     this.setState({
-      visible: false,
+      open: false,
     });
   };
 
@@ -39,7 +39,7 @@ class MultiDrawer extends React.Component {
   };
 
   render() {
-    const { childrenDrawer, visible, hasChildren } = this.state;
+    const { childrenDrawer, open, hasChildren } = this.state;
     const { placement, push } = this.props;
     return (
       <div>
@@ -56,7 +56,7 @@ class MultiDrawer extends React.Component {
           onClose={this.onClose}
           getContainer={false}
           placement={placement}
-          visible={visible}
+          open={open}
           push={push}
         >
           <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
@@ -70,7 +70,7 @@ class MultiDrawer extends React.Component {
               getContainer={false}
               placement={placement}
               onClose={this.onChildrenDrawerClose}
-              visible={childrenDrawer}
+              open={childrenDrawer}
             >
               <div id="two_drawer_text">This is two-level drawer</div>
             </Drawer>

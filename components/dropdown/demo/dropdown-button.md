@@ -82,6 +82,9 @@ const App: React.FC = () => (
         </Space>
       </Button>
     </Dropdown>
+    <Dropdown.Button danger onClick={handleButtonClick} overlay={menu}>
+      Danger
+    </Dropdown.Button>
   </Space>
 );
 

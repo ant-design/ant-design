@@ -55,8 +55,18 @@ export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
+  /**
+   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
+   *   use `onOpenChange` instead.
+   */
   onVisibleChange?: (visible: boolean) => void;
+  onOpenChange?: (open: boolean) => void;
+  /**
+   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
+   *   `open` instead.
+   */
   visible?: boolean;
+  open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
   align?: Align;
@@ -84,6 +94,20 @@ const Dropdown: DropdownInterface = props => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
+
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Dropdown',
+        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+      );
+    });
+  }
 
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
@@ -125,7 +149,9 @@ const Dropdown: DropdownInterface = props => {
     getPopupContainer,
     overlayClassName,
     visible,
+    open,
     onVisibleChange,
+    onOpenChange,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -149,13 +175,14 @@ const Dropdown: DropdownInterface = props => {
   }
 
   // =========================== Visible ============================
-  const [mergedVisible, setVisible] = useMergedState(false, {
-    value: visible,
+  const [mergedOpen, setOpen] = useMergedState(false, {
+    value: open !== undefined ? open : visible,
   });
 
-  const onInnerVisibleChange = useEvent((nextVisible: boolean) => {
-    onVisibleChange?.(nextVisible);
-    setVisible(nextVisible);
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    onVisibleChange?.(nextOpen);
+    onOpenChange?.(nextOpen);
+    setOpen(nextOpen);
   });
 
   // =========================== Overlay ============================
@@ -169,7 +196,7 @@ const Dropdown: DropdownInterface = props => {
   });
 
   const onMenuClick = React.useCallback(() => {
-    setVisible(false);
+    setOpen(false);
   }, []);
 
   const renderOverlay = () => {
@@ -217,7 +244,7 @@ const Dropdown: DropdownInterface = props => {
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
-      visible={mergedVisible}
+      visible={mergedOpen}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
@@ -227,7 +254,7 @@ const Dropdown: DropdownInterface = props => {
       trigger={triggerActions}
       overlay={renderOverlay}
       placement={getPlacement()}
-      onVisibleChange={onInnerVisibleChange}
+      onVisibleChange={onInnerOpenChange}
     >
       {dropdownTrigger}
     </RcDropdown>
