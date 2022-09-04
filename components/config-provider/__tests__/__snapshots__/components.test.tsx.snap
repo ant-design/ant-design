@@ -29052,6 +29052,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
 exports[`ConfigProvider components Tabs configProvider 1`] = `
 <div
   class="config-tabs config-tabs-top"
+  items="[object Object]"
 >
   <div
     class="config-tabs-nav"
@@ -29064,20 +29065,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
         class="config-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="config-tabs-tab config-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="config-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -29124,16 +29111,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29141,6 +29119,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
 exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
 <div
   class="config-tabs config-tabs-top"
+  items="[object Object]"
 >
   <div
     class="config-tabs-nav"
@@ -29153,20 +29132,6 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
         class="config-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="config-tabs-tab config-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="config-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -29213,16 +29178,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29230,6 +29186,7 @@ exports[`ConfigProvider components Tabs configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tabs configProvider componentSize large 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-large"
+  items="[object Object]"
 >
   <div
     class="config-tabs-nav"
@@ -29242,20 +29199,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
         class="config-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="config-tabs-tab config-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="config-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -29302,16 +29245,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29319,6 +29253,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
   class="config-tabs config-tabs-top config-tabs-middle"
+  items="[object Object]"
 >
   <div
     class="config-tabs-nav"
@@ -29331,20 +29266,6 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
         class="config-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="config-tabs-tab config-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="config-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="config-tabs-ink-bar config-tabs-ink-bar-animated"
         />
@@ -29391,16 +29312,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
   >
     <div
       class="config-tabs-content config-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="config-tabs-tabpane config-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29408,6 +29320,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
+  items="[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -29420,20 +29333,6 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -29480,16 +29379,7 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29497,6 +29387,7 @@ exports[`ConfigProvider components Tabs configProvider virtual and dropdownMatch
 exports[`ConfigProvider components Tabs normal 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
+  items="[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -29509,20 +29400,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -29569,16 +29446,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -29586,6 +29454,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
 exports[`ConfigProvider components Tabs prefixCls 1`] = `
 <div
   class="prefix-Tabs prefix-Tabs-top"
+  items="[object Object]"
 >
   <div
     class="prefix-Tabs-nav"
@@ -29598,20 +29467,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
         class="prefix-Tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="prefix-Tabs-tab prefix-Tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-Light"
-            aria-selected="true"
-            class="prefix-Tabs-tab-btn"
-            id="rc-tabs-test-tab-Light"
-            role="tab"
-            tabindex="0"
-          >
-            Bamboo
-          </div>
-        </div>
         <div
           class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
         />
@@ -29658,16 +29513,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
   >
     <div
       class="prefix-Tabs-content prefix-Tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-Light"
-        class="prefix-Tabs-tabpane prefix-Tabs-tabpane-active"
-        id="rc-tabs-test-panel-Light"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
