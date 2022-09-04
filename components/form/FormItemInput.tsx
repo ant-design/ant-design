@@ -32,6 +32,7 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  fieldId?: string;
 }
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
@@ -45,6 +46,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     _internalItemRender: formItemRender,
     extra,
     help,
+    fieldId,
     marginBottom,
     onErrorVisibleChanged,
   } = props;
@@ -72,6 +74,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
       <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
         <FormItemPrefixContext.Provider value={formItemContext}>
           <ErrorList
+            fieldId={fieldId}
             errors={errors}
             warnings={warnings}
             help={help}
@@ -84,9 +87,19 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
       </div>
     ) : null;
 
+  const extraProps: { id?: string } = {};
+
+  if (fieldId) {
+    extraProps.id = `${fieldId}_extra`;
+  }
+
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
-  const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
+  const extraDom = extra ? (
+    <div {...extraProps} className={`${baseClassName}-extra`}>
+      {extra}
+    </div>
+  ) : null;
 
   const dom =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (

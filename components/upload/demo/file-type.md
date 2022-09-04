@@ -37,7 +37,7 @@ const getBase64 = (file: RcFile): Promise<string> =>
   });
 
 const App: React.FC = () => {
-  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
@@ -69,14 +69,14 @@ const App: React.FC = () => {
     },
   ]);
 
-  const handleCancel = () => setPreviewVisible(false);
+  const handleCancel = () => setPreviewOpen(false);
 
   const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj as RcFile);
     }
 
-    setPreviewVisible(true);
+    setPreviewOpen(true);
     setPreviewImage(file.url || (file.preview as string));
   };
 
@@ -128,7 +128,7 @@ const App: React.FC = () => {
       >
         {fileList.length >= 8 ? null : uploadButton}
       </Upload>
-      <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
+      <Modal open={previewOpen} footer={null} onCancel={handleCancel}>
         <img alt="example" style={{ width: '100%' }} src={previewImage} />
       </Modal>
     </>

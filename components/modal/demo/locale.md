@@ -19,14 +19,14 @@ import { Button, Modal, Space } from 'antd';
 import React, { useState } from 'react';
 
 const LocalizedModal = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const hideModal = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -36,7 +36,7 @@ const LocalizedModal = () => {
       </Button>
       <Modal
         title="Modal"
-        visible={visible}
+        open={open}
         onOk={hideModal}
         onCancel={hideModal}
         okText="确认"

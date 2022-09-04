@@ -8,7 +8,7 @@ import ConfigProvider from '../../config-provider';
 
 const DrawerTest = ({ getContainer }) => (
   <div>
-    <Drawer visible width={400} getContainer={getContainer}>
+    <Drawer open width={400} getContainer={getContainer}>
       Here is content of Drawer
     </Drawer>
   </div>
@@ -48,7 +48,7 @@ describe('Drawer', () => {
 
   it('render correctly', () => {
     const { container: wrapper } = render(
-      <Drawer visible width={400} getContainer={false}>
+      <Drawer open width={400} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -70,7 +70,7 @@ describe('Drawer', () => {
 
   it('render top drawer', () => {
     const { container: wrapper } = render(
-      <Drawer visible height={400} placement="top" getContainer={false}>
+      <Drawer open height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -81,7 +81,7 @@ describe('Drawer', () => {
 
   it('have a title', () => {
     const { container: wrapper } = render(
-      <Drawer visible title="Test Title" getContainer={false}>
+      <Drawer open title="Test Title" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -92,7 +92,7 @@ describe('Drawer', () => {
 
   it('closable is false', () => {
     const { container: wrapper } = render(
-      <Drawer visible closable={false} getContainer={false}>
+      <Drawer open closable={false} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -103,7 +103,7 @@ describe('Drawer', () => {
 
   it('destroyOnClose is true', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose visible={false} getContainer={false}>
+      <Drawer destroyOnClose open={false} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -114,7 +114,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose visible className="test_drawer" getContainer={false}>
+      <Drawer destroyOnClose open className="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -129,7 +129,7 @@ describe('Drawer', () => {
     };
     const { container: wrapper } = render(
       <Drawer
-        visible
+        open
         style={style}
         drawerStyle={style}
         headerStyle={style}
@@ -146,7 +146,7 @@ describe('Drawer', () => {
 
   it('have a footer', () => {
     const { container: wrapper } = render(
-      <Drawer visible footer="Test Footer" getContainer={false}>
+      <Drawer open footer="Test Footer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -176,7 +176,7 @@ describe('Drawer', () => {
 
   it('support closeIcon', () => {
     const { container: wrapper } = render(
-      <Drawer visible closable closeIcon={<span>close</span>} width={400} getContainer={false}>
+      <Drawer open closable closeIcon={<span>close</span>} width={400} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -190,7 +190,7 @@ describe('Drawer', () => {
 
     render(
       <ConfigProvider virtual>
-        <Drawer visible>Bamboo is Light</Drawer>
+        <Drawer open>Bamboo is Light</Drawer>
       </ConfigProvider>,
     );
 
@@ -200,9 +200,22 @@ describe('Drawer', () => {
   });
 
   it('zIndex should work', () => {
-    const { container } = render(<Drawer getContainer={false} visible zIndex={903} />);
+    const { container } = render(<Drawer getContainer={false} open zIndex={903} />);
     expect(container.querySelector('.ant-drawer')).toHaveStyle({
       zIndex: 903,
     });
+  });
+  it('deprecated warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { rerender } = render(<Drawer visible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
+    );
+    rerender(<Drawer afterVisibleChange={() => {}} />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated which will be removed in next major version, please use `afterOpenChange` instead.',
+    );
+    errSpy.mockRestore();
   });
 });
