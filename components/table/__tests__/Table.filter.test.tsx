@@ -249,32 +249,39 @@ describe('Table.filter', () => {
     expect(renderSelectedKeys).toEqual([43]);
   });
 
-  it('can be controlled by filterDropdownVisible', () => {
-    const { container, rerender } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterDropdownVisible: true,
-          },
-        ],
-      }),
-    );
+  describe('filterDropdownOpen & filterDropdownVisible', () => {
+    function test(propName) {
+      it(`can be controlled by ${propName}`, () => {
+        const { container, rerender } = render(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filterDropdownOpen: true,
+              },
+            ],
+          }),
+        );
 
-    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+        expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
-    rerender(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterDropdownVisible: false,
-          },
-        ],
-      }),
-    );
+        rerender(
+          createTable({
+            columns: [
+              {
+                ...column,
+                filterDropdownOpen: false,
+              },
+            ],
+          }),
+        );
 
-    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+        expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+      });
+    }
+
+    test('filterDropdownOpen');
+    test('filterDropdownVisible');
   });
 
   it('if the filter is visible it should ignore the selectedKeys changes', () => {
@@ -289,7 +296,7 @@ describe('Table.filter', () => {
       columns: [
         {
           ...myColumn,
-          filterDropdownVisible: true,
+          filterDropdownOpen: true,
         },
       ],
     };
@@ -327,19 +334,22 @@ describe('Table.filter', () => {
   });
 
   it('fires change event when visible change', () => {
-    const handleChange = jest.fn();
+    const onFilterDropdownOpenChange = jest.fn();
+    const onFilterDropdownVisibleChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
           {
             ...column,
-            onFilterDropdownVisibleChange: handleChange,
+            onFilterDropdownOpenChange,
+            onFilterDropdownVisibleChange,
           },
         ],
       }),
     );
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    expect(handleChange).toHaveBeenCalledWith(true);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
+    expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
   });
 
   it('can be controlled by filteredValue', () => {
@@ -896,7 +906,7 @@ describe('Table.filter', () => {
 
   it('renders custom filter icon with right Tooltip title', () => {
     const filterIcon = () => (
-      <Tooltip title="title" visible>
+      <Tooltip title="title" open>
         Tooltip
       </Tooltip>
     );
@@ -1192,7 +1202,7 @@ describe('Table.filter', () => {
         columns: [
           {
             ...column,
-            filterDropdownVisible: true,
+            filterDropdownOpen: true,
           },
         ],
         getPopupContainer,
@@ -1210,7 +1220,7 @@ describe('Table.filter', () => {
           columns: [
             {
               ...column,
-              filterDropdownVisible: true,
+              filterDropdownOpen: true,
             },
           ],
         })}
@@ -1433,7 +1443,7 @@ describe('Table.filter', () => {
         columns: [
           {
             ...column,
-            filterDropdownVisible: true,
+            filterDropdownOpen: true,
             filterSearch: true,
             filterMode: 'tree',
           },
@@ -1671,8 +1681,8 @@ describe('Table.filter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/30454
-  it('should not trigger onFilterDropdownVisibleChange when call confirm({ closeDropdown: false })', () => {
-    const onFilterDropdownVisibleChange = jest.fn();
+  it('should not trigger onFilterDropdownOpenChange when call confirm({ closeDropdown: false })', () => {
+    const onFilterDropdownOpenChange = jest.fn();
     const { container } = render(
       createTable({
         columns: [
@@ -1695,21 +1705,21 @@ describe('Table.filter', () => {
                 </button>
               </>
             ),
-            onFilterDropdownVisibleChange,
+            onFilterDropdownOpenChange,
           },
         ],
       }),
     );
 
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
-    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-only')!);
-    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('#confirm-only'));
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-and-close')!);
-    expect(onFilterDropdownVisibleChange).toHaveBeenCalledTimes(2);
-    expect(onFilterDropdownVisibleChange).toHaveBeenLastCalledWith(false);
+    fireEvent.click(container.querySelector('#confirm-and-close'));
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(2);
+    expect(onFilterDropdownOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   // Warning: An update to Item ran an effect, but was not wrapped in act(...).

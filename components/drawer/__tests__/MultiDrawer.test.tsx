@@ -10,24 +10,24 @@ interface DrawerPropsType {
 }
 
 interface DrawerStateType {
-  visible: boolean;
+  open: boolean;
   hasChildren: boolean;
   childrenDrawer: boolean;
 }
 
 class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
-  state = { visible: false, childrenDrawer: false, hasChildren: true };
+  state = { open: false, childrenDrawer: false, hasChildren: true };
 
   showDrawer = () => {
     this.setState({
-      visible: true,
+      open: true,
       hasChildren: true,
     });
   };
 
   onClose = () => {
     this.setState({
-      visible: false,
+      open: false,
     });
   };
 
@@ -51,7 +51,7 @@ class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
   };
 
   render() {
-    const { childrenDrawer, visible, hasChildren } = this.state;
+    const { childrenDrawer, open, hasChildren } = this.state;
     const { placement, push } = this.props;
     return (
       <div>
@@ -68,7 +68,7 @@ class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
           onClose={this.onClose}
           getContainer={false}
           placement={placement}
-          visible={visible}
+          open={open}
           push={push}
         >
           <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
@@ -82,7 +82,7 @@ class MultiDrawer extends React.Component<DrawerPropsType, DrawerStateType> {
               getContainer={false}
               placement={placement}
               onClose={this.onChildrenDrawerClose}
-              visible={childrenDrawer}
+              open={childrenDrawer}
             >
               <div id="two_drawer_text">This is two-level drawer</div>
             </Drawer>

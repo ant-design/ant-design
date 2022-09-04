@@ -203,6 +203,158 @@ describe('Form', () => {
     );
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('form_test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('form_test_help');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-invalid')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when the prop `required` is true', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when there is a rule with required', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_extra');
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBe('test_extra');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help test_extra');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {
@@ -710,9 +862,7 @@ describe('Form', () => {
     await sleep(100);
     wrapper.update();
     await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
-      'alert',
-    );
+    expect(wrapper.find('.ant-form-item-explain').getDOMNode().getAttribute('role')).toBe('alert');
   });
 
   it('return same form instance', () => {
@@ -1232,12 +1382,12 @@ describe('Form', () => {
     const Demo = () => (
       <Form>
         <Form.Item labelCol={4} validateStatus="error">
-          <Modal visible>
+          <Modal open>
             <Select className="modal-select" />
           </Modal>
         </Form.Item>
         <Form.Item validateStatus="error">
-          <Drawer visible>
+          <Drawer open>
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>

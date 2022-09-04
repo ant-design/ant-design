@@ -1,17 +1,18 @@
 ---
 order: 5
 title:
-  zh-CN: 控制关闭状态
-  en-US: Controlled
+  zh-CN: 控制关闭状态（废弃）
+  en-US: Controlled (Deprecated)
+debug: true
 ---
 
 ## zh-CN
 
-通过 `visible` 属性控制关闭状态。
+废弃，通过 `visible` 属性控制关闭状态。
 
 ## en-US
 
-By using the `visible` prop, you can control the close state of Tag.
+Deprecated. By using the `visible` prop, you can control the close state of Tag.
 
 ```tsx
 import { Button, Tag } from 'antd';
