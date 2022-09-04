@@ -306,15 +306,9 @@ describe('TextArea', () => {
           value="12345"
         />,
       );
-<<<<<<< HEAD:components/input/__tests__/textarea.test.tsx
       expect(container.querySelector('textarea')?.value).toBe('12345');
       expect(container.querySelector('.ant-input-textarea')?.getAttribute('data-count')).toBe(
-        '5, 5',
-=======
-      expect(container.querySelector('textarea').value).toBe('12345');
-      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
         '12345, 5, 5',
->>>>>>> 7846d69bbf7ded0c46fd90041470bb16303145e9:components/input/__tests__/textarea.test.js
       );
     });
   });
