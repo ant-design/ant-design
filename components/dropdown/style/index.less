@@ -45,7 +45,7 @@
   &-hidden,
   &-menu-hidden,
   &-menu-submenu-hidden {
-    display: none;
+    display: block !important;
   }
 
   // Offset the popover to account for the dropdown arrow
@@ -59,6 +59,18 @@
   &-show-arrow&-placement-bottom,
   &-show-arrow&-placement-bottomRight {
     padding-top: @popover-distance;
+  }
+
+  &-show-arrow&-placement-leftTop,
+  &-show-arrow&-placement-left,
+  &-show-arrow&-placement-leftBottom {
+    padding-right: @popover-distance;
+  }
+
+  &-show-arrow&-placement-rightTop,
+  &-show-arrow&-placement-right,
+  &-show-arrow&-placement-rightBottom {
+    padding-left: @popover-distance;
   }
 
   // Arrows
@@ -113,6 +125,48 @@
 
   &-placement-bottomRight > &-arrow {
     right: 16px;
+  }
+
+  &-placement-left > &-arrow,
+  &-placement-leftTop > &-arrow,
+  &-placement-leftBottom > &-arrow {
+    right: @popover-arrow-width * sqrt((1 / 2)) + 2px;
+    box-shadow: 3px 3px 7px -3px fade(@black, 10%);
+    transform: rotate(-45deg) translateX(0.5px);
+  }
+
+  &-placement-left > &-arrow {
+    top: 50%;
+    transform: rotate(-45deg) translate(calc(-0.5px + 50%), -50%);
+  }
+
+  &-placement-leftTop > &-arrow {
+    top: 16px;
+  }
+
+  &-placement-leftBottom > &-arrow {
+    bottom: 16px;
+  }
+
+  &-placement-right > &-arrow,
+  &-placement-rightTop > &-arrow,
+  &-placement-rightBottom > &-arrow {
+    left: @popover-arrow-width * sqrt((1 / 2)) + 2px;
+    box-shadow: 3px 3px 7px -3px fade(@black, 10%);
+    transform: rotate(135deg) translateX(0.5px);
+  }
+
+  &-placement-right > &-arrow {
+    top: 50%;
+    transform: rotate(135deg) translate(calc(-50% + 0.5px), 50%);
+  }
+
+  &-placement-rightTop > &-arrow {
+    top: 16px;
+  }
+
+  &-placement-rightBottom > &-arrow {
+    bottom: 16px;
   }
 
   &-menu {
@@ -200,13 +254,13 @@
       transition: all @animation-duration-slow;
 
       &:first-child {
-        & when (@dropdown-edge-child-vertical-padding = 0) {
+        & when (@dropdown-edge-child-vertical-padding =0) {
           border-radius: @border-radius-base @border-radius-base 0 0;
         }
       }
 
       &:last-child {
-        & when (@dropdown-edge-child-vertical-padding = 0) {
+        & when (@dropdown-edge-child-vertical-padding =0) {
           border-radius: 0 0 @border-radius-base @border-radius-base;
         }
       }
@@ -313,6 +367,24 @@
     animation-name: antSlideDownIn;
   }
 
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-leftTop,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-leftTop,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-left,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-left,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-leftBottom,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-leftBottom {
+    animation-name: antSlideUpIn;
+  }
+
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-rightTop,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-rightTop,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-right,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-right,
+  &.@{ant-prefix}-slide-down-enter.@{ant-prefix}-slide-down-enter-active&-placement-rightBottom,
+  &.@{ant-prefix}-slide-down-appear.@{ant-prefix}-slide-down-appear-active&-placement-rightBottom {
+    animation-name: antSlideUpIn;
+  }
+
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomLeft,
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottom,
   &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-bottomRight {
@@ -323,6 +395,18 @@
   &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-top,
   &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topRight {
     animation-name: antSlideDownOut;
+  }
+
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-leftTop,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-left,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-leftBottom {
+    animation-name: antSlideUpOut;
+  }
+
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-rightTop,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-right,
+  &.@{ant-prefix}-slide-down-leave.@{ant-prefix}-slide-down-leave-active&-placement-rightBottom {
+    animation-name: antSlideUpOut;
   }
 }
 
@@ -362,11 +446,13 @@
   .@{dropdown-prefix-cls}-menu {
     background: @menu-dark-bg;
   }
+
   .@{dropdown-prefix-cls}-menu-item,
   .@{dropdown-prefix-cls}-menu-submenu-title,
   .@{dropdown-prefix-cls}-menu-item > a,
   .@{dropdown-prefix-cls}-menu-item > .@{iconfont-css-prefix} + span > a {
     color: @text-color-secondary-dark;
+
     .@{dropdown-prefix-cls}-menu-submenu-arrow::after {
       color: @text-color-secondary-dark;
     }
@@ -376,6 +462,7 @@
       background: transparent;
     }
   }
+
   .@{dropdown-prefix-cls}-menu-item-selected {
     &,
     &:hover,
