@@ -877,7 +877,7 @@ describe('Table.rowSelection', () => {
           },
         ],
         filterDropdownOpen: true,
-        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        onFilter: (value: any, record: any) => record.name.indexOf(value) === 0,
       },
     ];
 

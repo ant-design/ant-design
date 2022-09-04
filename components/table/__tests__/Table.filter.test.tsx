@@ -250,7 +250,7 @@ describe('Table.filter', () => {
   });
 
   describe('filterDropdownOpen & filterDropdownVisible', () => {
-    function test(propName) {
+    function test(propName: string) {
       it(`can be controlled by ${propName}`, () => {
         const { container, rerender } = render(
           createTable({
@@ -347,7 +347,7 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
   });
@@ -1711,13 +1711,13 @@ describe('Table.filter', () => {
       }),
     );
 
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-only'));
+    fireEvent.click(container.querySelector('#confirm-only')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(container.querySelector('#confirm-and-close'));
+    fireEvent.click(container.querySelector('#confirm-and-close')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(2);
     expect(onFilterDropdownOpenChange).toHaveBeenLastCalledWith(false);
   });
