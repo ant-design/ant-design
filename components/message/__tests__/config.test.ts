@@ -32,7 +32,7 @@ describe('message.config', () => {
       message.info('whatever');
     });
 
-    expect(document.querySelectorAll('.ant-message')[0].style.top).toBe('100px');
+    expect(document.querySelectorAll<HTMLDivElement>('.ant-message')[0].style.top).toBe('100px');
   });
 
   it('should be able to config rtl', () => {
@@ -83,7 +83,7 @@ describe('message.config', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()?.component.state.notices).toHaveLength(0);
   });
 
   it('should be able to config duration', async () => {
@@ -95,10 +95,10 @@ describe('message.config', () => {
     act(() => {
       message.info('last');
     });
-    expect(getInstance().component.state.notices).toHaveLength(1);
+    expect(getInstance()?.component.state.notices).toHaveLength(1);
 
     await sleep(1000);
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(getInstance()?.component.state.notices).toHaveLength(0);
     message.config({
       duration: 3,
     });
@@ -113,7 +113,7 @@ describe('message.config', () => {
       message.info('bamboo');
     });
 
-    expect(getInstance().config).toEqual(
+    expect((getInstance() as any).config).toEqual(
       expect.objectContaining({
         transitionName: 'light-move-up',
       }),
@@ -134,7 +134,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: undefined });
   });
   it('should be able to config prefixCls', () => {
     message.config({
@@ -180,10 +180,10 @@ describe('message.config', () => {
     }
     const [container1, removeContainer1] = createContainer();
     const [container2, removeContainer2] = createContainer();
-    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
-    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
+    expect((container1 as HTMLDivElement).querySelector('.ant-message-notice')).toBeFalsy();
+    expect((container2 as HTMLDivElement).querySelector('.ant-message-notice')).toBeFalsy();
     message.config({
-      getContainer: () => container1,
+      getContainer: () => container1 as HTMLDivElement,
     });
     const messageText1 = 'mounted in container1';
 
@@ -191,17 +191,25 @@ describe('message.config', () => {
       message.info(messageText1);
     });
 
-    expect(container1.querySelector('.ant-message-notice').textContent).toEqual(messageText1);
+    expect(
+      (container1 as HTMLDivElement).querySelector('.ant-message-notice')?.textContent,
+    ).toEqual(messageText1);
     message.config({
-      getContainer: () => container2,
+      getContainer: () => container2 as HTMLDivElement,
     });
     const messageText2 = 'mounted in container2';
 
     act(() => {
       message.info(messageText2);
     });
-    expect(container2.querySelector('.ant-message-notice').textContent).toEqual(messageText2);
-    removeContainer1();
-    removeContainer2();
+    expect(
+      (container2 as HTMLDivElement).querySelector('.ant-message-notice')?.textContent,
+    ).toEqual(messageText2);
+    if (typeof removeContainer1 === 'function') {
+      removeContainer1();
+    }
+    if (typeof removeContainer2 === 'function') {
+      removeContainer2();
+    }
   });
 });

@@ -1,11 +1,9 @@
-import type { ReactWrapper } from 'enzyme';
-import { mount } from 'enzyme';
 import React from 'react';
-import type { AffixProps, AffixState, InternalAffixClass } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep } from '../../../tests/utils';
+import { render, sleep, triggerResize } from '../../../tests/utils';
 import Button from '../../button';
 import { getObserverEntities } from '../utils';
 
@@ -16,10 +14,9 @@ class AffixMounter extends React.Component<{
   offsetTop?: number;
   onTestUpdatePosition?(): void;
   onChange?: () => void;
+  getInstance?: (inst: InternalAffixClass) => void;
 }> {
   private container: HTMLDivElement;
-
-  public affix: React.Component<AffixProps, AffixState>;
 
   componentDidMount() {
     this.container.addEventListener = jest
@@ -32,6 +29,7 @@ class AffixMounter extends React.Component<{
   getTarget = () => this.container;
 
   render() {
+    const { getInstance, ...restProps } = this.props;
     return (
       <div
         ref={node => {
@@ -43,9 +41,9 @@ class AffixMounter extends React.Component<{
           className="fixed"
           target={this.getTarget}
           ref={ele => {
-            this.affix = ele!;
+            getInstance?.(ele!);
           }}
-          {...this.props}
+          {...restProps}
         >
           <Button type="primary">Fixed at the top of container</Button>
         </Affix>
@@ -59,7 +57,6 @@ describe('Affix Render', () => {
   accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
-  let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
@@ -197,31 +194,38 @@ describe('Affix Render', () => {
     it.each([
       { name: 'inner', index: 0 },
       { name: 'outer', index: 1 },
-    ])('inner or outer', async ({ index }) => {
+    ])('inner or outer', async () => {
       document.body.innerHTML = '<div id="mounter" />';
 
+      let affixInstance: InternalAffixClass | null = null;
       const updateCalled = jest.fn();
-      affixMounterWrapper = mount(
-        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+      const { container } = render(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+          onTestUpdatePosition={updateCalled}
+        />,
         {
-          attachTo: document.getElementById('mounter'),
+          container: document.getElementById('mounter')!,
         },
       );
 
       await sleep(20);
 
       await movePlaceholder(300);
-      expect(
-        (affixMounterWrapper.find(AffixMounter).instance() as any).affix.state.affixStyle,
-      ).toBeTruthy();
-      await sleep(20);
-      affixMounterWrapper.update();
+      expect(affixInstance!.state.affixStyle).toBeTruthy();
 
       // Mock trigger resize
       updateCalled.mockReset();
-      (affixMounterWrapper as any).triggerResize(index);
+      triggerResize(container.querySelector('.fixed')!);
       await sleep(20);
+      expect(updateCalled).toHaveBeenCalled();
 
+      updateCalled.mockReset();
+      triggerResize(container.querySelector('.ant-btn')!);
+      await sleep(20);
       expect(updateCalled).toHaveBeenCalled();
     });
   });

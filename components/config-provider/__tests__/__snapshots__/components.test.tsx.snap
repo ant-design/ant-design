@@ -17939,7 +17939,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Menu configProvider 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -18012,7 +18012,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentDisabled 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -18085,7 +18085,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize large 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -18158,7 +18158,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light"
     data-menu-list="true"
@@ -18231,7 +18231,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu configProvider virtual and dropdownMatchSelectWidth 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
@@ -18304,7 +18304,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu normal 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
@@ -18377,7 +18377,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Menu prefixCls 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="prefix-Menu prefix-Menu-root prefix-Menu-inline prefix-Menu-light"
     data-menu-list="true"
@@ -29778,7 +29778,7 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components TimePicker configProvider 1`] = `
-Array [
+HTMLCollection [
   <div
     class="config-picker"
   >
@@ -31189,7 +31189,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentDisabled 1`] = `
-Array [
+HTMLCollection [
   <div
     class="config-picker config-picker-disabled"
   >
@@ -31237,7 +31237,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentSize large 1`] = `
-Array [
+HTMLCollection [
   <div
     class="config-picker config-picker-large"
   >
@@ -32648,7 +32648,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
-Array [
+HTMLCollection [
   <div
     class="config-picker config-picker-middle"
   >
@@ -34059,7 +34059,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker configProvider virtual and dropdownMatchSelectWidth 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-picker"
   >
@@ -35470,7 +35470,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker normal 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-picker"
   >
@@ -36881,7 +36881,7 @@ Array [
 `;
 
 exports[`ConfigProvider components TimePicker prefixCls 1`] = `
-Array [
+HTMLCollection [
   <div
     class="prefix-TimePicker"
   >
@@ -38446,7 +38446,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `
-Array [
+HTMLCollection [
   <span
     class="config-tooltip-open"
   >
@@ -38480,7 +38480,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentDisabled 1`] = `
-Array [
+HTMLCollection [
   <span
     class="config-tooltip-open"
   >
@@ -38514,7 +38514,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize large 1`] = `
-Array [
+HTMLCollection [
   <span
     class="config-tooltip-open"
   >
@@ -38548,7 +38548,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
-Array [
+HTMLCollection [
   <span
     class="config-tooltip-open"
   >
@@ -38582,7 +38582,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip configProvider virtual and dropdownMatchSelectWidth 1`] = `
-Array [
+HTMLCollection [
   <span
     class="ant-tooltip-open"
   >
@@ -38616,7 +38616,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip normal 1`] = `
-Array [
+HTMLCollection [
   <span
     class="ant-tooltip-open"
   >
@@ -38650,7 +38650,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Tooltip prefixCls 1`] = `
-Array [
+HTMLCollection [
   <span
     class="prefix-Tooltip-open"
   >

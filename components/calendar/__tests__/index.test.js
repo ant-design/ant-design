@@ -425,6 +425,6 @@ describe('Calendar', () => {
       />,
     );
     wrapper.find('.bamboo').first().simulate('click');
-    expect(onClick).toBeCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });

@@ -20,7 +20,7 @@ describe('notification.config', () => {
       act(() => {
         notification.open({
           message: 'Notification message',
-          key: i,
+          key: i as unknown as string,
         });
       });
     }
@@ -37,7 +37,7 @@ describe('notification.config', () => {
     });
 
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(5);
-    expect(document.querySelectorAll('.ant-notification-notice')[4].textContent).toBe(
+    expect(document.querySelectorAll('.ant-notification-notice')[4]?.textContent).toBe(
       'Notification last',
     );
 
@@ -48,7 +48,7 @@ describe('notification.config', () => {
     await act(async () => {
       await sleep(500);
     });
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('ant-notification-topRight'))?.component.state.notices).toHaveLength(
       0,
     );
   });

@@ -214,7 +214,7 @@ describe('Directory Tree', () => {
     const onDoubleClick = jest.fn();
     const { container } = render(createTree({ onDoubleClick }));
     fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
-    expect(onDoubleClick).toBeCalled();
+    expect(onDoubleClick).toHaveBeenCalled();
   });
 
   it('should not expand tree now when pressing ctrl', () => {

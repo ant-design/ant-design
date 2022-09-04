@@ -162,7 +162,7 @@ describe('Descriptions', () => {
         <Descriptions.Item key="bamboo">1</Descriptions.Item>
       </Descriptions>,
     );
-    expect(jest.spyOn(document, 'createElement')).not.toBeCalled();
+    expect(jest.spyOn(document, 'createElement')).not.toHaveBeenCalled();
   });
 
   // https://github.com/ant-design/ant-design/issues/19887
