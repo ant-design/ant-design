@@ -1327,7 +1327,6 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
   >
     <div
       class="ant-tabs ant-tabs-top"
-      items="[object Object],[object Object]"
     >
       <div
         class="ant-tabs-nav"
@@ -1340,6 +1339,30 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
             class="ant-tabs-nav-list"
             style="transform:translate(0px, 0px)"
           >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Details
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                role="tab"
+                tabindex="0"
+              >
+                Rule
+              </div>
+            </div>
             <div
               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
             />
@@ -1386,7 +1409,14 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
       >
         <div
           class="ant-tabs-content ant-tabs-content-top"
-        />
+        >
+          <div
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            role="tabpanel"
+            tabindex="0"
+          />
+        </div>
       </div>
     </div>
   </div>
