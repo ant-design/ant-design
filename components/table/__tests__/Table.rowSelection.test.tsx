@@ -1,8 +1,10 @@
 import React from 'react';
+import type { TableProps } from '..';
 import Table from '..';
 import { fireEvent, render, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
+import type { TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
@@ -32,29 +34,29 @@ describe('Table.rowSelection', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  function createTable(props = {}) {
+  function createTable(props: TableProps<any> = {}) {
     return <Table columns={columns} dataSource={data} rowSelection={{}} {...props} />;
   }
 
-  function renderedNames(contain) {
-    const namesList = [];
-    contain
-      .querySelector('.ant-table-tbody')
-      .querySelectorAll('tr')
-      .forEach(tr => {
-        namesList.push(tr.querySelectorAll('td')[1].textContent);
+  function renderedNames(container: ReturnType<typeof render>['container']) {
+    const namesList: Node['textContent'][] = [];
+    container
+      ?.querySelector('.ant-table-tbody')
+      ?.querySelectorAll('tr')
+      ?.forEach(tr => {
+        namesList.push(tr?.querySelectorAll('td')?.[1]?.textContent);
       });
     return namesList;
   }
 
-  function getSelections(container) {
-    const keys = [];
+  function getSelections(container: ReturnType<typeof render>['container']) {
+    const keys: React.Key[] = [];
     container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('input').checked) {
+      if (row.querySelector('input')?.checked) {
         if (isNaN(Number(key))) {
           // rowKey
-          keys.push(key);
+          keys.push(key!);
         } else {
           keys.push(Number(key));
         }
@@ -63,14 +65,14 @@ describe('Table.rowSelection', () => {
     return keys;
   }
 
-  function getIndeterminateSelection(container) {
-    const keys = [];
+  function getIndeterminateSelection(container: ReturnType<typeof render>['container']) {
+    const keys: React.Key[] = [];
     container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('.ant-checkbox-indeterminate')) {
         if (isNaN(Number(key))) {
           // rowKey
-          keys.push(key);
+          keys.push(key!);
         } else {
           keys.push(Number(key));
         }
@@ -122,7 +124,7 @@ describe('Table.rowSelection', () => {
 
   it('pass getCheckboxProps to checkbox', () => {
     const rowSelection = {
-      getCheckboxProps: record => ({
+      getCheckboxProps: (record: any) => ({
         disabled: record.name === 'Lucy',
         indeterminate: record.name === 'Tom',
         name: record.name,
@@ -130,7 +132,7 @@ describe('Table.rowSelection', () => {
     };
 
     const { container } = render(createTable({ rowSelection }));
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
 
     expect(checkboxes[1].disabled).toBe(false);
     expect(checkboxes[1].name).toEqual(data[0].name);
@@ -141,7 +143,7 @@ describe('Table.rowSelection', () => {
   });
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
-    const rowSelection = {
+    const rowSelection: TableProps<any>['rowSelection'] = {
       getCheckboxProps: record => ({
         disabled: record.name === 'Lucy',
         indeterminate: record.name === 'Tom',
@@ -158,21 +160,21 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ pagination: { pageSize: 2 } }));
 
     const pagers = container.querySelectorAll('.ant-pagination-item');
-    const checkboxAll = container.querySelector('input[type="checkbox"]');
+    const checkboxAll = container.querySelector<HTMLInputElement>('input[type="checkbox"]');
 
-    const objectContaining = {};
-    fireEvent.click(checkboxAll);
-    objectContaining.checked = checkboxAll.checked; // true
+    const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
+    fireEvent.click(checkboxAll!);
+    objectContaining.checked = checkboxAll?.checked; // true
     objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
     expect.objectContaining(objectContaining);
 
     fireEvent.click(pagers[1]);
-    objectContaining.checked = checkboxAll.checked; // false
+    objectContaining.checked = checkboxAll?.checked; // false
     objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
     expect.objectContaining(objectContaining);
 
     fireEvent.click(pagers[0]);
-    objectContaining.checked = checkboxAll.checked; // true
+    objectContaining.checked = checkboxAll?.checked; // true
     objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
     expect.objectContaining(objectContaining);
   });
@@ -184,7 +186,7 @@ describe('Table.rowSelection', () => {
       getCheckboxProps: record => ({
         defaultChecked: record.key === 0,
       }),
-    };
+    } as TableRowSelection<any>;
 
     render(createTable({ rowSelection }));
 
@@ -204,7 +206,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires change & select events', () => {
-    const order = [];
+    const order: string[] = [];
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
     });
@@ -231,7 +233,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selectMulti event', () => {
-    const order = [];
+    const order: string[] = [];
     const handleSelectMulti = jest.fn().mockImplementation(() => {
       order.push('onSelectMultiple');
     });
@@ -302,7 +304,7 @@ describe('Table.rowSelection', () => {
           selections: [Table.SELECTION_NONE],
           onChange: keys => onChange(keys),
         },
-      }),
+      } as TableProps<any>),
     );
 
     const last = () => {
@@ -324,14 +326,14 @@ describe('Table.rowSelection', () => {
       shiftKey: true,
     });
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
-    fireEvent.click(allElement());
+    fireEvent.click(allElement()!);
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
     fireEvent.click(last());
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent.click(allElement());
-    fireEvent.click(allElement());
+    fireEvent.click(allElement()!);
+    fireEvent.click(allElement()!);
     expect(onChange).toHaveBeenLastCalledWith([]);
     fireEvent.click(first(), {
       shiftKey: true,
@@ -349,11 +351,11 @@ describe('Table.rowSelection', () => {
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item'));
+    fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item')!);
     expect(onChange).toHaveBeenLastCalledWith([]);
     fireEvent.click(first(), {
       shiftKey: true,
@@ -364,7 +366,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selectAll event', () => {
-    const order = [];
+    const order: string[] = [];
     const handleSelectAll = jest.fn().mockImplementation(() => {
       order.push('onSelectAll');
     });
@@ -379,12 +381,12 @@ describe('Table.rowSelection', () => {
 
     const checkAll = container.querySelector('input[type="checkbox"]');
 
-    fireEvent.click(checkAll);
+    fireEvent.click(checkAll!);
     expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
 
     expect(order).toEqual(['onSelectAll', 'onChange']);
 
-    fireEvent.click(checkAll);
+    fireEvent.click(checkAll!);
     expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
@@ -398,7 +400,7 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -414,7 +416,7 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const { container } = render(createTable({ rowSelection }));
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -425,7 +427,7 @@ describe('Table.rowSelection', () => {
   it('fires selectInvert event', () => {
     jest.useFakeTimers();
 
-    const order = [];
+    const order: string[] = [];
     const handleSelectInvert = jest.fn().mockImplementation(() => {
       order.push('onSelectInvert');
     });
@@ -441,7 +443,7 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
     act(() => {
       jest.runAllTimers();
@@ -457,7 +459,7 @@ describe('Table.rowSelection', () => {
 
   it('fires selectNone event', () => {
     jest.useFakeTimers();
-    const order = [];
+    const order: string[] = [];
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
     });
@@ -473,7 +475,7 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -507,7 +509,7 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -530,7 +532,7 @@ describe('Table.rowSelection', () => {
       { key: 2, name: 'Tom' },
     ];
 
-    const getCheckboxProps = record => record;
+    const getCheckboxProps = (record: any) => record;
 
     it('SELECTION_ALL', () => {
       jest.useFakeTimers();
@@ -547,13 +549,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
@@ -572,13 +574,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
@@ -598,13 +600,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item')!);
 
       expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
@@ -639,7 +641,7 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -656,7 +658,7 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/4245
   it('handles disabled checkbox correctly when dataSource changes', () => {
-    const rowSelection = {
+    const rowSelection: TableProps<any>['rowSelection'] = {
       getCheckboxProps: record => ({ disabled: record.disabled }),
     };
     const { container, rerender } = render(createTable({ rowSelection }));
@@ -703,7 +705,7 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/4779
   it('should not switch pagination when select record', () => {
-    const newData = [];
+    const newData: Record<'key' | 'name', string>[] = [];
     for (let i = 0; i < 20; i += 1) {
       newData.push({
         key: i.toString(),
@@ -717,7 +719,7 @@ describe('Table.rowSelection', () => {
       }),
     );
     fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]); // switch to second page
-    fireEvent.click(container.querySelector('.ant-checkbox'));
+    fireEvent.click(container.querySelector('.ant-checkbox')!);
 
     expect(renderedNames(container)).toEqual([
       '10',
@@ -818,7 +820,7 @@ describe('Table.rowSelection', () => {
     const checkboxs = container.querySelectorAll('.ant-checkbox');
     expect(checkboxs.length).toBe(5);
     checkboxs.forEach(checkbox => {
-      expect(checkbox.querySelector('input').checked).toBe(true);
+      expect(checkbox.querySelector('input')?.checked).toBe(true);
       expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
 
@@ -834,7 +836,7 @@ describe('Table.rowSelection', () => {
 
     expect(container.querySelectorAll('.ant-checkbox').length).toBe(4);
     container.querySelectorAll('.ant-checkbox').forEach(checkbox => {
-      expect(checkbox.querySelector('input').checked).toBe(true);
+      expect(checkbox.querySelector('input')?.checked).toBe(true);
       expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
   });
@@ -842,15 +844,9 @@ describe('Table.rowSelection', () => {
   // https://github.com/ant-design/ant-design/issues/11042
   it('add columnTitle for rowSelection', () => {
     const { container, rerender } = render(
-      <Table
-        columns={columns}
-        dataSource={data}
-        rowSelection={{
-          columnTitle: '多选',
-        }}
-      />,
+      <Table columns={columns} dataSource={data} rowSelection={{ columnTitle: '多选' }} />,
     );
-    expect(container.querySelector('thead tr th').textContent).toBe('多选');
+    expect(container.querySelector('thead tr th')?.textContent).toBe('多选');
     rerender(
       <Table
         columns={columns}
@@ -861,7 +857,7 @@ describe('Table.rowSelection', () => {
         }}
       />,
     );
-    expect(container.querySelector('thead tr th').textContent).toBe('单选');
+    expect(container.querySelector('thead tr th')?.textContent).toBe('单选');
   });
 
   // https://github.com/ant-design/ant-design/issues/11384
@@ -881,7 +877,7 @@ describe('Table.rowSelection', () => {
           },
         ],
         filterDropdownVisible: true,
-        onFilter: (value, record) => record.name.indexOf(value) === 0,
+        onFilter: (value: any, record: any) => record.name.indexOf(value) === 0,
       },
     ];
 
@@ -894,7 +890,7 @@ describe('Table.rowSelection', () => {
       <Table columns={filterColumns} dataSource={data} rowSelection={rowSelection} />,
     );
 
-    function clickFilter(indexList) {
+    function clickFilter(indexList: number[]) {
       indexList.forEach(index => {
         // wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
         fireEvent.click(
@@ -902,7 +898,7 @@ describe('Table.rowSelection', () => {
         );
       });
       // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'));
+      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     }
 
     function clickItem() {
@@ -959,7 +955,7 @@ describe('Table.rowSelection', () => {
       <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
     );
     const checkboxes = container.querySelectorAll('input');
-    const objectContaining = {};
+    const objectContaining: { checked?: boolean; indeterminate?: boolean } = {};
     fireEvent.click(checkboxes[1]);
     objectContaining.checked = checkboxes[0].checked; // false
     objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // true
@@ -1033,7 +1029,7 @@ describe('Table.rowSelection', () => {
       <Table
         columns={columns}
         dataSource={dataSource}
-        rowSelection={null}
+        rowSelection={null as unknown as TableRowSelection<any>}
         expandedRowRender={() => null}
         rowKey="id"
       />,
@@ -1053,15 +1049,17 @@ describe('Table.rowSelection', () => {
     const { container } = render(
       createTable({
         rowSelection: {
-          getCheckboxProps: () => ({
-            disabled: true,
-          }),
+          getCheckboxProps: () => ({ disabled: true }),
         },
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.disabled,
+    ).toBeTruthy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.checked,
+    ).toBeFalsy();
   });
 
   it('should make select all checked when each item is checked and disabled', () => {
@@ -1076,8 +1074,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.disabled,
+    ).toBeTruthy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.checked,
+    ).toBeTruthy();
   });
 
   it('should make select all indeterminated when each item is disabled and some item is checked', () => {
@@ -1092,8 +1094,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.disabled,
+    ).toBeTruthy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.checked,
+    ).toBeFalsy();
     expect(
       container.querySelector('thead .ant-checkbox-indeterminate.ant-checkbox-disabled'),
     ).toBeTruthy();
@@ -1111,8 +1117,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.disabled,
+    ).toBeFalsy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.checked,
+    ).toBeTruthy();
   });
 
   it('should not make select all checked when some item is checked and disabled', () => {
@@ -1127,8 +1137,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.disabled,
+    ).toBeFalsy();
+    expect(
+      container.querySelector<HTMLInputElement>('thead .ant-checkbox-input')?.checked,
+    ).toBeFalsy();
     expect(container.querySelector('thead .ant-checkbox-indeterminate')).toBeTruthy();
   });
 
@@ -1160,7 +1174,7 @@ describe('Table.rowSelection', () => {
       }),
     );
     jest.useFakeTimers();
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -1173,14 +1187,14 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const { container } = render(
-      <ConfigProvider getPopupContainer={node => node.parentNode}>
+      <ConfigProvider getPopupContainer={node => node?.parentNode as HTMLElement}>
         {createTable({
           rowSelection,
         })}
       </ConfigProvider>,
     );
     jest.useFakeTimers();
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
     act(() => {
       jest.runAllTimers();
     });
@@ -1542,12 +1556,12 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
       rerender(
         <Table dataSource={[{ name: 'bamboo' }]} rowSelection={{ onChange }} rowKey="name" />,
       );
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
     });
 
@@ -1561,7 +1575,7 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       rerender(
@@ -1571,7 +1585,7 @@ describe('Table.rowSelection', () => {
           rowKey="name"
         />,
       );
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
@@ -1598,7 +1612,7 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
@@ -1620,7 +1634,7 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
@@ -1652,16 +1666,10 @@ describe('Table.rowSelection', () => {
           dataSource={dataSource.slice(2, 4)}
           rowSelection={rowSelection}
           rowKey="name"
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              key: 'name',
-            },
-          ]}
+          columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
         />,
       );
-      fireEvent.click(container.querySelector('tbody input'));
+      fireEvent.click(container.querySelector('tbody input')!);
       expect(onChange).toHaveBeenCalledWith(
         ['Jack', 'Lucy'],
         [{ name: 'Jack' }, { name: 'Lucy' }],

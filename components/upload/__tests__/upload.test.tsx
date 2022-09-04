@@ -1,7 +1,9 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
+import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React from 'react';
+import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -11,7 +13,7 @@ import { resetWarned } from '../../_util/warning';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
-globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -21,16 +23,13 @@ describe('Upload', () => {
   afterEach(() => teardown());
 
   // Mock for rc-util raf
-  window.requestAnimationFrame = callback => {
-    window.setTimeout(callback, 16);
-  };
-  window.cancelAnimationFrame = id => {
-    window.clearTimeout(id);
-  };
+  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
+
+  window.cancelAnimationFrame = id => window.clearTimeout(id);
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
-    let ref;
+    let ref: React.ReactInstance;
     class App extends React.Component {
       componentDidMount() {
         ref = this.refs.input;
@@ -45,21 +44,21 @@ describe('Upload', () => {
       }
     }
     render(<App />);
-    expect(ref).toBeDefined();
+    expect(ref!).toBeDefined();
   });
 
   it('return promise in beforeUpload', async () => {
     jest.useFakeTimers();
     const data = jest.fn();
     const done = jest.fn();
-    const props = {
+    const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: () =>
         new Promise(resolve => {
           setTimeout(() => resolve('success'), 100);
         }),
       data,
-      onChange: ({ file }) => {
+      onChange({ file }) {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled();
           done();
@@ -72,10 +71,8 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
     act(() => {
       jest.runAllTimers();
@@ -94,9 +91,9 @@ describe('Upload', () => {
   it('beforeUpload can be falsy', async () => {
     jest.useFakeTimers();
     const done = jest.fn();
-    const props = {
+    const props: UploadProps = {
       action: 'http://upload.com',
-      beforeUpload: false,
+      beforeUpload: () => false,
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
           done();
@@ -110,10 +107,8 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
     await act(async () => {
       for (let i = 0; i < 4; i += 1) {
@@ -129,13 +124,13 @@ describe('Upload', () => {
     jest.useFakeTimers();
     const done = jest.fn();
     const data = jest.fn();
-    const props = {
+    const props: UploadProps = {
       action: 'http://upload.com',
       beforeUpload: file =>
         new Promise(resolve => {
           setTimeout(() => {
             const result = file;
-            result.name = 'test.png';
+            (result as any).name = 'test.png';
             resolve(result);
           }, 100);
         }),
@@ -155,10 +150,8 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
     act(() => {
       jest.runAllTimers();
@@ -185,7 +178,7 @@ describe('Upload', () => {
       type: 'image/png',
     });
     const data = jest.fn();
-    const props = {
+    const props: UploadProps = {
       action: 'http://upload.com',
       fileList,
       beforeUpload: () => false,
@@ -204,10 +197,8 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [mockFile],
-      },
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [mockFile] },
     });
   });
 
@@ -229,7 +220,7 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    fireEvent.change(wrapper.querySelector('input'), {
+    fireEvent.change(wrapper.querySelector('input')!, {
       target: {
         files: [{ file: 'foo.png' }],
       },
@@ -252,7 +243,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
-    const Demo = ({ children }) => (
+    const Demo: React.FC<{ children?: UploadProps['children'] }> = ({ children }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload>{children}</Upload>
@@ -273,7 +264,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/16478
   it('should not have id if Upload is disabled, avoid being triggered by label', () => {
-    const Demo = ({ disabled }) => (
+    const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
@@ -291,7 +282,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/24197
   it('should not have id if upload.Dragger is disabled, avoid being triggered by label', () => {
-    const Demo = ({ disabled }) => (
+    const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload.Dragger disabled={disabled}>
@@ -317,10 +308,10 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
     const { rerender } = render(<Upload ref={ref} />);
     expect(ref.current.fileList).toEqual([]);
-    rerender(<Upload ref={ref} fileList={fileList} />);
+    rerender(<Upload ref={ref} fileList={fileList as UploadProps['fileList']} />);
     act(() => {
       jest.runAllTimers();
     });
@@ -336,15 +327,15 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    render(<Upload fileList={fileList} />);
-    fileList.forEach(file => {
+    render(<Upload fileList={fileList as UploadProps['fileList']} />);
+    (fileList as UploadProps['fileList'])?.forEach(file => {
       expect(file.uid).toBeDefined();
     });
   });
 
   describe('util', () => {
     it('should be able to get fileItem', () => {
-      const file = { uid: '-1', name: 'item.jpg' };
+      const file = { uid: '-1', name: 'item.jpg' } as RcFile;
       const fileList = [
         {
           uid: '-1',
@@ -412,9 +403,7 @@ describe('Upload', () => {
     });
 
     it('isImageUrl should work correctly when file.url is null', () => {
-      const file = {
-        url: null,
-      };
+      const file = { url: null } as unknown as UploadFile;
       expect(isImageUrl(file)).toBe(true);
     });
   });
@@ -432,10 +421,12 @@ describe('Upload', () => {
         },
       },
     ];
-    const { container: wrapper } = render(<Upload fileList={fileList} />);
+    const { container: wrapper } = render(
+      <Upload fileList={fileList as UploadProps['fileList']} />,
+    );
     const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
-    expect(linkNode.getAttribute('download')).toBe('image');
-    expect(linkNode.getAttribute('rel')).toBe('noopener');
+    expect(linkNode?.getAttribute('download')).toBe('image');
+    expect(linkNode?.getAttribute('rel')).toBe('noopener');
   });
 
   it('should support linkProps as json stringify', () => {
@@ -452,15 +443,17 @@ describe('Upload', () => {
         linkProps: linkPropsString,
       },
     ];
-    const { container: wrapper } = render(<Upload fileList={fileList} />);
+    const { container: wrapper } = render(
+      <Upload fileList={fileList as UploadProps['fileList']} />,
+    );
     const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
-    expect(linkNode.getAttribute('download')).toBe('image');
-    expect(linkNode.getAttribute('rel')).toBe('noopener');
+    expect(linkNode?.getAttribute('download')).toBe('image');
+    expect(linkNode?.getAttribute('rel')).toBe('noopener');
   });
 
   it('should not stop remove when return value of onRemove is false', done => {
     const mockRemove = jest.fn(() => false);
-    const props = {
+    const props: UploadProps = {
       onRemove: mockRemove,
       fileList: [
         {
@@ -474,12 +467,12 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(<Upload {...props} />);
 
-    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-delete'));
+    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-delete')!);
 
     setTimeout(() => {
       expect(mockRemove).toHaveBeenCalled();
       expect(props.fileList).toHaveLength(1);
-      expect(props.fileList[0].status).toBe('done');
+      expect(props.fileList?.[0]?.status).toBe('done');
       done();
     });
   });
@@ -493,9 +486,9 @@ describe('Upload', () => {
       url: 'http://www.baidu.com/xxx.png',
     };
 
-    let removePromise;
+    let removePromise: (value: boolean | Promise<void | boolean>) => void;
 
-    const onRemove = () =>
+    const onRemove: UploadProps['onRemove'] = () =>
       new Promise(resolve => {
         expect(file.status).toBe('uploading');
         removePromise = resolve;
@@ -503,9 +496,13 @@ describe('Upload', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Upload fileList={[file]} onChange={onChange} onRemove={onRemove} />,
+      <Upload
+        fileList={[file] as UploadProps['fileList']}
+        onChange={onChange}
+        onRemove={onRemove}
+      />,
     );
-    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete'));
+    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete')!);
 
     // uploadStart is a batch work which we need wait for react act
     await act(async () => {
@@ -524,7 +521,7 @@ describe('Upload', () => {
 
   it('should not stop download when return use onDownload', done => {
     const mockRemove = jest.fn(() => false);
-    const props = {
+    const props: UploadProps = {
       onRemove: mockRemove,
       showUploadList: {
         showDownloadIcon: true,
@@ -541,30 +538,30 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(<Upload {...props} onDownload={() => {}} />);
 
-    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download'));
+    fireEvent.click(wrapper.querySelector('div.ant-upload-list-item .anticon-download')!);
 
     setTimeout(() => {
       expect(props.fileList).toHaveLength(1);
-      expect(props.fileList[0].status).toBe('done');
+      expect(props.fileList?.[0]?.status).toBe('done');
       done();
     });
   });
 
   // https://github.com/ant-design/ant-design/issues/14439
   it('should allow call abort function through upload instance', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
     render(
       <Upload ref={ref}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(typeof ref.current.upload.abort).toBe('function');
+    expect(typeof ref.current?.upload.abort).toBe('function');
   });
 
   it('correct dragCls when type is drag', () => {
     const fileList = [{ status: 'uploading', uid: 'file' }];
     const { container: wrapper } = render(
-      <Upload type="drag" fileList={fileList}>
+      <Upload type="drag" fileList={fileList as UploadProps['fileList']}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -573,20 +570,20 @@ describe('Upload', () => {
 
   it('return when targetItem is null', () => {
     const fileList = [{ uid: 'file' }];
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
     render(
-      <Upload ref={ref} type="drag" fileList={fileList}>
+      <Upload ref={ref} type="drag" fileList={fileList as UploadProps['fileList']}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(ref.current.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
-    expect(ref.current.onProgress('', { uid: 'fileItem' })).toBe(undefined);
-    expect(ref.current.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current?.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current?.onProgress('', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current?.onError('', '', { uid: 'fileItem' })).toBe(undefined);
   });
 
   it('should replace file when targetItem already exists', () => {
     const fileList = [{ uid: 'file', name: 'file' }];
-    const ref = React.createRef();
+    const ref = React.createRef<any>();
     const { unmount } = render(
       <Upload ref={ref} defaultFileList={fileList}>
         <button type="button">upload</button>
@@ -599,7 +596,7 @@ describe('Upload', () => {
     };
 
     act(() => {
-      ref.current.onBatchStart([
+      ref.current?.onBatchStart([
         {
           file: newFile,
           parsedFile: newFile,
@@ -618,9 +615,9 @@ describe('Upload', () => {
 
   it('warning if set `value`', () => {
     resetWarned();
-
+    const value = { value: [] } as any;
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Upload value={[]} />);
+    render(<Upload {...value} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',
     );
@@ -634,7 +631,9 @@ describe('Upload', () => {
       type: 'video/mp4',
       url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
     };
-    const { container: wrapper } = render(<Upload listType="picture-card" fileList={[file]} />);
+    const { container: wrapper } = render(
+      <Upload listType="picture-card" fileList={[file] as UploadProps['fileList']} />,
+    );
     expect(wrapper.querySelectorAll('img').length).toBe(0);
   });
 
@@ -643,8 +642,9 @@ describe('Upload', () => {
     const onClick = jest.fn();
     const onMouseEnter = jest.fn();
     const onMouseLeave = jest.fn();
+    const props = { onClick, onMouseEnter, onMouseLeave };
     const { container: wrapper } = render(
-      <Upload onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <Upload {...props}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -672,10 +672,10 @@ describe('Upload', () => {
       options.onSuccess({}, { ...options.file, url });
     });
 
-    const Demo = () => {
-      const [fileList, setFileList] = React.useState([]);
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
 
-      const onChange = async e => {
+      const onChange: UploadProps['onChange'] = async e => {
         const newFileList = Array.isArray(e) ? e : e.fileList;
         setFileList(newFileList);
         const file = newFileList[0];
@@ -714,10 +714,8 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(<Demo />);
 
-    fireEvent.change(wrapper.querySelector('input'), {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
 
     await act(async () => {
@@ -760,13 +758,9 @@ describe('Upload', () => {
         </Upload>,
       );
 
-      fireEvent.change(wrapper.querySelector('input'), {
+      fireEvent.change(wrapper.querySelector('input')!, {
         target: {
-          files: [
-            new File(['foo'], 'foo.png', {
-              type: 'image/png',
-            }),
-          ],
+          files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
         },
       });
 
@@ -802,15 +796,13 @@ describe('Upload', () => {
         </Upload>,
       );
 
-      fireEvent.change(wrapper.querySelector('input'), {
+      fireEvent.change(wrapper.querySelector('input')!, {
         target: {
           files: [
             new File(['foo'], 'foo.png', {
               type: 'image/png',
             }),
-            new File(['invisible'], 'invisible.png', {
-              type: 'image/png',
-            }),
+            new File(['invisible'], 'invisible.png', { type: 'image/png' }),
           ],
         },
       });
@@ -830,21 +822,17 @@ describe('Upload', () => {
   });
 
   it('auto fill file uid', () => {
-    const fileList = [
-      {
-        name: 'bamboo.png',
-      },
-    ];
+    const fileList = [{ name: 'bamboo.png' }];
 
-    expect(fileList[0].uid).toBeFalsy();
+    expect((fileList[0] as any).uid).toBeFalsy();
 
     render(
-      <Upload fileList={fileList}>
+      <Upload fileList={fileList as UploadProps['fileList']}>
         <button type="button">upload</button>
       </Upload>,
     );
 
-    expect(fileList[0].uid).toBeTruthy();
+    expect((fileList[0] as any).uid).toBeTruthy();
   });
 
   it('Proxy should support deepClone', async () => {
@@ -856,13 +844,9 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    fireEvent.change(wrapper.querySelector('input'), {
+    fireEvent.change(wrapper.querySelector('input')!, {
       target: {
-        files: [
-          new File(['foo'], 'foo.png', {
-            type: 'image/png',
-          }),
-        ],
+        files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
       },
     });
 
@@ -891,9 +875,11 @@ describe('Upload', () => {
       },
     ];
 
-    const frozenFileList = fileList.map(file => Object.freeze(file));
+    const frozenFileList = fileList.map(Object.freeze);
 
-    const { container: wrapper } = render(<Upload fileList={frozenFileList} />);
+    const { container: wrapper } = render(
+      <Upload fileList={frozenFileList as unknown as UploadProps['fileList']} />,
+    );
     const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-card-actions-btn');
     fireEvent.click(rmBtn[rmBtn.length - 1]);
 
@@ -915,10 +901,8 @@ describe('Upload', () => {
     };
 
     const spyIE = jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
-    fireEvent.change(container.querySelector('input'), {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
+    fireEvent.change(container.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
 
     // React 18 is async now
@@ -951,7 +935,7 @@ describe('Upload', () => {
       jest.runAllTimers();
     });
 
-    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card')!);
     expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
@@ -969,15 +953,11 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/36869
   it('Prevent auto batch', async () => {
-    const mockFile1 = new File(['bamboo'], 'bamboo.png', {
-      type: 'image/png',
-    });
-    const mockFile2 = new File(['light'], 'light.png', {
-      type: 'image/png',
-    });
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
 
-    let info1;
-    let info2;
+    let info1: UploadRequestOption;
+    let info2: UploadRequestOption;
 
     const onChange = jest.fn();
     const { container } = render(
@@ -993,10 +973,8 @@ describe('Upload', () => {
       />,
     );
 
-    fireEvent.change(container.querySelector('input'), {
-      target: {
-        files: [mockFile1, mockFile2],
-      },
+    fireEvent.change(container.querySelector('input')!, {
+      target: { files: [mockFile1, mockFile2] },
     });
 
     // React 18 is async now
@@ -1007,8 +985,8 @@ describe('Upload', () => {
 
     // Processing
     act(() => {
-      info1.onProgress({ percent: 10 }, mockFile1);
-      info2.onProgress({ percent: 20 }, mockFile2);
+      (info1?.onProgress as any)?.({ percent: 10 }, mockFile1);
+      (info2?.onProgress as any)?.({ percent: 20 }, mockFile2);
     });
 
     expect(onChange).toHaveBeenCalledWith(

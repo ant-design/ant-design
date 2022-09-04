@@ -1,4 +1,7 @@
+import type { CustomizeComponent } from 'rc-table/lib/interface';
+import type { HTMLAttributes } from 'react';
 import React from 'react';
+import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -65,7 +68,7 @@ describe('Table', () => {
       },
     ];
     rerender(<Table columns={newColumns} />);
-    expect(container.querySelector('th').textContent).toEqual('Title');
+    expect(container.querySelector('th')?.textContent).toEqual('Title');
   });
 
   it('loading with Spin', async () => {
@@ -75,7 +78,7 @@ describe('Table', () => {
     };
     const { container, rerender } = render(<Table loading={loading} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    expect(container.querySelector('.ant-table-placeholder').textContent).not.toEqual('');
+    expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toEqual('');
 
     loading.spinning = true;
     rerender(<Table loading={loading} />);
@@ -89,18 +92,24 @@ describe('Table', () => {
   it('support loading tip', async () => {
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
     await sleep(500);
-    rerender(<Table loading={{ tip: 'loading...', loading: true }} />);
+    rerender(
+      <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
+    );
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
   });
 
   it('renders custom components correctly when it changes', () => {
-    const BodyWrapper1 = props => <tbody id="wrapper1" {...props} />;
-    const BodyWrapper2 = props => <tbody id="wrapper2" {...props} />;
+    const BodyWrapper1: CustomizeComponent = (props: HTMLAttributes<any>) => (
+      <tbody id="wrapper1" {...props} />
+    );
+    const BodyWrapper2: CustomizeComponent = (props: HTMLAttributes<any>) => (
+      <tbody id="wrapper2" {...props} />
+    );
     const { container, rerender } = render(
       <Table components={{ body: { wrapper: BodyWrapper1 } }} />,
     );
     rerender(<Table components={{ body: { wrapper: BodyWrapper2 } }} />);
-    expect(container.querySelector('tbody').id).toBe('wrapper2');
+    expect(container.querySelector('tbody')?.id).toBe('wrapper2');
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
@@ -119,13 +128,9 @@ describe('Table', () => {
 
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
+    const props = { columnsPageRange, columnsPageSize };
     render(
-      <Table
-        dataSource={data}
-        rowkey="key"
-        columnsPageRange={columnsPageRange}
-        columnsPageSize={columnsPageSize}
-      >
+      <Table dataSource={data} rowKey="key" {...props}>
         <Column title="Age" dataIndex="age" key="age" />
       </Table>,
     );
@@ -143,7 +148,7 @@ describe('Table', () => {
     const { container } = render(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
     );
-    fireEvent.click(container.querySelector('th'));
+    fireEvent.click(container.querySelector('th')!);
     expect(onClick).toHaveBeenCalled();
   });
 
@@ -169,7 +174,7 @@ describe('Table', () => {
             title: 'name',
           },
         ]}
-        dataSource={['1', 2, undefined, {}, null, true, false, 0]}
+        dataSource={['1', 2, undefined, {}, null, true, false, 0] as TableProps<any>['dataSource']}
       />,
     );
   });
@@ -188,7 +193,7 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
-    fireEvent.touchMove(container.querySelector('.ant-table'));
+    fireEvent.touchMove(container.querySelector('.ant-table')!);
     expect(touchmove).not.toHaveBeenCalled();
   });
 
@@ -230,11 +235,11 @@ describe('Table', () => {
     ];
 
     const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll('.ant-table-thead th').forEach(td => {
-      expect(td.attributes.title).toBeTruthy();
+    container.querySelectorAll<HTMLTableCellElement>('.ant-table-thead th').forEach(td => {
+      expect((td.attributes as any).title).toBeTruthy();
     });
     container.querySelectorAll('.ant-table-tbody td').forEach(td => {
-      expect(td.attributes.title).toBeFalsy();
+      expect((td.attributes as any).title).toBeFalsy();
     });
   });
 
@@ -274,8 +279,8 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    const Wrapper = () => {
-      const ref = React.useRef();
+    const Wrapper: React.FC = () => {
+      const ref = React.useRef<HTMLDivElement>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);

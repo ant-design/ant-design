@@ -1,12 +1,15 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
+import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
+import type { ColumnsType, SortOrder } from '../interface';
 
 describe('Table.sorter', () => {
-  const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();
+  const sorterFn: ColumnType<any>['sorter'] = (a, b) =>
+    a.name[0].charCodeAt() - b.name[0].charCodeAt();
 
-  const column = {
+  const column: ColumnType<any> = {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
@@ -20,15 +23,10 @@ describe('Table.sorter', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  function createTable(tableProps = {}, columnProps = {}) {
+  function createTable(tableProps: TableProps<any> = {}, columnProps = {}) {
     return (
       <Table
-        columns={[
-          {
-            ...column,
-            ...columnProps,
-          },
-        ]}
+        columns={[{ ...column, ...columnProps }]}
         dataSource={data}
         pagination={false}
         {...tableProps}
@@ -36,13 +34,13 @@ describe('Table.sorter', () => {
     );
   }
 
-  function renderedNames(contain) {
-    const namesList = [];
-    contain
-      .querySelector('.ant-table-tbody')
-      .querySelectorAll('tr')
-      .forEach(tr => {
-        namesList.push(tr.querySelector('td').textContent);
+  function renderedNames(container: ReturnType<typeof render>['container']) {
+    const namesList: (Node['textContent'] | undefined)[] = [];
+    container
+      ?.querySelector('.ant-table-tbody')
+      ?.querySelectorAll('tr')
+      ?.forEach(tr => {
+        namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
   }
@@ -53,55 +51,34 @@ describe('Table.sorter', () => {
   });
 
   it('default sort order ascend', () => {
-    const { container } = render(
-      createTable(
-        {},
-        {
-          defaultSortOrder: 'ascend',
-        },
-      ),
-    );
+    const { container } = render(createTable({}, { defaultSortOrder: 'ascend' }));
 
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('default sort order descend', () => {
-    const { container } = render(
-      createTable(
-        {},
-        {
-          defaultSortOrder: 'descend',
-        },
-      ),
-    );
+    const { container } = render(createTable({}, { defaultSortOrder: 'descend' }));
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(container.querySelector('th').getAttribute('aria-sort')).toEqual('descending');
+    expect(container.querySelector('th')?.getAttribute('aria-sort')).toEqual('descending');
   });
 
   it('should change aria-sort when default sort order is set to descend', () => {
     const { container } = render(
-      createTable(
-        {
-          sortDirections: ['descend', 'ascend'],
-        },
-        {
-          defaultSortOrder: 'descend',
-        },
-      ),
+      createTable({ sortDirections: ['descend', 'ascend'] }, { defaultSortOrder: 'descend' }),
     );
 
     const getNameColumn = () => container.querySelector('th');
 
     // Test that it cycles through the order of sortDirections
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   it('should have aria-lable if the column is sortable and is not sorted', () => {
@@ -119,16 +96,16 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-    expect(getNameColumn().getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn().getAttribute('aria-label')).toEqual(null);
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn().getAttribute('aria-label')).toEqual('Name sortable');
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
   });
 
   it('sort records', () => {
@@ -137,28 +114,28 @@ describe('Table.sorter', () => {
 
     // first assert default state
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
 
     // ascend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
     // descend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
   });
 
   it('sort records with keydown', () => {
     const { container } = render(createTable());
 
     // ascend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
+    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters')!, { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
 
     // descend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
+    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters')!, { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
@@ -199,20 +176,20 @@ describe('Table.sorter', () => {
   });
 
   it('provides sortOrder in the sorterFn', () => {
-    let actualSortOrder;
+    let actualSortOrder: SortOrder;
     render(
       createTable(
         {},
         {
           sortOrder: 'ascend',
-          sorter: (a, b, sortOrder) => {
+          sorter: (a: any, b: any, sortOrder: SortOrder) => {
             actualSortOrder = sortOrder;
             return sorterFn(a, b);
           },
         },
       ),
     );
-    expect(actualSortOrder).toEqual('ascend');
+    expect(actualSortOrder!).toEqual('ascend');
   });
 
   it('can update column sortOrder', () => {
@@ -235,21 +212,21 @@ describe('Table.sorter', () => {
     const { container } = render(createTable({ onChange: handleChange }));
 
     // ascent
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     const sorter1 = handleChange.mock.calls[0][2];
     expect(sorter1.column.dataIndex).toBe('name');
     expect(sorter1.order).toBe('ascend');
     expect(sorter1.field).toBe('name');
     expect(sorter1.columnKey).toBe('name');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     const sorter2 = handleChange.mock.calls[1][2];
     expect(sorter2.column.dataIndex).toBe('name');
     expect(sorter2.order).toBe('descend');
     expect(sorter2.field).toBe('name');
     expect(sorter2.columnKey).toBe('name');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
@@ -263,33 +240,33 @@ describe('Table.sorter', () => {
     const { container, rerender } = render(createTable());
 
     // default show sorter tooltip
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
 
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
     // set table props showSorterTooltip is false
     rerender(createTable({ showSorterTooltip: false }));
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
     // set table props showSorterTooltip is false, column showSorterTooltip is true
     rerender(
       createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: true }] }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
     // set table props showSorterTooltip is true, column showSorterTooltip is false
     rerender(
@@ -298,12 +275,12 @@ describe('Table.sorter', () => {
         columns: [{ ...column, showSorterTooltip: false }],
       }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
   });
 
   it('should show correct tooltip when showSorterTooltip is an object', () => {
@@ -313,12 +290,12 @@ describe('Table.sorter', () => {
       createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
     );
 
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
     // Root to false
     rerender(createTable({ showSorterTooltip: false }));
@@ -334,12 +311,12 @@ describe('Table.sorter', () => {
         columns: [{ ...column, showSorterTooltip: true }],
       }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
     // Column to false
     rerender(
@@ -388,14 +365,10 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title = ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>;
-    const columns = [
-      {
-        title,
-        key: 'group',
-        sorter: true,
-      },
-    ];
+    const title = ({ sortOrder }: { sortOrder: SortOrder }) => (
+      <div className="custom-title">{sortOrder}</div>
+    );
+    const columns = [{ title, key: 'group', sorter: true }];
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
       { key: 1, name: 'Lucy', age: 20 },
@@ -403,26 +376,18 @@ describe('Table.sorter', () => {
       { key: 3, name: 'Jerry', age: 22 },
     ];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
-    expect(container.querySelector('.custom-title').textContent).toEqual('');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(container.querySelector('.custom-title').textContent).toEqual('ascend');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(container.querySelector('.custom-title').textContent).toEqual('descend');
+    expect(container.querySelector('.custom-title')?.textContent).toEqual('');
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(container.querySelector('.custom-title')?.textContent).toEqual('ascend');
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(container.querySelector('.custom-title')?.textContent).toEqual('descend');
   });
 
   // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
   it('should sort from beginning state when toggle from different columns', () => {
     const columns = [
-      {
-        title: 'name',
-        dataIndex: 'name',
-        sorter: true,
-      },
-      {
-        title: 'age',
-        dataIndex: 'age',
-        sorter: true,
-      },
+      { title: 'name', dataIndex: 'name', sorter: true },
+      { title: 'age', dataIndex: 'age', sorter: true },
     ];
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
@@ -432,23 +397,27 @@ describe('Table.sorter', () => {
     ];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
 
-    const getNameColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[0];
-    const getAgeColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[1];
-    const getNameIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
-    const getAgeIcon = name => getAgeColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getNameColumn = () =>
+      container.querySelectorAll<HTMLElement>('.ant-table-column-has-sorters')[0];
+    const getAgeColumn = () =>
+      container.querySelectorAll<HTMLElement>('.ant-table-column-has-sorters')[1];
+    const getNameIcon = (name: string) =>
+      getNameColumn()?.querySelector(`.ant-table-column-sorter-${name}`);
+    const getAgeIcon = (name: string) =>
+      getAgeColumn().querySelector(`.ant-table-column-sorter-${name}`);
 
     // sort name
-    fireEvent.click(getNameColumn());
-    expect(getNameIcon('up').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-    expect(getAgeIcon('up').className.includes('active')).toBeFalsy();
+    fireEvent.click(getNameColumn()!);
+    expect(getNameIcon('up')?.className.includes('active')).toBeTruthy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+    expect(getAgeIcon('up')?.className.includes('active')).toBeFalsy();
     expect(getAgeColumn().getAttribute('aria-sort')).toEqual(null);
 
     // sort age
     fireEvent.click(getAgeColumn());
-    expect(getNameIcon('up').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-    expect(getAgeIcon('up').className.includes('active')).toBeTruthy();
+    expect(getNameIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
+    expect(getAgeIcon('up')?.className.includes('active')).toBeTruthy();
     expect(getAgeColumn().getAttribute('aria-sort')).toEqual('ascending');
   });
 
@@ -461,22 +430,14 @@ describe('Table.sorter', () => {
       { key: 3, name: 'Jerry', age: 22 },
     ];
     class TableTest extends React.Component {
-      state = {
-        pagination: {},
-      };
+      state = { pagination: {} };
 
-      onChange = pagination => {
+      onChange: TableProps<any>['onChange'] = pagination => {
         this.setState({ pagination });
       };
 
       render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-          },
-        ];
+        const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
         const { pagination } = this.state;
         return (
           <Table
@@ -492,28 +453,29 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
 
     const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getIcon = (name: string) =>
+      getNameColumn()?.querySelector(`.ant-table-column-sorter-${name}`);
 
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeTruthy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
 
     // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeTruthy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
     // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeTruthy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+
+    // sort name
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
@@ -530,7 +492,7 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange = pagination => {
+      onChange: TableProps<any>['onChange'] = pagination => {
         this.setState({ pagination });
       };
 
@@ -540,10 +502,10 @@ describe('Table.sorter', () => {
             title: 'name',
             dataIndex: 'name',
             sorter: true,
-            render: text => text,
+            render: (text: string) => text,
             array: ['1', '2', 3],
           },
-        ];
+        ] as unknown as TableProps<any>['columns'];
         const { pagination } = this.state;
         return (
           <Table
@@ -559,28 +521,29 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
 
     const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getIcon = (name: string) =>
+      getNameColumn()?.querySelector(`.ant-table-column-sorter-${name}`);
 
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeTruthy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
 
     // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeTruthy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
     // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeTruthy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
+
+    // sort name
+    fireEvent.click(getNameColumn()!);
+    expect(getIcon('up')?.className.includes('active')).toBeFalsy();
+    expect(getIcon('down')?.className.includes('active')).toBeFalsy();
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   // https://github.com/ant-design/ant-design/issues/12870
@@ -596,7 +559,7 @@ describe('Table.sorter', () => {
         pagination: {},
       };
 
-      onChange = pagination => {
+      onChange: TableProps<any>['onChange'] = pagination => {
         this.setState({ pagination });
       };
 
@@ -627,66 +590,62 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
     const getNameColumn = () => container.querySelector('th');
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-up')?.className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
 
     // sort name
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-up')?.className.includes('active'),
     ).toBeTruthy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
     // sort name
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-up')?.className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
 
     // sort name
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-up')?.className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn()?.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   it('should first sort by descend, then ascend, then cancel sort', () => {
-    const { container } = render(
-      createTable({
-        sortDirections: ['descend', 'ascend'],
-      }),
-    );
+    const { container } = render(createTable({ sortDirections: ['descend', 'ascend'] }));
     const getNameColumn = () => container.querySelector('th');
 
     // descend
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
 
     // ascend
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
 
     // cancel sort
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   it('should first sort by descend, then cancel sort', () => {
@@ -699,17 +658,17 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     // default
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
 
     // descend
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
 
     // cancel sort
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   it('should first sort by descend, then cancel sort. (column prop)', () => {
@@ -725,17 +684,17 @@ describe('Table.sorter', () => {
     const getNameColumn = () => container.querySelector('th');
 
     // default
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
 
     // descend
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
 
     // cancel sort
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
   it('pagination back', () => {
@@ -755,12 +714,12 @@ describe('Table.sorter', () => {
 
     const getNameColumn = () => container.querySelector('th');
 
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
 
-    fireEvent.click(getNameColumn());
+    fireEvent.click(getNameColumn()!);
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onPageChange).not.toHaveBeenCalled();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
   });
 
   it('should support onHeaderCell in sort column', () => {
@@ -768,7 +727,7 @@ describe('Table.sorter', () => {
     const { container } = render(
       <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
     );
-    fireEvent.click(container.querySelector('th'));
+    fireEvent.click(container.querySelector('th')!);
     expect(onClick).toHaveBeenCalled();
   });
 
@@ -808,9 +767,7 @@ describe('Table.sorter', () => {
             },
           ],
         },
-        {
-          defaultSortOrder: 'ascend',
-        },
+        { defaultSortOrder: 'ascend' },
       ),
     );
 
@@ -861,7 +818,7 @@ describe('Table.sorter', () => {
             title: 'Age',
             dataIndex: 'age',
             key: 'age',
-            sorter: null,
+            sorter: null as unknown as ColumnType<any>['sorter'],
           },
           {
             title: 'Address',
@@ -884,7 +841,7 @@ describe('Table.sorter', () => {
           title="Chinese Score"
           dataIndex="chinese"
           sorter={{
-            compare: (a, b) => a.chinese - b.chinese,
+            compare: (a: any, b: any) => a.chinese - b.chinese,
             multiple: 3,
           }}
         />
@@ -892,14 +849,14 @@ describe('Table.sorter', () => {
           title="Math Score"
           dataIndex="math"
           sorter={{
-            compare: (a, b) => a.math - b.math,
+            compare: (a: any, b: any) => a.math - b.math,
             multiple: 2,
           }}
         />
       </Table>,
     );
 
-    fireEvent.click(container.querySelector('th'));
+    fireEvent.click(container.querySelector('th')!);
 
     expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
   });
@@ -912,15 +869,15 @@ describe('Table.sorter', () => {
     );
 
     expect(
-      container.querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      container.querySelector('.ant-table-column-sorter-up')?.className.includes('active'),
     ).toBeTruthy();
     expect(
-      container.querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      container.querySelector('.ant-table-column-sorter-down')?.className.includes('active'),
     ).toBeFalsy();
   });
 
   it('controlled multiple group', () => {
-    const groupColumns = [
+    const groupColumns: ColumnsType = [
       {
         title: 'Math Score',
         dataIndex: 'math1',
@@ -950,20 +907,20 @@ describe('Table.sorter', () => {
         english: 70,
       },
     ];
-
-    const { container } = render(<Table columns={groupColumns} data={groupData} />);
+    const dataProp = { data: groupData };
+    const { container } = render(<Table columns={groupColumns} {...dataProp} />);
 
     expect(
       container
-        .querySelectorAll('.ant-table-column-sorter-full')[0]
-        .querySelector('.ant-table-column-sorter-up')
-        .className.includes('active'),
+        ?.querySelectorAll('.ant-table-column-sorter-full')?.[0]
+        ?.querySelector('.ant-table-column-sorter-up')
+        ?.className.includes('active'),
     ).toBeTruthy();
     expect(
       container
-        .querySelectorAll('.ant-table-column-sorter-full')[1]
-        .querySelector('.ant-table-column-sorter-down')
-        .className.includes('active'),
+        ?.querySelectorAll('.ant-table-column-sorter-full')?.[1]
+        ?.querySelector('.ant-table-column-sorter-down')
+        ?.className.includes('active'),
     ).toBeTruthy();
   });
 
@@ -992,11 +949,12 @@ describe('Table.sorter', () => {
     ];
 
     const onChange = jest.fn();
+    const dataProp = { data: groupData };
     const { container } = render(
-      <Table columns={groupColumns} data={groupData} onChange={onChange} />,
+      <Table columns={groupColumns} {...dataProp} onChange={onChange} />,
     );
 
-    function clickToMatchExpect(index, sorter) {
+    function clickToMatchExpect(index: number, sorter: { field: string; order: SortOrder }) {
       fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[index]);
 
       expect(onChange).toHaveBeenCalledWith(
@@ -1012,17 +970,17 @@ describe('Table.sorter', () => {
     // First
     clickToMatchExpect(0, { field: 'math', order: 'ascend' });
     clickToMatchExpect(0, { field: 'math', order: 'descend' });
-    clickToMatchExpect(0, { field: 'math', order: undefined });
+    clickToMatchExpect(0, { field: 'math', order: undefined as unknown as SortOrder });
 
     // Last
     clickToMatchExpect(1, { field: 'english', order: 'ascend' });
     clickToMatchExpect(1, { field: 'english', order: 'descend' });
-    clickToMatchExpect(1, { field: 'english', order: undefined });
+    clickToMatchExpect(1, { field: 'english', order: undefined as unknown as SortOrder });
   });
 
   // https://github.com/ant-design/ant-design/issues/37024
   it('multiple sort should pass array sorter as onChange param', () => {
-    const columns = [
+    const columns: TableProps<any>['columns'] = [
       {
         title: 'Name',
         dataIndex: 'name',

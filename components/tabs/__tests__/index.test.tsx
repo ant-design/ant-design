@@ -19,8 +19,8 @@ describe('Tabs', () => {
   ));
 
   describe('editable-card', () => {
-    let handleEdit;
-    let wrapper;
+    let handleEdit: jest.Mock;
+    let wrapper: ReturnType<typeof render>['container'];
 
     beforeEach(() => {
       handleEdit = jest.fn();
@@ -38,12 +38,12 @@ describe('Tabs', () => {
     });
 
     it('add card', () => {
-      fireEvent.click(wrapper.querySelector('.ant-tabs-nav-add'));
+      fireEvent.click(wrapper.querySelector('.ant-tabs-nav-add')!);
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
     it('remove card', () => {
-      fireEvent.click(wrapper.querySelector('.anticon-close'));
+      fireEvent.click(wrapper.querySelector('.anticon-close')!);
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
 
@@ -80,7 +80,8 @@ describe('Tabs', () => {
 
   it('warning for onNextClick', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Tabs onNextClick={() => {}} />);
+    const onNextClick = { onNextClick() {} } as any;
+    render(<Tabs {...onNextClick} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tabs] `onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
     );

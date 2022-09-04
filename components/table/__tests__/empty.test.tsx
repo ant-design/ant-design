@@ -1,9 +1,10 @@
 import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import type { ColumnsType } from '..';
 import Table from '..';
 import { render, triggerResize, waitFor } from '../../../tests/utils';
 
-const columns = [
+const columns: ColumnsType<any> = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
   { title: 'Column 3', dataIndex: 'address', key: '3' },
@@ -14,7 +15,7 @@ const columns = [
   { title: 'Column 8', dataIndex: 'address', key: '8' },
 ];
 
-const columnsFixed = [
+const columnsFixed: ColumnsType<any> = [
   {
     title: 'Full Name',
     width: 100,
@@ -52,7 +53,7 @@ describe('Table', () => {
   });
 
   describe('renders empty table with fixed columns', () => {
-    let domSpy;
+    let domSpy: ReturnType<typeof spyElementPrototypes>;
 
     beforeAll(() => {
       domSpy = spyElementPrototypes(HTMLDivElement, {
@@ -70,7 +71,7 @@ describe('Table', () => {
         <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
       );
 
-      triggerResize(container.querySelector('.ant-table'));
+      triggerResize(container.querySelector('.ant-table')!);
 
       await waitFor(() => {
         expect(container.querySelector('.ant-empty')).toBeTruthy();

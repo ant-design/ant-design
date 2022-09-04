@@ -1,8 +1,13 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
 import Tree from '../index';
+import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;
+
+const node1 = { id: 'node1' };
+
+const node2 = { id: 'node2' };
 
 describe('Tree', () => {
   it('icon and switcherIcon of Tree with showLine should render correctly', () => {
@@ -35,8 +40,8 @@ describe('Tree', () => {
     const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
+          <TreeNode {...node2} title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -47,8 +52,8 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
+          <TreeNode {...node2} title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -57,7 +62,7 @@ describe('Tree', () => {
 
   it('switcherIcon should be loading icon when loadData', () => {
     const onLoadData = () =>
-      new Promise(resolve => {
+      new Promise<void>(resolve => {
         setTimeout(() => {
           resolve();
         }, 1000);
@@ -65,8 +70,8 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
+          <TreeNode {...node2} title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -76,14 +81,14 @@ describe('Tree', () => {
   it('switcherIcon in Tree could be render prop function', () => {
     const { container } = render(
       <Tree
-        switcherIcon={({ expanded }) =>
+        switcherIcon={({ expanded }: AntTreeNodeProps) =>
           expanded ? <span className="open" /> : <span className="close" />
         }
         defaultExpandAll
       >
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
+          <TreeNode {...node2} title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );

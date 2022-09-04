@@ -1,9 +1,12 @@
-import debounce from 'lodash/debounce';
 import React from 'react';
+import debounce from 'lodash/debounce';
+import type { Key } from 'react';
+import type RcTree from 'rc-tree';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Tree from '../index';
+import type { TreeProps } from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
 
@@ -16,7 +19,7 @@ describe('Directory Tree', () => {
   rtlTest(Tree);
   rtlTest(DirectoryTree);
 
-  debounce.mockImplementation(fn => fn);
+  (debounce as any).mockImplementation((fn: () => void) => fn);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -24,10 +27,10 @@ describe('Directory Tree', () => {
 
   afterAll(() => {
     jest.useRealTimers();
-    debounce.mockRestore();
+    (debounce as any).mockRestore();
   });
 
-  function createTree(props) {
+  function createTree(props?: TreeProps & { ref?: React.Ref<RcTree> }) {
     return (
       <DirectoryTree {...props}>
         <TreeNode key="0-0">
@@ -47,7 +50,7 @@ describe('Directory Tree', () => {
       const onExpand = jest.fn();
       const { container } = render(createTree({ onExpand }));
 
-      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
         jest.runAllTimers();
       });
@@ -57,7 +60,7 @@ describe('Directory Tree', () => {
       act(() => {
         jest.runAllTimers();
       });
-      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
         jest.runAllTimers();
       });
@@ -68,7 +71,7 @@ describe('Directory Tree', () => {
       const onExpand = jest.fn();
       const { container } = render(createTree({ expandAction: 'doubleClick', onExpand }));
 
-      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
         jest.runAllTimers();
       });
@@ -78,7 +81,7 @@ describe('Directory Tree', () => {
       act(() => {
         jest.runAllTimers();
       });
-      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
       act(() => {
         jest.runAllTimers();
       });
@@ -86,12 +89,12 @@ describe('Directory Tree', () => {
     });
 
     describe('with state control', () => {
-      class StateDirTree extends React.Component {
+      class StateDirTree extends React.Component<TreeProps, { expandedKeys: Key[] }> {
         state = {
           expandedKeys: [],
         };
 
-        onExpand = expandedKeys => {
+        onExpand: TreeProps['onExpand'] = expandedKeys => {
           this.setState({ expandedKeys });
         };
 
@@ -111,14 +114,14 @@ describe('Directory Tree', () => {
       it('click', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);
 
-        fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+        fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!);
         jest.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
       it('doubleClick', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
 
-        fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+        fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
         jest.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
@@ -213,7 +216,7 @@ describe('Directory Tree', () => {
   it('onDoubleClick', () => {
     const onDoubleClick = jest.fn();
     const { container } = render(createTree({ onDoubleClick }));
-    fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+    fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper')!);
     expect(onDoubleClick).toHaveBeenCalled();
   });
 
@@ -221,7 +224,7 @@ describe('Directory Tree', () => {
     const onExpand = jest.fn();
     const onSelect = jest.fn();
     const { container } = render(createTree({ onExpand, onSelect }));
-    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'), { ctrlKey: true });
+    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper')!, { ctrlKey: true });
     expect(onExpand).not.toHaveBeenCalled();
     expect(onSelect).toHaveBeenCalledWith(
       ['0-0'],
@@ -268,9 +271,8 @@ describe('Directory Tree', () => {
   });
 
   it('ref support', () => {
-    const treeRef = React.createRef();
+    const treeRef = React.createRef<RcTree>();
     render(createTree({ ref: treeRef }));
-
-    expect('scrollTo' in treeRef.current).toBeTruthy();
+    expect('scrollTo' in treeRef.current!).toBeTruthy();
   });
 });

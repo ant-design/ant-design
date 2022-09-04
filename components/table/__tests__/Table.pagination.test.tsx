@@ -2,6 +2,7 @@
 jest.mock('../../_util/scrollTo');
 
 import React from 'react';
+import type { TablePaginationConfig, TableProps } from '..';
 import Table from '..';
 import { fireEvent, render, act } from '../../../tests/utils';
 import scrollTo from '../../_util/scrollTo';
@@ -22,26 +23,26 @@ describe('Table.pagination', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  const longData = [];
+  const longData: any[] = [];
   for (let i = 0; i < 100; i += 1) {
     longData.push({ key: i, name: `${i}` });
   }
 
   const pagination = { className: 'my-page', pageSize: 2 };
 
-  function createTable(props) {
+  function createTable(props?: TableProps<any>) {
     return <Table columns={columns} dataSource={data} pagination={pagination} {...props} />;
   }
 
-  function renderedNames(contain) {
+  function renderedNames(container: ReturnType<typeof render>['container']) {
     // --- reserve comment for code review ---
     // return wrapper.find('BodyRow').map(row => row.props().record.name);
-    const namesList = [];
-    contain
+    const namesList: (Node['textContent'] | undefined)[] = [];
+    container
       .querySelector('.ant-table-tbody')
-      .querySelectorAll('tr')
-      .forEach(tr => {
-        namesList.push(tr.querySelector('td').textContent);
+      ?.querySelectorAll('tr')
+      ?.forEach(tr => {
+        namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
   }
@@ -83,7 +84,7 @@ describe('Table.pagination', () => {
     const { container } = render(createTable());
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.ant-pagination-next')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -97,7 +98,7 @@ describe('Table.pagination', () => {
   it('should not crash when trigger onChange in render', () => {
     function App() {
       const [page, setPage] = React.useState({ current: 1, pageSize: 10 });
-      const onChange = (current, pageSize) => {
+      const onChange: TablePaginationConfig['onChange'] = (current, pageSize) => {
         setPage({ current, pageSize });
       };
       return (
@@ -124,30 +125,32 @@ describe('Table.pagination', () => {
   });
 
   it('should scroll to first row when page change', () => {
-    scrollTo.mockReturnValue(null);
+    (scrollTo as any).mockReturnValue(null);
 
     const { container } = render(
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.ant-pagination-next')!);
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     fireEvent.click(container.querySelectorAll('.ant-select-item')[1]);
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
   it('should scroll inside .ant-table-body', () => {
-    scrollTo.mockImplementationOnce((top, { getContainer }) => {
-      expect(top).toBe(0);
-      expect(getContainer().className).toBe('ant-table-body');
-    });
+    (scrollTo as any).mockImplementationOnce(
+      (top: number, { getContainer }: { getContainer: () => HTMLElement }) => {
+        expect(top).toBe(0);
+        expect(getContainer().className).toBe('ant-table-body');
+      },
+    );
     const { container } = render(
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.ant-pagination-next')!);
   });
 
   it('fires change event', () => {
@@ -160,14 +163,10 @@ describe('Table.pagination', () => {
         onChange: handleChange,
       }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.ant-pagination-next')!);
 
     expect(handleChange).toHaveBeenCalledWith(
-      {
-        className: 'my-page',
-        current: 2,
-        pageSize: 2,
-      },
+      { className: 'my-page', current: 2, pageSize: 2 },
       {},
       {},
       {
@@ -208,7 +207,7 @@ describe('Table.pagination', () => {
     rerender(createTable({ pagination }));
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
 
     rerender(createTable({ pagination: false }));
@@ -223,12 +222,12 @@ describe('Table.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
     const { container, rerender } = render(createTable({ pagination: { pageSize: 1 } }));
-    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    fireEvent.click(container.querySelector('.ant-pagination-item-3')!);
     rerender(createTable({ dataSource: [data[0]] }));
     expect(
       container
         .querySelector('.ant-pagination-item-1')
-        .className.includes('ant-pagination-item-active'),
+        ?.className.includes('ant-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -238,17 +237,11 @@ describe('Table.pagination', () => {
     const onShowSizeChange = jest.fn();
     const { container } = render(
       createTable({
-        pagination: {
-          current: 1,
-          pageSize: 10,
-          total: 200,
-          onChange,
-          onShowSizeChange,
-        },
+        pagination: { current: 1, pageSize: 10, total: 200, onChange, onShowSizeChange },
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(1, 20);
@@ -259,14 +252,14 @@ describe('Table.pagination', () => {
 
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        ?.querySelector('.ant-pagination-item-2')
+        ?.className.includes('ant-pagination-item-active'),
     ).toBe(true);
-    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    fireEvent.click(container.querySelector('.ant-pagination-item-3')!);
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        ?.querySelector('.ant-pagination-item-2')
+        ?.className.includes('ant-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -285,11 +278,11 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     const newPageSize = parseInt(
-      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
     expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
@@ -312,11 +305,11 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     const newPageSize = parseInt(
-      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
     expect(onChange).toHaveBeenCalledWith(total / newPageSize, 20);
@@ -337,7 +330,7 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(4, 20);
@@ -355,58 +348,68 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('10');
+    expect(container.querySelector('.ant-pagination-item-active')?.textContent).toBe('10');
     rerender(
       createTable({
-        pagination: {
-          current: 10,
-          pageSize: 10,
-          onChange,
-        },
+        pagination: { current: 10, pageSize: 10, onChange },
         dataSource: longData.filter(item => item.key < 60),
       }),
     );
 
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('6');
+    expect(container.querySelector('.ant-pagination-item-active')?.textContent).toBe('6');
   });
 
   it('specify the position of pagination', () => {
     const { container, rerender } = render(createTable({ pagination: { position: ['topLeft'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(container.querySelector('.ant-spin-container')?.children).toHaveLength(2);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        ?.querySelector('.ant-spin-container')
+        ?.children[0].className.includes('ant-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['bottomRight'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(container.querySelector('.ant-spin-container')?.children).toHaveLength(2);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[1].className.includes('ant-pagination'),
+        ?.querySelector('.ant-spin-container')
+        ?.children[1].className.includes('ant-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['topLeft', 'bottomRight'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(3);
+    expect(container.querySelector('.ant-spin-container')?.children).toHaveLength(3);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        ?.querySelector('.ant-spin-container')
+        ?.children[0].className.includes('ant-pagination'),
     ).toBe(true);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[2].className.includes('ant-pagination'),
+        ?.querySelector('.ant-spin-container')
+        ?.children[2].className.includes('ant-pagination'),
     ).toBe(true);
 
-    rerender(createTable({ pagination: { position: ['none', 'none'] } }));
+    rerender(
+      createTable({
+        pagination: { position: ['none', 'none'] as unknown as TablePaginationConfig['position'] },
+      }),
+    );
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
 
-    rerender(createTable({ pagination: { position: ['invalid'] } }));
+    rerender(
+      createTable({
+        pagination: { position: ['invalid'] as unknown as TablePaginationConfig['position'] },
+      }),
+    );
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
 
-    rerender(createTable({ pagination: { position: ['invalid', 'invalid'] } }));
+    rerender(
+      createTable({
+        pagination: {
+          position: ['invalid', 'invalid'] as unknown as TablePaginationConfig['position'],
+        },
+      }),
+    );
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
   });
 
@@ -415,7 +418,7 @@ describe('Table.pagination', () => {
    * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
-    const { asFragment } = render(createTable({ pagination: true }));
+    const { asFragment } = render(createTable({ pagination: true } as TableProps<any>));
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -437,7 +440,7 @@ describe('Table.pagination', () => {
       data.length,
     );
 
-    fireEvent.click(container.querySelector('.ant-pagination .ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.ant-pagination .ant-pagination-item-2')!);
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onChange).toHaveBeenCalledWith(
       { current: 2, pageSize: 10, total: 200 },
@@ -475,7 +478,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     //  resolve Warning: An update to Align ran an effect, but was not wrapped in act(...)
     act(() => {
       jest.runAllTimers();
@@ -490,12 +493,12 @@ describe('Table.pagination', () => {
 
   it('should support current in pagination', () => {
     const { container } = render(createTable({ pagination: { current: 2, pageSize: 1 } }));
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
+    expect(container.querySelector('.ant-pagination-item-active')?.textContent).toBe('2');
   });
 
   it('should support defaultCurrent in pagination', () => {
     const { container } = render(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
+    expect(container.querySelector('.ant-pagination-item-active')?.textContent).toBe('2');
   });
 
   it('should support defaultPageSize in pagination', () => {
@@ -507,23 +510,29 @@ describe('Table.pagination', () => {
   it('ajax should work with pagination', () => {
     const { container, rerender } = render(createTable({ pagination: { total: 100 } }));
 
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
     rerender(createTable({ pagination: { current: 2, total: 100 } }));
 
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        ?.querySelector('.ant-pagination-item-2')
+        ?.className.includes('ant-pagination-item-active'),
     ).toBeTruthy();
   });
 
   it('pagination should ignore invalidate total', () => {
-    const { container } = render(createTable({ pagination: { total: null } }));
+    const { container } = render(
+      createTable({ pagination: { total: null } as unknown as TableProps<any>['pagination'] }),
+    );
     expect(container.querySelectorAll('.ant-pagination-item-1').length).toBeTruthy();
   });
 
   it('renders pagination topLeft and bottomRight', () => {
-    const { asFragment } = render(createTable({ pagination: ['topLeft', 'bottomRight'] }));
+    const { asFragment } = render(
+      createTable({
+        pagination: ['topLeft', 'bottomRight'] as unknown as TableProps<any>['pagination'],
+      }),
+    );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -538,7 +547,7 @@ describe('Table.pagination', () => {
         onChange,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
     expect(onChange).toHaveBeenCalledTimes(1);
   });
@@ -578,32 +587,30 @@ describe('Table.pagination', () => {
       position: ['topLeft', 'bottomLeft'],
     };
     const { container, rerender } = render(
-      createTable({
-        pagination: paginationProp,
-      }),
+      createTable({ pagination: paginationProp } as TableProps<any>),
     );
     rerender(
       createTable({
         dataSource: data.slice(total - 1),
         pagination: { ...paginationProp, total: total - 1 },
-      }),
+      } as TableProps<any>),
     );
 
     expect(container.querySelectorAll('.ant-pagination')).toHaveLength(2);
   });
 
   it('showTotal should hide when removed', () => {
-    const Demo = () => {
-      const [p, setP] = React.useState({
+    const dataProp = { data: [] } as any;
+    const Demo: React.FC = () => {
+      const [p, setP] = React.useState<TablePaginationConfig>({
         showTotal: t => `>${t}<`,
         total: 200,
         current: 1,
         pageSize: 10,
       });
-
       return (
         <Table
-          data={[]}
+          {...dataProp}
           columns={[]}
           pagination={p}
           onChange={pg => {
@@ -617,17 +624,18 @@ describe('Table.pagination', () => {
     };
 
     const { container } = render(<Demo />);
-    expect(container.querySelector('.ant-pagination-total-text').textContent).toEqual('>200<');
+    expect(container.querySelector('.ant-pagination-total-text')?.textContent).toEqual('>200<');
 
     // Should hide
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
     expect(container.querySelectorAll('.ant-pagination-total-text')).toHaveLength(0);
   });
 
   it('should preserve table pagination className', () => {
+    const dataProp = { data: [] } as any;
     const { container } = render(
       <Table
-        data={[]}
+        {...dataProp}
         columns={[]}
         pagination={{
           className: 'pagination',
@@ -637,7 +645,7 @@ describe('Table.pagination', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination').className).toEqual(
+    expect(container.querySelector('.ant-pagination')?.className).toEqual(
       'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
     );
   });

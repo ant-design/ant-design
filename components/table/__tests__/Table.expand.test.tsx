@@ -40,7 +40,7 @@ const data = [
 describe('Table.expand', () => {
   it('click to expand', () => {
     const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -55,10 +55,10 @@ describe('Table.expand', () => {
         }}
       />,
     );
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(container.querySelector('.ant-table-row-expand-icon-expanded')).toBeTruthy();
 
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(container.querySelector('.ant-table-row-expand-icon-collapsed')).toBeTruthy();
   });
 
@@ -78,14 +78,16 @@ describe('Table.expand', () => {
   it('row indent padding should be 0px when indentSize defined as 0', () => {
     const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
 
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
-    expect(container.querySelector('.indent-level-1').style.paddingLeft).toEqual('0px');
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
+    expect(container.querySelector<HTMLElement>('.indent-level-1')?.style.paddingLeft).toEqual(
+      '0px',
+    );
   });
 
   it('has right aria-expanded state', () => {
     const { container } = render(<Table columns={columns} dataSource={data} />);
     expect(container.querySelector('[aria-expanded=false]')).toBeTruthy();
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon')!);
     expect(container.querySelector('[aria-expanded=true]')).toBeTruthy();
   });
 

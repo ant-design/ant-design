@@ -1,4 +1,5 @@
 import React from 'react';
+import type { TimelineProps } from '..';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -6,15 +7,20 @@ import { render } from '../../../tests/utils';
 
 const { Item } = TimeLine;
 
-const renderFactory = (timeLineProps = {}, labelItems = null) =>
-  render(
-    <TimeLine type="editable-card" {...timeLineProps}>
+const renderFactory = (
+  timeLineProps: TimelineProps = {},
+  labelItems: TimelineProps['children'] = null,
+) => {
+  const type = { type: 'editable-card' };
+  return render(
+    <TimeLine {...type} {...timeLineProps}>
       <Item key="1">foo</Item>
       <Item key="2">bar</Item>
       <Item key="3">baz</Item>
       {labelItems}
     </TimeLine>,
   );
+};
 
 describe('TimeLine', () => {
   mountTest(TimeLine);
@@ -89,7 +95,8 @@ describe('TimeLine', () => {
   });
 
   describe('the item rendering sequence is controlled by reverse', () => {
-    const getTextContents = nodeList => Array.from(nodeList).map(node => node.textContent);
+    const getTextContents = (nodeList: NodeListOf<HTMLDivElement>) =>
+      Array.from(nodeList).map(node => node?.textContent);
 
     it('items is in order when prop reverse is false', () => {
       const { container } = renderFactory({ reverse: false });

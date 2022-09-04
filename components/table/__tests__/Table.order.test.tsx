@@ -1,4 +1,5 @@
 import React from 'react';
+import type { TableProps } from '..';
 import Table from '..';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
@@ -31,7 +32,7 @@ describe('Table.order', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  function createTable(props = {}) {
+  function createTable(props: TableProps<any> = {}) {
     return <Table columns={columns} dataSource={data} {...props} />;
   }
 

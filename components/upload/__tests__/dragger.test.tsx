@@ -19,7 +19,7 @@ describe('Upload.Dragger', () => {
       </Upload.Dragger>,
     );
 
-    fireEvent.dragOver(wrapper.querySelector('.ant-upload-drag-container'), {
+    fireEvent.dragOver(wrapper.querySelector('.ant-upload-drag-container')!, {
       target: {
         files: [{ file: 'foo.png' }],
       },
@@ -44,7 +44,7 @@ describe('Upload.Dragger', () => {
       </Upload.Dragger>,
     );
 
-    fireEvent.drop(wrapper.querySelector('.ant-upload-drag-container'), {
+    fireEvent.drop(wrapper.querySelector('.ant-upload-drag-container')!, {
       dataTransfer: {
         files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
       },
