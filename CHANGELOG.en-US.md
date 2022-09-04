@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.23.0
 
-`2021-09-04`
+`2022-09-04`
 
 - 🆕 Tooltip support nested Fragment child nodes to display bubbles. [#37045](https://github.com/ant-design/ant-design/pull/37045) [@HQ-Lin](https://github.com/HQ-Lin)
 - 🆕 Dropdown.Button support `danger` props. [#36810](https://github.com/ant-design/ant-design/pull/36810) [@nuintun](https://github.com/nuintun)
