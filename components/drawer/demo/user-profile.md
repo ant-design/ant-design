@@ -30,14 +30,14 @@ const DescriptionItem = ({ title, content }: DescriptionItemProps) => (
 );
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -73,7 +73,7 @@ const App: React.FC = () => {
           </List.Item>
         )}
       />
-      <Drawer width={640} placement="right" closable={false} onClose={onClose} visible={visible}>
+      <Drawer width={640} placement="right" closable={false} onClose={onClose} open={open}>
         <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
           User Profile
         </p>

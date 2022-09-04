@@ -17,20 +17,19 @@ Centered tabs.
 import { Tabs } from 'antd';
 import React from 'react';
 
-const { TabPane } = Tabs;
-
 const App: React.FC = () => (
-  <Tabs defaultActiveKey="1" centered>
-    <TabPane tab="Tab 1" key="1">
-      Content of Tab Pane 1
-    </TabPane>
-    <TabPane tab="Tab 2" key="2">
-      Content of Tab Pane 2
-    </TabPane>
-    <TabPane tab="Tab 3" key="3">
-      Content of Tab Pane 3
-    </TabPane>
-  </Tabs>
+  <Tabs
+    defaultActiveKey="1"
+    centered
+    items={new Array(3).fill(null).map((_, i) => {
+      const id = String(i + 1);
+      return {
+        label: `Tab ${id}`,
+        key: id,
+        children: `Content of Tab Pane ${id}`,
+      };
+    })}
+  />
 );
 
 export default App;

@@ -18,33 +18,24 @@ import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React from 'react';
 
-const { TabPane } = Tabs;
-
 const App: React.FC = () => (
-  <Tabs defaultActiveKey="2">
-    <TabPane
-      tab={
-        <span>
-          <AppleOutlined />
-          Tab 1
-        </span>
-      }
-      key="1"
-    >
-      Tab 1
-    </TabPane>
-    <TabPane
-      tab={
-        <span>
-          <AndroidOutlined />
-          Tab 2
-        </span>
-      }
-      key="2"
-    >
-      Tab 2
-    </TabPane>
-  </Tabs>
+  <Tabs
+    defaultActiveKey="2"
+    items={[AppleOutlined, AndroidOutlined].map((Icon, i) => {
+      const id = String(i + 1);
+
+      return {
+        label: (
+          <span>
+            <Icon />
+            Tab {id}
+          </span>
+        ),
+        key: id,
+        children: `Tab ${id}`,
+      };
+    })}
+  />
 );
 
 export default App;

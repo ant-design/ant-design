@@ -26,14 +26,14 @@ const App: React.FC = () => {
     setHovered(false);
   };
 
-  const handleHoverChange = (visible: boolean) => {
-    setHovered(visible);
+  const handleHoverChange = (open: boolean) => {
+    setHovered(open);
     setClicked(false);
   };
 
-  const handleClickChange = (visible: boolean) => {
+  const handleClickChange = (open: boolean) => {
     setHovered(false);
-    setClicked(visible);
+    setClicked(open);
   };
 
   const hoverContent = <div>This is hover content.</div>;
@@ -44,8 +44,8 @@ const App: React.FC = () => {
       content={hoverContent}
       title="Hover title"
       trigger="hover"
-      visible={hovered}
-      onVisibleChange={handleHoverChange}
+      open={hovered}
+      onOpenChange={handleHoverChange}
     >
       <Popover
         content={
@@ -56,8 +56,8 @@ const App: React.FC = () => {
         }
         title="Click title"
         trigger="click"
-        visible={clicked}
-        onVisibleChange={handleClickChange}
+        open={clicked}
+        onOpenChange={handleClickChange}
       >
         <Button>Hover and click / 悬停并单击</Button>
       </Popover>
