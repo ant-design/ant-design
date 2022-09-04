@@ -23,7 +23,7 @@ describe('Popconfirm', () => {
   });
 
   it('should popup Popconfirm dialog', () => {
-    const onVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
 
     const wrapper = mount(
       <Popconfirm
@@ -32,7 +32,7 @@ describe('Popconfirm', () => {
         cancelText="No"
         mouseEnterDelay={0}
         mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
+        onOpenChange={onOpenChange}
       >
         <span>Delete</span>
       </Popconfirm>,
@@ -40,11 +40,11 @@ describe('Popconfirm', () => {
 
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
-    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     expect(wrapper.find('.popconfirm-test').length).toBe(1);
 
     triggerNode.simulate('click');
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, undefined);
   });
 
   it('should show overlay when trigger is clicked', async () => {
@@ -88,7 +88,7 @@ describe('Popconfirm', () => {
     expect(popup.innerHTML).toMatchSnapshot();
   });
 
-  it('should be controlled by visible', () => {
+  it('should be controlled by open', () => {
     const ref = React.createRef();
     jest.useFakeTimers();
     const popconfirm = mount(
@@ -97,10 +97,10 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
     expect(ref.current.getPopupDomNode()).toBeFalsy();
-    popconfirm.setProps({ visible: true });
+    popconfirm.setProps({ open: true });
     expect(ref.current.getPopupDomNode()).toBeTruthy();
     expect(ref.current.getPopupDomNode().className).not.toContain('ant-popover-hidden');
-    popconfirm.setProps({ visible: false });
+    popconfirm.setProps({ open: false });
     popconfirm.update(); // https://github.com/enzymejs/enzyme/issues/2305
     act(() => {
       jest.runAllTimers();
@@ -112,14 +112,9 @@ describe('Popconfirm', () => {
   it('should trigger onConfirm and onCancel', () => {
     const confirm = jest.fn();
     const cancel = jest.fn();
-    const onVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const popconfirm = mount(
-      <Popconfirm
-        title="code"
-        onConfirm={confirm}
-        onCancel={cancel}
-        onVisibleChange={onVisibleChange}
-      >
+      <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onOpenChange={onOpenChange}>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -127,11 +122,11 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     popconfirm.find('.ant-btn-primary').simulate('click');
     expect(confirm).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
     triggerNode.simulate('click');
     popconfirm.find('.ant-btn').at(0).simulate('click');
     expect(cancel).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
   it('should support onConfirm to return Promise', async () => {
@@ -139,20 +134,20 @@ describe('Popconfirm', () => {
       new Promise(res => {
         setTimeout(res, 300);
       });
-    const onVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const popconfirm = mount(
-      <Popconfirm title="code" onConfirm={confirm} onVisibleChange={onVisibleChange}>
+      <Popconfirm title="code" onConfirm={confirm} onOpenChange={onOpenChange}>
         <span>show me your code</span>
       </Popconfirm>,
     );
 
     const triggerNode = popconfirm.find('span').at(0);
     triggerNode.simulate('click');
-    expect(onVisibleChange).toHaveBeenCalledTimes(1);
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
 
     popconfirm.find('.ant-btn').at(0).simulate('click');
     await sleep(400);
-    expect(onVisibleChange).toHaveBeenCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenCalledWith(false, eventObject);
   });
 
   it('should support customize icon', () => {
@@ -171,7 +166,7 @@ describe('Popconfirm', () => {
     const btnPrefixCls = 'custom-btn';
     const wrapper = mount(
       <Popconfirm
-        visible
+        open
         title="x"
         prefixCls="custom-popconfirm"
         okButtonProps={{ prefixCls: btnPrefixCls }}
@@ -185,10 +180,10 @@ describe('Popconfirm', () => {
     expect(wrapper.find('.custom-btn').length).toBeGreaterThan(0);
   });
 
-  it('should support defaultVisible', () => {
+  it('should support defaultOpen', () => {
     const ref = React.createRef();
     mount(
-      <Popconfirm ref={ref} title="code" defaultVisible>
+      <Popconfirm ref={ref} title="code" defaultOpen>
         <span>show me your code</span>
       </Popconfirm>,
     );
@@ -209,22 +204,17 @@ describe('Popconfirm', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onVisibleChange = jest.fn();
+    const onOpenChange = jest.fn();
     const wrapper = mount(
-      <Popconfirm
-        title="title"
-        mouseEnterDelay={0}
-        mouseLeaveDelay={0}
-        onVisibleChange={onVisibleChange}
-      >
+      <Popconfirm title="title" mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
         <span>Delete</span>
       </Popconfirm>,
     );
     const triggerNode = wrapper.find('span').at(0);
     triggerNode.simulate('click');
-    expect(onVisibleChange).toHaveBeenLastCalledWith(true, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
     triggerNode.simulate('keydown', { key: 'Escape', keyCode: 27 });
-    expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
   it('should not warn memory leaking if setState in async callback', async () => {

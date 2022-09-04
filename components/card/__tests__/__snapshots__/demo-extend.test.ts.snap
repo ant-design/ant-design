@@ -851,13 +851,6 @@ Array [
               role="tabpanel"
               tabindex="0"
             />
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -1008,24 +1001,10 @@ Array [
             class="ant-tabs-content ant-tabs-content-top"
           >
             <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
-            />
-            <div
               aria-hidden="false"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
               tabindex="0"
-            />
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
             />
           </div>
         </div>

@@ -298,7 +298,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
 );
 
 export default () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState([]);
   const [disabled, setDisabled] = useState(false);
@@ -329,17 +329,17 @@ export default () => {
   };
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const handleOk = e => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   const handleCancel = e => {
     console.log(e);
-    setVisible(false);
+    setOpen(false);
   };
 
   const columns = [
@@ -385,7 +385,7 @@ export default () => {
       <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal title="Basic Modal" visible={visible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Basic Modal" open={open} onOk={handleOk} onCancel={handleCancel}>
         <Switch
           unCheckedChildren="disabled"
           checkedChildren="disabled"

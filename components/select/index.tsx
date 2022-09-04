@@ -19,6 +19,7 @@ import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
+import warning from '../_util/warning';
 
 type RawValue = string | number;
 
@@ -53,6 +54,12 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /**
+   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+   *   version.Please use `popupClassName` instead.
+   */
+  dropdownClassName?: string;
+  popupClassName?: string;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -64,6 +71,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     className,
     getPopupContainer,
     dropdownClassName,
+    popupClassName,
     listHeight = 256,
     placement,
     listItemHeight = 24,
@@ -107,6 +115,13 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const mergedShowArrow =
     showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
 
+  // =================== Warning =====================
+  warning(
+    !dropdownClassName,
+    'Select',
+    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+  );
+
   // ===================== Form Status =====================
   const {
     status: contextStatus,
@@ -138,7 +153,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropdownClassName = classNames(dropdownClassName, {
+  const rcSelectRtlDropdownClassName = classNames(popupClassName || dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
