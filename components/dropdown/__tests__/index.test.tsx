@@ -95,6 +95,7 @@ describe('Dropdown', () => {
     expect(error).toHaveBeenCalledWith(
       expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
     );
+    error.mockRestore();
   });
 
   // zombieJ: when replaced with react test lib, it may be mock fully content

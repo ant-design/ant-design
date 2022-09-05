@@ -124,7 +124,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-        '&:focus-visible': {
+        [`&:not(${componentCls}-item-disabled):focus-visible`]: {
           ...accessibilityFocus(token),
         },
       },

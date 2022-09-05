@@ -43,22 +43,41 @@ export interface TooltipAlignConfig {
   useCssBottom?: boolean;
   useCssTransform?: boolean;
 }
-
 // remove this after RcTooltip switch visible to open.
-interface TempTooltipProps
+interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
       'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
     >
   > {
+  /**
+   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
+   *   `open` instead.
+   */
+  visible?: RcTooltipProps['visible'];
   open?: RcTooltipProps['visible'];
+  /**
+   * @deprecated `defaultVisible` is deprecated which will be removed in next major version. Please
+   *   use `defaultOpen` instead.
+   */
+  defaultVisible?: RcTooltipProps['defaultVisible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
+  /**
+   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
+   *   use `onOpenChange` instead.
+   */
+  onVisibleChange?: RcTooltipProps['onVisibleChange'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
+  /**
+   * @deprecated `afterVisibleChange` is deprecated which will be removed in next major version.
+   *   Please use `afterOpenChange` instead.
+   */
+  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export interface AbstractTooltipProps extends TempTooltipProps {
+export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
   className?: string;
   color?: LiteralUnion<PresetColorType, string>;
@@ -181,6 +200,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
     if (!isNoTitle()) {
       props.onOpenChange?.(vis);
+      props.onVisibleChange?.(vis);
     }
   };
 

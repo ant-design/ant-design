@@ -600,6 +600,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <input
+                              aria-required="true"
                               class="ant-input"
                               id="name"
                               placeholder="Please enter user name"
@@ -655,6 +656,7 @@ HTMLCollection [
                                   http://
                                 </span>
                                 <input
+                                  aria-required="true"
                                   class="ant-input"
                                   id="url"
                                   placeholder="Please enter url"
@@ -710,6 +712,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
@@ -724,6 +727,7 @@ HTMLCollection [
                                     aria-controls="owner_list"
                                     aria-haspopup="listbox"
                                     aria-owns="owner_list"
+                                    aria-required="true"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
                                     id="owner"
@@ -887,6 +891,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
@@ -901,6 +906,7 @@ HTMLCollection [
                                     aria-controls="type_list"
                                     aria-haspopup="listbox"
                                     aria-owns="type_list"
+                                    aria-required="true"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
                                     id="type"
@@ -1069,6 +1075,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
@@ -1083,6 +1090,7 @@ HTMLCollection [
                                     aria-controls="approver_list"
                                     aria-haspopup="listbox"
                                     aria-owns="approver_list"
+                                    aria-required="true"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
                                     id="approver"
@@ -1246,6 +1254,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-required="true"
                               class="ant-picker ant-picker-range"
                               style="width: 100%;"
                             >
@@ -2470,6 +2479,7 @@ HTMLCollection [
                             class="ant-form-item-control-input-content"
                           >
                             <textarea
+                              aria-required="true"
                               class="ant-input"
                               id="description"
                               placeholder="please enter url description"
