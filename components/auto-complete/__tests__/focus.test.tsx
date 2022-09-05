@@ -57,17 +57,13 @@ describe('AutoComplete children could be focus', () => {
   });
 
   it('child.ref instance should support be focused and blured', () => {
-    let inputRef: HTMLInputElement;
+    const inputRef = React.createRef<HTMLInputElement>();
     render(
       <AutoComplete dataSource={[]}>
-        <input
-          ref={node => {
-            inputRef = node!;
-          }}
-        />
+        <input ref={inputRef} />
       </AutoComplete>,
     );
-    expect(typeof inputRef!.focus).toBe('function');
-    expect(typeof inputRef!.blur).toBe('function');
+    expect(typeof inputRef.current?.focus).toBe('function');
+    expect(typeof inputRef.current?.blur).toBe('function');
   });
 });
