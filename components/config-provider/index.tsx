@@ -142,7 +142,7 @@ export const globalConfig = () => ({
 const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const {
     children,
-    csp,
+    csp: customCsp,
     autoInsertSpaceInButton,
     form,
     locale,
@@ -172,6 +172,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
+  const csp = customCsp || parentContext.csp;
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
