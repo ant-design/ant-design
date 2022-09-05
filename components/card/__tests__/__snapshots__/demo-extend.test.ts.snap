@@ -743,7 +743,6 @@ HTMLCollection [
       </div>
       <div
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
-        items="[object Object],[object Object]"
       >
         <div
           class="ant-tabs-nav"
@@ -756,6 +755,34 @@ HTMLCollection [
               class="ant-tabs-nav-list"
               style="transform: translate(0px, 0px);"
             >
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab1"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab1
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-tab2"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab2"
+                  role="tab"
+                  tabindex="0"
+                >
+                  tab2
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
@@ -821,7 +848,16 @@ HTMLCollection [
         >
           <div
             class="ant-tabs-content ant-tabs-content-top"
-          />
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-tab1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-tab1"
+              role="tabpanel"
+              tabindex="0"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -847,7 +883,6 @@ HTMLCollection [
       />
       <div
         class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
-        items="[object Object],[object Object],[object Object]"
       >
         <div
           class="ant-tabs-nav"
@@ -860,6 +895,48 @@ HTMLCollection [
               class="ant-tabs-nav-list"
               style="transform: translate(0px, 0px);"
             >
+              <div
+                class="ant-tabs-tab"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-article"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-article"
+                  role="tab"
+                  tabindex="0"
+                >
+                  article
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab ant-tabs-tab-active"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-app"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-app"
+                  role="tab"
+                  tabindex="0"
+                >
+                  app
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-project"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-project"
+                  role="tab"
+                  tabindex="0"
+                >
+                  project
+                </div>
+              </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
               />
@@ -934,7 +1011,16 @@ HTMLCollection [
         >
           <div
             class="ant-tabs-content ant-tabs-content-top"
-          />
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-app"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-app"
+              role="tabpanel"
+              tabindex="0"
+            />
+          </div>
         </div>
       </div>
     </div>

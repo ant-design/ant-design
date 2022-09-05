@@ -5,6 +5,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
 import '@testing-library/jest-dom';
+console.log('fireEvent');
 
 describe('Card', () => {
   mountTest(Card);
@@ -53,9 +54,8 @@ describe('Card', () => {
         xxx
       </Card>,
     );
-    // TODO TEST
-    // fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
-    // expect(onTabChange).toHaveBeenCalledWith('tab2');
+    fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
+    expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
   it('should not render when actions is number', () => {

@@ -279,8 +279,7 @@ describe('should support showCount', () => {
       />,
     );
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
-    // TODO TEST
-    // expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
   });
 });
 

@@ -44,14 +44,12 @@ describe('Tabs', () => {
     });
 
     it('remove card', () => {
-      // TODO TEST
-      // fireEvent.click(wrapper.querySelector('.anticon-close')!);
-      // expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
+      fireEvent.click(wrapper.querySelector('.anticon-close')!);
+      expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
 
     it('validateElement', () => {
-      // TODO TEST
-      // expect(wrapper.querySelectorAll('.ant-tabs-tab').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-tabs-tab').length).toBe(1);
     });
   });
 
@@ -120,8 +118,7 @@ describe('Tabs', () => {
         invalidate
       </Tabs>,
     );
-    // TODO
-    // expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tabs] Tabs.TabPane is deprecated. Please use `items` directly.',
