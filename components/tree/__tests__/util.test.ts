@@ -14,14 +14,14 @@ describe('Tree util', () => {
     ];
 
     it('calc range keys', () => {
-      const keys = calcRangeKeys({
+      const rangeKeys = calcRangeKeys({
         treeData,
         expandedKeys: ['0-0', '0-2', '0-2-0'],
         startKey: '0-2-0-1',
         endKey: '0-0-0',
       });
       const target = ['0-0-0', '0-0-1', '0-1', '0-2', '0-2-0', '0-2-0-0', '0-2-0-1'];
-      expect(keys.sort()).toEqual(target.sort());
+      expect(rangeKeys.sort()).toEqual(target.sort());
     });
 
     it('return startKey when startKey === endKey', () => {
