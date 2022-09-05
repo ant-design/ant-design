@@ -75,7 +75,7 @@ describe('Breadcrumb', () => {
   });
 
   it('should render a menu', () => {
-    const routes = [
+    const routes: Route[] = [
       {
         path: 'index',
         breadcrumbName: 'home',
@@ -104,8 +104,9 @@ describe('Breadcrumb', () => {
       },
       {
         path: 'third',
+        breadcrumbName: '',
       },
-    ] as Route[];
+    ];
     const { asFragment } = render(<Breadcrumb routes={routes} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
