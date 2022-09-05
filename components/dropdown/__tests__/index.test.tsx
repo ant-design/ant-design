@@ -95,6 +95,7 @@ describe('Dropdown', () => {
     expect(error).toHaveBeenCalledWith(
       expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
     );
+    error.mockRestore();
   });
 
   // zombieJ: when replaced with react test lib, it may be mock fully content
@@ -165,5 +166,28 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  it('deprecated warning', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { rerender } = render(
+      <Dropdown visible overlay={<div>menu</div>}>
+        <a />
+      </Dropdown>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
+    );
+    rerender(
+      <Dropdown onVisibleChange={() => {}} overlay={<div>menu</div>}>
+        <a />
+      </Dropdown>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated which will be removed in next major version, please use `onOpenChange` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 });
