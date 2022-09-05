@@ -371,24 +371,15 @@ describe('Tooltip', () => {
     ] as const;
     const testPlacement = (name: string, placement: TooltipPlacement) => {
       it(name, async () => {
-        const popupTransitionName = { popupTransitionName: '' };
         const { container } = render(
-          <Tooltip
-            title="xxxxx"
-            transitionName=""
-            {...popupTransitionName}
-            mouseEnterDelay={0}
-            placement={placement}
-          >
+          <Tooltip title="xxxxx" transitionName="" mouseEnterDelay={0} placement={placement}>
             <span>Hello world!</span>
           </Tooltip>,
         );
-
         expect(container.getElementsByTagName('span')).toHaveLength(1);
         const element = container.getElementsByTagName('span')[0];
         fireEvent.mouseEnter(element);
         await sleep(500);
-
         await waitFor(() => {
           expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
         });

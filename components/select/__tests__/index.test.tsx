@@ -1,11 +1,11 @@
 import React from 'react';
+import { CloseOutlined } from '@ant-design/icons';
 import type { SelectProps } from '..';
 import Select from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
-import Icon from '../../icon';
 
 const { Option } = Select;
 
@@ -106,26 +106,22 @@ describe('Select', () => {
     errorSpy.mockRestore();
   });
 
-  //
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
-      const count = { count: 10 };
-      const type = { type: 'close' } as any;
       const { rerender, asFragment } = render(
         <Select
-          removeIcon={<Icon {...type} />}
-          clearIcon={<Icon {...type} />}
-          menuItemSelectedIcon={<Icon {...type} />}
+          removeIcon={<CloseOutlined />}
+          clearIcon={<CloseOutlined />}
+          menuItemSelectedIcon={<CloseOutlined />}
         >
           <Option value="1">1</Option>
         </Select>,
       );
       rerender(
         <Select
-          {...count}
-          removeIcon={<Icon {...type} />}
-          clearIcon={<Icon {...type} />}
-          menuItemSelectedIcon={<Icon {...type} />}
+          removeIcon={<CloseOutlined />}
+          clearIcon={<CloseOutlined />}
+          menuItemSelectedIcon={<CloseOutlined />}
         >
           <Option value="1">1</Option>
         </Select>,

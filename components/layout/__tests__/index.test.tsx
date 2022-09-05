@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
+import { UserOutlined } from '@ant-design/icons';
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -215,12 +216,11 @@ describe('Layout', () => {
 
   it('render correct with Tooltip', () => {
     jest.useFakeTimers();
-    const type = { type: 'user' } as any;
     const { container, rerender } = render(
       <Sider collapsible collapsed={false}>
         <Menu mode="inline">
           <Menu.Item key="1">
-            <Icon {...type} />
+            <UserOutlined />
             <span>Light</span>
           </Menu.Item>
         </Menu>
@@ -236,7 +236,7 @@ describe('Layout', () => {
       <Sider collapsible collapsed>
         <Menu mode="inline">
           <Menu.Item key="1">
-            <Icon {...type} />
+            <UserOutlined />
             <span>Light</span>
           </Menu.Item>
         </Menu>

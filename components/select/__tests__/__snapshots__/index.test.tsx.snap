@@ -63,7 +63,6 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 exports[`Select Select Custom Icons should support customized icons 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  count="10"
 >
   <div
     class="ant-select-selector"

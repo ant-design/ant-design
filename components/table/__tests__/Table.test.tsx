@@ -1,5 +1,3 @@
-import type { CustomizeComponent } from 'rc-table/lib/interface';
-import type { HTMLAttributes } from 'react';
 import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
@@ -98,30 +96,10 @@ describe('Table', () => {
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
   });
 
-  it('renders custom components correctly when it changes', () => {
-    const BodyWrapper1: CustomizeComponent = (props: HTMLAttributes<any>) => (
-      <tbody id="wrapper1" {...props} />
-    );
-    const BodyWrapper2: CustomizeComponent = (props: HTMLAttributes<any>) => (
-      <tbody id="wrapper2" {...props} />
-    );
-    const { container, rerender } = render(
-      <Table components={{ body: { wrapper: BodyWrapper1 } }} />,
-    );
-    rerender(<Table components={{ body: { wrapper: BodyWrapper2 } }} />);
-    expect(container.querySelector('tbody')?.id).toBe('wrapper2');
-  });
-
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
     const data = [
-      {
-        key: '1',
-        age: 32,
-      },
-      {
-        key: '2',
-        age: 42,
-      },
+      { key: '1', age: 32 },
+      { key: '2', age: 42 },
     ];
 
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
