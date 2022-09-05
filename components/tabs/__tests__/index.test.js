@@ -3,6 +3,7 @@ import Tabs from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 const { TabPane } = Tabs;
 
@@ -104,5 +105,24 @@ describe('Tabs', () => {
       </Tabs>,
     );
     expect(wrapper2.firstChild).toMatchSnapshot();
+  });
+
+  it('deprecated warning', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(
+      <Tabs>
+        <TabPane />
+        invalidate
+      </Tabs>,
+    );
+
+    expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] Tabs.TabPane is deprecated. Please use `items` directly.',
+    );
+    errorSpy.mockRestore();
   });
 });

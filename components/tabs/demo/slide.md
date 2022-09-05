@@ -18,8 +18,6 @@ import type { RadioChangeEvent } from 'antd';
 import { Radio, Tabs } from 'antd';
 import React, { useState } from 'react';
 
-const { TabPane } = Tabs;
-
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
 const App: React.FC = () => {
@@ -35,13 +33,20 @@ const App: React.FC = () => {
         <Radio.Button value="top">Horizontal</Radio.Button>
         <Radio.Button value="left">Vertical</Radio.Button>
       </Radio.Group>
-      <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
-        {[...Array.from({ length: 30 }, (_, i) => i)].map(i => (
-          <TabPane tab={`Tab-${i}`} key={i} disabled={i === 28}>
-            Content of tab {i}
-          </TabPane>
-        ))}
-      </Tabs>
+      <Tabs
+        defaultActiveKey="1"
+        tabPosition={mode}
+        style={{ height: 220 }}
+        items={new Array(30).fill(null).map((_, i) => {
+          const id = String(i);
+          return {
+            label: `Tab-${id}`,
+            key: id,
+            disabled: i === 28,
+            children: `Content of tab ${id}`,
+          };
+        })}
+      />
     </div>
   );
 };

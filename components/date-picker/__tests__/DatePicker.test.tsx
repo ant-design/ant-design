@@ -221,6 +221,20 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
+  it('DatePicker should show warning when use dropdownClassName', () => {
+    render(<DatePicker dropdownClassName="myCustomClassName" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+  });
+
+  it('RangePicker should show warning when use dropdownClassName', () => {
+    render(<DatePicker.RangePicker dropdownClassName="myCustomClassName" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+  });
+
   it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
     const startDate = moment('1982-02-12');
     const endDate = moment('1982-02-22');
