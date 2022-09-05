@@ -8,4 +8,10 @@ describe('Icon', () => {
     const { container } = render(<Icon />);
     expect(container.firstChild).toBe(null);
   });
+
+  it('should throw Error', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Icon />);
+    expect(errSpy).toHaveBeenCalled();
+  });
 });
