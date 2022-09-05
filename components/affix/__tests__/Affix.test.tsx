@@ -191,21 +191,16 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when size changed', () => {
-    it.each([
-      { name: 'inner', index: 0 },
-      { name: 'outer', index: 1 },
-    ])('inner or outer', async () => {
+    it('add class automatically', async () => {
       document.body.innerHTML = '<div id="mounter" />';
 
       let affixInstance: InternalAffixClass | null = null;
-      const updateCalled = jest.fn();
-      const { container } = render(
+      render(
         <AffixMounter
           getInstance={inst => {
             affixInstance = inst;
           }}
           offsetBottom={0}
-          onTestUpdatePosition={updateCalled}
         />,
         {
           container: document.getElementById('mounter')!,
@@ -213,18 +208,25 @@ describe('Affix Render', () => {
       );
 
       await sleep(20);
-
       await movePlaceholder(300);
       expect(affixInstance!.state.affixStyle).toBeTruthy();
+    });
 
-      // Mock trigger resize
-      updateCalled.mockReset();
-      triggerResize(container.querySelector('.fixed')!);
-      await sleep(20);
-      expect(updateCalled).toHaveBeenCalled();
+    // Trigger inner and outer element for the two <ResizeObserver>s.
+    it.each([
+      { selector: '.ant-btn' }, // inner
+      { selector: '.fixed' }, // outer
+    ])('trigger listener when size change', async ({ selector }) => {
+      const updateCalled = jest.fn();
+      const { container } = render(
+        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+        {
+          container: document.getElementById('mounter')!,
+        },
+      );
 
       updateCalled.mockReset();
-      triggerResize(container.querySelector('.ant-btn')!);
+      triggerResize(container.querySelector(selector)!);
       await sleep(20);
       expect(updateCalled).toHaveBeenCalled();
     });
