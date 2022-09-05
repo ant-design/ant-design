@@ -18,26 +18,26 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState('Content of the modal');
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const handleOk = () => {
     setModalText('The modal will be closed after two seconds');
     setConfirmLoading(true);
     setTimeout(() => {
-      setVisible(false);
+      setOpen(false);
       setConfirmLoading(false);
     }, 2000);
   };
 
   const handleCancel = () => {
     console.log('Clicked cancel button');
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -47,7 +47,7 @@ const App: React.FC = () => {
       </Button>
       <Modal
         title="Title"
-        visible={visible}
+        open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}

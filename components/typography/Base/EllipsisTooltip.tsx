@@ -20,7 +20,7 @@ const EllipsisTooltip = ({
   }
 
   return (
-    <Tooltip visible={isEllipsis ? undefined : false} {...tooltipProps}>
+    <Tooltip open={isEllipsis ? undefined : false} {...tooltipProps}>
       {children}
     </Tooltip>
   );

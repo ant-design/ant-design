@@ -207,17 +207,45 @@
       min-height: 0;
     }
 
-    display: flex;
+    position: relative;
     width: 100%;
-
-    &-animated {
-      transition: margin @animation-duration-slow;
-    }
   }
 
   &-tabpane {
-    flex: none;
-    width: 100%;
-    outline: none;
+    &-hidden {
+      display: none;
+    }
+  }
+
+  // Motion
+  &-switch {
+    &-appear,
+    &-enter {
+      transition: none;
+
+      &-start {
+        opacity: 0;
+      }
+
+      &-active {
+        opacity: 1;
+        transition: opacity @animation-duration-slow;
+      }
+    }
+
+    &-leave {
+      position: absolute;
+      transition: none;
+      inset: 0;
+
+      &-start {
+        opacity: 1;
+      }
+
+      &-active {
+        opacity: 0;
+        transition: opacity @animation-duration-slow;
+      }
+    }
   }
 }

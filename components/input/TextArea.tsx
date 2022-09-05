@@ -17,7 +17,7 @@ import type { InputFocusOptions } from './Input';
 import { fixControlledValue, resolveOnChange, triggerFocus } from './Input';
 
 interface ShowCountProps {
-  formatter: (args: { count: number; maxLength?: number }) => string;
+  formatter: (args: { value: string; count: number; maxLength?: number }) => string;
 }
 
 function fixEmojiLength(value: string, maxLength: number) {
@@ -233,7 +233,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
       let dataCount = '';
       if (typeof showCount === 'object') {
-        dataCount = showCount.formatter({ count: valueLength, maxLength });
+        dataCount = showCount.formatter({ value: val, count: valueLength, maxLength });
       } else {
         dataCount = `${valueLength}${hasMaxLength ? ` / ${maxLength}` : ''}`;
       }

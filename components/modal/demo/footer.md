@@ -23,22 +23,22 @@ import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const handleOk = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setVisible(false);
+      setOpen(false);
     }, 3000);
   };
 
   const handleCancel = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -47,7 +47,7 @@ const App: React.FC = () => {
         Open Modal with customized footer
       </Button>
       <Modal
-        visible={visible}
+        open={open}
         title="Title"
         onOk={handleOk}
         onCancel={handleCancel}

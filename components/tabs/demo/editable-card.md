@@ -17,22 +17,20 @@ Only card type Tabs support adding & closable. +Use `closable={false}` to disabl
 import { Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
 
-const { TabPane } = Tabs;
-
-const initialPanes = [
-  { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
-  { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
+const initialItems = [
+  { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },
+  { label: 'Tab 2', children: 'Content of Tab 2', key: '2' },
   {
-    title: 'Tab 3',
-    content: 'Content of Tab 3',
+    label: 'Tab 3',
+    children: 'Content of Tab 3',
     key: '3',
     closable: false,
   },
 ];
 
 const App: React.FC = () => {
-  const [activeKey, setActiveKey] = useState(initialPanes[0].key);
-  const [panes, setPanes] = useState(initialPanes);
+  const [activeKey, setActiveKey] = useState(initialItems[0].key);
+  const [items, setItems] = useState(initialItems);
   const newTabIndex = useRef(0);
 
   const onChange = (newActiveKey: string) => {
@@ -41,21 +39,21 @@ const App: React.FC = () => {
 
   const add = () => {
     const newActiveKey = `newTab${newTabIndex.current++}`;
-    const newPanes = [...panes];
-    newPanes.push({ title: 'New Tab', content: 'Content of new Tab', key: newActiveKey });
-    setPanes(newPanes);
+    const newPanes = [...items];
+    newPanes.push({ label: 'New Tab', children: 'Content of new Tab', key: newActiveKey });
+    setItems(newPanes);
     setActiveKey(newActiveKey);
   };
 
   const remove = (targetKey: string) => {
     let newActiveKey = activeKey;
     let lastIndex = -1;
-    panes.forEach((pane, i) => {
-      if (pane.key === targetKey) {
+    items.forEach((item, i) => {
+      if (item.key === targetKey) {
         lastIndex = i - 1;
       }
     });
-    const newPanes = panes.filter(pane => pane.key !== targetKey);
+    const newPanes = items.filter(item => item.key !== targetKey);
     if (newPanes.length && newActiveKey === targetKey) {
       if (lastIndex >= 0) {
         newActiveKey = newPanes[lastIndex].key;
@@ -63,7 +61,7 @@ const App: React.FC = () => {
         newActiveKey = newPanes[0].key;
       }
     }
-    setPanes(newPanes);
+    setItems(newPanes);
     setActiveKey(newActiveKey);
   };
 
@@ -76,13 +74,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <Tabs type="editable-card" onChange={onChange} activeKey={activeKey} onEdit={onEdit}>
-      {panes.map(pane => (
-        <TabPane tab={pane.title} key={pane.key} closable={pane.closable}>
-          {pane.content}
-        </TabPane>
-      ))}
-    </Tabs>
+    <Tabs
+      type="editable-card"
+      onChange={onChange}
+      activeKey={activeKey}
+      onEdit={onEdit}
+      items={items}
+    />
   );
 };
 
