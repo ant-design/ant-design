@@ -10,17 +10,15 @@ const { Item } = TimeLine;
 const renderFactory = (
   timeLineProps: TimelineProps = {},
   labelItems: TimelineProps['children'] = null,
-) => {
-  const type = { type: 'editable-card' };
-  return render(
-    <TimeLine {...type} {...timeLineProps}>
+) =>
+  render(
+    <TimeLine {...timeLineProps}>
       <Item key="1">foo</Item>
       <Item key="2">bar</Item>
       <Item key="3">baz</Item>
       {labelItems}
     </TimeLine>,
   );
-};
 
 describe('TimeLine', () => {
   mountTest(TimeLine);
