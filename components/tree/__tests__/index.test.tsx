@@ -5,10 +5,6 @@ import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;
 
-const node1 = { id: 'node1' };
-
-const node2 = { id: 'node2' };
-
 describe('Tree', () => {
   it('icon and switcherIcon of Tree with showLine should render correctly', () => {
     const { asFragment } = render(
@@ -40,8 +36,10 @@ describe('Tree', () => {
     const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
-          <TreeNode {...node2} title="node2" key="0-0-3" />
+          {/* @ts-ignore */}
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          {/* @ts-ignore */}
+          <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -52,8 +50,10 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
-          <TreeNode {...node2} title="node2" key="0-0-3" />
+          {/* @ts-ignore */}
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          {/* @ts-ignore */}
+          <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -70,8 +70,10 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
-          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
-          <TreeNode {...node2} title="node2" key="0-0-3" />
+          {/* @ts-ignore */}
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          {/* @ts-ignore */}
+          <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -87,8 +89,10 @@ describe('Tree', () => {
         defaultExpandAll
       >
         <TreeNode icon="icon">
-          <TreeNode {...node1} title="node1" icon="icon" key="0-0-2" />
-          <TreeNode {...node2} title="node2" key="0-0-3" />
+          {/* @ts-ignore */}
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          {/* @ts-ignore */}
+          <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
