@@ -30,7 +30,7 @@ interface ChildrenProps {
   visible?: boolean; // Only for test. Don't use it.
 }
 
-const RenderChildren: React.FC<ChildrenProps> = props => {
+const BackTopContent: React.FC<ChildrenProps> = props => {
   const { prefixCls, rootPrefixCls, children, visible } = props;
   const defaultElement = (
     <div className={`${prefixCls}-content`}>
@@ -124,9 +124,9 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   return (
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      <RenderChildren prefixCls={prefixCls} rootPrefixCls={rootPrefixCls} visible={visible}>
+      <BackTopContent prefixCls={prefixCls} rootPrefixCls={rootPrefixCls} visible={visible}>
         {props.children}
-      </RenderChildren>
+      </BackTopContent>
     </div>
   );
 };
