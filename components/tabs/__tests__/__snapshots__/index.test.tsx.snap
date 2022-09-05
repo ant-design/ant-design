@@ -3,6 +3,7 @@
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
+  items="[object Object]"
 >
   <div>
     custom-tab-bar
@@ -12,18 +13,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
-        role="tabpanel"
-        tabindex="0"
-      >
-        foo
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;
@@ -31,6 +21,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-rtl"
+  items="[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -43,20 +34,6 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-xx"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-xx"
-            role="tab"
-            tabindex="0"
-          >
-            xx
-          </div>
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -103,16 +80,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-xx"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-xx"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -120,6 +88,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
 exports[`Tabs tabBarGutter should work 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
+  items="[object Object],[object Object],[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -132,44 +101,6 @@ exports[`Tabs tabBarGutter should work 1`] = `
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-left: 0px;"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-left: 0px;"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -216,32 +147,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-top"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -249,6 +155,7 @@ exports[`Tabs tabBarGutter should work 1`] = `
 exports[`Tabs tabBarGutter should work 2`] = `
 <div
   class="ant-tabs ant-tabs-left"
+  items="[object Object],[object Object],[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -261,44 +168,6 @@ exports[`Tabs tabBarGutter should work 2`] = `
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-top: 0px;"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-          style="margin-top: 0px;"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-null"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-null"
-            role="tab"
-            tabindex="0"
-          />
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -345,32 +214,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-left"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-null"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-null"
-        role="tabpanel"
-        tabindex="0"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -378,6 +222,7 @@ exports[`Tabs tabBarGutter should work 2`] = `
 exports[`Tabs tabPosition remove card 1`] = `
 <div
   class="ant-tabs ant-tabs-left"
+  items="[object Object]"
 >
   <div
     class="ant-tabs-nav"
@@ -390,20 +235,6 @@ exports[`Tabs tabPosition remove card 1`] = `
         class="ant-tabs-nav-list"
         style="transform: translate(0px, 0px);"
       >
-        <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-        >
-          <div
-            aria-controls="rc-tabs-test-panel-1"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
-            role="tab"
-            tabindex="0"
-          >
-            foo
-          </div>
-        </div>
         <div
           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
         />
@@ -455,18 +286,7 @@ exports[`Tabs tabPosition remove card 1`] = `
   >
     <div
       class="ant-tabs-content ant-tabs-content-left"
-    >
-      <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
-        role="tabpanel"
-        tabindex="0"
-      >
-        foo
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;

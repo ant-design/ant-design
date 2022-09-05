@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/alert/demo/action.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
@@ -214,7 +214,7 @@ Array [
       >
         <div
           class="ant-space-item"
-          style="margin-bottom:8px"
+          style="margin-bottom: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary ant-btn-sm"
@@ -269,7 +269,7 @@ Array [
 `;
 
 exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-warning ant-alert-banner"
     data-show="true"
@@ -437,7 +437,7 @@ exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon"
     data-show="true"
@@ -556,7 +556,7 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"
@@ -868,7 +868,7 @@ Array [
 `;
 
 exports[`renders ./components/alert/demo/description.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
     data-show="true"
@@ -964,7 +964,7 @@ exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-success"
     data-show="true"
@@ -1352,7 +1352,26 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
   >
     <div
       class="ant-alert-message"
-    />
+    >
+      <div
+        class=" marquee-container"
+        style="--pause-on-hover: paused; --pause-on-click: paused;"
+      >
+        <div
+          class="marquee"
+          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
+        >
+          I can be a React component, multiple React components, or just some text.
+        </div>
+        <div
+          aria-hidden="true"
+          class="marquee"
+          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
+        >
+          I can be a React component, multiple React components, or just some text.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1406,7 +1425,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/style.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"

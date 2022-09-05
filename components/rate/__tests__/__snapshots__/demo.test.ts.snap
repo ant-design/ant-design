@@ -300,7 +300,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/rate/demo/character.md correctly 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -601,7 +601,7 @@ Array [
   <ul
     class="ant-rate"
     role="radiogroup"
-    style="font-size:36px"
+    style="font-size: 36px;"
     tabindex="0"
   >
     <li
@@ -836,7 +836,7 @@ Array [
 `;
 
 exports[`renders ./components/rate/demo/character-function.md correctly 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -1254,7 +1254,7 @@ Array [
 `;
 
 exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-rate"
     role="radiogroup"

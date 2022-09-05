@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/button/demo/basic.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -47,7 +47,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/block.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-primary ant-btn-block"
     type="button"
@@ -84,17 +84,18 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/chinese-chars-loading.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-default ant-btn-loading"
     type="button"
   >
     <span
       class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -122,10 +123,11 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -151,10 +153,11 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -182,10 +185,11 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -240,10 +244,11 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
+      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin"
+        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
         role="img"
       >
         <svg
@@ -269,7 +274,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/danger.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-primary ant-btn-dangerous"
     type="button"
@@ -314,7 +319,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -522,7 +527,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 `;
 
 exports[`renders ./components/button/demo/icon.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
     type="button"
@@ -1003,7 +1008,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div>
     <div
       class="ant-btn-group ant-btn-group-sm"
@@ -1026,12 +1031,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display:inline-block;cursor:not-allowed"
+        style="display: inline-block; cursor: not-allowed;"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
           disabled=""
-          style="pointer-events:none"
+          style="pointer-events: none;"
           type="button"
         >
           <span
@@ -1104,12 +1109,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display:inline-block;cursor:not-allowed"
+        style="display: inline-block; cursor: not-allowed;"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-icon-only"
           disabled=""
-          style="pointer-events:none"
+          style="pointer-events: none;"
           type="button"
         >
           <span
@@ -1182,12 +1187,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display:inline-block;cursor:not-allowed"
+        style="display: inline-block; cursor: not-allowed;"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
           disabled=""
-          style="pointer-events:none"
+          style="pointer-events: none;"
           type="button"
         >
           <span
@@ -1241,14 +1246,14 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary ant-btn-loading"
@@ -1256,10 +1261,11 @@ Array [
       >
         <span
           class="ant-btn-loading-icon"
+          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
+            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
             role="img"
           >
             <svg
@@ -1284,7 +1290,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
@@ -1292,10 +1298,11 @@ Array [
       >
         <span
           class="ant-btn-loading-icon"
+          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
+            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
             role="img"
           >
             <svg
@@ -1353,11 +1360,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -1370,7 +1377,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -1433,7 +1440,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -1490,7 +1497,7 @@ Array [
 `;
 
 exports[`renders ./components/button/demo/size.md correctly 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

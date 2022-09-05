@@ -32,7 +32,7 @@ exports[`renders ./components/drawer/demo/extra.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -150,7 +150,9 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
       viewBox="64 64 896 896"
       width="1em"
     >
-      <defs />
+      <defs>
+        <style />
+      </defs>
       <path
         d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
       />
@@ -193,7 +195,7 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -298,7 +300,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
 >
   Render in this
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -311,19 +313,19 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
   </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-inline"
-    style="position:absolute"
+    style="position: absolute;"
     tabindex="-1"
   >
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
   </div>
@@ -336,7 +338,7 @@ exports[`renders ./components/drawer/demo/size.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"

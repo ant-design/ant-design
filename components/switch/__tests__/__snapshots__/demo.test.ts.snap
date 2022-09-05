@@ -17,7 +17,7 @@ exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked ant-switch-disabled"
@@ -45,7 +45,7 @@ Array [
 `;
 
 exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
@@ -119,7 +119,7 @@ Array [
 `;
 
 exports[`renders ./components/switch/demo/size.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -151,7 +151,7 @@ Array [
 `;
 
 exports[`renders ./components/switch/demo/text.md correctly 1`] = `
-Array [
+HTMLCollection [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
