@@ -73,7 +73,7 @@ describe('Drawer', () => {
 
   it('render top drawer', () => {
     const { container } = render(
-      <Drawer visible height={400} placement="top" getContainer={false}>
+      <Drawer open height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -207,18 +207,5 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer')).toHaveStyle({
       zIndex: 903,
     });
-  });
-  it('deprecated warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { rerender } = render(<Drawer visible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
-    );
-    rerender(<Drawer afterVisibleChange={() => {}} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated which will be removed in next major version, please use `afterOpenChange` instead.',
-    );
-    errSpy.mockRestore();
   });
 });

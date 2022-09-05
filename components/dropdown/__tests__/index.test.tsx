@@ -167,27 +167,4 @@ describe('Dropdown', () => {
 
     jest.useRealTimers();
   });
-
-  it('deprecated warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { rerender } = render(
-      <Dropdown visible overlay={<div>menu</div>}>
-        <a />
-      </Dropdown>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
-    );
-    rerender(
-      <Dropdown onVisibleChange={() => {}} overlay={<div>menu</div>}>
-        <a />
-      </Dropdown>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated which will be removed in next major version, please use `onOpenChange` instead.',
-    );
-
-    errSpy.mockRestore();
-  });
 });

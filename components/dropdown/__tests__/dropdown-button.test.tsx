@@ -53,7 +53,7 @@ describe('DropdownButton', () => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
 
-    rerender(<DropdownButton overlay={<div>123</div>} visible />);
+    rerender(<DropdownButton overlay={<div>123</div>} open />);
     expect(dropdownProps.open).toBe(true);
   });
 

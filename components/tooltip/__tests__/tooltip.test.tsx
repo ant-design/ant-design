@@ -459,7 +459,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
+      'Warning: [antd: Tooltip] `visible` is deprecated, please use `open` instead.',
     );
     rerender(
       <Tooltip defaultVisible>
@@ -467,7 +467,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated which will be removed in next major version, please use `defaultOpen` instead.',
+      'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
     );
     rerender(
       <Tooltip onVisibleChange={() => {}}>
@@ -475,7 +475,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated which will be removed in next major version, please use `onOpenChange` instead.',
+      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
     );
     rerender(
       <Tooltip afterVisibleChange={() => {}}>
@@ -483,7 +483,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated which will be removed in next major version, please use `afterOpenChange` instead.',
+      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
     );
 
     errSpy.mockRestore();

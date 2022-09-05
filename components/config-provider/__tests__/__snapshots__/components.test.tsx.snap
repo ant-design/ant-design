@@ -15520,6 +15520,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           <div
             class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
@@ -15575,6 +15576,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
           <div
             class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
@@ -15629,6 +15631,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           <div
             class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
@@ -15683,6 +15686,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           <div
             class="config-form-item-explain config-show-help-appear config-show-help-appear-start config-show-help config-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="config-show-help-item-appear config-show-help-item-appear-start config-show-help-item config-form-item-explain-error"
@@ -15737,6 +15741,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -15791,6 +15796,7 @@ exports[`ConfigProvider components Form normal 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -15845,6 +15851,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           <div
             class="prefix-Form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help prefix-Form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item prefix-Form-item-explain-error"
