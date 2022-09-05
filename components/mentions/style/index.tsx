@@ -34,7 +34,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     fontSize,
     colorBgElevated,
     controlRadiusLG,
-    boxShadow,
+    boxShadowSecondary,
   } = token;
 
   const itemPaddingVertical = Math.round(
@@ -144,7 +144,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         backgroundColor: colorBgElevated,
         borderRadius: controlRadiusLG,
         outline: 'none',
-        boxShadow,
+        boxShadow: boxShadowSecondary,
 
         '&-hidden': {
           display: 'none',

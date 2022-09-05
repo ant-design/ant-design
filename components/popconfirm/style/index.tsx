@@ -11,15 +11,11 @@ export interface PopconfirmToken extends FullToken<'Popconfirm'> {}
 const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
   const {
     componentCls,
-    paddingSM,
-    padding,
-    paddingXXS,
     iconCls,
     zIndexPopup,
     colorText,
     colorWarning,
     marginXS,
-    marginXXS,
     fontSize,
     lineHeight,
   } = token;
@@ -29,13 +25,12 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
       zIndex: zIndexPopup,
 
       [`${componentCls}-inner-content`]: {
-        padding: `${paddingSM}px ${padding}px`,
         color: colorText,
       },
 
       [`${componentCls}-message`]: {
         position: 'relative',
-        padding: `${paddingXXS}px 0 ${paddingSM}px`,
+        marginBottom: marginXS,
         color: colorText,
         fontSize,
         display: 'flex',
@@ -57,7 +52,6 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
       },
 
       [`${componentCls}-buttons`]: {
-        marginBottom: marginXXS,
         textAlign: 'end',
 
         button: {

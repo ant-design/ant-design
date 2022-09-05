@@ -153,7 +153,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     legacyLocale,
     parentContext,
-    iconPrefixCls,
+    iconPrefixCls: customIconPrefixCls,
     theme,
     componentDisabled,
   } = props;
@@ -171,6 +171,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls, props.prefixCls],
   );
 
+  const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
+
   const mergedTheme = useTheme(theme, parentContext.theme);
 
   const config = {
@@ -183,7 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     virtual,
     dropdownMatchSelectWidth,
     getPrefixCls,
-    iconPrefixCls: iconPrefixCls ?? defaultIconPrefixCls,
+    iconPrefixCls,
     theme: mergedTheme,
   };
 
