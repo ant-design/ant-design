@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import type { PopconfirmProps } from '.';
 import Button from '../button';
@@ -48,6 +49,10 @@ export function Overlay(props: OverlayProps) {
   } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
+  const titleClassNames = classNames(
+    `${prefixCls}-message-title`,
+    icon ? null : `${prefixCls}-message-title-no-padding`,
+  );
 
   return (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
@@ -55,7 +60,7 @@ export function Overlay(props: OverlayProps) {
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             {icon}
-            <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
+            <div className={titleClassNames}>{getRenderPropValue(title)}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
             {showCancel && (
