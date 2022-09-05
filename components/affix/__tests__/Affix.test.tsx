@@ -141,7 +141,7 @@ describe('Affix Render', () => {
   describe('updatePosition when target changed', () => {
     it('function change', async () => {
       document.body.innerHTML = '<div id="mounter" />';
-      const container = document.querySelector('#id') as HTMLDivElement;
+      const container = document.getElementById('mounter');
       const getTarget = () => container;
       let affixInstance: InternalAffixClass;
       const { rerender } = render(
