@@ -36,9 +36,7 @@ describe('Tree', () => {
     const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
-          {/* @ts-ignore */}
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          {/* @ts-ignore */}
           <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
@@ -50,9 +48,7 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
-          {/* @ts-ignore */}
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          {/* @ts-ignore */}
           <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
@@ -70,9 +66,7 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
-          {/* @ts-ignore */}
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          {/* @ts-ignore */}
           <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
@@ -83,15 +77,13 @@ describe('Tree', () => {
   it('switcherIcon in Tree could be render prop function', () => {
     const { container } = render(
       <Tree
+        defaultExpandAll
         switcherIcon={({ expanded }: AntTreeNodeProps) =>
           expanded ? <span className="open" /> : <span className="close" />
         }
-        defaultExpandAll
       >
         <TreeNode icon="icon">
-          {/* @ts-ignore */}
           <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          {/* @ts-ignore */}
           <TreeNode id="node2" title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
