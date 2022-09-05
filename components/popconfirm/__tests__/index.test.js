@@ -162,6 +162,18 @@ describe('Popconfirm', () => {
     expect(wrapper.find('.customize-icon').length).toBe(1);
   });
 
+  it('should support customize has no icon', () => {
+    const wrapper = mount(
+      <Popconfirm title="code" icon={null}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    const triggerNode = wrapper.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(wrapper.find('.ant-popover-message-title-no-padding').length).toBe(1);
+  });
+
   it('should prefixCls correctly', () => {
     const btnPrefixCls = 'custom-btn';
     const wrapper = mount(

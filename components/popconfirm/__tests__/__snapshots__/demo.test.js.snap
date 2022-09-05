@@ -46,11 +46,24 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
 `;
 
 exports[`renders ./components/popconfirm/demo/icon.md correctly 1`] = `
-<a
-  href="#"
->
-  Delete
-</a>
+Array [
+  <button
+    class="ant-btn ant-btn-danger"
+    type="button"
+  >
+    <span>
+      Delete
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Pure Text
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `
