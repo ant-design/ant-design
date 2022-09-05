@@ -4,7 +4,6 @@ import { UserOutlined } from '@ant-design/icons';
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Icon from '../../icon';
 import Menu from '../../menu';
 import { fireEvent, render } from '../../../tests/utils';
 
@@ -286,12 +285,11 @@ describe('Sider', () => {
   });
 
   it('zeroWidthTriggerStyle should work', () => {
-    const type = { type: 'user' } as any;
     const { container } = render(
       <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
-            <Icon {...type} />
+            <UserOutlined />
             <span>nav 1</span>
           </Menu.Item>
         </Menu>
@@ -304,12 +302,11 @@ describe('Sider', () => {
   });
 
   it('should be able to customize zero width trigger by trigger prop', () => {
-    const type = { type: 'user' } as any;
     const { container } = render(
       <Sider collapsedWidth={0} collapsible trigger={<span className="my-trigger" />}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
-            <Icon {...type} />
+            <UserOutlined />
             <span>nav 1</span>
           </Menu.Item>
         </Menu>
