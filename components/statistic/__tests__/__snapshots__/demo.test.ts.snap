@@ -274,7 +274,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          50772:02:19
+          50773:57:05
         </span>
       </div>
     </div>
@@ -297,7 +297,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          50772:02:19:007
+          50773:57:05:266
         </span>
       </div>
     </div>
@@ -320,7 +320,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          2115 天 12 时 2 分 19 秒
+          2115 天 13 时 57 分 5 秒
         </span>
       </div>
     </div>

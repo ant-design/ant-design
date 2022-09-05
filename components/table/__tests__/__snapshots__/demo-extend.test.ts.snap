@@ -3274,8 +3274,7 @@ HTMLCollection [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                    </th>
+                    />
                     <th
                       class="ant-table-cell ant-table-selection-column"
                     >
@@ -6853,8 +6852,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
-                  >
-                  </th>
+                  />
                   <th
                     class="ant-table-cell"
                   >
@@ -16000,8 +15998,7 @@ HTMLCollection [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                    </th>
+                    />
                     <th
                       class="ant-table-cell"
                     >
@@ -16328,8 +16325,7 @@ HTMLCollection [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                    </th>
+                    />
                     <th
                       class="ant-table-cell"
                     >
@@ -17379,8 +17375,7 @@ HTMLCollection [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                    </th>
+                    />
                     <th
                       class="ant-table-cell"
                     >
@@ -18430,8 +18425,7 @@ HTMLCollection [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
-                    >
-                    </th>
+                    />
                     <th
                       class="ant-table-cell"
                     >
@@ -19495,8 +19489,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                   </th>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
-                  >
-                  </th>
+                  />
                   <th
                     class="ant-table-cell"
                   >
