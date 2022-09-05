@@ -40,11 +40,16 @@ interface MemoInputProps {
   value: any;
   update: any;
   children: React.ReactNode;
+  childProps: any[];
 }
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => prev.value === next.value && prev.update === next.update,
+  (prev, next) =>
+    prev.value === next.value &&
+    prev.update === next.update &&
+    prev.childProps.length === next.childProps.length &&
+    prev.childProps.every((value, index) => value === next.childProps[index]),
 );
 
 export interface FormItemProps<Values = any>
@@ -313,6 +318,25 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps.id = fieldId;
           }
 
+          if (props.help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
+            const describedbyArr = [];
+            if (props.help || mergedErrors.length > 0) {
+              describedbyArr.push(`${fieldId}_help`);
+            }
+            if (props.extra) {
+              describedbyArr.push(`${fieldId}_extra`);
+            }
+            childProps['aria-describedby'] = describedbyArr.join(' ');
+          }
+
+          if (mergedErrors.length > 0) {
+            childProps['aria-invalid'] = 'true';
+          }
+
+          if (isRequired) {
+            childProps['aria-required'] = 'true';
+          }
+
           if (supportRef(children)) {
             childProps.ref = getItemRef(mergedName, children);
           }
@@ -330,8 +354,19 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             };
           });
 
+          // List of props that need to be watched for changes -> if changes are detected in MemoInput -> rerender
+          const watchingChildProps = [
+            childProps['aria-required'],
+            childProps['aria-invalid'],
+            childProps['aria-describedby'],
+          ];
+
           childNode = (
-            <MemoInput value={mergedControl[props.valuePropName || 'value']} update={children}>
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={children}
+              childProps={watchingChildProps}
+            >
               {cloneElement(children, childProps)}
             </MemoInput>
           );

@@ -448,7 +448,7 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 open={copyTooltipOpen}
-                onOpenChange={this.onCopyTooltipVisibleChange}
+                onOpenChange={this.onCopyTooltipOpenChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
                 {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {

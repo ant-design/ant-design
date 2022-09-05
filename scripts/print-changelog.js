@@ -116,13 +116,30 @@ async function printLog() {
       // Use jquery to get full html page since it don't need auth token
       let res;
       let tryTimes = 0;
+      const timeout = 30000;
+      let html;
       const fetchPullRequest = async () => {
         try {
-          res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+          res = await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
+            }, timeout);
+            fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
+              .then(response => {
+                response.text().then(htmlRes => {
+                  html = htmlRes;
+                  resolve(response);
+                });
+              })
+              .catch(error => {
+                reject(error);
+              });
+          });
         } catch (err) {
           tryTimes++;
-          if (tryTimes < 5) {
-            console.log(chalk.red(`😬 Fetch error, retrying...`));
+          if (tryTimes < 100) {
+            console.log(chalk.red(`❌ Fetch error, reason: ${err}`));
+            console.log(chalk.red(`⌛️ Retrying...(Retry times: ${tryTimes})`));
             await fetchPullRequest();
           }
         }
@@ -131,8 +148,6 @@ async function printLog() {
       if (res.url.includes('/issues/')) {
         continue;
       }
-
-      const html = await res.text();
 
       const $html = $(html);
 

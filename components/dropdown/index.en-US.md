@@ -27,8 +27,8 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
-| open | Whether the dropdown menu is currently open | boolean | - |  |
-| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean) => void | - |  |
+| open | Whether the dropdown menu is currently open | boolean | - | 4.23.0 |
+| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean) => void | - | 4.23.0 |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
@@ -50,6 +50,6 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | size | Size of the button, the same as [Button](/components/button/#API) | string | `default` |  |
 | trigger | The trigger mode which executes the dropdown action | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | Type of the button, the same as [Button](/components/button/#API) | string | `default` |  |
-| open | Whether the dropdown menu is currently open | boolean | - |  |
+| open | Whether the dropdown menu is currently open | boolean | - | 4.23.0 |
 | onClick | The same as [Button](/components/button/#API): called when you click the button on the left | (event) => void | - |  |
-| onOpenChange | Called when the open state is changed | (open: boolean) => void | - |  |
+| onOpenChange | Called when the open state is changed | (open: boolean) => void | - | 4.23.0 |
