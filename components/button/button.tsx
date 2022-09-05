@@ -165,7 +165,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled || disabled;
 
-  const { size: groupSize, compact, inGroup } = React.useContext(GroupContext);
+  const { size: groupSize } = React.useContext(GroupContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
@@ -263,8 +263,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-disabled`]: linkButtonRestProps.href !== undefined && mergedDisabled,
-      [`${prefixCls}-in-group`]: inGroup,
-      [`${prefixCls}-in-compact-group`]: compact,
     },
     className,
   );

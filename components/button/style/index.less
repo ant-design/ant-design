@@ -157,10 +157,6 @@
     }
   }
 
-  .@{group-prefix-cls} {
-    .btn-group(@btn-prefix-cls);
-  }
-
   // http://stackoverflow.com/a/21281554/3040605
   &:focus > span,
   &:active > span {
@@ -239,6 +235,10 @@
     visibility: hidden;
     content: '\a0';
   }
+}
+
+.@{group-prefix-cls} {
+  .btn-group(@btn-prefix-cls);
 }
 
 a.@{btn-prefix-cls} {
