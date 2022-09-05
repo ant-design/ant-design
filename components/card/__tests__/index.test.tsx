@@ -5,6 +5,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
 import '@testing-library/jest-dom';
+
 console.log('fireEvent');
 
 describe('Card', () => {

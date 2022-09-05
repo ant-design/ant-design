@@ -274,7 +274,7 @@ exports[`renders ./components/statistic/demo/countdown.md extend context correct
         <span
           class="ant-statistic-content-value"
         >
-          50771:57:04
+          50773:17:50
         </span>
       </div>
     </div>
@@ -297,7 +297,7 @@ exports[`renders ./components/statistic/demo/countdown.md extend context correct
         <span
           class="ant-statistic-content-value"
         >
-          50771:57:04:031
+          50773:17:50:449
         </span>
       </div>
     </div>
@@ -320,7 +320,7 @@ exports[`renders ./components/statistic/demo/countdown.md extend context correct
         <span
           class="ant-statistic-content-value"
         >
-          2115 天 11 时 57 分 4 秒
+          2115 天 13 时 17 分 50 秒
         </span>
       </div>
     </div>
