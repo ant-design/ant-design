@@ -49,7 +49,7 @@ export const sortGradient = (gradients: StringGradients) => {
  *     "100%": "#ffffff"
  *   }
  */
-export const handleGradient = (strokeColor: ProgressGradient, directionConfig: DirectionType) => {
+export const handleGradient = (strokeColor: ProgressGradient, directionConfig?: DirectionType) => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
