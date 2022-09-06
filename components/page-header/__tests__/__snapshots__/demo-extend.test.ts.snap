@@ -1,228 +1,432 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/page-header/demo/actions.md extend context correctly 1`] = `
-<div
-  class="ant-page-header site-page-header ant-page-header-ghost"
->
+HTMLCollection [
   <div
-    class="ant-page-header-heading"
+    class="ant-page-header site-page-header ant-page-header-ghost"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="ant-page-header-heading"
     >
       <div
-        class="ant-page-header-back"
+        class="ant-page-header-heading-left"
       >
         <div
-          aria-label="Back"
-          class="ant-page-header-back-button"
-          role="button"
-          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-          tabindex="0"
+          class="ant-page-header-back"
+        >
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+            tabindex="0"
+          >
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
+      </div>
+      <span
+        class="ant-page-header-heading-extra"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="ant-page-header-content"
+    >
+      <div
+        class="ant-descriptions ant-descriptions-small"
+      >
+        <div
+          class="ant-descriptions-view"
+        >
+          <table>
+            <tbody>
+              <tr
+                class="ant-descriptions-row"
+              >
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <div
+                    class="ant-descriptions-item-container"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Created
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Lili Qu
+                    </span>
+                  </div>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <div
+                    class="ant-descriptions-item-container"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Association
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      <a>
+                        421421
+                      </a>
+                    </span>
+                  </div>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <div
+                    class="ant-descriptions-item-container"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Creation Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-01-10
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="ant-descriptions-row"
+              >
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <div
+                    class="ant-descriptions-item-container"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Effective Time
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      2017-10-10
+                    </span>
+                  </div>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="2"
+                >
+                  <div
+                    class="ant-descriptions-item-container"
+                  >
+                    <span
+                      class="ant-descriptions-item-label"
+                    >
+                      Remarks
+                    </span>
+                    <span
+                      class="ant-descriptions-item-content"
+                    >
+                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <br />,
+  <div
+    class="ant-page-header ant-page-header-ghost"
+  >
+    <div
+      class="ant-page-header-heading"
+    >
+      <div
+        class="ant-page-header-heading-left"
+      >
+        <div
+          class="ant-page-header-back"
+        >
+          <div
+            aria-label="Back"
+            class="ant-page-header-back-button"
+            role="button"
+            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+            tabindex="0"
+          >
+            <span
+              aria-label="arrow-left"
+              class="anticon anticon-arrow-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="arrow-left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <span
+          class="ant-page-header-heading-title"
+          title="Title"
+        >
+          Title
+        </span>
+        <span
+          class="ant-page-header-heading-sub-title"
+          title="This is a subtitle"
+        >
+          This is a subtitle
+        </span>
+        <span
+          class="ant-page-header-heading-tags"
         >
           <span
-            aria-label="arrow-left"
-            class="anticon anticon-arrow-left"
-            role="img"
+            class="ant-tag ant-tag-blue"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="arrow-left"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
+            Running
           </span>
-        </div>
+        </span>
       </div>
       <span
-        class="ant-page-header-heading-title"
-        title="Title"
+        class="ant-page-header-heading-extra"
       >
-        Title
-      </span>
-      <span
-        class="ant-page-header-heading-sub-title"
-        title="This is a subtitle"
-      >
-        This is a subtitle
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
+        >
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right: 8px;"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
-    <span
-      class="ant-page-header-heading-extra"
-    >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-      >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
-        >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              Operation
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px;"
-        >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              Operation
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-        >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              Primary
-            </span>
-          </button>
-        </div>
-      </div>
-    </span>
-  </div>
-  <div
-    class="ant-page-header-content"
-  >
     <div
-      class="ant-descriptions ant-descriptions-small"
+      class="ant-page-header-content"
     >
       <div
-        class="ant-descriptions-view"
+        class="ant-row"
       >
-        <table>
-          <tbody>
-            <tr
-              class="ant-descriptions-row"
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            Status
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-value"
             >
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    Created
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Lili Qu
-                  </span>
-                </div>
-              </td>
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    Association
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    <a>
-                      421421
-                    </a>
-                  </span>
-                </div>
-              </td>
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    Creation Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-01-10
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="ant-descriptions-row"
+              Pending
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-statistic"
+          style="margin: 0px 32px;"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            Price
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-prefix"
             >
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
+              $
+            </span>
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
               >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    Effective Time
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    2017-10-10
-                  </span>
-                </div>
-              </td>
-              <td
-                class="ant-descriptions-item"
-                colspan="2"
+                568
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
               >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    Remarks
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                  >
-                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                .08
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-statistic"
+        >
+          <div
+            class="ant-statistic-title"
+          >
+            Balance
+          </div>
+          <div
+            class="ant-statistic-content"
+          >
+            <span
+              class="ant-statistic-content-prefix"
+            >
+              $
+            </span>
+            <span
+              class="ant-statistic-content-value"
+            >
+              <span
+                class="ant-statistic-content-value-int"
+              >
+                3,345
+              </span>
+              <span
+                class="ant-statistic-content-value-decimal"
+              >
+                .08
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/page-header/demo/basic.md extend context correctly 1`] = `

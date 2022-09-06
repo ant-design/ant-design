@@ -1,20 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/affix/demo/basic.md extend context correctly 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
+HTMLCollection [
+  <div>
+    <div
+      class=""
     >
-      <span>
-        Affix top
-      </span>
-    </button>
-  </div>
-</div>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix top
+        </span>
+      </button>
+    </div>
+  </div>,
+  <br />,
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix bottom
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/affix/demo/debug.md extend context correctly 1`] = `

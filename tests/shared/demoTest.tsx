@@ -85,8 +85,13 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         const { container } = render(Demo);
-        ariaConvert(container);
-        expect(container.firstChild).toMatchSnapshot();
+        // act(() => {
+        //   jest.runAllTimers();
+        // });
+        const { children } = container;
+        const child = children.length > 1 ? children : children[0];
+        // ariaConvert(container);
+        expect(child).toMatchSnapshot();
         errSpy();
       },
     );

@@ -1,14 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/popover/demo/arrow-point-at-center.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    Align edge / 边缘对齐
-  </span>
-</button>
+HTMLCollection [
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Align edge / 边缘对齐
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Arrow points to center / 箭头指向中心
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/popover/demo/basic.md correctly 1`] = `

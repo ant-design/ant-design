@@ -319,54 +319,113 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
 `;
 
 exports[`renders ./components/space/demo/customize.md extend context correctly 1`] = `
-<div
-  class="ant-slider ant-slider-horizontal"
->
+HTMLCollection [
   <div
-    class="ant-slider-rail"
-  />
-  <div
-    class="ant-slider-track"
-    style="left: 0%; width: 8%;"
-  />
-  <div
-    class="ant-slider-step"
-  />
-  <div
-    aria-disabled="false"
-    aria-valuemax="100"
-    aria-valuemin="0"
-    aria-valuenow="8"
-    class="ant-slider-handle"
-    role="slider"
-    style="left: 8%; transform: translateX(-50%);"
-    tabindex="0"
-  />
-  <div>
+    class="ant-slider ant-slider-horizontal"
+  >
     <div
-      class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-      style="opacity: 0;"
-    >
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 8%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="8"
+      class="ant-slider-handle"
+      role="slider"
+      style="left: 8%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div>
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
+        style="opacity: 0;"
       >
         <div
-          class="ant-tooltip-arrow"
+          class="ant-tooltip-content"
         >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          8
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            8
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Primary
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Default
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-dashed"
+        type="button"
+      >
+        <span>
+          Dashed
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-link"
+        type="button"
+      >
+        <span>
+          Link
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/space/demo/debug.md extend context correctly 1`] = `
@@ -596,84 +655,186 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
 `;
 
 exports[`renders ./components/space/demo/gap-in-line.md extend context correctly 1`] = `
-<button
-  aria-checked="false"
-  class="ant-switch"
-  role="switch"
-  type="button"
->
+HTMLCollection [
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    />
+  </button>,
   <div
-    class="ant-switch-handle"
-  />
-  <span
-    class="ant-switch-inner"
-  />
-</button>
+    style="box-shadow: 0 0 5px green;"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px; width: 310px; background: blue;"
+    >
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <div
+          style="width: 150px; height: 100px; background: red;"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <div
+          style="width: 150px; height: 100px; background: red;"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
+      >
+        <div
+          style="width: 150px; height: 100px; background: red;"
+        />
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
+      >
+        <div
+          style="width: 150px; height: 100px; background: red;"
+        />
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/space/demo/size.md extend context correctly 1`] = `
-<div
-  class="ant-radio-group ant-radio-group-outline"
->
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
+HTMLCollection [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
   >
-    <span
-      class="ant-radio ant-radio-checked"
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
-      <input
-        checked=""
-        class="ant-radio-input"
-        type="radio"
-        value="small"
-      />
       <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Small
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="middle"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Middle
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="large"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
-    <span
-      class="ant-radio"
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="middle"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Middle
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Primary
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="large"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      Large
-    </span>
-  </label>
-</div>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Default
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-dashed"
+        type="button"
+      >
+        <span>
+          Dashed
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-link"
+        type="button"
+      >
+        <span>
+          Link
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/space/demo/split.md extend context correctly 1`] = `

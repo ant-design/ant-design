@@ -988,21 +988,248 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
 `;
 
 exports[`renders ./components/descriptions/demo/style.md correctly 1`] = `
-<button
-  aria-checked="true"
-  class="ant-switch ant-switch-checked"
-  role="switch"
-  type="button"
->
-  <div
-    class="ant-switch-handle"
-  />
-  <span
-    class="ant-switch-inner"
+HTMLCollection [
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
   >
-    Border
-  </span>
-</button>
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      Border
+    </span>
+  </button>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="horizontal"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        horizontal
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="vertical"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        vertical
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-descriptions ant-descriptions-bordered"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background: red;"
+            >
+              <span>
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background: green;"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-descriptions ant-descriptions-bordered"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        Root style
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background: red;"
+            >
+              <span>
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background: green;"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background: red;"
+            >
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background: green;"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="background: red; color: orange;"
+            >
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+              style="background: green; color: blue;"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `

@@ -36,7 +36,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
           class="ant-comment-content-author-time"
         >
           <span>
-            6 years ago
+            8 hours ago
           </span>
         </span>
       </div>
@@ -248,7 +248,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      6 years ago
+                      a day ago
                     </span>
                   </span>
                 </div>
@@ -302,7 +302,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      6 years ago
+                      2 days ago
                     </span>
                   </span>
                 </div>

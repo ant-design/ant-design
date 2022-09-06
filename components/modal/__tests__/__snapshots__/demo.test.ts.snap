@@ -299,14 +299,26 @@ exports[`renders ./components/modal/demo/modal-render.md correctly 1`] = `
 `;
 
 exports[`renders ./components/modal/demo/position.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
->
-  <span>
-    Display a modal dialog at 20px to Top
-  </span>
-</button>
+HTMLCollection [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Display a modal dialog at 20px to Top
+    </span>
+  </button>,
+  <br />,
+  <br />,
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Vertically centered modal dialog
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/modal/demo/width.md correctly 1`] = `

@@ -189,21 +189,34 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-<div
-  style="margin-bottom: 10px;"
->
+HTMLCollection [
   <div
-    class="ant-mentions ant-mentions-disabled"
+    style="margin-bottom: 10px;"
+  >
+    <div
+      class="ant-mentions ant-mentions-disabled"
+      style="width: 100%;"
+    >
+      <textarea
+        class="rc-textarea rc-textarea-disabled"
+        disabled=""
+        placeholder="this is disabled Mentions"
+        rows="1"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-mentions"
     style="width: 100%;"
   >
     <textarea
-      class="rc-textarea rc-textarea-disabled"
-      disabled=""
-      placeholder="this is disabled Mentions"
+      class="rc-textarea"
+      placeholder="this is readOnly Mentions"
+      readonly=""
       rows="1"
     />
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/mentions/demo/status.md correctly 1`] = `

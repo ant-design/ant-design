@@ -1,49 +1,187 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tabs/demo/animated.md extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
+HTMLCollection [
   <div
-    class="ant-space-item"
-    style="margin-right: 8px;"
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
-    <button
-      aria-checked="true"
-      class="ant-switch ant-switch-checked"
-      role="switch"
-      type="button"
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        aria-checked="true"
+        class="ant-switch ant-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          inkBar
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="true"
+        class="ant-switch ant-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          tabPane
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class="ant-tabs ant-tabs-top"
+  >
+    <div
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
+        class="ant-tabs-nav-wrap"
       >
-        inkBar
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <button
-      aria-checked="true"
-      class="ant-switch ant-switch-checked"
-      role="switch"
-      type="button"
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Bamboo
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="0"
+            >
+              Little
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="0"
+            >
+              Light
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div>
+          <div
+            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
+          >
+            <ul
+              aria-label="expanded dropdown"
+              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-menu-list="true"
+              id="rc-tabs-test-more-popup"
+              role="listbox"
+              tabindex="-1"
+            />
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
     >
       <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
+        class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated"
       >
-        tabPane
-      </span>
-    </button>
-  </div>
-</div>
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          style="height: 200px; box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);"
+          tabindex="0"
+        >
+          Hello Bamboo!
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = `
@@ -1634,153 +1772,370 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
 `;
 
 exports[`renders ./components/tabs/demo/extra.md extend context correctly 1`] = `
-<div
-  class="ant-tabs ant-tabs-top"
->
+HTMLCollection [
   <div
-    class="ant-tabs-nav"
-    role="tablist"
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-nav-wrap"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        class="ant-tabs-nav-list"
-        style="transform: translate(0px, 0px);"
+        class="ant-tabs-nav-wrap"
       >
         <div
-          class="ant-tabs-tab ant-tabs-tab-active"
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
         >
           <div
-            aria-controls="rc-tabs-test-panel-1"
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-1"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab ant-tabs-tab-active"
           >
-            Tab 1
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-controls="rc-tabs-test-panel-2"
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-2"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 2
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-tabs-tab"
-        >
           <div
-            aria-controls="rc-tabs-test-panel-3"
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            id="rc-tabs-test-tab-3"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            Tab 3
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
           </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
         </div>
-        <div
-          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-        />
       </div>
-    </div>
-    <div
-      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-    >
-      <button
-        aria-controls="rc-tabs-test-more-popup"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-hidden="true"
-        class="ant-tabs-nav-more"
-        id="rc-tabs-test-more"
-        style="visibility: hidden; order: 1;"
-        tabindex="-1"
-        type="button"
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          tabindex="-1"
+          type="button"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div>
+          <div
+            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
+          >
+            <ul
+              aria-label="expanded dropdown"
+              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-menu-list="true"
+              id="rc-tabs-test-more-popup"
+              role="listbox"
+              tabindex="-1"
             />
-          </svg>
-        </span>
-      </button>
-      <div>
-        <div
-          class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-          style="opacity: 0;"
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <ul
-            aria-label="expanded dropdown"
-            class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-            data-menu-list="true"
-            id="rc-tabs-test-more-popup"
-            role="listbox"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
+          <span>
+            Extra Action
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
         </div>
       </div>
     </div>
-    <div
-      class="ant-tabs-extra-content"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Extra Action
-        </span>
-      </button>
-    </div>
-  </div>
+  </div>,
+  <br />,
+  <br />,
+  <br />,
+  <div>
+    You can also specify its direction or both side
+  </div>,
   <div
-    class="ant-tabs-content-holder"
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="left"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        left
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="right"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        right
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-tabs ant-tabs-top"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-nav"
+      role="tablist"
     >
       <div
-        aria-hidden="false"
-        aria-labelledby="rc-tabs-test-tab-1"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
-        id="rc-tabs-test-panel-1"
-        role="tabpanel"
-        tabindex="0"
+        class="ant-tabs-extra-content"
       >
-        Content of tab 1
+        <button
+          class="ant-btn ant-btn-default tabs-extra-demo-button"
+          type="button"
+        >
+          <span>
+            Left Extra Action
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div>
+          <div
+            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
+          >
+            <ul
+              aria-label="expanded dropdown"
+              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-menu-list="true"
+              id="rc-tabs-test-more-popup"
+              role="listbox"
+              tabindex="-1"
+            />
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Right Extra Action
+          </span>
+        </button>
       </div>
     </div>
-  </div>
-</div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
@@ -3109,102 +3464,239 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/position.md extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="margin-bottom: 24px;"
->
+HTMLCollection [
   <div
-    class="ant-space-item"
-    style="margin-right: 8px;"
-  >
-    Tab position:
-  </div>
-  <div
-    class="ant-space-item"
+    class="ant-space ant-space-horizontal ant-space-align-center"
+    style="margin-bottom: 24px;"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="top"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          top
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="bottom"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          bottom
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-      >
-        <span
-          class="ant-radio-button ant-radio-button-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-button-input"
-            type="radio"
-            value="left"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          left
-        </span>
-      </label>
-      <label
-        class="ant-radio-button-wrapper"
-      >
-        <span
-          class="ant-radio-button"
-        >
-          <input
-            class="ant-radio-button-input"
-            type="radio"
-            value="right"
-          />
-          <span
-            class="ant-radio-button-inner"
-          />
-        </span>
-        <span>
-          right
-        </span>
-      </label>
+      Tab position:
     </div>
-  </div>
-</div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline"
+      >
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            top
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            left
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            right
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-tabs ant-tabs-left"
+  >
+    <div
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-1"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 1
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-2"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 2
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+          >
+            <div
+              aria-controls="rc-tabs-test-panel-3"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
+              role="tab"
+              tabindex="0"
+            >
+              Tab 3
+            </div>
+          </div>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="rc-tabs-test-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-hidden="true"
+          class="ant-tabs-nav-more"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div>
+          <div
+            class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
+          >
+            <ul
+              aria-label="expanded dropdown"
+              class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-menu-list="true"
+              id="rc-tabs-test-more-popup"
+              role="listbox"
+              tabindex="-1"
+            />
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-left"
+      >
+        <div
+          aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of Tab 1
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
