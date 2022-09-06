@@ -41,7 +41,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | okType | 确认按钮类型 | string | `primary` |  |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
-| open | 对话框是否可见 | boolean | - | 4.23.0 |
+| open | 对话框是否可见，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | - | 4.23.0 |
 | width | 宽度 | string \| number | 520 |  |
 | wrapClassName | 对话框外层容器的类名 | string | - |  |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |

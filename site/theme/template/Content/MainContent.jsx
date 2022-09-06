@@ -195,6 +195,14 @@ class MainContent extends Component {
   handleLoad = () => {
     if (window.location.hash) {
       updateActiveToc(window.location.hash.replace(/^#/, ''));
+
+      // 有时候不滚动，强制触发一次滚动逻辑
+      setTimeout(() => {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView();
+        }
+      }, 100);
     }
     this.bindScroller();
   };

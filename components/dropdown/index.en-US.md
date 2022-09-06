@@ -27,8 +27,8 @@ When there are more than a few options to choose from, you can wrap them in a `D
 | overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
-| open | Whether the dropdown menu is currently open | boolean | - | 4.23.0 |
-| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean) => void | - | 4.23.0 |
+| open | Whether the dropdown menu is currently open. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | - | 4.23.0 |
+| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item. Use `onVisibleChange` under 4.23.0 ([why?](/docs/react/faq#why-open)) | (open: boolean) => void | - | 4.23.0 |
 
 You should use [Menu](/components/menu/) as `overlay`. The menu items and dividers are also available by using `Menu.Item` and `Menu.Divider`.
 
