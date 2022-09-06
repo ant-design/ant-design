@@ -1,10 +1,12 @@
-import { mount } from 'enzyme';
 import React from 'react';
+import { Simulate } from 'react-dom/test-utils';
+
 import Tag from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import { render, act } from '../../../tests/utils';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
+
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { act, render, fireEvent } from '../../../tests/utils';
 
 describe('Tag', () => {
   mountTest(Tag);
@@ -22,52 +24,63 @@ describe('Tag', () => {
 
   it('should be closable', () => {
     const onClose = jest.fn();
-    const wrapper = mount(<Tag closable onClose={onClose} />);
-    expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
-    wrapper.find('.anticon-close').simulate('click');
+    const { container } = render(<Tag closable onClose={onClose} />);
+    expect(container.querySelectorAll('.anticon-close').length).toBe(1);
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
 
   it('should not be closed when prevent default', () => {
-    const onClose = e => {
+    const onClose = (e: React.MouseEvent<HTMLElement>) => {
       e.preventDefault();
     };
-    const wrapper = mount(<Tag closable onClose={onClose} />);
-    expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
-    wrapper.find('.anticon-close').simulate('click');
+    const { container } = render(<Tag closable onClose={onClose} />);
+    expect(container.querySelectorAll('.anticon-close').length).toBe(1);
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     act(() => {
       jest.runAllTimers();
     });
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
   it('should trigger onClick', () => {
     const onClick = jest.fn();
-    const wrapper = mount(<Tag onClick={onClick} />);
-    wrapper.find('.ant-tag').simulate('click');
+    const { container } = render(<Tag onClick={onClick} />);
+    const target = container.querySelectorAll('.ant-tag')[0];
+    Simulate.click(target);
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
+        target,
         preventDefault: expect.any(Function),
+        nativeEvent: {
+          type: 'click',
+          target,
+        },
       }),
     );
   });
 
   it('should trigger onClick on CheckableTag', () => {
     const onClick = jest.fn();
-    const wrapper = mount(<Tag.CheckableTag onClick={onClick} />);
-    wrapper.find('.ant-tag').simulate('click');
+    const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
+    const target = container.querySelectorAll('.ant-tag')[0];
+    Simulate.click(target);
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
+        target,
         preventDefault: expect.any(Function),
+        nativeEvent: {
+          type: 'click',
+          target,
+        },
       }),
     );
   });
@@ -76,8 +89,8 @@ describe('Tag', () => {
   it('should not trigger onClick when click close icon', () => {
     const onClose = jest.fn();
     const onClick = jest.fn();
-    const wrapper = mount(<Tag closable onClose={onClose} onClick={onClick} />);
-    wrapper.find('.anticon-close').simulate('click');
+    const { container } = render(<Tag closable onClose={onClose} onClick={onClick} />);
+    fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
     expect(onClick).not.toHaveBeenCalled();
   });
@@ -96,41 +109,41 @@ describe('Tag', () => {
 
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
-      const wrapper = mount(<Tag visible />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
+      const { asFragment, rerender } = render(<Tag visible />);
+      expect(asFragment().firstChild).toMatchSnapshot();
+      rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
+      expect(asFragment().firstChild).toMatchSnapshot();
+      rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
 
     it('can be controlled by visible with hidden as initial value', () => {
-      const wrapper = mount(<Tag visible={false} />);
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: true });
+      const { asFragment, rerender } = render(<Tag visible={false} />);
+      expect(asFragment().firstChild).toMatchSnapshot();
+      rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(wrapper.render()).toMatchSnapshot();
-      wrapper.setProps({ visible: false });
+      expect(asFragment().firstChild).toMatchSnapshot();
+      rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
 
   describe('CheckableTag', () => {
     it('support onChange', () => {
       const onChange = jest.fn();
-      const wrapper = mount(<Tag.CheckableTag onChange={onChange} />);
-      wrapper.find('.ant-tag').simulate('click');
+      const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
+      fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
   });
