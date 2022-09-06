@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/back-top/demo/basic.md correctly 1`] = `
-HTMLCollection [
-  <div
-    class="ant-back-top"
-  />,
-  <strong
-    class="site-back-top-basic"
-  >
-     gray 
-  </strong>,
-]
+<div
+  class="ant-back-top"
+/>
 `;
 
 exports[`renders ./components/back-top/demo/custom.md correctly 1`] = `

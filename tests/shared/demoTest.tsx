@@ -20,7 +20,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
-
+    Date.now = jest.fn(() => new Date('2016-11-22').getTime());
     // function doTest(name: string, openTrigger = false) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
@@ -41,16 +41,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             </TriggerMockContext.Provider>
           );
         }
-        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
         const { container } = render(Demo);
-
-        const { children } = container;
-        const child = children.length > 1 ? children : children[0];
-        expect(child).toMatchSnapshot();
-
-        jest.useRealTimers();
-
+        expect(container.firstChild).toMatchSnapshot();
         errSpy();
       },
     );

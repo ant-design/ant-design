@@ -36,7 +36,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           class="ant-comment-content-author-time"
         >
           <span>
-            a few seconds ago
+            6 years ago
           </span>
           <div>
             <div
@@ -57,7 +57,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
                   class="ant-tooltip-inner"
                   role="tooltip"
                 >
-                  2016-11-22 08:00:00
+                  2016-11-22 00:00:00
                 </div>
               </div>
             </div>
@@ -320,7 +320,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      a day ago
+                      6 years ago
                     </span>
                     <div>
                       <div
@@ -341,7 +341,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            2022-09-04 21:43:20
+                            2016-11-21 00:00:00
                           </div>
                         </div>
                       </div>
@@ -398,7 +398,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      2 days ago
+                      6 years ago
                     </span>
                     <div>
                       <div
@@ -419,7 +419,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            2022-09-03 21:43:20
+                            2016-11-20 00:00:00
                           </div>
                         </div>
                       </div>

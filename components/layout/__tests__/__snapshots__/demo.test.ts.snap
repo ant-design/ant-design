@@ -1,126 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
-HTMLCollection [
-  <section
-    class="ant-layout"
+<section
+  class="ant-layout"
+>
+  <header
+    class="ant-layout-header"
   >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <main
-      class="ant-layout-content"
-    >
-      Content
-    </main>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout"
+    Header
+  </header>
+  <main
+    class="ant-layout-content"
   >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <section
-      class="ant-layout ant-layout-has-sider"
-    >
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
-      >
-        <div
-          class="ant-layout-sider-children"
-        >
-          Sider
-        </div>
-      </aside>
-      <main
-        class="ant-layout-content"
-      >
-        Content
-      </main>
-    </section>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout"
+    Content
+  </main>
+  <footer
+    class="ant-layout-footer"
   >
-    <header
-      class="ant-layout-header"
-    >
-      Header
-    </header>
-    <section
-      class="ant-layout ant-layout-has-sider"
-    >
-      <main
-        class="ant-layout-content"
-      >
-        Content
-      </main>
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
-      >
-        <div
-          class="ant-layout-sider-children"
-        >
-          Sider
-        </div>
-      </aside>
-    </section>
-    <footer
-      class="ant-layout-footer"
-    >
-      Footer
-    </footer>
-  </section>,
-  <section
-    class="ant-layout ant-layout-has-sider"
-  >
-    <aside
-      class="ant-layout-sider ant-layout-sider-dark"
-      style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
-    >
-      <div
-        class="ant-layout-sider-children"
-      >
-        Sider
-      </div>
-    </aside>
-    <section
-      class="ant-layout"
-    >
-      <header
-        class="ant-layout-header"
-      >
-        Header
-      </header>
-      <main
-        class="ant-layout-content"
-      >
-        Content
-      </main>
-      <footer
-        class="ant-layout-footer"
-      >
-        Footer
-      </footer>
-    </section>
-  </section>,
-]
+    Footer
+  </footer>
+</section>
 `;
 
 exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `

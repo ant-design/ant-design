@@ -65,8 +65,8 @@ const App: React.FC = () => {
         </p>
       }
       datetime={
-        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-          <span>{moment().fromNow()}</span>
+        <Tooltip title={moment('2016-11-22').format('YYYY-MM-DD HH:mm:ss')}>
+          <span>{moment('2016-11-22').fromNow()}</span>
         </Tooltip>
       }
     />
