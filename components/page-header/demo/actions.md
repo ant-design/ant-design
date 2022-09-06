@@ -13,10 +13,11 @@ title:
 
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
-```jsx
-import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
+```tsx
+import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <PageHeader
       className="site-page-header"
@@ -72,6 +73,8 @@ export default () => (
     </PageHeader>
   </>
 );
+
+export default App;
 ```
 
 <style>

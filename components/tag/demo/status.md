@@ -13,18 +13,19 @@ title:
 
 We preset five different colors, you can set color property such as `success`,`processing`,`error`,`default` and `warning` to indicate specific status.
 
-```jsx
-import { Tag, Divider } from 'antd';
+```tsx
 import {
   CheckCircleOutlined,
-  SyncOutlined,
+  ClockCircleOutlined,
   CloseCircleOutlined,
   ExclamationCircleOutlined,
-  ClockCircleOutlined,
   MinusCircleOutlined,
+  SyncOutlined,
 } from '@ant-design/icons';
+import { Divider, Tag } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
     <div>
@@ -57,4 +58,6 @@ export default () => (
     </div>
   </>
 );
+
+export default App;
 ```

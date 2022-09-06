@@ -1,13 +1,13 @@
+import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
-import CSSMotion from 'rc-motion';
-import classNames from 'classnames';
-import ScrollNumber from './ScrollNumber';
-import Ribbon from './Ribbon';
-import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
-import type { LiteralUnion } from '../_util/type';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
+import Ribbon from './Ribbon';
+import ScrollNumber from './ScrollNumber';
 import { isPresetColor } from './utils';
 
 export { ScrollNumberProps } from './ScrollNumber';

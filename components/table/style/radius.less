@@ -1,5 +1,5 @@
 // ================================================================
-// =                         Border Radio                         =
+// =                         Border Radius                         =
 // ================================================================
 .@{table-prefix-cls} {
   /* title + table */
@@ -11,13 +11,17 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    table > thead > tr:first-child {
-      th:first-child {
-        border-radius: 0;
-      }
+    table {
+      border-radius: 0;
 
-      th:last-child {
-        border-radius: 0;
+      > thead > tr:first-child {
+        th:first-child {
+          border-radius: 0;
+        }
+
+        th:last-child {
+          border-radius: 0;
+        }
       }
     }
   }

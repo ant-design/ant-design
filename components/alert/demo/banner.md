@@ -16,8 +16,9 @@ Display Alert as a banner at top of page.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert message="Warning text" banner />
     <br />
@@ -32,4 +33,6 @@ export default () => (
     <Alert type="error" message="Error text" banner />
   </>
 );
+
+export default App;
 ```

@@ -13,13 +13,13 @@ title:
 
 Use react-sticky.
 
-```jsx
+```tsx
+import type { TabsProps } from 'antd';
 import { Tabs } from 'antd';
-import { StickyContainer, Sticky } from 'react-sticky';
+import React from 'react';
+import { Sticky, StickyContainer } from 'react-sticky';
 
-const { TabPane } = Tabs;
-
-const renderTabBar = (props, DefaultTabBar) => (
+const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>
     {({ style }) => (
       <DefaultTabBar {...props} className="site-custom-tab-bar" style={{ ...style }} />
@@ -27,21 +27,23 @@ const renderTabBar = (props, DefaultTabBar) => (
   </Sticky>
 );
 
-export default () => (
+const items = new Array(3).fill(null).map((_, i) => {
+  const id = String(i + 1);
+  return {
+    label: `Tab ${id}`,
+    key: id,
+    children: `Content of Tab Pane ${id}`,
+    style: i === 0 ? { height: 200 } : undefined,
+  };
+});
+
+const App: React.FC = () => (
   <StickyContainer>
-    <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
-      <TabPane tab="Tab 1" key="1" style={{ height: 200 }}>
-        Content of Tab Pane 1
-      </TabPane>
-      <TabPane tab="Tab 2" key="2">
-        Content of Tab Pane 2
-      </TabPane>
-      <TabPane tab="Tab 3" key="3">
-        Content of Tab Pane 3
-      </TabPane>
-    </Tabs>
+    <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} items={items} />
   </StickyContainer>
 );
+
+export default App;
 ```
 
 ```css

@@ -15,7 +15,7 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData<T>(): [T, boolean] {
+export function useSiteData<T extends object>(): [T, boolean] {
   const [data, setData] = React.useState<T>({} as any);
   const [loading, setLoading] = React.useState<boolean>(false);
 

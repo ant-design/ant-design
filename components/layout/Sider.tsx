@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useContext, useRef, useState, useEffect } from 'react';
+import BarsOutlined from '@ant-design/icons/BarsOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import BarsOutlined from '@ant-design/icons/BarsOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import * as React from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 
-import { LayoutContext } from './layout';
 import { ConfigContext } from '../config-provider';
 import isNumeric from '../_util/isNumeric';
+import { LayoutContext } from './layout';
 
 const dimensionMaxMap = {
   xs: '479.98px',
@@ -225,6 +225,8 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>(
   },
 );
 
-Sider.displayName = 'Sider';
+if (process.env.NODE_ENV !== 'production') {
+  Sider.displayName = 'Sider';
+}
 
 export default Sider;

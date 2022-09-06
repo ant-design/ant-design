@@ -13,13 +13,15 @@ title:
 
 By specifying `arrow` prop with `{ pointAtCenter: true }`, the arrow will point to the center of the target element.
 
-```jsx
-import { Menu, Dropdown, Button } from 'antd';
+```tsx
+import { Button, Dropdown, Menu } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu
     items={[
       {
+        key: '1',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
             1st menu item
@@ -27,6 +29,7 @@ const menu = (
         ),
       },
       {
+        key: '2',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
             2nd menu item
@@ -34,6 +37,7 @@ const menu = (
         ),
       },
       {
+        key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             3rd menu item
@@ -44,7 +48,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <Button>bottomLeft</Button>
@@ -67,6 +71,8 @@ export default () => (
     </Dropdown>
   </>
 );
+
+export default App;
 ```
 
 ```css

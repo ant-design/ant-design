@@ -3,8 +3,8 @@
  *
  * This helps accessibility reader to tread as a interactive button to operation.
  */
-import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
+import * as React from 'react';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;

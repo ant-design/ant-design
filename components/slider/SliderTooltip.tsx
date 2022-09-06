@@ -1,12 +1,12 @@
+import raf from 'rc-util/lib/raf';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { useRef } from 'react';
-import { composeRef } from 'rc-util/lib/ref';
-import raf from 'rc-util/lib/raf';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
 const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
-  const { visible } = props;
+  const { open } = props;
   const innerRef = useRef<any>(null);
 
   const rafRef = useRef<number | null>(null);
@@ -24,14 +24,14 @@ const SliderTooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   }
 
   React.useEffect(() => {
-    if (visible) {
+    if (open) {
       keepAlign();
     } else {
       cancelKeepAlign();
     }
 
     return cancelKeepAlign;
-  }, [visible, props.title]);
+  }, [open, props.title]);
 
   return <Tooltip ref={composeRef(innerRef, ref)} {...props} />;
 });

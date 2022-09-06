@@ -14,11 +14,12 @@ title:
 
 The close icon can be customized using `closeIcon`.
 
-```jsx
-import { Tag } from 'antd';
+```tsx
 import { CloseCircleOutlined } from '@ant-design/icons';
+import { Tag } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Tag closable closeIcon="关 闭">
       Tag1
@@ -28,4 +29,6 @@ export default () => (
     </Tag>
   </>
 );
+
+export default App;
 ```

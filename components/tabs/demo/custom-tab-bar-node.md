@@ -13,18 +13,21 @@ title:
 
 Use `react-dnd@15+` to make tabs draggable.
 
-```jsx
-import React, { useRef, cloneElement } from 'react';
+```tsx
+import type { TabsProps } from 'antd';
 import { Tabs } from 'antd';
+import React, { useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-const { TabPane } = Tabs;
-
 const type = 'DraggableTabNode';
+interface DraggableTabPaneProps extends React.HTMLAttributes<HTMLDivElement> {
+  index: React.Key;
+  moveNode: (dragIndex: React.Key, hoverIndex: React.Key) => void;
+}
 
-const DraggableTabNode = ({ index, children, moveNode }) => {
-  const ref = useRef();
+const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
     collect: monitor => {
@@ -37,7 +40,7 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
         dropClassName: 'dropping',
       };
     },
-    drop: item => {
+    drop: (item: { index: React.Key }) => {
       moveNode(item.index, index);
     },
   });
@@ -49,25 +52,24 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
     }),
   });
   drop(drag(ref));
+
   return (
-    <div ref={ref} className={`dragnode ${isOver ? dropClassName : ''}`}>
+    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
       {children}
     </div>
   );
 };
 
-class DraggableTabs extends React.Component {
-  state = {
-    order: [],
-  };
+const DraggableTabs: React.FC<TabsProps> = props => {
+  const { items = [] } = props;
+  const [order, setOrder] = useState<React.Key[]>([]);
 
-  moveTabNode = (dragKey, hoverKey) => {
-    const newOrder = this.state.order.slice();
-    const { children } = this.props;
+  const moveTabNode = (dragKey: React.Key, hoverKey: React.Key) => {
+    const newOrder = order.slice();
 
-    React.Children.forEach(children, c => {
-      if (newOrder.indexOf(c.key) === -1) {
-        newOrder.push(c.key);
+    items.forEach(item => {
+      if (item.key && newOrder.indexOf(item.key) === -1) {
+        newOrder.push(item.key);
       }
     });
 
@@ -77,82 +79,65 @@ class DraggableTabs extends React.Component {
     newOrder.splice(dragIndex, 1);
     newOrder.splice(hoverIndex, 0, dragKey);
 
-    this.setState({
-      order: newOrder,
-    });
+    setOrder(newOrder);
   };
 
-  renderTabBar = (props, DefaultTabBar) => (
-    <DefaultTabBar {...props}>
+  const renderTabBar: TabsProps['renderTabBar'] = (tabBarProps, DefaultTabBar) => (
+    <DefaultTabBar {...tabBarProps}>
       {node => (
-        <DraggableTabNode key={node.key} index={node.key} moveNode={this.moveTabNode}>
+        <DraggableTabNode key={node.key} index={node.key!} moveNode={moveTabNode}>
           {node}
         </DraggableTabNode>
       )}
     </DefaultTabBar>
   );
 
-  render() {
-    const { order } = this.state;
-    const { children } = this.props;
+  const orderItems = [...items].sort((a, b) => {
+    const orderA = order.indexOf(a.key!);
+    const orderB = order.indexOf(b.key!);
 
-    const tabs = [];
-    React.Children.forEach(children, c => {
-      tabs.push(c);
-    });
+    if (orderA !== -1 && orderB !== -1) {
+      return orderA - orderB;
+    }
+    if (orderA !== -1) {
+      return -1;
+    }
+    if (orderB !== -1) {
+      return 1;
+    }
 
-    const orderTabs = tabs.slice().sort((a, b) => {
-      const orderA = order.indexOf(a.key);
-      const orderB = order.indexOf(b.key);
+    const ia = items.indexOf(a);
+    const ib = items.indexOf(b);
 
-      if (orderA !== -1 && orderB !== -1) {
-        return orderA - orderB;
-      }
-      if (orderA !== -1) {
-        return -1;
-      }
-      if (orderB !== -1) {
-        return 1;
-      }
+    return ia - ib;
+  });
 
-      const ia = tabs.indexOf(a);
-      const ib = tabs.indexOf(b);
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <Tabs renderTabBar={renderTabBar} {...props} items={orderItems} />
+    </DndProvider>
+  );
+};
 
-      return ia - ib;
-    });
-
-    return (
-      <DndProvider backend={HTML5Backend}>
-        <Tabs renderTabBar={this.renderTabBar} {...this.props}>
-          {orderTabs}
-        </Tabs>
-      </DndProvider>
-    );
-  }
-}
-
-export default () => (
-  <DraggableTabs>
-    <TabPane tab="tab 1" key="1">
-      Content of Tab Pane 1
-    </TabPane>
-    <TabPane tab="tab 2" key="2">
-      Content of Tab Pane 2
-    </TabPane>
-    <TabPane tab="tab 3" key="3">
-      Content of Tab Pane 3
-    </TabPane>
-  </DraggableTabs>
+const App: React.FC = () => (
+  <DraggableTabs
+    items={new Array(3).fill(null).map((_, i) => {
+      const id = String(i + 1);
+      return {
+        label: `tab ${id}`,
+        key: id,
+        children: `Content of Tab Pane ${id}`,
+      };
+    })}
+  />
 );
+
+export default App;
 ```
 
 ```css
 .dropping {
   background: #fefefe;
   transition: all 0.3s;
-}
-
-.dragnode {
-  margin-inline-end: 24px;
 }
 ```

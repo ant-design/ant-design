@@ -13,18 +13,19 @@ title:
 
 Render in current dom. custom container, check `getContainer`.
 
-```jsx
-import { Drawer, Button } from 'antd';
+```tsx
+import { Button, Drawer } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -40,7 +41,7 @@ export default () => {
         placement="right"
         closable={false}
         onClose={onClose}
-        visible={visible}
+        open={open}
         getContainer={false}
         style={{ position: 'absolute' }}
       >
@@ -49,6 +50,8 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 ```css

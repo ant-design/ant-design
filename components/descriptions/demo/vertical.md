@@ -13,10 +13,11 @@ title:
 
 Simplest Usage.
 
-```jsx
+```tsx
 import { Descriptions } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Descriptions title="User Info" layout="vertical">
     <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
     <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
@@ -27,4 +28,6 @@ export default () => (
     <Descriptions.Item label="Remark">empty</Descriptions.Item>
   </Descriptions>
 );
+
+export default App;
 ```

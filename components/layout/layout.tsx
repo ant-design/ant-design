@@ -1,5 +1,5 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
 export interface GeneratorProps {
@@ -38,7 +38,9 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
 
       return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
     });
-    Adapter.displayName = displayName;
+    if (process.env.NODE_ENV !== 'production') {
+      Adapter.displayName = displayName;
+    }
     return Adapter;
   };
 }

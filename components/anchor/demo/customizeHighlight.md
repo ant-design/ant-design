@@ -15,12 +15,13 @@ Customize the anchor highlight.
 
 ```tsx
 import { Anchor } from 'antd';
+import React from 'react';
 
 const { Link } = Anchor;
 
 const getCurrentAnchor = () => '#components-anchor-demo-static';
 
-export default () => (
+const App: React.FC = () => (
   <Anchor affix={false} getCurrentAnchor={getCurrentAnchor}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -30,4 +31,6 @@ export default () => (
     </Link>
   </Anchor>
 );
+
+export default App;
 ```

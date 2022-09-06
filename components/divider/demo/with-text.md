@@ -13,10 +13,11 @@ title:
 
 Divider with inner title, set `orientation="left/right"` to align it.
 
-```jsx
+```tsx
 import { Divider } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
@@ -53,4 +54,6 @@ export default () => (
     </p>
   </>
 );
+
+export default App;
 ```

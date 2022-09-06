@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useState, useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
-import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
+import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
+import { arrAdd, arrDel } from 'rc-tree/lib/util';
+import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
+import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -15,17 +15,17 @@ import Menu from '../../menu';
 import Radio from '../../radio';
 import warning from '../../_util/warning';
 import type {
-  TableRowSelection,
-  Key,
   ColumnsType,
   ColumnType,
-  GetRowKey,
-  TableLocale,
-  SelectionItem,
-  TransformColumns,
   ExpandType,
   GetPopupContainer,
+  GetRowKey,
+  Key,
   RowSelectMethod,
+  SelectionItem,
+  TableLocale,
+  TableRowSelection,
+  TransformColumns,
 } from '../interface';
 
 // TODO: warning if use ajax!!!
@@ -271,75 +271,83 @@ export default function useSelection<RecordType>(
     const selectionList: INTERNAL_SELECTION_ITEM[] =
       selections === true ? [SELECTION_ALL, SELECTION_INVERT, SELECTION_NONE] : selections;
 
-    return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {
-      if (selection === SELECTION_ALL) {
-        return {
-          key: 'all',
-          text: tableLocale.selectionAll,
-          onSelect() {
-            setSelectedKeys(
-              data
-                .map((record, index) => getRowKey(record, index))
-                .filter(key => {
-                  const checkProps = checkboxPropsMap.get(key);
-                  return !checkProps?.disabled || derivedSelectedKeySet.has(key);
-                }),
-              'all',
-            );
-          },
-        };
-      }
-      if (selection === SELECTION_INVERT) {
-        return {
-          key: 'invert',
-          text: tableLocale.selectInvert,
-          onSelect() {
-            const keySet = new Set(derivedSelectedKeySet);
-            pageData.forEach((record, index) => {
-              const key = getRowKey(record, index);
-              const checkProps = checkboxPropsMap.get(key);
-
-              if (!checkProps?.disabled) {
-                if (keySet.has(key)) {
-                  keySet.delete(key);
-                } else {
-                  keySet.add(key);
-                }
-              }
-            });
-
-            const keys = Array.from(keySet);
-            if (onSelectInvert) {
-              warning(
-                false,
-                'Table',
-                '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
+    return selectionList
+      .map((selection: INTERNAL_SELECTION_ITEM) => {
+        if (selection === SELECTION_ALL) {
+          return {
+            key: 'all',
+            text: tableLocale.selectionAll,
+            onSelect() {
+              setSelectedKeys(
+                data
+                  .map((record, index) => getRowKey(record, index))
+                  .filter(key => {
+                    const checkProps = checkboxPropsMap.get(key);
+                    return !checkProps?.disabled || derivedSelectedKeySet.has(key);
+                  }),
+                'all',
               );
-              onSelectInvert(keys);
-            }
-
-            setSelectedKeys(keys, 'invert');
-          },
-        };
-      }
-      if (selection === SELECTION_NONE) {
-        return {
-          key: 'none',
-          text: tableLocale.selectNone,
-          onSelect() {
-            onSelectNone?.();
-            setSelectedKeys(
-              Array.from(derivedSelectedKeySet).filter(key => {
+            },
+          };
+        }
+        if (selection === SELECTION_INVERT) {
+          return {
+            key: 'invert',
+            text: tableLocale.selectInvert,
+            onSelect() {
+              const keySet = new Set(derivedSelectedKeySet);
+              pageData.forEach((record, index) => {
+                const key = getRowKey(record, index);
                 const checkProps = checkboxPropsMap.get(key);
-                return checkProps?.disabled;
-              }),
-              'none',
-            );
-          },
-        };
-      }
-      return selection as SelectionItem;
-    });
+
+                if (!checkProps?.disabled) {
+                  if (keySet.has(key)) {
+                    keySet.delete(key);
+                  } else {
+                    keySet.add(key);
+                  }
+                }
+              });
+
+              const keys = Array.from(keySet);
+              if (onSelectInvert) {
+                warning(
+                  false,
+                  'Table',
+                  '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
+                );
+                onSelectInvert(keys);
+              }
+
+              setSelectedKeys(keys, 'invert');
+            },
+          };
+        }
+        if (selection === SELECTION_NONE) {
+          return {
+            key: 'none',
+            text: tableLocale.selectNone,
+            onSelect() {
+              onSelectNone?.();
+              setSelectedKeys(
+                Array.from(derivedSelectedKeySet).filter(key => {
+                  const checkProps = checkboxPropsMap.get(key);
+                  return checkProps?.disabled;
+                }),
+                'none',
+              );
+            },
+          };
+        }
+        return selection as SelectionItem;
+      })
+      .map(selection => ({
+        ...selection,
+        onSelect: (...rest) => {
+          selection.onSelect?.(...rest);
+          setLastSelectedKey(null);
+        },
+      }));
   }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
 
   // ======================= Columns ========================
@@ -393,6 +401,7 @@ export default function useSelection<RecordType>(
         );
 
         setSelectedKeys(keys, 'all');
+        setLastSelectedKey(null);
       };
 
       // ===================== Render =====================
@@ -605,7 +614,11 @@ export default function useSelection<RecordType>(
                     }
                   }
 
-                  setLastSelectedKey(key);
+                  if (checked) {
+                    setLastSelectedKey(null);
+                  } else {
+                    setLastSelectedKey(key);
+                  }
                 }}
               />
             ),

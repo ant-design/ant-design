@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { Locale } from '../locale-provider';
-import type { SizeType } from './SizeContext';
 import type { RequiredMark } from '../form/Form';
+import type { Locale } from '../locale-provider';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { SizeType } from './SizeContext';
 
 export interface Theme {
   primaryColor?: string;
@@ -30,6 +30,9 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   input?: {
     autoComplete?: string;
+  };
+  pagination?: {
+    showSizeChanger?: boolean;
   };
   locale?: Locale;
   pageHeader?: {
@@ -101,8 +104,9 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
     const cons: ConstructorProps = Component.constructor as ConstructorProps;
     const name = (cons && cons.displayName) || Component.name || 'Component';
 
-    SFC.displayName = `withConfigConsumer(${name})`;
-
+    if (process.env.NODE_ENV !== 'production') {
+      SFC.displayName = `withConfigConsumer(${name})`;
+    }
     return SFC;
   };
 }

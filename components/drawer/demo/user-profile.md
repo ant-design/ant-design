@@ -13,25 +13,31 @@ title:
 
 Use Drawer to quickly preview details of an object, such as those in a list.
 
-```jsx
-import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
+```tsx
+import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
+import React, { useState } from 'react';
 
-const DescriptionItem = ({ title, content }) => (
+interface DescriptionItemProps {
+  title: string;
+  content: React.ReactNode;
+}
+
+const DescriptionItem = ({ title, content }: DescriptionItemProps) => (
   <div className="site-description-item-profile-wrapper">
     <p className="site-description-item-profile-p-label">{title}:</p>
     {content}
   </div>
 );
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -39,9 +45,11 @@ export default () => {
       <List
         dataSource={[
           {
+            id: 1,
             name: 'Lily',
           },
           {
+            id: 2,
             name: 'Lily',
           },
         ]}
@@ -65,7 +73,7 @@ export default () => {
           </List.Item>
         )}
       />
-      <Drawer width={640} placement="right" closable={false} onClose={onClose} visible={visible}>
+      <Drawer width={640} placement="right" closable={false} onClose={onClose} open={open}>
         <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
           User Profile
         </p>
@@ -154,6 +162,8 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```
 
 ```css

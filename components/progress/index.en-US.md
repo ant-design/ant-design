@@ -23,8 +23,7 @@ Properties that shared by all types.
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` |
 | percent | To set the completion percentage | number | 0 |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
-| size | To set the size of the progress | `default` \| `small` | `default` |
-| status | To set the status of the progress, options: `success` `exception` `normal` `active`(line only) | string | - |
+| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeColor | The color of progress bar | string | - |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |
@@ -33,11 +32,11 @@ Properties that shared by all types.
 
 ### `type="line"`
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| steps | The total step count | number | - |
-| strokeColor | The color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
-| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| steps | The total step count | number | - | - |
+| strokeColor | The color of progress bar, render `linear-gradient` when passing an object, could accept `string[]` when has `steps`. | string \| string[] \| { from: string; to: string; direction: string } | - | 4.21.0: `string[]` |
+| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 | - |
 
 ### `type="circle"`
 

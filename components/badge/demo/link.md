@@ -13,14 +13,17 @@ title:
 
 The badge can be wrapped with `a` tag to make it linkable.
 
-```jsx
-import { Badge, Avatar } from 'antd';
+```tsx
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <a href="#">
     <Badge count={5}>
       <Avatar shape="square" size="large" />
     </Badge>
   </a>
 );
+
+export default App;
 ```

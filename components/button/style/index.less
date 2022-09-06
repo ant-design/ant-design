@@ -107,6 +107,10 @@
       display: flex;
       justify-content: center;
     }
+
+    .@{iconfont-css-prefix}-loading {
+      padding: 0 !important;
+    }
   }
 
   // https://github.com/ant-design/ant-design/issues/32365
@@ -176,12 +180,6 @@
       // for smooth button padding transition
       svg {
         animation: loadingCircle 1s infinite linear;
-      }
-    }
-
-    &:only-child {
-      .@{iconfont-css-prefix} {
-        padding-right: 0;
       }
     }
   }
@@ -277,6 +275,10 @@ a.@{btn-prefix-cls} {
   // 0.1px for padding-top solution works and I don't why
   padding-top: 0.01px !important;
   line-height: @btn-height-base - 2px;
+
+  &-disabled {
+    .btn-href-disabled();
+  }
 
   &-lg {
     line-height: @btn-height-lg - 2px;

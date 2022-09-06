@@ -13,13 +13,15 @@ title:
 
 Custom sizes to fit in a variety of containers.
 
-```jsx
-import { Descriptions, Radio, Button } from 'antd';
+```tsx
+import type { RadioChangeEvent } from 'antd';
+import { Button, Descriptions, Radio } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [size, setSize] = React.useState('default');
+const App: React.FC = () => {
+  const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
 
-  const onChange = e => {
+  const onChange = (e: RadioChangeEvent) => {
     console.log('size checked', e.target.value);
     setSize(e.target.value);
   };
@@ -72,4 +74,6 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```

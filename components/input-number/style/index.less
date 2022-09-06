@@ -27,8 +27,8 @@
   width: 90px;
   margin: 0;
   padding: 0;
-  border: @border-width-base @border-style-base @border-color-base;
-  border-radius: @border-radius-base;
+  border: @border-width-base @border-style-base @input-border-color;
+  border-radius: @control-border-radius;
 
   &-handler {
     position: relative;
@@ -102,7 +102,7 @@
     text-align: left;
     background-color: transparent;
     border: 0;
-    border-radius: @border-radius-base;
+    border-radius: @control-border-radius;
     outline: 0;
     transition: all 0.3s linear;
     appearance: textfield !important;
@@ -142,7 +142,7 @@
     width: 22px;
     height: 100%;
     background: @input-number-handler-bg;
-    border-radius: 0 @border-radius-base @border-radius-base 0;
+    border-radius: 0 @control-border-radius @control-border-radius 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
 
@@ -176,7 +176,7 @@
   }
 
   &-handler-up {
-    border-top-right-radius: @border-radius-base;
+    border-top-right-radius: @control-border-radius;
     cursor: pointer;
 
     &-inner {
@@ -192,8 +192,8 @@
 
   &-handler-down {
     top: 0;
-    border-top: @border-width-base @border-style-base @border-color-base;
-    border-bottom-right-radius: @border-radius-base;
+    border-top: @border-width-base @border-style-base @input-number-handler-border-color;
+    border-bottom-right-radius: @control-border-radius;
     cursor: pointer;
 
     &-inner {
@@ -208,6 +208,11 @@
     .@{input-number-prefix-cls}-borderless & {
       border-top-width: 0;
     }
+  }
+
+  &:hover:not(.@{input-number-prefix-cls}-borderless) &-handler-down,
+  &-focused:not(.@{input-number-prefix-cls}-borderless) &-handler-down {
+    border-top: @border-width-base @border-style-base @input-number-handler-border-color;
   }
 
   &-handler-up-disabled,

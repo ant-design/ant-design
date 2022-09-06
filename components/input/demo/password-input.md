@@ -13,11 +13,12 @@ title:
 
 Input type of password.
 
-```jsx
-import { Input, Space } from 'antd';
+```tsx
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import { Input, Space } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Input.Password placeholder="input password" />
     <Input.Password
@@ -26,4 +27,6 @@ export default () => (
     />
   </Space>
 );
+
+export default App;
 ```

@@ -606,11 +606,9 @@ exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1
 >
   <div
     class="ant-row"
-    role="row"
   >
     <div
       class="ant-col ant-col-8"
-      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -634,7 +632,6 @@ exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -658,7 +655,6 @@ exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -682,7 +678,6 @@ exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -706,7 +701,6 @@ exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"

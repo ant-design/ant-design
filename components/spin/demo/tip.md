@@ -13,10 +13,11 @@ title:
 
 Customized description content.
 
-```jsx
-import { Spin, Alert } from 'antd';
+```tsx
+import { Alert, Spin } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Spin tip="Loading...">
     <Alert
       message="Alert message title"
@@ -25,4 +26,6 @@ export default () => (
     />
   </Spin>
 );
+
+export default App;
 ```

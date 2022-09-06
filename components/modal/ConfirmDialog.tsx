@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import ConfigProvider from '../config-provider';
+import ActionButton from '../_util/ActionButton';
+import { getTransitionName } from '../_util/motion';
+import warning from '../_util/warning';
 import type { ModalFuncProps } from './Modal';
 import Dialog from './Modal';
-import ActionButton from '../_util/ActionButton';
-import warning from '../_util/warning';
-import ConfigProvider from '../config-provider';
-import { getTransitionName } from '../_util/motion';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -24,6 +24,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     zIndex,
     afterClose,
     visible,
+    open,
     keyboard,
     centered,
     getContainer,
@@ -90,8 +91,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
           { [`${contentPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close({ triggerCancel: true })}
-        visible={visible}
+        onCancel={() => close?.({ triggerCancel: true })}
+        open={open || visible}
         title=""
         footer=""
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}

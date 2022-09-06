@@ -14,12 +14,13 @@ debug: true
 
 Steps with progress dot style.
 
-```jsx
-import { Steps, Divider } from 'antd';
+```tsx
+import { Divider, Steps } from 'antd';
+import React from 'react';
 
 const { Step } = Steps;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Steps progressDot current={1} size="small">
       <Step title="Finished" description="This is a description." />
@@ -36,4 +37,6 @@ export default () => (
     </Steps>
   </>
 );
+
+export default App;
 ```

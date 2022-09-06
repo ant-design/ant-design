@@ -1,13 +1,11 @@
 import React from 'react';
-import type { ReactWrapper } from 'enzyme';
-import { mount } from 'enzyme';
-import type { AffixProps, AffixState } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
-import { getObserverEntities } from '../utils';
-import Button from '../../button';
-import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
-import { sleep, render } from '../../../tests/utils';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { render, sleep, triggerResize } from '../../../tests/utils';
+import Button from '../../button';
+import { getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -16,10 +14,9 @@ class AffixMounter extends React.Component<{
   offsetTop?: number;
   onTestUpdatePosition?(): void;
   onChange?: () => void;
+  getInstance?: (inst: InternalAffixClass) => void;
 }> {
   private container: HTMLDivElement;
-
-  public affix: React.Component<AffixProps, AffixState>;
 
   componentDidMount() {
     this.container.addEventListener = jest
@@ -32,6 +29,7 @@ class AffixMounter extends React.Component<{
   getTarget = () => this.container;
 
   render() {
+    const { getInstance, ...restProps } = this.props;
     return (
       <div
         ref={node => {
@@ -43,9 +41,9 @@ class AffixMounter extends React.Component<{
           className="fixed"
           target={this.getTarget}
           ref={ele => {
-            this.affix = ele!;
+            getInstance?.(ele!);
           }}
-          {...this.props}
+          {...restProps}
         >
           <Button type="primary">Fixed at the top of container</Button>
         </Affix>
@@ -59,8 +57,6 @@ describe('Affix Render', () => {
   accessibilityTest(Affix);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
-  let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
-  let affixWrapper: ReactWrapper<AffixProps, AffixState, React.Component<AffixProps, AffixState>>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
@@ -143,15 +139,35 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when target changed', () => {
-    it('function change', () => {
+    it('function change', async () => {
       document.body.innerHTML = '<div id="mounter" />';
-      const container = document.querySelector('#id') as HTMLDivElement;
+      const container = document.getElementById('mounter');
       const getTarget = () => container;
-      affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
-      affixWrapper.setProps({ target: () => null });
-      expect(affixWrapper.find('Affix').last().state().status).toBe(0);
-      expect(affixWrapper.find('Affix').last().state().affixStyle).toBe(undefined);
-      expect(affixWrapper.find('Affix').last().state().placeholderStyle).toBe(undefined);
+      let affixInstance: InternalAffixClass;
+      const { rerender } = render(
+        <Affix
+          ref={node => {
+            affixInstance = node as InternalAffixClass;
+          }}
+          target={getTarget}
+        >
+          {null}
+        </Affix>,
+      );
+      rerender(
+        <Affix
+          ref={node => {
+            affixInstance = node as InternalAffixClass;
+          }}
+          target={() => null}
+        >
+          {null}
+        </Affix>,
+      );
+      expect(affixInstance!.state.status).toBe(0);
+      expect(affixInstance!.state.affixStyle).toBe(undefined);
+      expect(affixInstance!.state.placeholderStyle).toBe(undefined);
+      await sleep(100);
     });
 
     it('instance change', async () => {
@@ -163,47 +179,55 @@ describe('Affix Render', () => {
 
       const originLength = getObserverLength();
       const getTarget = () => target;
-      affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
+      const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
       await sleep(100);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
-      affixWrapper.setProps({});
-      affixWrapper.update();
+      rerender(<Affix>{null}</Affix>);
       await sleep(100);
       expect(getObserverLength()).toBe(originLength);
     });
   });
 
   describe('updatePosition when size changed', () => {
-    it.each([
-      { name: 'inner', index: 0 },
-      { name: 'outer', index: 1 },
-    ])('inner or outer', async ({ index }) => {
+    it('add class automatically', async () => {
       document.body.innerHTML = '<div id="mounter" />';
 
-      const updateCalled = jest.fn();
-      affixMounterWrapper = mount(
-        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+      let affixInstance: InternalAffixClass | null = null;
+      render(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+        />,
         {
-          attachTo: document.getElementById('mounter'),
+          container: document.getElementById('mounter')!,
         },
       );
 
       await sleep(20);
-
       await movePlaceholder(300);
-      expect(
-        (affixMounterWrapper.find(AffixMounter).instance() as any).affix.state.affixStyle,
-      ).toBeTruthy();
-      await sleep(20);
-      affixMounterWrapper.update();
+      expect(affixInstance!.state.affixStyle).toBeTruthy();
+    });
 
-      // Mock trigger resize
+    // Trigger inner and outer element for the two <ResizeObserver>s.
+    it.each([
+      { selector: '.ant-btn' }, // inner
+      { selector: '.fixed' }, // outer
+    ])('trigger listener when size change', async ({ selector }) => {
+      const updateCalled = jest.fn();
+      const { container } = render(
+        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+        {
+          container: document.getElementById('mounter')!,
+        },
+      );
+
       updateCalled.mockReset();
-      (affixMounterWrapper as any).triggerResize(index);
+      triggerResize(container.querySelector(selector)!);
       await sleep(20);
-
       expect(updateCalled).toHaveBeenCalled();
     });
   });

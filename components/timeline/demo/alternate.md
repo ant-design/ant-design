@@ -13,11 +13,12 @@ title:
 
 Alternate timeline.
 
-```jsx
-import { Timeline } from 'antd';
+```tsx
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { Timeline } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Timeline mode="alternate">
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item color="green">Solve initial network problems 2015-09-01</Timeline.Item>
@@ -33,4 +34,6 @@ export default () => (
     </Timeline.Item>
   </Timeline>
 );
+
+export default App;
 ```

@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 export interface SkeletonElementProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
   size?: 'large' | 'small' | 'default' | number;
-  shape?: 'circle' | 'square' | 'round';
+  shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
 }
 

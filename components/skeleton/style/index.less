@@ -8,7 +8,7 @@
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
 @skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
-@skeleton-block-radius: 4px;
+@skeleton-block-radius: @border-radius-base;
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -34,7 +34,6 @@
     .@{skeleton-title-prefix-cls} {
       width: 100%;
       height: @skeleton-title-height;
-      margin-top: @margin-md;
       background: @skeleton-color;
       border-radius: @skeleton-block-radius;
 
@@ -84,26 +83,12 @@
   }
 
   // With active animation
-  &.@{skeleton-prefix-cls}-active {
-    & .@{skeleton-prefix-cls}-content {
-      .@{skeleton-title-prefix-cls},
-      .@{skeleton-paragraph-prefix-cls} > li {
-        .skeleton-color();
-      }
-    }
-
-    .@{skeleton-avatar-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-button-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-input-prefix-cls} {
-      .skeleton-color();
-    }
-
+  &-active {
+    .@{skeleton-title-prefix-cls},
+    .@{skeleton-paragraph-prefix-cls} > li,
+    .@{skeleton-avatar-prefix-cls},
+    .@{skeleton-button-prefix-cls},
+    .@{skeleton-input-prefix-cls},
     .@{skeleton-image-prefix-cls} {
       .skeleton-color();
     }
@@ -230,6 +215,11 @@
   min-width: @size * 2;
   .skeleton-element-common-size(@size);
 
+  &.@{skeleton-button-prefix-cls}-square {
+    width: @size;
+    min-width: @size;
+  }
+
   &.@{skeleton-button-prefix-cls}-circle {
     width: @size;
     min-width: @size;
@@ -262,23 +252,38 @@
 }
 
 .skeleton-color() {
-  background: linear-gradient(
-    90deg,
-    @skeleton-color 25%,
-    @skeleton-to-color 37%,
-    @skeleton-color 63%
-  );
-  background-size: 400% 100%;
-  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+  position: relative;
+  // fix https://github.com/ant-design/ant-design/issues/36444
+  // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
+  /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
+  z-index: 0;
+  overflow: hidden;
+  background: transparent;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: -150%;
+    bottom: 0;
+    left: -150%;
+    background: linear-gradient(
+      90deg,
+      @skeleton-color 25%,
+      @skeleton-to-color 37%,
+      @skeleton-color 63%
+    );
+    animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+    content: '';
+  }
 }
 
 @keyframes ~"@{skeleton-prefix-cls}-loading" {
   0% {
-    background-position: 100% 50%;
+    transform: translateX(-37.5%);
   }
 
   100% {
-    background-position: 0 50%;
+    transform: translateX(37.5%);
   }
 }
 

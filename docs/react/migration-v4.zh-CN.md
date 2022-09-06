@@ -193,6 +193,14 @@ antd4-codemod src
 
 `@ant-design/codemod-v4` 会帮你迁移到 antd v4, 废弃的组件则通过 `@ant-design/compatible` 保持运行, 一般来说你无需手动迁移。下方内容详细介绍了整体的迁移和变化，你也可以参照变动手动修改。
 
+#### 安装兼容包
+
+安装 `@ant-design/compatible` 通过指定 `v4-compatible-v3` tag 确认为 v4 兼容 v3 版本：
+
+```bash
+npm install --save @ant-design/compatible@v4-compatible-v3
+```
+
 #### 将已废弃的 `Form` 和 `Mention` 组件通过 `@ant-design/compatible` 包引入
 
 ```diff

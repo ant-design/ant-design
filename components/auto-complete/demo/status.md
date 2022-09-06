@@ -15,13 +15,14 @@ title:
 Add status to AutoComplete with `status`, which could be `error` or `warning`.
 
 ```tsx
-import React, { useState } from 'react';
 import { AutoComplete, Space } from 'antd';
+import React, { useState } from 'react';
 
-const mockVal = (str: string, repeat: number = 1) => ({
+const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
 });
-const ValidateInputs: React.FC = () => {
+
+const App: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
 
   const onSearch = (searchText: string) => {
@@ -38,5 +39,5 @@ const ValidateInputs: React.FC = () => {
   );
 };
 
-export default () => <ValidateInputs />;
+export default App;
 ```

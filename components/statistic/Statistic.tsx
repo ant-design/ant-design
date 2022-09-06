@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import Skeleton from '../skeleton';
-import StatisticNumber from './Number';
 import type Countdown from './Countdown';
-import type { valueType, FormatConfig } from './utils';
+import StatisticNumber from './Number';
+import type { FormatConfig, valueType } from './utils';
 
 interface StatisticComponent {
   Countdown: typeof Countdown;
@@ -54,7 +54,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   return (
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <Skeleton paragraph={false} loading={loading}>
+      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div style={valueStyle} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           {valueRender ? valueRender(valueNode) : valueNode}

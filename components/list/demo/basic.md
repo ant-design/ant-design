@@ -13,8 +13,9 @@ title:
 
 Basic list.
 
-```jsx
-import { List, Avatar } from 'antd';
+```tsx
+import { Avatar, List } from 'antd';
+import React from 'react';
 
 const data = [
   {
@@ -31,7 +32,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <List
     itemLayout="horizontal"
     dataSource={data}
@@ -46,4 +47,6 @@ export default () => (
     )}
   />
 );
+
+export default App;
 ```

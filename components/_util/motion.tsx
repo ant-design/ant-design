@@ -1,4 +1,4 @@
-import type { CSSMotionProps, MotionEventHandler, MotionEndEventHandler } from 'rc-motion';
+import type { CSSMotionProps, MotionEndEventHandler, MotionEventHandler } from 'rc-motion';
 import type { MotionEvent } from 'rc-motion/lib/interface';
 import { tuple } from './type';
 

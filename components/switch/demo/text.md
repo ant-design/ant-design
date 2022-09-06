@@ -13,11 +13,12 @@ title:
 
 With text and icon.
 
-```jsx
+```tsx
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Switch } from 'antd';
-import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
     <br />
@@ -30,4 +31,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

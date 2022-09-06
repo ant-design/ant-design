@@ -1,6 +1,7 @@
 @import '../../input/style/mixin';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
+@pagination-prefix-cls: ~'@{ant-prefix}-pagination';
 
 .select-status-color(
   @text-color;
@@ -9,7 +10,7 @@
   @hoverBorderColor;
   @outlineColor;
 ) {
-  &.@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):not(.@{select-prefix-cls}-customize-input) {
+  &.@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):not(.@{select-prefix-cls}-customize-input):not(.@{pagination-prefix-cls}-size-changer) {
     .@{select-prefix-cls}-selector {
       background-color: @background-color;
       border-color: @border-color !important;

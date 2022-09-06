@@ -1,6 +1,6 @@
 import raf from 'rc-util/lib/raf';
-import getScroll, { isWindow } from './getScroll';
 import { easeInOutCubic } from './easings';
+import getScroll, { isWindow } from './getScroll';
 
 interface ScrollToOptions {
   /** Scroll container, default as window */

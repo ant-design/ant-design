@@ -8,7 +8,7 @@ title:
 
 ## zh-CN
 
-`useWatch` 允许你监听字段变化，同时仅当改字段变化时重新渲染。API 文档请[查阅此处](#Form.useWatch)。
+`useWatch` 允许你监听字段变化，同时仅当该字段变化时重新渲染。API 文档请[查阅此处](#Form.useWatch)。
 
 ## en-US
 

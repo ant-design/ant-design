@@ -13,19 +13,20 @@ title:
 
 Use ConfigProvider set global Empty style.
 
-```jsx
-import {
-  ConfigProvider,
-  Switch,
-  Divider,
-  TreeSelect,
-  Select,
-  Cascader,
-  Transfer,
-  Table,
-  List,
-} from 'antd';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import {
+  Cascader,
+  ConfigProvider,
+  Divider,
+  List,
+  Select,
+  Switch,
+  Table,
+  Transfer,
+  TreeSelect,
+} from 'antd';
+import React, { useState } from 'react';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>
@@ -36,8 +37,8 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-export default () => {
-  const [customize, setCustomize] = React.useState(false);
+const App: React.FC = () => {
+  const [customize, setCustomize] = useState(false);
 
   return (
     <div>
@@ -45,14 +46,14 @@ export default () => {
         unCheckedChildren="default"
         checkedChildren="customize"
         checked={customize}
-        onChange={value => {
-          setCustomize(value);
+        onChange={val => {
+          setCustomize(val);
         }}
       />
 
       <Divider />
 
-      <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+      <ConfigProvider renderEmpty={customize ? customizeRenderEmpty : undefined}>
         <div className="config-provider">
           <h4>Select</h4>
           <Select style={style} />
@@ -90,6 +91,8 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 <style>

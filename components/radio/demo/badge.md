@@ -14,10 +14,11 @@ title:
 
 Test Badge style.
 
-```jsx
-import { Radio, Badge } from 'antd';
+```tsx
+import { Badge, Radio } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Radio.Group buttonStyle="solid">
     <Badge count={1}>
       <Radio.Button value={1}>Click Me</Radio.Button>
@@ -27,4 +28,6 @@ export default () => (
     </Badge>
   </Radio.Group>
 );
+
+export default App;
 ```

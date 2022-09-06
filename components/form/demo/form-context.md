@@ -14,10 +14,10 @@ title:
 Use `Form.Provider` to process data between forms. In this case, submit button is in the Modal which is out of Form. You can use `form.submit` to submit form. Besides, we recommend native `<Button htmlType="submit" />` to submit a form.
 
 ```tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import type { FormInstance } from 'antd/lib/form';
+import { Avatar, Button, Form, Input, InputNumber, Modal, Typography } from 'antd';
+import type { FormInstance } from 'antd/es/form';
+import React, { useEffect, useRef, useState } from 'react';
 
 const layout = {
   labelCol: { span: 8 },
@@ -33,31 +33,31 @@ interface UserType {
 }
 
 interface ModalFormProps {
-  visible: boolean;
+  open: boolean;
   onCancel: () => void;
 }
 
 // reset form fields when modal is form, closed
-const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visible: boolean }) => {
-  const prevVisibleRef = useRef<boolean>();
+const useResetFormOnCloseModal = ({ form, open }: { form: FormInstance; open: boolean }) => {
+  const prevOpenRef = useRef<boolean>();
   useEffect(() => {
-    prevVisibleRef.current = visible;
-  }, [visible]);
-  const prevVisible = prevVisibleRef.current;
+    prevOpenRef.current = open;
+  }, [open]);
+  const prevOpen = prevOpenRef.current;
 
   useEffect(() => {
-    if (!visible && prevVisible) {
+    if (!open && prevOpen) {
       form.resetFields();
     }
-  }, [visible]);
+  }, [form, prevOpen, open]);
 };
 
-const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
+const ModalForm: React.FC<ModalFormProps> = ({ open, onCancel }) => {
   const [form] = Form.useForm();
 
   useResetFormOnCloseModal({
     form,
-    visible,
+    open,
   });
 
   const onOk = () => {
@@ -65,7 +65,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   };
 
   return (
-    <Modal title="Basic Drawer" visible={visible} onOk={onOk} onCancel={onCancel}>
+    <Modal title="Basic Drawer" open={open} onOk={onOk} onCancel={onCancel}>
       <Form form={form} layout="vertical" name="userForm">
         <Form.Item name="name" label="User Name" rules={[{ required: true }]}>
           <Input />
@@ -78,15 +78,15 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   );
 };
 
-const Demo = () => {
-  const [visible, setVisible] = useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
   const showUserModal = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const hideUserModal = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   const onFinish = (values: any) => {
@@ -100,7 +100,7 @@ const Demo = () => {
           const { basicForm } = forms;
           const users = basicForm.getFieldValue('users') || [];
           basicForm.setFieldsValue({ users: [...users, values] });
-          setVisible(false);
+          setOpen(false);
         }
       }}
     >
@@ -140,12 +140,12 @@ const Demo = () => {
         </Form.Item>
       </Form>
 
-      <ModalForm visible={visible} onCancel={hideUserModal} />
+      <ModalForm open={open} onCancel={hideUserModal} />
     </Form.Provider>
   );
 };
 
-export default Demo;
+export default App;
 ```
 
 ```css

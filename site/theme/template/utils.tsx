@@ -212,7 +212,7 @@ export function getMetaDescription(jml?: any[] | null) {
           .join('');
         return [tag, content];
       }),
-  ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p));
+  ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p)) as string;
   return paragraph;
 }
 

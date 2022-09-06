@@ -16,10 +16,11 @@ title:
 Normal login form which can contain more elements.
 
 ```tsx
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Checkbox, Form, Input } from 'antd';
+import React from 'react';
 
-const NormalLoginForm = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -67,7 +68,7 @@ const NormalLoginForm = () => {
   );
 };
 
-export default () => <NormalLoginForm />;
+export default App;
 ```
 
 ```css

@@ -13,54 +13,47 @@ title:
 
 Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and cancel button props.
 
-```jsx
-import { Modal, Button } from 'antd';
+```tsx
+import { Button, Modal } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = { visible: false };
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
+  const showModal = () => {
+    setOpen(true);
   };
 
-  handleOk = e => {
+  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setOpen(false);
   };
 
-  handleCancel = e => {
+  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setOpen(false);
   };
 
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal with customized button props
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          okButtonProps={{ disabled: true }}
-          cancelButtonProps={{ disabled: true }}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal with customized button props
+      </Button>
+      <Modal
+        title="Basic Modal"
+        open={open}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okButtonProps={{ disabled: true }}
+        cancelButtonProps={{ disabled: true }}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+    </>
+  );
+};
 
 export default App;
 ```

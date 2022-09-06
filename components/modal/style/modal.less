@@ -29,7 +29,7 @@
     background-color: @modal-content-bg;
     background-clip: padding-box;
     border: 0;
-    border-radius: @border-radius-base;
+    border-radius: @modal-border-radius;
     box-shadow: @shadow-2;
     pointer-events: auto;
   }
@@ -75,7 +75,7 @@
     background: @modal-header-bg;
     border-bottom: @modal-header-border-width @modal-header-border-style
       @modal-header-border-color-split;
-    border-radius: @border-radius-base @border-radius-base 0 0;
+    border-radius: @modal-border-radius @modal-border-radius 0 0;
   }
 
   &-body {
@@ -91,7 +91,7 @@
     background: @modal-footer-bg;
     border-top: @modal-footer-border-width @modal-footer-border-style
       @modal-footer-border-color-split;
-    border-radius: 0 0 @border-radius-base @border-radius-base;
+    border-radius: 0 0 @modal-border-radius @modal-border-radius;
 
     .@{ant-prefix}-btn + .@{ant-prefix}-btn:not(.@{ant-prefix}-dropdown-trigger) {
       margin-bottom: 0;

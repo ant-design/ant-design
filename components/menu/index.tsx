@@ -1,26 +1,28 @@
-import * as React from 'react';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import RcMenu, { ItemGroup } from 'rc-menu';
-import classNames from 'classnames';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import omit from 'rc-util/lib/omit';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import * as React from 'react';
 import { forwardRef } from 'react';
-import SubMenu, { SubMenuProps } from './SubMenu';
-import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import MenuContext, { MenuTheme } from './MenuContext';
-import MenuDivider from './MenuDivider';
+import warning from '../_util/warning';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
-
-export { MenuDividerProps } from './MenuDivider';
+import MenuContext, { MenuTheme } from './MenuContext';
+import MenuDivider from './MenuDivider';
+import Item, { MenuItemProps } from './MenuItem';
+import OverrideContext from './OverrideContext';
+import SubMenu, { SubMenuProps } from './SubMenu';
 
 export { MenuItemGroupProps } from 'rc-menu';
+export { MenuDividerProps } from './MenuDivider';
+export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
@@ -44,6 +46,8 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
+  const override = React.useContext(OverrideContext) || {};
+
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -58,6 +62,9 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     siderCollapsed,
     items,
     children,
+    mode,
+    selectable,
+    onClick,
     ...restProps
   } = props;
 
@@ -68,7 +75,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Warning ==========================
   warning(
-    !('inlineCollapsed' in props && props.mode !== 'inline'),
+    !('inlineCollapsed' in props && mode !== 'inline'),
     'Menu',
     '`inlineCollapsed` should only be used when `mode` is inline.',
   );
@@ -80,10 +87,25 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   warning(
-    !!items && !children,
+    'items' in props && !children,
     'Menu',
     '`children` will be removed in next major version. Please use `items` instead.',
   );
+
+  override.validator?.({ mode });
+
+  // ========================== Click ==========================
+  // Tell dropdown that item clicked
+  const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
+    onClick?.(...args);
+    override?.onClick?.();
+  });
+
+  // ========================== Mode ===========================
+  const mergedMode = override.mode || mode;
+
+  // ======================= Selectable ========================
+  const mergedSelectable = selectable ?? override.selectable;
 
   // ======================== Collapsed ========================
   // Inline Collapsed
@@ -100,8 +122,18 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     other: { motionName: `${rootPrefixCls}-zoom-big` },
   };
 
-  const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const prefixCls = getPrefixCls('menu', customizePrefixCls || override.prefixCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+
+  // ====================== Expand Icon ========================
+  let mergedExpandIcon: MenuProps[`expandIcon`];
+  if (typeof expandIcon === 'function') {
+    mergedExpandIcon = expandIcon;
+  } else {
+    mergedExpandIcon = cloneElement(expandIcon || override.expandIcon, {
+      className: `${prefixCls}-submenu-expand-icon`,
+    });
+  }
 
   // ======================== Context ==========================
   const contextValue = React.useMemo(
@@ -118,29 +150,28 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // ========================= Render ==========================
   return (
-    <MenuContext.Provider value={contextValue}>
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        overflowedIndicator={<EllipsisOutlined />}
-        overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-        {...passedProps}
-        inlineCollapsed={mergedInlineCollapsed}
-        className={menuClassName}
-        prefixCls={prefixCls}
-        direction={direction}
-        defaultMotions={defaultMotions}
-        expandIcon={
-          typeof expandIcon === 'function'
-            ? expandIcon
-            : cloneElement(expandIcon, {
-                className: `${prefixCls}-submenu-expand-icon`,
-              })
-        }
-        ref={ref}
-      >
-        {mergedChildren}
-      </RcMenu>
-    </MenuContext.Provider>
+    <OverrideContext.Provider value={null}>
+      <MenuContext.Provider value={contextValue}>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          mode={mergedMode}
+          selectable={mergedSelectable}
+          onClick={onItemClick}
+          {...passedProps}
+          inlineCollapsed={mergedInlineCollapsed}
+          className={menuClassName}
+          prefixCls={prefixCls}
+          direction={direction}
+          defaultMotions={defaultMotions}
+          expandIcon={mergedExpandIcon}
+          ref={ref}
+        >
+          {mergedChildren}
+        </RcMenu>
+      </MenuContext.Provider>
+    </OverrideContext.Provider>
   );
 });
 
@@ -176,7 +207,5 @@ class Menu extends React.Component<MenuProps, {}> {
     );
   }
 }
-
-export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export default Menu;

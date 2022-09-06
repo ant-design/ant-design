@@ -17,10 +17,19 @@ Search and select options directly.
 
 > Now, `Cascader[showSearch]` doesn't support search on server, more info [#5547](https://github.com/ant-design/ant-design/issues/5547)
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
+import type { DefaultOptionType } from 'antd/es/cascader';
+import React from 'react';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+  disabled?: boolean;
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -60,15 +69,16 @@ const options = [
   },
 ];
 
-function onChange(value, selectedOptions) {
+const onChange = (value: string[], selectedOptions: Option[]) => {
   console.log(value, selectedOptions);
-}
+};
 
-function filter(inputValue, path) {
-  return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-}
+const filter = (inputValue: string, path: DefaultOptionType[]) =>
+  path.some(
+    option => (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) > -1,
+  );
 
-export default () => (
+const App: React.FC = () => (
   <Cascader
     options={options}
     onChange={onChange}
@@ -77,4 +87,6 @@ export default () => (
     onSearch={value => console.log(value)}
   />
 );
+
+export default App;
 ```

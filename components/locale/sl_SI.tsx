@@ -1,8 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/sl_SI';
-import DatePicker from '../date-picker/locale/sl_SI';
-import TimePicker from '../time-picker/locale/sl_SI';
 import Calendar from '../calendar/locale/sl_SI';
+import DatePicker from '../date-picker/locale/sl_SI';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/sl_SI';
 
 const localeValues: Locale = {
   locale: 'sl',

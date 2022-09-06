@@ -66,6 +66,15 @@
     &.@{ant-prefix}-tooltip-open {
       border-color: @slider-handle-color-tooltip-open;
     }
+
+    &::after {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      bottom: -6px;
+      left: -6px;
+      content: '';
+    }
   }
 
   &:hover {
@@ -169,7 +178,7 @@
 
     .@{slider-prefix-cls}-handle {
       margin-top: -6px; // we chould consider border width as well: (10 + 2 ) / 2
-      margin-left: -5px;
+      margin-left: @slider-handle-margin-left;
     }
 
     .@{slider-prefix-cls}-mark {

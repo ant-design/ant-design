@@ -1,23 +1,23 @@
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
-import classNames from 'classnames';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import Checkbox from '../checkbox';
-import Menu from '../menu';
 import Dropdown from '../dropdown';
+import Menu from '../menu';
+import { isValidElement } from '../_util/reactNode';
 import type {
-  TransferDirection,
+  KeyWiseTransferItem,
   RenderResult,
   RenderResultObject,
   SelectAllLabel,
+  TransferDirection,
   TransferLocale,
-  KeyWiseTransferItem,
 } from './index';
-import Search from './search';
+import type { PaginationType } from './interface';
 import type { TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
-import type { PaginationType } from './interface';
-import { isValidElement } from '../_util/reactNode';
+import Search from './search';
 
 const defaultRender = () => null;
 

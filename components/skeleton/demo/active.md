@@ -13,8 +13,11 @@ title:
 
 Display active animation.
 
-```jsx
+```tsx
 import { Skeleton } from 'antd';
+import React from 'react';
 
-export default () => <Skeleton active />;
+const App: React.FC = () => <Skeleton active />;
+
+export default App;
 ```

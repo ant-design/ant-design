@@ -40614,14 +40614,14 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
             checked=""
             class="ant-radio-button-input"
             type="radio"
-            value="default"
+            value="middle"
           />
           <span
             class="ant-radio-button-inner"
           />
         </span>
         <span>
-          Default
+          middle
         </span>
       </label>
       <label
@@ -40650,7 +40650,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     style="margin-bottom:12px"
   >
     <div
-      class="ant-picker ant-picker-default"
+      class="ant-picker ant-picker-middle"
     >
       <div
         class="ant-picker-input"
@@ -41248,7 +41248,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     style="margin-bottom:12px"
   >
     <div
-      class="ant-picker ant-picker-default"
+      class="ant-picker ant-picker-middle"
     >
       <div
         class="ant-picker-input"
@@ -41482,7 +41482,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     style="margin-bottom:12px"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-default"
+      class="ant-picker ant-picker-range ant-picker-middle"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -42664,7 +42664,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-default"
+      class="ant-picker ant-picker-middle"
     >
       <div
         class="ant-picker-input"

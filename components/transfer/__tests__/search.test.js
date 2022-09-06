@@ -1,9 +1,9 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import { render as testLibRender } from '@testing-library/react';
-import { render, fireEvent } from '../../../tests/utils';
-import Search from '../search';
+import { mount } from 'enzyme';
+import React from 'react';
+import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
+import Search from '../search';
 
 describe('Transfer.Search', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

@@ -13,8 +13,9 @@ title:
 
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
-```jsx
-import { Menu, Dropdown } from 'antd';
+```tsx
+import { Dropdown, Menu } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu
@@ -35,7 +36,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu} trigger={['contextMenu']}>
     <div
       className="site-dropdown-context-menu"
@@ -49,6 +50,8 @@ export default () => (
     </div>
   </Dropdown>
 );
+
+export default App;
 ```
 
 ```css

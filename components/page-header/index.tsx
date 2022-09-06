@@ -1,19 +1,19 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useState from 'rc-util/lib/hooks/useState';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
+import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import type { ConfigConsumerProps, DirectionType } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import type { TagType } from '../tag';
-import type { BreadcrumbProps } from '../breadcrumb';
-import Breadcrumb from '../breadcrumb';
+import useState from 'rc-util/lib/hooks/useState';
+import * as React from 'react';
 import type { AvatarProps } from '../avatar';
 import Avatar from '../avatar';
-import Space from '../space';
-import TransButton from '../_util/transButton';
+import type { BreadcrumbProps } from '../breadcrumb';
+import Breadcrumb from '../breadcrumb';
+import type { ConfigConsumerProps, DirectionType } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import Space from '../space';
+import type { TagType } from '../tag';
+import TransButton from '../_util/transButton';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

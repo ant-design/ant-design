@@ -13,10 +13,11 @@ title:
 
 Divider is `horizontal` by default. You can add text within Divider.
 
-```jsx
+```tsx
 import { Divider } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
@@ -34,4 +35,6 @@ export default () => (
     </p>
   </>
 );
+
+export default App;
 ```
