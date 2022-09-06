@@ -31,6 +31,11 @@ export default () => (
         <p>{text}</p>
       </Panel>
     </Collapse>
+    <Collapse collapsible="icon" defaultActiveKey={['1']}>
+      <Panel header="This panel can only be collapsed by clicking icon" key="1">
+        <p>{text}</p>
+      </Panel>
+    </Collapse>
     <Collapse collapsible="disabled">
       <Panel header="This panel can't be collapsed" key="1">
         <p>{text}</p>

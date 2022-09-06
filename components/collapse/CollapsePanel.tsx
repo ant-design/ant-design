@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 
-export type CollapsibleType = 'header' | 'disabled';
+export type CollapsibleType = 'header' | 'icon' | 'disabled';
 
 export interface CollapsePanelProps {
   key: string | number;
