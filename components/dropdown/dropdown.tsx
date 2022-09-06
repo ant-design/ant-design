@@ -68,6 +68,12 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+
+  // Deprecated
+  /** @deprecated Please use `open` instead */
+  visible?: boolean;
+  /** @deprecated Please use `onOpenChange` instead */
+  onVisibleChange?: (open: boolean) => void;
 }
 
 interface DropdownInterface extends React.FC<DropdownProps> {
@@ -81,17 +87,6 @@ const Dropdown: DropdownInterface = props => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
-
-  [
-    ['visible', 'open'],
-    ['onVisibleChange', 'onOpenChange'],
-  ].forEach(([deprecatedName, newName]) => {
-    warning(
-      !(deprecatedName in props),
-      'Dropdown',
-      `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-    );
-  });
 
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
@@ -134,7 +129,24 @@ const Dropdown: DropdownInterface = props => {
     overlayClassName,
     open,
     onOpenChange,
+
+    // Deprecated
+    visible,
+    onVisibleChange,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Dropdown',
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+      );
+    });
+  }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -160,11 +172,12 @@ const Dropdown: DropdownInterface = props => {
 
   // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open,
+    value: open ?? visible,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
     onOpenChange?.(nextOpen);
+    onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 

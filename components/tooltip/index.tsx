@@ -51,30 +51,20 @@ interface LegacyTooltipProps
       'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
     >
   > {
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: RcTooltipProps['visible'];
   open?: RcTooltipProps['visible'];
-  /**
-   * @deprecated `defaultVisible` is deprecated which will be removed in next major version. Please
-   *   use `defaultOpen` instead.
-   */
-  defaultVisible?: RcTooltipProps['defaultVisible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
-  /**
-   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
-   *   use `onOpenChange` instead.
-   */
-  onVisibleChange?: RcTooltipProps['onVisibleChange'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
-  /**
-   * @deprecated `afterVisibleChange` is deprecated which will be removed in next major version.
-   *   Please use `afterOpenChange` instead.
-   */
-  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
+
+  // Legacy
+  /** @deprecated Please use `open` instead. */
+  visible?: RcTooltipProps['visible'];
+  /** @deprecated Please use `defaultOpen` instead. */
+  defaultVisible?: RcTooltipProps['defaultVisible'];
+  /** @deprecated Please use `onOpenChange` instead. */
+  onVisibleChange?: RcTooltipProps['onVisibleChange'];
+  /** @deprecated Please use `afterOpenChange` instead. */
+  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
 }
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
@@ -167,27 +157,41 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
 
 const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const {
+    prefixCls: customizePrefixCls,
+    openClassName,
+    getTooltipContainer,
+    overlayClassName,
+    color,
+    overlayInnerStyle,
+    children,
+    afterOpenChange,
+    afterVisibleChange,
+  } = props;
+
+  const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
 
-  [
-    ['visible', 'open'],
-    ['defaultVisible', 'defaultOpen'],
-    ['onVisibleChange', 'onOpenChange'],
-    ['afterVisibleChange', 'afterOpenChange'],
-  ].forEach(([deprecatedName, newName]) => {
-    warning(
-      !(deprecatedName in props),
-      'Tooltip',
-      `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-    );
-  });
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['defaultVisible', 'defaultOpen'],
+      ['onVisibleChange', 'onOpenChange'],
+      ['afterVisibleChange', 'afterOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Tooltip',
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+      );
+    });
+  }
 
   const [open, setOpen] = useMergedState(false, {
-    value: props.open,
-    defaultValue: props.defaultOpen,
+    value: props.open ?? props.visible,
+    defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
   const isNoTitle = () => {
@@ -256,15 +260,6 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   const { getPopupContainer, overlayStyle, ...otherProps } = props;
 
-  const {
-    prefixCls: customizePrefixCls,
-    openClassName,
-    getTooltipContainer,
-    overlayClassName,
-    color,
-    overlayInnerStyle,
-    children,
-  } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -272,7 +267,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
   let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('open' in props) && isNoTitle()) {
+  if (!('open' in props) && !('visible' in props) && isNoTitle()) {
     tempOpen = false;
   }
 
@@ -320,6 +315,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       overlay={getOverlay()}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
+      afterVisibleChange={afterOpenChange ?? afterVisibleChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
