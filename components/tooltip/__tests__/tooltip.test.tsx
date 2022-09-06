@@ -490,6 +490,9 @@ describe('Tooltip', () => {
     act(() => {
       jest.runAllTimers();
     });
+    if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
+      fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
+    }
     expect(document.querySelector('.ant-tooltip-hidden')).toBeTruthy();
 
     // onVisibleChange
