@@ -82,6 +82,10 @@ export interface ModalProps {
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
+
+  // Legacy
+  /** @deprecated Please use `open` instead. */
+  visible?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -148,14 +152,6 @@ const Modal: React.FC<ModalProps> = props => {
     onOk?.(e);
   };
 
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !('visible' in props),
-      'Modal',
-      `\`visible\` is removed in v5, please use \`open\` instead.`,
-    );
-  }
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -165,6 +161,10 @@ const Modal: React.FC<ModalProps> = props => {
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
+
+    // Deprecated
+    visible,
+
     ...restProps
   } = props;
 
@@ -178,11 +178,9 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  warning(
-    !('visible' in props),
-    'Modal',
-    `\`visible\` is deprecated, please use \`open\` instead.`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
+  }
 
   return wrapSSR(
     <NoFormStyle status override>
@@ -199,7 +197,7 @@ const Modal: React.FC<ModalProps> = props => {
           onOk: handleOk,
           onCancel: handleCancel,
         })}
-        visible={open}
+        visible={open ?? visible}
         mousePosition={mousePosition}
         onClose={handleCancel}
         closeIcon={renderCloseIcon(prefixCls, closeIcon)}
@@ -215,7 +213,6 @@ const Modal: React.FC<ModalProps> = props => {
 Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
-  open: false,
 };
 
 export default Modal;

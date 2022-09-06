@@ -96,10 +96,12 @@ describe('Modal', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(<Modal {...({ visible: true } as any)} />);
+    render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is removed in v5, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
     );
+
+    expect(document.querySelector('.ant-modal')).toBeTruthy();
 
     errSpy.mockRestore();
   });
