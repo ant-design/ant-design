@@ -48,7 +48,7 @@ interface TableParams {
   pagination?: TablePaginationConfig;
   sortField?: string;
   sortOrder?: string;
-  filters: Record<string, FilterValue>;
+  filters?: Record<string, FilterValue>;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -77,7 +77,7 @@ const columns: ColumnsType<DataType> = [
 const getRandomuserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
-  ...params
+  ...params,
 });
 
 const App: React.FC = () => {
@@ -118,7 +118,7 @@ const App: React.FC = () => {
   }, [JSON.stringify(tableParams)]);
 
   const handleTableChange = (
-    newPagination: TablePaginationConfig,
+    pagination: TablePaginationConfig,
     filters: Record<string, FilterValue>,
     sorter: SorterResult<DataType>,
   ) => {
