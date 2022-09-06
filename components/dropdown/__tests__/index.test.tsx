@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
 import Menu from '../../menu';
+import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
 
@@ -166,5 +167,38 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
+  });
+
+  it('legacy visible', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
+
+    const { container } = render(
+      <Dropdown
+        visible
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        trigger={['click']}
+        overlay={<div className="bamboo" />}
+      >
+        <a className="little" />
+      </Dropdown>,
+    );
+
+    expect(document.querySelector('.bamboo')).toBeTruthy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `visible` is deprecated, please use `open` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
+    );
+
+    fireEvent.click(container.querySelector('.little')!);
+    expect(onOpenChange).toHaveBeenCalled();
+    expect(onVisibleChange).toHaveBeenCalled();
+
+    errorSpy.mockRestore();
   });
 });

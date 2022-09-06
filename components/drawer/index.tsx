@@ -39,6 +39,12 @@ export interface DrawerProps extends RcDrawerProps {
   extra?: React.ReactNode;
 
   afterOpenChange?: (open: boolean) => void;
+
+  // Deprecated
+  /** @deprecated Please use `open` instead */
+  visible?: boolean;
+  /** @deprecated Please use `afterOpenChange` instead */
+  afterVisibleChange?: (open: boolean) => void;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -56,6 +62,7 @@ function Drawer(props: DrawerProps) {
     bodyStyle,
     drawerStyle,
     open,
+    afterOpenChange,
     children,
     title,
     headerStyle,
@@ -65,6 +72,11 @@ function Drawer(props: DrawerProps) {
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
     extra,
+
+    // Deprecated
+    visible,
+    afterVisibleChange,
+
     ...rest
   } = props;
 
@@ -85,17 +97,6 @@ function Drawer(props: DrawerProps) {
       {closeIcon}
     </button>
   );
-
-  [
-    ['visible', 'open'],
-    ['afterVisibleChange', 'afterOpenChange'],
-  ].forEach(([deprecatedName, newName]) => {
-    warning(
-      !(deprecatedName in props),
-      'Drawer',
-      `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-    );
-  });
 
   function renderHeader() {
     if (!title && !closable) {
@@ -149,7 +150,7 @@ function Drawer(props: DrawerProps) {
       warning(
         !(deprecatedName in props),
         'Drawer',
-        `\`${deprecatedName}\` is removed, please use \`${newName}\` instead.`,
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
   }
@@ -187,13 +188,14 @@ function Drawer(props: DrawerProps) {
         maskMotion={maskMotion}
         motion={panelMotion}
         {...rest}
-        open={open}
+        open={open ?? visible}
         mask={mask}
         push={push}
         width={mergedWidth}
         height={mergedHeight}
         rootClassName={drawerClassName}
         getContainer={getContainer}
+        afterOpenChange={afterOpenChange ?? afterVisibleChange}
       >
         <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}

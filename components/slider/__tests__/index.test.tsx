@@ -168,26 +168,57 @@ describe('Slider', () => {
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
+    const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is removed in v5, please use `tooltip.prefixCls` instead.',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated, please use `tooltip.prefixCls` instead.',
     );
+
     rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is removed in v5, please use `tooltip.getPopupContainer` instead.',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated, please use `tooltip.getPopupContainer` instead.',
     );
+
     rerender(<TSSlider tipFormatter={(v: any) => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is removed in v5, please use `tooltip.formatter` instead.',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated, please use `tooltip.formatter` instead.',
     );
+
     rerender(<TSSlider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is removed in v5, please use `tooltip.open` instead.',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated, please use `tooltip.open` instead.',
     );
+
     rerender(<TSSlider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is removed in v5, please use `tooltip.placement` instead.',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated, please use `tooltip.placement` instead.',
     );
+
+    // All should work
+    const holder = document.createElement('div');
+    holder.id = 'holder';
+    document.body.appendChild(holder);
+
+    const getTooltipPopupContainer = jest.fn(() => container);
+
+    rerender(
+      <TSSlider
+        tooltipPrefixCls="bamboo"
+        getTooltipPopupContainer={getTooltipPopupContainer}
+        tipFormatter={() => 'little'}
+        tooltipPlacement="bottom"
+        tooltipVisible
+      />,
+    );
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(getTooltipPopupContainer).toHaveBeenCalled();
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(container.querySelector('.bamboo-inner')!.textContent).toEqual('little');
+
+    holder.parentNode?.removeChild(holder);
 
     errSpy.mockRestore();
   });

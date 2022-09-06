@@ -4,13 +4,14 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import Switch from '../../switch';
 import Radio from '../../radio';
+import { resetWarned } from '../../_util/warning';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -451,34 +452,61 @@ describe('Tooltip', () => {
   });
 
   it('deprecated warning', () => {
+    resetWarned();
+    jest.useFakeTimers();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    const { rerender } = render(
-      <Tooltip visible>
+    // defaultVisible
+    const { container, rerender } = render(
+      <Tooltip defaultVisible title="bamboo">
+        <a />
+      </Tooltip>,
+    );
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
+    );
+    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+
+    // visible
+    rerender(
+      <Tooltip visible title="bamboo">
         <a />
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `visible` is deprecated, please use `open` instead.',
     );
+
     rerender(
-      <Tooltip defaultVisible>
+      <Tooltip visible={false} title="bamboo">
         <a />
       </Tooltip>,
     );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
-    );
+    act(() => {
+      jest.runAllTimers();
+    });
+    if (container.querySelector('.ant-zoom-big-fast-leave-active')) {
+      fireEvent.animationEnd(container.querySelector('.ant-zoom-big-fast-leave-active')!);
+    }
+    expect(document.querySelector('.ant-tooltip-hidden')).toBeTruthy();
+
+    // onVisibleChange
     rerender(
-      <Tooltip onVisibleChange={() => {}}>
+      <Tooltip onVisibleChange={() => {}} title="bamboo">
         <a />
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tooltip] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
     );
+
+    // afterVisibleChange
     rerender(
-      <Tooltip afterVisibleChange={() => {}}>
+      <Tooltip afterVisibleChange={() => {}} title="bamboo">
         <a />
       </Tooltip>,
     );
@@ -486,6 +514,28 @@ describe('Tooltip', () => {
       'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
     );
 
+    // Event Trigger
+    const onVisibleChange = jest.fn();
+    const afterVisibleChange = jest.fn();
+    rerender(
+      <Tooltip
+        visible
+        onVisibleChange={onVisibleChange}
+        afterVisibleChange={afterVisibleChange}
+        title="bamboo"
+      >
+        <a />
+      </Tooltip>,
+    );
+
+    fireEvent.mouseLeave(container.querySelector('a')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(onVisibleChange).toHaveBeenCalled();
+    expect(afterVisibleChange).toHaveBeenCalled();
+
+    jest.useRealTimers();
     errSpy.mockRestore();
   });
 });

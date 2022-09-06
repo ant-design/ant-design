@@ -20,6 +20,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
+  /** @deprecated `visible` will be removed in next major version. */
+  visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
@@ -50,6 +52,21 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
+
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('visible' in props),
+      'Tag',
+      '`visible` is deprecated, please use `visible && <Tag />` instead.',
+    );
+  }
+
+  React.useEffect(() => {
+    if ('visible' in props) {
+      setVisible(props.visible!);
+    }
+  }, [props.visible]);
 
   const isPresetColor = (): boolean => {
     if (!color) {
@@ -102,12 +119,6 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
     return null;
   };
-
-  warning(
-    !('visible' in props),
-    'Tag',
-    '`visible` is removed, please use `visible && <Tag />` instead.',
-  );
 
   const isNeedWave =
     'onClick' in props || (children && (children as React.ReactElement<any>).type === 'a');

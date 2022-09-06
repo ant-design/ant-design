@@ -140,28 +140,13 @@ function InternalTable<RecordType extends object = any>(
     showSorterTooltip = true,
   } = props;
 
-  warning(
-    !(typeof rowKey === 'function' && rowKey.length > 1),
-    'Table',
-    '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-  );
-  warning(
-    !('filterDropdownVisible' in props || 'onFilterDropdownVisibleChange' in props),
-    'Table',
-    '`filterDropdownVisible` and `onFilterDropdownVisibleChange` is deprecated, ' +
-      'please use `filterDropdownOpen` and `onFilterDropdownOpenChange` instead.',
-  );
-
-  [
-    ['filterDropdownVisible', 'filterDropdownOpen'],
-    ['onFilterDropdownVisibleChange', 'onFilterDropdownOpenChange'],
-  ].forEach(([deprecatedName, newName]) => {
+  if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(deprecatedName in props),
+      !(typeof rowKey === 'function' && rowKey.length > 1),
       'Table',
-      `\`${deprecatedName}\` is deprecated which will be removed in next major version.Please use \`${newName}\` instead. `,
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
-  });
+  }
 
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
@@ -277,7 +262,8 @@ function InternalTable<RecordType extends object = any>(
   /**
    * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
    * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big
+   * version.
    */
 
   // ============================ Sorter =============================
