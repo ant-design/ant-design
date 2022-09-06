@@ -88,7 +88,7 @@ describe('Tag', () => {
 
     render(<Tag visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is removed, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is deprecated, please use `visible && <Tag />` instead.',
     );
 
     errSpy.mockRestore();
