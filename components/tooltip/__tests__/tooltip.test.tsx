@@ -4,7 +4,7 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -12,7 +12,6 @@ import Group from '../../input/Group';
 import Switch from '../../switch';
 import Radio from '../../radio';
 import { resetWarned } from '../../_util/warning';
-import { act } from 'react-dom/test-utils';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
