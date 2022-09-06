@@ -187,11 +187,13 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         formatter: tipFormatter,
       } = tooltipProps;
 
-      let mergedTipFormatter;
-      if (mergedTipFormatter || mergedTipFormatter === null) {
+      let mergedTipFormatter = tipFormatter;
+      if (tipFormatter || tipFormatter === null) {
         mergedTipFormatter = tipFormatter;
+      } else if (legacyTipFormatter || legacyTipFormatter === null) {
+        mergedTipFormatter = legacyTipFormatter;
       } else {
-        mergedTipFormatter = legacyTipFormatter ?? defaultFormatter;
+        mergedTipFormatter = defaultFormatter;
       }
 
       const isTipFormatter = mergedTipFormatter ? opens[index] || dragging : false;
