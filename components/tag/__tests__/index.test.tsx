@@ -2,9 +2,11 @@ import React from 'react';
 import { Simulate } from 'react-dom/test-utils';
 
 import Tag from '..';
+import { resetWarned } from '../../_util/warning';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { act, render, fireEvent } from '../../../tests/utils';
 
 describe('Tag', () => {
   mountTest(Tag);
@@ -27,7 +29,9 @@ describe('Tag', () => {
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
     expect(onClose).toHaveBeenCalled();
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
 
@@ -39,7 +43,9 @@ describe('Tag', () => {
     expect(container.querySelectorAll('.anticon-close').length).toBe(1);
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     fireEvent.click(container.querySelectorAll('.anticon-close')[0]);
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(container.querySelectorAll('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
@@ -89,15 +95,31 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it('deprecated warning', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(<Tag visible />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tag] `visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
       const { asFragment, rerender } = render(<Tag visible />);
       expect(asFragment().firstChild).toMatchSnapshot();
       rerender(<Tag visible={false} />);
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(asFragment().firstChild).toMatchSnapshot();
       rerender(<Tag visible />);
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
@@ -105,10 +127,14 @@ describe('Tag', () => {
       const { asFragment, rerender } = render(<Tag visible={false} />);
       expect(asFragment().firstChild).toMatchSnapshot();
       rerender(<Tag visible />);
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(asFragment().firstChild).toMatchSnapshot();
       rerender(<Tag visible={false} />);
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
