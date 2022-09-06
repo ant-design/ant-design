@@ -38,7 +38,7 @@ When requiring users to interact with the application, but without jumping to a 
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
 | title | The modal dialog's title | ReactNode | - |  |
-| open | Whether the modal dialog is visible or not | boolean | false | 4.23.0 |
+| open | Whether the modal dialog is visible or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
 | width | Width of the modal dialog | string \| number | 520 |  |
 | wrapClassName | The class name of the container of the modal dialog | string | - |  |
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
