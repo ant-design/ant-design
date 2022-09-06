@@ -92,11 +92,7 @@ const App: React.FC = () => {
 
   const fetchData = () => {
     setLoading(true);
-    fetch(
-      `https://randomuser.me/api?${qs.stringify(
-        getRandomuserParams(tableParams)
-      )}`
-    )
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
@@ -125,7 +121,7 @@ const App: React.FC = () => {
     setTableParams({
       pagination,
       filters,
-      ...sorter
+      ...sorter,
     });
   };
 
