@@ -28,6 +28,7 @@ import type {
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
+import warning from '../../../_util/warning';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
 
@@ -141,6 +142,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     onFilterDropdownOpenChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
+
+    // Deprecated
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
 
@@ -151,9 +156,27 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
     onFilterDropdownOpenChange?.(newVisible);
+    onFilterDropdownVisibleChange?.(newVisible);
   };
 
-  const mergedVisible = typeof filterDropdownOpen === 'boolean' ? filterDropdownOpen : visible;
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
+      [
+        'onFilterDropdownVisibleChange',
+        'onFilterDropdownOpenChange',
+        onFilterDropdownVisibleChange,
+      ],
+    ].forEach(([deprecatedName, newName, prop]) => {
+      warning(
+        prop === undefined || prop === null,
+        'Table',
+        `\`${deprecatedName}\` is deprecated. Please use \`${newName}\` instead.`,
+      );
+    });
+  }
+
+  const mergedVisible = filterDropdownOpen ?? filterDropdownVisible ?? visible;
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;

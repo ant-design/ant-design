@@ -120,6 +120,12 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
 
   // Responsive
   responsive?: Breakpoint[];
+
+  // Deprecated
+  /** @deprecated Please use `filterDropdownOpen` instead */
+  filterDropdownVisible?: boolean;
+  /** @deprecated Please use `onFilterDropdownOpenChange` instead */
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {
