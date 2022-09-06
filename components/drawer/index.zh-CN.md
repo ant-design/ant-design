@@ -44,7 +44,7 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
-| open | Drawer 是否可见 | boolean | - | 4.23.0 |
+| open | Drawer 是否可见，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | - | 4.23.0 |
 | width | 宽度 | string \| number | 378 |  |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
 | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
