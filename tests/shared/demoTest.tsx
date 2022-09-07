@@ -50,11 +50,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         let child = children.length > 1 ? children : children[0];
 
         if (testDist) {
-          // @ts-ignore
-          child = child
-            .toString()
-            .replace(/ (aria-.*)=".+?"/g, ' $1=""')
-            .replace(/ id=".+?"/g, ' $1=""');
+          child = child.toJSON().replace(/ (aria-.*)=".+?"/g, ' $1=""');
         }
         expect(child).toMatchSnapshot();
         errSpy();
