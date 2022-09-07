@@ -30,7 +30,7 @@ timeline: true
   - 🛠 Table 组件 `columns` 中的 `filterDropdownVisible` 改为 `filterDropdownOpen`。[#37026](https://github.com/ant-design/ant-design/pull/37026) [@yykoypj](https://github.com/yykoypj)
   - 🛠 Tooltip, Popover 和 Popconfirm 中的 `visible` 改为 `open`。[#37241](https://github.com/ant-design/ant-design/pull/37241) [@yykoypj](https://github.com/yykoypj)
   - 🛠 Slider 的 `tooltip` 相关属性合并到 `tooltip` 属性中。[#37000](https://github.com/ant-design/ant-design/pull/37000) [@yykoypj](https://github.com/yykoypj)
-  - 🛠 移除 Tag 组件的 `visible` 属性。[#36934](https://github.com/ant-design/ant-design/pull/36934) [@yykoypj](https://github.com/yykoypj)
+  - 🛠 废弃 Tag 组件的 `visible` 属性。[#36934](https://github.com/ant-design/ant-design/pull/36934) [@yykoypj](https://github.com/yykoypj)
 - 🛠 废弃所有组件的 `dropdownClassName`，统一为 `popupClassName`。[#36880](https://github.com/ant-design/ant-design/pull/36880) [@heiyu4585](https://github.com/heiyu4585)
 - 🛠 Tabs 支持 `items` 属性，并且废弃原 jsx 语法糖用法。[#36889](https://github.com/ant-design/ant-design/pull/36889)
 - 🐞 修复 css 变量与 less 变量不一致的问题。
