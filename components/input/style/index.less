@@ -6,12 +6,16 @@
 @import './status';
 
 @input-prefix-cls: ~'@{ant-prefix}-input';
+@group-prefix-cls: ~'@{ant-prefix}-group';
 
 // Input styles
 .@{input-prefix-cls} {
   .reset-component();
   .input();
 
+  // FIXME: rc-input 在处理 addon 时复用了 ant-input-group
+  // https://github.com/react-component/input/blob/866866efe1fe06cd41fdc3cd78b665547d22dea7/src/BaseInput.tsx#L117
+  // https://github.com/react-component/input/blob/866866efe1fe06cd41fdc3cd78b665547d22dea7/src/BaseInput.tsx#L127
   //== Style for input-group: input with label, with button or dropdown...
   &-group {
     .reset-component();
@@ -78,6 +82,18 @@
     display: inline-flex;
     align-items: center;
     margin: auto;
+  }
+}
+
+.@{group-prefix-cls} {
+  .reset-component();
+  .input-group(@input-prefix-cls);
+
+  &-wrapper {
+    display: inline-block;
+    width: 100%;
+    text-align: start;
+    vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
   }
 }
 

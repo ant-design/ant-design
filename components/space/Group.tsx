@@ -2,10 +2,10 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType, inGroup } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
 export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  type: 'btn' | 'input';
   size?: SizeType;
   style?: React.CSSProperties;
   className?: string;
