@@ -44,12 +44,11 @@ interface DataType {
   };
 }
 
-interface Params {
+interface TableParams {
   pagination?: TablePaginationConfig;
-  sorter?: SorterResult<any> | SorterResult<any>[];
-  total?: number;
   sortField?: string;
   sortOrder?: string;
+  filters?: Record<string, FilterValue>;
 }
 
 const columns: ColumnsType<DataType> = [
@@ -75,7 +74,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const getRandomuserParams = (params: Params) => ({
+const getRandomuserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
   ...params,
@@ -84,50 +83,54 @@ const getRandomuserParams = (params: Params) => ({
 const App: React.FC = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
-  const [pagination, setPagination] = useState<TablePaginationConfig>({
-    current: 1,
-    pageSize: 10,
+  const [tableParams, setTableParams] = useState<TableParams>({
+    pagination: {
+      current: 1,
+      pageSize: 10,
+    },
   });
 
-  const fetchData = (params: Params = {}) => {
+  const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(params))}`)
-      .then(res => res.json())
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
+      .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
         setLoading(false);
-        setPagination({
-          ...params.pagination,
-          total: 200,
-          // 200 is mock data, you should read it from server
-          // total: data.totalCount,
+        setTableParams({
+          ...tableParams,
+          pagination: {
+            ...tableParams.pagination,
+            total: 200,
+            // 200 is mock data, you should read it from server
+            // total: data.totalCount,
+          },
         });
       });
   };
 
   useEffect(() => {
-    fetchData({ pagination });
-  }, []);
+    fetchData();
+  }, [JSON.stringify(tableParams)]);
 
   const handleTableChange = (
-    newPagination: TablePaginationConfig,
+    pagination: TablePaginationConfig,
     filters: Record<string, FilterValue>,
     sorter: SorterResult<DataType>,
   ) => {
-    fetchData({
-      sortField: sorter.field as string,
-      sortOrder: sorter.order as string,
-      pagination: newPagination,
-      ...filters,
+    setTableParams({
+      pagination,
+      filters,
+      ...sorter,
     });
   };
 
   return (
     <Table
       columns={columns}
-      rowKey={record => record.login.uuid}
+      rowKey={(record) => record.login.uuid}
       dataSource={data}
-      pagination={pagination}
+      pagination={tableParams.pagination}
       loading={loading}
       onChange={handleTableChange}
     />
