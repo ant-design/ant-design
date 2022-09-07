@@ -1,6 +1,6 @@
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
-import type { PageEventObj } from 'puppeteer';
+// eslint-disable-next-line import/no-unresolved
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
 import glob from 'glob';
@@ -19,7 +19,7 @@ export default function imageTest(component: React.ReactElement) {
   it('component image screenshot should correct', async () => {
     await jestPuppeteer.resetPage();
     await page.setRequestInterception(true);
-    const onRequestHandle = (request: PageEventObj['request']) => {
+    const onRequestHandle = (request: any) => {
       if (['image'].includes(request.resourceType())) {
         request.abort();
       } else {
