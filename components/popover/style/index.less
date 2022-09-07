@@ -90,21 +90,19 @@
   }
 
   &-message {
-    position: relative;
+    display: flex;
+    align-items: center;
     padding: 4px 0 12px;
     color: @popover-color;
     font-size: @font-size-base;
-    > .@{iconfont-css-prefix} {
-      position: absolute;
-      top: (
-        4px + ((@line-height-base * @font-size-base - @font-size-base) / 2)
-      ); // 4px for padding-top, 4px for vertical middle
+    .@{iconfont-css-prefix} {
       color: @warning-color;
       font-size: @font-size-base;
     }
 
-    &-title {
-      padding-left: @font-size-base + 8px;
+    &-icon {
+      display: inline-block;
+      margin-right: 8px;
     }
   }
 
