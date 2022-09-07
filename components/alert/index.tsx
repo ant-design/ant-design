@@ -1,12 +1,8 @@
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import type { ReactElement } from 'react';
@@ -58,13 +54,6 @@ const iconMapFilled = {
   warning: ExclamationCircleFilled,
 };
 
-const iconMapOutlined = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
-};
-
 interface IconNodeProps {
   type: AlertProps['type'];
   icon: AlertProps['icon'];
@@ -73,8 +62,8 @@ interface IconNodeProps {
 }
 
 const IconNode: React.FC<IconNodeProps> = props => {
-  const { description, icon, prefixCls, type } = props;
-  const iconType = (description ? iconMapOutlined : iconMapFilled)[type!] || null;
+  const { icon, prefixCls, type } = props;
+  const iconType = iconMapFilled[type!] || null;
   if (icon) {
     return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
       className: classNames(`${prefixCls}-icon`, {

@@ -1,7 +1,7 @@
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import * as React from 'react';
 import ConfigProvider from '../config-provider';
@@ -57,19 +57,19 @@ export function ConfirmContent(
   if (!icon) {
     switch (type) {
       case 'info':
-        mergedIcon = <InfoCircleOutlined />;
+        mergedIcon = <InfoCircleFilled />;
         break;
 
       case 'success':
-        mergedIcon = <CheckCircleOutlined />;
+        mergedIcon = <CheckCircleFilled />;
         break;
 
       case 'error':
-        mergedIcon = <CloseCircleOutlined />;
+        mergedIcon = <CloseCircleFilled />;
         break;
 
       default:
-        mergedIcon = <ExclamationCircleOutlined />;
+        mergedIcon = <ExclamationCircleFilled />;
     }
   }
 
