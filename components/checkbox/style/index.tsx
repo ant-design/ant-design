@@ -159,12 +159,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
       },
 
       // Wrapper & Wrapper > Checkbox
+
       [`
-      ${wrapperCls}:hover:not(${wrapperCls}-disabled),
-      ${checkboxCls}:hover:not(${checkboxCls}-disabled),
-      ${checkboxCls}-input:focus +
-    `]: {
-        [`${checkboxCls}-inner`]: {
+        ${wrapperCls}:not(${wrapperCls}-disabled),
+        ${checkboxCls}:not(${checkboxCls}-disabled)
+      `]: {
+        [`&:hover ${checkboxCls}-inner,
+          ${checkboxCls}-input:focus + ${checkboxCls}-inner`]: {
           borderColor: token.colorPrimary,
         },
       },
@@ -192,7 +193,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           insetInlineStart: 0,
           width: '100%',
           height: '100%',
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
           borderRadius: token.controlRadiusSM,
           visibility: 'hidden',
           animationName: antCheckboxEffect,
@@ -200,6 +200,17 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',
           content: '""',
+        },
+      },
+
+      [`
+        ${wrapperCls}-checked:not(${wrapperCls}-disabled),
+        ${checkboxCls}-checked:not(${checkboxCls}-disabled)
+      `]: {
+        [`&:hover ${checkboxCls}-inner,
+          ${checkboxCls}-input:focus + ${checkboxCls}-inner`]: {
+          backgroundColor: token.colorPrimaryHover,
+          borderColor: 'transparent',
         },
       },
     },

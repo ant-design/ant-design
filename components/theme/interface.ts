@@ -364,6 +364,8 @@ export interface AliasToken extends MapToken {
   colorTextHeading: string;
   colorTextLabel: string;
   colorTextDescription: string;
+  colorBgTextHover: string;
+  colorBgTextActive: string;
 
   /** Weak action. Such as `allowClear` or Alert close button */
   colorIcon: string;

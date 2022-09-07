@@ -25,6 +25,33 @@ export interface BackTopProps {
   visible?: boolean; // Only for test. Don't use it.
 }
 
+interface ChildrenProps {
+  prefixCls: string;
+  rootPrefixCls: string;
+  children?: React.ReactNode;
+  visible?: boolean; // Only for test. Don't use it.
+}
+
+const BackTopContent: React.FC<ChildrenProps> = props => {
+  const { prefixCls, rootPrefixCls, children, visible } = props;
+  const defaultElement = (
+    <div className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-icon`}>
+        <VerticalAlignTopOutlined />
+      </div>
+    </div>
+  );
+  return (
+    <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
+      {({ className: motionClassName }) =>
+        cloneElement(children || defaultElement, ({ className }) => ({
+          className: classNames(motionClassName, className),
+        }))
+      }
+    </CSSMotion>
+  );
+};
+
 const BackTop: React.FC<BackTopProps> = props => {
   const [visible, setVisible] = useMergedState(false, {
     value: props.visible,
@@ -51,9 +78,7 @@ const BackTop: React.FC<BackTopProps> = props => {
     scrollEvent.current = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
       handleScroll(e);
     });
-    handleScroll({
-      target: container,
-    });
+    handleScroll({ target: container });
   };
 
   React.useEffect(() => {
@@ -62,7 +87,7 @@ const BackTop: React.FC<BackTopProps> = props => {
       if (scrollEvent.current) {
         scrollEvent.current.remove();
       }
-      (handleScroll as any).cancel();
+      handleScroll.cancel();
     };
   }, [props.target]);
 
@@ -75,32 +100,6 @@ const BackTop: React.FC<BackTopProps> = props => {
     if (typeof onClick === 'function') {
       onClick(e);
     }
-  };
-
-  const renderChildren = ({
-    prefixCls,
-    rootPrefixCls,
-  }: {
-    prefixCls: string;
-    rootPrefixCls: string;
-  }) => {
-    const { children } = props;
-    const defaultElement = (
-      <div className={`${prefixCls}-content`}>
-        <div className={`${prefixCls}-icon`}>
-          <VerticalAlignTopOutlined />
-        </div>
-      </div>
-    );
-    return (
-      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
-        {({ className: motionClassName }) =>
-          cloneElement(children || defaultElement, ({ className }) => ({
-            className: classNames(motionClassName, className),
-          }))
-        }
-      </CSSMotion>
-    );
   };
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -130,7 +129,9 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   return wrapSSR(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      {renderChildren({ prefixCls, rootPrefixCls })}
+      <BackTopContent prefixCls={prefixCls} rootPrefixCls={rootPrefixCls} visible={visible}>
+        {props.children}
+      </BackTopContent>
     </div>,
   );
 };
