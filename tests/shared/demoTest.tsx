@@ -7,46 +7,7 @@ import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
 
-type CheerIO = ReturnType<any>;
-type CheerIOElement = CheerIO[0];
-// We should avoid use it in 4.0. Reopen if can not handle this.
-const USE_REPLACEMENT = false;
 const testDist = process.env.LIB_DIR === 'dist';
-
-/**
- * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
- * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
- * modify the `aria-controls`.
- */
-function ariaConvert(wrapper: CheerIO) {
-  if (!testDist || !USE_REPLACEMENT) return wrapper;
-
-  const matches = new Map();
-
-  function process(entry: CheerIOElement) {
-    if (entry.type === 'text' || entry.type === 'comment') {
-      return;
-    }
-    const { attribs, children } = entry;
-    if (matches.has(entry)) return;
-    matches.set(entry, true);
-
-    // Change aria
-    if (attribs && attribs['aria-controls']) {
-      attribs['aria-controls'] = ''; // Remove all the aria to keep render sync in jest & jest node
-    }
-
-    // Loop children
-    if (!children) {
-      return;
-    }
-    (Array.isArray(children) ? children : [children]).forEach(process);
-  }
-
-  wrapper.each((_: any, entry: any) => process(entry));
-
-  return wrapper;
-}
 
 type Options = {
   skip?: boolean | string[];
@@ -85,12 +46,16 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         const { container } = render(Demo);
-        // act(() => {
-        //   jest.runAllTimers();
-        // });
         const { children } = container;
-        const child = children.length > 1 ? children : children[0];
-        // ariaConvert(container);
+        let child = children.length > 1 ? children : children[0];
+
+        if (testDist) {
+          // @ts-ignore
+          child = child
+            .toString()
+            .replace(/ (aria-.*)=".+?"/g, ' $1=""')
+            .replace(/ id=".+?"/g, ' $1=""');
+        }
         expect(child).toMatchSnapshot();
         errSpy();
       },
