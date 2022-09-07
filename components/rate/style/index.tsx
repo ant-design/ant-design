@@ -27,7 +27,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
       },
 
       '> div': {
-        transition: `all ${token.motionDurationSlow}, outline 0s`,
+        transition: `all ${token.motionDurationFast}, outline 0s`,
 
         '&:hover': {
           transform: token.rateStarHoverScale,
@@ -45,7 +45,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
 
       '&-first, &-second': {
         color: token.defaultColor,
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${token.motionDurationFast}`,
         userSelect: 'none',
 
         [token.iconCls]: {

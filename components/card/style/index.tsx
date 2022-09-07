@@ -93,7 +93,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       ${lineWidth}px 0 0 0 ${colorBorderSecondary} inset,
       0 ${lineWidth}px 0 0 ${colorBorderSecondary} inset;
     `,
-    transition: `all ${token.motionDurationSlow}`,
+    transition: `all ${token.motionDurationFast}`,
 
     '&-hoverable:hover': {
       position: 'relative',
@@ -131,7 +131,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
         '&:hover': {
           color: token.colorPrimary,
-          transition: `color ${token.motionDurationSlow}`,
+          transition: `color ${token.motionDurationFast}`,
         },
 
         [`a:not(${componentCls}-btn), > ${iconCls}`]: {
@@ -139,7 +139,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           width: '100%',
           color: token.colorTextDescription,
           lineHeight: `${token.fontSize * token.lineHeight}px`,
-          transition: `color ${token.motionDurationSlow}`,
+          transition: `color ${token.motionDurationFast}`,
 
           '&:hover': {
             color: token.colorPrimary,
@@ -299,7 +299,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-hoverable`]: {
       cursor: 'pointer',
-      transition: `box-shadow ${token.motionDurationSlow}, border-color ${token.motionDurationSlow}`,
+      transition: `box-shadow ${token.motionDurationFast}, border-color ${token.motionDurationFast}`,
 
       '&:hover': {
         borderColor: 'transparent',

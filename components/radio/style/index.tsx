@@ -71,6 +71,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     radioFocusShadow,
     radioSize,
     motionDurationSlow,
+    motionDurationFast,
     motionEaseInOut,
     motionEaseInOutCirc,
     radioButtonBg,
@@ -182,7 +183,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
         borderStyle: 'solid',
         borderWidth: controlLineWidth,
         borderRadius: '50%',
-        transition: `all ${motionDurationSlow}`,
+        transition: `all ${motionDurationFast}`,
       },
 
       [`${componentCls}-input`]: {
@@ -250,6 +251,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
     controlLineType,
     colorBorder,
     motionDurationSlow,
+    motionDurationFast,
     radioButtonPaddingHorizontal,
     fontSize,
     radioButtonBg,
@@ -291,10 +293,10 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
       borderInlineEndWidth: controlLineWidth,
       cursor: 'pointer',
       transition: [
-        `color ${motionDurationSlow}`,
-        `background ${motionDurationSlow}`,
-        `border-color ${motionDurationSlow}`,
-        `box-shadow ${motionDurationSlow}`,
+        `color ${motionDurationFast}`,
+        `background ${motionDurationFast}`,
+        `border-color ${motionDurationFast}`,
+        `box-shadow ${motionDurationFast}`,
       ].join(','),
 
       a: {
