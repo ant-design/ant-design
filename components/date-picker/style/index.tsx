@@ -81,7 +81,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: token.pickerPanelCellHeight,
       lineHeight: `${token.pickerPanelCellHeight}px`,
       borderRadius: token.controlRadiusSM,
-      transition: `background ${token.motionDurationSlow}, border ${token.motionDurationSlow}`,
+      transition: `background ${token.motionDurationFast}, border ${token.motionDurationFast}`,
     },
 
     // >>> Hover
@@ -320,7 +320,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           background: 'transparent',
           border: 0,
           cursor: 'pointer',
-          transition: `color ${token.motionDurationSlow}`,
+          transition: `color ${token.motionDurationFast}`,
         },
 
         '> button': {
@@ -613,7 +613,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         '&-row': {
           td: {
-            transition: `background ${token.motionDurationSlow}`,
+            transition: `background ${token.motionDurationFast}`,
           },
 
           '&:hover td': {
@@ -700,7 +700,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           overflowY: 'hidden',
           textAlign: 'start',
           listStyle: 'none',
-          transition: `background ${token.motionDurationSlow}`,
+          transition: `background ${token.motionDurationFast}`,
 
           '&::after': {
             display: 'block',
@@ -744,7 +744,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 lineHeight: `${token.pickerTimePanelCellHeight}px`,
                 borderRadius: 0,
                 cursor: 'pointer',
-                transition: `background ${token.motionDurationSlow}`,
+                transition: `background ${token.motionDurationFast}`,
 
                 '&:hover': {
                   background: token.controlItemBgHover,
@@ -835,7 +835,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       background: token.colorBgContainer,
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
       borderRadius: token.controlRadius,
-      transition: `border ${token.motionDurationSlow}, box-shadow ${token.motionDurationSlow}`,
+      transition: `border ${token.motionDurationFast}, box-shadow ${token.motionDurationFast}`,
 
       '&:hover, &-focused': {
         ...genHoverStyle(token),
@@ -953,7 +953,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         transform: 'translateY(-50%)',
         cursor: 'pointer',
         opacity: 0,
-        transition: `opacity ${token.motionDurationSlow}, color ${token.motionDurationSlow}`,
+        transition: `opacity ${token.motionDurationFast}, color ${token.motionDurationFast}`,
 
         '> *': {
           verticalAlign: 'top',

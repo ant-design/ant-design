@@ -102,7 +102,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
           borderRadius: token.controlRadiusSM,
           borderCollapse: 'separate',
-          transition: `all ${token.motionDurationSlow}`,
+          transition: `all ${token.motionDurationFast}`,
 
           '&:after': {
             position: 'absolute',

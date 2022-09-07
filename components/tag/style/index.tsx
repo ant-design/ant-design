@@ -74,7 +74,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
       borderRadius: token.radiusSM,
       opacity: 1,
-      transition: `all ${token.motionDurationSlow}`,
+      transition: `all ${token.motionDurationFast}`,
       textAlign: 'start',
 
       // RTL
@@ -91,7 +91,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         color: token.colorTextDescription,
         fontSize: token.tagIconSize,
         cursor: 'pointer',
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${token.motionDurationFast}`,
 
         '&:hover': {
           color: token.colorTextHeading,

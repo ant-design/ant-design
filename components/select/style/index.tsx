@@ -23,7 +23,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     position: 'relative',
     backgroundColor: token.colorBgContainer,
     border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-    transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+    transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
     input: {
       cursor: 'pointer',
@@ -218,7 +218,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         background: token.colorBgContainer,
         cursor: 'pointer',
         opacity: 0,
-        transition: `color ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
+        transition: `color ${token.motionDurationFast} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
 
         '&:before': {

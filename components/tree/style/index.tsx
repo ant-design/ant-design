@@ -275,7 +275,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         background: 'transparent',
         borderRadius: token.controlRadius,
         cursor: 'pointer',
-        transition: `all ${token.motionDurationSlow}, border 0s, line-height 0s, box-shadow 0s`,
+        transition: `all ${token.motionDurationFast}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
           backgroundColor: token.controlItemBgHover,
@@ -387,7 +387,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
           insetInlineEnd: 0,
           bottom: treeNodePadding,
           insetInlineStart: 0,
-          transition: `background-color ${token.motionDurationSlow}`,
+          transition: `background-color ${token.motionDurationFast}`,
           content: '""',
           pointerEvents: 'none',
         },
@@ -405,7 +405,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 
         // >>> Switcher
         [`${treeCls}-switcher`]: {
-          transition: `color ${token.motionDurationSlow}`,
+          transition: `color ${token.motionDurationFast}`,
         },
 
         // >>> Title

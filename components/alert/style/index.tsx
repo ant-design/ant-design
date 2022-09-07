@@ -177,7 +177,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   const {
     componentCls,
     iconCls,
-    motionDurationSlow: duration,
+    motionDurationFast,
     marginXS,
     fontSizeIcon,
     colorIcon,
@@ -203,7 +203,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
         [`${iconCls}-close`]: {
           color: colorIcon,
-          transition: `color ${duration}`,
+          transition: `color ${motionDurationFast}`,
           '&:hover': {
             color: colorIconHover,
           },
@@ -212,7 +212,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
       '&-close-text': {
         color: colorIcon,
-        transition: `color ${duration}`,
+        transition: `color ${motionDurationFast}`,
         '&:hover': {
           color: colorIconHover,
         },

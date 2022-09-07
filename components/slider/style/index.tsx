@@ -58,14 +58,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         backgroundColor: token.colorFillTertiary,
         borderRadius: token.controlRadiusXS,
-        transition: `background-color ${token.motionDurationSlow}`,
+        transition: `background-color ${token.motionDurationFast}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimaryBorder,
         borderRadius: token.controlRadiusXS,
-        transition: `background-color ${token.motionDurationSlow}`,
+        transition: `background-color ${token.motionDurationFast}`,
       },
 
       [`${componentCls}-handle`]: {
@@ -78,8 +78,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `
-          border ${token.motionDurationSlow},
-          outline ${token.motionDurationSlow}
+          border ${token.motionDurationFast},
+          outline ${token.motionDurationFast}
         `,
 
         [`${componentCls}-dragging`]: {
