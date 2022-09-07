@@ -69,13 +69,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         direction: 'rtl',
       },
 
-      // hover/focus styles
-      [`&:not(${componentCls}-disabled)`]: {
-        '&:hover, &:focus': {
-          backgroundColor: token.bgColorHover,
-        },
-      },
-
       // block styles
       '&&-block': {
         display: 'flex',
@@ -91,16 +84,17 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+        transition: `color ${token.motionDurationSlow} ${token.motionEaseInOut}, background-color ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+        borderRadius: token.controlRadiusSM,
 
         '&-selected': {
           ...getSegmentedItemSelectedStyle(token),
-          borderRadius: token.controlRadiusSM,
           color: token.labelColorHover,
         },
 
         '&:hover, &:focus': {
           color: token.labelColorHover,
+          backgroundColor: token.bgColorHover,
         },
 
         '&-label': {
@@ -185,7 +179,6 @@ export default genComponentStyleHook('Segmented', token => {
     colorTextLabel,
     colorText,
     colorFillSecondary,
-    colorFill,
     colorBgContainer,
   } = token;
 
@@ -196,7 +189,7 @@ export default genComponentStyleHook('Segmented', token => {
     labelColor: colorTextLabel,
     labelColorHover: colorText,
     bgColor: colorFillSecondary,
-    bgColorHover: colorFill,
+    bgColorHover: colorFillSecondary,
     bgColorSelected: colorBgContainer,
   });
   return [genSegmentedStyle(segmentedToken)];

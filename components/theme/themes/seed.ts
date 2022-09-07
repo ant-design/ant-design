@@ -1,7 +1,7 @@
 import type { PresetColorType, SeedToken } from '..';
 
 export const defaultPresetColors: PresetColorType = {
-  blue: '#1890FF',
+  blue: '#1677ff',
   purple: '#722ED1',
   cyan: '#13C2C2',
   green: '#52C41A',
@@ -25,7 +25,7 @@ const seedToken: SeedToken = {
   colorSuccess: '#52c41a',
   colorWarning: '#faad14',
   colorError: '#ff4d4f',
-  colorInfo: '#1890ff',
+  colorInfo: '#1677ff',
   colorTextBase: '',
   colorTextLightSolid: '#fff',
 

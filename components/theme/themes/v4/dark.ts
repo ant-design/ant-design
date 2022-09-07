@@ -1,6 +1,6 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import { generate } from '@ant-design/colors';
-import genColorMapToken from '../shared/genColorMapToken';
+import genColorMapToken from './genColorMapToken';
 import type { MapToken, SeedToken } from '../../interface';
 import defaultAlgorithm from '../dark';
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';

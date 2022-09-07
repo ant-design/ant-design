@@ -330,13 +330,16 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
                 }
               : [],
 
+            [`&:hover, &-active`]: {
+              backgroundColor: token.controlItemBgHover,
+            },
+
             '&-selected': {
               color: token.colorPrimary,
               backgroundColor: token.controlItemBgActive,
-            },
-
-            [`&:hover, &-active`]: {
-              backgroundColor: token.controlItemBgHover,
+              '&:hover, &-active': {
+                backgroundColor: token.controlItemBgActiveHover,
+              },
             },
 
             '&-disabled': {

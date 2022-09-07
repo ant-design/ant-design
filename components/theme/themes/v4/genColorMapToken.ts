@@ -79,7 +79,7 @@ export default function genColorMapToken(
     colorInfoBgHover: infoColors[2],
     colorInfoBorder: infoColors[3],
     colorInfoBorderHover: infoColors[4],
-    colorInfoHover: infoColors[4],
+    colorInfoHover: infoColors[5],
     colorInfo: infoColors[6],
     colorInfoActive: infoColors[7],
     colorInfoTextHover: infoColors[8],
