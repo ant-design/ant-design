@@ -47,10 +47,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         const { container } = render(Demo);
         const { children } = container;
+        // let child = children.length > 1 ? Array.from(children) : children[0];
         let child = children.length > 1 ? children : children[0];
 
         if (testDist) {
-          child = child.toJSON().replace(/ (aria-.*)=".+?"/g, ' $1=""');
+          child = child.toString().replace(/ (aria-.*)=".+?"/g, ' $1=""');
         }
         expect(child).toMatchSnapshot();
         errSpy();
