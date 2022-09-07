@@ -54,7 +54,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.labelColor,
       backgroundColor: token.bgColor,
       borderRadius: token.controlRadius,
-      transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+      transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
       [`${componentCls}-group`]: {
         position: 'relative',
@@ -84,7 +84,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationSlow} ${token.motionEaseInOut}, background-color ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+        transition: `color ${token.motionDurationFast} ${token.motionEaseInOut}, background-color ${token.motionDurationFast} ${token.motionEaseInOut}`,
         borderRadius: token.controlRadiusSM,
 
         '&-selected': {

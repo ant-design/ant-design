@@ -19,6 +19,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
     colorBgMask,
     colorBgElevated,
     motionDurationSlow,
+    motionDurationFast,
     padding,
     paddingLG,
     fontSizeLG,
@@ -152,7 +153,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         border: 0,
         outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationSlow}`,
+        transition: `color ${motionDurationFast}`,
         textRendering: 'auto',
 
         '&:focus, &:hover': {

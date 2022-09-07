@@ -50,11 +50,11 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
         textAlign: 'center',
         backgroundColor: token.backTopBackground,
         borderRadius: backTopSize,
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${token.motionDurationFast}`,
 
         '&:hover': {
           backgroundColor: token.backTopHoverBackground,
-          transition: `all ${token.motionDurationSlow}`,
+          transition: `all ${token.motionDurationFast}`,
         },
       },
 

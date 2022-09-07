@@ -156,7 +156,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
-      transition: `all ${token.switchDuration}`,
+      transition: `all ${token.motionDurationFast}`,
       userSelect: 'none',
 
       '&:hover': {

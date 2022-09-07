@@ -37,7 +37,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 
       a: {
         color: token.breadcrumbLinkColor,
-        transition: `color ${token.motionDurationSlow}`,
+        transition: `color ${token.motionDurationFast}`,
         padding: `0 ${token.paddingXXS}px`,
         borderRadius: token.radiusSM,
         height: token.lineHeight * token.fontSize,

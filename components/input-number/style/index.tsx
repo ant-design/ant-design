@@ -38,7 +38,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorPrimary,
     controlHeight,
     inputPaddingHorizontal,
-    motionDurationSlow,
     colorBgContainer,
     motionDurationMid,
     colorTextDisabled,
@@ -149,7 +148,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             border: 0,
             borderRadius: controlRadius,
             outline: 0,
-            transition: `all ${motionDurationSlow} linear`,
+            transition: `all ${motionDurationFast} linear`,
             appearance: 'textfield',
             ...genPlaceholderStyle(token.colorTextPlaceholder),
 

@@ -92,7 +92,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 cursor: 'pointer',
-                transition: `all ${token.motionDurationSlow}`,
+                transition: `all ${token.motionDurationFast}`,
 
                 '&:hover': {
                   background: token.controlItemBgHover,
