@@ -5,6 +5,7 @@ const util = require('util');
 const glob = require('fast-glob');
 const lodashChunk = require('lodash/chunk');
 const childProcess = require('child_process');
+const argos = require('@argos-ci/core');
 
 const execFileNode = util.promisify(childProcess.execFile);
 
@@ -39,22 +40,18 @@ async function run() {
 
   for (let i = 0; i < chunks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
-    const argosResults = await execFile('argos', [
-      'upload',
-      `${screenshotsTmp}/${i}`,
-      '--token',
-      process.env.ARGOS_TOKEN,
-      '--batchCount',
-      chunks.length,
-      '--branch',
-      process.env.ARGOS_GITHUB_BRANCH,
-      '--commit',
-      process.env.ARGOS_GITHUB_COMMIT,
-      '--external-build-id',
-      process.env.ARGOS_GITHUB_COMMIT,
-    ]);
+    const result = await argos.upload({
+      root: `${screenshotsTmp}/${i}`,
+      commit: process.env.ARGOS_GITHUB_COMMIT,
+      branch: process.env.ARGOS_GITHUB_BRANCH,
+      token: process.env.ARGOS_TOKEN,
+      parallel: {
+        total: chunks.length,
+        nonce: process.env.ARGOS_PARALLEL_NONCE,
+      },
+    });
     // eslint-disable-next-line no-console -- pipe stdout
-    console.log(argosResults.stdout);
+    console.log(result);
   }
 }
 
