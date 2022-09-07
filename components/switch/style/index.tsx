@@ -152,12 +152,16 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgContainer}, ${token.colorBgContainer})`,
+      background: token.colorTextQuaternary,
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
       transition: `all ${token.switchDuration}`,
       userSelect: 'none',
+
+      '&:hover': {
+        background: token.colorTextTertiary,
+      },
 
       '&:focus-visible': {
         outline: 0,
@@ -174,6 +178,10 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
       [`&${token.componentCls}-checked`]: {
         background: token.switchColor,
+
+        '&:hover': {
+          background: token.colorPrimaryHover,
+        },
       },
 
       [`&${token.componentCls}-loading, &${token.componentCls}-disabled`]: {

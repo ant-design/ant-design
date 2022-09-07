@@ -13,6 +13,7 @@ interface BadgeToken extends FullToken<'Badge'> {
   badgeFontWeight: string;
   badgeFontSize: number;
   badgeColor: string;
+  badgeColorHover: string;
   badgeDotSize: number;
   badgeFontSizeSm: number;
   badgeStatusSize: number;
@@ -115,11 +116,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
         boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
+        transition: `background ${token.motionDurationSlow}`,
+
         a: {
           color: token.badgeTextColor,
         },
         'a:hover': {
           color: token.badgeTextColor,
+        },
+
+        'a:hover &': {
+          background: token.badgeColorHover,
         },
       },
       [`${componentCls}-count-sm`]: {
@@ -277,7 +284,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       top: marginXS,
       height: badgeFontHeight,
       padding: `0 ${token.paddingXS}px`,
-      color: token.badgeTextColor,
+      color: token.colorPrimary,
       lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
@@ -327,6 +334,7 @@ export default genComponentStyleHook('Badge', token => {
   const badgeFontWeight = 'normal';
   const badgeFontSize = fontSizeSM;
   const badgeColor = token.colorError;
+  const badgeColorHover = token.colorErrorHover;
   const badgeHeightSm = fontSize;
   const badgeDotSize = fontSizeSM / 2;
   const badgeFontSizeSm = fontSizeSM;
@@ -341,6 +349,7 @@ export default genComponentStyleHook('Badge', token => {
     badgeFontWeight,
     badgeFontSize,
     badgeColor,
+    badgeColorHover,
     badgeShadowColor: colorBorderBg,
     badgeHeightSm,
     badgeDotSize,

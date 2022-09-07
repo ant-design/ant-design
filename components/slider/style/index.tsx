@@ -15,7 +15,8 @@ export interface ComponentToken {
   controlSize: number;
   railSize: number;
   handleSize: number;
-  lineHandleWidth: number;
+  handleLineWidth: number;
+  handleLineWidthHover: number;
   dotSize: number;
 }
 
@@ -55,7 +56,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${componentCls}-rail`]: {
         position: 'absolute',
-        backgroundColor: token.colorFillSecondary,
+        backgroundColor: token.colorFillTertiary,
         borderRadius: token.controlRadiusXS,
         transition: `background-color ${token.motionDurationSlow}`,
       },
@@ -72,31 +73,30 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: token.handleSize,
         height: token.handleSize,
         backgroundColor: token.colorBgContainer,
-        border: `${token.lineHandleWidth}px solid ${token.colorPrimaryBorder}`,
+        border: `${token.handleLineWidth}px solid ${token.colorPrimaryBorder}`,
+        outline: `0 solid ${token.colorPrimaryBorder}`,
         borderRadius: '50%',
-        boxShadow: 'none',
         cursor: 'pointer',
         transition: `
-          border-color ${token.motionDurationSlow},
-          box-shadow ${token.motionDurationSlow},
-          transform ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28)
+          border ${token.motionDurationSlow},
+          outline ${token.motionDurationSlow}
         `,
-        outline: 'none',
 
         [`${componentCls}-dragging`]: {
           zIndex: 1,
         },
 
-        '&:focus': {
-          borderColor: token.colorPrimaryHover,
-          outline: 'none',
-          boxShadow: token.handleFocusShadow,
+        '&:hover, &:active, &:focus': {
+          boxShadow: `none`,
+          outlineWidth: token.handleLineWidthHover,
+          outlineColor: token.colorPrimary,
+          borderWidth: 0,
         },
       },
 
       '&:hover': {
         [`${componentCls}-rail`]: {
-          backgroundColor: colorFillContentHover,
+          backgroundColor: token.colorFillSecondary,
         },
 
         [`${componentCls}-track`]: {
@@ -109,6 +109,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
         [`${componentCls}-handle${antCls}-tooltip-open`]: {
           borderColor: token.colorPrimary,
+          outlineColor: token.colorPrimary,
         },
 
         // We use below style instead
@@ -120,7 +121,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${componentCls}-handle,
           ${componentCls}-dot-active
         `]: {
-          borderColor: token.colorPrimaryHover,
+          borderColor: token.colorPrimary,
+          outlineColor: token.colorPrimary,
         },
       },
 
@@ -154,7 +156,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: dotSize,
         height: dotSize,
         backgroundColor: token.colorBgContainer,
-        border: `${token.lineHandleWidth}px solid ${token.colorSplit}`,
+        border: `${token.handleLineWidth}px solid ${token.colorSplit}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -295,13 +297,15 @@ export default genComponentStyleHook(
     // Handle line width is always width-er 1px
     const increaseHandleWidth = 1;
     const controlSize = token.controlHeightSM / 2;
-    const lineHandleWidth = token.lineWidth + increaseHandleWidth;
+    const handleLineWidth = token.lineWidth + increaseHandleWidth;
+    const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 3;
     return {
       controlSize,
       railSize: controlSize / 3,
-      handleSize: controlSize + lineHandleWidth,
+      handleSize: controlSize + handleLineWidth,
       dotSize: (controlSize / 3) * 2,
-      lineHandleWidth,
+      handleLineWidth,
+      handleLineWidthHover,
     };
   },
 );
