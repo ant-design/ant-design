@@ -38,17 +38,15 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       a: {
         color: token.breadcrumbLinkColor,
         transition: `color ${token.motionDurationSlow}`,
+        padding: `0 ${token.paddingXXS}px`,
+        borderRadius: token.radiusSM,
+        height: token.lineHeight * token.fontSize,
+        display: 'inline-block',
+        marginInline: -token.marginXXS,
 
         '&:hover': {
           color: token.breadcrumbLinkColorHover,
-        },
-      },
-
-      'li:last-child': {
-        color: token.breadcrumbLastItemColor,
-
-        a: {
-          color: token.breadcrumbLastItemColor,
+          backgroundColor: token.colorBgTextHover,
         },
       },
 
@@ -63,16 +61,38 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 
       [`${componentCls}-link`]: {
         [`
-        > ${iconCls} + span,
-        > ${iconCls} + a
-       `]: {
+          > ${iconCls} + span,
+          > ${iconCls} + a
+        `]: {
           marginInlineStart: token.marginXXS,
         },
       },
 
       [`${componentCls}-overlay-link`]: {
+        borderRadius: token.radiusSM,
+        height: token.lineHeight * token.fontSize,
+        display: 'inline-block',
+        padding: `0 ${token.paddingXXS}px`,
+        marginInline: -token.marginXXS,
+
         [`> ${iconCls}`]: {
           marginInlineStart: token.marginXXS,
+          fontSize: token.fontSizeIcon,
+        },
+
+        '&:hover': {
+          color: token.breadcrumbLinkColorHover,
+          backgroundColor: token.colorBgTextHover,
+
+          a: {
+            color: token.breadcrumbLinkColorHover,
+          },
+        },
+
+        a: {
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
         },
       },
 
@@ -93,7 +113,7 @@ export default genComponentStyleHook('Breadcrumb', token => {
     breadcrumbLinkColor: token.colorTextDescription,
     breadcrumbLinkColorHover: token.colorText,
     breadcrumbLastItemColor: token.colorText,
-    breadcrumbSeparatorMargin: token.paddingXS,
+    breadcrumbSeparatorMargin: token.marginXS,
     breadcrumbSeparatorColor: token.colorTextDescription,
   });
 

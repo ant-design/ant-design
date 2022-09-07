@@ -7,8 +7,6 @@ import genGroupStyle from './group';
 export interface ComponentToken {}
 
 export interface ButtonToken extends FullToken<'Button'> {
-  colorBgTextHover: string;
-  colorBgTextActive: string;
   // FIXME: should be removed
   colorOutlineDefault: string;
 }
@@ -387,11 +385,9 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', token => {
-  const { controlTmpOutline, colorFillQuaternary, colorFillTertiary } = token;
+  const { controlTmpOutline } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
-    colorBgTextHover: colorFillQuaternary,
-    colorBgTextActive: colorFillTertiary,
     colorOutlineDefault: controlTmpOutline,
   });
 

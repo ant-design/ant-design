@@ -113,6 +113,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
         '&:not(&-checked):hover': {
           color: token.colorPrimary,
+          backgroundColor: token.colorFillSecondary,
         },
 
         '&:active, &-checked': {
@@ -121,6 +122,9 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
         '&-checked': {
           backgroundColor: token.colorPrimary,
+          '&:hover': {
+            backgroundColor: token.colorPrimaryHover,
+          },
         },
 
         '&:active': {
