@@ -42,6 +42,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         borderRadius: token.radiusSM,
         height: token.lineHeight * token.fontSize,
         display: 'inline-block',
+        marginInline: -token.marginXXS,
 
         '&:hover': {
           color: token.breadcrumbLinkColorHover,
@@ -72,6 +73,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         height: token.lineHeight * token.fontSize,
         display: 'inline-block',
         padding: `0 ${token.paddingXXS}px`,
+        marginInline: -token.marginXXS,
 
         [`> ${iconCls}`]: {
           marginInlineStart: token.marginXXS,
@@ -88,8 +90,6 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         },
 
         a: {
-          padding: 0,
-
           '&:hover': {
             backgroundColor: 'transparent',
           },
@@ -113,7 +113,7 @@ export default genComponentStyleHook('Breadcrumb', token => {
     breadcrumbLinkColor: token.colorTextDescription,
     breadcrumbLinkColorHover: token.colorText,
     breadcrumbLastItemColor: token.colorText,
-    breadcrumbSeparatorMargin: token.marginXXS,
+    breadcrumbSeparatorMargin: token.marginXS,
     breadcrumbSeparatorColor: token.colorTextDescription,
   });
 
