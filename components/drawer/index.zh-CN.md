@@ -47,7 +47,7 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 | size | 预设抽屉宽度（或高度），default `378px` 和 large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | style | 设计 Drawer 容器样式，如果你只需要设置内容部分请使用 `bodyStyle` | CSSProperties | - |  |
 | title | 标题 | ReactNode | - |  |
-
-<<<<<<< HEAD | open | Drawer 是否可见 | boolean | - | | ======= | open | Drawer 是否可见 | boolean | - | 4.23.0 |
-
-> > > > > > > feature | width | 宽度 | string \| number | 378 | | | zIndex | 设置 Drawer 的 `z-index` | number | 1000 | | | onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - | |
+| open | Drawer 是否可见 | boolean | - |
+| width | 宽度 | string \| number | 378 |  |
+| zIndex | 设置 Drawer 的 `z-index` | number | 1000 |  |
+| onClose | 点击遮罩层或左上角叉或取消按钮的回调 | function(e) | - |  |
