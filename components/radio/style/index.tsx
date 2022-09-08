@@ -162,7 +162,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
           height: radioSize,
           marginBlockStart: radioSize / -2,
           marginInlineStart: radioSize / -2,
-          backgroundColor: radioDotColor,
+          backgroundColor: radioButtonBg,
           borderBlockStart: 0,
           borderInlineStart: 0,
           borderRadius: radioSize,
@@ -201,6 +201,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
       [`${componentCls}-checked`]: {
         [radioInnerPrefixCls]: {
           borderColor: radioDotColor,
+          backgroundColor: radioDotColor,
 
           '&::after': {
             transform: `scale(${radioDotSize / radioSize})`,
@@ -481,7 +482,6 @@ export default genComponentStyleHook('Radio', token => {
     padding,
     controlLineWidth,
     colorBgContainerDisabled,
-    paddingXXS,
     colorTextDisabled,
     colorBgContainer,
     fontSize,
@@ -494,6 +494,7 @@ export default genComponentStyleHook('Radio', token => {
     colorPrimary,
     marginXS,
     controlOutlineWidth,
+    fontSizeIcon,
   } = token;
 
   // Radio
@@ -502,7 +503,7 @@ export default genComponentStyleHook('Radio', token => {
 
   const radioSize = fontSizeLG;
   const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
-  const radioDotSize = radioSize - paddingXXS * 2;
+  const radioDotSize = fontSizeIcon / 2;
   const radioDotColor = colorPrimary;
 
   // Radio buttons
