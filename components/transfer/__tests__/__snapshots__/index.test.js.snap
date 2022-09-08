@@ -48,7 +48,8 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        0
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -207,7 +208,8 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        0
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
