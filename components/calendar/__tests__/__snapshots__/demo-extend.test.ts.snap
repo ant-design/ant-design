@@ -17,14 +17,14 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="rc_select_test_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -47,14 +47,14 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
         >
           <div>
             <div
-              id="rc_select_TEST_OR_SSR_list"
+              id="rc_select_test_list"
               role="listbox"
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
+                id="rc_select_test_list_0"
                 role="option"
               >
                 2006
@@ -62,7 +62,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
+                id="rc_select_test_list_1"
                 role="option"
               >
                 2007
@@ -465,14 +465,14 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="rc_select_test_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -495,14 +495,14 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
         >
           <div>
             <div
-              id="rc_select_TEST_OR_SSR_list"
+              id="rc_select_test_list"
               role="listbox"
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
+                id="rc_select_test_list_0"
                 role="option"
               >
                 0
@@ -510,7 +510,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
+                id="rc_select_test_list_1"
                 role="option"
               >
                 1
@@ -1610,14 +1610,14 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="rc_select_test_list_0"
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="rc_select_test"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1640,14 +1640,14 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
           >
             <div>
               <div
-                id="rc_select_TEST_OR_SSR_list"
+                id="rc_select_test_list"
                 role="listbox"
                 style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="2006"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_0"
+                  id="rc_select_test_list_0"
                   role="option"
                 >
                   2006
@@ -1655,7 +1655,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_1"
+                  id="rc_select_test_list_1"
                   role="option"
                 >
                   2007
@@ -2058,14 +2058,14 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="rc_select_test_list_0"
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="rc_select_test"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -2088,14 +2088,14 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
           >
             <div>
               <div
-                id="rc_select_TEST_OR_SSR_list"
+                id="rc_select_test_list"
                 role="listbox"
                 style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="Jan"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_0"
+                  id="rc_select_test_list_0"
                   role="option"
                 >
                   0
@@ -2103,7 +2103,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_1"
+                  id="rc_select_test_list_1"
                   role="option"
                 >
                   1
@@ -3265,14 +3265,14 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                  aria-activedescendant="rc_select_test_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"
@@ -3295,20 +3295,20 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_test_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_test_list_0"
                       role="option"
                     >
                       2006
                     </div>
                     <div
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="rc_select_test_list_1"
                       role="option"
                     >
                       2007
@@ -3716,14 +3716,14 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                  aria-activedescendant="rc_select_test_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"
@@ -3746,14 +3746,14 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_test_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="Jan"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_test_list_0"
                       role="option"
                     >
                       0
@@ -3761,7 +3761,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                     <div
                       aria-label="Feb"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="rc_select_test_list_1"
                       role="option"
                     >
                       1
@@ -4812,14 +4812,14 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="rc_select_test_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4842,14 +4842,14 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
         >
           <div>
             <div
-              id="rc_select_TEST_OR_SSR_list"
+              id="rc_select_test_list"
               role="listbox"
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
+                id="rc_select_test_list_0"
                 role="option"
               >
                 2006
@@ -4857,7 +4857,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
+                id="rc_select_test_list_1"
                 role="option"
               >
                 2007
@@ -5260,14 +5260,14 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="rc_select_test_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -5290,14 +5290,14 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
         >
           <div>
             <div
-              id="rc_select_TEST_OR_SSR_list"
+              id="rc_select_test_list"
               role="listbox"
               style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
+                id="rc_select_test_list_0"
                 role="option"
               >
                 0
@@ -5305,7 +5305,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_1"
+                id="rc_select_test_list_1"
                 role="option"
               >
                 1
@@ -6815,14 +6815,14 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="rc_select_test_list_0"
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="rc_select_test"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -6845,14 +6845,14 @@ Array [
           >
             <div>
               <div
-                id="rc_select_TEST_OR_SSR_list"
+                id="rc_select_test_list"
                 role="listbox"
                 style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_0"
+                  id="rc_select_test_list_0"
                   role="option"
                 >
                   2007
@@ -6860,7 +6860,7 @@ Array [
                 <div
                   aria-label="2008"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_1"
+                  id="rc_select_test_list_1"
                   role="option"
                 >
                   2008
@@ -7263,14 +7263,14 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="rc_select_test_list_0"
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="rc_select_test"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -7293,14 +7293,14 @@ Array [
           >
             <div>
               <div
-                id="rc_select_TEST_OR_SSR_list"
+                id="rc_select_test_list"
                 role="listbox"
                 style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="Jan"
                   aria-selected="true"
-                  id="rc_select_TEST_OR_SSR_list_0"
+                  id="rc_select_test_list_0"
                   role="option"
                 >
                   0
@@ -7308,7 +7308,7 @@ Array [
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="rc_select_TEST_OR_SSR_list_1"
+                  id="rc_select_test_list_1"
                   role="option"
                 >
                   1

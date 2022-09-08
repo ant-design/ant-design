@@ -834,7 +834,7 @@ Array [
       >
         <defs>
           <lineargradient
-            id="rc_progress_TEST_OR_SSR-gradient"
+            id="rc_progress_test-gradient"
             x1="100%"
             x2="0%"
             y1="0%"
@@ -902,7 +902,7 @@ Array [
       >
         <defs>
           <lineargradient
-            id="rc_progress_TEST_OR_SSR-gradient"
+            id="rc_progress_test-gradient"
             x1="100%"
             x2="0%"
             y1="0%"

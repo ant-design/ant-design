@@ -1343,10 +1343,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
-                aria-controls="rc-tabs-test-panel-1"
+                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-1"
+                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1357,10 +1357,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               class="ant-tabs-tab"
             >
               <div
-                aria-controls="rc-tabs-test-panel-2"
+                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-2"
+                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1416,9 +1416,9 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         >
           <div
             aria-hidden="false"
-            aria-labelledby="rc-tabs-test-tab-1"
+            aria-labelledby="rc-tabs-test-tab-test"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
-            id="rc-tabs-test-panel-1"
+            id="rc-tabs-test-panel-test"
             role="tabpanel"
             tabindex="0"
           />

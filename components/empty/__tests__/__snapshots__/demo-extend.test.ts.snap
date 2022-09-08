@@ -113,14 +113,14 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_-1"
+            aria-activedescendant="rc_select_test_list_-test"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -141,7 +141,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           <div>
             <div
               class="ant-select-item-empty"
-              id="rc_select_TEST_OR_SSR_list"
+              id="rc_select_test_list"
               role="listbox"
             >
               <div
@@ -236,12 +236,12 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -356,12 +356,12 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="rc_select_test"
             role="combobox"
             type="search"
             value=""

@@ -125,14 +125,14 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                  aria-activedescendant="rc_select_test_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"
@@ -155,14 +155,14 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_test_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="+"
                       aria-selected="true"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_test_list_0"
                       role="option"
                     >
                       add
@@ -170,7 +170,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                     <div
                       aria-label="-"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="rc_select_test_list_1"
                       role="option"
                     >
                       minus
@@ -346,14 +346,14 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                  aria-activedescendant="rc_select_test_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"
@@ -376,14 +376,14 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
               >
                 <div>
                   <div
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="rc_select_test_list"
                     role="listbox"
                     style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="$"
                       aria-selected="true"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="rc_select_test_list_0"
                       role="option"
                     >
                       USD
@@ -391,7 +391,7 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
                     <div
                       aria-label="€"
                       aria-selected="false"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="rc_select_test_list_1"
                       role="option"
                     >
                       EUR
@@ -650,12 +650,12 @@ exports[`renders ./components/input-number/demo/addon.md extend context correctl
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"

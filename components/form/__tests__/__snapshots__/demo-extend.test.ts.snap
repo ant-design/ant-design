@@ -43,7 +43,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <input
                     aria-required="true"
                     class="ant-input"
-                    id="advanced_search_field-0"
+                    id="advanced_search_field-test"
                     placeholder="placeholder"
                     type="text"
                     value=""
@@ -95,15 +95,15 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-1_list_0"
+                          aria-activedescendant="advanced_search_field-test_list_0"
                           aria-autocomplete="list"
-                          aria-controls="advanced_search_field-1_list"
+                          aria-controls="advanced_search_field-test_list"
                           aria-haspopup="listbox"
-                          aria-owns="advanced_search_field-1_list"
+                          aria-owns="advanced_search_field-test_list"
                           aria-required="true"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="advanced_search_field-1"
+                          id="advanced_search_field-test"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -126,14 +126,14 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                       >
                         <div>
                           <div
-                            id="advanced_search_field-1_list"
+                            id="advanced_search_field-test_list"
                             role="listbox"
                             style="height: 0px; width: 0px; overflow: hidden;"
                           >
                             <div
                               aria-label="1"
                               aria-selected="false"
-                              id="advanced_search_field-1_list_0"
+                              id="advanced_search_field-test_list_0"
                               role="option"
                             >
                               1
@@ -141,7 +141,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                             <div
                               aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               aria-selected="true"
-                              id="advanced_search_field-1_list_1"
+                              id="advanced_search_field-test_list_1"
                               role="option"
                             >
                               2
@@ -267,7 +267,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <input
                     aria-required="true"
                     class="ant-input"
-                    id="advanced_search_field-2"
+                    id="advanced_search_field-test"
                     placeholder="placeholder"
                     type="text"
                     value=""
@@ -311,7 +311,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <input
                     aria-required="true"
                     class="ant-input"
-                    id="advanced_search_field-3"
+                    id="advanced_search_field-test"
                     placeholder="placeholder"
                     type="text"
                     value=""
@@ -363,15 +363,15 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-4_list_0"
+                          aria-activedescendant="advanced_search_field-test_list_0"
                           aria-autocomplete="list"
-                          aria-controls="advanced_search_field-4_list"
+                          aria-controls="advanced_search_field-test_list"
                           aria-haspopup="listbox"
-                          aria-owns="advanced_search_field-4_list"
+                          aria-owns="advanced_search_field-test_list"
                           aria-required="true"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="advanced_search_field-4"
+                          id="advanced_search_field-test"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -394,14 +394,14 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                       >
                         <div>
                           <div
-                            id="advanced_search_field-4_list"
+                            id="advanced_search_field-test_list"
                             role="listbox"
                             style="height: 0px; width: 0px; overflow: hidden;"
                           >
                             <div
                               aria-label="1"
                               aria-selected="false"
-                              id="advanced_search_field-4_list_0"
+                              id="advanced_search_field-test_list_0"
                               role="option"
                             >
                               1
@@ -409,7 +409,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                             <div
                               aria-label="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               aria-selected="true"
-                              id="advanced_search_field-4_list_1"
+                              id="advanced_search_field-test_list_1"
                               role="option"
                             >
                               2
@@ -535,7 +535,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <input
                     aria-required="true"
                     class="ant-input"
-                    id="advanced_search_field-5"
+                    id="advanced_search_field-test"
                     placeholder="placeholder"
                     type="text"
                     value=""
@@ -2193,14 +2193,14 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                      aria-activedescendant="rc_select_test_list_0"
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_test_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_test_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_test"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -2223,14 +2223,14 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                   >
                     <div>
                       <div
-                        id="rc_select_TEST_OR_SSR_list"
+                        id="rc_select_test_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="RMB"
                           aria-selected="true"
-                          id="rc_select_TEST_OR_SSR_list_0"
+                          id="rc_select_test_list_0"
                           role="option"
                         >
                           rmb
@@ -2238,7 +2238,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                         <div
                           aria-label="Dollar"
                           aria-selected="false"
-                          id="rc_select_TEST_OR_SSR_list_1"
+                          id="rc_select_test_list_1"
                           role="option"
                         >
                           dollar
@@ -2667,16 +2667,16 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                      aria-activedescendant="rc_select_test_list_0"
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_test_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_test_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
                       disabled=""
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_test"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -2696,14 +2696,14 @@ Array [
                   >
                     <div>
                       <div
-                        id="rc_select_TEST_OR_SSR_list"
+                        id="rc_select_test_list"
                         role="listbox"
                         style="height: 0px; width: 0px; overflow: hidden;"
                       >
                         <div
                           aria-label="Demo"
                           aria-selected="false"
-                          id="rc_select_TEST_OR_SSR_list_0"
+                          id="rc_select_test_list_0"
                           role="option"
                         >
                           demo
@@ -2814,14 +2814,14 @@ Array [
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_test_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_test_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
                       disabled=""
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_test"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -2999,14 +2999,14 @@ Array [
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="rc_select_test_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="rc_select_test_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
                       disabled=""
-                      id="rc_select_TEST_OR_SSR"
+                      id="rc_select_test"
                       readonly=""
                       role="combobox"
                       style="opacity: 0;"
@@ -8973,7 +8973,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_website_list_-1"
+                    aria-activedescendant="register_website_list_-test"
                     aria-autocomplete="list"
                     aria-controls="register_website_list"
                     aria-haspopup="listbox"
@@ -9861,14 +9861,14 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                    aria-activedescendant="rc_select_test_list_0"
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -9888,14 +9888,14 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                 >
                   <div>
                     <div
-                      id="rc_select_TEST_OR_SSR_list"
+                      id="rc_select_test_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="Demo"
                         aria-selected="false"
-                        id="rc_select_TEST_OR_SSR_list_0"
+                        id="rc_select_test_list_0"
                         role="option"
                       >
                         demo
@@ -10006,12 +10006,12 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -10189,12 +10189,12 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -24222,14 +24222,14 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                    aria-activedescendant="rc_select_test_list_0"
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -24251,14 +24251,14 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 >
                   <div>
                     <div
-                      id="rc_select_TEST_OR_SSR_list"
+                      id="rc_select_test_list"
                       role="listbox"
                       style="height: 0px; width: 0px; overflow: hidden;"
                     >
                       <div
                         aria-label="Option 1"
                         aria-selected="false"
-                        id="rc_select_TEST_OR_SSR_list_0"
+                        id="rc_select_test_list_0"
                         role="option"
                       >
                         1
@@ -24266,7 +24266,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                       <div
                         aria-label="Option 2"
                         aria-selected="false"
-                        id="rc_select_TEST_OR_SSR_list_1"
+                        id="rc_select_test_list_1"
                         role="option"
                       >
                         2
@@ -24434,12 +24434,12 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"
@@ -24591,12 +24591,12 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="rc_select_test_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="rc_select_test"
                     readonly=""
                     role="combobox"
                     style="opacity: 0;"

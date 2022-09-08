@@ -7,12 +7,10 @@ import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
 
-const testDist = process.env.LIB_DIR === 'dist';
-
 function normalizeAriaValue(value: string | null): string {
   const defaultValue = value || '';
 
-  return defaultValue.replace(/-\d+/, '-test');
+  return defaultValue.replace(/-\d+/, '-test').replace('TEST_OR_SSR', 'test');
 }
 
 function normalizeAria(element: Element, ariaName: string) {
@@ -27,8 +25,10 @@ function normalizeAria(element: Element, ariaName: string) {
  * modify the `aria-controls`.
  */
 function ariaConvert(element: Element) {
+  normalizeAria(element, 'aria-owns');
   normalizeAria(element, 'aria-controls');
   normalizeAria(element, 'aria-labelledby');
+  normalizeAria(element, 'aria-activedescendant');
   if (element.id) {
     element.id = normalizeAriaValue(element.id);
   }
@@ -78,9 +78,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         const { children } = container;
         const child = children.length > 1 ? Array.from(children) : children[0];
 
-        if (testDist) {
-          ariaConvert(container);
-        }
+        ariaConvert(container);
 
         expect(child).toMatchSnapshot();
         errSpy();
