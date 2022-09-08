@@ -21,6 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Zurücksetzen',
     filterSearchPlaceholder: 'Suche in Filtern',
+    filterCheckall: 'Alle auswählen',
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
     selectionAll: 'Wählen Sie alle Daten aus',

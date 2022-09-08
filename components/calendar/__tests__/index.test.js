@@ -14,7 +14,7 @@ import Header from '../Header';
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, true);
+  rtlTest(Calendar, { mockDate: true });
 
   function openSelect(wrapper, className) {
     wrapper.find(className).find('.ant-select-selector').simulate('mousedown');
@@ -425,6 +425,6 @@ describe('Calendar', () => {
       />,
     );
     wrapper.find('.bamboo').first().simulate('click');
-    expect(onClick).toBeCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 });

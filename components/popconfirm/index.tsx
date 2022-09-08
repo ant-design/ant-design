@@ -23,56 +23,65 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelButtonProps?: ButtonProps;
   showCancel?: boolean;
   icon?: React.ReactNode;
+  /**
+   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
+   *   use `onOpenChange` instead.
+   */
   onVisibleChange?: (
     visible: boolean,
+    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
+  ) => void;
+  onOpenChange?: (
+    open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => void;
 }
 
 export interface PopconfirmState {
-  visible?: boolean;
+  open?: boolean;
 }
 
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const [visible, setVisible] = useMergedState(false, {
-    value: props.visible,
-    defaultValue: props.defaultVisible,
+  const [open, setOpen] = useMergedState(false, {
+    value: props.open !== undefined ? props.open : props.visible,
+    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
   });
 
   // const isDestroyed = useDestroyed();
 
-  const settingVisible = (
+  const settingOpen = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setVisible(value, true);
+    setOpen(value, true);
     props.onVisibleChange?.(value, e);
+    props.onOpenChange?.(value, e);
   };
 
   const close = (e: React.MouseEvent<HTMLButtonElement>) => {
-    settingVisible(false, e);
+    settingOpen(false, e);
   };
 
   const onConfirm = (e: React.MouseEvent<HTMLButtonElement>) => props.onConfirm?.call(this, e);
 
   const onCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
-    settingVisible(false, e);
+    settingOpen(false, e);
     props.onCancel?.call(this, e);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.keyCode === KeyCode.ESC && visible) {
-      settingVisible(false, e);
+    if (e.keyCode === KeyCode.ESC && open) {
+      settingOpen(false, e);
     }
   };
 
-  const onVisibleChange = (value: boolean) => {
+  const onOpenChange = (value: boolean) => {
     const { disabled } = props;
     if (disabled) {
       return;
     }
-    settingVisible(value);
+    settingOpen(value);
   };
 
   const {
@@ -91,8 +100,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       {...restProps}
       prefixCls={prefixCls}
       placement={placement}
-      onVisibleChange={onVisibleChange}
-      visible={visible}
+      onOpenChange={onOpenChange}
+      open={open}
       _overlay={
         <Overlay
           {...props}

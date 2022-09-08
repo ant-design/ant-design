@@ -291,9 +291,18 @@ jobs:
         if: ${{ matrix.module == 'dom' }}
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
-      - name: coverage
-        uses: codecov/codecov-action@v3
+      - name: persist coverages
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        run: |
+          mkdir persist-coverage
+          mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        name: upload coverages
+        with:
+          name: coverage-artifacts
+          path: persist-coverage/
 
       # node test
       - name: node test
@@ -307,6 +316,28 @@ jobs:
         env:
           LIB_DIR: dist
     needs: [setup, dist]
+
+  ############################ Test Coverage ###########################
+  upload-test-coverage:
+    name: test-coverage
+    runs-on: ubuntu-latest
+    needs: [normal-test]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: coverage-artifacts
+          path: persist-coverage
+      - name: Merge Code Coverage
+        run: |
+          npx nyc merge persist-coverage/ coverage/coverage-final.json
+          npx nyc report --reporter text -t coverage --report-dir coverage
+          rm -rf persist-coverage
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v3
+        with:
+          # use own token to upload coverage reports
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   ########################### Compile & Test ###########################
   compile:

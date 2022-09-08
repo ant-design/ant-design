@@ -66,13 +66,13 @@ describe('ConfigProvider', () => {
         // normal
         it('normal', () => {
           const { container } = render(renderComponent({}));
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         // prefixCls
         it('prefixCls', () => {
           const { container } = render(renderComponent({ prefixCls: `prefix-${name}` }));
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         // configProvider
@@ -82,7 +82,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentSize large', () => {
@@ -91,7 +91,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentSize middle', () => {
@@ -100,7 +100,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider componentDisabled', () => {
@@ -109,7 +109,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
         it('configProvider virtual and dropdownMatchSelectWidth', () => {
@@ -118,7 +118,7 @@ describe('ConfigProvider', () => {
               {renderComponent({})}
             </ConfigProvider>,
           );
-          expect(isArray ? Array.from(container.children) : container.firstChild).toMatchSnapshot();
+          expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
       });
     }
@@ -276,7 +276,7 @@ describe('ConfigProvider', () => {
     testPair('Divider', props => <Divider {...props} />);
 
     // Drawer
-    testPair('Drawer', props => <Drawer {...props} visible getContainer={false} />);
+    testPair('Drawer', props => <Drawer {...props} open getContainer={false} />);
 
     // Dropdown
     testPair('Dropdown', props => {
@@ -393,7 +393,7 @@ describe('ConfigProvider', () => {
     // Modal
     testPair('Modal', props => (
       <div>
-        <Modal {...props} visible getContainer={false}>
+        <Modal {...props} open getContainer={false}>
           Bamboo is Little Light
         </Modal>
       </div>
@@ -417,7 +417,7 @@ describe('ConfigProvider', () => {
     // Popconfirm
     testPair('Popconfirm', props => (
       <div>
-        <Popconfirm {...props} visible>
+        <Popconfirm {...props} open>
           <span>Bamboo</span>
         </Popconfirm>
       </div>
@@ -426,7 +426,7 @@ describe('ConfigProvider', () => {
     // Popover
     testPair('Popover', props => (
       <div>
-        <Popover {...props} visible>
+        <Popover {...props} open>
           <span>Light</span>
         </Popover>
       </div>
@@ -466,9 +466,14 @@ describe('ConfigProvider', () => {
     testPair('Slider', props => {
       const myProps = { ...props };
       if (myProps.prefixCls) {
-        myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
+        return (
+          <Slider
+            tooltip={{ open: true, prefixCls: `${myProps.prefixCls}-tooltip` }}
+            {...myProps}
+          />
+        );
       }
-      return <Slider tooltipVisible {...myProps} />;
+      return <Slider tooltip={{ open: true }} {...myProps} />;
     });
 
     // Spin
@@ -507,7 +512,7 @@ describe('ConfigProvider', () => {
               children: [{ text: 'Green', value: 'Green' }],
             },
           ],
-          filterDropdownVisible: true,
+          filterDropdownOpen: true,
           onFilter: (value, record) => record.name.indexOf(value) === 0,
           sorter: (a, b) => a.name.length - b.name.length,
         },
@@ -550,7 +555,7 @@ describe('ConfigProvider', () => {
 
     // Tooltip
     testPair('Tooltip', props => (
-      <Tooltip {...props} title="Bamboo" visible>
+      <Tooltip {...props} title="Bamboo" open>
         <span>Light</span>
       </Tooltip>
     ));

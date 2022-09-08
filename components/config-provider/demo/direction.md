@@ -108,7 +108,7 @@ type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
 const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [badgeCount, setBadgeCount] = useState(5);
   const [showBadge, setShowBadge] = useState(true);
 
@@ -139,17 +139,17 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
 
   // ==== Modal ====
   const showModal = () => {
-    setModalVisible(true);
+    setModalOpen(true);
   };
 
   const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setModalVisible(false);
+    setModalOpen(false);
   };
 
   const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setModalVisible(false);
+    setModalOpen(false);
   };
 
   // ==== End Modal ====
@@ -378,12 +378,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
                 <Button type="primary" onClick={showModal}>
                   Open Modal
                 </Button>
-                <Modal
-                  title="پنچره ساده"
-                  visible={modalVisible}
-                  onOk={handleOk}
-                  onCancel={handleCancel}
-                >
+                <Modal title="پنچره ساده" open={modalOpen} onOk={handleOk} onCancel={handleCancel}>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>
                   <p>نگاشته‌های خود را اینجا قراردهید</p>

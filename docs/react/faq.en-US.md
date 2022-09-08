@@ -108,7 +108,7 @@ import { Table } from 'antd';
 
 type Props<T extends (...args: any) => any> = Parameters<T>[0];
 
-type TableProps = Props<typeof Table<{ key: string, name: string, age: number }>>;
+type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
 type DataSource = TableProps['dataSource'];
 ```
 
@@ -167,6 +167,12 @@ ConfigProvider.config({
 ## Why shouldn't I use component internal props or state with ref?
 
 You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://reactjs.org/docs/hooks-intro.html) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
+
+<div id="why-open"></div>
+
+## Why we need align pop component with `open` prop?
+
+For historical reasons, the display names of the pop components are not uniform, and both `open` and `visible` are used. This makes the memory cost that non-tsx users encounter when developing. It also leads to ambiguity about what name to choose when adding a feature. So we want to unify the attribute name, you can still use the original `visible` and it will still be backward compatible, but we will remove this attribute from the documentation as of v5.
 
 ## How to spell Ant Design correctly?
 

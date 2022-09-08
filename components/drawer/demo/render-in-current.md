@@ -18,14 +18,14 @@ import { Button, Drawer } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -41,7 +41,7 @@ const App: React.FC = () => {
         placement="right"
         closable={false}
         onClose={onClose}
-        visible={visible}
+        open={open}
         getContainer={false}
         style={{ position: 'absolute' }}
       >

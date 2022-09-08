@@ -168,8 +168,8 @@ describe('DatePicker', () => {
     const mouseDownEvent = () => {
       fireEvent.mouseDown(container.querySelector('input')!);
     };
-    expect(fuousEvent).not.toThrowError();
-    expect(mouseDownEvent).not.toThrowError();
+    expect(fuousEvent).not.toThrow();
+    expect(mouseDownEvent).not.toThrow();
   });
 
   it('12 hours', () => {
@@ -219,6 +219,20 @@ describe('DatePicker', () => {
         .querySelectorAll('.ant-picker-time-panel-column')?.[2]
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(60);
+  });
+
+  it('DatePicker should show warning when use dropdownClassName', () => {
+    render(<DatePicker dropdownClassName="myCustomClassName" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
+  });
+
+  it('RangePicker should show warning when use dropdownClassName', () => {
+    render(<DatePicker.RangePicker dropdownClassName="myCustomClassName" />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    );
   });
 
   it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {

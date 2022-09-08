@@ -272,12 +272,14 @@ describe('should support showCount', () => {
     const { container } = render(
       <Input
         maxLength={5}
-        showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
+        showCount={{
+          formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+        }}
         value="12345"
       />,
     );
     expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
-    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5, 5');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
   });
 });
 
@@ -380,7 +382,7 @@ describe('Input allowClear', () => {
     fireEvent.mouseUp(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.focus(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(onBlur).not.toBeCalled();
+    expect(onBlur).not.toHaveBeenCalled();
     unmount();
   });
 

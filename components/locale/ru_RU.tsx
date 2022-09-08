@@ -22,6 +22,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Сбросить',
     filterEmptyText: 'Без фильтров',
+    filterCheckall: 'Выбрать все элементы',
     emptyText: 'Нет данных',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
