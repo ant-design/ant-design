@@ -10,7 +10,7 @@ require('isomorphic-fetch');
 function normalizeAriaValue(value: string | null): string {
   const defaultValue = value || '';
 
-  return defaultValue.replace(/\d+/, 'test').replace('TEST_OR_SSR', 'test');
+  return defaultValue.replace(/\d+/g, 'test').replace(/TEST_OR_SSR/g, 'test');
 }
 
 function normalizeAria(element: Element, ariaName: string) {
