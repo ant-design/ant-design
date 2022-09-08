@@ -65,13 +65,9 @@ describe('Transfer.Search', () => {
 
   it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
-    const { container } = render(
-      <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
-    );
-
-    fireEvent.change(container.querySelector('.ant-input'), {
-      target: { value: 'a' },
-    });
+    const props = { onSearchChange };
+    const { container } = render(<Transfer render={item => item.title!} {...props} showSearch />);
+    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: 'a' } });
     expect(errorSpy).not.toHaveBeenCalled();
     expect(onSearchChange).not.toHaveBeenCalled();
   });
@@ -85,11 +81,7 @@ describe('Transfer.Search', () => {
       <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
 
-    fireEvent.change(container.querySelector('.ant-input'), {
-      target: {
-        value: ' ',
-      },
-    });
+    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: ' ' } });
 
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
