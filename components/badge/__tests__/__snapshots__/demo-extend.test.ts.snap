@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/badge/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >
@@ -88,7 +88,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/change.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >
@@ -236,7 +236,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/colorful.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
@@ -500,7 +500,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/dot.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >
@@ -581,7 +581,7 @@ exports[`renders ./components/badge/demo/link.md extend context correctly 1`] = 
 `;
 
 exports[`renders ./components/badge/demo/mix.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge ant-badge-status"
   >
@@ -904,7 +904,7 @@ exports[`renders ./components/badge/demo/offset.md extend context correctly 1`] 
 `;
 
 exports[`renders ./components/badge/demo/overflow.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >
@@ -1004,7 +1004,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/ribbbon.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-ribbon-wrapper"
   >
@@ -1476,7 +1476,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md extend context correctl
 `;
 
 exports[`renders ./components/badge/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >
@@ -1537,7 +1537,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/status.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
   >
@@ -1657,7 +1657,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/badge/demo/title.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-badge"
   >

@@ -506,7 +506,7 @@ exports[`renders ./components/pagination/demo/basic.md extend context correctly 
 `;
 
 exports[`renders ./components/pagination/demo/changer.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-pagination"
     unselectable="unselectable"
@@ -1677,7 +1677,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
 `;
 
 exports[`renders ./components/pagination/demo/jump.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-pagination"
     unselectable="unselectable"
@@ -2425,7 +2425,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/pagination/demo/mini.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
@@ -3743,7 +3743,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
 `;
 
 exports[`renders ./components/pagination/demo/simple.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-pagination ant-pagination-simple"
   >
@@ -3918,7 +3918,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/pagination/demo/total.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-pagination"
     unselectable="unselectable"

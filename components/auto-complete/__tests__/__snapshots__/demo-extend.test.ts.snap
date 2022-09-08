@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/auto-complete/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 200px;"

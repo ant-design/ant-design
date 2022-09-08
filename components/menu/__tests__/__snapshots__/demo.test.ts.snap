@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/menu/demo/deprecated.md correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
     data-menu-list="true"
@@ -130,7 +130,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
     data-menu-list="true"
@@ -308,7 +308,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
@@ -823,7 +823,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 `;
 
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
@@ -1027,7 +1027,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/style-debug.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -1172,7 +1172,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/submenu-theme.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="false"
     class="ant-switch"
@@ -1273,7 +1273,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="false"
     class="ant-switch"
@@ -1566,7 +1566,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -1787,7 +1787,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
     data-menu-list="true"

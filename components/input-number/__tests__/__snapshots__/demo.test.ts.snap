@@ -903,7 +903,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-input-number ant-input-number-disabled"
   >
@@ -1375,7 +1375,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md correctly 1`] = 
 `;
 
 exports[`renders ./components/input-number/demo/prefix.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-input-number-affix-wrapper"
     style="width: 100%;"

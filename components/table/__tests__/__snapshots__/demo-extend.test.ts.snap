@@ -2324,7 +2324,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md extend context 
 `;
 
 exports[`renders ./components/table/demo/dynamic-settings.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
     style="margin-bottom: 16px;"
@@ -15869,7 +15869,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
 `;
 
 exports[`renders ./components/table/demo/nest-table-border-debug.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
     style="margin-bottom: 16px;"
@@ -16292,7 +16292,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/nested-table.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-table-wrapper"
   >
@@ -20396,7 +20396,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
 `;
 
 exports[`renders ./components/table/demo/reset-filter.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"
@@ -25904,7 +25904,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
 `;
 
 exports[`renders ./components/table/demo/summary.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-table-wrapper"
   >
@@ -26524,7 +26524,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/tree-data.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"
@@ -26826,7 +26826,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/tree-table-ellipsis.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"

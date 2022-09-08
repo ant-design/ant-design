@@ -328,7 +328,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
 `;
 
 exports[`renders ./components/list/demo/grid-test.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-list ant-list-split ant-list-grid"
   >
@@ -1395,7 +1395,7 @@ exports[`renders ./components/list/demo/responsive.md correctly 1`] = `
 `;
 
 exports[`renders ./components/list/demo/simple.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"

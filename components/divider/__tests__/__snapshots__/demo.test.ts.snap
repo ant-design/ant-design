@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/divider/demo/customize-style.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
@@ -37,7 +37,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
-HTMLCollection [
+Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
@@ -59,7 +59,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/divider/demo/plain.md correctly 1`] = `
-HTMLCollection [
+Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
@@ -106,7 +106,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
@@ -129,7 +129,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
-HTMLCollection [
+Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,

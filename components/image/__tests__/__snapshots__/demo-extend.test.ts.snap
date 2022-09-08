@@ -42,7 +42,7 @@ exports[`renders ./components/image/demo/basic.md extend context correctly 1`] =
 `;
 
 exports[`renders ./components/image/demo/controlled-preview.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -215,7 +215,7 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
 `;
 
 exports[`renders ./components/image/demo/preview-group.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-image"
     style="width: 200px;"
@@ -296,7 +296,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/image/demo/preview-group-top-progress.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-image"
     style="width: 150px;"
@@ -415,7 +415,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/image/demo/preview-group-visible.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-image"
     style="width: 200px;"

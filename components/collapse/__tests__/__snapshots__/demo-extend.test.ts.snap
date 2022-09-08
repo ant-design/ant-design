@@ -668,7 +668,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
 `;
 
 exports[`renders ./components/collapse/demo/extra.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-collapse ant-collapse-icon-position-start"
   >

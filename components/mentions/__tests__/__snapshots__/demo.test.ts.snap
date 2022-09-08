@@ -189,7 +189,7 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 `;
 
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     style="margin-bottom: 10px;"
   >

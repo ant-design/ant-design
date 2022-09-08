@@ -48,7 +48,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 `;
 
 exports[`renders ./components/select/demo/basic.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -325,7 +325,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
-HTMLCollection [
+Array [
   <h3
     class="ant-typography"
   >
@@ -455,7 +455,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -584,7 +584,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -1197,7 +1197,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
     style="width: 100%;"
@@ -1583,7 +1583,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/placement.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -2076,7 +2076,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -2589,7 +2589,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
 `;
 
 exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"

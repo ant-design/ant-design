@@ -45,7 +45,7 @@ exports[`renders ./components/notification/demo/duration.md correctly 1`] = `
 `;
 
 exports[`renders ./components/notification/demo/hooks.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -188,7 +188,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/notification/demo/placement.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >

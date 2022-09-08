@@ -629,7 +629,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     autocomplete="off"
     class="ant-form ant-form-horizontal"
@@ -1788,7 +1788,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
 `;
 
 exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
-HTMLCollection [
+Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
@@ -4179,7 +4179,7 @@ exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
 `;
 
 exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     class="ant-form ant-form-inline"
     id="global_state"
@@ -7859,7 +7859,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
 `;
 
 exports[`renders ./components/form/demo/useWatch.md correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical"

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-default"
     type="button"
@@ -52,7 +52,7 @@ exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"

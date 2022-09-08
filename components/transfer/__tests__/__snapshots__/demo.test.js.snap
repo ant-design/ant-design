@@ -2835,7 +2835,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
 `;
 
 exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-transfer"
   >
@@ -3688,7 +3688,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/transfer/demo/oneWay.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-transfer"
     style="margin-bottom: 16px;"
@@ -5964,7 +5964,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
 `;
 
 exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-transfer ant-transfer-customize-list"
   >

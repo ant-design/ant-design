@@ -2780,7 +2780,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
 `;
 
 exports[`renders ./components/upload/demo/picture-style.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class=""
   >
@@ -3695,7 +3695,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
 `;
 
 exports[`renders ./components/upload/demo/upload-manually.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class=""
   >

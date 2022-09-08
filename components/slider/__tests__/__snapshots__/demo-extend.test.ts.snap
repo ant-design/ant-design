@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/slider/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -234,7 +234,7 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
 `;
 
 exports[`renders ./components/slider/demo/event.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -741,7 +741,7 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
 `;
 
 exports[`renders ./components/slider/demo/mark.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <h4>
     included=true
   </h4>,
@@ -1263,7 +1263,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/slider/demo/reverse.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -1462,7 +1462,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md extend context correct
 `;
 
 exports[`renders ./components/slider/demo/tip-formatter.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -1561,7 +1561,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/slider/demo/vertical.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     style="display: inline-block; height: 300px; margin-left: 70px;"
   >

@@ -382,7 +382,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md extend conte
 `;
 
 exports[`renders ./components/select/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -946,7 +946,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/select/demo/bordered.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -1231,7 +1231,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/select/demo/coordinate.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
@@ -2743,7 +2743,7 @@ exports[`renders ./components/select/demo/label-in-value.md extend context corre
 `;
 
 exports[`renders ./components/select/demo/multiple.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
     style="width: 100%;"
@@ -4173,7 +4173,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
 `;
 
 exports[`renders ./components/select/demo/placement.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -5970,7 +5970,7 @@ exports[`renders ./components/select/demo/select-users.md extend context correct
 `;
 
 exports[`renders ./components/select/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -7867,7 +7867,7 @@ exports[`renders ./components/select/demo/status.md extend context correctly 1`]
 `;
 
 exports[`renders ./components/select/demo/suffix.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"

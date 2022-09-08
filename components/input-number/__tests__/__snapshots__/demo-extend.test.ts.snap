@@ -1176,7 +1176,7 @@ exports[`renders ./components/input-number/demo/digit.md extend context correctl
 `;
 
 exports[`renders ./components/input-number/demo/disabled.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-input-number ant-input-number-disabled"
   >
@@ -1648,7 +1648,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md extend context c
 `;
 
 exports[`renders ./components/input-number/demo/prefix.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-input-number-affix-wrapper"
     style="width: 100%;"

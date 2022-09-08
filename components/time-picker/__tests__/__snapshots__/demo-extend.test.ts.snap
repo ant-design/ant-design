@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/time-picker/demo/12hours.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -3428,7 +3428,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/addon.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -4852,7 +4852,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -6263,7 +6263,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/bordered.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -9129,7 +9129,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/colored-popup.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -10540,7 +10540,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/disabled.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-disabled"
   >
@@ -11952,7 +11952,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/hide-column.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -12842,7 +12842,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/interval-options.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -13264,7 +13264,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/range-picker.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-range"
   >
@@ -14723,7 +14723,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-large"
   >
@@ -24766,7 +24766,7 @@ exports[`renders ./components/time-picker/demo/status.md extend context correctl
 `;
 
 exports[`renders ./components/time-picker/demo/suffix.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -26174,7 +26174,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/time-picker/demo/value.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >

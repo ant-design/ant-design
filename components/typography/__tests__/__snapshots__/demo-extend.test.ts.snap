@@ -216,7 +216,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
 `;
 
 exports[`renders ./components/typography/demo/ellipsis.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -297,7 +297,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/typography/demo/ellipsis-debug.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
@@ -617,7 +617,7 @@ exports[`renders ./components/typography/demo/ellipsis-middle.md extend context 
 `;
 
 exports[`renders ./components/typography/demo/interactive.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-typography"
   >
@@ -1585,7 +1585,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/typography/demo/paragraph-debug.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <h1
     class="ant-typography"
   >
@@ -1786,7 +1786,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/typography/demo/suffix.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -2033,7 +2033,7 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
 `;
 
 exports[`renders ./components/typography/demo/title.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <h1
     class="ant-typography"
   >

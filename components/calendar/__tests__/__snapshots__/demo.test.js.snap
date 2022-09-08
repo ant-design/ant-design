@@ -4207,7 +4207,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
 `;
 
 exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"
     data-show="true"

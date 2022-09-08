@@ -300,7 +300,7 @@ exports[`renders ./components/rate/demo/basic.md extend context correctly 1`] = 
 `;
 
 exports[`renders ./components/rate/demo/character.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -836,7 +836,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/rate/demo/character-function.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-rate"
     role="radiogroup"
@@ -1254,7 +1254,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/rate/demo/clear.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <ul
     class="ant-rate"
     role="radiogroup"

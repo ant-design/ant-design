@@ -1147,7 +1147,7 @@ exports[`renders ./components/tree-select/demo/multiple.md extend context correc
 `;
 
 exports[`renders ./components/tree-select/demo/placement.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

@@ -671,7 +671,7 @@ exports[`renders ./components/cascader/demo/multiple.md correctly 1`] = `
 `;
 
 exports[`renders ./components/cascader/demo/placement.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -875,7 +875,7 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
 `;
 
 exports[`renders ./components/cascader/demo/showCheckedStrategy.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear"
     style="width: 100%;"
@@ -1052,7 +1052,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-cascader ant-select-lg ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
@@ -1352,7 +1352,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
 `;
 
 exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >

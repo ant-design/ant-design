@@ -23,7 +23,7 @@ exports[`renders ./components/checkbox/demo/basic.md extend context correctly 1`
 `;
 
 exports[`renders ./components/checkbox/demo/check-all.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <label
     class="ant-checkbox-wrapper"
   >
@@ -115,7 +115,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/checkbox/demo/controller.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <p
     style="margin-bottom: 20px;"
   >
@@ -366,7 +366,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
 `;
 
 exports[`renders ./components/checkbox/demo/disabled.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
@@ -407,7 +407,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/checkbox/demo/group.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-checkbox-group"
   >

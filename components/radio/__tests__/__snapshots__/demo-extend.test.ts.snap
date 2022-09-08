@@ -108,7 +108,7 @@ exports[`renders ./components/radio/demo/basic.md extend context correctly 1`] =
 `;
 
 exports[`renders ./components/radio/demo/disabled.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
@@ -164,7 +164,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/radio/demo/radiobutton.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -419,7 +419,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/radio/demo/radiobutton-solid.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-solid"
   >
@@ -779,7 +779,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md extend context corre
 `;
 
 exports[`renders ./components/radio/demo/radiogroup-options.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -1127,7 +1127,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md extend context 
 `;
 
 exports[`renders ./components/radio/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
   >

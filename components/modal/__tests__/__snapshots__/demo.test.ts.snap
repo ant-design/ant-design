@@ -299,7 +299,7 @@ exports[`renders ./components/modal/demo/modal-render.md correctly 1`] = `
 `;
 
 exports[`renders ./components/modal/demo/position.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"

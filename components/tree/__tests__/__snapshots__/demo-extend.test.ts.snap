@@ -1446,7 +1446,7 @@ exports[`renders ./components/tree/demo/directory.md extend context correctly 1`
 `;
 
 exports[`renders ./components/tree/demo/drag-debug.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     style="margin-bottom: 16px;"
   >

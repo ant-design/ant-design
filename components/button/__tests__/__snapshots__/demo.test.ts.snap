@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/button/demo/basic.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -47,7 +47,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/block.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-block"
     type="button"
@@ -84,7 +84,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/chinese-chars-loading.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-default ant-btn-loading"
     type="button"
@@ -274,7 +274,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/danger.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-dangerous"
     type="button"
@@ -319,7 +319,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -527,7 +527,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 `;
 
 exports[`renders ./components/button/demo/icon.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
     type="button"
@@ -1008,7 +1008,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div>
     <div
       class="ant-btn-group ant-btn-group-sm"
@@ -1246,7 +1246,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="width: 100%;"
@@ -1440,7 +1440,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -1497,7 +1497,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/button/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

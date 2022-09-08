@@ -2350,7 +2350,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
 `;
 
 exports[`renders ./components/date-picker/demo/placement.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

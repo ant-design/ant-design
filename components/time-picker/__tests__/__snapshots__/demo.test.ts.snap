@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker"
   >
@@ -223,7 +223,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/time-picker/demo/bordered.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-borderless"
   >
@@ -646,7 +646,7 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
 `;
 
 exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-picker ant-picker-large"
   >

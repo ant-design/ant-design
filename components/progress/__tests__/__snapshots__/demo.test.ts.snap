@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -187,7 +187,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -299,7 +299,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -485,7 +485,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -588,7 +588,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -673,7 +673,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/format.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -776,7 +776,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -978,7 +978,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1250,7 +1250,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 `;
 
 exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1376,7 +1376,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1505,7 +1505,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >

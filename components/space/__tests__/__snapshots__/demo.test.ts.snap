@@ -244,7 +244,7 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
 `;
 
 exports[`renders ./components/space/demo/customize.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-slider ant-slider-horizontal"
   >
@@ -406,7 +406,7 @@ exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 `;
 
 exports[`renders ./components/space/demo/gap-in-line.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="false"
     class="ant-switch"
@@ -465,7 +465,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/space/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

@@ -335,7 +335,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/align.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-mentions"
     style="width: 100px;"
@@ -1067,7 +1067,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-input-affix-wrapper"
   >
@@ -1141,7 +1141,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
-HTMLCollection [
+Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height based on content lines"
@@ -2564,7 +2564,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-input-affix-wrapper"
   >
@@ -3063,7 +3063,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-input-group-wrapper ant-input-search"
   >
@@ -3214,7 +3214,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/input/demo/show-count.md correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-input-affix-wrapper"
   >
@@ -3248,7 +3248,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/input/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
   >
@@ -3467,7 +3467,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-HTMLCollection [
+Array [
   <textarea
     class="ant-input"
     rows="4"
@@ -3483,7 +3483,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-default"
     style="margin-bottom: 16px;"

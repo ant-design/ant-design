@@ -191,7 +191,7 @@ exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
 `;
 
 exports[`renders ./components/segmented/demo/controlled-two.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-segmented"
   >
@@ -298,7 +298,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/segmented/demo/custom.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-segmented"
   >
@@ -509,7 +509,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/segmented/demo/disabled.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-segmented ant-segmented-disabled"
   >
@@ -650,7 +650,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/segmented/demo/dynamic.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-segmented"
   >
@@ -797,7 +797,7 @@ exports[`renders ./components/segmented/demo/icon-only.md correctly 1`] = `
 `;
 
 exports[`renders ./components/segmented/demo/size.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-segmented ant-segmented-lg"
   >
@@ -1041,7 +1041,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/segmented/demo/size-consistent.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div>
     <div
       class="ant-segmented ant-segmented-lg"

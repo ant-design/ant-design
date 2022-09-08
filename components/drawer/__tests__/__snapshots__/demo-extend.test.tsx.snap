@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/drawer/demo/basic-right.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -202,7 +202,7 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
 `;
 
 exports[`renders ./components/drawer/demo/extra.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -428,7 +428,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/form-in-drawer.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -2508,7 +2508,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/multi-level-drawer.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -2634,7 +2634,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/no-mask.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -2730,7 +2730,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/placement.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -2974,7 +2974,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
 `;
 
 exports[`renders ./components/drawer/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -3127,7 +3127,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/user-profile.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-list ant-list-split ant-list-bordered"
   >

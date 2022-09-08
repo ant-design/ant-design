@@ -6783,7 +6783,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
 `;
 
 exports[`renders ./components/calendar/demo/select.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"
     data-show="true"

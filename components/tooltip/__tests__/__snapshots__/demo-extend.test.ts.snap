@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-default"
     type="button"
@@ -148,7 +148,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
 `;
 
 exports[`renders ./components/tooltip/demo/basic.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span>
     Tooltip will show on mouse enter.
   </span>,
@@ -180,7 +180,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/tooltip/demo/colorful.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
     role="separator"
@@ -761,7 +761,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <span>
     Tooltip will destroy when hidden.
   </span>,

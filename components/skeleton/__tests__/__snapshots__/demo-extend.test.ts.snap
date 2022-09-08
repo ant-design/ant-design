@@ -102,7 +102,7 @@ exports[`renders ./components/skeleton/demo/complex.md extend context correctly 
 `;
 
 exports[`renders ./components/skeleton/demo/element.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -596,7 +596,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/skeleton/demo/list.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="false"
     class="ant-switch"

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tabs/demo/animated.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -1772,7 +1772,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
 `;
 
 exports[`renders ./components/tabs/demo/extra.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-tabs ant-tabs-top"
   >
@@ -3464,7 +3464,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/position.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 24px;"

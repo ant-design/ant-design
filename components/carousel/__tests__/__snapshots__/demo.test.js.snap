@@ -603,7 +603,7 @@ exports[`renders ./components/carousel/demo/fade.md correctly 1`] = `
 `;
 
 exports[`renders ./components/carousel/demo/position.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom: 8px;"

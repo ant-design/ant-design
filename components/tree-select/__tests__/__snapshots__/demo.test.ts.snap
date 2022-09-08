@@ -260,7 +260,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tree-select/demo/placement.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

@@ -1829,7 +1829,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
 `;
 
 exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
     style="margin-bottom: 16px;"
@@ -12039,7 +12039,7 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/nest-table-border-debug.md correctly 1`] = `
-HTMLCollection [
+Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
     style="margin-bottom: 16px;"
@@ -12462,7 +12462,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-table-wrapper"
   >
@@ -15387,7 +15387,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"
@@ -19997,7 +19997,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/summary.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-table-wrapper"
   >
@@ -20617,7 +20617,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/tree-data.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"
@@ -20919,7 +20919,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/table/demo/tree-table-ellipsis.md correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
     style="margin-bottom: 16px;"

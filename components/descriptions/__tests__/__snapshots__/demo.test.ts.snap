@@ -988,7 +988,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
 `;
 
 exports[`renders ./components/descriptions/demo/style.md correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     aria-checked="true"
     class="ant-switch ant-switch-checked"
