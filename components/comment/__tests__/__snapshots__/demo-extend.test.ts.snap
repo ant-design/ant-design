@@ -57,7 +57,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
                   class="ant-tooltip-inner"
                   role="tooltip"
                 >
-                  2016-11-22 00:00:00
+                  2016-11-22 11:22:33
                 </div>
               </div>
             </div>
