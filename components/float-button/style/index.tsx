@@ -8,7 +8,7 @@ export interface ComponentToken {
   zIndexPopup: number;
 }
 
-type BackTopToken = FullToken<'BackTop'> & {
+type FloatButtonToken = FullToken<'FloatButton'> & {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
@@ -23,7 +23,7 @@ type BackTopToken = FullToken<'BackTop'> & {
 };
 
 // ============================== Shared ==============================
-const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): CSSObject => {
+const genSharedBackTopStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token): CSSObject => {
   const { componentCls, backTopFontSize, backTopSize, zIndexPopup } = token;
 
   return {
@@ -67,9 +67,9 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
   };
 };
 
-const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
+const genMediaBackTopStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject => {
   const { componentCls } = token;
-
+  console.log(componentCls);
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
       [componentCls]: {
@@ -86,8 +86,8 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'BackTop'>(
-  'BackTop',
+export default genComponentStyleHook<'FloatButton'>(
+  'FloatButton',
 
   token => {
     const {
@@ -98,7 +98,7 @@ export default genComponentStyleHook<'BackTop'>(
       controlHeightLG,
     } = token;
 
-    const backTopToken = mergeToken<BackTopToken>(token, {
+    const floatButtonToken = mergeToken<FloatButtonToken>(token, {
       backTopBackground: colorTextDescription,
       backTopColor: colorTextLightSolid,
       backTopHoverBackground: colorText,
@@ -110,9 +110,7 @@ export default genComponentStyleHook<'BackTop'>(
       backTopInlineEndMD: controlHeightLG * 1.5,
       backTopInlineEndXS: controlHeightLG * 0.5,
     });
-    return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
+    return [genSharedBackTopStyle(floatButtonToken), genMediaBackTopStyle(floatButtonToken)];
   },
-  token => ({
-    zIndexPopup: token.zIndexBase + 10,
-  }),
+  token => ({ zIndexPopup: token.zIndexBase + 10 }),
 );
