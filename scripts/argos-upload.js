@@ -5,6 +5,8 @@ const util = require('util');
 const glob = require('fast-glob');
 const lodashChunk = require('lodash/chunk');
 const childProcess = require('child_process');
+
+// eslint-disable-next-line import/no-unresolved
 const argos = require('@argos-ci/core');
 
 const execFileNode = util.promisify(childProcess.execFile);
