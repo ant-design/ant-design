@@ -22,6 +22,7 @@ import getIcons from './utils/iconUtil';
 
 import useStyle from './style';
 import genPurePanel from '../_util/PurePanel';
+import warning from '../_util/warning';
 
 type RawValue = string | number;
 
@@ -57,6 +58,8 @@ export interface SelectProps<
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
   popupClassName?: string;
+  /** @deprecated Please use `popupClassName` instead */
+  dropdownClassName?: string;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -68,6 +71,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     className,
     getPopupContainer,
     popupClassName,
+    dropdownClassName,
     listHeight = 256,
     placement,
     listItemHeight = 24,
@@ -145,7 +149,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
   const rcSelectRtlDropdownClassName = classNames(
-    popupClassName,
+    popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
@@ -181,6 +185,16 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
+  // ====================== Warning ======================
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !dropdownClassName,
+      'Select',
+      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+  }
+
+  // ====================== Render =======================
   return wrapSSR(
     <RcSelect<any, any>
       ref={ref as any}
