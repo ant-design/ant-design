@@ -14,7 +14,7 @@ import Header from '../Header';
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, true);
+  rtlTest(Calendar, { mockDate: true });
 
   function openSelect(wrapper, className) {
     wrapper.find(className).find('.ant-select-selector').simulate('mousedown');

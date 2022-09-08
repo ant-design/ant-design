@@ -324,7 +324,7 @@ exports[`Menu all types must be available in the "items" syntax 1`] = `
 `;
 
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
-Array [
+HTMLCollection [
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl"
     data-menu-list="true"
