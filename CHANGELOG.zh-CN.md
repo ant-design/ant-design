@@ -44,8 +44,6 @@ timeline: true
 - 🌐 补全 `ru_RU` 中 `filterCheckall` 的翻译。[#37311](https://github.com/ant-design/ant-design/pull/37311) [@HelLuv](https://github.com/HelLuv)
 - 🌐 补全 `cs_CZ` 的翻译。[#37388](https://github.com/ant-design/ant-design/pull/37388) [@ZdenekKrcal](https://github.com/ZdenekKrcal)
 
----
-
 ## 4.22.8
 
 `2022-08-26`

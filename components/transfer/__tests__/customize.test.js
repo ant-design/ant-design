@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import Transfer from '../index';
@@ -36,7 +35,7 @@ describe('Transfer.Customize', () => {
     };
 
     it('should not exist in render props', () => {
-      mount(
+      render(
         <Transfer {...commonProps}>
           {props => {
             expect('handleFilter' in props).toBeFalsy();
@@ -52,7 +51,7 @@ describe('Transfer.Customize', () => {
   });
 
   it('warning if use `pagination`', () => {
-    mount(
+    render(
       <Transfer dataSource={[]} pagination>
         {() => null}
       </Transfer>,

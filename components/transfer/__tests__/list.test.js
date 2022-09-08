@@ -1,6 +1,5 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import Checkbox from '../../checkbox';
+import { render } from '../../../tests/utils';
 import List from '../list';
 
 const listCommonProps = {
@@ -26,27 +25,47 @@ const listCommonProps = {
 
 describe('Transfer.List', () => {
   it('should render correctly', () => {
-    const wrapper = mount(<List {...listCommonProps} />);
-    wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container } = render(<List {...listCommonProps} />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should check top Checkbox while all available items are checked', () => {
-    const wrapper = mount(<List {...listCommonProps} checkedKeys={['a', 'b']} />);
-    expect(wrapper.find('.ant-transfer-list-header').find(Checkbox).prop('checked')).toBeTruthy();
+    const { container } = render(<List {...listCommonProps} checkedKeys={['a', 'b']} />);
+
+    expect(
+      container.querySelector('.ant-transfer-list-header input[type="checkbox"]').checked,
+    ).toBeTruthy();
   });
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
-    const wrapper = mount(<List {...listCommonProps} />);
-    const willUnmount = jest.spyOn(wrapper.find(List).instance(), 'componentWillUnmount');
+    let instance;
+    const wrapper = render(
+      <List
+        ref={node => {
+          instance = node;
+        }}
+        {...listCommonProps}
+      />,
+    );
+    const willUnmount = jest.spyOn(instance, 'componentWillUnmount');
     wrapper.unmount();
     expect(willUnmount).toHaveBeenCalled();
   });
 
   it('when value is not exists, handleFilter should return', () => {
     const handleFilter = jest.fn();
-    const wrapper = mount(<List {...listCommonProps} handleFilter={handleFilter} />);
-    expect(wrapper.find(List).instance().handleFilter({ target: 'test' })).toBe(undefined);
+    let instance;
+    render(
+      <List
+        ref={node => {
+          instance = node;
+        }}
+        {...listCommonProps}
+        handleFilter={handleFilter}
+      />,
+    );
+
+    expect(instance.handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
   });
 });
