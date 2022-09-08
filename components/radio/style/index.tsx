@@ -13,6 +13,7 @@ interface RadioToken extends FullToken<'Radio'> {
   radioSize: number;
   radioTop: number;
   radioDotSize: number;
+  radioDotDisabledSize: number;
   radioDotColor: string;
   radioDotDisabledColor: string;
   radioSolidCheckedColor: string;
@@ -83,6 +84,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     paddingXS,
     radioDotDisabledColor,
     controlLineType,
+    radioDotDisabledSize,
   } = token;
   const radioInnerPrefixCls = `${componentCls}-inner`;
 
@@ -231,6 +233,14 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
         [`${componentCls}-disabled + span`]: {
           color: colorTextDisabled,
           cursor: 'not-allowed',
+        },
+
+        [`&${componentCls}-checked`]: {
+          [radioInnerPrefixCls]: {
+            '&::after': {
+              transform: `scale(${radioDotDisabledSize / radioSize})`,
+            },
+          },
         },
       },
 
@@ -504,6 +514,7 @@ export default genComponentStyleHook('Radio', token => {
   const radioSize = fontSizeLG;
   const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
   const radioDotSize = radioSize - (paddingXXS + controlLineWidth) * 2;
+  const radioDotDisabledSize = radioSize - paddingXXS * 2;
   const radioDotColor = colorPrimary;
 
   // Radio buttons
@@ -520,6 +531,7 @@ export default genComponentStyleHook('Radio', token => {
     radioSize,
     radioTop,
     radioDotSize,
+    radioDotDisabledSize,
     radioDotColor,
     radioDotDisabledColor: colorTextDisabled,
     radioSolidCheckedColor: colorBgContainer,
