@@ -494,7 +494,7 @@ export default genComponentStyleHook('Radio', token => {
     colorPrimary,
     marginXS,
     controlOutlineWidth,
-    fontSizeIcon,
+    paddingXXS,
   } = token;
 
   // Radio
@@ -503,7 +503,7 @@ export default genComponentStyleHook('Radio', token => {
 
   const radioSize = fontSizeLG;
   const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
-  const radioDotSize = fontSizeIcon / 2;
+  const radioDotSize = radioSize - (paddingXXS + controlLineWidth) * 2;
   const radioDotColor = colorPrimary;
 
   // Radio buttons
