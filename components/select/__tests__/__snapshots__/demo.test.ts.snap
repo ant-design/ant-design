@@ -20,7 +20,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -60,7 +60,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -121,7 +121,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -184,7 +184,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -245,7 +245,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -412,7 +412,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -467,7 +467,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -528,7 +528,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -596,7 +596,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -657,7 +657,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -722,7 +722,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -859,7 +859,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -933,7 +933,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -1039,7 +1039,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -1100,7 +1100,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -1144,7 +1144,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1299,7 +1299,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -1400,7 +1400,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-expanded="false"
@@ -1442,7 +1442,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1555,7 +1555,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -1678,7 +1678,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -1775,7 +1775,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
               style="width: 0px;"
             >
               <input
-                aria-activedescendant="rc_select_test_list_0"
+                aria-activedescendant="rc_select_test_list_test"
                 aria-autocomplete="list"
                 aria-controls="rc_select_test_list"
                 aria-haspopup="listbox"
@@ -1839,7 +1839,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
               style="width: 0px;"
             >
               <input
-                aria-activedescendant="rc_select_test_list_0"
+                aria-activedescendant="rc_select_test_list_test"
                 aria-autocomplete="list"
                 aria-controls="rc_select_test_list"
                 aria-expanded="false"
@@ -1881,7 +1881,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1941,7 +1941,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1975,7 +1975,7 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -2043,7 +2043,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -2151,7 +2151,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2303,7 +2303,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -2430,7 +2430,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -2475,7 +2475,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -2537,7 +2537,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -2601,7 +2601,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2662,7 +2662,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -2737,7 +2737,7 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"

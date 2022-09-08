@@ -20,7 +20,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md extend conte
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -58,7 +58,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md extend conte
           <div
             aria-label="a10"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             a10
@@ -66,7 +66,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md extend conte
           <div
             aria-label="b11"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             b11
@@ -394,7 +394,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -431,7 +431,7 @@ Array [
             <div
               aria-label="Jack"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -439,7 +439,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -571,7 +571,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -610,7 +610,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -691,7 +691,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -728,7 +728,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -809,7 +809,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -846,7 +846,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -958,7 +958,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -995,7 +995,7 @@ Array [
             <div
               aria-label="Jack"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -1003,7 +1003,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -1118,7 +1118,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -1157,7 +1157,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -1243,7 +1243,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -1280,7 +1280,7 @@ Array [
             <div
               aria-label="Zhejiang"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               Zhejiang
@@ -1288,7 +1288,7 @@ Array [
             <div
               aria-label="Jiangsu"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               Jiangsu
@@ -1386,7 +1386,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -1423,7 +1423,7 @@ Array [
             <div
               aria-label="Hangzhou"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               Hangzhou
@@ -1431,7 +1431,7 @@ Array [
             <div
               aria-label="Ningbo"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               Ningbo
@@ -1550,7 +1550,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1586,7 +1586,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
           <div
             aria-label="jack"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             jack
@@ -1594,7 +1594,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md extend context
           <div
             aria-label="lucy"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             lucy
@@ -1827,7 +1827,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md extend context co
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -1864,14 +1864,14 @@ exports[`renders ./components/select/demo/custom-tag-render.md extend context co
         >
           <div
             aria-selected="true"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             gold
           </div>
           <div
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             lime
@@ -2043,7 +2043,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2076,7 +2076,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
             <div
               aria-label="Jack"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -2084,7 +2084,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
             <div
               aria-label="Lucy"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -2282,7 +2282,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -2320,7 +2320,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
             <div
               aria-label="Jack"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -2328,7 +2328,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -2472,7 +2472,7 @@ exports[`renders ./components/select/demo/hide-selected.md extend context correc
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -2515,7 +2515,7 @@ exports[`renders ./components/select/demo/hide-selected.md extend context correc
           <div
             aria-label="Apples"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             Apples
@@ -2523,7 +2523,7 @@ exports[`renders ./components/select/demo/hide-selected.md extend context correc
           <div
             aria-label="Nails"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             Nails
@@ -2608,7 +2608,7 @@ exports[`renders ./components/select/demo/label-in-value.md extend context corre
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -2645,7 +2645,7 @@ exports[`renders ./components/select/demo/label-in-value.md extend context corre
           <div
             aria-label="Jack (100)"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             jack
@@ -2653,7 +2653,7 @@ exports[`renders ./components/select/demo/label-in-value.md extend context corre
           <div
             aria-label="Lucy (101)"
             aria-selected="true"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             lucy
@@ -2845,7 +2845,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -2883,7 +2883,7 @@ Array [
             <div
               aria-label="a10"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               a10
@@ -2891,7 +2891,7 @@ Array [
             <div
               aria-label="b11"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               b11
@@ -3332,7 +3332,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-expanded="false"
@@ -3372,7 +3372,7 @@ Array [
             <div
               aria-label="a10"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               a10
@@ -3380,7 +3380,7 @@ Array [
             <div
               aria-label="b11"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               b11
@@ -3760,7 +3760,7 @@ exports[`renders ./components/select/demo/optgroup.md extend context correctly 1
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_1"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -3796,13 +3796,13 @@ exports[`renders ./components/select/demo/optgroup.md extend context correctly 1
         >
           <div
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="presentation"
           />
           <div
             aria-label="Jack"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             jack
@@ -3810,7 +3810,7 @@ exports[`renders ./components/select/demo/optgroup.md extend context correctly 1
           <div
             aria-label="Lucy"
             aria-selected="true"
-            id="rc_select_test_list_2"
+            id="rc_select_test_list_test"
             role="option"
           >
             lucy
@@ -3989,7 +3989,7 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -4026,14 +4026,14 @@ exports[`renders ./components/select/demo/option-label-prop.md extend context co
         >
           <div
             aria-selected="true"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             china
           </div>
           <div
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             usa
@@ -4268,7 +4268,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -4305,7 +4305,7 @@ Array [
             <div
               aria-label="HangZhou #310000"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               HangZhou
@@ -4313,7 +4313,7 @@ Array [
             <div
               aria-label="NingBo #315000"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               NingBo
@@ -4464,7 +4464,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               style="width: 0px;"
             >
               <input
-                aria-activedescendant="rc_select_test_list_0"
+                aria-activedescendant="rc_select_test_list_test"
                 aria-autocomplete="list"
                 aria-controls="rc_select_test_list"
                 aria-haspopup="listbox"
@@ -4502,7 +4502,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               <div
                 aria-label="Long Label: a10"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 a10
@@ -4510,7 +4510,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               <div
                 aria-label="Long Label: b11"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 b11
@@ -4992,7 +4992,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               style="width: 0px;"
             >
               <input
-                aria-activedescendant="rc_select_test_list_0"
+                aria-activedescendant="rc_select_test_list_test"
                 aria-autocomplete="list"
                 aria-controls="rc_select_test_list"
                 aria-expanded="false"
@@ -5032,7 +5032,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               <div
                 aria-label="Long Label: a10"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 a10
@@ -5040,7 +5040,7 @@ exports[`renders ./components/select/demo/responsive.md extend context correctly
               <div
                 aria-label="Long Label: b11"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 b11
@@ -5498,7 +5498,7 @@ exports[`renders ./components/select/demo/search.md extend context correctly 1`]
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -5531,7 +5531,7 @@ exports[`renders ./components/select/demo/search.md extend context correctly 1`]
           <div
             aria-label="Jack"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             jack
@@ -5539,7 +5539,7 @@ exports[`renders ./components/select/demo/search.md extend context correctly 1`]
           <div
             aria-label="Lucy"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             lucy
@@ -5705,7 +5705,7 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -5738,7 +5738,7 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
           <div
             aria-label="Cancelled"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             6
@@ -5746,7 +5746,7 @@ exports[`renders ./components/select/demo/search-sort.md extend context correctl
           <div
             aria-label="Closed"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             2
@@ -6045,7 +6045,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -6082,7 +6082,7 @@ Array [
             <div
               aria-label="a10"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               a10
@@ -6090,7 +6090,7 @@ Array [
             <div
               aria-label="b11"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               b11
@@ -6687,7 +6687,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -6725,7 +6725,7 @@ Array [
             <div
               aria-label="a10"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               a10
@@ -6733,7 +6733,7 @@ Array [
             <div
               aria-label="b11"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               b11
@@ -7200,7 +7200,7 @@ Array [
             style="width: 0px;"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -7235,7 +7235,7 @@ Array [
             <div
               aria-label="a10"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               a10
@@ -7243,7 +7243,7 @@ Array [
             <div
               aria-label="b11"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               b11
@@ -7879,7 +7879,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -7916,7 +7916,7 @@ Array [
             <div
               aria-label="Jack"
               aria-selected="false"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -7924,7 +7924,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -8056,7 +8056,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-expanded="false"
@@ -8095,7 +8095,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -8188,7 +8188,7 @@ exports[`renders ./components/select/demo/tags.md extend context correctly 1`] =
           style="width: 0px;"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -8228,7 +8228,7 @@ exports[`renders ./components/select/demo/tags.md extend context correctly 1`] =
           <div
             aria-label="a10"
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             a10
@@ -8236,7 +8236,7 @@ exports[`renders ./components/select/demo/tags.md extend context correctly 1`] =
           <div
             aria-label="b11"
             aria-selected="false"
-            id="rc_select_test_list_1"
+            id="rc_select_test_list_test"
             role="option"
           >
             b11

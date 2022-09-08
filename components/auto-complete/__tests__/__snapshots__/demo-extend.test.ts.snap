@@ -176,7 +176,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
         >
           <div
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="presentation"
           />
         </div>
@@ -1772,7 +1772,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
         >
           <div
             aria-selected="false"
-            id="rc_select_test_list_0"
+            id="rc_select_test_list_test"
             role="option"
           >
             Burns Bay Road

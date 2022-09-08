@@ -13,7 +13,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -46,7 +46,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -87,7 +87,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -150,7 +150,7 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <textarea
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -211,7 +211,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_0"
+                    aria-activedescendant="rc_select_test_list_test"
                     aria-autocomplete="list"
                     aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
@@ -415,7 +415,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_0"
+                      aria-activedescendant="rc_select_test_list_test"
                       aria-autocomplete="list"
                       aria-controls="rc_select_test_list"
                       aria-haspopup="listbox"
@@ -477,7 +477,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     class="ant-input-affix-wrapper ant-select-selection-search-input"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_0"
+                      aria-activedescendant="rc_select_test_list_test"
                       aria-autocomplete="list"
                       aria-controls="rc_select_test_list"
                       aria-haspopup="listbox"
@@ -622,7 +622,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       class="ant-input-affix-wrapper ant-select-selection-search-input"
                     >
                       <input
-                        aria-activedescendant="rc_select_test_list_0"
+                        aria-activedescendant="rc_select_test_list_test"
                         aria-autocomplete="list"
                         aria-controls="rc_select_test_list"
                         aria-haspopup="listbox"
@@ -771,7 +771,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="rc_select_test_list_0"
+                          aria-activedescendant="rc_select_test_list_test"
                           aria-autocomplete="list"
                           aria-controls="rc_select_test_list"
                           aria-haspopup="listbox"
@@ -926,7 +926,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="rc_select_test_list_0"
+                          aria-activedescendant="rc_select_test_list_test"
                           aria-autocomplete="list"
                           aria-controls="rc_select_test_list"
                           aria-haspopup="listbox"
@@ -1022,7 +1022,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md correctly
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1056,7 +1056,7 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_0"
+        aria-activedescendant="rc_select_test_list_test"
         aria-autocomplete="list"
         aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
@@ -1098,7 +1098,7 @@ exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -1131,7 +1131,7 @@ exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -1171,7 +1171,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"

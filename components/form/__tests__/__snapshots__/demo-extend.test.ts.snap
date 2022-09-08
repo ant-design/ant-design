@@ -998,7 +998,7 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="basic_select_list_0"
+                          aria-activedescendant="basic_select_list_test"
                           aria-autocomplete="list"
                           aria-controls="basic_select_list"
                           aria-haspopup="listbox"
@@ -1036,7 +1036,7 @@ Array [
                         <div
                           aria-label="Bamboo"
                           aria-selected="true"
-                          id="basic_select_list_0"
+                          id="basic_select_list_test"
                           role="option"
                         >
                           bamboo
@@ -1044,7 +1044,7 @@ Array [
                         <div
                           aria-label="Little"
                           aria-selected="false"
-                          id="basic_select_list_1"
+                          id="basic_select_list_test"
                           role="option"
                         >
                           little
@@ -1404,7 +1404,7 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="select_list_0"
+                          aria-activedescendant="select_list_test"
                           aria-autocomplete="list"
                           aria-controls="select_list"
                           aria-haspopup="listbox"
@@ -1442,7 +1442,7 @@ Array [
                         <div
                           aria-label="Bamboo"
                           aria-selected="true"
-                          id="select_list_0"
+                          id="select_list_test"
                           role="option"
                         >
                           bamboo
@@ -1450,7 +1450,7 @@ Array [
                         <div
                           aria-label="Little"
                           aria-selected="false"
-                          id="select_list_1"
+                          id="select_list_test"
                           role="option"
                         >
                           little
@@ -1569,7 +1569,7 @@ Array [
             >
               <input
                 class="ant-input"
-                id="col12"
+                id="coltest"
                 type="text"
                 value=""
               />
@@ -1662,7 +1662,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-hooks_gender_list_0"
+                    aria-activedescendant="control-hooks_gender_list_test"
                     aria-autocomplete="list"
                     aria-controls="control-hooks_gender_list"
                     aria-haspopup="listbox"
@@ -1699,7 +1699,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
                       <div
                         aria-label="male"
                         aria-selected="false"
-                        id="control-hooks_gender_list_0"
+                        id="control-hooks_gender_list_test"
                         role="option"
                       >
                         male
@@ -1707,7 +1707,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
                       <div
                         aria-label="female"
                         aria-selected="false"
-                        id="control-hooks_gender_list_1"
+                        id="control-hooks_gender_list_test"
                         role="option"
                       >
                         female
@@ -1943,7 +1943,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-ref_gender_list_0"
+                    aria-activedescendant="control-ref_gender_list_test"
                     aria-autocomplete="list"
                     aria-controls="control-ref_gender_list"
                     aria-haspopup="listbox"
@@ -1980,7 +1980,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
                       <div
                         aria-label="male"
                         aria-selected="false"
-                        id="control-ref_gender_list_0"
+                        id="control-ref_gender_list_test"
                         role="option"
                       >
                         male
@@ -1988,7 +1988,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
                       <div
                         aria-label="female"
                         aria-selected="false"
-                        id="control-ref_gender_list_1"
+                        id="control-ref_gender_list_test"
                         role="option"
                       >
                         female
@@ -2193,7 +2193,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_0"
+                      aria-activedescendant="rc_select_test_list_test"
                       aria-autocomplete="list"
                       aria-controls="rc_select_test_list"
                       aria-haspopup="listbox"
@@ -2230,7 +2230,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                         <div
                           aria-label="RMB"
                           aria-selected="true"
-                          id="rc_select_test_list_0"
+                          id="rc_select_test_list_test"
                           role="option"
                         >
                           rmb
@@ -2238,7 +2238,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
                         <div
                           aria-label="Dollar"
                           aria-selected="false"
-                          id="rc_select_test_list_1"
+                          id="rc_select_test_list_test"
                           role="option"
                         >
                           dollar
@@ -2584,7 +2584,7 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_0"
+                      aria-activedescendant="rc_select_test_list_test"
                       aria-autocomplete="list"
                       aria-controls="rc_select_test_list"
                       aria-expanded="false"
@@ -2620,7 +2620,7 @@ Array [
                         <div
                           aria-label="Demo"
                           aria-selected="false"
-                          id="rc_select_test_list_0"
+                          id="rc_select_test_list_test"
                           role="option"
                         >
                           demo
@@ -6052,7 +6052,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="dynamic_form_nest_item_area_list_0"
+                    aria-activedescendant="dynamic_form_nest_item_area_list_test"
                     aria-autocomplete="list"
                     aria-controls="dynamic_form_nest_item_area_list"
                     aria-haspopup="listbox"
@@ -6087,7 +6087,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                       <div
                         aria-label="Beijing"
                         aria-selected="false"
-                        id="dynamic_form_nest_item_area_list_0"
+                        id="dynamic_form_nest_item_area_list_test"
                         role="option"
                       >
                         Beijing
@@ -6095,7 +6095,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                       <div
                         aria-label="Shanghai"
                         aria-selected="false"
-                        id="dynamic_form_nest_item_area_list_1"
+                        id="dynamic_form_nest_item_area_list_test"
                         role="option"
                       >
                         Shanghai
@@ -7896,7 +7896,7 @@ exports[`renders ./components/form/demo/ref-item.md extend context correctly 1`]
           >
             <input
               class="ant-input"
-              id="list_0"
+              id="list_test"
               type="text"
               value="light"
             />
@@ -8447,7 +8447,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_prefix_list_0"
+                          aria-activedescendant="register_prefix_list_test"
                           aria-autocomplete="list"
                           aria-controls="register_prefix_list"
                           aria-haspopup="listbox"
@@ -8484,7 +8484,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                             <div
                               aria-label="+86"
                               aria-selected="true"
-                              id="register_prefix_list_0"
+                              id="register_prefix_list_test"
                               role="option"
                             >
                               86
@@ -8492,7 +8492,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                             <div
                               aria-label="+87"
                               aria-selected="false"
-                              id="register_prefix_list_1"
+                              id="register_prefix_list_test"
                               role="option"
                             >
                               87
@@ -8716,7 +8716,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_suffix_list_0"
+                          aria-activedescendant="register_suffix_list_test"
                           aria-autocomplete="list"
                           aria-controls="register_suffix_list"
                           aria-haspopup="listbox"
@@ -8750,7 +8750,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                             <div
                               aria-label="$"
                               aria-selected="false"
-                              id="register_suffix_list_0"
+                              id="register_suffix_list_test"
                               role="option"
                             >
                               USD
@@ -8758,7 +8758,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                             <div
                               aria-label="¥"
                               aria-selected="false"
-                              id="register_suffix_list_1"
+                              id="register_suffix_list_test"
                               role="option"
                             >
                               CNY
@@ -9008,7 +9008,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_gender_list_0"
+                    aria-activedescendant="register_gender_list_test"
                     aria-autocomplete="list"
                     aria-controls="register_gender_list"
                     aria-haspopup="listbox"
@@ -9045,7 +9045,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                       <div
                         aria-label="Male"
                         aria-selected="false"
-                        id="register_gender_list_0"
+                        id="register_gender_list_test"
                         role="option"
                       >
                         male
@@ -9053,7 +9053,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                       <div
                         aria-label="Female"
                         aria-selected="false"
-                        id="register_gender_list_1"
+                        id="register_gender_list_test"
                         role="option"
                       >
                         female
@@ -9778,7 +9778,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_0"
+                    aria-activedescendant="rc_select_test_list_test"
                     aria-autocomplete="list"
                     aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
@@ -9812,7 +9812,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
                       <div
                         aria-label="Demo"
                         aria-selected="false"
-                        id="rc_select_test_list_0"
+                        id="rc_select_test_list_test"
                         role="option"
                       >
                         demo
@@ -18834,7 +18834,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="validate_other_select_list_0"
+                    aria-activedescendant="validate_other_select_list_test"
                     aria-autocomplete="list"
                     aria-controls="validate_other_select_list"
                     aria-haspopup="listbox"
@@ -18871,7 +18871,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       <div
                         aria-label="China"
                         aria-selected="false"
-                        id="validate_other_select_list_0"
+                        id="validate_other_select_list_test"
                         role="option"
                       >
                         china
@@ -18879,7 +18879,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       <div
                         aria-label="U.S.A"
                         aria-selected="false"
-                        id="validate_other_select_list_1"
+                        id="validate_other_select_list_test"
                         role="option"
                       >
                         usa
@@ -19016,7 +19016,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       style="width: 0px;"
                     >
                       <input
-                        aria-activedescendant="validate_other_select-multiple_list_0"
+                        aria-activedescendant="validate_other_select-multiple_list_test"
                         aria-autocomplete="list"
                         aria-controls="validate_other_select-multiple_list"
                         aria-haspopup="listbox"
@@ -19060,7 +19060,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       <div
                         aria-label="Red"
                         aria-selected="false"
-                        id="validate_other_select-multiple_list_0"
+                        id="validate_other_select-multiple_list_test"
                         role="option"
                       >
                         red
@@ -19068,7 +19068,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       <div
                         aria-label="Green"
                         aria-selected="false"
-                        id="validate_other_select-multiple_list_1"
+                        id="validate_other_select-multiple_list_test"
                         role="option"
                       >
                         green
@@ -20643,7 +20643,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             >
               <input
                 class="ant-input"
-                id="warning2"
+                id="warningtest"
                 placeholder="Warning"
                 type="text"
                 value=""
@@ -20711,7 +20711,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             >
               <input
                 class="ant-input"
-                id="error2"
+                id="errortest"
                 placeholder="unavailable choice"
                 type="text"
                 value=""
@@ -24139,7 +24139,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_0"
+                    aria-activedescendant="rc_select_test_list_test"
                     aria-autocomplete="list"
                     aria-controls="rc_select_test_list"
                     aria-haspopup="listbox"
@@ -24175,7 +24175,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                       <div
                         aria-label="Option 1"
                         aria-selected="false"
-                        id="rc_select_test_list_0"
+                        id="rc_select_test_list_test"
                         role="option"
                       >
                         1
@@ -24183,7 +24183,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                       <div
                         aria-label="Option 2"
                         aria-selected="false"
-                        id="rc_select_test_list_1"
+                        id="rc_select_test_list_test"
                         role="option"
                       >
                         2

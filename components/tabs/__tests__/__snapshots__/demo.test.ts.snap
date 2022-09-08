@@ -2053,7 +2053,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2111,7 +2111,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2169,7 +2169,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2227,7 +2227,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"

@@ -56030,7 +56030,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -56067,7 +56067,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
               <div
                 aria-label="Time"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 time
@@ -56075,7 +56075,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
               <div
                 aria-label="Date"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 date

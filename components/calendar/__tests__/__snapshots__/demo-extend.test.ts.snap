@@ -17,7 +17,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -54,7 +54,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2006
@@ -62,7 +62,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2007
@@ -465,7 +465,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -502,7 +502,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 0
@@ -510,7 +510,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -1610,7 +1610,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -1647,7 +1647,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="2006"
                   aria-selected="false"
-                  id="rc_select_test_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2006
@@ -1655,7 +1655,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="rc_select_test_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2007
@@ -2058,7 +2058,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -2095,7 +2095,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="Jan"
                   aria-selected="false"
-                  id="rc_select_test_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   0
@@ -2103,7 +2103,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="rc_select_test_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   1
@@ -3265,7 +3265,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
@@ -3301,14 +3301,14 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                   >
                     <div
                       aria-selected="false"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       2006
                     </div>
                     <div
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       2007
@@ -3716,7 +3716,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
@@ -3753,7 +3753,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                     <div
                       aria-label="Jan"
                       aria-selected="false"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       0
@@ -3761,7 +3761,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                     <div
                       aria-label="Feb"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       1
@@ -4812,7 +4812,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -4849,7 +4849,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2006
@@ -4857,7 +4857,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2007
@@ -5260,7 +5260,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -5297,7 +5297,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 0
@@ -5305,7 +5305,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -6815,7 +6815,7 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -6852,7 +6852,7 @@ Array [
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="rc_select_test_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2007
@@ -6860,7 +6860,7 @@ Array [
                 <div
                   aria-label="2008"
                   aria-selected="false"
-                  id="rc_select_test_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2008
@@ -7263,7 +7263,7 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_test_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
               aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
@@ -7300,7 +7300,7 @@ Array [
                 <div
                   aria-label="Jan"
                   aria-selected="true"
-                  id="rc_select_test_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   0
@@ -7308,7 +7308,7 @@ Array [
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="rc_select_test_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   1

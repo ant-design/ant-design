@@ -1256,7 +1256,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-sub1-popup"
+            aria-controls="rc-menu-uuid-test-subtest-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
@@ -1299,7 +1299,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-sub2-popup"
+            aria-controls="rc-menu-uuid-test-subtest-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
@@ -1931,7 +1931,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-test-sub1-popup"
+                aria-controls="rc-menu-uuid-test-subtest-popup"
                 aria-expanded="true"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
@@ -1971,7 +1971,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
-                id="rc-menu-uuid-test-sub1-popup"
+                id="rc-menu-uuid-test-subtest-popup"
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -2032,7 +2032,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-test-sub2-popup"
+                aria-controls="rc-menu-uuid-test-subtest-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
@@ -2075,7 +2075,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-test-sub3-popup"
+                aria-controls="rc-menu-uuid-test-subtest-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
@@ -2257,7 +2257,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="rc-menu-uuid-test-sub1-popup"
+              aria-controls="rc-menu-uuid-test-subtest-popup"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
@@ -2297,7 +2297,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
-              id="rc-menu-uuid-test-sub1-popup"
+              id="rc-menu-uuid-test-subtest-popup"
             >
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
@@ -2358,7 +2358,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="rc-menu-uuid-test-sub2-popup"
+              aria-controls="rc-menu-uuid-test-subtest-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
@@ -2401,7 +2401,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="rc-menu-uuid-test-sub3-popup"
+              aria-controls="rc-menu-uuid-test-subtest-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"

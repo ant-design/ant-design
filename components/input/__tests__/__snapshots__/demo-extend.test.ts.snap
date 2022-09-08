@@ -55,7 +55,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
@@ -92,7 +92,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label="http://"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       http://
@@ -100,7 +100,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label="https://"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       https://
@@ -206,7 +206,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
@@ -243,7 +243,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label=".com"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       .com
@@ -251,7 +251,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label=".jp"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       .jp
@@ -2824,7 +2824,7 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
           aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
@@ -2861,7 +2861,7 @@ Array [
             <div
               aria-label="Jack"
               aria-selected="true"
-              id="rc_select_test_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -2869,7 +2869,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="false"
-              id="rc_select_test_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -5341,7 +5341,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -5378,7 +5378,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Zhejiang"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Zhejiang
@@ -5386,7 +5386,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Jiangsu"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Jiangsu
@@ -5649,7 +5649,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -5686,7 +5686,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option1"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1
@@ -5694,7 +5694,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option2"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2
@@ -7670,7 +7670,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -7707,7 +7707,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option1-1"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1-1
@@ -7715,7 +7715,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option1-2"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1-2
@@ -7812,7 +7812,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -7849,7 +7849,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option2-1"
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2-1
@@ -7857,7 +7857,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option2-2"
                 aria-selected="true"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2-2
@@ -7959,7 +7959,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -7996,7 +7996,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Between"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -8004,7 +8004,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Except"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2
@@ -8129,7 +8129,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -8166,7 +8166,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Sign Up"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Sign Up
@@ -8174,7 +8174,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Sign In"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Sign In
@@ -8304,7 +8304,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             >
               <div
                 aria-selected="false"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 text 1
@@ -8381,7 +8381,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
             aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
@@ -8418,7 +8418,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Home"
                 aria-selected="true"
-                id="rc_select_test_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Home
@@ -8426,7 +8426,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Company"
                 aria-selected="false"
-                id="rc_select_test_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Company

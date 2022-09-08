@@ -6002,7 +6002,7 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-sub1-popup"
+            aria-controls="rc-menu-uuid-test-subtest-popup"
             aria-expanded="true"
             aria-haspopup="true"
             class="ant-dropdown-menu-submenu-title"
@@ -6066,7 +6066,7 @@ Array [
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-menu-uuid-test-sub1-popup"
+                id="rc-menu-uuid-test-subtest-popup"
               >
                 <li
                   class="ant-dropdown-menu-item-group"
@@ -6241,7 +6241,7 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-sub2-popup"
+            aria-controls="rc-menu-uuid-test-subtest-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-dropdown-menu-submenu-title"
@@ -6305,7 +6305,7 @@ Array [
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-menu-uuid-test-sub2-popup"
+                id="rc-menu-uuid-test-subtest-popup"
               >
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -6380,7 +6380,7 @@ Array [
                   role="none"
                 >
                   <div
-                    aria-controls="rc-menu-uuid-test-sub3-popup"
+                    aria-controls="rc-menu-uuid-test-subtest-popup"
                     aria-expanded="false"
                     aria-haspopup="true"
                     class="ant-dropdown-menu-submenu-title"
@@ -6425,7 +6425,7 @@ Array [
                       <ul
                         class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                         data-menu-list="true"
-                        id="rc-menu-uuid-test-sub3-popup"
+                        id="rc-menu-uuid-test-subtest-popup"
                       >
                         <li
                           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
@@ -6508,7 +6508,7 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-sub4-popup"
+            aria-controls="rc-menu-uuid-test-subtest-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-dropdown-menu-submenu-title"
@@ -6572,7 +6572,7 @@ Array [
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-menu-uuid-test-sub4-popup"
+                id="rc-menu-uuid-test-subtest-popup"
               >
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"

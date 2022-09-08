@@ -5769,7 +5769,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-expanded="false"
@@ -5808,7 +5808,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
                     <div
                       aria-label="10 / page"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       10
@@ -5816,7 +5816,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
                     <div
                       aria-label="20 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       20
@@ -10439,7 +10439,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-expanded="false"
@@ -10478,7 +10478,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
                     <div
                       aria-label="10 / page"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       10
@@ -10486,7 +10486,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
                     <div
                       aria-label="20 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       20
@@ -11821,7 +11821,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-expanded="false"
@@ -11860,7 +11860,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
                     <div
                       aria-label="10 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       10
@@ -11868,7 +11868,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
                     <div
                       aria-label="20 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       20
@@ -13179,7 +13179,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-expanded="false"
@@ -13218,7 +13218,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                     <div
                       aria-label="10 / page"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       10
@@ -13226,7 +13226,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                     <div
                       aria-label="20 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       20
@@ -15689,7 +15689,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_0"
+                    aria-activedescendant="rc_select_test_list_test"
                     aria-autocomplete="list"
                     aria-controls="rc_select_test_list"
                     aria-expanded="false"
@@ -15728,7 +15728,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
                       <div
                         aria-label="10 / page"
                         aria-selected="true"
-                        id="rc_select_test_list_0"
+                        id="rc_select_test_list_test"
                         role="option"
                       >
                         10
@@ -15736,7 +15736,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
                       <div
                         aria-label="20 / page"
                         aria-selected="false"
-                        id="rc_select_test_list_1"
+                        id="rc_select_test_list_test"
                         role="option"
                       >
                         20
@@ -25725,7 +25725,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
                   aria-controls="rc_select_test_list"
                   aria-expanded="false"
@@ -25764,7 +25764,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
                     <div
                       aria-label="10 / page"
                       aria-selected="true"
-                      id="rc_select_test_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       10
@@ -25772,7 +25772,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
                     <div
                       aria-label="20 / page"
                       aria-selected="false"
-                      id="rc_select_test_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       20
