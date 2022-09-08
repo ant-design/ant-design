@@ -23,32 +23,6 @@ export interface FloatButtonProps {
   onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-interface ContentProps {
-  prefixCls: string;
-  rootPrefixCls: string;
-  children?: React.ReactNode;
-}
-
-const FloatButtonContent: React.FC<ContentProps> = props => {
-  const { prefixCls, rootPrefixCls, children } = props;
-  const defaultElement = (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-icon`}>
-        <FileTextOutlined />
-      </div>
-    </div>
-  );
-  return (
-    <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-      {options =>
-        cloneElement(children || defaultElement, ({ className }) => ({
-          className: classNames(options.className, className),
-        }))
-      }
-    </CSSMotion>
-  );
-};
-
 interface BackTopProps {
   BackTop: typeof BackTop;
 }
@@ -68,20 +42,29 @@ const FloatButton: React.FC<FloatButtonProps> & BackTopProps = props => {
 
   const classString = classNames(hashId, prefixCls, className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${shape}`]: shape === 'square',
+    [`${prefixCls}-${shape}`]: shape,
     [`${prefixCls}-${type}`]: type,
   });
 
-  const divProps = omit<FloatButtonProps, 'prefixCls' | 'className'>(props, [
-    'prefixCls',
-    'className',
-  ]);
+  const divProps = omit(props, ['prefixCls', 'className']);
+
+  const defaultElement = (
+    <div className={`${prefixCls}-content ${prefixCls}-${shape}`}>
+      <div className={`${prefixCls}-icon`}>
+        <FileTextOutlined />
+      </div>
+    </div>
+  );
 
   return wrapSSR(
     <div {...divProps} className={classString} onClick={onClick}>
-      <FloatButtonContent prefixCls={prefixCls} rootPrefixCls={rootPrefixCls}>
-        {props.children}
-      </FloatButtonContent>
+      <CSSMotion motionName={`${rootPrefixCls}-fade`}>
+        {options =>
+          cloneElement(props.children || defaultElement, contextProps => ({
+            className: classNames(options.className, contextProps.className),
+          }))
+        }
+      </CSSMotion>
     </div>,
   );
 };

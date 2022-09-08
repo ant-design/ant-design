@@ -42,6 +42,14 @@ const genSharedBackTopStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         display: 'none',
       },
 
+      [`${componentCls}-circle`]: {
+        borderRadius: backTopSize,
+      },
+
+      [`${componentCls}-square`]: {
+        borderRadius: 0,
+      },
+
       [`${componentCls}-content`]: {
         width: backTopSize,
         height: backTopSize,
@@ -49,9 +57,7 @@ const genSharedBackTopStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
         color: token.backTopColor,
         textAlign: 'center',
         backgroundColor: token.backTopBackground,
-        borderRadius: backTopSize,
         transition: `all ${token.motionDurationSlow}`,
-
         '&:hover': {
           backgroundColor: token.backTopHoverBackground,
           transition: `all ${token.motionDurationSlow}`,

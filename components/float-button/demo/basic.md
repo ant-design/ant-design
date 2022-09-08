@@ -19,7 +19,7 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <FloatButton shape="square" />
+    <FloatButton />
     Scroll down to see the bottom-right
   </>
 );
