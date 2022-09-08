@@ -25,6 +25,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
     [componentCls]: {
       color: token.colorText,
       overflowWrap: 'break-word',
+      lineHeight: token.lineHeight,
       '&&-secondary': {
         color: token.colorTextDescription,
       },

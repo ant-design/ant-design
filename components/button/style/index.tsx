@@ -2,6 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import genGroupStyle from './group';
+import { genFocusStyle } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -45,13 +46,17 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&${componentCls}-block`]: {
         width: '100%',
       },
+
+      '&:not(:disabled)': {
+        ...genFocusStyle(token),
+      },
     },
   };
 };
 
 const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject): CSSObject => ({
   '&:not(:disabled)': {
-    '&:hover, &:focus': hoverStyle,
+    '&:hover': hoverStyle,
     '&:active': activeStyle,
   },
 });

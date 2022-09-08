@@ -95,3 +95,14 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
     },
   },
 });
+
+export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
+  outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
+  outlineOffset: 1,
+});
+
+export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
+  '&:focus-visible': {
+    ...genFocusOutline(token),
+  },
+});

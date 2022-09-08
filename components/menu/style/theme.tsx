@@ -1,13 +1,10 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { genFocusOutline } from '../../style';
 import type { MenuToken } from '.';
 
-const accessibilityFocus = (token: MenuToken) => {
-  const { controlOutlineWidth, colorPrimaryHover } = token;
-
-  return {
-    boxShadow: `0 0 0 ${controlOutlineWidth}px ${colorPrimaryHover}`,
-  };
-};
+const accessibilityFocus = (token: MenuToken) => ({
+  ...genFocusOutline(token),
+});
 
 const getThemeStyle = (token: MenuToken): CSSInterpolation => {
   const {
