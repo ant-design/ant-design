@@ -4,6 +4,7 @@ import glob from 'glob';
 import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
+import '@testing-library/jest-dom';
 
 require('isomorphic-fetch');
 
@@ -55,6 +56,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
     // function doTest(name: string, openTrigger = false) {
     testMethod(
+      /** @jest-environment jsdom */
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
