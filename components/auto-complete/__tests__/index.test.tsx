@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
+import { resetWarned } from '../../_util/warning';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -97,5 +98,25 @@ describe('AutoComplete', () => {
       </AutoComplete>,
     );
     expect(screen.getByRole('combobox')).toHaveClass('custom');
+  });
+
+  it('deprecated dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <AutoComplete
+        dropdownClassName="legacy"
+        open
+        options={[{ label: 'little', value: 'little' }]}
+        searchValue="l"
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated, please use `popupClassName` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

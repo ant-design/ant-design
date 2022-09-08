@@ -43,6 +43,8 @@ export interface AutoCompleteProps<
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
   popupClassName?: string;
+  /** @deprecated Please use `popupClassName` instead */
+  dropdownClassName?: string;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -53,7 +55,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   props,
   ref,
 ) => {
-  const { prefixCls: customizePrefixCls, className, popupClassName, children, dataSource } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    popupClassName,
+    dropdownClassName,
+    children,
+    dataSource,
+  } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   // ============================= Input =============================
@@ -108,17 +117,25 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       : [];
   }
 
-  warning(
-    !('dataSource' in props),
-    'AutoComplete',
-    '`dataSource` is deprecated, please use `options` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('dataSource' in props),
+      'AutoComplete',
+      '`dataSource` is deprecated, please use `options` instead.',
+    );
 
-  warning(
-    !customizeInput || !('size' in props),
-    'AutoComplete',
-    'You need to control style self instead of setting `size` when using customize input.',
-  );
+    warning(
+      !customizeInput || !('size' in props),
+      'AutoComplete',
+      'You need to control style self instead of setting `size` when using customize input.',
+    );
+
+    warning(
+      !dropdownClassName,
+      'AutoComplete',
+      '`dropdownClassName` is deprecated, please use `popupClassName` instead.',
+    );
+  }
 
   return (
     <ConfigConsumer>
@@ -128,9 +145,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         return (
           <Select
             ref={ref}
-            {...omit(props, ['dataSource'])}
+            {...omit(props, ['dataSource', 'dropdownClassName'])}
             prefixCls={prefixCls}
-            dropdownClassName={popupClassName}
+            popupClassName={popupClassName || dropdownClassName}
             className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
             {...{

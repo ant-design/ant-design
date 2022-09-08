@@ -28,6 +28,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     status?: InputStatus;
     hashId?: string;
     popupClassName?: string;
+    /** @deprecated Please use `popupClassName` instead */
+    dropdownClassName?: string;
   };
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -44,6 +46,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placement,
           placeholder,
           popupClassName,
+          dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
           ...restProps
@@ -81,11 +84,19 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const rootPrefixCls = getPrefixCls();
 
         // =================== Warning =====================
-        warning(
-          picker !== 'quarter',
-          displayName!,
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
+        if (process.env.NODE_ENV !== 'production') {
+          warning(
+            picker !== 'quarter',
+            displayName!,
+            `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+          );
+
+          warning(
+            !dropdownClassName,
+            displayName || 'DatePicker',
+            '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+          );
+        }
 
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
@@ -147,7 +158,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
-                  dropdownClassName={classNames(hashId, popupClassName)}
+                  dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
                 />
               );
             }}

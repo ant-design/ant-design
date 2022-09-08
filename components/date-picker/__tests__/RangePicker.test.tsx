@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
+import { resetWarned } from '../../_util/warning';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
@@ -113,5 +114,18 @@ describe('RangePicker', () => {
     const { container } = render(<RangePicker picker="quarter" locale={enUS} />);
     expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('Start quarter');
     expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
+  });
+
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

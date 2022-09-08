@@ -8,6 +8,7 @@ import { fireEvent, render } from '../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import type { PickerLocale } from '../generatePicker';
+import { resetWarned } from '../../_util/warning';
 
 dayjs.extend(customParseFormat);
 
@@ -268,5 +269,18 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
+  });
+
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });
