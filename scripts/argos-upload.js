@@ -20,7 +20,7 @@ function execFile(command, args) {
 }
 
 const screenshotsBase = 'imageSnapshots';
-const screenshotsTmp = `${screenshotsBase}/temp`;
+const screenshotsChunks = `imageSnapshots-chunks`;
 const BATCH_SIZE = 200;
 
 async function move2Temp(screenshot, target) {
@@ -35,7 +35,7 @@ async function run() {
   await Promise.all(
     chunks.map((chunk, chunkIndex) =>
       Promise.all(
-        chunk.map(screenshot => move2Temp(screenshot, `${screenshotsTmp}/${chunkIndex}`)),
+        chunk.map(screenshot => move2Temp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
       ),
     ),
   );
@@ -43,7 +43,7 @@ async function run() {
   for (let i = 0; i < chunks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     const result = await argos.upload({
-      root: `${screenshotsTmp}/${i}`,
+      root: `${screenshotsChunks}/${i}`,
       token: process.env.ARGOS_TOKEN,
       parallel: {
         total: chunks.length,
