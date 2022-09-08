@@ -55,6 +55,8 @@ export interface TreeSelectProps<
   disabled?: boolean;
   placement?: SelectCommonPlacement;
   popupClassName?: string;
+  /** @deprecated Please use `popupClassName` instead */
+  dropdownClassName?: string;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -78,6 +80,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     treeLine,
     getPopupContainer,
     popupClassName,
+    dropdownClassName,
     treeIcon = false,
     transitionName,
     choiceTransitionName = '',
@@ -98,11 +101,19 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  warning(
-    multiple !== false || !treeCheckable,
-    'TreeSelect',
-    '`multiple` will always be `true` when `treeCheckable` is true',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      multiple !== false || !treeCheckable,
+      'TreeSelect',
+      '`multiple` will always be `true` when `treeCheckable` is true',
+    );
+
+    warning(
+      !dropdownClassName,
+      'TreeSelect',
+      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+    );
+  }
 
   const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -113,7 +124,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(
-    popupClassName,
+    popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
