@@ -1,6 +1,5 @@
 ---
 order: 1
-iframe: 400
 title:
   zh-CN: 自定义样式
   en-US: Custom style
@@ -19,34 +18,9 @@ You can customize the style of the button, just note the size limit: no more tha
 > Note: `FloatButton` expects a element could accept `onClick` propety as children. If you put a text directly as children the component will not function properly.
 
 ```tsx
-import React from 'react';
-import { FloatButton } from 'antd';
+import type React from 'react';
 
-const style: React.CSSProperties = {
-  height: 40,
-  width: 40,
-  lineHeight: '40px',
-  borderRadius: 4,
-  backgroundColor: '#1088e9',
-  color: '#fff',
-  textAlign: 'center',
-  fontSize: 14,
-};
-
-const App: React.FC = () => (
-  <div style={{ height: '600vh', padding: 8 }}>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <div>Scroll to bottom</div>
-    <FloatButton>
-      <div style={style}>UP</div>
-    </FloatButton>
-  </div>
-);
+const App: React.FC = () => null;
 
 export default App;
 ```

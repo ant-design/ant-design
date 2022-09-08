@@ -69,7 +69,6 @@ const genSharedBackTopStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
 
 const genMediaBackTopStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject => {
   const { componentCls } = token;
-  console.log(componentCls);
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
       [componentCls]: {

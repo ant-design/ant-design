@@ -2,9 +2,10 @@ import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import omit from 'rc-util/lib/omit';
+import React, { useContext } from 'react';
 import type { MouseEventHandler } from 'react';
-import React from 'react';
 import BackTop from '../back-top';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
@@ -48,21 +49,33 @@ const FloatButtonContent: React.FC<ContentProps> = props => {
   );
 };
 
-const FloatButton: React.FC<FloatButtonProps> & { BackTop: typeof BackTop } = props => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+interface BackTopProps {
+  BackTop: typeof BackTop;
+}
 
-  const { prefixCls: customizePrefixCls, className = '', onClick } = props;
+const FloatButton: React.FC<FloatButtonProps> & BackTopProps = props => {
+  const {
+    prefixCls: customizePrefixCls,
+    className = '',
+    type = 'default',
+    shape = 'circle',
+    onClick,
+  } = props;
+  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('float-button', customizePrefixCls);
-
   const rootPrefixCls = getPrefixCls();
-
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const classString = classNames(hashId, prefixCls, className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
+    [`${prefixCls}-${shape}`]: shape === 'square',
+    [`${prefixCls}-${type}`]: type,
   });
 
-  const divProps = omit(props, ['prefixCls', 'className']);
+  const divProps = omit<FloatButtonProps, 'prefixCls' | 'className'>(props, [
+    'prefixCls',
+    'className',
+  ]);
 
   return wrapSSR(
     <div {...divProps} className={classString} onClick={onClick}>
@@ -72,6 +85,10 @@ const FloatButton: React.FC<FloatButtonProps> & { BackTop: typeof BackTop } = pr
     </div>,
   );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  FloatButton.displayName = 'FloatButton';
+}
 
 FloatButton.BackTop = BackTop;
 

@@ -19,10 +19,8 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <FloatButton />
+    <FloatButton shape="square" />
     Scroll down to see the bottom-right
-    <strong className="site-back-top-basic">gray</strong>
-    button.
   </>
 );
 
