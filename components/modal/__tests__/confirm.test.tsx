@@ -850,4 +850,31 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     jest.useRealTimers();
   });
+
+  // https://github.com/ant-design/ant-design/issues/37461
+  it('Update should closable', async () => {
+    jest.useFakeTimers();
+
+    Modal.confirm({}).update({
+      visible: true,
+    });
+
+    await act(async () => {
+      jest.runAllTimers();
+      await sleep();
+    });
+
+    expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+    $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+
+    await act(async () => {
+      jest.runAllTimers();
+      await sleep();
+    });
+
+    expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
+
+    jest.useRealTimers();
+  });
 });
