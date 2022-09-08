@@ -5,8 +5,6 @@ import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-/** @jest-environment jsdom */
-
 require('isomorphic-fetch');
 
 function normalizeAriaValue(value: string | null): string {
