@@ -56,6 +56,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
     // function doTest(name: string, openTrigger = false) {
     testMethod(
+      /** @jest-environment jsdom */
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
