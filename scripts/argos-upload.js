@@ -23,9 +23,9 @@ const screenshotsBase = 'imageSnapshots';
 const screenshotsChunks = `imageSnapshots-chunks`;
 const BATCH_SIZE = 200;
 
-async function move2Temp(screenshot, target) {
+async function cpToTemp(screenshot, target) {
   await execFile('mkdir', ['-p', target]);
-  await execFile('mv', [screenshot, target]);
+  await execFile('cp', [screenshot, target]);
 }
 
 async function run() {
@@ -35,7 +35,7 @@ async function run() {
   await Promise.all(
     chunks.map((chunk, chunkIndex) =>
       Promise.all(
-        chunk.map(screenshot => move2Temp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
+        chunk.map(screenshot => cpToTemp(screenshot, `${screenshotsChunks}/${chunkIndex}`)),
       ),
     ),
   );
