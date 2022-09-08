@@ -1,27 +1,18 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
+import type { TransferListProps } from '../list';
 import List from '../list';
 
-const listCommonProps = {
+const listCommonProps: TransferListProps<any> = {
   prefixCls: 'ant-transfer-list',
   dataSource: [
-    {
-      key: 'a',
-      title: 'a',
-    },
-    {
-      key: 'b',
-      title: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-      disabled: true,
-    },
+    { key: 'a', title: 'a' },
+    { key: 'b', title: 'b' },
+    { key: 'c', title: 'c', disabled: true },
   ],
   checkedKeys: ['a'],
   notFoundContent: 'Not Found',
-};
+} as TransferListProps<any>;
 
 describe('Transfer.List', () => {
   it('should render correctly', () => {
@@ -31,41 +22,25 @@ describe('Transfer.List', () => {
 
   it('should check top Checkbox while all available items are checked', () => {
     const { container } = render(<List {...listCommonProps} checkedKeys={['a', 'b']} />);
-
     expect(
-      container.querySelector('.ant-transfer-list-header input[type="checkbox"]').checked,
+      container.querySelector<HTMLInputElement>('.ant-transfer-list-header input[type="checkbox"]')
+        ?.checked,
     ).toBeTruthy();
   });
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
-    let instance;
-    const wrapper = render(
-      <List
-        ref={node => {
-          instance = node;
-        }}
-        {...listCommonProps}
-      />,
-    );
-    const willUnmount = jest.spyOn(instance, 'componentWillUnmount');
-    wrapper.unmount();
+    const instance = React.createRef<any>();
+    const { unmount } = render(<List ref={instance} {...listCommonProps} />);
+    const willUnmount = jest.spyOn(instance.current, 'componentWillUnmount');
+    unmount();
     expect(willUnmount).toHaveBeenCalled();
   });
 
   it('when value is not exists, handleFilter should return', () => {
     const handleFilter = jest.fn();
-    let instance;
-    render(
-      <List
-        ref={node => {
-          instance = node;
-        }}
-        {...listCommonProps}
-        handleFilter={handleFilter}
-      />,
-    );
-
-    expect(instance.handleFilter({ target: 'test' })).toBe(undefined);
+    const instance = React.createRef<any>();
+    render(<List ref={instance} {...listCommonProps} handleFilter={handleFilter} />);
+    expect(instance.current?.handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
   });
 });
