@@ -19,7 +19,11 @@
   //== Style for input-group: input with label, with button or dropdown...
   &-group {
     .reset-component();
-    .input-group(~'@{input-prefix-cls}');
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 
     &-wrapper {
       display: inline-block;
@@ -88,13 +92,6 @@
 .@{group-prefix-cls} {
   .reset-component();
   .input-group(@input-prefix-cls);
-
-  &-wrapper {
-    display: inline-block;
-    width: 100%;
-    text-align: start;
-    vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
-  }
 }
 
 @import './search-input';

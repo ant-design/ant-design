@@ -1,9 +1,13 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 
-@btn-prefix-cls: ~'@{ant-prefix}-group';
+@group-prefix-cls: ~'@{ant-prefix}-group';
 
-.@{btn-prefix-cls} {
-  // position: relative;
-  // display: inline-flex;
+.@{group-prefix-cls} {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
