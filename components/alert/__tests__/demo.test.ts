@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('alert');
+demoTest('alert', { skip: ['loop-banner.md'] });
