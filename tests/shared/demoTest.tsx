@@ -4,6 +4,7 @@ import glob from 'glob';
 import { excludeWarning } from './excludeWarning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
+import '@testing-library/jest-dom';
 
 require('isomorphic-fetch');
 
