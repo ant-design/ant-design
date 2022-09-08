@@ -17,7 +17,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          depth: 2
+          fetch-depth: 2
 
       - name: cache package-lock.json
         uses: actions/cache@v3
