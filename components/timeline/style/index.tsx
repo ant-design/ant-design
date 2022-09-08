@@ -9,6 +9,7 @@ interface TimelineToken extends FullToken<'Timeline'> {
   timeLineItemPaddingBottom: number;
   timeLineItemHeadSize: number;
   timeLineItemCustomHeadPaddingVertical: number;
+  timeLineItemTailWidth: number;
   timeLinePaddingInlineEnd: number;
 }
 
@@ -32,9 +33,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         '&-tail': {
           position: 'absolute',
           insetBlockStart: token.timeLineItemHeadSize,
-          insetInlineStart: `${token.radiusLG}px`,
+          insetInlineStart: (token.timeLineItemHeadSize - token.timeLineItemTailWidth) / 2,
           height: `calc(100% - ${token.timeLineItemHeadSize}px)`,
-          borderInlineStart: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
+          borderInlineStart: `${token.timeLineItemTailWidth}px ${token.lineType} ${token.colorSplit}`,
         },
 
         '&-pending': {
@@ -53,7 +54,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           width: token.timeLineItemHeadSize,
           height: token.timeLineItemHeadSize,
           backgroundColor: token.colorBgContainer,
-          border: `${token.radiusBase}px ${token.lineType} transparent`,
+          border: `${token.lineWidth * 3}px ${token.lineType} transparent`,
           borderRadius: '50%',
 
           '&-blue': {
@@ -125,7 +126,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
             marginInlineStart: `-${token.marginXXS}px`,
 
             '&-custom': {
-              marginInlineStart: `${token.radiusSM}px`,
+              marginInlineStart: token.timeLineItemTailWidth / 2,
             },
           },
 
@@ -166,7 +167,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         ${componentCls}-item-tail`]: {
         display: 'block',
         height: `calc(100% - ${token.margin}px)`,
-        borderInlineStart: `${token.radiusBase}px dotted ${token.colorSplit}`,
+        borderInlineStart: `${token.timeLineItemTailWidth}px dotted ${token.colorSplit}`,
       },
 
       [`&${componentCls}-reverse
@@ -180,7 +181,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           insetBlockStart: token.margin,
           display: 'block',
           height: `calc(100% - ${token.margin}px)`,
-          borderInlineStart: `${token.radiusBase}px dotted ${token.colorSplit}`,
+          borderInlineStart: `${token.timeLineItemTailWidth}px dotted ${token.colorSplit}`,
         },
 
         [`${componentCls}-item-content`]: {
@@ -191,9 +192,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
       [`&${componentCls}-label`]: {
         [`${componentCls}-item-label`]: {
           position: 'absolute',
-          insetBlockStart: `${
-            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + token.radiusSM
-          }px`,
+          insetBlockStart:
+            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) +
+            token.timeLineItemTailWidth,
           width: `calc(50% - ${token.marginSM}px)`,
           textAlign: 'end',
         },
@@ -217,6 +218,7 @@ export default genComponentStyleHook('Timeline', token => {
     timeLineItemHeadSize: 10,
     timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
     timeLinePaddingInlineEnd: 2,
+    timeLineItemTailWidth: token.lineWidthBold,
   });
 
   return [genTimelineStyle(timeLineToken)];
