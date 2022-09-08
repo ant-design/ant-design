@@ -36,8 +36,8 @@ describe('Tree', () => {
     const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -48,8 +48,8 @@ describe('Tree', () => {
     const { container } = render(
       <Tree showLine={{ showLeafIcon: <i className="customLeafIcon" /> }} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -60,8 +60,8 @@ describe('Tree', () => {
     const { container } = render(
       <Tree showLine={{ showLeafIcon: () => <i className="customLeafIcon" /> }} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -73,8 +73,8 @@ describe('Tree', () => {
     render(
       <Tree showLine={{ showLeafIcon: 'customLeafIcon' }} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -87,8 +87,8 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -105,8 +105,8 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -122,8 +122,8 @@ describe('Tree', () => {
         }
       >
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
