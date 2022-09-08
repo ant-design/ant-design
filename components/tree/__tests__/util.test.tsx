@@ -51,7 +51,7 @@ describe('Tree util', () => {
 
     it('returns a loading icon when loading', () => {
       const { container } = render(
-        renderSwitcherIcon(prefixCls, undefined, true, { loading: true }),
+        <>{renderSwitcherIcon(prefixCls, undefined, true, { loading: true })}</>,
       );
       expect(container.getElementsByClassName(`${prefixCls}-switcher-loading-icon`)).toHaveLength(
         1,
@@ -60,7 +60,7 @@ describe('Tree util', () => {
 
     it('returns nothing when node is a leaf without showLine', () => {
       const { container } = render(
-        renderSwitcherIcon(prefixCls, undefined, false, { loading: false, isLeaf: true }),
+        <>{renderSwitcherIcon(prefixCls, undefined, false, { loading: false, isLeaf: true })}</>,
       );
       expect(container).toBeEmptyDOMElement();
     });
@@ -69,12 +69,14 @@ describe('Tree util', () => {
       const testId = 'custom-icon';
       const customLeafIcon = <div data-testid={testId} />;
       const { container } = render(
-        renderSwitcherIcon(
-          prefixCls,
-          undefined,
-          { showLeafIcon: customLeafIcon },
-          { loading: false, isLeaf: true },
-        ),
+        <>
+          {renderSwitcherIcon(
+            prefixCls,
+            undefined,
+            { showLeafIcon: customLeafIcon },
+            { loading: false, isLeaf: true },
+          )}
+        </>,
       );
 
       expect(screen.getByTestId(testId)).toBeVisible();
@@ -88,12 +90,14 @@ describe('Tree util', () => {
       [`${prefixCls}-switcher-leaf-line`, false],
     ])('returns %p element when showLeafIcon is %p', (expectedClassName, showLeafIcon) => {
       const { container } = render(
-        renderSwitcherIcon(
-          prefixCls,
-          undefined,
-          { showLeafIcon },
-          { loading: false, isLeaf: true },
-        ),
+        <>
+          {renderSwitcherIcon(
+            prefixCls,
+            undefined,
+            { showLeafIcon },
+            { loading: false, isLeaf: true },
+          )}
+        </>,
       );
 
       expect(container.getElementsByClassName(expectedClassName)).toHaveLength(1);
