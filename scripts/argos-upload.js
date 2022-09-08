@@ -44,8 +44,6 @@ async function run() {
     // eslint-disable-next-line no-await-in-loop
     const result = await argos.upload({
       root: `${screenshotsTmp}/${i}`,
-      commit: process.env.ARGOS_GITHUB_COMMIT,
-      branch: process.env.ARGOS_GITHUB_BRANCH,
       token: process.env.ARGOS_TOKEN,
       parallel: {
         total: chunks.length,
