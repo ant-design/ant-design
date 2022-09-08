@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react router react router 3 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/"
+        >
+          Home
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/apps"
+        >
+          Application List
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <a
+          href="#/apps/1"
+        >
+          Application1
+        </a>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        <span>
+          Detail
+        </span>
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
+`;

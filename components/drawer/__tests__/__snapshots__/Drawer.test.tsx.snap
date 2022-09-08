@@ -1,0 +1,658 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer className is test_drawer 1`] = `
+<div
+  class="ant-drawer ant-drawer-right test_drawer ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer closable is false 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer destroyOnClose is true 1`] = `null`;
+
+exports[`Drawer getContainer return undefined 1`] = `<div />`;
+
+exports[`Drawer getContainer return undefined 2`] = `
+<div>
+  <div
+    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 400px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-content"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-wrapper-body"
+        >
+          <div
+            class="ant-drawer-header ant-drawer-header-close-only"
+          >
+            <div
+              class="ant-drawer-header-title"
+            >
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            Here is content of Drawer
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`Drawer have a footer 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+        <div
+          class="ant-drawer-footer"
+        >
+          Test Footer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer have a title 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-drawer-title"
+            >
+              Test Title
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer render correctly 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 400px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer render top drawer 1`] = `
+<div
+  class="ant-drawer ant-drawer-top ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="height: 400px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  style="background-color: rgb(0, 136, 204);"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 378px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+        style="background-color: rgb(0, 136, 204);"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+          style="background-color: rgb(0, 136, 204);"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+          style="background-color: rgb(0, 136, 204);"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`Drawer support closeIcon 1`] = `
+<div
+  class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+  tabindex="-1"
+>
+  <div
+    class="ant-drawer-mask"
+  />
+  <div
+    aria-hidden="true"
+    data-sentinel="start"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+  <div
+    class="ant-drawer-content-wrapper"
+    style="width: 400px;"
+  >
+    <div
+      aria-modal="true"
+      class="ant-drawer-content"
+      role="dialog"
+    >
+      <div
+        class="ant-drawer-wrapper-body"
+      >
+        <div
+          class="ant-drawer-header ant-drawer-header-close-only"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span>
+                close
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          Here is content of Drawer
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    data-sentinel="end"
+    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+    tabindex="0"
+  />
+</div>
+`;

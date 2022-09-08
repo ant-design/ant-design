@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
+<ul
+  class="ant-timeline ant-timeline-rtl"
+/>
+`;
+
+exports[`TimeLine rtl render component should be rendered correctly in RTL direction 2`] = `
+<li
+  class="ant-timeline-item"
+>
+  <div
+    class="ant-timeline-item-tail"
+  />
+  <div
+    class="ant-timeline-item-head ant-timeline-item-head-blue"
+  />
+  <div
+    class="ant-timeline-item-content"
+  />
+</li>
+`;
