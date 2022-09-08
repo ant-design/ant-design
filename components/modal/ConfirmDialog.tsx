@@ -125,7 +125,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
             {cancelButton}
             <ActionButton
               type={okType}
-              actionFn={onOk}
+              /** See: https://github.com/ant-design/ant-design/issues/37329 because async render */
+              actionFn={open || visible ? onOk : undefined}
               close={close}
               autoFocus={autoFocusButton === 'ok'}
               buttonProps={okButtonProps}
