@@ -322,7 +322,9 @@ exports[`Transfer should render correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        1/2 items
+        1/2
+         
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -482,7 +484,9 @@ exports[`Transfer should render correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        1 item
+        1
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -571,7 +575,9 @@ exports[`Transfer should show sorted targetKey 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        1 item
+        1
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -710,7 +716,9 @@ exports[`Transfer should show sorted targetKey 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        2 items
+        2
+         
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -828,7 +836,9 @@ exports[`Transfer should support render value and label in item 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        1 item
+        1
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -967,7 +977,9 @@ exports[`Transfer should support render value and label in item 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        0
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -1079,7 +1091,9 @@ exports[`immutable data dataSource is frozen 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        1 item
+        1
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -1215,7 +1229,9 @@ exports[`immutable data dataSource is frozen 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        0
+         
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"
