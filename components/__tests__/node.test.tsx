@@ -1,6 +1,17 @@
 import glob from 'glob';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import type { Options } from '../../tests/shared/demoTest';
+
+(global as any).testConfig = {};
+
+jest.mock('../../tests/shared/demoTest', () => {
+  function fakeDemoTest(name: string, option: Options = {}) {
+    (global as any).testConfig[name] = option;
+  }
+
+  return fakeDemoTest;
+});
 
 describe('node', () => {
   beforeAll(() => {
@@ -17,8 +28,15 @@ describe('node', () => {
     describe(componentName, () => {
       const demoList = glob.sync(`./components/${componentName}/demo/*.md`);
 
+      // Use mock to get config
+      require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require
+      const option = (global as any).testConfig?.[componentName];
+
       demoList.forEach(demoFile => {
-        it(demoFile, () => {
+        const skip: string[] = option?.skip || [];
+        const test = skip.some(skipMarkdown => demoFile.includes(skipMarkdown)) ? it.skip : it;
+
+        test(demoFile, () => {
           const Demo = require(`../../${demoFile}`).default; // eslint-disable-line global-require, import/no-dynamic-require
           expect(() => {
             renderToString(<Demo />);

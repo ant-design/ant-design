@@ -39,7 +39,7 @@ function ariaConvert(element: Element) {
   });
 }
 
-type Options = {
+export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
 };
