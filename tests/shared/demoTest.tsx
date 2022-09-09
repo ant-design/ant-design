@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
+import { renderToString } from 'react-dom/server';
 import glob from 'glob';
 import { excludeWarning } from './excludeWarning';
-import { render } from '../utils';
+import { formatHTML, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
@@ -75,13 +76,19 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        const { container } = render(Demo);
-        const { children } = container;
-        const child = children.length > 1 ? Array.from(children) : children[0];
+        const html = renderToString(Demo);
+        expect({
+          ssr: true,
+          html,
+        }).toMatchSnapshot();
 
-        ariaConvert(container);
+        // const { container } = render(Demo);
+        // const { children } = container;
+        // const child = children.length > 1 ? Array.from(children) : children[0];
 
-        expect(child).toMatchSnapshot();
+        // ariaConvert(container);
+
+        // expect(child).toMatchSnapshot();
         errSpy();
       },
     );

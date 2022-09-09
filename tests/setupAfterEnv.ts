@@ -1,6 +1,20 @@
 import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
+import { JSDOM } from 'jsdom';
 import format, { plugins } from 'pretty-format';
+
+function formatHTML(nodes: any) {
+  const htmlContent = format(Array.from(nodes), {
+    plugins: [plugins.DOMCollection, plugins.DOMElement],
+  });
+
+  const filtered = htmlContent
+    .split(/[\n\r]+/)
+    .filter(line => line.trim())
+    .join('\n');
+
+  return filtered;
+}
 
 /**
  * React 17 & 18 will have different behavior in some special cases:
@@ -26,17 +40,21 @@ expect.addSnapshotSerializer({
       element instanceof DocumentFragment ||
       element instanceof HTMLCollection ||
       (Array.isArray(element) && element[0] instanceof HTMLElement)),
-  print: element => {
-    const htmlContent = format(element, {
-      plugins: [plugins.DOMCollection, plugins.DOMElement],
-    });
+  print: element => formatHTML(element),
+});
 
-    const filtered = htmlContent
-      .split(/[\n\r]+/)
-      .filter(line => line.trim())
-      .join('\n');
+// Demo test which always use ssr
+expect.addSnapshotSerializer({
+  test: content => typeof content === 'object' && content?.ssr === true && 'html' in content,
+  print: (content: any) => {
+    const { html } = content;
 
-    return filtered;
+    const dom = new JSDOM(`<body></body>`);
+    dom.window.document.body.innerHTML = html;
+
+    const nodes = Array.from(dom.window.document.body.childNodes);
+
+    return formatHTML(nodes.length === 1 ? nodes[0] : nodes);
   },
 });
 
