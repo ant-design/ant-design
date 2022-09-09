@@ -320,7 +320,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      a day ago
+                      8 hours ago
                     </span>
                     <div>
                       <div
@@ -341,7 +341,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            2016-11-21 00:00:00
+                            2016-11-22 11:22:33
                           </div>
                         </div>
                       </div>
@@ -398,7 +398,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      2 days ago
+                      9 hours ago
                     </span>
                     <div>
                       <div
@@ -419,7 +419,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                             class="ant-tooltip-inner"
                             role="tooltip"
                           >
-                            2016-11-20 00:00:00
+                            2016-11-22 10:22:33
                           </div>
                         </div>
                       </div>
