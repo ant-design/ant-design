@@ -701,6 +701,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           textAlign: 'start',
           listStyle: 'none',
           transition: `background ${token.motionDurationFast}`,
+          overflowX: 'hidden',
 
           '&::after': {
             display: 'block',
@@ -731,9 +732,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             padding: 0,
 
             [`&${componentCls}-time-panel-cell`]: {
+              marginInline: token.marginXXS,
               [`${componentCls}-time-panel-cell-inner`]: {
                 display: 'block',
-                width: '100%',
+                width: token.pickerTimePanelColumnWidth - 2 * token.marginXXS,
                 height: token.pickerTimePanelCellHeight,
                 margin: 0,
                 paddingBlock: 0,
@@ -742,7 +744,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                   (token.pickerTimePanelColumnWidth - token.pickerTimePanelCellHeight) / 2,
                 color: token.colorText,
                 lineHeight: `${token.pickerTimePanelCellHeight}px`,
-                borderRadius: 0,
+                borderRadius: token.controlRadiusSM,
                 cursor: 'pointer',
                 transition: `background ${token.motionDurationFast}`,
 

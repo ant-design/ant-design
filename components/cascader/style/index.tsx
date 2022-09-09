@@ -12,7 +12,7 @@ type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = token => {
-  const { prefixCls, componentCls } = token;
+  const { prefixCls, componentCls, antCls } = token;
   const cascaderMenuItemCls = `${componentCls}-menu-item`;
   const iconCls = `
     &${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
@@ -40,6 +40,11 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
       [`${componentCls}-dropdown`]: [
         // ==================== Checkbox ====================
         getCheckboxStyle(`${prefixCls}-checkbox`, token),
+        {
+          [`&${antCls}-select-dropdown`]: {
+            padding: 0,
+          },
+        },
         {
           [componentCls]: {
             // ================== Checkbox ==================
@@ -74,8 +79,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
               flexGrow: 1,
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
-              margin: `-${token.paddingXS}px 0`,
-              padding: `${token.paddingXS}px 0`,
+              padding: token.paddingXXS,
               overflow: 'auto',
               verticalAlign: 'top',
               listStyle: 'none',
@@ -83,20 +87,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
 
               '&:not(:last-child)': {
                 borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
-              },
-
-              '&:first-child': {
-                [`${componentCls}-menu-item`]: {
-                  borderStartStartRadius: token.radiusSM,
-                  borderEndStartRadius: token.radiusSM,
-                },
-              },
-
-              '&:last-child': {
-                [`${componentCls}-menu-item`]: {
-                  borderStartEndRadius: token.radiusSM,
-                  borderEndEndRadius: token.radiusSM,
-                },
               },
 
               '&-item': {
@@ -110,6 +100,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
                 textOverflow: 'ellipsis',
                 cursor: 'pointer',
                 transition: `all ${token.motionDurationFast}`,
+                borderRadius: token.radiusSM,
 
                 '&:hover': {
                   background: token.controlItemBgHover,
