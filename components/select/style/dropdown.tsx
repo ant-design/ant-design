@@ -44,7 +44,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         top: -9999,
         zIndex: token.zIndexPopup,
         boxSizing: 'border-box',
-        padding: `${token.paddingXXS}px 0`,
+        padding: token.paddingXXS,
         overflow: 'hidden',
         fontSize: token.fontSize,
         // Fix select render lag of long text in chrome
@@ -96,6 +96,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
           ...genItemStyle(token),
           cursor: 'pointer',
           transition: `background ${token.motionDurationSlow} ease`,
+          borderRadius: token.radiusSM,
 
           // =========== Group ============
           '&-group': {

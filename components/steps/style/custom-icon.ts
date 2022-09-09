@@ -3,13 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
 const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const {
-    componentCls,
-    stepsIconCustomTop,
-    stepsIconCustomSize,
-    stepsIconCustomFontSize,
-    processIconColor,
-  } = token;
+  const { componentCls, stepsIconCustomTop, stepsIconCustomSize, stepsIconCustomFontSize } = token;
 
   return {
     [`${componentCls}-item-custom`]: {
@@ -23,11 +17,6 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           height: stepsIconCustomSize,
           fontSize: stepsIconCustomFontSize,
           lineHeight: `${stepsIconCustomSize}px`,
-        },
-      },
-      [`&${componentCls}-item-process`]: {
-        [`${componentCls}-item-icon > ${componentCls}-icon`]: {
-          color: processIconColor,
         },
       },
     },

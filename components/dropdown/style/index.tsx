@@ -10,7 +10,7 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
-import { resetComponent, roundedArrow } from '../../style';
+import { genFocusStyle, resetComponent, roundedArrow } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -21,7 +21,7 @@ export interface DropdownToken extends FullToken<'Dropdown'> {
   dropdownArrowDistance: number;
   dropdownArrowOffset: number;
   dropdownPaddingVertical: number;
-  dropdownEdgeChildVerticalPadding: number;
+  dropdownEdgeChildPadding: number;
   menuCls: string;
 }
 
@@ -37,10 +37,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     antCls,
     iconCls,
     motionDurationMid,
-    motionDurationSlow,
+    motionDurationFast,
     dropdownPaddingVertical,
     fontSizeBase,
-    dropdownEdgeChildVerticalPadding,
+    dropdownEdgeChildPadding,
     radiusBase,
     colorTextDisabled,
     fontSizeIcon,
@@ -260,18 +260,19 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
       [`${componentCls}, ${componentCls}-menu-submenu`]: {
         [menuCls]: {
-          padding: `${dropdownEdgeChildVerticalPadding}px 0`,
+          padding: dropdownEdgeChildPadding,
           listStyleType: 'none',
           backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
           borderRadius: token.controlRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadowSecondary,
+          ...genFocusStyle(token),
 
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: token.colorTextDescription,
-            transition: `all ${motionDurationSlow}`,
+            transition: `all ${motionDurationFast}`,
           },
 
           // ======================= Item Content =======================
@@ -279,6 +280,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
+            borderRadius: token.radiusSM,
           },
 
           [`${menuCls}-item-icon`]: {
@@ -292,7 +294,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
             '> a': {
               color: 'inherit',
-              transition: `all ${motionDurationSlow}`,
+              transition: `all ${motionDurationFast}`,
 
               '&:hover': {
                 color: 'inherit',
@@ -316,15 +318,15 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             fontSize: fontSizeBase,
             lineHeight: token.lineHeight,
             cursor: 'pointer',
-            transition: `all ${motionDurationSlow}`,
+            transition: `all ${motionDurationFast}`,
 
-            '&:first-child': !dropdownEdgeChildVerticalPadding
+            '&:first-child': !dropdownEdgeChildPadding
               ? {
                   borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
                 }
               : [],
 
-            '&:last-child': !dropdownEdgeChildVerticalPadding
+            '&:last-child': !dropdownEdgeChildPadding
               ? {
                   borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
                 }
@@ -333,6 +335,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
             },
+
+            ...genFocusStyle(token),
 
             '&-selected': {
               color: token.colorPrimary,
@@ -440,7 +444,7 @@ export default genComponentStyleHook(
       dropdownArrowDistance: sizePopupArrow + marginXXS,
       dropdownArrowOffset: (sizePopupArrow / Math.sqrt(2)) * 2,
       dropdownPaddingVertical,
-      dropdownEdgeChildVerticalPadding: paddingXXS,
+      dropdownEdgeChildPadding: paddingXXS,
     });
     return [
       genBaseStyle(dropdownToken),

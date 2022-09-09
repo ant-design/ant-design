@@ -4,7 +4,7 @@ import { genCollapseMotion } from '../../style/motion';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { DerivativeToken } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================ Keyframes =============================
 const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
@@ -89,7 +89,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       '&-focused:not(:hover):not(&-active-focused)': {
-        background: token.controlOutline,
+        ...genFocusOutline(token),
       },
 
       // =================== Virtual List ===================
@@ -153,7 +153,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&-active ${treeCls}-node-content-wrapper`]: {
-          background: token.controlItemBgHover,
+          ...genFocusOutline(token),
         },
 
         [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
