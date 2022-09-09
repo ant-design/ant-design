@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 function formatHTML(nodes: any) {
-  const htmlContent = format(Array.from(nodes), {
+  const htmlContent = format(nodes, {
     plugins: [plugins.DOMCollection, plugins.DOMElement],
   });
 

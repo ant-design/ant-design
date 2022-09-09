@@ -3,7 +3,7 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import glob from 'glob';
 import { excludeWarning } from './excludeWarning';
-import { act, render } from '../utils';
+import { formatHTML, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
@@ -76,25 +76,26 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        if (options?.testingLib) {
-          // Testing lib
-          const { container } = render(Demo);
-          act(() => {
-            jest.runAllTimers();
-          });
+        // const html = renderToString(Demo);
+        // expect({
+        //   ssr: true,
+        //   html,
+        // }).toMatchSnapshot();
 
+        if (typeof document === 'undefined') {
+          // Server
+          expect(() => {
+            renderToString(Demo);
+          }).not.toThrow();
+        } else {
+          // Client
+          const { container } = render(Demo);
           ariaConvert(container);
 
           const { children } = container;
-          const child = children.length > 1 ? children : children[0];
+          const child = children.length > 1 ? Array.from(children) : children[0];
+
           expect(child).toMatchSnapshot();
-        } else {
-          // SSR
-          const html = renderToString(Demo);
-          expect({
-            ssr: true,
-            html,
-          }).toMatchSnapshot();
         }
 
         errSpy();
