@@ -83,6 +83,8 @@ const genGhostButtonStyle = (
   borderColor: string | false,
   textColorDisabled: string | false,
   borderColorDisabled: string | false,
+  hoverStyle?: CSSObject,
+  activeStyle?: CSSObject,
 ): CSSObject => ({
   [`&${btnCls}-background-ghost`]: {
     color: textColor || undefined,
@@ -90,9 +92,16 @@ const genGhostButtonStyle = (
     borderColor: borderColor || undefined,
     boxShadow: 'none',
 
-    '&:hover': {
-      backgroundColor: 'transparent',
-    },
+    ...genHoverActiveButtonStyle(
+      {
+        backgroundColor: 'transparent',
+        ...hoverStyle,
+      },
+      {
+        backgroundColor: 'transparent',
+        ...activeStyle,
+      },
+    ),
 
     '&:disabled': {
       cursor: 'not-allowed',
@@ -203,6 +212,14 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
     token.colorPrimary,
     token.colorTextDisabled,
     token.colorBorder,
+    {
+      color: token.colorPrimaryHover,
+      borderColor: token.colorPrimaryHover,
+    },
+    {
+      color: token.colorPrimaryActive,
+      borderColor: token.colorPrimaryActive,
+    },
   ),
 
   [`&${token.componentCls}-dangerous`]: {
@@ -224,6 +241,14 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
       token.colorError,
       token.colorTextDisabled,
       token.colorBorder,
+      {
+        color: token.colorErrorHover,
+        borderColor: token.colorErrorHover,
+      },
+      {
+        color: token.colorErrorActive,
+        borderColor: token.colorErrorActive,
+      },
     ),
     ...genSolidDisabledButtonStyle(token),
   },

@@ -62,7 +62,7 @@ const App: React.FC = () => (
           <Button size="small" type="primary">
             Accept
           </Button>
-          <Button size="small" danger type="ghost">
+          <Button size="small" danger ghost>
             Decline
           </Button>
         </Space>
