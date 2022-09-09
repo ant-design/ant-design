@@ -2,6 +2,8 @@ import pkg from '../package.json';
 
 const testDist = process.env.LIB_DIR === 'dist';
 
+type AnyStyleObject = Record<PropertyKey, string | number>;
+
 describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
@@ -35,22 +37,22 @@ describe('antd dist files', () => {
     const { getThemeVariables } = require('../dist/theme');
     /* eslint-enable global-require,import/no-unresolved */
 
-    const expectThemeWithoutDark = theme => {
+    const expectThemeWithoutDark = (theme: AnyStyleObject) => {
       expect(theme['blue-3']).toBe("color(~`colorPalette('@{blue-6}', 3) `)");
       expect(theme['body-background']).toBe('#fff');
     };
 
-    const expectDarkTheme = theme => {
+    const expectDarkTheme = (theme: AnyStyleObject) => {
       expect(theme['blue-3']).toBe('mix(@blue-base, @component-background, 30%)');
       expect(theme['body-background']).toBe('@black');
     };
 
-    const expectThemeWithoutCompact = theme => {
+    const expectThemeWithoutCompact = (theme: AnyStyleObject) => {
       expect(theme['padding-lg']).toBe('24px');
       expect(theme['padding-md']).toBe('16px');
     };
 
-    const expectCompactTheme = theme => {
+    const expectCompactTheme = (theme: AnyStyleObject) => {
       expect(theme['padding-lg']).toBe('16px');
       expect(theme['padding-md']).toBe('8px');
     };
