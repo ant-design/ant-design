@@ -92,11 +92,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.labelColorHover,
         },
 
-        [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled):not(${componentCls}-thumb ~ ${componentCls}-item):hover`]:
-          {
-            color: token.labelColorHover,
+        [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
+          color: token.labelColorHover,
+
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            borderRadius: token.controlRadiusSM,
             backgroundColor: token.bgColorHover,
           },
+        },
 
         '&-label': {
           minHeight: token.controlHeight - token.segmentedContainerPadding * 2,
@@ -161,7 +170,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         width: 0,
         height: '100%',
         padding: `${token.paddingXXS}px 0`,
-        borderRadius: token.radiusSM,
+        borderRadius: token.controlRadiusSM,
       },
 
       // transition effect when `appear-active`
