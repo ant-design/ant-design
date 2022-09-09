@@ -36,12 +36,12 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           class="ant-comment-content-author-time"
         >
           <span>
-            a few seconds ago
+            8 hours ago
           </span>
           <div>
             <div
-              class="ant-tooltip"
-              style="opacity:0"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+              style="opacity: 0;"
             >
               <div
                 class="ant-tooltip-content"
@@ -57,7 +57,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
                   class="ant-tooltip-inner"
                   role="tooltip"
                 >
-                  2016-11-22 00:00:00
+                  2016-11-22 11:22:33
                 </div>
               </div>
             </div>
@@ -103,8 +103,8 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           </span>
           <div>
             <div
-              class="ant-tooltip"
-              style="opacity:0"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+              style="opacity: 0;"
             >
               <div
                 class="ant-tooltip-content"
@@ -155,8 +155,8 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           </span>
           <div>
             <div
-              class="ant-tooltip"
-              style="opacity:0"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+              style="opacity: 0;"
             >
               <div
                 class="ant-tooltip-content"
@@ -324,8 +324,8 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     </span>
                     <div>
                       <div
-                        class="ant-tooltip"
-                        style="opacity:0"
+                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                        style="opacity: 0;"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -402,8 +402,8 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     </span>
                     <div>
                       <div
-                        class="ant-tooltip"
-                        style="opacity:0"
+                        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                        style="opacity: 0;"
                       >
                         <div
                           class="ant-tooltip-content"

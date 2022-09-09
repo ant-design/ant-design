@@ -31,8 +31,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(1, 'days').fromNow()}</span>
+      <Tooltip title={moment('2016-11-22').subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{moment('2016-11-22').subtract(1, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },
@@ -48,8 +48,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(2, 'days').fromNow()}</span>
+      <Tooltip title={moment('2016-11-22').subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{moment('2016-11-22').subtract(2, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },
