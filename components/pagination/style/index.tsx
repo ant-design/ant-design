@@ -7,7 +7,7 @@ import {
 } from '../../input/style';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemSize: number;
@@ -209,7 +209,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.radiusBase,
         outline: 'none',
-        transition: `border-color ${token.motionDurationSlow}`,
+        transition: `border-color ${token.motionDurationFast}`,
 
         '&:hover': {
           borderColor: token.colorPrimary,
@@ -217,7 +217,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
 
         '&:focus': {
           borderColor: token.colorPrimaryHover,
-          boxShadow: `${token.inputOutlineOffset} 0 ${token.controlOutlineWidth} ${token.controlOutline}`,
+          boxShadow: `${token.inputOutlineOffset}px 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
         },
 
         '&[disabled]': {
@@ -290,6 +290,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         [`${componentCls}-item-ellipsis`]: {
           opacity: 0,
         },
+        ...genFocusOutline(token),
       },
     },
 
@@ -318,7 +319,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       listStyle: 'none',
       borderRadius: token.radiusBase,
       cursor: 'pointer',
-      transition: `all ${token.motionDurationSlow}`,
+      transition: `all ${token.motionDurationFast}`,
     },
 
     [`${componentCls}-prev, ${componentCls}-next`]: {
@@ -342,12 +343,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
         borderRadius: token.radiusBase,
         outline: 'none',
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `border ${token.motionDurationFast}`,
       },
 
       [`&:focus-visible ${componentCls}-item-link`]: {
-        color: token.colorPrimary,
-        borderColor: token.colorPrimary,
+        ...genFocusOutline(token),
       },
 
       [`&:hover ${componentCls}-item-link`]: {
@@ -424,7 +424,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       },
 
       '&:hover': {
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${token.motionDurationFast}`,
 
         a: {
           color: token.colorPrimary,
@@ -433,14 +433,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
 
       // cannot merge with `&:hover`
       // see https://github.com/ant-design/ant-design/pull/34002
-      '&:focus-visible': {
-        borderColor: token.colorPrimary,
-        transition: `all ${token.motionDurationSlow}`,
-
-        a: {
-          color: token.colorPrimary,
-        },
-      },
+      ...genFocusStyle(token),
 
       '&-active': {
         fontWeight: token.paginationFontWeightActive,
@@ -455,15 +448,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
           borderColor: token.colorPrimaryHover,
         },
 
-        '&:focus-visible': {
-          borderColor: token.colorPrimaryHover,
-        },
-
         '&:hover a': {
-          color: token.colorPrimaryHover,
-        },
-
-        '&:focus-visible a': {
           color: token.colorPrimaryHover,
         },
       },

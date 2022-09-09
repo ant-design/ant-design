@@ -1,7 +1,7 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusOutline, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 
@@ -87,6 +87,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           height: '100%',
           cursor: 'pointer',
           opacity: 0,
+
+          [`&:focus-visible + ${checkboxCls}-inner`]: {
+            ...genFocusOutline(token),
+          },
         },
 
         // Wrapper > Checkbox > inner
@@ -164,8 +168,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         ${wrapperCls}:not(${wrapperCls}-disabled),
         ${checkboxCls}:not(${checkboxCls}-disabled)
       `]: {
-        [`&:hover ${checkboxCls}-inner,
-          ${checkboxCls}-input:focus + ${checkboxCls}-inner`]: {
+        [`&:hover ${checkboxCls}-inner`]: {
           borderColor: token.colorPrimary,
         },
       },
@@ -207,8 +210,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         ${wrapperCls}-checked:not(${wrapperCls}-disabled),
         ${checkboxCls}-checked:not(${checkboxCls}-disabled)
       `]: {
-        [`&:hover ${checkboxCls}-inner,
-          ${checkboxCls}-input:focus + ${checkboxCls}-inner`]: {
+        [`&:hover ${checkboxCls}-inner`]: {
           backgroundColor: token.colorPrimaryHover,
           borderColor: 'transparent',
         },

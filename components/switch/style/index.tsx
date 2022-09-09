@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
@@ -163,18 +163,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
         background: token.colorTextTertiary,
       },
 
-      '&:focus-visible': {
-        outline: 0,
-        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlTmpOutline}`,
-      },
-
-      [`&${token.componentCls}-checked:focus-visible`]: {
-        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
-      },
-
-      '&:focus:hover': {
-        boxShadow: 'none',
-      },
+      ...genFocusStyle(token),
 
       [`&${token.componentCls}-checked`]: {
         background: token.switchColor,
