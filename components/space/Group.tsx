@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { SizeType, inGroup } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
