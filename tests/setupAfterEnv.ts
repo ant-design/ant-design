@@ -1,6 +1,5 @@
 import { toHaveNoViolations } from 'jest-axe';
 import '@testing-library/jest-dom';
-import { JSDOM } from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 function formatHTML(nodes: any) {
@@ -41,21 +40,6 @@ expect.addSnapshotSerializer({
       element instanceof HTMLCollection ||
       (Array.isArray(element) && element[0] instanceof HTMLElement)),
   print: element => formatHTML(element),
-});
-
-// Demo test which always use ssr
-expect.addSnapshotSerializer({
-  test: content => typeof content === 'object' && content?.ssr === true && 'html' in content,
-  print: (content: any) => {
-    const { html } = content;
-
-    const dom = new JSDOM(`<body></body>`);
-    dom.window.document.body.innerHTML = html;
-
-    const nodes = Array.from(dom.window.document.body.childNodes);
-
-    return formatHTML(nodes.length === 1 ? nodes[0] : nodes);
-  },
 });
 
 expect.extend(toHaveNoViolations);

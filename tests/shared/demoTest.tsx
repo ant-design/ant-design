@@ -3,7 +3,7 @@ import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import glob from 'glob';
 import { excludeWarning } from './excludeWarning';
-import { formatHTML, render } from '../utils';
+import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
@@ -54,9 +54,8 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     }
     Date.now = jest.fn(() => new Date('2016-11-22').getTime());
     jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
-    // function doTest(name: string, openTrigger = false) {
+
     testMethod(
-      /** @jest-environment jsdom */
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
@@ -75,12 +74,6 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             </TriggerMockContext.Provider>
           );
         }
-
-        // const html = renderToString(Demo);
-        // expect({
-        //   ssr: true,
-        //   html,
-        // }).toMatchSnapshot();
 
         if (typeof document === 'undefined') {
           // Server
