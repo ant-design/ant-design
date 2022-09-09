@@ -11,6 +11,7 @@ interface TimelineToken extends FullToken<'Timeline'> {
   timeLineItemCustomHeadPaddingVertical: number;
   timeLineItemTailWidth: number;
   timeLinePaddingInlineEnd: number;
+  timeLineHeadBorderWidth: number;
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
@@ -54,7 +55,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           width: token.timeLineItemHeadSize,
           height: token.timeLineItemHeadSize,
           backgroundColor: token.colorBgContainer,
-          border: `${token.lineWidth * 3}px ${token.lineType} transparent`,
+          border: `${token.timeLineHeadBorderWidth}px ${token.lineType} transparent`,
           borderRadius: '50%',
 
           '&-blue': {
@@ -219,6 +220,7 @@ export default genComponentStyleHook('Timeline', token => {
     timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
     timeLinePaddingInlineEnd: 2,
     timeLineItemTailWidth: token.lineWidthBold,
+    timeLineHeadBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
   });
 
   return [genTimelineStyle(timeLineToken)];
