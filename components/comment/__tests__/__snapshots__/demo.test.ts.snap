@@ -248,7 +248,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      a day ago
+                      8 hours ago
                     </span>
                   </span>
                 </div>
@@ -302,7 +302,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                     class="ant-comment-content-author-time"
                   >
                     <span>
-                      2 days ago
+                      9 hours ago
                     </span>
                   </span>
                 </div>

@@ -15,7 +15,6 @@ Displaying a series of comments using the `antd` List Component.
 
 ```tsx
 import { Comment, List, Tooltip } from 'antd';
-import moment from 'moment';
 import React from 'react';
 
 const data = [
@@ -31,8 +30,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment('2016-11-22').subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment('2016-11-22').subtract(1, 'days').fromNow()}</span>
+      <Tooltip title="2016-11-22 11:22:33">
+        <span>8 hours ago</span>
       </Tooltip>
     ),
   },
@@ -48,8 +47,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment('2016-11-22').subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment('2016-11-22').subtract(2, 'days').fromNow()}</span>
+      <Tooltip title="2016-11-22 10:22:33">
+        <span>9 hours ago</span>
       </Tooltip>
     ),
   },
