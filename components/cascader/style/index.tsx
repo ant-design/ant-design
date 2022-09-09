@@ -79,8 +79,25 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
               overflow: 'auto',
               verticalAlign: 'top',
               listStyle: 'none',
-              borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
               '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
+
+              '&:not(:last-child)': {
+                borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+              },
+
+              '&:first-child': {
+                [`${componentCls}-menu-item`]: {
+                  borderStartStartRadius: token.radiusSM,
+                  borderEndStartRadius: token.radiusSM,
+                },
+              },
+
+              '&:last-child': {
+                [`${componentCls}-menu-item`]: {
+                  borderStartEndRadius: token.radiusSM,
+                  borderEndEndRadius: token.radiusSM,
+                },
+              },
 
               '&-item': {
                 display: 'flex',

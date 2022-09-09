@@ -1095,13 +1095,13 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         // Time picker with additional style
         [`${componentCls}-panel > ${componentCls}-time-panel`]: {
-          paddingTop: token.paddingXS / 2,
+          paddingTop: token.paddingXXS,
         },
 
         // ======================== Ranges ========================
         [`${componentCls}-ranges`]: {
           marginBottom: 0,
-          padding: `${token.paddingXS / 2}px ${token.paddingSM}px`,
+          padding: `${token.paddingXXS}px ${token.paddingSM}px`,
           overflow: 'hidden',
           lineHeight: `${
             token.pickerTextHeight - 2 * token.controlLineWidth - token.paddingXS / 2
