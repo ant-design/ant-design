@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -542,9 +542,10 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       outline: 'none',
       cursor: 'pointer',
       '&-btn, &-remove': {
-        '&:focus, &:active': {
+        '&:focus:not(:focus-visible), &:active': {
           color: tabsActiveColor,
         },
+        ...genFocusStyle(token),
       },
       '&-btn': {
         outline: 'none',
@@ -809,9 +810,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
             color: tabsHoverColor,
           },
 
-          '&:active, &:focus': {
+          '&:active, &:focus:not(:focus-visible)': {
             color: tabsActiveColor,
           },
+
+          ...genFocusStyle(token),
         },
       },
 

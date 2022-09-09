@@ -28,7 +28,7 @@ body {
   margin: 0;
 }
 [tabindex='-1']:focus {
-  outline: none !important;
+  outline: none;
 }
 hr {
   box-sizing: content-box;

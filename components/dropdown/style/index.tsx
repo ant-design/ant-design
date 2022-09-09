@@ -10,7 +10,7 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
-import { resetComponent, roundedArrow } from '../../style';
+import { genFocusStyle, resetComponent, roundedArrow } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -267,6 +267,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           borderRadius: token.controlRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadowSecondary,
+          ...genFocusStyle(token),
 
           [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
@@ -333,6 +334,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             [`&:hover, &-active`]: {
               backgroundColor: token.controlItemBgHover,
             },
+
+            ...genFocusStyle(token),
 
             '&-selected': {
               color: token.colorPrimary,

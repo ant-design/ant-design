@@ -86,7 +86,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           zIndex: 1,
         },
 
-        '&:hover, &:active, &:focus': {
+        '&:hover, &:active, &:focus-visible': {
           boxShadow: `none`,
           outlineWidth: token.handleLineWidthHover,
           outlineColor: token.colorPrimary,

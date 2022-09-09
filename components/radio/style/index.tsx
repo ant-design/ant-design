@@ -1,7 +1,7 @@
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { genFocusOutline, resetComponent } from '../../style';
 
 // ============================== Tokens ==============================
 export interface ComponentToken {}
@@ -69,7 +69,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     radioWrapperMarginRight,
     radioDotColor,
     radioTop,
-    radioFocusShadow,
     radioSize,
     motionDurationSlow,
     motionDurationFast,
@@ -141,13 +140,12 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
       },
 
       [`${componentCls}-wrapper:hover &,
-              &:hover ${radioInnerPrefixCls},
-              &-input:focus + ${radioInnerPrefixCls}`]: {
+        &:hover ${radioInnerPrefixCls}`]: {
         borderColor: radioDotColor,
       },
 
-      [`${componentCls}-input:focus + ${radioInnerPrefixCls}`]: {
-        boxShadow: radioFocusShadow,
+      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: {
+        ...genFocusOutline(token),
       },
 
       [`${componentCls}:hover::after, ${componentCls}-wrapper:hover &::after`]: {
@@ -274,7 +272,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
     controlRadiusSM,
     controlRadiusLG,
     radioDotColor,
-    radioButtonFocusShadow,
     radioButtonCheckedBg,
     radioButtonHoverColor,
     radioButtonActiveColor,
@@ -393,8 +390,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
         color: radioDotColor,
       },
 
-      '&:focus-within': {
-        boxShadow: radioButtonFocusShadow,
+      '&:has(:focus-visible)': {
+        ...genFocusOutline(token),
       },
 
       [`${componentCls}-inner, input[type='checkbox'], input[type='radio']`]: {
@@ -435,10 +432,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
             backgroundColor: radioButtonActiveColor,
           },
         },
-
-        '&:focus-within': {
-          boxShadow: radioButtonFocusShadow,
-        },
       },
 
       [`${componentCls}-group-solid &-checked:not(&-disabled)`]: {
@@ -456,10 +449,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
           color: radioSolidCheckedColor,
           background: radioButtonActiveColor,
           borderColor: radioButtonActiveColor,
-        },
-
-        '&:focus-within': {
-          boxShadow: radioButtonFocusShadow,
         },
       },
 
