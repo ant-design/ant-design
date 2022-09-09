@@ -101,7 +101,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
             width: '100%',
             height: '100%',
             top: 0,
-            left: 0,
+            insetInlineStart: 0,
             borderRadius: token.controlRadiusSM,
             backgroundColor: token.bgColorHover,
           },
