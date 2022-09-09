@@ -36,7 +36,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
           class="ant-comment-content-author-time"
         >
           <span>
-            a few seconds ago
+            8 hours ago
           </span>
         </span>
       </div>

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/drawer/demo/basic-right.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -202,7 +202,7 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
 `;
 
 exports[`renders ./components/drawer/demo/extra.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -428,7 +428,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/form-in-drawer.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -722,7 +722,7 @@ HTMLCollection [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="owner_list_0"
+                                    aria-activedescendant="owner_list_test"
                                     aria-autocomplete="list"
                                     aria-controls="owner_list"
                                     aria-haspopup="listbox"
@@ -759,7 +759,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Xiaoxiao Fu"
                                         aria-selected="false"
-                                        id="owner_list_0"
+                                        id="owner_list_test"
                                         role="option"
                                       >
                                         xiao
@@ -767,7 +767,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Maomao Zhou"
                                         aria-selected="false"
-                                        id="owner_list_1"
+                                        id="owner_list_test"
                                         role="option"
                                       >
                                         mao
@@ -901,7 +901,7 @@ HTMLCollection [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="type_list_0"
+                                    aria-activedescendant="type_list_test"
                                     aria-autocomplete="list"
                                     aria-controls="type_list"
                                     aria-haspopup="listbox"
@@ -938,7 +938,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Private"
                                         aria-selected="false"
-                                        id="type_list_0"
+                                        id="type_list_test"
                                         role="option"
                                       >
                                         private
@@ -946,7 +946,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Public"
                                         aria-selected="false"
-                                        id="type_list_1"
+                                        id="type_list_test"
                                         role="option"
                                       >
                                         public
@@ -1085,7 +1085,7 @@ HTMLCollection [
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="approver_list_0"
+                                    aria-activedescendant="approver_list_test"
                                     aria-autocomplete="list"
                                     aria-controls="approver_list"
                                     aria-haspopup="listbox"
@@ -1122,7 +1122,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Jack Ma"
                                         aria-selected="false"
-                                        id="approver_list_0"
+                                        id="approver_list_test"
                                         role="option"
                                       >
                                         jack
@@ -1130,7 +1130,7 @@ HTMLCollection [
                                       <div
                                         aria-label="Tom Liu"
                                         aria-selected="false"
-                                        id="approver_list_1"
+                                        id="approver_list_test"
                                         role="option"
                                       >
                                         tom
@@ -2508,7 +2508,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/multi-level-drawer.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -2634,7 +2634,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/no-mask.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -2730,7 +2730,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/placement.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -2974,7 +2974,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
 `;
 
 exports[`renders ./components/drawer/demo/size.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -3127,7 +3127,7 @@ HTMLCollection [
 `;
 
 exports[`renders ./components/drawer/demo/user-profile.md extend context correctly 1`] = `
-HTMLCollection [
+Array [
   <div
     class="ant-list ant-list-split ant-list-bordered"
   >

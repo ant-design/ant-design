@@ -75,7 +75,7 @@ const App: React.FC = () => {
           author: 'Han Solo',
           avatar: 'https://joeschmoe.io/api/v1/random',
           content: <p>{value}</p>,
-          datetime: moment().fromNow(),
+          datetime: moment('2016-11-22').fromNow(),
         },
       ]);
     }, 1000);

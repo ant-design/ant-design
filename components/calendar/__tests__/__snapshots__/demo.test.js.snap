@@ -17,16 +17,17 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -42,7 +43,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -76,16 +77,17 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -101,7 +103,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -962,16 +964,17 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -987,7 +990,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -1021,16 +1024,17 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1046,7 +1050,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -1896,7 +1900,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
     class="ant-picker-calendar ant-picker-calendar-mini"
   >
     <div
-      style="padding:8px"
+      style="padding: 8px;"
     >
       <h4
         class="ant-typography"
@@ -1905,11 +1909,11 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
       </h4>
       <div
         class="ant-row"
-        style="margin-left:-4px;margin-right:-4px"
+        style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
@@ -1957,7 +1961,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
@@ -1969,16 +1973,17 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -1994,7 +1999,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2021,7 +2026,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
@@ -2033,16 +2038,17 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -2058,7 +2064,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2876,16 +2882,17 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -2901,7 +2908,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -2935,16 +2942,17 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -2960,7 +2968,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -4231,16 +4239,17 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -4256,7 +4265,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -4290,16 +4299,17 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -4315,7 +4325,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
