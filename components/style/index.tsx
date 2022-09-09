@@ -99,6 +99,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
 export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
   outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
   outlineOffset: 1,
+  transition: 'outline-offset 0s, outline 0s',
 });
 
 export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
