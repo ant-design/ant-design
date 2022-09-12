@@ -38,11 +38,12 @@ export interface StepsProps {
   percent?: number;
   onChange?: (current: number) => void;
   children?: React.ReactNode;
-  items: Object[];
+  items?: StepProps[];
 }
 
 interface StepsType extends React.FC<StepsProps> {
-  Step: typeof RcSteps.Step;
+  Step?: typeof RcSteps.Step;
+  items?: StepProps[];
 }
 
 const Steps: StepsType = props => {

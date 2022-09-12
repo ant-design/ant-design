@@ -17,8 +17,6 @@ Navigation steps.
 import { Steps } from 'antd';
 import React, { useState } from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
 
