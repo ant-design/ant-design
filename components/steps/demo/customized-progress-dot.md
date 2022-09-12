@@ -31,14 +31,30 @@ const customDot: StepsProps['progressDot'] = (dot, { status, index }) => (
     {dot}
   </Popover>
 );
-
+const description = 'You can hover on the dot.';
 const App: React.FC = () => (
-  <Steps current={1} progressDot={customDot}>
-    <Step title="Finished" description="You can hover on the dot." />
-    <Step title="In Progress" description="You can hover on the dot." />
-    <Step title="Waiting" description="You can hover on the dot." />
-    <Step title="Waiting" description="You can hover on the dot." />
-  </Steps>
+  <Steps
+    current={1}
+    progressDot={customDot}
+    items={[
+      {
+        title: 'Finished',
+        description,
+      },
+      {
+        title: 'In Progress',
+        description,
+      },
+      {
+        title: 'Waiting',
+        description,
+      },
+      {
+        title: 'Waiting',
+        description,
+      },
+    ]}
+  />
 );
 
 export default App;
