@@ -1,68 +1,63 @@
-import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import omit from 'rc-util/lib/omit';
-import React, { useContext } from 'react';
-import type { MouseEventHandler } from 'react';
-import BackTop from '../back-top';
+import pick from 'lodash/pick';
+import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
+import BackTop from '../back-top';
 import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
+import Tooltip from '../tooltip';
+import FloatButtonContent from './FloatButtonContent';
+import type { ContentProps, FloatButtonProps } from './interface';
+import Group from './FloatButtonGroup';
 
-export interface FloatButtonProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  icon?: React.ReactNode;
-  description?: React.ReactNode;
-  type?: 'default' | 'primary';
-  shape?: 'circle' | 'square';
-  tooltip?: React.ReactNode;
-  children?: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-}
-
-interface BackTopProps {
+interface WithGroupAndBackTop {
+  Group: typeof Group;
   BackTop: typeof BackTop;
 }
 
-const FloatButton: React.FC<FloatButtonProps> & BackTopProps = props => {
+const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
   const {
     prefixCls: customizePrefixCls,
     className = '',
     type = 'default',
     shape = 'circle',
-    onClick,
+    icon,
+    description,
+    tooltip,
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('float-button', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const classString = classNames(hashId, prefixCls, className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${shape}`]: shape,
-    [`${prefixCls}-${type}`]: type,
-  });
+  const classString = classNames(
+    hashId,
+    prefixCls,
+    className,
+    `${prefixCls}-${shape}`,
+    `${prefixCls}-${type}`,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+  );
 
-  const divProps = omit(props, ['prefixCls', 'className']);
+  const divProps = pick(props, ['style', 'onClick']);
 
-  const defaultElement = (
-    <div className={`${prefixCls}-content ${prefixCls}-${shape}`}>
-      <div className={`${prefixCls}-icon`}>
-        <FileTextOutlined />
-      </div>
-    </div>
+  const contentProps = useMemo<ContentProps>(
+    () => ({ prefixCls, description, icon, shape, type }),
+    [prefixCls, description, icon, shape, type],
   );
 
   return wrapSSR(
-    <div {...divProps} className={classString} onClick={onClick}>
+    <div {...divProps} className={classString}>
       <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-        {options =>
-          cloneElement(props.children || defaultElement, contextProps => ({
-            className: classNames(options.className, contextProps.className),
-          }))
+        {childrenProps =>
+          tooltip ? (
+            <Tooltip title={tooltip}>
+              <FloatButtonContent CSSMotionClassName={childrenProps.className} {...contentProps} />
+            </Tooltip>
+          ) : (
+            <FloatButtonContent CSSMotionClassName={childrenProps.className} {...contentProps} />
+          )
         }
       </CSSMotion>
     </div>,
@@ -73,6 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';
 }
 
+FloatButton.Group = Group;
 FloatButton.BackTop = BackTop;
 
-export default React.memo(FloatButton);
+export default FloatButton;

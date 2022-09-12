@@ -9,82 +9,102 @@ export interface ComponentToken {
 }
 
 type FloatButtonToken = FullToken<'FloatButton'> & {
-  backTopBackground: string;
-  backTopColor: string;
-  backTopHoverBackground: string;
-  backTopFontSize: number;
-  backTopSize: number;
+  floatButtonColor: string;
+  floatButtonBackgroundColor: string;
+  floatButtonHoverBackgroundColor: string;
+  floatButtonFontSize: number;
+  floatButtonSize: number;
 
   // Position
-  backTopBlockEnd: number;
-  backTopInlineEnd: number;
-  backTopInlineEndMD: number;
-  backTopInlineEndXS: number;
+  floatButtonBlockEnd: number;
+  floatButtonInlineEnd: number;
+  floatButtonInlineEndMD: number;
+  floatButtonInlineEndXS: number;
 };
 
 // ============================== Shared ==============================
-const genSharedBackTopStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, backTopFontSize, backTopSize, zIndexPopup } = token;
+const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token): CSSObject => {
+  const { componentCls, floatButtonFontSize, floatButtonSize, zIndexPopup } = token;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
-
-      position: 'fixed',
-      insetInlineEnd: token.backTopInlineEnd,
-      insetBlockEnd: token.backTopBlockEnd,
+      // position: 'fixed',
+      insetInlineEnd: token.floatButtonInlineEnd,
+      insetBlockEnd: token.floatButtonBlockEnd,
       zIndex: zIndexPopup,
       width: 40,
       height: 40,
       cursor: 'pointer',
-
+      overflow: 'hidden',
+      boxShadow: token.boxShadowSecondary,
       '&:empty': {
         display: 'none',
       },
-
       [`${componentCls}-circle`]: {
-        borderRadius: backTopSize,
+        borderRadius: token.radiusBase * 20,
       },
-
       [`${componentCls}-square`]: {
-        borderRadius: 0,
+        height: 'auto',
+        minHeight: floatButtonSize,
+        borderRadius: token.radiusBase,
       },
-
+      [`${componentCls}-default`]: {
+        backgroundColor: token.colorTextLightSolid,
+      },
+      [`${componentCls}-primary`]: {
+        backgroundColor: token.colorPrimaryHover,
+      },
       [`${componentCls}-content`]: {
-        width: backTopSize,
-        height: backTopSize,
+        width: floatButtonSize,
         overflow: 'hidden',
-        color: token.backTopColor,
+        // color: token.floatButtonColor,
         textAlign: 'center',
-        backgroundColor: token.backTopBackground,
         transition: `all ${token.motionDurationSlow}`,
         '&:hover': {
-          backgroundColor: token.backTopHoverBackground,
-          transition: `all ${token.motionDurationSlow}`,
+          backgroundColor: token.floatButtonHoverBackgroundColor,
         },
       },
-
-      // change to .backtop .backtop-icon
       [`${componentCls}-icon`]: {
-        fontSize: backTopFontSize,
-        lineHeight: `${backTopSize}px`,
+        fontSize: floatButtonFontSize,
+        lineHeight: `${floatButtonSize}px`,
       },
+      [`${componentCls}-default-icon`]: {
+        color: token.colorTextBase,
+      },
+      [`${componentCls}-primary-icon`]: {
+        color: token.colorTextLightSolid,
+      },
+    },
+    [`${componentCls}-circle`]: {
+      borderRadius: token.radiusBase * 20,
+    },
+    [`${componentCls}-square`]: {
+      height: 'auto',
+      minHeight: floatButtonSize,
+      borderRadius: token.radiusBase,
+    },
+    [`${componentCls}-default`]: {
+      backgroundColor: token.colorTextLightSolid,
+    },
+    [`${componentCls}-primary`]: {
+      backgroundColor: token.colorPrimaryHover,
     },
   };
 };
 
-const genMediaBackTopStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject => {
+const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject => {
   const { componentCls } = token;
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndMD,
+        insetInlineEnd: token.floatButtonInlineEndMD,
       },
     },
 
     [`@media (max-width: ${token.screenXS}px)`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndXS,
+        insetInlineEnd: token.floatButtonInlineEndXS,
       },
     },
   };
@@ -93,29 +113,24 @@ const genMediaBackTopStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject
 // ============================== Export ==============================
 export default genComponentStyleHook<'FloatButton'>(
   'FloatButton',
-
   token => {
-    const {
-      fontSizeHeading3,
-      colorTextDescription,
-      colorTextLightSolid,
-      colorText,
-      controlHeightLG,
-    } = token;
+    const { fontSizeHeading3, colorTextLightSolid, colorText, controlHeightLG } = token;
 
     const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-      backTopBackground: colorTextDescription,
-      backTopColor: colorTextLightSolid,
-      backTopHoverBackground: colorText,
-      backTopFontSize: fontSizeHeading3,
-      backTopSize: controlHeightLG,
+      floatButtonBackgroundColor: colorTextLightSolid,
+      floatButtonColor: colorTextLightSolid,
+      floatButtonHoverBackgroundColor: colorText,
+      floatButtonFontSize: fontSizeHeading3,
+      floatButtonSize: controlHeightLG,
 
-      backTopBlockEnd: controlHeightLG * 1.25,
-      backTopInlineEnd: controlHeightLG * 2.5,
-      backTopInlineEndMD: controlHeightLG * 1.5,
-      backTopInlineEndXS: controlHeightLG * 0.5,
+      floatButtonBlockEnd: controlHeightLG * 1.25,
+      floatButtonInlineEnd: controlHeightLG * 2.5,
+      floatButtonInlineEndMD: controlHeightLG * 1.5,
+      floatButtonInlineEndXS: controlHeightLG * 0.5,
     });
-    return [genSharedBackTopStyle(floatButtonToken), genMediaBackTopStyle(floatButtonToken)];
+    return [sharedFloatButtonStyle(floatButtonToken), mediaFloatButtonStyle(floatButtonToken)];
   },
-  token => ({ zIndexPopup: token.zIndexBase + 10 }),
+  token => ({
+    zIndexPopup: token.zIndexBase + 20,
+  }),
 );

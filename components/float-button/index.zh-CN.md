@@ -1,12 +1,12 @@
 ---
 category: Components
 type: 其他
-subtitle: 回到顶部
+subtitle: 悬浮按钮
 title: FloatButton
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 ---
 
-返回页面顶部的操作按钮。
+一个更加通用按钮组件
 
 ## 何时使用
 

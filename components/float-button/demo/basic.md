@@ -14,27 +14,10 @@ title:
 The most basic usage.
 
 ```tsx
-import { FloatButton } from 'antd';
 import React from 'react';
+import { FloatButton } from 'antd';
 
-const App: React.FC = () => (
-  <>
-    <FloatButton />
-    Scroll down to see the bottom-right
-  </>
-);
+const App: React.FC = () => <FloatButton />;
 
 export default App;
 ```
-
-```css
-.site-back-top-basic {
-  color: rgba(64, 64, 64, 0.6);
-}
-```
-
-<style>
-[data-theme="dark"] .site-back-top-basic {
-  color: rgba(255,255,255,.45);
-}
-</style>
