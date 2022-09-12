@@ -17,7 +17,7 @@ You can customize the style of the button, just note the size limit: no more tha
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton tooltip="text" />;
+const App: React.FC = () => <FloatButton shape="square" tooltip="text" />;
 
 export default App;
 ```

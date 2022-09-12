@@ -7,7 +7,7 @@ import BackTop from '../back-top';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import Tooltip from '../tooltip';
-import FloatButtonContent from './FloatButtonContent';
+import Content from './FloatButtonContent';
 import type { ContentProps, FloatButtonProps } from './interface';
 import Group from './FloatButtonGroup';
 
@@ -53,10 +53,10 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
         {childrenProps =>
           tooltip ? (
             <Tooltip title={tooltip}>
-              <FloatButtonContent CSSMotionClassName={childrenProps.className} {...contentProps} />
+              <Content CSSMotionClassName={childrenProps.className} {...contentProps} />
             </Tooltip>
           ) : (
-            <FloatButtonContent CSSMotionClassName={childrenProps.className} {...contentProps} />
+            <Content CSSMotionClassName={childrenProps.className} {...contentProps} />
           )
         }
       </CSSMotion>
