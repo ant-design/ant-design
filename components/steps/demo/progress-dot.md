@@ -17,8 +17,6 @@ Steps with progress dot style.
 import { Divider, Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => (
   <>
     <Steps

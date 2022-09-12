@@ -17,7 +17,6 @@ A simple mini version step bar in the vertical direction.
 import { Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
 const description = 'This is a description.';
 const App: React.FC = () => (
   <Steps

@@ -19,8 +19,6 @@ import type { StepsProps } from 'antd';
 import { Button, Steps } from 'antd';
 import React, { useState } from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => {
   const [percent, setPercentage] = useState(0);
   const [current, setCurrent] = useState(1);
