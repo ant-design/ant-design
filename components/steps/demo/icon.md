@@ -18,15 +18,31 @@ import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '
 import { Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => (
-  <Steps>
-    <Step status="finish" title="Login" icon={<UserOutlined />} />
-    <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
-    <Step status="process" title="Pay" icon={<LoadingOutlined />} />
-    <Step status="wait" title="Done" icon={<SmileOutlined />} />
-  </Steps>
+  <Steps
+    items={[
+      {
+        title: 'Login',
+        status: 'finish',
+        icon: <UserOutlined />,
+      },
+      {
+        title: 'Verification',
+        status: 'finish',
+        icon: <SolutionOutlined />,
+      },
+      {
+        title: 'Pay',
+        status: 'process',
+        icon: <LoadingOutlined />,
+      },
+      {
+        title: 'Done',
+        status: 'wait',
+        icon: <SmileOutlined />,
+      },
+    ]}
+  />
 );
 
 export default App;

@@ -7,6 +7,19 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
+import useLegacyItems from './useLegacyItems';
+
+export interface StepProps {
+  className?: string;
+  description?: React.ReactNode;
+  icon?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  status?: 'wait' | 'process' | 'finish' | 'error';
+  disabled?: boolean;
+  title?: React.ReactNode;
+  subTitle?: React.ReactNode;
+  style?: React.CSSProperties;
+}
 
 export interface StepsProps {
   type?: 'default' | 'navigation';
@@ -25,18 +38,7 @@ export interface StepsProps {
   percent?: number;
   onChange?: (current: number) => void;
   children?: React.ReactNode;
-}
-
-export interface StepProps {
-  className?: string;
-  description?: React.ReactNode;
-  icon?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLElement>;
-  status?: 'wait' | 'process' | 'finish' | 'error';
-  disabled?: boolean;
-  title?: React.ReactNode;
-  subTitle?: React.ReactNode;
-  style?: React.CSSProperties;
+  items: Object[];
 }
 
 interface StepsType extends React.FC<StepsProps> {
@@ -44,7 +46,7 @@ interface StepsType extends React.FC<StepsProps> {
 }
 
 const Steps: StepsType = props => {
-  const { percent, size, className, direction, responsive, ...restProps } = props;
+  const { percent, size, className, direction, responsive, items, children, ...restProps } = props;
   const { xs } = useBreakpoint(responsive);
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
@@ -95,11 +97,13 @@ const Steps: StepsType = props => {
     }
     return node;
   };
+  const mergedItems = useLegacyItems(items, children);
   return (
     <RcSteps
       icons={icons}
       {...restProps}
       size={size}
+      items={mergedItems}
       direction={getDirection()}
       stepIcon={stepIconRender}
       prefixCls={prefixCls}
