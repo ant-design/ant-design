@@ -1,6 +1,6 @@
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Button, Select, Checkbox, Drawer, Form, Input, InputNumber, Space } from 'antd';
+import { Button, Select, Checkbox, Drawer, Form, Input, InputNumber, Space, Switch } from 'antd';
 import * as React from 'react';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -121,14 +121,16 @@ export default function DynamicTheme({
               case 'number':
                 node = <InputNumber />;
                 break;
+              case 'boolean':
+                node = <Switch defaultChecked={!!originValue} />;
+                break;
 
               default:
                 node = <Input />;
             }
 
             const rules: any[] = [{ required: key !== 'colorTextBase' && key !== 'colorBgBase' }];
-            const originColor = new TinyColor(originValue);
-            if (originValueType === 'string' && originColor.isValid) {
+            if (originValueType === 'string' && new TinyColor(originValue as string).isValid) {
               rules.push({
                 validator: async (_: any, value: string) => {
                   if (!new TinyColor(value).isValid) {

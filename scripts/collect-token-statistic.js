@@ -8,6 +8,8 @@ const glob = require('glob');
 const path = require('path');
 const ProgressBar = require('progress');
 const { statistic } = require('../components/theme/util/statistic');
+const { DesignTokenContext } = require('../components/theme');
+const seedToken = require('../components/theme/themes/seed');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
 
@@ -46,6 +48,14 @@ styleFiles.forEach(file => {
     return EmptyElement;
   };
   ReactDOMServer.renderToString(React.createElement(Component));
+  // Render wireframe
+  ReactDOMServer.renderToString(
+    React.createElement(
+      DesignTokenContext.Provider,
+      { value: { token: { ...seedToken, wireframe: true } } },
+      React.createElement(Component),
+    ),
+  );
 });
 
 (async () => {

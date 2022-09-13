@@ -90,6 +90,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tableSelectedRowHoverBg,
     tableFooterTextColor,
     tableFooterBg,
+    wireframe,
   } = token;
   const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
   return {
@@ -219,36 +220,38 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
       },
 
-      [`${componentCls}:not(${componentCls}-bordered) ${componentCls}-tbody > tr`]: {
-        [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
-          [`+ tr${componentCls}-row > td`]: {
-            borderTopColor: 'transparent',
-          },
-        },
+      [`${componentCls}:not(${componentCls}-bordered) ${componentCls}-tbody > tr`]: wireframe
+        ? undefined
+        : {
+            [`&${componentCls}-row:hover, &${componentCls}-row${componentCls}-row-selected`]: {
+              [`+ tr${componentCls}-row > td`]: {
+                borderTopColor: 'transparent',
+              },
+            },
 
-        [`&${componentCls}-row:last-child:hover > td,
+            [`&${componentCls}-row:last-child:hover > td,
           &${componentCls}-row${componentCls}-row-selected:last-child > td`]: {
-          borderBottomColor: 'transparent',
-        },
+              borderBottomColor: 'transparent',
+            },
 
-        [`
+            [`
           &${componentCls}-row:hover > td,
           > td${componentCls}-cell-row-hover,
           &${componentCls}-row${componentCls}-row-selected > td
         `]: {
-          borderTopColor: 'transparent',
+              borderTopColor: 'transparent',
 
-          '&:first-child': {
-            borderStartStartRadius: tableRadius,
-            borderEndStartRadius: tableRadius,
-          },
+              '&:first-child': {
+                borderStartStartRadius: tableRadius,
+                borderEndStartRadius: tableRadius,
+              },
 
-          '&:last-child': {
-            borderStartEndRadius: tableRadius,
-            borderEndEndRadius: tableRadius,
+              '&:last-child': {
+                borderStartEndRadius: tableRadius,
+                borderEndEndRadius: tableRadius,
+              },
+            },
           },
-        },
-      },
 
       // ============================ Footer ============================
       [`${componentCls}-footer`]: {

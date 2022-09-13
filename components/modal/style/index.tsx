@@ -336,6 +336,55 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
   };
 };
 
+const genWireframeStyle: GenerateStyle<ModalToken> = token => {
+  const { componentCls, antCls } = token;
+  const confirmComponentCls = `${componentCls}-confirm`;
+
+  return {
+    [componentCls]: {
+      [`${componentCls}-content`]: {
+        padding: 0,
+      },
+
+      [`${componentCls}-header`]: {
+        padding: token.modalHeaderPadding,
+        borderBottom: `${token.modalHeaderBorderWidth}px ${token.modalHeaderBorderStyle} ${token.modalHeaderBorderColorSplit}`,
+        marginBottom: 0,
+      },
+
+      [`${componentCls}-body`]: {
+        padding: token.modalBodyPadding,
+      },
+
+      [`${componentCls}-footer`]: {
+        padding: `${token.modalFooterPaddingVertical}px ${token.modalFooterPaddingHorizontal}px`,
+        borderTop: `${token.modalFooterBorderWidth}px ${token.modalFooterBorderStyle} ${token.modalFooterBorderColorSplit}`,
+        borderRadius: `0 0 ${token.radiusLG}px ${token.radiusLG}px`,
+        marginTop: 0,
+      },
+    },
+
+    [confirmComponentCls]: {
+      [`${antCls}-modal-body`]: {
+        padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
+      },
+      [`${confirmComponentCls}-body`]: {
+        [`> ${token.iconCls}`]: {
+          marginInlineEnd: token.margin,
+
+          // `content` after `icon` should set marginLeft
+          [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
+            marginInlineStart: token.modalConfirmIconSize + token.margin,
+          },
+        },
+      },
+      [`${confirmComponentCls}-btns`]: {
+        marginTop: token.marginLG,
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Modal', token => {
   const headerPaddingVertical = token.padding;
@@ -370,6 +419,7 @@ export default genComponentStyleHook('Modal', token => {
     genModalConfirmStyle(modalToken),
     genRTLStyle(modalToken),
     genModalMaskStyle(modalToken),
+    token.wireframe && genWireframeStyle(modalToken),
     initZoomMotion(modalToken, 'zoom'),
   ];
 });

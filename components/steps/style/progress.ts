@@ -33,8 +33,10 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart: (token.stepsIconSize - token.stepsProgressSize) / 2,
-          insetInlineStart: (token.stepsIconSize - token.stepsProgressSize) / 2,
+          insetBlockStart:
+            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetInlineStart:
+            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
         },
       },
     },

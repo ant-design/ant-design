@@ -524,6 +524,66 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
   };
 };
 
+const genBorderedStyle: GenerateStyle<PaginationToken> = token => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-disabled`]: {
+      '&, &:hover': {
+        [`${componentCls}-item-link`]: {
+          borderColor: token.colorBorder,
+        },
+      },
+
+      '&:focus-visible': {
+        [`${componentCls}-item-link`]: {
+          borderColor: token.colorBorder,
+        },
+      },
+
+      [`${componentCls}-item`]: {
+        background: token.colorBgContainerDisabled,
+        borderColor: token.colorBorder,
+      },
+
+      [`${componentCls}-item-link`]: {
+        background: token.colorBgContainerDisabled,
+        borderColor: token.colorBorder,
+      },
+    },
+
+    [componentCls]: {
+      [`${componentCls}-prev, ${componentCls}-next`]: {
+        '&:hover button': {
+          borderColor: token.colorPrimaryHover,
+        },
+
+        [`${componentCls}-item-link`]: {
+          backgroundColor: token.paginationItemLinkBg,
+          borderColor: token.colorBorder,
+        },
+
+        [`&:hover ${componentCls}-item-link`]: {
+          borderColor: token.colorPrimary,
+        },
+      },
+
+      [`${componentCls}-item`]: {
+        backgroundColor: token.paginationItemBg,
+        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+
+        '&:hover': {
+          borderColor: token.colorPrimary,
+        },
+
+        '&-active': {
+          borderColor: token.colorPrimary,
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Pagination', token => {
   const paginationToken = mergeToken<PaginationToken>(
@@ -551,5 +611,8 @@ export default genComponentStyleHook('Pagination', token => {
     },
     initInputToken(token),
   );
-  return [genPaginationStyle(paginationToken)];
+  return [
+    genPaginationStyle(paginationToken),
+    token.wireframe && genBorderedStyle(paginationToken),
+  ];
 });

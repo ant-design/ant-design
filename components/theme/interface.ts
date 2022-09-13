@@ -203,6 +203,9 @@ export interface SeedToken extends PresetColorType {
   // Image
   /** Define default Image opacity. Useful when in dark-like theme */
   opacityImage: number;
+
+  // Wireframe
+  wireframe: boolean;
 }
 
 export interface NeutralColorMapToken {

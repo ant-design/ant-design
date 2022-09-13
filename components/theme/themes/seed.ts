@@ -73,5 +73,8 @@ const seedToken: SeedToken = {
 
   // Image
   opacityImage: 1,
+
+  // Wireframe
+  wireframe: false,
 };
 export default seedToken;
