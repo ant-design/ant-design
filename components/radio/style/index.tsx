@@ -155,6 +155,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
 
       [`${componentCls}-inner`]: {
         '&::after': {
+          boxSizing: 'border-box',
           position: 'absolute',
           insetBlockStart: '50%',
           insetInlineStart: '50%',
@@ -173,6 +174,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
           content: '""',
         },
 
+        boxSizing: 'border-box',
         position: 'relative',
         insetBlockStart: 0,
         insetInlineStart: 0,
