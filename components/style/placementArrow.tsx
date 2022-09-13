@@ -7,6 +7,22 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map(cls => `${showArrowCls}${cls}`).join(',');
 }
 
+export function getArrowOffset(options: {
+  sizePopupArrow: number;
+  contentRadius: number;
+  radiusOuter: number;
+  limitVerticalRadius?: boolean;
+}) {
+  const maxVerticalContentRadius = 8;
+  const { sizePopupArrow, contentRadius, radiusOuter, limitVerticalRadius } = options;
+  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(radiusOuter * (Math.sqrt(2) - 1));
+  const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;
+  const dropdownArrowOffsetVertical = limitVerticalRadius
+    ? maxVerticalContentRadius - arrowInnerOffset
+    : dropdownArrowOffset;
+  return { dropdownArrowOffset, dropdownArrowOffsetVertical };
+}
+
 export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToken>>(
   token: Token,
   options: {
@@ -21,12 +37,12 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
 
   const { colorBg, showArrowCls, contentRadius = token.radiusLG, limitVerticalRadius } = options;
 
-  const maxVerticalContentRadius = 8;
-  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(radiusOuter * (Math.sqrt(2) - 1));
-  const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;
-  const dropdownArrowOffsetVertical = limitVerticalRadius
-    ? maxVerticalContentRadius - arrowInnerOffset
-    : dropdownArrowOffset;
+  const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
+    sizePopupArrow,
+    contentRadius,
+    radiusOuter,
+    limitVerticalRadius,
+  });
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
 
   return {
