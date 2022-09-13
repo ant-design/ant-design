@@ -1,3 +1,4 @@
+import { getArrowOffset } from '../../style/placementArrow';
 import {
   initMoveMotion,
   initSlideMotion,
@@ -434,15 +435,22 @@ export default genComponentStyleHook(
       lineHeight,
       paddingXXS,
       componentCls,
+      radiusOuter,
+      radiusLG,
     } = token;
 
     const dropdownPaddingVertical = (controlHeight - fontSizeBase * lineHeight) / 2;
+    const { dropdownArrowOffset } = getArrowOffset({
+      sizePopupArrow,
+      contentRadius: radiusLG,
+      radiusOuter,
+    });
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
       menuCls: `${componentCls}-menu`,
       rootPrefixCls,
       dropdownArrowDistance: sizePopupArrow + marginXXS,
-      dropdownArrowOffset: (sizePopupArrow / Math.sqrt(2)) * 2,
+      dropdownArrowOffset,
       dropdownPaddingVertical,
       dropdownEdgeChildPadding: paddingXXS,
     });
