@@ -262,7 +262,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
         alignItems: 'center',
 
         [`${confirmComponentCls}-title`]: {
-          flex: 1,
+          flex: '0 0 100%',
           display: 'block',
           // create BFC to avoid
           // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
@@ -276,6 +276,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
         [`${confirmComponentCls}-content`]: {
           color: token.colorText,
           fontSize: token.fontSizeBase,
+          marginBlockStart: token.marginXS,
         },
 
         [`> ${token.iconCls}`]: {
@@ -283,10 +284,13 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           marginInlineEnd: token.marginSM,
           fontSize: token.modalConfirmIconSize,
 
+          [`+ ${confirmComponentCls}-title`]: {
+            flex: 1,
+          },
+
           // `content` after `icon` should set marginLeft
           [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
             marginInlineStart: token.modalConfirmIconSize + token.marginSM,
-            marginBlockStart: token.marginXS,
             flexBasis: '100%',
           },
         },
