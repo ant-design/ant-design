@@ -51,21 +51,31 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
     [prefixCls, description, icon, type, groupShape, mergeShape],
   );
 
-  return wrapSSR(
-    <button {...restProps} className={classString} type="button">
-      <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-        {childrenProps => {
-          const motionClass = { CSSMotionClassName: childrenProps.className };
-          return tooltip ? (
-            <Tooltip title={tooltip}>
-              <Content {...motionClass} {...contentProps} />
-            </Tooltip>
-          ) : (
+  const buttonNode = (
+    <CSSMotion motionName={`${rootPrefixCls}-fade`}>
+      {childrenProps => {
+        const motionClass = { CSSMotionClassName: childrenProps.className };
+        return tooltip ? (
+          <Tooltip title={tooltip}>
             <Content {...motionClass} {...contentProps} />
-          );
-        }}
-      </CSSMotion>
-    </button>,
+          </Tooltip>
+        ) : (
+          <Content {...motionClass} {...contentProps} />
+        );
+      }}
+    </CSSMotion>
+  );
+
+  return wrapSSR(
+    props.href ? (
+      <a {...restProps} className={classString}>
+        {buttonNode}
+      </a>
+    ) : (
+      <button {...restProps} className={classString} type="button">
+        {buttonNode}
+      </button>
+    ),
   );
 };
 

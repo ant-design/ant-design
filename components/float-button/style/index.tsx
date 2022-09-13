@@ -23,8 +23,27 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInlineEndXS: number;
 };
 
+const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
+  const { componentCls } = token;
+  const groupPrefixCls = `${componentCls}-group`;
+  return {
+    [groupPrefixCls]: {
+      ...resetComponent(token),
+      display: 'block',
+      border: 'none',
+      position: 'fixed',
+      width: token.floatButtonSize,
+      minHeight: token.floatButtonSize,
+      height: 'auto',
+      '&&-rtl': {
+        direction: 'rtl',
+      },
+    },
+  };
+};
+
 // ============================== Shared ==============================
-const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token): CSSObject => {
+const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls, floatButtonFontSize, floatButtonSize, zIndexPopup } = token;
 
   return {
@@ -35,7 +54,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       position: 'fixed',
       cursor: 'pointer',
       overflow: 'hidden',
-      zIndex: zIndexPopup,
+      zIndex: zIndexPopup + 20,
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInlineEnd,
@@ -86,7 +105,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
   };
 };
 
-const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken> = (token): CSSObject => {
+const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls } = token;
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
@@ -94,7 +113,6 @@ const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken> = (token): CSSObjec
         insetInlineEnd: token.floatButtonInlineEndMD,
       },
     },
-
     [`@media (max-width: ${token.screenXS}px)`]: {
       [componentCls]: {
         insetInlineEnd: token.floatButtonInlineEndXS,
@@ -104,37 +122,34 @@ const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken> = (token): CSSObjec
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'FloatButton'>(
-  'FloatButton',
-  token => {
-    const {
-      colorTextLightSolid,
-      colorBgContainer,
-      controlHeightLG,
-      marginXXL,
-      marginLG,
-      marginTmp,
-      fontSize,
-      fontSizeHeading4,
-      controlItemBgHover,
-    } = token;
+export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
+  const {
+    colorTextLightSolid,
+    colorBgContainer,
+    controlHeightLG,
+    marginXXL,
+    marginLG,
+    marginTmp,
+    fontSize,
+    fontSizeHeading4,
+    controlItemBgHover,
+  } = token;
+  const floatButtonToken = mergeToken<FloatButtonToken>(token, {
+    floatButtonBackgroundColor: colorBgContainer,
+    floatButtonColor: colorTextLightSolid,
+    floatButtonHoverBackgroundColor: controlItemBgHover,
+    floatButtonFontSize: fontSize,
+    floatButtonIconSize: fontSizeHeading4,
+    floatButtonSize: controlHeightLG,
 
-    const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-      floatButtonBackgroundColor: colorBgContainer,
-      floatButtonColor: colorTextLightSolid,
-      floatButtonHoverBackgroundColor: controlItemBgHover,
-      floatButtonFontSize: fontSize,
-      floatButtonIconSize: fontSizeHeading4,
-      floatButtonSize: controlHeightLG,
-
-      floatButtonBlockEnd: marginXXL,
-      floatButtonInlineEnd: marginLG,
-      floatButtonInlineEndMD: controlHeightLG * 1.5,
-      floatButtonInlineEndXS: marginTmp,
-    });
-    return [sharedFloatButtonStyle(floatButtonToken), mediaFloatButtonStyle(floatButtonToken)];
-  },
-  token => ({
-    zIndexPopup: token.zIndexBase + 20,
-  }),
-);
+    floatButtonBlockEnd: marginXXL,
+    floatButtonInlineEnd: marginLG,
+    floatButtonInlineEndMD: controlHeightLG * 1.5,
+    floatButtonInlineEndXS: marginTmp,
+  });
+  return [
+    floatButtonGroupStyle(floatButtonToken),
+    sharedFloatButtonStyle(floatButtonToken),
+    mediaFloatButtonStyle(floatButtonToken),
+  ];
+});

@@ -1,6 +1,7 @@
 import type React from 'react';
 import type Group from './FloatButtonGroup';
 import type BackTop from '../back-top';
+import type { TooltipProps } from '../tooltip';
 
 type FloatButtonType = 'default' | 'primary';
 
@@ -16,8 +17,10 @@ export interface FloatButtonProps {
   description?: string;
   type?: FloatButtonType;
   shape?: FloatButtonShape;
-  tooltip?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  tooltip?: TooltipProps['title'];
+  href?: string;
+  target?: React.HTMLAttributeAnchorTarget;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 export interface FloatButtonContentProps {
