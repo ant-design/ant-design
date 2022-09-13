@@ -570,6 +570,28 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
+  it('icon can be null to hide icon', async () => {
+    jest.useFakeTimers();
+    confirm({
+      title: 'some title',
+      content: 'some descriptions',
+      icon: null,
+    });
+
+    await act(async () => {
+      jest.runAllTimers();
+      await sleep();
+    });
+
+    // We check icon is not exist in the body
+    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(2);
+    expect(
+      document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
+    ).toBeFalsy();
+
+    jest.useRealTimers();
+  });
+
   it('ok button should trigger onOk once when click it many times quickly', async () => {
     const onOk = jest.fn();
     open({ onOk });
