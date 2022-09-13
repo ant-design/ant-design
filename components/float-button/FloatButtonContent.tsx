@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import classNames from 'classnames';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
-import type { ContentProps } from './interface';
+import type { FloatButtonContentProps } from './interface';
 
-const FloatButtonContent: React.FC<ContentProps> = props => {
+const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
   const { icon, description, prefixCls, shape, type, CSSMotionClassName } = props;
   const classString = classNames(CSSMotionClassName, `${prefixCls}-content ${prefixCls}-${shape}`);
   const defaultElement = (

@@ -1,4 +1,6 @@
 import type React from 'react';
+import type Group from './FloatButtonGroup';
+import type BackTop from '../back-top';
 
 type FloatButtonType = 'default' | 'primary';
 
@@ -15,10 +17,10 @@ export interface FloatButtonProps {
   type?: FloatButtonType;
   shape?: FloatButtonShape;
   tooltip?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface ContentProps {
+export interface FloatButtonContentProps {
   icon: FloatButtonProps['icon'];
   description: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
@@ -36,4 +38,9 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   open?: boolean;
   // 展开收起的回调
   onOpenChange?: (open: boolean) => void;
+}
+
+export interface CompoundedComponent {
+  Group: typeof Group;
+  BackTop: typeof BackTop;
 }

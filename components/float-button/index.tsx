@@ -7,19 +7,19 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import Tooltip from '../tooltip';
 import Content from './FloatButtonContent';
-import type { ContentProps, FloatButtonGroupProps, FloatButtonProps } from './interface';
+import type {
+  CompoundedComponent,
+  FloatButtonContentProps,
+  FloatButtonGroupProps,
+  FloatButtonProps,
+} from './interface';
 import Group from './FloatButtonGroup';
 import FloatButtonGroupContext from './context';
 
-interface WithGroupAndBackTop {
-  Group: typeof Group;
-  BackTop: typeof BackTop;
-}
-
-const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
+const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   const {
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
     type = 'default',
     shape = 'circle',
     icon,
@@ -46,13 +46,13 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
     },
   );
 
-  const contentProps = useMemo<ContentProps>(
+  const contentProps = useMemo<FloatButtonContentProps>(
     () => ({ prefixCls, description, icon, type, shape: mergeShape }),
     [prefixCls, description, icon, type, groupShape, mergeShape],
   );
 
   return wrapSSR(
-    <div {...restProps} className={classString}>
+    <button {...restProps} className={classString} type="button">
       <CSSMotion motionName={`${rootPrefixCls}-fade`}>
         {childrenProps => {
           const motionClass = { CSSMotionClassName: childrenProps.className };
@@ -65,7 +65,7 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
           );
         }}
       </CSSMotion>
-    </div>,
+    </button>,
   );
 };
 
