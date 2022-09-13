@@ -1,30 +1,24 @@
 ---
-order: 4
+order: 0
 iframe: 360
 title:
-  zh-CN: 含有气泡卡片的悬浮按钮
-  en-US: Custom style
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ## zh-CN
 
-含有气泡卡片的悬浮按钮
+最简单的用法。(type = default, shape = circle)
 
 ## en-US
 
-You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
+The most basic usage.
 
 ```tsx
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => (
-  <FloatButton.Group>
-    <FloatButton />
-    <FloatButton />
-    <FloatButton />
-  </FloatButton.Group>
-);
+const App: React.FC = () => <FloatButton />;
 
 export default App;
 ```

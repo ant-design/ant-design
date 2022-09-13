@@ -15,10 +15,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 
 ## API
 
-> 有默认样式，距离底部 `50px`，可覆盖。
->
-> 自定义样式宽高不大于 40px \* 40px。
-
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | duration | 回到顶部所需时间（ms） | number | 450 | 4.4.0 |

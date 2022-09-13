@@ -1,14 +1,14 @@
 ---
-order: 1
+order: 6
 iframe: 360
 title:
-  zh-CN: 自定义样式
+  zh-CN: 含有气泡卡片的悬浮按钮
   en-US: Custom style
 ---
 
 ## zh-CN
 
-可以自定义悬浮按钮的样式。(type = default, shape = square)
+含有气泡卡片的悬浮按钮
 
 ## en-US
 
@@ -18,7 +18,7 @@ You can customize the style of the button.
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton shape="square" />;
+const App: React.FC = () => <FloatButton tooltip={<div>text</div>} />;
 
 export default App;
 ```
