@@ -1,5 +1,6 @@
 ---
 order: 1
+iframe: 360
 title:
   zh-CN: 自定义样式
   en-US: Custom style
@@ -17,15 +18,9 @@ You can customize the style of the button, just note the size limit: no more tha
 
 ```tsx
 import React from 'react';
-import { Space, FloatButton } from 'antd';
+import { FloatButton } from 'antd';
 
-const App: React.FC = () => (
-  <Space>
-    <FloatButton type="primary" />
-    <FloatButton type="primary" shape="square" />
-    <FloatButton.BackTop />
-  </Space>
-);
+const App: React.FC = () => <FloatButton type="primary" shape="square" />;
 
 export default App;
 ```

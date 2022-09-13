@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, resetIcon } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -14,6 +14,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonHoverBackgroundColor: string;
   floatButtonFontSize: number;
   floatButtonSize: number;
+  floatButtonIconSize: number;
 
   // Position
   floatButtonBlockEnd: number;
@@ -29,12 +30,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
   return {
     [componentCls]: {
       ...resetComponent(token),
-      // position: 'fixed',
+      position: 'fixed',
       insetInlineEnd: token.floatButtonInlineEnd,
       insetBlockEnd: token.floatButtonBlockEnd,
       zIndex: zIndexPopup,
-      width: 40,
-      height: 40,
+      width: floatButtonSize,
+      height: floatButtonSize,
       cursor: 'pointer',
       overflow: 'hidden',
       boxShadow: token.boxShadowSecondary,
@@ -42,7 +43,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         display: 'none',
       },
       [`${componentCls}-circle`]: {
-        borderRadius: token.radiusBase * 20,
+        borderRadius: '50%',
       },
       [`${componentCls}-square`]: {
         height: 'auto',
@@ -50,34 +51,35 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         borderRadius: token.radiusBase,
       },
       [`${componentCls}-default`]: {
-        backgroundColor: token.colorTextLightSolid,
+        backgroundColor: token.colorBgContainer,
       },
       [`${componentCls}-primary`]: {
-        backgroundColor: token.colorPrimaryHover,
+        backgroundColor: token.colorPrimary,
+        '&:hover': {
+          backgroundColor: token.colorPrimaryHover,
+        },
       },
       [`${componentCls}-content`]: {
         width: floatButtonSize,
         overflow: 'hidden',
         // color: token.floatButtonColor,
         textAlign: 'center',
-        transition: `all ${token.motionDurationSlow}`,
-        '&:hover': {
-          backgroundColor: token.floatButtonHoverBackgroundColor,
-        },
+        transition: `all ${token.motionDurationFast}`,
       },
       [`${componentCls}-icon`]: {
+        ...resetIcon(),
         fontSize: floatButtonFontSize,
-        lineHeight: `${floatButtonSize}px`,
+        lineHeight: 1,
       },
       [`${componentCls}-default-icon`]: {
-        color: token.colorTextBase,
+        color: token.colorText,
       },
       [`${componentCls}-primary-icon`]: {
         color: token.colorTextLightSolid,
       },
     },
     [`${componentCls}-circle`]: {
-      borderRadius: token.radiusBase * 20,
+      borderRadius: '50%',
     },
     [`${componentCls}-square`]: {
       height: 'auto',
@@ -114,19 +116,30 @@ const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken> = (token): CSSObjec
 export default genComponentStyleHook<'FloatButton'>(
   'FloatButton',
   token => {
-    const { fontSizeHeading3, colorTextLightSolid, colorText, controlHeightLG } = token;
+    const {
+      colorTextLightSolid,
+      colorBgContainer,
+      controlHeightLG,
+      marginXXL,
+      marginLG,
+      marginTmp,
+      fontSize,
+      fontSizeHeading4,
+      controlItemBgHover,
+    } = token;
 
     const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-      floatButtonBackgroundColor: colorTextLightSolid,
+      floatButtonBackgroundColor: colorBgContainer,
       floatButtonColor: colorTextLightSolid,
-      floatButtonHoverBackgroundColor: colorText,
-      floatButtonFontSize: fontSizeHeading3,
+      floatButtonHoverBackgroundColor: controlItemBgHover,
+      floatButtonFontSize: fontSize,
+      floatButtonIconSize: fontSizeHeading4,
       floatButtonSize: controlHeightLG,
 
-      floatButtonBlockEnd: controlHeightLG * 1.25,
-      floatButtonInlineEnd: controlHeightLG * 2.5,
+      floatButtonBlockEnd: marginXXL,
+      floatButtonInlineEnd: marginLG,
       floatButtonInlineEndMD: controlHeightLG * 1.5,
-      floatButtonInlineEndXS: controlHeightLG * 0.5,
+      floatButtonInlineEndXS: marginTmp,
     });
     return [sharedFloatButtonStyle(floatButtonToken), mediaFloatButtonStyle(floatButtonToken)];
   },

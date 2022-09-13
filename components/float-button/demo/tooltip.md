@@ -1,5 +1,6 @@
 ---
 order: 2
+iframe: 360
 title:
   zh-CN: 含有气泡卡片的悬浮按钮
   en-US: Custom style
