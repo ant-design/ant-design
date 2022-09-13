@@ -212,23 +212,19 @@ const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = Value
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
 };
 
-const PureInputNumber = (props: InputNumberProps<any>) => {
-  const sharedConfig = {
-    handleVisible: true,
-  };
-
-  return (
-    <ConfigProvider
-      theme={{
-        override: {
-          InputNumber: sharedConfig,
+const PureInputNumber = (props: InputNumberProps<any>) => (
+  <ConfigProvider
+    theme={{
+      override: {
+        InputNumber: {
+          handleVisible: true,
         },
-      }}
-    >
-      <InputNumber {...props} />
-    </ConfigProvider>
-  );
-};
+      },
+    }}
+  >
+    <InputNumber {...props} />
+  </ConfigProvider>
+);
 
 TypedInputNumber._InternalPanelDoNotUseOrYouWillBeFired = PureInputNumber;
 
