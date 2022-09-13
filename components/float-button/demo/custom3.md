@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 iframe: 360
 title:
   zh-CN: 自定义样式
@@ -20,13 +20,7 @@ You can customize the style of the button, just note the size limit: no more tha
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => (
-  <FloatButton.Group>
-    <FloatButton />
-    <FloatButton />
-    <FloatButton />
-  </FloatButton.Group>
-);
+const App: React.FC = () => <FloatButton type="primary" shape="square" />;
 
 export default App;
 ```

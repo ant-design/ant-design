@@ -27,7 +27,6 @@ export interface FloatButtonContentProps {
   icon: FloatButtonProps['icon'];
   description: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
-  shape: FloatButtonProps['shape'];
   type: FloatButtonProps['type'];
   CSSMotionClassName?: string;
 }

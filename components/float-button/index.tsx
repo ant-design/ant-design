@@ -47,8 +47,8 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   );
 
   const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type, shape: mergeShape }),
-    [prefixCls, description, icon, type, groupShape, mergeShape],
+    () => ({ prefixCls, description, icon, type }),
+    [prefixCls, description, icon, type, groupShape],
   );
 
   const buttonNode = (

@@ -33,10 +33,35 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       border: 'none',
       position: 'fixed',
       width: token.floatButtonSize,
-      minHeight: token.floatButtonSize,
       height: 'auto',
+      minHeight: token.floatButtonSize,
+      insetInlineEnd: token.floatButtonInlineEnd,
+      insetBlockEnd: token.floatButtonBlockEnd,
+      backgroundColor: token.colorBgContainer,
+      borderRadius: token.radiusBase,
       '&&-rtl': {
         direction: 'rtl',
+      },
+      [componentCls]: {
+        position: 'static',
+      },
+    },
+    [`${groupPrefixCls}-circle`]: {
+      boxShadow: 'none',
+      [`${componentCls}-circle`]: {
+        marginTop: 16,
+      },
+    },
+    [`${groupPrefixCls}-square`]: {
+      overflow: 'hidden',
+      boxShadow: token.boxShadowSecondary,
+      [`${componentCls}-square`]: {
+        marginTop: 0,
+        borderRadius: 0,
+        boxShadow: 'none',
+        '&:not(:first-child)': {
+          borderTop: `1px solid ${token.colorFillContent}`,
+        },
       },
     },
   };
@@ -44,7 +69,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonFontSize, floatButtonSize, zIndexPopup } = token;
+  const { componentCls, floatButtonFontSize, floatButtonSize } = token;
 
   return {
     [componentCls]: {
@@ -54,7 +79,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       position: 'fixed',
       cursor: 'pointer',
       overflow: 'hidden',
-      zIndex: zIndexPopup + 20,
+      zIndex: 20,
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInlineEnd,
@@ -107,14 +132,15 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
 
 const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls } = token;
+  const groupPrefixCls = `${componentCls}-group`;
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
-      [componentCls]: {
+      [`${componentCls},${groupPrefixCls}`]: {
         insetInlineEnd: token.floatButtonInlineEndMD,
       },
     },
     [`@media (max-width: ${token.screenXS}px)`]: {
-      [componentCls]: {
+      [`${componentCls},${groupPrefixCls}`]: {
         insetInlineEnd: token.floatButtonInlineEndXS,
       },
     },

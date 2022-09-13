@@ -9,8 +9,8 @@ import useStyle from './style';
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const {
     prefixCls: customizePrefixCls,
-    className = '',
-    shape,
+    className,
+    shape = 'circle',
     trigger,
     open,
     children,
@@ -20,9 +20,15 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const prefixCls = getPrefixCls('float-button', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const classString = classNames(groupPrefixCls, className, hashId, {
-    [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-  });
+  const classString = classNames(
+    groupPrefixCls,
+    hashId,
+    {
+      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-${shape}`]: shape,
+    },
+    className,
+  );
   return wrapSSR(
     <FloatButtonGroupProvider value={{ shape, open, trigger, onOpenChange }}>
       <div className={classString}>{children}</div>

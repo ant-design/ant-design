@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 5
 iframe: 360
 title:
   zh-CN: 含有气泡卡片的悬浮按钮
@@ -18,7 +18,13 @@ You can customize the style of the button, just note the size limit: no more tha
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton shape="square" tooltip="text" />;
+const App: React.FC = () => (
+  <FloatButton.Group shape="square">
+    <FloatButton />
+    <FloatButton />
+    <FloatButton />
+  </FloatButton.Group>
+);
 
 export default App;
 ```
