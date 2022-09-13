@@ -118,10 +118,47 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
   };
 };
 
+const genWireframeStyle: GenerateStyle<PopoverToken> = token => {
+  const {
+    componentCls,
+    lineWidth,
+    lineType,
+    colorSplit,
+    paddingSM,
+    controlHeight,
+    fontSize,
+    lineHeight,
+    padding,
+  } = token;
+
+  const titlePaddingBlockDist = controlHeight - Math.round(fontSize * lineHeight);
+  const popoverTitlePaddingBlockTop = titlePaddingBlockDist / 2;
+  const popoverTitlePaddingBlockBottom = titlePaddingBlockDist / 2 - lineWidth;
+  const popoverPaddingHorizontal = padding;
+
+  return {
+    [componentCls]: {
+      [`${componentCls}-inner`]: {
+        padding: 0,
+      },
+
+      [`${componentCls}-title`]: {
+        margin: 0,
+        padding: `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`,
+        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+      },
+
+      [`${componentCls}-inner-content`]: {
+        padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
+      },
+    },
+  };
+};
+
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const { colorBgElevated, colorText, paddingSM } = token;
+    const { colorBgElevated, colorText, paddingSM, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverBg: colorBgElevated,
@@ -132,6 +169,7 @@ export default genComponentStyleHook(
     return [
       genBaseStyle(popoverToken),
       genColorStyle(popoverToken),
+      wireframe && genWireframeStyle(popoverToken),
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
