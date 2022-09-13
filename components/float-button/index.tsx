@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import pick from 'lodash/pick';
 import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import BackTop from '../back-top';
@@ -26,6 +25,7 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
     icon,
     description,
     tooltip,
+    ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const { shape: groupShape } = useContext<FloatButtonGroupProps>(FloatButtonGroupContext);
@@ -33,34 +33,37 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const mergeShape = groupShape || shape;
+
   const classString = classNames(
     hashId,
     prefixCls,
     className,
-    `${prefixCls}-${shape}`,
     `${prefixCls}-${type}`,
-    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+    `${prefixCls}-${mergeShape}`,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
   );
 
-  const divProps = pick(props, ['style', 'onClick']);
-
   const contentProps = useMemo<ContentProps>(
-    () => ({ prefixCls, description, icon, type, shape: groupShape || shape }),
-    [prefixCls, description, icon, type, groupShape, shape],
+    () => ({ prefixCls, description, icon, type, shape: mergeShape }),
+    [prefixCls, description, icon, type, groupShape, mergeShape],
   );
 
   return wrapSSR(
-    <div {...divProps} className={classString}>
+    <div {...restProps} className={classString}>
       <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-        {childrenProps =>
-          tooltip ? (
+        {childrenProps => {
+          const motionClass = { CSSMotionClassName: childrenProps.className };
+          return tooltip ? (
             <Tooltip title={tooltip}>
-              <Content CSSMotionClassName={childrenProps.className} {...contentProps} />
+              <Content {...motionClass} {...contentProps} />
             </Tooltip>
           ) : (
-            <Content CSSMotionClassName={childrenProps.className} {...contentProps} />
-          )
-        }
+            <Content {...motionClass} {...contentProps} />
+          );
+        }}
       </CSSMotion>
     </div>,
   );
