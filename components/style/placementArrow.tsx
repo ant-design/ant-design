@@ -7,13 +7,15 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map(cls => `${showArrowCls}${cls}`).join(',');
 }
 
+export const MAX_VERTICAL_CONTENT_RADIUS = 8;
+
 export function getArrowOffset(options: {
   sizePopupArrow: number;
   contentRadius: number;
   radiusOuter: number;
   limitVerticalRadius?: boolean;
 }) {
-  const maxVerticalContentRadius = 8;
+  const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
   const { sizePopupArrow, contentRadius, radiusOuter, limitVerticalRadius } = options;
   const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(radiusOuter * (Math.sqrt(2) - 1));
   const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;

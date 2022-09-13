@@ -1,4 +1,4 @@
-import { getArrowOffset } from 'antd/es/style/placementArrow';
+import { getArrowOffset } from '../../style/placementArrow';
 import {
   initMoveMotion,
   initSlideMotion,

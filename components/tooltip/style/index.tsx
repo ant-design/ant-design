@@ -8,7 +8,7 @@ import type {
 } from '../../theme';
 import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
 import { resetComponent } from '../../style';
-import getArrowStyle from '../../style/placementArrow';
+import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -96,7 +96,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
           `&-placement-rightBottom`,
         ].join(',')]: {
           [`${componentCls}-inner`]: {
-            borderRadius: tooltipBorderRadius > 8 ? 8 : tooltipBorderRadius,
+            borderRadius:
+              tooltipBorderRadius > MAX_VERTICAL_CONTENT_RADIUS
+                ? MAX_VERTICAL_CONTENT_RADIUS
+                : tooltipBorderRadius,
           },
         },
 
