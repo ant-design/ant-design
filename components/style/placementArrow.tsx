@@ -7,23 +7,44 @@ function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map(cls => `${showArrowCls}${cls}`).join(',');
 }
 
+export const MAX_VERTICAL_CONTENT_RADIUS = 8;
+
+export function getArrowOffset(options: {
+  sizePopupArrow: number;
+  contentRadius: number;
+  radiusOuter: number;
+  limitVerticalRadius?: boolean;
+}) {
+  const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
+  const { sizePopupArrow, contentRadius, radiusOuter, limitVerticalRadius } = options;
+  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(radiusOuter * (Math.sqrt(2) - 1));
+  const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;
+  const dropdownArrowOffsetVertical = limitVerticalRadius
+    ? maxVerticalContentRadius - arrowInnerOffset
+    : dropdownArrowOffset;
+  return { dropdownArrowOffset, dropdownArrowOffsetVertical };
+}
+
 export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToken>>(
   token: Token,
-  colorBg: string,
-  showArrowCls?: string,
-  arrowMargin?: number,
+  options: {
+    colorBg: string;
+    showArrowCls?: string;
+    contentRadius?: number;
+    limitVerticalRadius?: boolean;
+  },
 ): CSSInterpolation {
-  const {
-    componentCls,
-    sizePopupArrow,
-    marginXXS,
-    radiusXS,
-    radiusOuter,
-    boxShadowPopoverArrow,
-    marginXS,
-  } = token;
+  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter, boxShadowPopoverArrow } =
+    token;
 
-  const dropdownArrowOffset = arrowMargin ?? marginXS;
+  const { colorBg, showArrowCls, contentRadius = token.radiusLG, limitVerticalRadius } = options;
+
+  const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
+    sizePopupArrow,
+    contentRadius,
+    radiusOuter,
+    limitVerticalRadius,
+  });
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
 
   return {
@@ -131,11 +152,11 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       },
 
       [`&-placement-leftTop ${componentCls}-arrow`]: {
-        top: dropdownArrowOffset,
+        top: dropdownArrowOffsetVertical,
       },
 
       [`&-placement-leftBottom ${componentCls}-arrow`]: {
-        bottom: dropdownArrowOffset,
+        bottom: dropdownArrowOffsetVertical,
       },
 
       // >>>>> Right
@@ -160,11 +181,11 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       },
 
       [`&-placement-rightTop ${componentCls}-arrow`]: {
-        top: dropdownArrowOffset,
+        top: dropdownArrowOffsetVertical,
       },
 
       [`&-placement-rightBottom ${componentCls}-arrow`]: {
-        bottom: dropdownArrowOffset,
+        bottom: dropdownArrowOffsetVertical,
       },
 
       // =========================== Offset ============================
