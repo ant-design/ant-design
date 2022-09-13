@@ -8,8 +8,9 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import Tooltip from '../tooltip';
 import Content from './FloatButtonContent';
-import type { ContentProps, FloatButtonProps } from './interface';
+import type { ContentProps, FloatButtonGroupProps, FloatButtonProps } from './interface';
 import Group from './FloatButtonGroup';
+import FloatButtonGroupContext from './context';
 
 interface WithGroupAndBackTop {
   Group: typeof Group;
@@ -27,6 +28,7 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
     tooltip,
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { shape: groupShape } = useContext<FloatButtonGroupProps>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls('float-button', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -43,8 +45,8 @@ const FloatButton: React.FC<FloatButtonProps> & WithGroupAndBackTop = props => {
   const divProps = pick(props, ['style', 'onClick']);
 
   const contentProps = useMemo<ContentProps>(
-    () => ({ prefixCls, description, icon, shape, type }),
-    [prefixCls, description, icon, shape, type],
+    () => ({ prefixCls, description, icon, type, shape: groupShape || shape }),
+    [prefixCls, description, icon, type, groupShape, shape],
   );
 
   return wrapSSR(
