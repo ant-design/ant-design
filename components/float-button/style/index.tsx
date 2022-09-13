@@ -30,41 +30,25 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
   return {
     [componentCls]: {
       ...resetComponent(token),
+      display: 'block',
+      border: 'none',
       position: 'fixed',
-      insetInlineEnd: token.floatButtonInlineEnd,
-      insetBlockEnd: token.floatButtonBlockEnd,
+      cursor: 'pointer',
+      overflow: 'hidden',
       zIndex: zIndexPopup,
       width: floatButtonSize,
       height: floatButtonSize,
-      cursor: 'pointer',
-      overflow: 'hidden',
+      insetInlineEnd: token.floatButtonInlineEnd,
+      insetBlockEnd: token.floatButtonBlockEnd,
       boxShadow: token.boxShadowSecondary,
+      transition: `all ${token.motionDurationFast}`,
       '&:empty': {
         display: 'none',
-      },
-      [`${componentCls}-circle`]: {
-        borderRadius: '50%',
-      },
-      [`${componentCls}-square`]: {
-        height: 'auto',
-        minHeight: floatButtonSize,
-        borderRadius: token.radiusBase,
-      },
-      [`${componentCls}-default`]: {
-        backgroundColor: token.colorBgContainer,
-      },
-      [`${componentCls}-primary`]: {
-        backgroundColor: token.colorPrimary,
-        '&:hover': {
-          backgroundColor: token.colorPrimaryHover,
-        },
       },
       [`${componentCls}-content`]: {
         width: floatButtonSize,
         overflow: 'hidden',
-        // color: token.floatButtonColor,
         textAlign: 'center',
-        transition: `all ${token.motionDurationFast}`,
       },
       [`${componentCls}-icon`]: {
         ...resetIcon(),
@@ -79,6 +63,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       },
     },
     [`${componentCls}-circle`]: {
+      height: floatButtonSize,
       borderRadius: '50%',
     },
     [`${componentCls}-square`]: {
@@ -87,10 +72,16 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: token.radiusBase,
     },
     [`${componentCls}-default`]: {
-      backgroundColor: token.colorTextLightSolid,
+      backgroundColor: token.colorBgContainer,
+      '&:hover': {
+        backgroundColor: token.colorFillContent,
+      },
     },
     [`${componentCls}-primary`]: {
-      backgroundColor: token.colorPrimaryHover,
+      backgroundColor: token.colorPrimary,
+      '&:hover': {
+        backgroundColor: token.colorPrimaryHover,
+      },
     },
   };
 };
