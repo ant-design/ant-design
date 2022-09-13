@@ -42,17 +42,19 @@ export type {
 
 // ================================ Context =================================
 // To ensure snapshot stable. We disable hashed in test env.
-export const defaultConfig = {
+export const defaultConfig: DesignTokenContextProps = {
   token: defaultSeedToken,
   hashed: true,
 };
 
-export const DesignTokenContext = React.createContext<{
+interface DesignTokenContextProps {
   token: Partial<SeedToken>;
   theme?: Theme<SeedToken, MapToken>;
   override?: OverrideToken;
   hashed?: string | boolean;
-}>(defaultConfig);
+}
+
+export const DesignTokenContext = React.createContext<DesignTokenContextProps | null>(null);
 
 // ================================== Hook ==================================
 // In dev env, we refresh salt per hour to avoid user use this
@@ -61,7 +63,12 @@ const saltPrefix =
   process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
 
 export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
-  const { token: rootDesignToken, override, hashed, theme } = React.useContext(DesignTokenContext);
+  const {
+    token: rootDesignToken,
+    override,
+    hashed,
+    theme,
+  } = React.useContext(DesignTokenContext) || defaultConfig;
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 

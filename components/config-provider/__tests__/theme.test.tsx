@@ -1,6 +1,6 @@
 import { kebabCase } from 'lodash';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
@@ -133,5 +133,35 @@ describe('ConfigProvider.Theme', () => {
         style => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
       ),
     ).toBeTruthy();
+  });
+
+  it('switch theme should not unmount', () => {
+    let unmountCalled = false;
+
+    const Checker = () => {
+      useEffect(
+        () => () => {
+          unmountCalled = true;
+        },
+        [],
+      );
+      return null;
+    };
+
+    const { rerender } = render(
+      <ConfigProvider theme={{ token: { colorPrimary: 'black' } }}>
+        <Checker />
+      </ConfigProvider>,
+    );
+
+    // Change theme
+    unmountCalled = false;
+    rerender(
+      <ConfigProvider theme={undefined}>
+        <Checker />
+      </ConfigProvider>,
+    );
+
+    expect(unmountCalled).toBeFalsy();
   });
 });

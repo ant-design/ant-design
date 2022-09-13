@@ -271,7 +271,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     };
   }, [mergedTheme]);
 
-  if (theme) {
+  // To avoid developer set theme from `object` back to `undefined` make unmount.
+  // We record `theme` set here and use it.
+  const themedRef = React.useRef<boolean>();
+  themedRef.current = themedRef.current || !!theme;
+
+  if (themedRef.current) {
     childNode = (
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
