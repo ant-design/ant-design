@@ -17,6 +17,8 @@ export interface ComponentToken {
   controlWidth: number;
   handleWidth: number;
   handleFontSize: number;
+  /** Default `auto`. Set `true` will always show the handle */
+  handleVisible: 'auto' | true;
 }
 
 type InputNumberToken = InputToken<FullToken<'InputNumber'>>;
@@ -44,6 +46,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlRadiusSM,
     controlRadiusLG,
     controlWidth,
+    handleVisible,
   } = token;
 
   return [
@@ -182,7 +185,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderStartEndRadius: controlRadius,
           borderEndEndRadius: controlRadius,
           borderEndStartRadius: 0,
-          opacity: 0,
+          opacity: handleVisible === true ? 1 : 0,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
@@ -394,5 +397,6 @@ export default genComponentStyleHook(
     controlWidth: 90,
     handleWidth: token.controlHeightSM - token.controlLineWidth * 2,
     handleFontSize: token.fontSize / 2,
+    handleVisible: 'auto',
   }),
 );
