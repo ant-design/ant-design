@@ -30,7 +30,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
   const children = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
-    tns.push({ title: key, key });
+    tns.push({ title: key, key, disabled: i % 2 === 1 });
     if (i < y) {
       children.push(key);
     }
