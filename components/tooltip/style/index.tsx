@@ -86,6 +86,20 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
           boxShadow: boxShadowSecondary,
         },
 
+        // Limit left and right placement radius
+        [[
+          `&-placement-left`,
+          `&-placement-leftTop`,
+          `&-placement-leftBottom`,
+          `&-placement-right`,
+          `&-placement-rightTop`,
+          `&-placement-rightBottom`,
+        ].join(',')]: {
+          [`${componentCls}-inner`]: {
+            borderRadius: tooltipBorderRadius > 8 ? 8 : tooltipBorderRadius,
+          },
+        },
+
         [`${componentCls}-content`]: {
           position: 'relative',
         },
@@ -105,9 +119,12 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
       mergeToken<TooltipToken>(token, {
         radiusOuter: tooltipRadiusOuter,
       }),
-      'var(--antd-arrow-background-color)',
-      '',
-      0,
+      {
+        colorBg: 'var(--antd-arrow-background-color)',
+        showArrowCls: '',
+        contentRadius: tooltipBorderRadius,
+        limitVerticalRadius: true,
+      },
     ),
 
     // Pure Render
