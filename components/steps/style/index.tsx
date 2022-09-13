@@ -35,24 +35,28 @@ export interface StepsToken extends FullToken<'Steps'> {
   processTitleColor: string;
   processDescriptionColor: string;
   processIconBgColor: string;
+  processIconBorderColor: string;
   processDotColor: string;
   waitIconColor: string;
   waitTitleColor: string;
   waitDescriptionColor: string;
   waitTailColor: string;
   waitIconBgColor: string;
+  waitIconBorderColor: string;
   waitDotColor: string;
   finishIconColor: string;
   finishTitleColor: string;
   finishDescriptionColor: string;
   finishTailColor: string;
   finishIconBgColor: string;
+  finishIconBorderColor: string;
   finishDotColor: string;
   errorIconColor: string;
   errorTitleColor: string;
   errorDescriptionColor: string;
   errorTailColor: string;
   errorIconBgColor: string;
+  errorIconBorderColor: string;
   errorDotColor: string;
   stepsNavActiveColor: string;
   stepsProgressSize: number;
@@ -72,10 +76,12 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
   const iconBgColorKey: keyof StepsToken = `${status}IconBgColor`;
+  const iconBorderColorKey: keyof StepsToken = `${status}IconBorderColor`;
   const dotColorKey: keyof StepsToken = `${status}DotColor`;
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
       backgroundColor: token[iconBgColorKey],
+      borderColor: token[iconBorderColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
         [`${token.componentCls}-icon-dot`]: {
@@ -142,13 +148,13 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       lineHeight: `${token.stepsIconSize}px`,
       textAlign: 'center',
       borderRadius: token.stepsIconSize,
+      border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
         position: 'relative',
         top: token.stepsIconTop,
         color: token.colorPrimary,
         lineHeight: 1,
-        verticalAlign: 'text-bottom',
       },
     },
     [`${stepsItemCls}-tail`]: {
@@ -313,50 +319,72 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 export default genComponentStyleHook(
   'Steps',
   token => {
+    const {
+      wireframe,
+      colorTextDisabled,
+      fontSizeHeading3,
+      fontSize,
+      controlHeight,
+      controlHeightLG,
+      colorTextLightSolid,
+      colorText,
+      colorPrimary,
+      colorTextLabel,
+      colorTextDescription,
+      colorFillContent,
+      colorPrimaryBg,
+      colorError,
+      colorBgContainer,
+    } = token;
+
     const stepsIconSize = token.controlHeight;
     const processTailColor = token.colorSplit;
 
     const stepsToken = mergeToken<StepsToken>(token, {
       // Steps variable default.less
       processTailColor,
-      stepsNavArrowColor: token.colorTextDisabled,
+      stepsNavArrowColor: colorTextDisabled,
       stepsIconSize,
       stepsIconCustomSize: stepsIconSize,
       stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: token.fontSizeHeading3,
+      stepsIconCustomFontSize: fontSizeHeading3,
       stepsIconTop: -0.5, // magic for ui experience
-      stepsIconFontSize: token.fontSize,
-      stepsTitleLineHeight: token.controlHeight,
-      stepsSmallIconSize: token.fontSizeHeading3,
-      stepsDotSize: token.controlHeight / 4,
-      stepsCurrentDotSize: token.controlHeightLG / 4,
+      stepsIconFontSize: fontSize,
+      stepsTitleLineHeight: controlHeight,
+      stepsSmallIconSize: fontSizeHeading3,
+      stepsDotSize: controlHeight / 4,
+      stepsCurrentDotSize: controlHeightLG / 4,
       stepsNavContentMaxWidth: 'auto',
       // Steps component less variable
-      processIconColor: token.colorTextLightSolid,
-      processTitleColor: token.colorText,
-      processDescriptionColor: token.colorText,
-      processIconBgColor: token.colorPrimary,
-      processDotColor: token.colorPrimary,
-      waitIconColor: token.colorTextLabel,
-      waitTitleColor: token.colorTextDescription,
-      waitDescriptionColor: token.colorTextDescription,
+      processIconColor: colorTextLightSolid,
+      processTitleColor: colorText,
+      processDescriptionColor: colorText,
+      processIconBgColor: colorPrimary,
+      processIconBorderColor: colorPrimary,
+      processDotColor: colorPrimary,
+      waitIconColor: wireframe ? colorTextDisabled : colorTextLabel,
+      waitTitleColor: colorTextDescription,
+      waitDescriptionColor: colorTextDescription,
       waitTailColor: processTailColor,
-      waitIconBgColor: token.colorFillContent,
-      waitDotColor: token.colorTextDisabled,
-      finishIconColor: token.colorPrimary,
-      finishTitleColor: token.colorText,
-      finishDescriptionColor: token.colorTextDescription,
-      finishTailColor: token.colorPrimary,
-      finishIconBgColor: token.colorPrimaryBg,
-      finishDotColor: token.colorPrimary,
-      errorIconColor: token.colorTextLightSolid,
-      errorTitleColor: token.colorError,
-      errorDescriptionColor: token.colorError,
+      waitIconBgColor: wireframe ? colorBgContainer : colorFillContent,
+      waitIconBorderColor: wireframe ? colorTextDisabled : 'transparent',
+      waitDotColor: colorTextDisabled,
+      finishIconColor: colorPrimary,
+      finishTitleColor: colorText,
+      finishDescriptionColor: colorTextDescription,
+      finishTailColor: colorPrimary,
+      finishIconBgColor: wireframe ? colorBgContainer : colorPrimaryBg,
+      finishIconBorderColor: wireframe ? colorPrimary : colorPrimaryBg,
+      finishDotColor: colorPrimary,
+      errorIconColor: colorTextLightSolid,
+      errorTitleColor: colorError,
+      errorDescriptionColor: colorError,
       errorTailColor: processTailColor,
-      errorIconBgColor: token.colorError,
-      errorDotColor: token.colorError,
-      stepsNavActiveColor: token.colorPrimary,
-      stepsProgressSize: token.controlHeightLG,
+      errorIconBgColor: colorError,
+      errorIconBorderColor: colorError,
+      errorDotColor: colorError,
+      stepsNavActiveColor: colorPrimary,
+      stepsProgressSize: controlHeightLG,
     });
 
     return [genStepsStyle(stepsToken)];

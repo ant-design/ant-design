@@ -122,7 +122,7 @@ export default function DynamicTheme({
                 node = <InputNumber />;
                 break;
               case 'boolean':
-                node = <Switch />;
+                node = <Switch defaultChecked={!!originValue} />;
                 break;
 
               default:
