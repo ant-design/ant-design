@@ -213,7 +213,7 @@ Array [
   >
     <div
       class="ant-popover-content"
-      style="width:250px"
+      style="width: 250px;"
     >
       <div
         class="ant-popover-arrow"

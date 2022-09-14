@@ -828,7 +828,7 @@ exports[`renders ./components/input-number/demo/debug-token.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-input-number"

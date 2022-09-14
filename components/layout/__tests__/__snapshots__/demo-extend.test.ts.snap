@@ -1606,7 +1606,7 @@ exports[`renders ./components/layout/demo/responsive.md extend context correctly
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
         data-menu-list="true"
         role="menu"
         tabindex="0"

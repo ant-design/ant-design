@@ -365,7 +365,7 @@ Array [
   >
     <div
       class="ant-tooltip-content"
-      style="width:200px"
+      style="width: 200px;"
     >
       <div
         class="ant-tooltip-arrow"

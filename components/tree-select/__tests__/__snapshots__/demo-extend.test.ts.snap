@@ -1576,11 +1576,11 @@ Array [
 
 exports[`renders ./components/tree-select/demo/render-panel.md extend context correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative;width:fit-content"
+  style="padding-bottom: 0px; position: relative;"
 >
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-    style="width:100%;margin:0"
+    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    style="width: 100%; margin: 0px;"
   >
     <div
       class="ant-select-selector"
@@ -1590,15 +1590,16 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
       >
         <input
           aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-expanded="false"
+          aria-controls="rc_select_test_list"
+          aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -1613,8 +1614,8 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-tree-select-dropdown"
-        style="opacity:0"
+        class="ant-select-dropdown ant-tree-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0; min-width: 0; width: 0px;"
       >
         <div>
           <div>
@@ -1626,14 +1627,14 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
                 <input
                   aria-label="for screen reader"
                   disabled=""
-                  style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
                   value=""
                 />
               </div>
               <div
                 aria-hidden="true"
                 class="ant-select-tree-treenode"
-                style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
               >
                 <div
                   class="ant-select-tree-indent"
@@ -1645,16 +1646,16 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
               </div>
               <div
                 class="ant-select-tree-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="ant-select-tree-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="ant-select-tree-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-grabbed="false"
@@ -1734,7 +1735,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1758,6 +1759,9 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
       </span>
     </span>
   </div>
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  />
 </div>
 `;
 

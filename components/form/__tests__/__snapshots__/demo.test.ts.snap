@@ -1909,7 +1909,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Apple
+                     Apple 
                   </span>
                 </label>
                 <label
@@ -1929,7 +1929,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Pear
+                     Pear 
                   </span>
                 </label>
               </div>
@@ -2811,6 +2811,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -2819,9 +2820,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -2863,6 +2871,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -2871,9 +2880,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -2950,6 +2966,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -2958,9 +2975,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -3002,6 +3026,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -3010,9 +3035,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -3115,6 +3147,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -3123,9 +3156,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -3180,6 +3220,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -3188,9 +3229,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -3285,6 +3333,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -3293,9 +3342,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -3346,6 +3402,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -3354,9 +3411,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;
@@ -4098,7 +4162,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             <span
               class="ant-typography ant-typography-secondary ant-form-text"
             >
-              (
+              ( 
               <span
                 aria-label="smile"
                 class="anticon anticon-smile"
@@ -5308,7 +5372,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 Log in
               </span>
             </button>
-            Or
+            Or 
             <a
               href=""
             >
@@ -6352,7 +6416,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 />
               </span>
               <span>
-                I have read the
+                I have read the 
                 <a
                   href=""
                 >
@@ -8011,7 +8075,7 @@ Array [
     class="ant-typography"
   >
     <pre>
-      Name Value:
+      Name Value: 
     </pre>
   </article>,
 ]
@@ -8334,7 +8398,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </div>
             <span
               class="ant-form-text"
-              style="margin-left:8px"
+              style="margin-left: 8px;"
             >
               machines
             </span>
@@ -9462,6 +9526,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -9470,9 +9535,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               Should be combination of numbers & alphabets
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-warning"
@@ -9609,6 +9681,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-validating"
@@ -9617,9 +9690,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               The information is being validated...
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
@@ -9828,6 +9908,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -9836,9 +9917,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               Should be combination of numbers & alphabets
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
@@ -10390,6 +10478,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -10398,9 +10487,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               Something breaks the rule.
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
@@ -10516,6 +10612,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-warning"
@@ -10524,9 +10621,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               Need to be checked
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -10617,6 +10721,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     <div
                       class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
                       role="alert"
+                      style="height: 0px; opacity: 0;"
                     >
                       <div
                         class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -10625,9 +10730,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         Please select right date
                       </div>
                     </div>
+                    <div
+                      style="width: 0px; height: 24px;"
+                    />
                   </div>
                 </div>
               </div>
+              <div
+                class="ant-form-item-margin-offset"
+                style="margin-bottom: -24px;"
+              />
             </div>
             <span
               style="display: inline-block; width: 24px; line-height: 32px; text-align: center;"
@@ -11294,6 +11406,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -11302,9 +11415,16 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               Should have something
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;
@@ -11518,6 +11638,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item"
@@ -11526,9 +11647,16 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;

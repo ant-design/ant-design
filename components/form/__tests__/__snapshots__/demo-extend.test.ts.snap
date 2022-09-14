@@ -5245,6 +5245,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5253,9 +5254,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -5297,6 +5305,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5305,9 +5314,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -5384,6 +5400,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5392,9 +5409,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -5436,6 +5460,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5444,9 +5469,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -5549,6 +5581,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5557,9 +5590,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -5614,6 +5654,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5622,9 +5663,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -5719,6 +5767,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5727,9 +5776,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
@@ -5780,6 +5836,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -5788,9 +5845,16 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
               Buggy!
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;
@@ -19237,7 +19301,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
             </div>
             <span
               class="ant-form-text"
-              style="margin-left:8px"
+              style="margin-left: 8px;"
             >
               machines
             </span>
@@ -20389,6 +20453,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -20397,9 +20462,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               Should be combination of numbers & alphabets
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-warning"
@@ -20536,6 +20608,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-validating"
@@ -20544,9 +20617,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               The information is being validated...
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
@@ -20755,6 +20835,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -20763,9 +20844,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               Should be combination of numbers & alphabets
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
@@ -24463,6 +24551,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -24471,9 +24560,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               Something breaks the rule.
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-warning"
@@ -24666,6 +24762,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-warning"
@@ -24674,9 +24771,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               Need to be checked
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
   <div
     class="ant-form-item"
@@ -25321,6 +25425,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                     <div
                       class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
                       role="alert"
+                      style="height: 0px; opacity: 0;"
                     >
                       <div
                         class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -25329,9 +25434,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                         Please select right date
                       </div>
                     </div>
+                    <div
+                      style="width: 0px; height: 24px;"
+                    />
                   </div>
                 </div>
               </div>
+              <div
+                class="ant-form-item-margin-offset"
+                style="margin-bottom: -24px;"
+              />
             </div>
             <span
               style="display: inline-block; width: 24px; line-height: 32px; text-align: center;"
@@ -26552,6 +26664,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item ant-form-item-explain-error"
@@ -26560,9 +26673,16 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               Should have something
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;
@@ -26776,6 +26896,7 @@ exports[`renders ./components/form/demo/without-form-create.md extend context co
           <div
             class="ant-form-item-explain ant-show-help-appear ant-show-help-appear-start ant-show-help ant-form-item-explain-connected"
             role="alert"
+            style="height: 0px; opacity: 0;"
           >
             <div
               class="ant-show-help-item-appear ant-show-help-item-appear-start ant-show-help-item"
@@ -26784,9 +26905,16 @@ exports[`renders ./components/form/demo/without-form-create.md extend context co
               A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
             </div>
           </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
   </div>
 </form>
 `;

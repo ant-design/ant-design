@@ -8598,15 +8598,15 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
 
 exports[`renders ./components/dropdown/demo/render-panel.md extend context correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative;width:fit-content"
+  style="padding-bottom: 0px; position: relative;"
 >
   <span
-    class="ant-dropdown-trigger"
+    class="ant-dropdown-trigger ant-dropdown-open"
   />
   <div>
     <div
-      class="ant-dropdown"
-      style="opacity:0"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
@@ -8616,6 +8616,7 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
       >
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
           tabindex="-1"
         >
@@ -8633,8 +8634,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8656,6 +8657,7 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         <li
           aria-disabled="true"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled"
+          data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
         >
           <span
@@ -8691,8 +8693,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8714,6 +8716,7 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         <li
           aria-disabled="true"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-disabled ant-dropdown-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
         >
           <span
@@ -8730,8 +8733,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8752,6 +8755,7 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-danger ant-dropdown-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-4"
           role="menuitem"
           tabindex="-1"
         >
@@ -8763,8 +8767,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8786,12 +8790,12 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
       </ul>
       <div
         aria-hidden="true"
-        style="display:none"
+        style="display: none;"
       >
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8812,8 +8816,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8834,8 +8838,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8856,8 +8860,8 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-            style="opacity:0"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+            style="opacity: 0;"
           >
             <div
               class="ant-tooltip-content"
@@ -8879,6 +8883,9 @@ exports[`renders ./components/dropdown/demo/render-panel.md extend context corre
       </div>
     </div>
   </div>
+  <div
+    style="position: absolute; top: 0px; left: 0px; width: 100%;"
+  />
 </div>
 `;
 

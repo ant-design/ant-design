@@ -313,7 +313,6 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
   </div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-inline"
-    style="position: absolute;"
     tabindex="-1"
   >
     <div
@@ -334,7 +333,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
 
 exports[`renders ./components/drawer/demo/render-panel.md correctly 1`] = `
 <div
-  style="position:relative;min-height:100px;overflow:hidden;height:300px;box-shadow:0 0 5px red"
+  style="position: relative; min-height: 100px; overflow: hidden; height: 300px; box-shadow: 0 0 5px red;"
 >
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
@@ -346,12 +345,12 @@ exports[`renders ./components/drawer/demo/render-panel.md correctly 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width:378px"
+      style="width: 378px;"
     >
       <div
         aria-modal="true"
@@ -410,7 +409,7 @@ exports[`renders ./components/drawer/demo/render-panel.md correctly 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
       tabindex="0"
     />
   </div>
