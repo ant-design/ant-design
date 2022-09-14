@@ -42,8 +42,7 @@ export interface StepsProps {
 }
 
 interface StepsType extends React.FC<StepsProps> {
-  Step?: typeof RcSteps.Step;
-  items?: StepProps[];
+  Step: typeof RcSteps.Step;
 }
 
 const Steps: StepsType = props => {

@@ -13,11 +13,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
-### 4.23.0 用法升级
+### 4.24.0 用法升级
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.23.0 版本后，我们提供了 <Tabs items={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
+ReactDOM.render(<Alert message="在 4.23.0 版本后，我们提供了 <Steps items={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
 ```
 
 ```jsx
