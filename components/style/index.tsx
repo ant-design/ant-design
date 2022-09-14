@@ -98,11 +98,12 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
 });
 
 export const genFontStyle = (token: DerivativeToken, rootPrefixCls: string) => {
-  const { fontFamily } = token;
+  const { fontFamily, fontSize } = token;
 
   return {
     [`[class^="${rootPrefixCls}-"], [class*=" ${rootPrefixCls}-"]`]: {
       fontFamily,
+      fontSize,
     },
   };
 };
