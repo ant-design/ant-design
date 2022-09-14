@@ -16,6 +16,7 @@ Steps with progress.
 ```tsx
 import { Steps } from 'antd';
 import React from 'react';
+
 const description = 'This is a description.';
 const App: React.FC = () => (
   <Steps

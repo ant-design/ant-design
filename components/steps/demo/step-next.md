@@ -43,7 +43,7 @@ const App: React.FC = () => {
     setCurrent(current - 1);
   };
   const items = steps.map(item => ({ key: item.title, title: item.title }));
-  console.log('items', items);
+
   return (
     <>
       <Steps current={current} items={items} />

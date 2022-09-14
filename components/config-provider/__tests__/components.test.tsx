@@ -497,7 +497,7 @@ describe('ConfigProvider', () => {
               description: 'Little Light',
             },
           ]}
-        ></Steps>
+        />
       );
     });
 
