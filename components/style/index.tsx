@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../theme';
+import type { DerivativeToken, GenerateStyle } from '../theme';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
@@ -15,6 +15,7 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   lineHeight: token.lineHeight,
   listStyle: 'none',
   // font-feature-settings: @font-feature-settings-base;
+  fontFamily: token.fontFamily,
 });
 
 export const resetIcon = (): CSSObject => ({
@@ -95,6 +96,16 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
     },
   },
 });
+
+export const genFontStyle = (token: DerivativeToken, rootPrefixCls: string) => {
+  const { fontFamily } = token;
+
+  return {
+    [`[class^="${rootPrefixCls}-"], [class*=" ${rootPrefixCls}-"]`]: {
+      fontFamily,
+    },
+  };
+};
 
 export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
   outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
