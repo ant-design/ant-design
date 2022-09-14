@@ -211,7 +211,7 @@ Array [
       >
         <div
           class="ant-space-item"
-          style="margin-bottom:8px"
+          style="margin-bottom: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary ant-btn-sm"
@@ -1337,7 +1337,25 @@ exports[`renders ./components/alert/demo/loop-banner.md extend context correctly
   >
     <div
       class="ant-alert-message"
-    />
+    >
+      <div
+        class=" marquee-container"
+        style="--pause-on-hover: paused; --pause-on-click: running;"
+      >
+        <div
+          class="marquee"
+          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
+        >
+          I can be a React component, multiple React components, or just some text.
+        </div>
+        <div
+          class="marquee"
+          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
+        >
+          I can be a React component, multiple React components, or just some text.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;

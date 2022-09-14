@@ -174,6 +174,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
               opacity: 0.45,
             },
           },
+
+          [`&${treeNodeCls}-disabled`]: {
+            [`${treeCls}-draggable-icon`]: {
+              visibility: 'hidden',
+            },
+          },
         },
       },
 

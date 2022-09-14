@@ -43,10 +43,10 @@ const App: React.FC = () => {
 
     // 1. Limit the number of uploaded files
     // Only to show two recent uploaded files, and old ones will be replaced by the new
-    newFileList = fileList.slice(-2);
+    newFileList = newFileList.slice(-2);
 
     // 2. Read from response and show file link
-    newFileList = fileList.map(file => {
+    newFileList = newFileList.map(file => {
       if (file.response) {
         // Component will show file.url as link
         file.url = file.response.url;

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -25,18 +26,18 @@ describe('Carousel', () => {
   }
 
   it('should has innerSlider', () => {
-    const ref = React.createRef();
+    const ref = React.createRef<CarouselRef>();
     render(
       <Carousel ref={ref}>
         <div />
       </Carousel>,
     );
-    const { innerSlider } = ref.current;
+    const { innerSlider } = ref.current || {};
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
   it('should has prev, next and go function', async () => {
-    const ref = React.createRef();
+    const ref = React.createRef<CarouselRef>();
     render(
       <Carousel ref={ref}>
         <div>1</div>
@@ -44,28 +45,28 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const { prev, next, goTo } = ref.current;
+    const { prev, next, goTo } = ref.current || {};
     expect(typeof prev).toBe('function');
     expect(typeof next).toBe('function');
     expect(typeof goTo).toBe('function');
-    expect(ref.current.innerSlider.state.currentSlide).toBe(0);
-    ref.current.goTo(2);
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(0);
+    ref.current?.goTo(2);
     runAllTimersWithAct(1);
-    expect(ref.current.innerSlider.state.currentSlide).toBe(2);
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
     // wait for animation to be finished
     runAllTimersWithAct(2);
-    ref.current.prev();
+    ref.current?.prev();
     runAllTimersWithAct(1);
-    expect(ref.current.innerSlider.state.currentSlide).toBe(1);
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
     runAllTimersWithAct(2);
-    ref.current.next();
+    ref.current?.next();
     runAllTimersWithAct(1);
-    expect(ref.current.innerSlider.state.currentSlide).toBe(2);
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
   });
 
   it('should trigger autoPlay after window resize', async () => {
     jest.useRealTimers();
-    const ref = React.createRef();
+    const ref = React.createRef<CarouselRef>();
     render(
       <Carousel autoplay ref={ref}>
         <div>1</div>
@@ -73,7 +74,7 @@ describe('Carousel', () => {
         <div>3</div>
       </Carousel>,
     );
-    const spy = jest.spyOn(ref.current.innerSlider, 'autoPlay');
+    const spy = jest.spyOn(ref.current?.innerSlider, 'autoPlay');
     window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
     await sleep(500);
@@ -94,7 +95,7 @@ describe('Carousel', () => {
   });
 
   describe('should works for dotPosition', () => {
-    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+    (['left', 'right', 'top', 'bottom'] as const).forEach(dotPosition => {
       // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const { container } = render(

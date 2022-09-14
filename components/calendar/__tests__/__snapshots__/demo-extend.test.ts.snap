@@ -17,16 +17,17 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -41,19 +42,19 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2006
@@ -61,7 +62,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2007
@@ -69,16 +70,16 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
@@ -93,7 +94,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -110,7 +111,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -127,7 +128,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -144,7 +145,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -161,7 +162,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -178,7 +179,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -195,7 +196,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -212,7 +213,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -229,7 +230,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -246,7 +247,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -263,7 +264,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -280,7 +281,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -297,7 +298,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -314,7 +315,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -331,7 +332,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -348,7 +349,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -365,7 +366,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -382,7 +383,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -399,7 +400,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -416,7 +417,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -430,7 +431,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -464,16 +465,17 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -488,19 +490,19 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 0
@@ -508,7 +510,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -516,16 +518,16 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
@@ -540,7 +542,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -557,7 +559,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -574,7 +576,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -591,7 +593,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -608,7 +610,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -625,7 +627,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -642,7 +644,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -659,7 +661,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -676,7 +678,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -693,7 +695,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -710,7 +712,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -727,7 +729,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -741,7 +743,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -808,6 +810,12 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
         </span>
       </label>
     </div>
+    <div
+      style="position: absolute; top: 0px; left: 0px; width: 100%;"
+    />
+    <div
+      style="position: absolute; top: 0px; left: 0px; width: 100%;"
+    />
   </div>
   <div
     class="ant-picker-panel"
@@ -1602,16 +1610,17 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1626,19 +1635,19 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="2006"
                   aria-selected="false"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2006
@@ -1646,7 +1655,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2007
@@ -1654,16 +1663,16 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="false"
@@ -1678,7 +1687,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1695,7 +1704,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1712,7 +1721,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1729,7 +1738,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1746,7 +1755,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1763,7 +1772,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1780,7 +1789,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1797,7 +1806,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1814,7 +1823,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1831,7 +1840,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1848,7 +1857,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1865,7 +1874,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1882,7 +1891,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1899,7 +1908,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1916,7 +1925,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1933,7 +1942,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1950,7 +1959,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1967,7 +1976,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1984,7 +1993,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2001,7 +2010,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2015,7 +2024,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -2049,16 +2058,17 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -2073,19 +2083,19 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="Jan"
                   aria-selected="false"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   0
@@ -2093,7 +2103,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   1
@@ -2101,16 +2111,16 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="false"
@@ -2125,7 +2135,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2142,7 +2152,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2159,7 +2169,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2176,7 +2186,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2193,7 +2203,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2210,7 +2220,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2227,7 +2237,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2244,7 +2254,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2261,7 +2271,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2278,7 +2288,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2295,7 +2305,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2312,7 +2322,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2326,7 +2336,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -2393,6 +2403,12 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
           </span>
         </label>
       </div>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
     <div
       class="ant-picker-panel"
@@ -3176,7 +3192,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
     class="ant-picker-calendar ant-picker-calendar-mini"
   >
     <div
-      style="padding:8px"
+      style="padding: 8px;"
     >
       <h4
         class="ant-typography"
@@ -3185,11 +3201,11 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
       </h4>
       <div
         class="ant-row"
-        style="margin-left:-4px;margin-right:-4px"
+        style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
@@ -3237,7 +3253,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
@@ -3249,16 +3265,17 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -3273,25 +3290,25 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             </div>
             <div>
               <div
-                class="ant-select-dropdown"
-                style="opacity:0"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <div>
                   <div
-                    id="undefined_list"
+                    id="rc_select_test_list"
                     role="listbox"
-                    style="height:0;width:0;overflow:hidden"
+                    style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-selected="false"
-                      id="undefined_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       2006
                     </div>
                     <div
                       aria-selected="false"
-                      id="undefined_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       2007
@@ -3299,16 +3316,16 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                   </div>
                   <div
                     class="rc-virtual-list"
-                    style="position:relative"
+                    style="position: relative;"
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          style="display:flex;flex-direction:column"
+                          style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="false"
@@ -3323,7 +3340,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3340,7 +3357,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3357,7 +3374,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3374,7 +3391,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3391,7 +3408,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3408,7 +3425,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3425,7 +3442,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3442,7 +3459,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3459,7 +3476,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3476,7 +3493,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3493,7 +3510,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3510,7 +3527,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3527,7 +3544,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3544,7 +3561,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3561,7 +3578,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3578,7 +3595,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3595,7 +3612,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3612,7 +3629,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3629,7 +3646,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3646,7 +3663,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3660,7 +3677,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -3687,7 +3704,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
+          style="padding-left: 4px; padding-right: 4px;"
         >
           <div
             class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
@@ -3699,16 +3716,17 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -3723,19 +3741,19 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             </div>
             <div>
               <div
-                class="ant-select-dropdown"
-                style="opacity:0"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <div>
                   <div
-                    id="undefined_list"
+                    id="rc_select_test_list"
                     role="listbox"
-                    style="height:0;width:0;overflow:hidden"
+                    style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="Jan"
                       aria-selected="false"
-                      id="undefined_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       0
@@ -3743,7 +3761,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                     <div
                       aria-label="Feb"
                       aria-selected="false"
-                      id="undefined_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       1
@@ -3751,16 +3769,16 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                   </div>
                   <div
                     class="rc-virtual-list"
-                    style="position:relative"
+                    style="position: relative;"
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          style="display:flex;flex-direction:column"
+                          style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="false"
@@ -3775,7 +3793,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3792,7 +3810,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3809,7 +3827,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3826,7 +3844,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3843,7 +3861,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3860,7 +3878,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3877,7 +3895,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3894,7 +3912,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3911,7 +3929,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3928,7 +3946,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3945,7 +3963,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3962,7 +3980,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -3976,7 +3994,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -4794,16 +4812,17 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -4818,19 +4837,19 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="2006"
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2006
@@ -4838,7 +4857,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="2007"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2007
@@ -4846,16 +4865,16 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
@@ -4870,7 +4889,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4887,7 +4906,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4904,7 +4923,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4921,7 +4940,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4938,7 +4957,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4955,7 +4974,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4972,7 +4991,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -4989,7 +5008,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5006,7 +5025,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5023,7 +5042,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5040,7 +5059,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5057,7 +5076,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5074,7 +5093,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5091,7 +5110,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5108,7 +5127,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5125,7 +5144,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5142,7 +5161,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5159,7 +5178,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5176,7 +5195,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5193,7 +5212,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5207,7 +5226,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -5241,16 +5260,17 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -5265,19 +5285,19 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Jan"
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 0
@@ -5285,7 +5305,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
               <div
                 aria-label="Feb"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -5293,16 +5313,16 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
@@ -5317,7 +5337,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5334,7 +5354,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5351,7 +5371,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5368,7 +5388,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5385,7 +5405,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5402,7 +5422,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5419,7 +5439,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5436,7 +5456,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5453,7 +5473,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5470,7 +5490,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5487,7 +5507,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5504,7 +5524,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5518,7 +5538,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -5585,6 +5605,12 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
         </span>
       </label>
     </div>
+    <div
+      style="position: absolute; top: 0px; left: 0px; width: 100%;"
+    />
+    <div
+      style="position: absolute; top: 0px; left: 0px; width: 100%;"
+    />
   </div>
   <div
     class="ant-picker-panel"
@@ -6789,16 +6815,17 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -6813,19 +6840,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="2007"
                   aria-selected="false"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2007
@@ -6833,7 +6860,7 @@ Array [
                 <div
                   aria-label="2008"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   2008
@@ -6841,16 +6868,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="false"
@@ -6865,7 +6892,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6882,7 +6909,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6899,7 +6926,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6916,7 +6943,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6933,7 +6960,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6950,7 +6977,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6967,7 +6994,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -6984,7 +7011,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7001,7 +7028,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7018,7 +7045,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7035,7 +7062,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7052,7 +7079,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7069,7 +7096,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7086,7 +7113,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7103,7 +7130,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7120,7 +7147,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7137,7 +7164,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7154,7 +7181,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7171,7 +7198,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7188,7 +7215,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7202,7 +7229,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -7236,16 +7263,17 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -7260,19 +7288,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="Jan"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   0
@@ -7280,7 +7308,7 @@ Array [
                 <div
                   aria-label="Feb"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   1
@@ -7288,16 +7316,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -7312,7 +7340,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7329,7 +7357,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7346,7 +7374,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7363,7 +7391,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7380,7 +7408,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7397,7 +7425,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7414,7 +7442,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7431,7 +7459,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7448,7 +7476,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7465,7 +7493,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7482,7 +7510,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7499,7 +7527,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -7513,7 +7541,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -7580,6 +7608,12 @@ Array [
           </span>
         </label>
       </div>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
     <div
       class="ant-picker-panel"

@@ -37,7 +37,7 @@ const App: React.FC = () => {
         key: i.toString(),
         title: `content${i + 1}`,
         description: `description of content${i + 1}`,
-        chosen: Math.random() * 2 > 1,
+        chosen: i % 2 === 0,
       };
       if (data.chosen) {
         tempTargetKeys.push(data.key);
