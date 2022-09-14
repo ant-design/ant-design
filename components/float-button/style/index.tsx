@@ -25,7 +25,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, floatButtonSize } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
@@ -33,9 +33,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       display: 'block',
       border: 'none',
       position: 'fixed',
-      width: token.floatButtonSize,
+      width: floatButtonSize,
       height: 'auto',
-      minHeight: token.floatButtonSize,
+      minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInlineEnd,
       insetBlockEnd: token.floatButtonBlockEnd,
       backgroundColor: token.colorBgContainer,
@@ -49,19 +49,28 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
     },
     [`${groupPrefixCls}-circle`]: {
       boxShadow: 'none',
-      [`${componentCls}-circle`]: {
+      [`${componentCls}-circle:not(:first-child)`]: {
         marginTop: 16,
+        [`${componentCls}-body`]: {
+          width: floatButtonSize,
+          height: floatButtonSize,
+        },
       },
     },
     [`${groupPrefixCls}-square`]: {
       overflow: 'hidden',
       boxShadow: token.boxShadowSecondary,
       [`${componentCls}-square`]: {
+        padding: 4,
         marginTop: 0,
         borderRadius: 0,
         boxShadow: 'none',
         '&:not(:first-child)': {
           borderTop: `1px solid ${token.colorFillContent}`,
+        },
+        [`${componentCls}-body`]: {
+          width: floatButtonSize - 8,
+          height: floatButtonSize - 8,
         },
       },
     },
@@ -75,57 +84,77 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
   return {
     [componentCls]: {
       ...resetComponent(token),
-      display: 'block',
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
       overflow: 'hidden',
       zIndex: 20,
+      display: 'block',
+      justifyContent: 'center',
+      alignItems: 'center',
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInlineEnd,
       insetBlockEnd: token.floatButtonBlockEnd,
       boxShadow: token.boxShadowSecondary,
-      transition: `all ${token.motionDurationFast}`,
       '&:empty': {
         display: 'none',
       },
-      [`${componentCls}-content`]: {
+      [`${componentCls}-body`]: {
         width: floatButtonSize,
-        overflow: 'hidden',
-        textAlign: 'center',
-      },
-      [`${componentCls}-icon`]: {
-        ...resetIcon(),
-        fontSize: floatButtonFontSize,
-        lineHeight: 1,
-      },
-      [`${componentCls}-default-icon`]: {
-        color: token.colorText,
-      },
-      [`${componentCls}-primary-icon`]: {
-        color: token.colorTextLightSolid,
+        height: floatButtonSize,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        transition: `all ${token.motionDurationFast}`,
+        [`${componentCls}-content`]: {
+          overflow: 'hidden',
+          textAlign: 'center',
+        },
+        [`${componentCls}-icon`]: {
+          ...resetIcon(),
+          fontSize: floatButtonFontSize,
+          lineHeight: 1,
+        },
+        [`${componentCls}-default-icon`]: {
+          color: token.colorText,
+        },
+        [`${componentCls}-primary-icon`]: {
+          color: token.colorTextLightSolid,
+        },
       },
     },
     [`${componentCls}-circle`]: {
       height: floatButtonSize,
       borderRadius: '50%',
+      [`${componentCls}-body`]: {
+        borderRadius: '50%',
+      },
     },
     [`${componentCls}-square`]: {
       height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: token.radiusBase,
+      [`${componentCls}-body`]: {
+        borderRadius: token.radiusBase,
+      },
     },
     [`${componentCls}-default`]: {
       backgroundColor: token.colorBgContainer,
-      '&:hover': {
-        backgroundColor: token.colorFillContent,
+      [`${componentCls}-body`]: {
+        backgroundColor: token.colorBgContainer,
+        '&:hover': {
+          backgroundColor: token.colorFillContent,
+        },
       },
     },
     [`${componentCls}-primary`]: {
       backgroundColor: token.colorPrimary,
-      '&:hover': {
-        backgroundColor: token.colorPrimaryHover,
+      [`${componentCls}-body`]: {
+        backgroundColor: token.colorPrimary,
+        '&:hover': {
+          backgroundColor: token.colorPrimaryHover,
+        },
       },
     },
   };

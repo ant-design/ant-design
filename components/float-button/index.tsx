@@ -52,18 +52,20 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   );
 
   const buttonNode = (
-    <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-      {childrenProps => {
-        const motionClass = { CSSMotionClassName: childrenProps.className };
-        return tooltip ? (
-          <Tooltip title={tooltip} placement="left">
+    <div className={`${prefixCls}-body`}>
+      <CSSMotion motionName={`${rootPrefixCls}-fade`}>
+        {childrenProps => {
+          const motionClass = { CSSMotionClassName: childrenProps.className };
+          return tooltip ? (
+            <Tooltip title={tooltip} placement="left">
+              <Content {...motionClass} {...contentProps} />
+            </Tooltip>
+          ) : (
             <Content {...motionClass} {...contentProps} />
-          </Tooltip>
-        ) : (
-          <Content {...motionClass} {...contentProps} />
-        );
-      }}
-    </CSSMotion>
+          );
+        }}
+      </CSSMotion>
+    </div>
   );
 
   return wrapSSR(
