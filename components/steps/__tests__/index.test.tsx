@@ -42,4 +42,9 @@ describe('Steps', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should render correct when use null', () => {
+    const { container } = render(<Steps>null</Steps>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

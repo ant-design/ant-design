@@ -235,3 +235,9 @@ exports[`Steps should render correct when use Step 1`] = `
   </div>
 </div>
 `;
+
+exports[`Steps should render correct when use null 1`] = `
+<div
+  class="ant-steps ant-steps-vertical"
+/>
+`;
