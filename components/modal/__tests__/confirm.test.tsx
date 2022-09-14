@@ -878,7 +878,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useFakeTimers();
 
     Modal.confirm({}).update({
-      visible: true,
+      open: true,
     });
 
     await act(async () => {
