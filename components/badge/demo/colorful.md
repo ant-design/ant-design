@@ -14,7 +14,7 @@ title:
 We preset a series of colorful Badge styles for use in different situations. You can also set it to a hex color string for custom color.
 
 ```tsx
-import { Badge, Divider } from 'antd';
+import { Badge, Divider, Row, Col } from 'antd';
 import React from 'react';
 
 const colors = [
@@ -36,13 +36,35 @@ const colors = [
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
-    <div>
-      {colors.map(color => (
-        <div key={color}>
-          <Badge color={color} text={color} />
-        </div>
-      ))}
-    </div>
+    <Row>
+      <Col span={4}>
+        {colors.map(color => (
+          <div key={color}>
+            <Badge color={color} text={color} count={0} />
+          </div>
+        ))}
+      </Col>
+      <Col span={20}>
+        {colors.map(color => (
+          <div key={color} style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+            <Badge color={color} count={44}>
+              <div
+                style={{
+                  width: 90,
+                  height: 90,
+                  lineHeight: '90px',
+                  background: '#ccc',
+                  textAlign: 'center',
+                  marginBottom: 10,
+                }}
+              >
+                {color}
+              </div>
+            </Badge>
+          </div>
+        ))}
+      </Col>
+    </Row>
     <Divider orientation="left">Custom</Divider>
     <>
       <Badge color="#f50" text="#f50" />
