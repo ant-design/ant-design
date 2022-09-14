@@ -71,7 +71,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
 
-        errSpy();
+        errSpy.mockRestore();
       });
     }
 
@@ -96,6 +96,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+
         if (typeof document === 'undefined') {
           // Server
           expect(() => {
@@ -112,7 +115,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           expect(child).toMatchSnapshot();
         }
 
-        errSpy();
+        errSpy.mockRestore();
       },
     );
     jest.useRealTimers();
