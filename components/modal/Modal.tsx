@@ -94,6 +94,8 @@ export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
   open?: boolean;
+  /** @deprecated Please use `open` instead. */
+  visible?: boolean;
   title?: React.ReactNode;
   closable?: boolean;
   content?: React.ReactNode;

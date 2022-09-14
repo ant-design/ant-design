@@ -104,7 +104,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
     </h4>
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
-      style="width:200px"
+      style="width: 200px;"
     >
       <div
         class="ant-select-selector"
@@ -113,16 +113,17 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_-test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -134,13 +135,13 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
+          class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
               class="ant-select-item-empty"
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
             >
               <div
@@ -195,7 +196,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -224,7 +225,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
     </h4>
     <div
       class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-      style="width:200px"
+      style="width: 200px;"
     >
       <div
         class="ant-select-selector"
@@ -234,14 +235,15 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -253,8 +255,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
+          class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
@@ -313,7 +315,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -342,7 +344,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
     </h4>
     <div
       class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-      style="width:200px"
+      style="width: 200px;"
     >
       <div
         class="ant-select-selector"
@@ -352,11 +354,12 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             role="combobox"
             type="search"
             value=""
@@ -368,8 +371,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-          style="opacity:0"
+          class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
@@ -443,7 +446,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -488,6 +491,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -515,8 +519,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           </span>
           <div>
             <div
-              class="ant-dropdown"
-              style="opacity:0"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+              style="opacity: 0;"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
@@ -526,6 +530,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               >
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -537,8 +542,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -559,6 +564,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -570,8 +576,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -593,12 +599,12 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               </ul>
               <div
                 aria-hidden="true"
-                style="display:none"
+                style="display: none;"
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -619,8 +625,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -645,7 +651,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -774,6 +781,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -801,8 +809,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           </span>
           <div>
             <div
-              class="ant-dropdown"
-              style="opacity:0"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+              style="opacity: 0;"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
@@ -812,6 +820,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               >
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -823,8 +832,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -845,6 +854,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -856,8 +866,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -879,12 +889,12 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               </ul>
               <div
                 aria-hidden="true"
-                style="display:none"
+                style="display: none;"
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -905,8 +915,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+                    style="opacity: 0;"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -931,7 +941,8 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -997,7 +1008,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
     </h4>
     <div
       class="ant-table-wrapper"
-      style="margin-top:8px"
+      style="margin-top: 8px;"
     >
       <div
         class="ant-spin-nested-loading"
@@ -1015,7 +1026,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 class="ant-table-content"
               >
                 <table
-                  style="table-layout:auto"
+                  style="table-layout: auto;"
                 >
                   <colgroup />
                   <thead
@@ -1173,7 +1184,7 @@ exports[`renders ./components/empty/demo/customize.md extend context correctly 1
 >
   <div
     class="ant-empty-image"
-    style="height:60px"
+    style="height: 60px;"
   >
     <img
       alt="empty"
