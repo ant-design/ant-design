@@ -32,6 +32,48 @@ export interface DataSourceItemObject {
 }
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
+function Input(
+  props: {
+    inputNode: React.ReactElement;
+    onChange?: <T>(event: T) => {};
+  },
+  ref: React.ForwardedRef<{ focus: () => void; blur: () => void }>,
+) {
+  let InputNode: React.ReactNode = props.inputNode;
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    focus: () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    },
+    blur: () => {
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
+    },
+  }));
+
+  InputNode = React.cloneElement(InputNode, {
+    ...omit(props, ['inputNode']),
+    ref: inputRef,
+    onChange: (event: Event) => {
+      if (props.onChange) {
+        if (!event?.target) {
+          const e = { target: { value: event } };
+          props.onChange(e);
+        } else {
+          props.onChange(event);
+        }
+      }
+    },
+  });
+  return InputNode;
+}
+
+const InputRef = React.forwardRef(Input);
+
 export interface AutoCompleteProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -78,7 +120,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => <InputRef inputNode={customizeInput!} />
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
@@ -136,7 +180,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     'AutoComplete',
     'You need to control style self instead of setting `size` when using customize input.',
   );
-
   return (
     <ConfigConsumer>
       {({ getPrefixCls }: ConfigConsumerProps) => {
