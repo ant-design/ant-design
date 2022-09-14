@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
+const { Step } = Steps;
 describe('Steps', () => {
   mountTest(Steps);
   rtlTest(Steps);
@@ -35,9 +36,9 @@ describe('Steps', () => {
   it('should render correct when use Step', () => {
     const { container } = render(
       <Steps>
-        <Steps.Step title="Finished" description={description} />
-        <Steps.Step title="In Progress" description={description} subTitle="Left 00:00:08" />
-        <Steps.Step title="Waiting" description={description} />
+        <Step title="Finished" description={description} />
+        <Step title="In Progress" description={description} subTitle="Left 00:00:08" />
+        <Step title="Waiting" description={description} />
       </Steps>,
     );
     expect(container.firstChild).toMatchSnapshot();
