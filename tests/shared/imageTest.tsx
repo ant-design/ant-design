@@ -21,7 +21,7 @@ export default function imageTest(component: React.ReactElement) {
     await jestPuppeteer.resetPage();
     await page.setRequestInterception(true);
     const onRequestHandle = (request: any) => {
-      if (['image'].indexOf(request.resourceType()) !== -1) {
+      if (['image'].includes(request.resourceType())) {
         request.abort();
       } else {
         request.continue();

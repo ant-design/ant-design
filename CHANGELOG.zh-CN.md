@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.23.1
+
+`2022-09-09`
+
+- 🐞 修复 `Modal.confirm().update({visible: true})` 导致无法关闭 modal 的问题。[#37471](https://github.com/ant-design/ant-design/pull/37471) [@Aaron674092290](https://github.com/Aaron674092290)
+- 🐞 兜底修复 esbuild 严格模式构建时报 `No matching export theme` 错误。[#37462](https://github.com/ant-design/ant-design/pull/37462)
+- 🐞 回滚 [#35103](https://github.com/ant-design/ant-design/pull/35103) 以修复 Switch 切换时背景闪烁的问题。[#37458](https://github.com/ant-design/ant-design/pull/37458)
+- TypeScript
+  - 🤖 InputNumber `value` 新增类型 null。[#37421](https://github.com/ant-design/ant-design/pull/37421) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 4.23.0
 
 `2022-09-04`
@@ -43,8 +53,6 @@ timeline: true
 - ⌨️ 改进 Form 校验无障碍体验。[#36762](https://github.com/ant-design/ant-design/pull/36762) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
 - 🌐 补全 `ru_RU` 中 `filterCheckall` 的翻译。[#37311](https://github.com/ant-design/ant-design/pull/37311) [@HelLuv](https://github.com/HelLuv)
 - 🌐 补全 `cs_CZ` 的翻译。[#37388](https://github.com/ant-design/ant-design/pull/37388) [@ZdenekKrcal](https://github.com/ZdenekKrcal)
-
----
 
 ## 4.22.8
 

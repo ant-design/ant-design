@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.23.1
+
+`2022-09-09`
+
+- 🐞 Fix unable to close modal when using visible in `Modal.confirm().update`. [#37471](https://github.com/ant-design/ant-design/pull/37471) [@Aaron674092290](https://github.com/Aaron674092290)
+- 🐞 Fix esbuild strict mode call `No matching export theme` error. [#37462](https://github.com/ant-design/ant-design/pull/37462)
+- 🐞 Fix Switch background flush issue by reverting [#35103](https://github.com/ant-design/ant-design/pull/35103). [#37458](https://github.com/ant-design/ant-design/pull/37458)
+- TypeScript
+  - 🤖 InputNumber `value` add null type. [#37421](https://github.com/ant-design/ant-design/pull/37421) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 4.23.0
 
 `2022-09-04`
@@ -43,8 +53,6 @@ timeline: true
 - ⌨️ Improve Form validation accessibility experience. [#36762](https://github.com/ant-design/ant-design/pull/36762) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
 - 🌐 Add missing translations for filterCheckall in ru_RU. [#37311](https://github.com/ant-design/ant-design/pull/37311) [@HelLuv](https://github.com/HelLuv)
 - 🌐 Add missing translations in `cs_CZ`. [#37388](https://github.com/ant-design/ant-design/pull/37388) [@ZdenekKrcal](https://github.com/ZdenekKrcal)
-
----
 
 ## 4.22.8
 

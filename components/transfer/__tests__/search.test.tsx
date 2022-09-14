@@ -1,5 +1,4 @@
 import { render as testLibRender } from '@testing-library/react';
-import { mount } from 'enzyme';
 import React from 'react';
 import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
@@ -35,17 +34,17 @@ describe('Transfer.Search', () => {
   });
 
   it('should show cross icon when input value exists', () => {
-    const wrapper = mount(<Search value="" />);
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ value: 'a' });
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container, rerender } = render(<Search value="" />);
+    expect(container.firstChild).toMatchSnapshot();
+    rerender(<Search value="a" />);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('onSearch', () => {
     jest.useFakeTimers();
 
     const onSearch = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Transfer
         dataSource={dataSource}
         selectedKeys={[]}
@@ -55,26 +54,20 @@ describe('Transfer.Search', () => {
         showSearch
       />,
     );
-    wrapper
-      .find('.ant-input')
-      .at(0)
-      .simulate('change', { target: { value: 'a' } });
+    fireEvent.change(container.querySelectorAll('.ant-input').item(0), { target: { value: 'a' } });
+
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
     onSearch.mockReset();
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    fireEvent.click(container.querySelectorAll('.ant-input-clear-icon').item(0));
     expect(onSearch).toHaveBeenCalledWith('left', '');
     jest.useRealTimers();
   });
 
   it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
-    const { container } = render(
-      <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
-    );
-
-    fireEvent.change(container.querySelector('.ant-input'), {
-      target: { value: 'a' },
-    });
+    const props = { onSearchChange };
+    const { container } = render(<Transfer render={item => item.title!} {...props} showSearch />);
+    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: 'a' } });
     expect(errorSpy).not.toHaveBeenCalled();
     expect(onSearchChange).not.toHaveBeenCalled();
   });
@@ -88,11 +81,7 @@ describe('Transfer.Search', () => {
       <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
 
-    fireEvent.change(container.querySelector('.ant-input'), {
-      target: {
-        value: ' ',
-      },
-    });
+    fireEvent.change(container.querySelector('.ant-input')!, { target: { value: ' ' } });
 
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });

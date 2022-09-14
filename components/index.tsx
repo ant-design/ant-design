@@ -16,6 +16,9 @@ if (
 }
 /* @remove-on-es-build-end */
 
+// Fix vite build error
+export const theme = null;
+
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
 export { default as Alert } from './alert';

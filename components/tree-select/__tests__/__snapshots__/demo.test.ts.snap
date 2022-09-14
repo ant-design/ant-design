@@ -3,7 +3,7 @@
 exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -13,14 +13,15 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
     >
       <input
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_test_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_test"
         readonly=""
         role="combobox"
-        style="opacity:0"
+        style="opacity: 0;"
         type="search"
         unselectable="on"
         value=""
@@ -35,7 +36,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -64,7 +65,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -74,11 +75,12 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
     >
       <input
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_test_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_test"
         role="combobox"
         type="search"
         value=""
@@ -93,7 +95,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -122,7 +124,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -132,7 +134,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <span
           class="ant-select-selection-item"
@@ -146,7 +148,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
           <span
             aria-hidden="true"
             class="ant-select-selection-item-remove"
-            style="user-select:none;-webkit-user-select:none"
+            style="user-select: none;"
             unselectable="on"
           >
             <span
@@ -173,22 +175,23 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
       </div>
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -197,7 +200,6 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
             aria-hidden="true"
             class="ant-select-selection-search-mirror"
           >
-             
           </span>
         </div>
       </div>
@@ -209,7 +211,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -219,22 +221,23 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -243,7 +246,6 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
             aria-hidden="true"
             class="ant-select-selection-search-mirror"
           >
-             
           </span>
         </div>
       </div>
@@ -353,11 +355,12 @@ Array [
       >
         <input
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           role="combobox"
           type="search"
           value=""
@@ -372,7 +375,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -469,15 +472,15 @@ exports[`renders ./components/tree-select/demo/render-panel.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -487,14 +490,15 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -509,7 +513,7 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -539,7 +543,7 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
   >
     <div
       class="ant-select ant-tree-select ant-select-status-warning ant-select-multiple ant-select-show-search"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -549,22 +553,23 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
         >
           <div
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-            style="opacity:1"
+            style="opacity: 1;"
           >
             <div
               class="ant-select-selection-search"
-              style="width:0"
+              style="width: 0px;"
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="rc_select_test_list"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="rc_select_test_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="rc_select_test"
                 readonly=""
                 role="combobox"
-                style="opacity:0"
+                style="opacity: 0;"
                 type="search"
                 unselectable="on"
                 value=""
@@ -573,7 +578,6 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
                 aria-hidden="true"
                 class="ant-select-selection-search-mirror"
               >
-                 
               </span>
             </div>
           </div>
@@ -592,7 +596,7 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -602,11 +606,12 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
     >
       <input
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_test_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_test"
         role="combobox"
         type="search"
         value=""
@@ -621,7 +626,7 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -650,7 +655,7 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -660,14 +665,15 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
     >
       <input
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_test_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_test_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_test"
         readonly=""
         role="combobox"
-        style="opacity:0"
+        style="opacity: 0;"
         type="search"
         unselectable="on"
         value=""
@@ -682,7 +688,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -714,7 +720,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="true"
@@ -734,7 +740,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -757,7 +763,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
   >
     <div
       class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-      style="width:300px"
+      style="width: 300px;"
     >
       <div
         class="ant-select-selector"
@@ -767,14 +773,15 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -787,7 +794,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span

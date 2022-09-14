@@ -46,7 +46,7 @@ Array [
   </div>,
   <div
     class="ant-picker"
-    style="width:140px"
+    style="width: 140px;"
   >
     <div
       class="ant-picker-input"
@@ -321,7 +321,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
+      style="left: 0px; width: 0px; position: absolute;"
     />
     <span
       class="ant-picker-suffix"
@@ -411,8 +411,8 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
-      title=""
-      value=""
+      title="12:08:23"
+      value="12:08:23"
     />
     <span
       class="ant-picker-suffix"
@@ -456,8 +456,8 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
-      title=""
-      value=""
+      title="12:08"
+      value="12:08"
     />
     <span
       class="ant-picker-suffix"
@@ -614,7 +614,7 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
   </div>
   <div
     class="ant-picker-active-bar"
-    style="left:0;width:0;position:absolute"
+    style="left: 0px; width: 0px; position: absolute;"
   />
   <span
     class="ant-picker-suffix"
@@ -708,8 +708,8 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
-        title=""
-        value=""
+        title="12:08:23"
+        value="12:08:23"
       />
       <span
         class="ant-picker-suffix"
@@ -774,8 +774,8 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
-        title=""
-        value=""
+        title="12:08:23"
+        value="12:08:23"
       />
       <span
         class="ant-picker-suffix"
@@ -840,8 +840,8 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
-        title=""
-        value=""
+        title="12:08:23"
+        value="12:08:23"
       />
       <span
         class="ant-picker-suffix"
@@ -904,7 +904,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-error"
@@ -951,7 +951,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-warning"
@@ -998,7 +998,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-status-error"
@@ -1055,7 +1055,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="left: 0px; width: 0px; position: absolute;"
       />
       <span
         class="ant-picker-suffix"
@@ -1143,7 +1143,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="left: 0px; width: 0px; position: absolute;"
       />
       <span
         class="ant-picker-suffix"

@@ -6,17 +6,18 @@ export function isFragment(child: React.ReactElement): boolean {
   return child && child.type === React.Fragment;
 }
 
-type AnyObject = Record<any, any>;
+type AnyObject = Record<PropertyKey, any>;
 
-type RenderProps = undefined | AnyObject | ((originProps: AnyObject) => AnyObject | undefined);
+type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | void);
 
 export function replaceElement(
   element: React.ReactNode,
   replacement: React.ReactNode,
-  props: RenderProps,
+  props?: RenderProps,
 ): React.ReactNode {
-  if (!isValidElement(element)) return replacement;
-
+  if (!isValidElement(element)) {
+    return replacement;
+  }
   return React.cloneElement(
     element,
     typeof props === 'function' ? props(element.props || {}) : props,

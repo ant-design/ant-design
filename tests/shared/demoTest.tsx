@@ -1,56 +1,46 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
+import { renderToString } from 'react-dom/server';
 import glob from 'glob';
-import { render as enzymeRender } from 'enzyme';
-import MockDate from 'mockdate';
-import dayjs from 'dayjs';
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { excludeWarning } from './excludeWarning';
-import { render, act } from '../utils';
+import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
-type CheerIO = ReturnType<typeof enzymeRender>;
-type CheerIOElement = CheerIO[0];
-// We should avoid use it in 4.0. Reopen if can not handle this.
-const USE_REPLACEMENT = false;
-const testDist = process.env.LIB_DIR === 'dist';
+require('isomorphic-fetch');
+
+function normalizeAriaValue(value: string | null): string {
+  const defaultValue = value || '';
+
+  return defaultValue.replace(/\d+/g, 'test').replace(/TEST_OR_SSR/g, 'test');
+}
+
+function normalizeAria(element: Element, ariaName: string) {
+  if (element.hasAttribute(ariaName)) {
+    element.setAttribute(ariaName, normalizeAriaValue(element.getAttribute(ariaName)));
+  }
+}
 
 /**
  * Rc component will generate id for aria usage. It's created as `test-uuid` when env === 'test'. Or
  * `f7fa7a3c-a675-47bc-912e-0c45fb6a74d9`(randomly) when not test env. So we need hack of this to
  * modify the `aria-controls`.
  */
-function ariaConvert(wrapper: CheerIO) {
-  if (!testDist || !USE_REPLACEMENT) return wrapper;
-
-  const matches = new Map();
-
-  function process(entry: CheerIOElement) {
-    if (entry.type === 'text' || entry.type === 'comment') {
-      return;
-    }
-    const { attribs, children } = entry;
-    if (matches.has(entry)) return;
-    matches.set(entry, true);
-
-    // Change aria
-    if (attribs && attribs['aria-controls']) {
-      attribs['aria-controls'] = ''; // Remove all the aria to keep render sync in jest & jest node
-    }
-
-    // Loop children
-    if (!children) {
-      return;
-    }
-    (Array.isArray(children) ? children : [children]).forEach(process);
+function ariaConvert(element: Element) {
+  normalizeAria(element, 'aria-owns');
+  normalizeAria(element, 'aria-controls');
+  normalizeAria(element, 'aria-labelledby');
+  normalizeAria(element, 'aria-activedescendant');
+  if (element.id) {
+    element.id = normalizeAriaValue(element.id);
   }
 
-  wrapper.each((_, entry) => process(entry));
-
-  return wrapper;
+  Array.from(element.children).forEach(child => {
+    ariaConvert(child);
+  });
 }
 
-type Options = {
+export type Options = {
   skip?: boolean | string[];
   testingLib?: boolean;
 };
@@ -63,12 +53,13 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
+    Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+    jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
     if (!doInject) {
       testMethod(`cssinjs should not warn in ${file}`, () => {
-        const errSpy = jest.spyOn(console, 'error');
+        const errSpy = excludeWarning();
 
-        MockDate.set(dayjs('2016-11-22').valueOf());
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
@@ -76,12 +67,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         // Inject cssinjs cache to avoid create <style /> element
         Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
-        enzymeRender(Demo);
+        render(Demo);
 
         expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
-        MockDate.reset();
 
-        errSpy.mockRestore();
+        errSpy();
       });
     }
 
@@ -90,9 +80,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
-        const mockDate = dayjs('2016-11-22').valueOf();
 
-        MockDate.set(mockDate);
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
@@ -108,35 +96,26 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
           );
         }
 
-        // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
-
-        if (options?.testingLib) {
-          jest.useFakeTimers().setSystemTime(mockDate);
-
+        if (typeof document === 'undefined') {
+          // Server
+          expect(() => {
+            renderToString(Demo);
+          }).not.toThrow();
+        } else {
+          // Client
           const { container } = render(Demo);
-          act(() => {
-            jest.runAllTimers();
-          });
+          ariaConvert(container);
 
           const { children } = container;
-          const child = children.length > 1 ? children : children[0];
+          const child = children.length > 1 ? Array.from(children) : children[0];
+
           expect(child).toMatchSnapshot();
-
-          jest.useRealTimers();
-        } else {
-          const wrapper = enzymeRender(Demo);
-
-          // Convert aria related content
-          ariaConvert(wrapper);
-
-          expect(wrapper).toMatchSnapshot();
         }
 
-        MockDate.reset();
         errSpy();
       },
     );
+    jest.useRealTimers();
   });
 }
 
