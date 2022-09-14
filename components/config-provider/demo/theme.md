@@ -394,7 +394,7 @@ const App: React.FC = () => {
             current={2}
             status="error"
             progressDot
-            item={[
+            items={[
               {
                 title: 'Finished',
                 description: 'You can hover on the dot.',
