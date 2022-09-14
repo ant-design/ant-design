@@ -56,7 +56,7 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
       {childrenProps => {
         const motionClass = { CSSMotionClassName: childrenProps.className };
         return tooltip ? (
-          <Tooltip title={tooltip}>
+          <Tooltip title={tooltip} placement="left">
             <Content {...motionClass} {...contentProps} />
           </Tooltip>
         ) : (

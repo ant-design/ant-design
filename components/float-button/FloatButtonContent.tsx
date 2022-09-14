@@ -4,7 +4,7 @@ import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import type { FloatButtonContentProps } from './interface';
 
 const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
-  const { icon, description, prefixCls, type, CSSMotionClassName } = props;
+  const { icon, description, prefixCls, type, CSSMotionClassName, ...rest } = props;
   const classString = classNames(CSSMotionClassName, `${prefixCls}-content`);
   const defaultElement = (
     <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
@@ -12,7 +12,7 @@ const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
     </div>
   );
   return (
-    <div className={classString}>
+    <div {...rest} className={classString}>
       {icon || description ? (
         <>
           {icon && <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{icon}</div>}

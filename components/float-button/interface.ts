@@ -23,7 +23,7 @@ export interface FloatButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
 }
 
-export interface FloatButtonContentProps {
+export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
   icon: FloatButtonProps['icon'];
   description: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
@@ -38,6 +38,8 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   trigger?: FloatButtonGroupTrigger;
   // 受控展开
   open?: boolean;
+  // 关闭按钮自定义图标
+  closeIcon?: React.ReactNode;
   // 展开收起的回调
   onOpenChange?: (open: boolean) => void;
 }

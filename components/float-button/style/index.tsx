@@ -23,6 +23,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonInlineEndXS: number;
 };
 
+// ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls } = token;
   const groupPrefixCls = `${componentCls}-group`;
@@ -130,23 +131,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
   };
 };
 
-const mediaFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls } = token;
-  const groupPrefixCls = `${componentCls}-group`;
-  return {
-    [`@media (max-width: ${token.screenMD}px)`]: {
-      [`${componentCls},${groupPrefixCls}`]: {
-        insetInlineEnd: token.floatButtonInlineEndMD,
-      },
-    },
-    [`@media (max-width: ${token.screenXS}px)`]: {
-      [`${componentCls},${groupPrefixCls}`]: {
-        insetInlineEnd: token.floatButtonInlineEndXS,
-      },
-    },
-  };
-};
-
 // ============================== Export ==============================
 export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
   const {
@@ -173,9 +157,5 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     floatButtonInlineEndMD: controlHeightLG * 1.5,
     floatButtonInlineEndXS: marginTmp,
   });
-  return [
-    floatButtonGroupStyle(floatButtonToken),
-    sharedFloatButtonStyle(floatButtonToken),
-    mediaFloatButtonStyle(floatButtonToken),
-  ];
+  return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
 });
