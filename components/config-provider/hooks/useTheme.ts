@@ -18,13 +18,13 @@ export default function useTheme(
 
       // Override
       const mergedOverride = {
-        ...parentThemeConfig.override,
+        ...parentThemeConfig.components,
       };
 
-      Object.keys(theme.override || {}).forEach((componentName: keyof OverrideToken) => {
+      Object.keys(theme.components || {}).forEach((componentName: keyof OverrideToken) => {
         mergedOverride[componentName] = {
           ...mergedOverride[componentName],
-          ...theme.override![componentName],
+          ...theme.components![componentName],
         } as any;
       });
 

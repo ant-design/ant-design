@@ -69,7 +69,7 @@ describe('ConfigProvider.Theme', () => {
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimary).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
   });
 
   it('defaultAlgorithmV4 should work', () => {
@@ -116,12 +116,12 @@ describe('ConfigProvider.Theme', () => {
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorPrimary).toBe('#177ddc');
+    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
   });
 
   it('overriding component token should work', () => {
     render(
-      <ConfigProvider theme={{ override: { InputNumber: { handleWidth: 50.1234 } } }}>
+      <ConfigProvider theme={{ components: { InputNumber: { handleWidth: 50.1234 } } }}>
         <InputNumber />
       </ConfigProvider>,
     );

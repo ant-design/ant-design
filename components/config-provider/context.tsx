@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
-import type { MapToken, OverrideToken, SeedToken } from '../theme/interface';
+import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
 
@@ -26,8 +26,8 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
 export interface ThemeConfig {
-  token?: Partial<SeedToken>;
-  override?: OverrideToken;
+  token?: Partial<AliasToken>;
+  components?: OverrideToken;
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
 }

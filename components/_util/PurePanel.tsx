@@ -57,12 +57,10 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     return (
       <ConfigProvider
         theme={{
-          override: {
-            derivative: {
-              motionDurationFast: '0.01s',
-              motionDurationMid: '0.01s',
-              motionDurationSlow: '0.01s',
-            },
+          token: {
+            motionDurationFast: '0.01s',
+            motionDurationMid: '0.01s',
+            motionDurationSlow: '0.01s',
           },
         }}
       >
