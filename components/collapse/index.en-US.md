@@ -39,4 +39,4 @@ A content area which can be collapsed and expanded.
 | forceRender | Forced render of content on panel, instead of lazy rendering after clicking on header | boolean | false |  |
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
-| showArrow | If false, panel will not show arrow icon. If true, collapsible can't be set as icon | boolean | true |  |
+| showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |

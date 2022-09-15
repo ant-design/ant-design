@@ -40,4 +40,4 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
 | header | 面板头内容 | ReactNode | - |  |
 | key | 对应 activeKey | string \| number | - |  |
-| showArrow | 是否展示当前面板上的箭头（为 true 时，collapsible 不能置为 icon） | boolean | true |  |
+| showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
