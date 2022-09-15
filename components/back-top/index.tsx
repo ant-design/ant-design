@@ -10,6 +10,7 @@ import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
+import warning from '../_util/warning';
 
 import useStyle from './style';
 
@@ -80,6 +81,10 @@ const BackTop: React.FC<BackTopProps> = props => {
     });
     handleScroll({ target: container });
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
+  }
 
   React.useEffect(() => {
     bindScrollEvent();
