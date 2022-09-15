@@ -14,11 +14,14 @@ title:
 
 When you need to use a custom `Icon`, you can set the `Icon` component as the property value of `upIcon` and `downIcon`.
 
-```jsx
+```tsx
+import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <InputNumber controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined /> }} />
 );
+
+export default App;
 ```

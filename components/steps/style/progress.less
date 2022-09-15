@@ -9,9 +9,17 @@
     }
   }
 
-  &.@{steps-prefix-cls}-horizontal .@{steps-prefix-cls}-item:first-child {
-    padding-bottom: 4px;
-    padding-left: 4px;
+  &.@{steps-prefix-cls}-horizontal {
+    .@{steps-prefix-cls}-item:first-child {
+      padding-bottom: 4px;
+      padding-left: 4px;
+    }
+  }
+
+  &.@{steps-prefix-cls}-label-vertical {
+    .@{steps-prefix-cls}-item .@{steps-prefix-cls}-item-tail {
+      top: 14px !important;
+    }
   }
 
   .@{steps-prefix-cls}-item-icon {

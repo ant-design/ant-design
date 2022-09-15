@@ -1,0 +1,31 @@
+name: 📦 Compressed Size(size-limit)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  compressed-size:
+    permissions:
+      contents: read  # for actions/checkout to fetch code
+      pull-requests: write  # for preactjs/compressed-size-action to create PR comments
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: andresz1/size-limit-action@v1
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        pattern: "./dist/**/*.min.{js,css}"
+        build-script: "dist:esbuild-no-dup-check"
+        clean-script: "clean-lockfiles"

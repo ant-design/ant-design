@@ -1,12 +1,10 @@
-import React from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
-
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
-
-import Segmented from '../index';
+import { fireEvent, render } from '../../../tests/utils';
 import type { SegmentedValue } from '../index';
+import Segmented from '../index';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
@@ -101,7 +99,7 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Monthly');
+    expect(handleValueChange).toHaveBeenCalledWith('Monthly');
 
     expectMatchChecked(container, [false, false, true]);
   });
@@ -115,7 +113,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[4]);
-    expect(handleValueChange).toBeCalledWith(5);
+    expect(handleValueChange).toHaveBeenCalledWith(5);
 
     expectMatchChecked(container, [false, false, false, false, true]);
   });
@@ -132,7 +130,7 @@ describe('Segmented', () => {
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).toBeCalledWith('Weekly');
+    expect(handleValueChange).toHaveBeenCalledWith('Weekly');
 
     expectMatchChecked(container, [false, true, false]);
   });
@@ -154,13 +152,13 @@ describe('Segmented', () => {
     expect(container.querySelectorAll(`.${prefixCls}-item-input`)[1]).toHaveAttribute('disabled');
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Monthly');
-    expect(handleValueChange).toBeCalledTimes(1);
+    expect(handleValueChange).toHaveBeenCalledWith('Monthly');
+    expect(handleValueChange).toHaveBeenCalledTimes(1);
 
     expectMatchChecked(container, [false, false, true]);
   });
@@ -180,12 +178,12 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).not.toBeCalled();
+    expect(handleValueChange).not.toHaveBeenCalled();
 
     expectMatchChecked(container, [true, false, false]);
   });
@@ -284,7 +282,7 @@ describe('Segmented', () => {
     ).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
-    expect(handleValueChange).toBeCalledWith('Satellite');
+    expect(handleValueChange).toHaveBeenCalledWith('Satellite');
 
     expectMatchChecked(container, [false, false, true]);
 
@@ -293,7 +291,7 @@ describe('Segmented', () => {
 
     // change selection again
     fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
-    expect(handleValueChange).toBeCalledWith('Transit');
+    expect(handleValueChange).toHaveBeenCalledWith('Transit');
 
     expectMatchChecked(container, [false, true, false]);
 

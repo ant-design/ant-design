@@ -15,8 +15,9 @@ There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert message="Success Text" type="success" />
     <Alert message="Info Text" type="info" />
@@ -24,6 +25,8 @@ export default () => (
     <Alert message="Error Text" type="error" />
   </>
 );
+
+export default App;
 ```
 
 <style>

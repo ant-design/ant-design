@@ -59,7 +59,8 @@ jobs:
             * Ant Motion: https://motion.ant.design
 
             ## 国内镜像
-            * Ant Design: http://ant-design.gitee.io
+            * 官方镜像: https://ant-design.antgroup.com/
+            * Gitee 镜像: http://ant-design.gitee.io
             * Ant Design 3.x: http://ant-design-3x.gitee.io
             * Ant Design 2.x: http://ant-design-2x.gitee.io
             * Ant Design 1.x: http://ant-design-1x.gitee.io

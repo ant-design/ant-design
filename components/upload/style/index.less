@@ -30,6 +30,7 @@
   }
 
   &&-disabled {
+    color: @disabled-color;
     cursor: not-allowed;
   }
 
@@ -527,7 +528,8 @@
   .@{upload-prefix-cls}-animate-inline-enter,
   .@{upload-prefix-cls}-animate-inline-leave {
     animation-duration: @animation-duration-slow;
-    animation-fill-mode: @ease-in-out-circ;
+    animation-timing-function: @ease-in-out-circ;
+    animation-fill-mode: forwards;
   }
 
   .@{upload-prefix-cls}-animate-inline-appear,

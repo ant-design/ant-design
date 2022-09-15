@@ -1,6 +1,6 @@
-import * as React from 'react';
 import padEnd from 'lodash/padEnd';
-import type { valueType, FormatConfig } from './utils';
+import * as React from 'react';
+import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;

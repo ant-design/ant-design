@@ -1,16 +1,18 @@
-import * as React from 'react';
-import type { TabsProps as RcTabsProps } from 'rc-tabs';
-import RcTabs, { TabPane, TabPaneProps } from 'rc-tabs';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
-import classNames from 'classnames';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-
-import warning from '../_util/warning';
+import classNames from 'classnames';
+import type { TabsProps as RcTabsProps } from 'rc-tabs';
+import RcTabs from 'rc-tabs';
+import type { EditableConfig } from 'rc-tabs/lib/interface';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import warning from '../_util/warning';
+import useAnimateConfig from './hooks/useAnimateConfig';
+import useLegacyItems from './hooks/useLegacyItems';
+import TabPane, { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -24,6 +26,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   centered?: boolean;
   addIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
+  children?: React.ReactNode;
 }
 
 function Tabs({
@@ -34,6 +37,9 @@ function Tabs({
   hideAdd,
   centered,
   addIcon,
+  children,
+  items,
+  animated,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
@@ -59,6 +65,10 @@ function Tabs({
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
   );
 
+  const mergedItems = useLegacyItems(items, children);
+
+  const mergedAnimated = useAnimateConfig(prefixCls, animated);
+
   return (
     <SizeContext.Consumer>
       {contextSize => {
@@ -68,6 +78,7 @@ function Tabs({
             direction={direction}
             moreTransitionName={`${rootPrefixCls}-slide-up`}
             {...props}
+            items={mergedItems}
             className={classNames(
               {
                 [`${prefixCls}-${size}`]: size,
@@ -80,6 +91,7 @@ function Tabs({
             editable={editable}
             moreIcon={moreIcon}
             prefixCls={prefixCls}
+            animated={mergedAnimated}
           />
         );
       }}

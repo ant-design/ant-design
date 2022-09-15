@@ -13,10 +13,11 @@ title:
 
 Support set allow to clear star when click again.
 
-```jsx
+```tsx
 import { Rate } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Rate defaultValue={3} />
     <span className="ant-rate-text">allowClear: true</span>
@@ -25,4 +26,6 @@ export default () => (
     <span className="ant-rate-text">allowClear: false</span>
   </>
 );
+
+export default App;
 ```

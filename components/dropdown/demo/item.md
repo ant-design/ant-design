@@ -13,9 +13,10 @@ title:
 
 Divider and disabled menu item.
 
-```jsx
-import { Menu, Dropdown, Space } from 'antd';
+```tsx
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu
@@ -48,7 +49,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -58,4 +59,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default App;
 ```

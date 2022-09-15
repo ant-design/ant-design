@@ -6,11 +6,13 @@
  * - CustomizeInput not feedback `ENTER` key since accessibility enhancement
  */
 
-import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import type { BaseSelectRef } from 'rc-select';
+import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -18,11 +20,9 @@ import type {
   RefSelectProps,
 } from '../select';
 import Select from '../select';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import warning from '../_util/warning';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 const { Option } = Select;
 
@@ -41,6 +41,12 @@ export interface AutoCompleteProps<
   > {
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
+  /**
+   * @deprecated `dropdownClassName` is deprecated which will be removed in next major version.
+   *   Please use `popupClassName` instead.
+   */
+  dropdownClassName?: string;
+  popupClassName?: string;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -51,7 +57,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   props,
   ref,
 ) => {
-  const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    popupClassName,
+    dropdownClassName,
+    children,
+    dataSource,
+  } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   // ============================= Input =============================
@@ -113,6 +126,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   );
 
   warning(
+    !dropdownClassName,
+    'AutoComplete',
+    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+  );
+
+  warning(
     !customizeInput || !('size' in props),
     'AutoComplete',
     'You need to control style self instead of setting `size` when using customize input.',
@@ -128,6 +147,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
             ref={ref}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
+            dropdownClassName={popupClassName || dropdownClassName}
             className={classNames(`${prefixCls}-auto-complete`, className)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
             {...{

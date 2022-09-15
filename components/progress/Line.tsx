@@ -1,13 +1,14 @@
-import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { validProgress, getSuccessPercent } from './utils';
+import * as React from 'react';
 import type { DirectionType } from '../config-provider';
+import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import { getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
   children: React.ReactNode;
+  strokeColor?: string | ProgressGradient;
 }
 
 /**
@@ -48,7 +49,7 @@ export const sortGradient = (gradients: StringGradients) => {
  *     "100%": "#ffffff"
  *   }
  */
-export const handleGradient = (strokeColor: ProgressGradient, directionConfig: DirectionType) => {
+export const handleGradient = (strokeColor: ProgressGradient, directionConfig?: DirectionType) => {
   const {
     from = presetPrimaryColors.blue,
     to = presetPrimaryColors.blue,
@@ -83,27 +84,27 @@ const Line: React.FC<LineProps> = props => {
           background: strokeColor,
         };
 
-  const trailStyle = trailColor
-    ? {
-        backgroundColor: trailColor,
-      }
-    : undefined;
+  const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
+  const trailStyle = {
+    backgroundColor: trailColor || undefined,
+    borderRadius,
+  };
 
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
+    borderRadius,
     ...backgroundProps,
-  } as React.CSSProperties;
+  };
 
   const successPercent = getSuccessPercent(props);
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
+    borderRadius,
     backgroundColor: success?.strokeColor,
-  } as React.CSSProperties;
+  };
 
   const successSegment =
     successPercent !== undefined ? (

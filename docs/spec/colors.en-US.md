@@ -59,7 +59,7 @@ We provide Less and JavaScript usage for developers.
 - **Less**
 
   ```less
-  @import '~antd/lib/style/themes/default.less';
+  @import '~antd/es/style/themes/default.less';
 
   .selector {
     color: @blue-5;

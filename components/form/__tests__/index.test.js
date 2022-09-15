@@ -1,27 +1,28 @@
-import React, { Component, useState } from 'react';
+import classNames from 'classnames';
 import { mount } from 'enzyme';
+import React, { Component, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
-import * as Util from '../util';
-
-import Input from '../../input';
-import Button from '../../button';
-import Select from '../../select';
-
-import Checkbox from '../../checkbox';
-import Radio from '../../radio';
-import TreeSelect from '../../tree-select';
-import Cascader from '../../cascader';
-import DatePicker from '../../date-picker';
-import InputNumber from '../../input-number';
-import Switch from '../../switch';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
+import Button from '../../button';
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 import ConfigProvider from '../../config-provider';
+import DatePicker from '../../date-picker';
+import Drawer from '../../drawer';
+import Input from '../../input';
+import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
+import Modal from '../../modal';
+import Radio from '../../radio';
+import Select from '../../select';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
+import Upload from '../../upload';
+import * as Util from '../util';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -198,6 +199,158 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
     );
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('form_test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('form_test_help');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-invalid')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when the prop `required` is true', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when there is a rule with required', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_extra');
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBe('test_extra');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help test_extra');
   });
 
   describe('scrollToField', () => {
@@ -707,9 +860,7 @@ describe('Form', () => {
     await sleep(100);
     wrapper.update();
     await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
-      'alert',
-    );
+    expect(wrapper.find('.ant-form-item-explain').getDOMNode().getAttribute('role')).toBe('alert');
   });
 
   it('return same form instance', () => {
@@ -884,92 +1035,78 @@ describe('Form', () => {
   });
 
   it('form should support disabled', () => {
-    const App = () => {
-      const [componentDisabled, setComponentDisabled] = React.useState(false);
-      const onFormLayoutChange = ({ disabled }) => {
-        setComponentDisabled(disabled);
-      };
-      return (
-        <Form
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 14 }}
-          layout="horizontal"
-          initialValues={{ disabled: componentDisabled }}
-          onValuesChange={onFormLayoutChange}
-          disabled={componentDisabled}
-        >
-          <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
-            <Checkbox>disabled</Checkbox>
-          </Form.Item>
-          <Form.Item label="Radio">
-            <Radio.Group>
-              <Radio value="apple"> Apple </Radio>
-              <Radio value="pear"> Pear </Radio>
-            </Radio.Group>
-          </Form.Item>
-          <Form.Item label="Input">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Select">
-            <Select>
-              <Select.Option value="demo">Demo</Select.Option>
-            </Select>
-          </Form.Item>
-          <Form.Item label="TreeSelect">
-            <TreeSelect
-              treeData={[
-                {
-                  title: 'Light',
-                  value: 'light',
-                  children: [{ title: 'Bamboo', value: 'bamboo' }],
-                },
-              ]}
-            />
-          </Form.Item>
-          <Form.Item label="Cascader">
-            <Cascader
-              options={[
-                {
-                  value: 'zhejiang',
-                  label: 'Zhejiang',
-                  children: [
-                    {
-                      value: 'hangzhou',
-                      label: 'Hangzhou',
-                    },
-                  ],
-                },
-              ]}
-            />
-          </Form.Item>
-          <Form.Item label="DatePicker">
-            <DatePicker />
-          </Form.Item>
-          <Form.Item label="RangePicker">
-            <RangePicker />
-          </Form.Item>
-          <Form.Item label="InputNumber">
-            <InputNumber />
-          </Form.Item>
-          <Form.Item label="TextArea">
-            <TextArea rows={4} />
-          </Form.Item>
-          <Form.Item label="Switch" valuePropName="checked">
-            <Switch />
-          </Form.Item>
-          <Form.Item label="Button">
-            <Button>Button</Button>
-          </Form.Item>
-        </Form>
-      );
-    };
+    const App = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
+        <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
+          <Checkbox>disabled</Checkbox>
+        </Form.Item>
+        <Form.Item label="Radio">
+          <Radio.Group>
+            <Radio value="apple"> Apple </Radio>
+            <Radio value="pear"> Pear </Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="Input">
+          <Input />
+        </Form.Item>
+        <Form.Item label="Select">
+          <Select>
+            <Select.Option value="demo">Demo</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="TreeSelect">
+          <TreeSelect
+            treeData={[
+              {
+                title: 'Light',
+                value: 'light',
+                children: [{ title: 'Bamboo', value: 'bamboo' }],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="Cascader">
+          <Cascader
+            options={[
+              {
+                value: 'zhejiang',
+                label: 'Zhejiang',
+                children: [
+                  {
+                    value: 'hangzhou',
+                    label: 'Hangzhou',
+                  },
+                ],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="DatePicker">
+          <DatePicker />
+        </Form.Item>
+        <Form.Item label="RangePicker">
+          <RangePicker />
+        </Form.Item>
+        <Form.Item label="InputNumber">
+          <InputNumber />
+        </Form.Item>
+        <Form.Item label="TextArea">
+          <TextArea rows={4} />
+        </Form.Item>
+        <Form.Item label="Switch" valuePropName="checked">
+          <Switch />
+        </Form.Item>
+        <Form.Item label="Upload" valuePropName="fileList">
+          <Upload />
+        </Form.Item>
+        <Form.Item label="Button">
+          <Button>Button</Button>
+        </Form.Item>
+      </Form>
+    );
 
     const wrapper = mount(<App />);
 
-    expect(wrapper.render()).toMatchSnapshot();
-    act(() => {
-      wrapper.find('.ant-checkbox-input').at(0).simulate('change');
-    });
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -1203,5 +1340,142 @@ describe('Form', () => {
 
     render(<Demo />);
     expect(subFormInstance).toBe(formInstance);
+  });
+
+  it('noStyle should not affect status', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item validateStatus="error" noStyle>
+          <Select className="custom-select" />
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle>
+            <Select className="custom-select-b" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle validateStatus="warning">
+            <Select className="custom-select-c" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Form.Item validateStatus="warning">
+            <Select className="custom-select-d" />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+  });
+
+  it('should not affect Popup children style', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item labelCol={4} validateStatus="error">
+          <Modal open>
+            <Select className="modal-select" />
+          </Modal>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Drawer open>
+            <Select className="drawer-select" />
+          </Drawer>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />, { container: document.body });
+    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+  });
+
+  it('Form.Item.useStatus should work', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const CustomInput = ({ className, value }) => {
+      const { status } = useStatus();
+      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+    };
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item name="required" rules={[{ required: true }]}>
+            <CustomInput className="custom-input-required" value="" />
+          </Form.Item>
+          <Form.Item name="warning" validateStatus="warning">
+            <CustomInput className="custom-input-warning" />
+          </Form.Item>
+          <Form.Item name="normal">
+            <CustomInput className="custom-input" />
+          </Form.Item>
+          <CustomInput className="custom-input-wrong" />
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-',
+    );
+    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+      'custom-input-status-warning',
+    );
+    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+      'custom-input-status-undefined',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
+    );
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(0);
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-error',
+    );
+  });
+
+  it('item customize margin', async () => {
+    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
+      marginBottom: 24,
+    }));
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        value: '',
+      },
+    });
+
+    await sleep(0);
+    computeSpy.mockRestore();
+
+    expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
+      marginBottom: -24,
+    });
   });
 });

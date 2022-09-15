@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import debounce from 'lodash/debounce';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
-import { isValidElement, cloneElement } from '../_util/reactNode';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];

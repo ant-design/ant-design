@@ -13,12 +13,13 @@ title:
 
 You can make preview controlled.
 
-```jsx
+```tsx
+import { Button, Image } from 'antd';
 import React, { useState } from 'react';
-import { Image, Button } from 'antd';
 
-function ImageDemo() {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
+
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
@@ -38,7 +39,7 @@ function ImageDemo() {
       />
     </>
   );
-}
+};
 
-export default () => <ImageDemo />;
+export default App;
 ```

@@ -13,11 +13,12 @@ title:
 
 Limit files with `maxCount`. Will replace current one when `maxCount` is `1`.
 
-```jsx
-import { Upload, Button, Space } from 'antd';
+```tsx
 import { UploadOutlined } from '@ant-design/icons';
+import { Button, Space, Upload } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }} size="large">
     <Upload
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -36,4 +37,6 @@ export default () => (
     </Upload>
   </Space>
 );
+
+export default App;
 ```

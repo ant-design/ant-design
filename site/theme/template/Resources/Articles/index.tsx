@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
+import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import moment from 'moment';
+import * as React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
 import { useSiteData } from '../../Home/util';
 import './index.less';
 
@@ -63,8 +63,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
 export default () => {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] =
-    useSiteData<{ articles: Articles; authors: Authors }>();
+  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData<{
+    articles: Articles;
+    authors: Authors;
+  }>();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {

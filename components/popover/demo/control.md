@@ -7,44 +7,39 @@ title:
 
 ## zh-CN
 
-使用 `visible` 属性控制浮层显示。
+使用 `open` 属性控制浮层显示。
 
 ## en-US
 
-Use `visible` prop to control the display of the card.
+Use `open` prop to control the display of the card.
 
-```jsx
-import { Popover, Button } from 'antd';
+```tsx
+import { Button, Popover } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    visible: false,
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const hide = () => {
+    setOpen(false);
   };
 
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
   };
 
-  handleVisibleChange = visible => {
-    this.setState({ visible });
-  };
-
-  render() {
-    return (
-      <Popover
-        content={<a onClick={this.hide}>Close</a>}
-        title="Title"
-        trigger="click"
-        visible={this.state.visible}
-        onVisibleChange={this.handleVisibleChange}
-      >
-        <Button type="primary">Click me</Button>
-      </Popover>
-    );
-  }
-}
+  return (
+    <Popover
+      content={<a onClick={hide}>Close</a>}
+      title="Title"
+      trigger="click"
+      open={open}
+      onOpenChange={handleOpenChange}
+    >
+      <Button type="primary">Click me</Button>
+    </Popover>
+  );
+};
 
 export default App;
 ```

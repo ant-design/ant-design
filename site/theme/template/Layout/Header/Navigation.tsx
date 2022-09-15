@@ -1,19 +1,17 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import { FormattedMessage } from 'react-intl';
-import { Link } from 'bisheng/router';
-import type { MenuProps } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { getEcosystemGroup } from './More';
+import { Link } from 'bisheng/router';
+import classNames from 'classnames';
+import * as React from 'react';
+import { FormattedMessage } from 'react-intl';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
-
+import { getEcosystemGroup } from './More';
 import './Navigation.less';
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  isRTL: boolean;
   pathname: string;
   responsive: null | 'narrow' | 'crowded';
   location: { pathname: string; query: any };

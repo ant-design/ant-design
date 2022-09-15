@@ -1,17 +1,18 @@
-import * as React from 'react';
-import Dialog from 'rc-dialog';
-import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-
-import { getConfirmLocale } from './locale';
+import classNames from 'classnames';
+import Dialog from 'rc-dialog';
+import * as React from 'react';
 import Button from '../button';
-import type { LegacyButtonType, ButtonProps } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { canUseDocElement } from '../_util/styleChecker';
+import { NoFormStyle } from '../form/context';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
+import { canUseDocElement } from '../_util/styleChecker';
+import warning from '../_util/warning';
+import { getConfirmLocale } from './locale';
 
 let mousePosition: { x: number; y: number } | null;
 
@@ -36,7 +37,12 @@ if (canUseDocElement()) {
 
 export interface ModalProps {
   /** 对话框是否可见 */
+  /**
+   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
+   *   `open` instead.
+   */
   visible?: boolean;
+  open?: boolean;
   /** 确定按钮 loading */
   confirmLoading?: boolean;
   /** 标题 */
@@ -91,7 +97,12 @@ type getContainerFunc = () => HTMLElement;
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
+  /**
+   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
+   *   `open` instead.
+   */
   visible?: boolean;
+  open?: boolean;
   title?: React.ReactNode;
   closable?: boolean;
   content?: React.ReactNode;
@@ -150,6 +161,12 @@ const Modal: React.FC<ModalProps> = props => {
     onOk?.(e);
   };
 
+  warning(
+    !('visible' in props),
+    'Modal',
+    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
+  );
+
   const renderFooter = (locale: ModalLocale) => {
     const { okText, okType, cancelText, confirmLoading } = props;
     return (
@@ -173,6 +190,7 @@ const Modal: React.FC<ModalProps> = props => {
     prefixCls: customizePrefixCls,
     footer,
     visible,
+    open,
     wrapClassName,
     centered,
     getContainer,
@@ -201,29 +219,31 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
   return (
-    <Dialog
-      {...restProps}
-      getContainer={
-        getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
-      }
-      prefixCls={prefixCls}
-      wrapClassName={wrapClassNameExtended}
-      footer={footer === undefined ? defaultFooter : footer}
-      visible={visible}
-      mousePosition={mousePosition}
-      onClose={handleCancel}
-      closeIcon={closeIconToRender}
-      focusTriggerAfterClose={focusTriggerAfterClose}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-    />
+    <NoFormStyle status override>
+      <Dialog
+        {...restProps}
+        getContainer={
+          getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
+        }
+        prefixCls={prefixCls}
+        wrapClassName={wrapClassNameExtended}
+        footer={footer === undefined ? defaultFooter : footer}
+        visible={open || visible}
+        mousePosition={mousePosition}
+        onClose={handleCancel}
+        closeIcon={closeIconToRender}
+        focusTriggerAfterClose={focusTriggerAfterClose}
+        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+      />
+    </NoFormStyle>
   );
 };
 
 Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
-  visible: false,
+  open: false,
   okType: 'primary' as LegacyButtonType,
 };
 

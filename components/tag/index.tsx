@@ -1,14 +1,14 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-
-import CheckableTag from './CheckableTag';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
-import Wave from '../_util/wave';
 import type { LiteralUnion } from '../_util/type';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
+import CheckableTag from './CheckableTag';
 
 export { CheckableTagProps } from './CheckableTag';
 
@@ -18,6 +18,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
   closeIcon?: React.ReactNode;
+  /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
@@ -49,6 +50,15 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
+
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('visible' in props),
+      'Tag',
+      '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+    );
+  }
 
   React.useEffect(() => {
     if ('visible' in props) {
@@ -131,7 +141,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
 const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;
 
-Tag.displayName = 'Tag';
+if (process.env.NODE_ENV !== 'production') {
+  Tag.displayName = 'Tag';
+}
 
 Tag.CheckableTag = CheckableTag;
 

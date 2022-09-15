@@ -1,6 +1,5 @@
-import '../../style/index.less';
-import './index.less';
-
 // style dependencies
-import '../../tooltip/style';
 import '../../input/style';
+import '../../style/index.less';
+import '../../tooltip/style';
+import './index.less';

@@ -1,24 +1,26 @@
-import * as React from 'react';
+import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import classNames from 'classnames';
-import UploadList from './UploadList';
+import * as React from 'react';
+import { flushSync } from 'react-dom';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import warning from '../_util/warning';
 import type {
   RcFile,
   ShowUploadListInterface,
-  UploadFile,
-  UploadLocale,
   UploadChangeParam,
-  UploadType,
+  UploadFile,
   UploadListType,
+  UploadLocale,
+  UploadType,
 } from './interface';
 import { UploadProps } from './interface';
+import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -36,7 +38,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onChange,
     onDrop,
     previewFile,
-    disabled,
+    disabled: customDisabled,
     locale: propLocale,
     iconRender,
     isImageUrl,
@@ -49,6 +51,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     itemRender,
     maxCount,
   } = props;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
@@ -96,7 +102,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       cloneList = cloneList.slice(0, maxCount);
     }
 
-    setMergedFileList(cloneList);
+    // Prevent React18 auto batch since input[upload] trigger process at same time
+    // which makes fileList closure problem
+    flushSync(() => {
+      setMergedFileList(cloneList);
+    });
 
     const changeInfo: UploadChangeParam<UploadFile> = {
       file: file as UploadFile,
@@ -305,6 +315,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onSuccess,
     ...(props as RcUploadProps),
     prefixCls,
+    disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
   };
@@ -316,7 +327,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   // !children: https://github.com/ant-design/ant-design/issues/14298
   // disabled: https://github.com/ant-design/ant-design/issues/16478
   //           https://github.com/ant-design/ant-design/issues/24197
-  if (!children || disabled) {
+  if (!children || mergedDisabled) {
     delete rcUploadProps.id;
   }
 
@@ -342,7 +353,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               onPreview={onPreview}
               onDownload={onDownload}
               onRemove={handleRemove}
-              showRemoveIcon={!disabled && showRemoveIcon}
+              showRemoveIcon={!mergedDisabled && showRemoveIcon}
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
               removeIcon={removeIcon}
@@ -370,7 +381,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-drag`]: true,
         [`${prefixCls}-drag-uploading`]: mergedFileList.some(file => file.status === 'uploading'),
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-disabled`]: mergedDisabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
@@ -396,7 +407,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const uploadButtonCls = classNames(prefixCls, {
     [`${prefixCls}-select`]: true,
     [`${prefixCls}-select-${listType}`]: true,
-    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-disabled`]: mergedDisabled,
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -406,25 +417,28 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     </div>
   );
 
+  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
+
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(renderUploadButton(), !!children)}
+        {renderUploadList(uploadButton, !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {uploadButton}
       {renderUploadList()}
     </span>
   );
 };
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
-
-Upload.displayName = 'Upload';
+if (process.env.NODE_ENV !== 'production') {
+  Upload.displayName = 'Upload';
+}
 
 Upload.defaultProps = {
   type: 'select' as UploadType,

@@ -13,10 +13,11 @@ title:
 
 Set size of numeral Badge.
 
-```jsx
-import { Badge, Avatar } from 'antd';
+```tsx
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge size="default" count={5}>
       <Avatar shape="square" size="large" />
@@ -26,4 +27,6 @@ export default () => (
     </Badge>
   </>
 );
+
+export default App;
 ```

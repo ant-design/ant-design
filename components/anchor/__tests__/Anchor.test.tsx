@@ -1,7 +1,7 @@
 import React from 'react';
 import Anchor from '..';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import type { InternalAnchorClass } from '../Anchor';
-import { sleep, render, fireEvent } from '../../../tests/utils';
 
 const { Link } = Anchor;
 

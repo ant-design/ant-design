@@ -1,14 +1,14 @@
 /* eslint @typescript-eslint/no-use-before-define: "off" */
-import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import { fireEvent, render } from '@testing-library/react';
+import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import Transfer from '..';
-import TransferList from '../list';
-import TransferSearch from '../search';
-import TransferItem from '../ListItem';
-import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Checkbox from '../../checkbox';
+import TransferList from '../list';
+import TransferItem from '../ListItem';
+import TransferSearch from '../search';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

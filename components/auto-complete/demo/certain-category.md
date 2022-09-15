@@ -14,8 +14,9 @@ title:
 Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set options of autocomplete with `options` property.
 
 ```tsx
-import { Input, AutoComplete } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { AutoComplete, Input } from 'antd';
+import React from 'react';
 
 const renderTitle = (title: string) => (
   <span>
@@ -63,9 +64,9 @@ const options = [
   },
 ];
 
-const Complete: React.FC = () => (
+const App: React.FC = () => (
   <AutoComplete
-    dropdownClassName="certain-category-search-dropdown"
+    popupClassName="certain-category-search-dropdown"
     dropdownMatchSelectWidth={500}
     style={{ width: 250 }}
     options={options}
@@ -74,7 +75,7 @@ const Complete: React.FC = () => (
   </AutoComplete>
 );
 
-export default () => <Complete />;
+export default App;
 ```
 
 ```css

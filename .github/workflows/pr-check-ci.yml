@@ -3,7 +3,7 @@ name: PR Check CI
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: read
@@ -28,4 +28,4 @@ jobs:
           success-review: true
           success-merge: true
           merge-method: 'merge'
-          merge-title: 'chore: auto merge branchs (#${number})'
+          merge-title: 'chore: auto merge branches (#${number})'

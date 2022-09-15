@@ -1905,12 +1905,10 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
       </h4>
       <div
         class="ant-row"
-        role="row"
         style="margin-left:-4px;margin-right:-4px"
       >
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div
@@ -1959,7 +1957,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div
@@ -2024,7 +2021,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
-          role="cell"
           style="padding-left:4px;padding-right:4px"
         >
           <div

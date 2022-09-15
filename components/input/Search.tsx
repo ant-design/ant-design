@@ -1,13 +1,13 @@
-import * as React from 'react';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import * as React from 'react';
+import Button from '../button';
+import { ConfigContext } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
+import { cloneElement } from '../_util/reactNode';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
-import Button from '../button';
-import SizeContext from '../config-provider/SizeContext';
-import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -165,7 +165,8 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     />
   );
 });
-
-Search.displayName = 'Search';
+if (process.env.NODE_ENV !== 'production') {
+  Search.displayName = 'Search';
+}
 
 export default Search;

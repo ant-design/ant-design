@@ -31,7 +31,7 @@ The differences with Select are:
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
-| dropdownClassName | The className of dropdown menu | string | - |  |
+| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | notFoundContent | Specify content to show when no result matches | string | `Not Found` |  |
@@ -41,7 +41,7 @@ The differences with Select are:
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | value | Selected option | string | - |  |
 | onBlur | Called when leaving the component | function() | - |  |
-| onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |  |
+| onChange | Called when selecting an option or changing an input value | function(value) | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |

@@ -16,8 +16,8 @@ title:
 When user visit a page with a list of items, and want to create a new item. The page can popup a form in Modal, then let user fill in the form to create an item.
 
 ```tsx
+import { Button, Form, Input, Modal, Radio } from 'antd';
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Radio } from 'antd';
 
 interface Values {
   title: string;
@@ -26,20 +26,20 @@ interface Values {
 }
 
 interface CollectionCreateFormProps {
-  visible: boolean;
+  open: boolean;
   onCreate: (values: Values) => void;
   onCancel: () => void;
 }
 
 const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
-  visible,
+  open,
   onCreate,
   onCancel,
 }) => {
   const [form] = Form.useForm();
   return (
     <Modal
-      visible={visible}
+      open={open}
       title="Create a new collection"
       okText="Create"
       cancelText="Cancel"
@@ -83,12 +83,12 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   );
 };
 
-const CollectionsPage = () => {
-  const [visible, setVisible] = useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
 
   const onCreate = (values: any) => {
     console.log('Received values of form: ', values);
-    setVisible(false);
+    setOpen(false);
   };
 
   return (
@@ -96,23 +96,23 @@ const CollectionsPage = () => {
       <Button
         type="primary"
         onClick={() => {
-          setVisible(true);
+          setOpen(true);
         }}
       >
         New Collection
       </Button>
       <CollectionCreateForm
-        visible={visible}
+        open={open}
         onCreate={onCreate}
         onCancel={() => {
-          setVisible(false);
+          setOpen(false);
         }}
       />
     </div>
   );
 };
 
-export default () => <CollectionsPage />;
+export default App;
 ```
 
 ```css

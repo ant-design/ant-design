@@ -13,26 +13,36 @@ title:
 
 You can add extra actions to the right or left or even both side of Tabs.
 
-```jsx
-import { Tabs, Button, Divider, Checkbox } from 'antd';
-
-const { TabPane } = Tabs;
+```tsx
+import { Button, Checkbox, Divider, Tabs } from 'antd';
+import React, { useMemo, useState } from 'react';
 
 const CheckboxGroup = Checkbox.Group;
 
 const operations = <Button>Extra Action</Button>;
 
-const OperationsSlot = {
+const OperationsSlot: Record<PositionType, React.ReactNode> = {
   left: <Button className="tabs-extra-demo-button">Left Extra Action</Button>,
   right: <Button>Right Extra Action</Button>,
 };
 
 const options = ['left', 'right'];
 
-const Demo = () => {
-  const [position, setPosition] = React.useState(['left', 'right']);
+type PositionType = 'left' | 'right';
 
-  const slot = React.useMemo(() => {
+const items = new Array(3).fill(null).map((_, i) => {
+  const id = String(i + 1);
+  return {
+    label: `Tab ${id}`,
+    key: id,
+    children: `Content of tab ${id}`,
+  };
+});
+
+const App: React.FC = () => {
+  const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
+
+  const slot = useMemo(() => {
     if (position.length === 0) return null;
 
     return position.reduce(
@@ -43,17 +53,7 @@ const Demo = () => {
 
   return (
     <>
-      <Tabs tabBarExtraContent={operations}>
-        <TabPane tab="Tab 1" key="1">
-          Content of tab 1
-        </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of tab 2
-        </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of tab 3
-        </TabPane>
-      </Tabs>
+      <Tabs tabBarExtraContent={operations} items={items} />
       <br />
       <br />
       <br />
@@ -63,27 +63,17 @@ const Demo = () => {
         options={options}
         value={position}
         onChange={value => {
-          setPosition(value);
+          setPosition(value as PositionType[]);
         }}
       />
       <br />
       <br />
-      <Tabs tabBarExtraContent={slot}>
-        <TabPane tab="Tab 1" key="1">
-          Content of tab 1
-        </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of tab 2
-        </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of tab 3
-        </TabPane>
-      </Tabs>
+      <Tabs tabBarExtraContent={slot} items={items} />
     </>
   );
 };
 
-export default Demo;
+export default App;
 ```
 
 ```css

@@ -13,12 +13,13 @@ title:
 
 Render extra footer in panel for customized requirements.
 
-```jsx
+```tsx
 import { DatePicker, Space } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -27,4 +28,6 @@ export default () => (
     <DatePicker renderExtraFooter={() => 'extra footer'} picker="month" />
   </Space>
 );
+
+export default App;
 ```

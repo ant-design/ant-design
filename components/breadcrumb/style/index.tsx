@@ -1,6 +1,5 @@
+// style dependencies
+import '../../dropdown/style';
+import '../../menu/style';
 import '../../style/index.less';
 import './index.less';
-
-// style dependencies
-import '../../menu/style';
-import '../../dropdown/style';

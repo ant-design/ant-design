@@ -1,9 +1,9 @@
 import * as React from 'react';
-import type { ModalFuncProps } from '../Modal';
-import ConfirmDialog from '../ConfirmDialog';
-import defaultLocale from '../../locale/default';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../../config-provider';
+import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import defaultLocale from '../../locale/default';
+import ConfirmDialog from '../ConfirmDialog';
+import type { ModalFuncProps } from '../Modal';
 
 export interface HookModalProps {
   afterClose: () => void;
@@ -25,7 +25,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   { afterClose, config },
   ref,
 ) => {
-  const [visible, setVisible] = React.useState(true);
+  const [open, setOpen] = React.useState(true);
   const [innerConfig, setInnerConfig] = React.useState(config);
   const { direction, getPrefixCls } = React.useContext(ConfigContext);
 
@@ -33,10 +33,10 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   const rootPrefixCls = getPrefixCls();
 
   const close = (...args: any[]) => {
-    setVisible(false);
+    setOpen(false);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (innerConfig.onCancel && triggerCancel) {
-      innerConfig.onCancel();
+      innerConfig.onCancel(() => {}, ...args.slice(1));
     }
   };
 
@@ -58,7 +58,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
           rootPrefixCls={rootPrefixCls}
           {...innerConfig}
           close={close}
-          visible={visible}
+          open={open}
           afterClose={afterClose}
           okText={
             innerConfig.okText ||

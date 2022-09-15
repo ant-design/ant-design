@@ -1,18 +1,18 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { FormattedMessage, injectIntl } from 'react-intl';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Tooltip } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip, Alert, Badge } from 'antd';
-import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import stackblitzSdk from '@stackblitz/sdk';
-import CodePreview from './CodePreview';
-import EditButton from '../EditButton';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import ReactDOM from 'react-dom';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import BrowserFrame from '../../BrowserFrame';
-import CodeSandboxIcon from './CodeSandboxIcon';
+import EditButton from '../EditButton';
 import CodePenIcon from './CodePenIcon';
+import CodePreview from './CodePreview';
+import CodeSandboxIcon from './CodeSandboxIcon';
 import RiddleIcon from './RiddleIcon';
 
 const { ErrorBoundary } = Alert;
@@ -36,7 +36,7 @@ class Demo extends React.Component {
   state = {
     codeExpand: false,
     copied: false,
-    copyTooltipVisible: false,
+    copyTooltipOpen: false,
   };
 
   componentDidMount() {
@@ -47,12 +47,12 @@ class Demo extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { codeExpand, copied, copyTooltipVisible } = this.state;
+    const { codeExpand, copied, copyTooltipOpen } = this.state;
     const { expand, theme, showRiddleButton, react18 } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      copyTooltipOpen !== nextState.copyTooltipOpen ||
       nextProps.theme !== theme ||
       nextProps.showRiddleButton !== showRiddleButton ||
       nextProps.react18 !== react18
@@ -90,16 +90,16 @@ class Demo extends React.Component {
     });
   };
 
-  onCopyTooltipVisibleChange = visible => {
-    if (visible) {
+  onCopyTooltipOpenChange = open => {
+    if (open) {
       this.setState({
-        copyTooltipVisible: visible,
+        copyTooltipOpen: open,
         copied: false,
       });
       return;
     }
     this.setState({
-      copyTooltipVisible: visible,
+      copyTooltipOpen: open,
     });
   };
 
@@ -139,7 +139,7 @@ class Demo extends React.Component {
       showRiddleButton,
       react18,
     } = props;
-    const { copied, copyTooltipVisible } = state;
+    const { copied, copyTooltipOpen } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -217,6 +217,7 @@ class Demo extends React.Component {
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
+        .replace("import React from 'react';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
           /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
@@ -252,9 +253,11 @@ class Demo extends React.Component {
     const riddlePrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       js: `${
+        /import React(\D*)from 'react';/.test(sourceCode) ? '' : `import React from 'react';\n`
+      }${
         react18
-          ? `import React from 'react';\nimport { createRoot } from 'react-dom/client';\n`
-          : ''
+          ? `import { createRoot } from 'react-dom/client';\n`
+          : `import ReactDOM from 'react-dom';\n`
       }${sourceCode.replace(/export default/, 'const ComponentDemo =')}\n\n${
         react18
           ? 'createRoot(mountNode).render(<ComponentDemo />)'
@@ -275,7 +278,7 @@ class Demo extends React.Component {
     let parsedSourceCode = sourceCode;
     let importReactContent = "import React from 'react';";
 
-    const importReactReg = /import(\D*)from 'react';/;
+    const importReactReg = /import React(\D*)from 'react';/;
     const matchImportReact = parsedSourceCode.match(importReactReg);
     if (matchImportReact) {
       [importReactContent] = matchImportReact;
@@ -296,14 +299,14 @@ ${parsedSourceCode}
 
     const indexJsContent = react18
       ? `
-${importReactContent}
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')).render(<Demo />);
 `
       : `
-${importReactContent}
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Demo from './demo';
 
@@ -445,16 +448,13 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
             </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                visible={copyTooltipVisible}
-                onVisibleChange={this.onCopyTooltipVisibleChange}
+                open={copyTooltipOpen}
+                onOpenChange={this.onCopyTooltipOpenChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                {React.createElement(
-                  copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
-                  {
-                    className: 'code-box-code-copy code-box-code-action',
-                  },
-                )}
+                {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
+                  className: 'code-box-code-copy code-box-code-action',
+                })}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip
@@ -499,7 +499,11 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
     );
 
     if (meta.version) {
-      codeBox = <Badge.Ribbon text={meta.version}>{codeBox}</Badge.Ribbon>;
+      codeBox = (
+        <Badge.Ribbon text={meta.version} color={meta.version.includes('<') ? 'red' : null}>
+          {codeBox}
+        </Badge.Ribbon>
+      );
     }
 
     return codeBox;

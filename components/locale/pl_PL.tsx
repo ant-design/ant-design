@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/pl_PL';
-import DatePicker from '../date-picker/locale/pl_PL';
-import TimePicker from '../time-picker/locale/pl_PL';
 import Calendar from '../calendar/locale/pl_PL';
+import DatePicker from '../date-picker/locale/pl_PL';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/pl_PL';
 
 const typeTemplate = '${label} nie posiada poprawnej wartości dla typu ${type}';
 

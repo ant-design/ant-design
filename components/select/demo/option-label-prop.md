@@ -13,16 +13,17 @@ title:
 
 Specify the prop name of Option which will be rendered in select box.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-function handleChange(value) {
+const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <Select
     mode="multiple"
     style={{ width: '100%' }}
@@ -65,6 +66,8 @@ export default () => (
     </Option>
   </Select>
 );
+
+export default App;
 ```
 
 ```css

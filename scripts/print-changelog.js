@@ -35,7 +35,7 @@ const MAINTAINERS = [
   'Rustin-Liu',
   'fireairforce',
   'kerm1it',
-  'MadCcc',
+  'madccc',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -47,7 +47,7 @@ function getDescription(entity) {
   }
   const descEle = entity.element.find('td:last');
   let htmlContent = descEle.html();
-  htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
+  htmlContent = htmlContent.replace(/<code class="notranslate">([^<]*)<\/code>/g, '`$1`');
   return htmlContent.trim();
 }
 
@@ -58,7 +58,10 @@ async function printLog() {
       type: 'list',
       name: 'fromVersion',
       message: '🏷  Please choose tag to compare with current branch:',
-      choices: tags.all.reverse().slice(0, 10),
+      choices: tags.all
+        .filter(item => !item.includes('experimental'))
+        .reverse()
+        .slice(0, 10),
     },
   ]);
   let { toVersion } = await inquirer.prompt([
@@ -111,12 +114,40 @@ async function printLog() {
       const pr = prs[j];
 
       // Use jquery to get full html page since it don't need auth token
-      const res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
+      let res;
+      let tryTimes = 0;
+      const timeout = 30000;
+      let html;
+      const fetchPullRequest = async () => {
+        try {
+          res = await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
+            }, timeout);
+            fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
+              .then(response => {
+                response.text().then(htmlRes => {
+                  html = htmlRes;
+                  resolve(response);
+                });
+              })
+              .catch(error => {
+                reject(error);
+              });
+          });
+        } catch (err) {
+          tryTimes++;
+          if (tryTimes < 100) {
+            console.log(chalk.red(`❌ Fetch error, reason: ${err}`));
+            console.log(chalk.red(`⌛️ Retrying...(Retry times: ${tryTimes})`));
+            await fetchPullRequest();
+          }
+        }
+      };
+      await fetchPullRequest();
       if (res.url.includes('/issues/')) {
         continue;
       }
-
-      const html = await res.text();
 
       const $html = $(html);
 
@@ -178,6 +209,9 @@ async function printLog() {
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
+        }
+        if (str.toLowerCase().includes('feat')) {
+          icon = '🆕';
         }
 
         let authorText = '';

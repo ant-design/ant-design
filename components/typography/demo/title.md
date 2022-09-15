@@ -13,12 +13,13 @@ title:
 
 Display title in different level.
 
-```jsx
+```tsx
 import { Typography } from 'antd';
+import React from 'react';
 
 const { Title } = Typography;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Title>h1. Ant Design</Title>
     <Title level={2}>h2. Ant Design</Title>
@@ -27,4 +28,6 @@ export default () => (
     <Title level={5}>h5. Ant Design</Title>
   </>
 );
+
+export default App;
 ```

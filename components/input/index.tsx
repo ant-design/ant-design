@@ -1,16 +1,16 @@
 import type * as React from 'react';
+import Group from './Group';
 import type { InputProps, InputRef } from './Input';
 import InternalInput from './Input';
-import Group from './Group';
+import Password from './Password';
 import Search from './Search';
 import TextArea from './TextArea';
-import Password from './Password';
 
-export { InputProps, InputRef } from './Input';
 export { GroupProps } from './Group';
+export { InputProps, InputRef } from './Input';
+export { PasswordProps } from './Password';
 export { SearchProps } from './Search';
 export { TextAreaProps } from './TextArea';
-export { PasswordProps } from './Password';
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>> {

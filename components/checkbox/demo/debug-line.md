@@ -16,13 +16,14 @@ Same line
 
 ```tsx
 import { Checkbox, Radio, Space } from 'antd';
+import React from 'react';
 
 const sharedStyle: React.CSSProperties = {
   border: '1px solid red',
   marginBottom: 16,
 };
 
-export default () => (
+const App: React.FC = () => (
   <div>
     <Space style={sharedStyle} align="center">
       <Checkbox value="light" />
@@ -61,4 +62,6 @@ export default () => (
     </div>
   </div>
 );
+
+export default App;
 ```

@@ -233,12 +233,10 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 >
   <div
     class="ant-row"
-    role="row"
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -266,7 +264,6 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -294,7 +291,6 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -836,13 +832,6 @@ Array [
               role="tabpanel"
               tabindex="0"
             />
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
-            />
           </div>
         </div>
       </div>
@@ -974,24 +963,10 @@ Array [
             class="ant-tabs-content ant-tabs-content-top"
           >
             <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
-            />
-            <div
               aria-hidden="false"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               role="tabpanel"
               tabindex="0"
-            />
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane"
-              role="tabpanel"
-              style="display:none"
-              tabindex="-1"
             />
           </div>
         </div>

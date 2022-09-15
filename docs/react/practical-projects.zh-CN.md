@@ -5,7 +5,7 @@ title: 项目实战
 
 在真实项目开发中，你可能会需要 Redux 或者 MobX 这样的数据流方案，Ant Design React 作为一个 UI 库，可以和任何 React 生态圈内的数据流方案以及应用框架搭配使用。我们基于业务场景的场景，推出了可插拔的企业级应用框架 umi，推荐你在项目中使用。
 
-[umi](https://umijs.org/zh-CN) 则是一个可插拔的企业级 react 应用框架。Umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh-CN/docs/convention-routing)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh-CN/config#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh-CN/plugins/api)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求，同时提供 [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui) 通过可视化辅助编程（VAP）提高开发体验和研发效率。
+[umi](https://umijs.org/zh-CN) 则是一个可插拔的企业级 react 应用框架。Umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh-CN/docs/convention-routing)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh-CN/config#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh-CN/plugins/api)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。
 
 > 你可能也会对 [Ant Design Pro](https://pro.ant.design/) 感兴趣，这是一个基于 Umi 和 antd 的开箱即用的中台前端/设计解决方案。
 
@@ -63,7 +63,7 @@ export default defineConfig({
 然后新建 `src/components/ProductList.tsx` 文件：
 
 ```tsx
-import { Table, Popconfirm, Button } from 'antd';
+import { Button, Popconfirm, Table } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -127,8 +127,8 @@ export function queryProductList() {
 然后新建文件 `src/models/useProductList.ts`。
 
 ```tsx
-import { useRequest } from 'umi';
 import { queryProductList } from '@/services/product';
+import { useRequest } from 'umi';
 
 export default function useProductList(params: { pageSize: number; current: number }) {
   const msg = useRequest(() => queryProductList(params));
@@ -155,8 +155,8 @@ export default function useProductList(params: { pageSize: number; current: numb
 编辑 `src/pages/products.tsx`，替换为以下内容：
 
 ```tsx
-import { useModel } from 'umi';
 import ProductList from '@/components/ProductList';
+import { useModel } from 'umi';
 
 const Products = () => {
   const { dataSource, reload, deleteProducts } = useModel('useProductList');
@@ -192,8 +192,8 @@ $ yarn start
 使用方式也是极为简单，只需要进行几个简单的设置。
 
 ```tsx
-import { Button } from 'antd';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { Button } from 'antd';
 
 export default (
   <ProLayout>
@@ -220,9 +220,9 @@ export default (
 一个中后台页面中很多数据都不需要跨页面共享，models 在一些时候也是不需要的。
 
 ```tsx
-import ProTable from '@ant-design/pro-table';
-import { Popconfirm, Button } from 'antd';
 import { queryProductList } from '@/services/product';
+import ProTable from '@ant-design/pro-table';
+import { Button, Popconfirm } from 'antd';
 
 const Products = () => {
   const actionRef = useRef<ActionType>();

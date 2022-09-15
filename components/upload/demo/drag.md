@@ -17,13 +17,15 @@ You can drag files to a specific area, to upload. Alternatively, you can also up
 
 We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
-```jsx
-import { Upload, message } from 'antd';
+```tsx
 import { InboxOutlined } from '@ant-design/icons';
+import type { UploadProps } from 'antd';
+import { message, Upload } from 'antd';
+import React from 'react';
 
 const { Dragger } = Upload;
 
-const props = {
+const props: UploadProps = {
   name: 'file',
   multiple: true,
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -43,7 +45,7 @@ const props = {
   },
 };
 
-export default () => (
+const App: React.FC = () => (
   <Dragger {...props}>
     <p className="ant-upload-drag-icon">
       <InboxOutlined />
@@ -55,4 +57,6 @@ export default () => (
     </p>
   </Dragger>
 );
+
+export default App;
 ```

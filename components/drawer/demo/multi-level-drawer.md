@@ -13,19 +13,20 @@ title:
 
 Open a new drawer on top of an existing drawer to handle multi branch tasks.
 
-```jsx
-import { Drawer, Button } from 'antd';
+```tsx
+import { Button, Drawer } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
-  const [childrenDrawer, setChildrenDrawer] = React.useState(false);
+const App: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [childrenDrawer, setChildrenDrawer] = useState(false);
 
   const showDrawer = () => {
-    setVisible(true);
+    setOpen(true);
   };
 
   const onClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
   const showChildrenDrawer = () => {
@@ -41,13 +42,7 @@ export default () => {
       <Button type="primary" onClick={showDrawer}>
         Open drawer
       </Button>
-      <Drawer
-        title="Multi-level drawer"
-        width={520}
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-      >
+      <Drawer title="Multi-level drawer" width={520} closable={false} onClose={onClose} open={open}>
         <Button type="primary" onClick={showChildrenDrawer}>
           Two-level drawer
         </Button>
@@ -56,7 +51,7 @@ export default () => {
           width={320}
           closable={false}
           onClose={onChildrenDrawerClose}
-          visible={childrenDrawer}
+          open={childrenDrawer}
         >
           This is two-level drawer
         </Drawer>
@@ -64,6 +59,8 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```
 
 <style>

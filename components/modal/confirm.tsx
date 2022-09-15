@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import { getConfirmLocale } from './locale';
-import type { ModalFuncProps } from './Modal';
-import ConfirmDialog from './ConfirmDialog';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import * as React from 'react';
 import { globalConfig } from '../config-provider';
 import warning from '../_util/warning';
+import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
+import { getConfirmLocale } from './locale';
+import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 
@@ -29,12 +29,12 @@ export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, M
 export default function confirm(config: ModalFuncProps) {
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  let currentConfig = { ...config, close, visible: true } as any;
+  let currentConfig = { ...config, close, open: true } as any;
 
   function destroy(...args: any[]) {
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
-      config.onCancel(...args);
+      config.onCancel(() => {}, ...args.slice(1));
     }
     for (let i = 0; i < destroyFns.length; i++) {
       const fn = destroyFns[i];
@@ -79,7 +79,7 @@ export default function confirm(config: ModalFuncProps) {
   function close(...args: any[]) {
     currentConfig = {
       ...currentConfig,
-      visible: false,
+      open: false,
       afterClose: () => {
         if (typeof config.afterClose === 'function') {
           config.afterClose();
