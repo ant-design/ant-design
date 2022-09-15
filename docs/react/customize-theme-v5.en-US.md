@@ -69,6 +69,14 @@ export default () => (
 );
 ```
 
+### 局部主题
+
+> TODO
+
+### 在 umi 4 中定制主题
+
+> TODO
+
 ### API (暂定)
 
 #### Theme
