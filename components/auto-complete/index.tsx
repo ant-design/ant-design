@@ -57,6 +57,7 @@ function Input(
 
   InputNode = React.cloneElement(InputNode, {
     ...omit(props, ['inputNode']),
+    ...InputNode.props,
     ref: inputRef,
     onChange: (event: Event) => {
       if (props.onChange) {
