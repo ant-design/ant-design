@@ -28,7 +28,6 @@ export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElem
   description: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
   type: FloatButtonProps['type'];
-  CSSMotionClassName?: string;
 }
 
 export interface FloatButtonGroupProps extends FloatButtonProps {

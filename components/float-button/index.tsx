@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import BackTop from '../back-top';
@@ -30,7 +29,6 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const { shape: groupShape } = useContext<FloatButtonGroupProps>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls('float-button', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergeShape = groupShape || shape;
@@ -53,18 +51,13 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
 
   const buttonNode = (
     <div className={`${prefixCls}-body`}>
-      <CSSMotion motionName={`${rootPrefixCls}-fade`}>
-        {childrenProps => {
-          const motionClass = { CSSMotionClassName: childrenProps.className };
-          return tooltip ? (
-            <Tooltip title={tooltip} placement="left">
-              <Content {...motionClass} {...contentProps} />
-            </Tooltip>
-          ) : (
-            <Content {...motionClass} {...contentProps} />
-          );
-        }}
-      </CSSMotion>
+      {tooltip ? (
+        <Tooltip title={tooltip} placement="left">
+          <Content {...contentProps} />
+        </Tooltip>
+      ) : (
+        <Content {...contentProps} />
+      )}
     </div>
   );
 
