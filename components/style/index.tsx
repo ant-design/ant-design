@@ -15,6 +15,7 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   lineHeight: token.lineHeight,
   listStyle: 'none',
   // font-feature-settings: @font-feature-settings-base;
+  fontFamily: token.fontFamily,
 });
 
 export const resetIcon = (): CSSObject => ({
@@ -95,6 +96,17 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
     },
   },
 });
+
+export const genFontStyle = (token: DerivativeToken, rootPrefixCls: string) => {
+  const { fontFamily, fontSize } = token;
+
+  return {
+    [`[class^="${rootPrefixCls}-"], [class*=" ${rootPrefixCls}-"]`]: {
+      fontFamily,
+      fontSize,
+    },
+  };
+};
 
 export const genFocusOutline = (token: DerivativeToken): CSSObject => ({
   outline: `${token.lineWidth * 4}px solid ${token.colorPrimaryBorder}`,
