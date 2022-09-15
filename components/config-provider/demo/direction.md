@@ -52,7 +52,6 @@ const ButtonGroup = Button.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
-const { Step } = Steps;
 
 const cascaderOptions = [
   {
