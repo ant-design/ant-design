@@ -14,7 +14,7 @@ import useStyle from './style';
 
 export interface BackTopProps {
   visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -52,9 +52,7 @@ const BackTopContent: React.FC<ChildrenProps> = props => {
 };
 
 const BackTop: React.FC<BackTopProps> = props => {
-  const [visible, setVisible] = useMergedState(false, {
-    value: props.visible,
-  });
+  const [visible, setVisible] = useMergedState(false, { value: props.visible });
 
   const ref = React.createRef<HTMLDivElement>();
   const scrollEvent = React.useRef<any>();
@@ -103,7 +101,7 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
-  const prefixCls = getPrefixCls('back-top', customizePrefixCls);
+  const prefixCls = getPrefixCls('float-button-back-top', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
