@@ -78,7 +78,7 @@ const ThemedMenu = forwardRef<MenuRef, MenuProps>(({ theme = 'light', ...rest },
   }, [theme]);
 
   return (
-    <ConfigProvider theme={{ override: { Menu: darkThemeToken } }}>
+    <ConfigProvider theme={{ components: { Menu: darkThemeToken } }}>
       <SiderContext.Consumer>
         {(context: SiderContextProps) => <InternalMenu ref={menuRef} {...rest} {...context} />}
       </SiderContext.Consumer>
