@@ -21,6 +21,14 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   direction?: 'horizontal' | 'vertical';
 }
 
+const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = React.memo(
+  ({ children, ...otherProps }) => (
+    <SpaceCompactItemContext.Provider value={otherProps}>
+      {children}
+    </SpaceCompactItemContext.Provider>
+  ),
+);
+
 const Compact: React.FC<SpaceCompactProps> = props => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
@@ -48,22 +56,18 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     () =>
       childNodes.map((child, i) => {
         const key = (child && child.key) || `${prefixCls}-item-${i}`;
-        // FIXME:  更好实现？
-        // eslint-disable-next-line react/jsx-no-constructed-context-values
-        const value = {
-          size,
-          direction,
-          isItem: true,
-          isFirstItem: i === 0,
-          isLastItem: i === childNodes.length - 1,
-        };
 
         return (
-          <React.Fragment key={key}>
-            <SpaceCompactItemContext.Provider value={value}>
-              {child}
-            </SpaceCompactItemContext.Provider>
-          </React.Fragment>
+          <CompactItem
+            key={key}
+            size={size}
+            direction={direction}
+            isItem
+            isFirstItem={i === 0}
+            isLastItem={i === childNodes.length - 1}
+          >
+            {child}
+          </CompactItem>
         );
       }),
     [size, childNodes],
