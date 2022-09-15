@@ -9,6 +9,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { SpaceCompactItemContext } from '../space/Compact';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -141,9 +142,16 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
+  const {
+    size: compactSize,
+    isItem: isCompactItem,
+    isFirstItem,
+    isLastItem,
+  } = useContext(SpaceCompactItemContext);
+
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
-  const mergedSize = customSize || size;
+  const mergedSize = compactSize || customSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -244,6 +252,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-borderless`]: !bordered,
+          [`${prefixCls}-compact-item`]: isCompactItem,
+          [`${prefixCls}-compact-first-item`]: isFirstItem,
+          [`${prefixCls}-compact-last-item`]: isLastItem,
         },
         !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
       )}

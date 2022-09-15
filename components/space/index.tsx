@@ -5,6 +5,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import Item from './Item';
+import Compact from './Compact';
 
 export const SpaceContext = React.createContext({
   latestIndex: 0,
@@ -145,4 +146,11 @@ const Space: React.FC<SpaceProps> = props => {
   );
 };
 
-export default Space;
+interface CompoundedComponent extends React.FC<SpaceProps> {
+  Compact: typeof Compact;
+}
+
+const CompoundedSpace = Space as CompoundedComponent;
+CompoundedSpace.Compact = Compact;
+
+export default CompoundedSpace;
