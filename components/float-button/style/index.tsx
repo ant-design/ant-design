@@ -61,7 +61,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       overflow: 'hidden',
       boxShadow: token.boxShadowSecondary,
       [`${componentCls}-square`]: {
-        padding: 4,
+        padding: token.paddingXXS,
         marginTop: 0,
         borderRadius: 0,
         boxShadow: 'none',
@@ -69,8 +69,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
           borderTop: `1px solid ${token.colorFillContent}`,
         },
         [`${componentCls}-body`]: {
-          width: floatButtonSize - 8,
-          height: floatButtonSize - 8,
+          width: floatButtonSize - token.paddingXXS * 2,
+          height: floatButtonSize - token.paddingXXS * 2,
         },
       },
     },
