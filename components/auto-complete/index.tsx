@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
@@ -31,6 +32,53 @@ export interface DataSourceItemObject {
   text: string;
 }
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
+
+function Input(
+  props: {
+    inputElement: React.ReactElement;
+    onChange?: <T>(event: T) => {};
+    className?: string;
+  },
+  ref: React.ForwardedRef<{ focus: () => void; blur: () => void }>,
+) {
+  let inputNode = props.inputElement || <input />;
+
+  const originRef = (inputNode as React.ComponentElement<any, any>).ref;
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    focus: () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    },
+    blur: () => {
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
+    },
+  }));
+
+  inputNode = React.cloneElement(inputNode, {
+    ...omit(props, ['inputElement']),
+    ...inputNode.props,
+    className: classNames(props.className, inputNode?.props?.className),
+    ref: composeRef(inputRef, originRef as any),
+    onChange: (event: Event) => {
+      if (props.onChange) {
+        if (!event?.target) {
+          const e = { target: { value: event } };
+          props.onChange(e);
+        } else {
+          props.onChange(event);
+        }
+      }
+    },
+  });
+  return inputNode;
+}
+
+const InputRef = React.forwardRef(Input);
 
 export interface AutoCompleteProps<
   ValueType = any,
@@ -78,7 +126,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => <InputRef inputElement={customizeInput!} />
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
@@ -136,7 +186,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     'AutoComplete',
     'You need to control style self instead of setting `size` when using customize input.',
   );
-
   return (
     <ConfigConsumer>
       {({ getPrefixCls }: ConfigConsumerProps) => {
