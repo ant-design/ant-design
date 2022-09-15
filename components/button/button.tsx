@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import { SpaceCompactItemContext } from '../space/Compact';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
@@ -169,7 +170,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
-
+  const {
+    size: compactSize,
+    isItem: isCompactItem,
+    isFirstItem,
+    isLastItem,
+  } = React.useContext(SpaceCompactItemContext);
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
@@ -241,7 +247,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeFullname = groupSize || customizeSize || size;
+  const sizeFullname = compactSize || groupSize || customizeSize || size;
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
@@ -262,6 +268,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-disabled`]: linkButtonRestProps.href !== undefined && mergedDisabled,
+      [`${prefixCls}-compact-item`]: isCompactItem,
+      [`${prefixCls}-compact-first-item`]: isFirstItem,
+      [`${prefixCls}-compact-last-item`]: isLastItem,
     },
     className,
   );

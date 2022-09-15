@@ -1,0 +1,63 @@
+@space-compact-prefix-cls: ~'@{ant-prefix}-space-compact';
+@input-prefix-clx: ~'@{ant-prefix}-input';
+
+// input in Space.Compact styles
+.@{space-compact-prefix-cls} {
+  .space-compact(~'@{space-compact-prefix-cls}');
+  // >:first-child {
+  //   border-top-right-radius: 0;
+  //   border-bottom-right-radius: 0;
+  // }
+}
+
+.space-compact(@spaceCompactClass) {
+  // Reset rounded corners
+  > .@{ant-prefix}-input:first-child,
+  &-addon:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    // Reset Select's style in addon
+    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  > .@{spaceCompactClass}-affix-wrapper {
+    &:not(:first-child) .@{spaceCompactClass} {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) .@{spaceCompactClass} {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &-addon:first-child {
+    border-right: 0;
+  }
+
+  &-addon:last-child {
+    border-left: 0;
+  }
+
+  > .@{ant-prefix}-input:last-child,
+  &-addon:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    // Reset Select's style in addon
+    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  > .@{ant-prefix}-input:not(:last-child) {
+    margin-right: -@border-width-base;
+    border-right-width: @border-width-base;
+  }
+}
