@@ -15,11 +15,11 @@ When a given task is complicated or has a certain sequence in the series of subt
 ## API
 
 ```jsx
-// works when >=4.23.0, recommended ✅
+// works when >=4.24.0, recommended ✅
 const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
 return <Tabs items={items} />;
 
-// works when <4.23.0, deprecated when >=4.23.0 🙅🏻‍♀️
+// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
 <Steps>
   <Step title="first step" />
   <Step title="second step" />
