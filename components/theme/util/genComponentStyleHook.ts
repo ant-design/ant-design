@@ -2,7 +2,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { genLinkStyle } from '../../style';
+import { genFontStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
@@ -61,9 +61,13 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     }
 
     // Generate style for all a tags in antd component.
-    useStyleRegister({ theme, token, hashId, path: ['Link'] }, () => ({
-      '&': genLinkStyle(token),
-    }));
+    useStyleRegister({ theme, token, hashId, path: ['Shared', rootPrefixCls] }, () => [
+      {
+        // Link
+        '&': genLinkStyle(token),
+      },
+      genFontStyle(token, rootPrefixCls),
+    ]);
 
     return [
       useStyleRegister(
