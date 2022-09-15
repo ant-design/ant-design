@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
@@ -34,12 +35,15 @@ export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 function Input(
   props: {
-    inputNode: React.ReactElement;
+    inputElement: React.ReactElement;
     onChange?: <T>(event: T) => {};
+    className?: string;
   },
   ref: React.ForwardedRef<{ focus: () => void; blur: () => void }>,
 ) {
-  let InputNode: React.ReactNode = props.inputNode;
+  let inputNode = props.inputElement || <input />;
+
+  const originRef = (inputNode as React.ComponentElement<any, any>).ref;
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useImperativeHandle(ref, () => ({
@@ -55,10 +59,11 @@ function Input(
     },
   }));
 
-  InputNode = React.cloneElement(InputNode, {
-    ...omit(props, ['inputNode']),
-    ...InputNode.props,
-    ref: inputRef,
+  inputNode = React.cloneElement(inputNode, {
+    ...omit(props, ['inputElement']),
+    ...inputNode.props,
+    className: classNames(props.className, inputNode?.props?.className),
+    ref: composeRef(inputRef, originRef as any),
     onChange: (event: Event) => {
       if (props.onChange) {
         if (!event?.target) {
@@ -70,7 +75,7 @@ function Input(
       }
     },
   });
-  return InputNode;
+  return inputNode;
 }
 
 const InputRef = React.forwardRef(Input);
@@ -122,7 +127,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }
 
   const getInputElement = customizeInput
-    ? (): React.ReactElement => <InputRef inputNode={customizeInput!} />
+    ? (): React.ReactElement => <InputRef inputElement={customizeInput!} />
     : undefined;
 
   // ============================ Options ============================
