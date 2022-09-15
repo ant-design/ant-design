@@ -2,6 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../../theme';
 import { genComponentStyleHook, mergeToken } from '../../../theme';
 import { resetComponent } from '../../../style';
+import { floatButtonPrefixCls } from '../..';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -18,8 +19,20 @@ type BackTopToken = FullToken<'FloatButtonBackTop'> & {
   // Position
   backTopBlockEnd: number;
   backTopInlineEnd: number;
-  backTopInlineEndMD: number;
-  backTopInlineEndXS: number;
+};
+
+// ============================== Group ==============================
+const floatButtonGroupStyle: GenerateStyle<BackTopToken, CSSObject> = token => {
+  const { componentCls } = token;
+  const groupPrefixCls = `${floatButtonPrefixCls}-group`;
+  return {
+    [groupPrefixCls]: {
+      ...resetComponent(token),
+      [componentCls]: {
+        position: 'static',
+      },
+    },
+  };
 };
 
 // ============================== Shared ==============================
@@ -74,6 +87,8 @@ export default genComponentStyleHook<'FloatButtonBackTop'>('FloatButtonBackTop',
     colorTextLightSolid,
     colorText,
     controlHeightLG,
+    marginXXL,
+    marginLG,
   } = token;
 
   const backTopToken = mergeToken<BackTopToken>(token, {
@@ -83,10 +98,8 @@ export default genComponentStyleHook<'FloatButtonBackTop'>('FloatButtonBackTop',
     backTopFontSize: fontSizeHeading3,
     backTopSize: controlHeightLG,
 
-    backTopBlockEnd: controlHeightLG * 1.25,
-    backTopInlineEnd: controlHeightLG * 2.5,
-    backTopInlineEndMD: controlHeightLG * 1.5,
-    backTopInlineEndXS: controlHeightLG * 0.5,
+    backTopBlockEnd: marginXXL,
+    backTopInlineEnd: marginLG,
   });
-  return [genSharedBackTopStyle(backTopToken)];
+  return [genSharedBackTopStyle(backTopToken), floatButtonGroupStyle(backTopToken)];
 });

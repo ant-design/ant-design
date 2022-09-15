@@ -19,8 +19,6 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   // Position
   floatButtonBlockEnd: number;
   floatButtonInlineEnd: number;
-  floatButtonInlineEndMD: number;
-  floatButtonInlineEndXS: number;
 };
 
 // ============================== Group ==============================
@@ -168,7 +166,6 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     controlHeightLG,
     marginXXL,
     marginLG,
-    marginTmp,
     fontSize,
     fontSizeHeading4,
     controlItemBgHover,
@@ -183,8 +180,6 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
 
     floatButtonBlockEnd: marginXXL,
     floatButtonInlineEnd: marginLG,
-    floatButtonInlineEndMD: controlHeightLG * 1.5,
-    floatButtonInlineEndXS: marginTmp,
   });
   return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
 });

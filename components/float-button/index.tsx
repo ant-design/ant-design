@@ -15,6 +15,8 @@ import type {
 import Group from './FloatButtonGroup';
 import FloatButtonGroupContext from './context';
 
+export const floatButtonPrefixCls = 'float-button';
+
 const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   const {
     prefixCls: customizePrefixCls,
@@ -28,7 +30,7 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const { shape: groupShape } = useContext<FloatButtonGroupProps>(FloatButtonGroupContext);
-  const prefixCls = getPrefixCls('float-button', customizePrefixCls);
+  const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergeShape = groupShape || shape;
