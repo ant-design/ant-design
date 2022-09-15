@@ -121,7 +121,7 @@ describe('ConfigProvider.Theme', () => {
 
   it('overriding component token should work', () => {
     render(
-      <ConfigProvider theme={{ override: { InputNumber: { handleWidth: 50.1234 } } }}>
+      <ConfigProvider theme={{ components: { InputNumber: { handleWidth: 50.1234 } } }}>
         <InputNumber />
       </ConfigProvider>,
     );

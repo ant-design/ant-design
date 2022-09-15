@@ -130,15 +130,9 @@ export interface ComponentTokenMap {
   Progress?: ProgressComponentToken;
 }
 
-type OverrideComponentToken = {
-  [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]>;
+export type OverrideToken = {
+  [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]> & Partial<AliasToken>;
 };
-
-export interface OverrideToken extends OverrideComponentToken {
-  derivative?: Partial<MapToken>;
-  /** @private Internal Usage */
-  alias?: Partial<AliasToken>;
-}
 
 /** Final token which contains the components level override */
 export type GlobalToken = AliasToken & ComponentTokenMap;

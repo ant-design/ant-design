@@ -2,7 +2,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, MapToken, OverrideToken } from '../interface';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
-type RawMergedToken = MapToken & OverrideToken;
+type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
 
 /**
  * Seed (designer) > Derivative (designer) > Alias (developer).
@@ -10,11 +10,11 @@ type RawMergedToken = MapToken & OverrideToken;
  * Merge seed & derivative & override token and generate alias token for developer.
  */
 export default function formatToken(derivativeToken: RawMergedToken): AliasToken {
-  const { derivative, alias, ...restToken } = derivativeToken;
+  const { override, ...restToken } = derivativeToken;
 
   const mergedToken = {
     ...restToken,
-    ...derivative,
+    ...override,
   };
 
   const { fontSizes, lineHeights } = mergedToken;
@@ -193,7 +193,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     boxShadowTabsOverflowBottom: `inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)`,
 
     // Override AliasToken
-    ...alias,
+    ...override,
   };
 
   return aliasToken;

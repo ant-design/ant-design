@@ -48,9 +48,9 @@ export const defaultConfig = {
 };
 
 export const DesignTokenContext = React.createContext<{
-  token: Partial<SeedToken>;
+  token: Partial<AliasToken>;
   theme?: Theme<SeedToken, MapToken>;
-  override?: OverrideToken;
+  components?: OverrideToken;
   hashed?: string | boolean;
 }>(defaultConfig);
 
@@ -61,18 +61,25 @@ const saltPrefix =
   process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
 
 export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
-  const { token: rootDesignToken, override, hashed, theme } = React.useContext(DesignTokenContext);
+  const {
+    token: rootDesignToken,
+    hashed,
+    theme,
+    components,
+  } = React.useContext(DesignTokenContext);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
+
+  console.log(components);
 
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {
       salt,
-      override,
+      override: { override: rootDesignToken, ...components },
       formatToken,
     },
   );
