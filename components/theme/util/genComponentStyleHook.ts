@@ -77,15 +77,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
 
           const defaultComponentToken =
             typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
-          const overrideComponentToken = token[component] as any;
-
-          // Only merge token specified in interface
-          const mergedComponentToken = { ...defaultComponentToken } as any;
-          if (overrideComponentToken) {
-            Object.keys(mergedComponentToken).forEach(key => {
-              mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
-            });
-          }
+          const mergedComponentToken = { ...defaultComponentToken, ...token[component] };
 
           const componentCls = `.${prefixCls}`;
           const mergedToken = mergeToken<

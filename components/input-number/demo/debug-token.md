@@ -12,7 +12,7 @@ import { ConfigProvider, InputNumber, Space } from 'antd';
 export default () => (
   <ConfigProvider
     theme={{
-      override: {
+      components: {
         InputNumber: {
           handleWidth: 50,
         },
@@ -24,7 +24,7 @@ export default () => (
 
       <ConfigProvider
         theme={{
-          override: {
+          components: {
             InputNumber: {
               handleWidth: 25,
             },

@@ -52,10 +52,8 @@ describe('ConfigProvider.DynamicTheme', () => {
     mount(
       <ConfigProvider
         theme={{
-          override: {
-            alias: {
-              colorSplit: 'blue',
-            },
+          token: {
+            colorSplit: 'blue',
           },
         }}
       >
