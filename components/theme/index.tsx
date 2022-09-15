@@ -72,8 +72,6 @@ export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
 
   const mergedTheme = theme || defaultTheme;
 
-  console.log(components);
-
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
     [defaultSeedToken, rootDesignToken],
