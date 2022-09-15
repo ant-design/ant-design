@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken, GenerateStyle } from '../theme';
+import type { DerivativeToken } from '../theme';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
