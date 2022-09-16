@@ -12,8 +12,7 @@ import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type { SpinProps } from '../spin';
-import Spin from '../spin';
+import Skeleton, { SkeletonProps } from '../skeleton';
 import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import scrollTo from '../_util/scrollTo';
@@ -69,6 +68,14 @@ interface ChangeEventInfo<RecordType> {
   resetPagination: Function;
 }
 
+export interface TableLoadingProps {
+  loading?: boolean;
+  active?: boolean;
+
+  /** Count for number of table rows to show */
+  rows?: number;
+}
+
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
@@ -84,7 +91,7 @@ export interface TableProps<RecordType>
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
-  loading?: boolean | SpinProps;
+  loading?: boolean | TableLoadingProps;
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
@@ -269,7 +276,8 @@ function InternalTable<RecordType extends object = any>(
   /**
    * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
    * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big
+   * version.
    */
 
   // ============================ Sorter =============================
@@ -490,17 +498,47 @@ function InternalTable<RecordType extends object = any>(
     }
   }
 
-  // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
+  const tableClassNames = classNames({
+    [`${prefixCls}-middle`]: mergedSize === 'middle',
+    [`${prefixCls}-small`]: mergedSize === 'small',
+    [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-empty`]: rawData.length === 0,
+  });
+
+  // >>>>>>>>> Skeleton
+  const isLoading =
+    (typeof loading === 'boolean' && loading) ||
+    (typeof loading === 'object' && (loading as TableLoadingProps)?.loading);
+  if (isLoading) {
+    const skeletonProps: SkeletonProps = {
+      active: true,
+      title: false,
+      paragraph: { rows: 1, width: '100%' },
     };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
+
+    const skeletonColumns = mergedColumns.map((c, i) => ({
+      key: i,
+      ...c,
+      render: () => <Skeleton {...skeletonProps} />,
+    }));
+
+    const tableRows = typeof loading === 'object' ? loading?.rows ?? 3 : 3;
+    const data = Array(tableRows).fill(0);
+
+    const { expandable, ...skeletonTableProps } = tableProps;
+
+    return (
+      <RcTable<RecordType>
+        {...skeletonTableProps}
+        columns={skeletonColumns as RcTableProps<RecordType>['columns']}
+        direction={direction}
+        prefixCls={prefixCls}
+        className={tableClassNames}
+        data={data}
+        rowKey={getRowKey}
+        rowClassName={internalRowClassName}
+      />
+    );
   }
 
   const wrapperClassNames = classNames(
@@ -510,33 +548,27 @@ function InternalTable<RecordType extends object = any>(
     },
     className,
   );
+
   return (
     <div ref={ref} className={wrapperClassNames} style={style}>
-      <Spin spinning={false} {...spinProps}>
-        {topPaginationNode}
-        <RcTable<RecordType>
-          {...tableProps}
-          columns={mergedColumns as RcTableProps<RecordType>['columns']}
-          direction={direction}
-          expandable={mergedExpandable}
-          prefixCls={prefixCls}
-          className={classNames({
-            [`${prefixCls}-middle`]: mergedSize === 'middle',
-            [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-empty`]: rawData.length === 0,
-          })}
-          data={pageData}
-          rowKey={getRowKey}
-          rowClassName={internalRowClassName}
-          emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
-          // Internal
-          internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs as any}
-          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
-        />
-        {bottomPaginationNode}
-      </Spin>
+      {topPaginationNode}
+      <RcTable<RecordType>
+        {...tableProps}
+        columns={mergedColumns as RcTableProps<RecordType>['columns']}
+        direction={direction}
+        expandable={mergedExpandable}
+        prefixCls={prefixCls}
+        className={tableClassNames}
+        data={pageData}
+        rowKey={getRowKey}
+        rowClassName={internalRowClassName}
+        emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
+        // Internal
+        internalHooks={INTERNAL_HOOKS}
+        internalRefs={internalRefs as any}
+        transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+      />
+      {bottomPaginationNode}
     </div>
   );
 }
