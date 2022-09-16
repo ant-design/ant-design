@@ -69,7 +69,18 @@ const options = [
 
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
-    <Space.Compact>
+    <Space.Compact size="small">
+      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 2</Button>
+      <Tooltip title="Tooltip">
+        <Button type="primary" icon={<DownloadOutlined />} disabled />
+      </Tooltip>
+      <Tooltip title="Tooltip">
+        <Button type="primary" icon={<DownloadOutlined />} />
+      </Tooltip>
+    </Space.Compact>
+    <br />
+    <Space.Compact size="large">
       <Button type="primary">Button 1</Button>
       <Button type="primary">Button 2</Button>
       <Tooltip title="Tooltip">
