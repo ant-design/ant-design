@@ -17,8 +17,6 @@ Cooperate with the content and buttons, to represent the progress of a process.
 import { Button, message, Steps } from 'antd';
 import React, { useState } from 'react';
 
-const { Step } = Steps;
-
 const steps = [
   {
     title: 'First',
@@ -44,14 +42,11 @@ const App: React.FC = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
+  const items = steps.map(item => ({ key: item.title, title: item.title }));
 
   return (
     <>
-      <Steps current={current}>
-        {steps.map(item => (
-          <Step key={item.title} title={item.title} />
-        ))}
-      </Steps>
+      <Steps current={current} items={items} />
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action">
         {current < steps.length - 1 && (

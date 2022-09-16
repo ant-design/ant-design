@@ -7,26 +7,42 @@ title:
 
 ## zh-CN
 
-通过设置 `Steps.Step` 的 `icon` 属性，可以启用自定义图标。
+通过设置 `items` 的 `icon` 属性，可以启用自定义图标。
 
 ## en-US
 
-You can use your own custom icons by setting the property `icon` for `Steps.Step`.
+You can use your own custom icons by setting the property `icon` for `items`.
 
 ```tsx
 import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import { Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => (
-  <Steps>
-    <Step status="finish" title="Login" icon={<UserOutlined />} />
-    <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
-    <Step status="process" title="Pay" icon={<LoadingOutlined />} />
-    <Step status="wait" title="Done" icon={<SmileOutlined />} />
-  </Steps>
+  <Steps
+    items={[
+      {
+        title: 'Login',
+        status: 'finish',
+        icon: <UserOutlined />,
+      },
+      {
+        title: 'Verification',
+        status: 'finish',
+        icon: <SolutionOutlined />,
+      },
+      {
+        title: 'Pay',
+        status: 'process',
+        icon: <LoadingOutlined />,
+      },
+      {
+        title: 'Done',
+        status: 'wait',
+        icon: <SmileOutlined />,
+      },
+    ]}
+  />
 );
 
 export default App;
