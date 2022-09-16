@@ -83,6 +83,10 @@ toc: false
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - 可在「MasterGo」在线免费使用的全套组件和模板
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+- 快速打开 Ant Design 组件
+  - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
+  - mac 用户可使用 Raycast 快速打开 Ant Design 组件
+  - https://www.raycast.com/crazyair/antd-open-browser
 
 ## 文章
 
