@@ -1,5 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, MapToken, OverrideToken } from '../interface';
+import getAlphaColor from './getAlphaColor';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
 type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
@@ -43,6 +44,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // ============== Split ============== //
     colorBorderBg: mergedToken.colorBgContainer,
+    colorSplit: getAlphaColor(mergedToken.colorBorderSecondary, mergedToken.colorBgContainer),
 
     // ============== Text ============== //
     colorTextPlaceholder: mergedToken.colorTextQuaternary,
@@ -57,8 +59,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorIcon: mergedToken.colorTextTertiary,
     colorIconHover: mergedToken.colorText,
 
-    colorErrorOutline: mergedToken.colorErrorBg,
-    colorWarningOutline: mergedToken.colorWarningBg,
+    colorErrorOutline: getAlphaColor(mergedToken.colorErrorBg, mergedToken.colorBgContainer),
+    colorWarningOutline: getAlphaColor(mergedToken.colorWarningBg, mergedToken.colorBgContainer),
 
     // Font
     fontSizeSM,
@@ -93,7 +95,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
     controlItemBgActiveDisabled: mergedToken.colorTextQuaternary,
     controlTmpOutline: mergedToken.colorFillQuaternary,
-    controlOutline: mergedToken.colorPrimaryBg,
+    controlOutline: getAlphaColor(mergedToken.colorPrimaryBg, mergedToken.colorBgContainer),
 
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
