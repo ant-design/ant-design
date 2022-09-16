@@ -232,7 +232,6 @@ export interface NeutralColorMapToken {
   // Border
   colorBorder: string;
   colorBorderSecondary: string;
-  colorSplit: string;
 }
 
 export interface ColorMapToken extends NeutralColorMapToken {
@@ -358,6 +357,7 @@ export interface AliasToken extends MapToken {
 
   // Border
   colorBorderBg: string;
+  colorSplit: string;
 
   // Text
   colorTextPlaceholder: string;

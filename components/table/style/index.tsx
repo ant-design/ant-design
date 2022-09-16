@@ -293,6 +293,10 @@ export default genComponentStyleHook('Table', token => {
   const tableSelectedRowBg = controlItemBgActive;
   const zIndexTableFixed: number = 2;
 
+  const colorFillAlterSolid = new TinyColor(colorFillAlter)
+    .onBackground(colorBgContainer)
+    .toHexString();
+
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
     tableBg: colorBgContainer,
@@ -306,9 +310,9 @@ export default genComponentStyleHook('Table', token => {
     tablePaddingHorizontalSmall: paddingXS,
     tableBorderColor: colorSplit,
     tableHeaderTextColor: colorTextHeading,
-    tableHeaderBg: colorFillAlter,
+    tableHeaderBg: colorFillAlterSolid,
     tableFooterTextColor: colorTextHeading,
-    tableFooterBg: colorFillAlter,
+    tableFooterBg: colorFillAlterSolid,
     tableHeaderCellSplitColor: colorSplit,
     tableHeaderSortBg: colorFillSecondary,
     tableHeaderSortHoverBg: colorFillContent,
@@ -324,7 +328,7 @@ export default genComponentStyleHook('Table', token => {
     tableFixedHeaderSortActiveBg: colorFillSecondary,
     tableHeaderFilterActiveBg: colorFillContent,
     tableFilterDropdownBg: colorBgContainer,
-    tableRowHoverBg: colorFillAlter,
+    tableRowHoverBg: colorFillAlterSolid,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: controlItemBgActiveHover,
     zIndexTableFixed,

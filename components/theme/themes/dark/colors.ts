@@ -49,6 +49,5 @@ export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
 
     colorBorder: getSolidColor(colorBgBase, 26),
     colorBorderSecondary: getSolidColor(colorBgBase, 19),
-    colorSplit: getAlphaColor(colorTextBase, 0.12),
   };
 };

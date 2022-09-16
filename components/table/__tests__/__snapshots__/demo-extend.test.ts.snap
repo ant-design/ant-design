@@ -8614,9 +8614,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                                     </span>
                                   </label>
                                   <span>
-                                    <span>
-                                      London
-                                    </span>
+                                    London
                                   </span>
                                 </span>
                               </li>
@@ -8668,9 +8666,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                                     </span>
                                   </label>
                                   <span>
-                                    <span>
-                                      New York
-                                    </span>
+                                    New York
                                   </span>
                                 </span>
                               </li>
