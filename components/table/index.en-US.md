@@ -73,7 +73,7 @@ const columns = [
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
-| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#API) | false |  |
+| loading | Loading status of table | boolean \| [Loading Props](#loading) | false |  |
 | locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/default.tsx#L19-L37) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |
@@ -159,6 +159,18 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description               | Type      | Default |
 | -------- | ------------------------- | --------- | ------- |
 | title    | Title of the column group | ReactNode | -       |
+
+### loading
+
+Properties for loading.
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| loading | Flag to enable skeleton loading | boolean | false |
+| active | Show animation effect | boolean | false |
+| rows | Number of table rows | number | 3 |
+
+More about pagination, please check [`Pagination`](/components/pagination/).
 
 ### pagination
 
