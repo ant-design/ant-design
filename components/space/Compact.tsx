@@ -46,6 +46,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     prefixCls,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
+      [`${prefixCls}-vertical`]: direction === 'vertical',
     },
     className,
   );

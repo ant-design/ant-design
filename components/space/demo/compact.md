@@ -14,7 +14,7 @@ title:
 Space.Compact example.
 
 ```tsx
-import { CopyOutlined, DownloadOutlined } from '@ant-design/icons';
+import { CopyOutlined, DownloadOutlined, EllipsisOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
   Button,
@@ -22,6 +22,8 @@ import {
   DatePicker,
   Input,
   InputNumber,
+  Menu,
+  Dropdown,
   Select,
   Space,
   Tooltip,
@@ -76,6 +78,34 @@ const App: React.FC = () => (
       <Tooltip title="Tooltip">
         <Button type="primary" icon={<DownloadOutlined />} />
       </Tooltip>
+    </Space.Compact>
+    <br />
+    <Space.Compact>
+      <Button type="primary">Button 1</Button>
+      <Dropdown
+        placement="bottomRight"
+        overlay={
+          <Menu
+            items={[
+              {
+                key: '1',
+                label: '1st item',
+              },
+              {
+                key: '2',
+                label: '2nd item',
+              },
+              {
+                key: '3',
+                label: '3rd item',
+              },
+            ]}
+          />
+        }
+        trigger={['click']}
+      >
+        <Button type="primary" icon={<EllipsisOutlined />} />
+      </Dropdown>
     </Space.Compact>
     <br />
     <Space.Compact size="large">
