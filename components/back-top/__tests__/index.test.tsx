@@ -43,4 +43,10 @@ describe('BackTop', () => {
     fireEvent.click(container.querySelector('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('should throw Error', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<BackTop />);
+    expect(errSpy).toHaveBeenCalled();
+  });
 });
