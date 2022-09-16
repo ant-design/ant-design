@@ -46,7 +46,7 @@ const columns: ColumnsType<DataType> = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value: string, record) => record.address.startsWith(value),
+    onFilter: (value: string, record) => record.name.startsWith(value),
     width: '30%',
   },
   {
@@ -59,11 +59,11 @@ const columns: ColumnsType<DataType> = [
     dataIndex: 'address',
     filters: [
       {
-        text: <span>London</span>,
+        text: 'London',
         value: 'London',
       },
       {
-        text: <span>New York</span>,
+        text: 'New York',
         value: 'New York',
       },
     ],
