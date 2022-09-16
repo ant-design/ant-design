@@ -1940,6 +1940,34 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
     });
 
+    it('should supports filterSearch has type of function when filterMode is tree', () => {
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filters: [
+                { text: '节点一', value: 'node1' },
+                { text: '节点二', value: 'node2' },
+                { text: '节点三', value: 'node3' },
+              ],
+              filterSearch: (input: any, record: any) => record.title.includes(input),
+            },
+          ],
+        }),
+      );
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '节点二' } });
+      expect(container.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
+    });
+
     it('supports check all items', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(

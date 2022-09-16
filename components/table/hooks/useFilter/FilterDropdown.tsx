@@ -369,7 +369,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                 defaultExpandAll
                 filterTreeNode={
                   searchValue.trim()
-                    ? node => searchValueMatched(searchValue, node.title)
+                    ? node => {
+                        if (typeof filterSearch === 'function') {
+                          return filterSearch(searchValue, node);
+                        }
+                        return searchValueMatched(searchValue, node.title);
+                      }
                     : undefined
                 }
               />
