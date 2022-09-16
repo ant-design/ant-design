@@ -83,17 +83,15 @@ export default () => (
 
 | 属性 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| token | `SeedToken` | - | 用于修改 Seed Token |
+| token | `AliasToken` | - | 用于修改 Design Token |
 | algorithm | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` | 用于修改 Seed Token 到 Map Token 的算法 |
-| override | OverrideToken | - | 用于修改 Map Token, Alias Token 和 Component Token |
+| components | OverrideToken | - | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token |
 
 #### OverrideToken
 
 | 属性 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
-| derivative | `MapToken` | - | 用于修改 Map Token |
-| alias | `AliasToken` | - | 用于修改 Alias Token |
-| `Component` (可以是任意 antd 组件名) | `ComponentToken & AliasToken` | - | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token |
+| `Component` (可以是任意 antd 组件名，如 `Button`) | `ComponentToken & AliasToken` | - | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token |
 
 #### SeedToken
 
