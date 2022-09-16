@@ -3,6 +3,7 @@ import Steps from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 describe('Steps', () => {
   mountTest(Steps);
@@ -46,5 +47,23 @@ describe('Steps', () => {
   it('should render correct when use null', () => {
     const { container } = render(<Steps>null</Steps>);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('deprecated warning', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(
+      <Steps>
+        <Steps.Step title="Finished" description={description} />
+      </Steps>,
+    );
+
+    expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(1);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] Step is deprecated. Please use `items` directly.',
+    );
+    errorSpy.mockRestore();
   });
 });
