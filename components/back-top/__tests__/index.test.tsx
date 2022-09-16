@@ -48,5 +48,6 @@ describe('BackTop', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<BackTop />);
     expect(errSpy).toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 });
