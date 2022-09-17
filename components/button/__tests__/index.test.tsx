@@ -8,6 +8,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
+import Form from '../../form';
 
 describe('Button', () => {
   mountTest(Button);
@@ -342,5 +343,32 @@ describe('Button', () => {
       </Button>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('button should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <Button disabled={false} type="primary" htmlType="submit">
+          button in form
+        </Button>
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('.ant-btn-primary[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Button type="primary" htmlType="submit">
+          button in form
+        </Button>
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('.ant-btn-primary[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Button disabled type="primary" htmlType="submit">
+          button in form
+        </Button>
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('.ant-btn-primary[disabled]').length).toBe(1);
   });
 });

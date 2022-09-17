@@ -484,6 +484,19 @@ Array [
       </span>
     </button>
   </div>,
+  <br />,
+  <form
+    class="ant-form ant-form-horizontal"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="submit"
+    >
+      <span>
+        button in form
+      </span>
+    </button>
+  </form>,
 ]
 `;
 
