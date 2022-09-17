@@ -74,7 +74,7 @@ export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
 export type FilterSearchType<RecordType = Record<string, any>> =
   | boolean
-  | ((input: string, record: RecordType | {}) => boolean);
+  | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }

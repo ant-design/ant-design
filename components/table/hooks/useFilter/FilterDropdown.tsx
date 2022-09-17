@@ -296,6 +296,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       return item;
     });
+  const getFilterData = (node: FilterTreeDataNode): ColumnFilterItem => ({
+    ...node,
+    text: node.title,
+    value: node.key,
+    children: node.children?.map(item => getFilterData(item)) || [],
+  });
 
   let dropdownContent: React.ReactNode;
 
@@ -371,7 +377,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                   searchValue.trim()
                     ? node => {
                         if (typeof filterSearch === 'function') {
-                          return filterSearch(searchValue, node);
+                          return filterSearch(searchValue, getFilterData(node));
                         }
                         return searchValueMatched(searchValue, node.title);
                       }
