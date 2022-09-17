@@ -72,7 +72,7 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
-export type FilterSearchType<RecordType> =
+export type FilterSearchType<RecordType = Record<string, any>> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
