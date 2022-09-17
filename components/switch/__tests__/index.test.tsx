@@ -1,5 +1,6 @@
 import React from 'react';
 import Switch from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -28,5 +29,25 @@ describe('Switch', () => {
       'Warning: [antd: Switch] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
+  });
+  it('switch should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <Switch disabled={false} />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Switch />
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Switch disabled />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });

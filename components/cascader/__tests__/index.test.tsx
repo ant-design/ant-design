@@ -2,6 +2,7 @@ import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
 import type { BaseOptionType, DefaultOptionType } from '..';
 import Cascader from '..';
+import Form from '../../form';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -684,5 +685,69 @@ describe('Cascader', () => {
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
     });
+  });
+
+  it('cascader should be given priority to own disabled props when it in a disabled form', () => {
+    const multipleOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+              {
+                value: 'donghu',
+                label: 'East Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        children: [
+          {
+            value: 'nanjing',
+            label: 'Nanjing',
+            children: [
+              {
+                value: 'zhonghuamen',
+                label: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const wrapper = render(
+      <Form disabled>
+        <Cascader
+          disabled={false}
+          options={multipleOptions}
+          multiple
+          showCheckedStrategy={SHOW_PARENT}
+        />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Cascader options={multipleOptions} multiple showCheckedStrategy={SHOW_PARENT} />
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Cascader disabled options={multipleOptions} multiple showCheckedStrategy={SHOW_PARENT} />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });

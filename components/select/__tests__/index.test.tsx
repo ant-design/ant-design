@@ -2,6 +2,7 @@ import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import type { SelectProps } from '..';
 import Select from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -142,5 +143,25 @@ describe('Select', () => {
       );
       expect(asFragment().firstChild).toMatchSnapshot();
     });
+  });
+  it('select should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <Select disabled={false} />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Select />
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Select disabled />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });

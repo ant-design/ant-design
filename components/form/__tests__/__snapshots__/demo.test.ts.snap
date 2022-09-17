@@ -2554,11 +2554,12 @@ Array [
                   class="ant-upload-list ant-upload-list-picture-card"
                 >
                   <div
-                    class="ant-upload ant-upload-select ant-upload-select-picture-card ant-upload-disabled"
+                    class="ant-upload ant-upload-select ant-upload-select-picture-card"
                   >
                     <span
-                      class="ant-upload ant-upload-disabled"
+                      class="ant-upload"
                       role="button"
+                      tabindex="0"
                     >
                       <input
                         accept=""

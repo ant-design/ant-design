@@ -923,12 +923,13 @@ exports[`Form form should support disabled 1`] = `
               class=""
             >
               <div
-                class="ant-upload ant-upload-select ant-upload-select-text ant-upload-disabled"
+                class="ant-upload ant-upload-select ant-upload-select-text"
                 style="display: none;"
               >
                 <span
-                  class="ant-upload ant-upload-disabled"
+                  class="ant-upload"
                   role="button"
+                  tabindex="0"
                 >
                   <input
                     accept=""

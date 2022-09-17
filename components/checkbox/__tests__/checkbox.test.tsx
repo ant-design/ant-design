@@ -1,5 +1,6 @@
 import React from 'react';
 import Checkbox from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -35,5 +36,26 @@ describe('Checkbox', () => {
       'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
+  });
+
+  it('checkbox should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <Checkbox disabled={false} />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Checkbox />
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Checkbox disabled />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });

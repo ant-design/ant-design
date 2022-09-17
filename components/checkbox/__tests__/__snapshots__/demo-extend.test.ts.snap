@@ -581,14 +581,13 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-disabled"
+        class="ant-checkbox"
       >
         <input
           class="ant-checkbox-input"
-          disabled=""
           type="checkbox"
           value="Orange"
         />

@@ -5,6 +5,7 @@ import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React from 'react';
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
+import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep, act } from '../../../tests/utils';
@@ -997,5 +998,40 @@ describe('Upload', () => {
         ],
       }),
     );
+  });
+  it('Upload should be given priority to own disabled props when it in a disabled form', () => {
+    const props: UploadProps = {
+      name: 'file',
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      headers: {
+        authorization: 'authorization-text',
+      },
+      capture: true,
+    };
+    const wrapper = render(
+      <Form disabled>
+        <Upload {...props} disabled={false}>
+          <Button disabled={false}>Click to Upload</Button>
+        </Upload>
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <Upload {...props}>
+          <Button>Click to Upload</Button>
+        </Upload>
+      </Form>,
+    );
+
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <Upload {...props} disabled>
+          <Button disabled>Click to Upload</Button>
+        </Upload>
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });

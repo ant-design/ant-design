@@ -4,6 +4,7 @@ import React from 'react';
 import type { TriggerProps } from 'rc-trigger';
 import { fireEvent, render } from '../../../tests/utils';
 import DatePicker from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import type { PickerLocale } from '../generatePicker';
 
@@ -278,5 +279,45 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
+  });
+
+  it('DatePicker should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <DatePicker disabled={false} />
+        <DatePicker.RangePicker disabled={false} />
+        <DatePicker.MonthPicker disabled={false} />
+        <DatePicker.QuarterPicker disabled={false} />
+        <DatePicker.WeekPicker disabled={false} />
+        <DatePicker.YearPicker disabled={false} />
+        <DatePicker.TimePicker disabled={false} />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <DatePicker />
+        <DatePicker.RangePicker />
+        <DatePicker.MonthPicker />
+        <DatePicker.QuarterPicker />
+        <DatePicker.WeekPicker />
+        <DatePicker.YearPicker />
+        <DatePicker.TimePicker />
+      </Form>,
+    );
+    // RangePicker has 2 input
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(8);
+    const wrapper3 = render(
+      <Form>
+        <DatePicker disabled />
+        <DatePicker.RangePicker disabled />
+        <DatePicker.MonthPicker disabled />
+        <DatePicker.QuarterPicker disabled />
+        <DatePicker.WeekPicker disabled />
+        <DatePicker.YearPicker disabled />
+        <DatePicker.TimePicker disabled />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(8);
   });
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
 import TreeSelect, { TreeNode } from '..';
+import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -59,5 +60,25 @@ describe('TreeSelect', () => {
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
     errorSpy.mockRestore();
+  });
+  it('TreeSelect should be given priority to own disabled props when it in a disabled form', () => {
+    const wrapper = render(
+      <Form disabled>
+        <TreeSelect disabled={false} />
+      </Form>,
+    );
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const wrapper2 = render(
+      <Form disabled>
+        <TreeSelect />
+      </Form>,
+    );
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(1);
+    const wrapper3 = render(
+      <Form>
+        <TreeSelect disabled />
+      </Form>,
+    );
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(1);
   });
 });
