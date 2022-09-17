@@ -19,8 +19,6 @@ import jsonp from 'fetch-jsonp';
 import qs from 'qs';
 import React, { useState } from 'react';
 
-const { Option } = Select;
-
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
@@ -69,7 +67,7 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
     setValue(newValue);
   };
 
-  const options = data.map(d => <Option key={d.value}>{d.text}</Option>);
+  const options = data.map(d => ({ value: d.value, lable: d.text }));
 
   return (
     <Select

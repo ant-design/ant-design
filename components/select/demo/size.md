@@ -19,11 +19,12 @@ import { Radio, Select } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import React, { useState } from 'react';
 
-const { Option } = Select;
-
-const children: React.ReactNode[] = [];
+const options = [];
 for (let i = 10; i < 36; i++) {
-  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
+  options.push({
+    value: i.toString(36) + i,
+    label: i.toString(36) + i,
+  });
 }
 
 const handleChange = (value: string | string[]) => {
@@ -46,9 +47,13 @@ const App: React.FC = () => {
       </Radio.Group>
       <br />
       <br />
-      <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
-        {children}
-      </Select>
+      <Select
+        size={size}
+        defaultValue="a1"
+        onChange={handleChange}
+        style={{ width: 200 }}
+        options={options}
+      />
       <br />
       <Select
         mode="multiple"
@@ -57,9 +62,8 @@ const App: React.FC = () => {
         defaultValue={['a10', 'c12']}
         onChange={handleChange}
         style={{ width: '100%' }}
-      >
-        {children}
-      </Select>
+        options={options}
+      />
       <br />
       <Select
         mode="tags"
@@ -68,9 +72,8 @@ const App: React.FC = () => {
         defaultValue={['a10', 'c12']}
         onChange={handleChange}
         style={{ width: '100%' }}
-      >
-        {children}
-      </Select>
+        options={options}
+      />
     </>
   );
 };
