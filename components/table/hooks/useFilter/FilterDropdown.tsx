@@ -47,7 +47,7 @@ function searchValueMatched(searchValue: string, text: React.ReactNode) {
   return false;
 }
 
-function renderFilterItems<RecordType>({
+function renderFilterItems({
   filters,
   prefixCls,
   filteredKeys,
@@ -60,7 +60,7 @@ function renderFilterItems<RecordType>({
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
-  filterSearch: FilterSearchType<RecordType>;
+  filterSearch: FilterSearchType<ColumnFilterItem>;
 }): Required<MenuProps>['items'] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -94,7 +94,7 @@ function renderFilterItems<RecordType>({
     };
     if (searchValue.trim()) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter as unknown as RecordType) ? item : null;
+        return filterSearch(searchValue, filter) ? item : null;
       }
       return searchValueMatched(searchValue, filter.text) ? item : null;
     }
@@ -110,7 +110,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: FilterSearchType<RecordType>;
+  filterSearch?: FilterSearchType<ColumnFilterItem>;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -371,7 +371,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                   searchValue.trim()
                     ? node => {
                         if (typeof filterSearch === 'function') {
-                          return filterSearch(searchValue, node as unknown as RecordType);
+                          return filterSearch(searchValue, node);
                         }
                         return searchValueMatched(searchValue, node.title);
                       }
@@ -402,7 +402,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             getPopupContainer={getPopupContainer}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
-            items={renderFilterItems<RecordType>({
+            items={renderFilterItems({
               filters: column.filters || [],
               filterSearch,
               prefixCls,
