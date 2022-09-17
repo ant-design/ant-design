@@ -17,8 +17,6 @@ You could set custom `Option` label
 import { AutoComplete } from 'antd';
 import React, { useState } from 'react';
 
-const { Option } = AutoComplete;
-
 const App: React.FC = () => {
   const [options, setOptions] = useState<string[]>([]);
 
