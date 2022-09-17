@@ -19,7 +19,6 @@ import { Radio, TreeSelect } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
 const treeData = [
   {
     value: 'parent 1',
