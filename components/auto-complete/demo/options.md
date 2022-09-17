@@ -18,10 +18,10 @@ import { AutoComplete } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<string[]>([]);
+  const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
 
   const handleSearch = (value: string) => {
-    let res: string[] = [];
+    let res: { value: string; label: string }[] = [];
     if (!value || value.indexOf('@') >= 0) {
       res = [];
     } else {
