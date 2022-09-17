@@ -533,4 +533,16 @@ describe('Tooltip', () => {
 
     errSpy.mockRestore();
   });
+
+  it('not inject className when children className is not string type', () => {
+    const HOC = ({ className }: { className: Function }) => <span className={className()} />;
+    const { container } = render(
+      <Tooltip open>
+        <HOC className={() => 'bamboo'} />
+      </Tooltip>,
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip')).toBeTruthy();
+  });
 });
