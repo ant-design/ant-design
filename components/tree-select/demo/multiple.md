@@ -17,8 +17,38 @@ Multiple selection usage.
 import { TreeSelect } from 'antd';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
-
+const treeData = [
+  {
+    value: 'parent 1',
+    title: 'parent 1',
+    children: [
+      {
+        value: 'parent 1-0',
+        title: 'parent 1-0',
+        children: [
+          {
+            value: 'leaf1',
+            title: 'my leaf',
+          },
+          {
+            value: 'leaf2',
+            title: 'your leaf',
+          },
+        ],
+      },
+      {
+        value: 'parent 1-1',
+        title: 'parent 1-1',
+        children: [
+          {
+            value: 'sss',
+            title: <b style={{ color: '#08c' }}>sss</b>,
+          },
+        ],
+      },
+    ],
+  },
+];
 const App: React.FC = () => {
   const [value, setValue] = useState<string>();
 
@@ -38,17 +68,8 @@ const App: React.FC = () => {
       multiple
       treeDefaultExpandAll
       onChange={onChange}
-    >
-      <TreeNode value="parent 1" title="parent 1">
-        <TreeNode value="parent 1-0" title="parent 1-0">
-          <TreeNode value="leaf1" title="my leaf" />
-          <TreeNode value="leaf2" title="your leaf" />
-        </TreeNode>
-        <TreeNode value="parent 1-1" title="parent 1-1">
-          <TreeNode value="sss" title={<b style={{ color: '#08c' }}>sss</b>} />
-        </TreeNode>
-      </TreeNode>
-    </TreeSelect>
+      treeData={treeData}
+    />
   );
 };
 
