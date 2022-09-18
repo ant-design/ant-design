@@ -1,4 +1,4 @@
-import React, { useRef, memo, useContext, useState } from 'react';
+import React, { useRef, memo, useContext, useState, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -15,8 +15,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     className,
     shape = 'circle',
     type = 'default',
+    open = false,
     trigger,
-    open,
     icon,
     children,
     closeIcon,
@@ -54,13 +54,25 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   if (trigger === 'click') {
     actionsRef.current = {
-      onClick: () => setVisible(v => !v),
+      onClick() {
+        setVisible(prevState => {
+          onOpenChange?.(prevState);
+          return !prevState;
+        });
+      },
     };
   }
+
   if (trigger === 'hover') {
     actionsRef.current = {
-      onMouseEnter: () => setVisible(true),
-      onMouseLeave: () => setVisible(false),
+      onMouseEnter() {
+        setVisible(true);
+        onOpenChange?.(true);
+      },
+      onMouseLeave() {
+        setVisible(false);
+        onOpenChange?.(false);
+      },
     };
   }
 
@@ -74,12 +86,16 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     </div>
   );
 
+  // 如果用户传了 open，则为受控组件，用 open 控制
+  // 如果用户没传 open，则为非受控组件，用 visible 控制
+  const showMenu = useMemo<boolean>(() => ('open' in props ? open : visible), [open, visible]);
+
   return wrapSSR(
-    <FloatButtonGroupProvider value={{ shape, open, trigger, onOpenChange }}>
+    <FloatButtonGroupProvider value={{ shape }}>
       <div className={classString}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
-            {visible ? children : null}
+            {showMenu ? children : null}
             {tiggerElement}
           </>
         ) : (
