@@ -51,7 +51,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const [visible, setVisible] = useState<boolean>(false);
 
   const tiggerElement = (
-    <div className={classStringMenu}>
+    <div className={classStringMenu} onClick={() => setVisible(!visible)}>
       <div className={`${prefixCls}-body`}>
         <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
           {visible ? closeIcon || <CloseOutlined /> : icon || <FileTextOutlined />}
@@ -62,14 +62,16 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   return wrapSSR(
     <FloatButtonGroupProvider value={{ shape, open, trigger, onOpenChange }}>
-      {trigger && ['click', 'hover'].includes(trigger) ? (
-        <div className={classString} onClick={() => setVisible(v => !v)}>
-          {visible ? children : null}
-          {tiggerElement}
-        </div>
-      ) : (
-        <div className={classString}>{children}</div>
-      )}
+      <div className={classString}>
+        {trigger && ['click', 'hover'].includes(trigger) ? (
+          <>
+            {visible ? children : null}
+            {tiggerElement}
+          </>
+        ) : (
+          children
+        )}
+      </div>
     </FloatButtonGroupProvider>,
   );
 };
