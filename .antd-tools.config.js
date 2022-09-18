@@ -97,8 +97,14 @@ function finalizeDist() {
 function getThemeVariables(options = {}) {
   let themeVar = {
     'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
-    ...defaultTheme
   };
+
+  if(options.default) {
+    themeVar = {
+      ...themeVar,
+      ...defaultTheme
+    }
+  }
   if(options.dark) {
     themeVar = {
       ...themeVar,
