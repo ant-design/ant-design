@@ -14,7 +14,7 @@ export interface FloatButtonProps {
   className?: string;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
-  description?: string;
+  description?: React.ReactNode;
   type?: FloatButtonType;
   shape?: FloatButtonShape;
   tooltip?: TooltipProps['title'];
