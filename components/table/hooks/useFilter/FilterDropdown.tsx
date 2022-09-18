@@ -102,6 +102,8 @@ function renderFilterItems({
   });
 }
 
+export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
+
 export interface FilterDropdownProps<RecordType> {
   tablePrefixCls: string;
   prefixCls: string;
@@ -110,7 +112,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: FilterSearchType<ColumnFilterItem>;
+  filterSearch?: FilterSearchType<ColumnFilterItem | TreeColumnFilterItem>;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -296,7 +298,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       return item;
     });
-  const getFilterData = (node: FilterTreeDataNode): ColumnFilterItem => ({
+  const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
     value: node.key,
@@ -338,7 +340,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       if (filterMode === 'tree') {
         return (
           <>
-            <FilterSearch
+            <FilterSearch<TreeColumnFilterItem>
               filterSearch={filterSearch}
               value={searchValue}
               onChange={onSearch}
