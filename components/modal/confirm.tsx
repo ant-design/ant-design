@@ -48,14 +48,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({
-    okText,
-    cancelText,
-    prefixCls: customizePrefixCls,
-    open,
-    visible,
-    ...props
-  }: any) {
+  function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
@@ -72,7 +65,6 @@ export default function confirm(config: ModalFuncProps) {
       reactRender(
         <ConfirmDialog
           {...props}
-          open={open ?? visible}
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
           iconPrefixCls={iconPrefixCls}
@@ -96,6 +88,12 @@ export default function confirm(config: ModalFuncProps) {
         destroy.apply(this, args);
       },
     };
+
+    // Legacy support
+    if (currentConfig.visible) {
+      delete currentConfig.visible;
+    }
+
     render(currentConfig);
   }
 
