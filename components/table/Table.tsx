@@ -13,6 +13,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
 import Skeleton, { SkeletonProps } from '../skeleton';
+import Spin, { SpinProps } from '../spin';
 import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import scrollTo from '../_util/scrollTo';
@@ -68,12 +69,14 @@ interface ChangeEventInfo<RecordType> {
   resetPagination: Function;
 }
 
-export interface TableLoadingProps {
-  loading?: boolean;
-  active?: boolean;
-
+export interface TableSkeletonProps extends SkeletonProps {
   /** Count for number of table rows to show */
   rows?: number;
+}
+
+export interface TableLoadingProps extends SpinProps, TableSkeletonProps {
+  /** Type of loading component to use - defaulting to spin */
+  type?: 'spin' | 'skeleton';
 }
 
 export interface TableProps<RecordType>
@@ -505,40 +508,51 @@ function InternalTable<RecordType extends object = any>(
     [`${prefixCls}-empty`]: rawData.length === 0,
   });
 
-  // >>>>>>>>> Skeleton
-  const isLoading =
-    (typeof loading === 'boolean' && loading) ||
-    (typeof loading === 'object' && (loading as TableLoadingProps)?.loading);
-  if (isLoading) {
-    const skeletonProps: SkeletonProps = {
-      active: true,
-      title: false,
-      paragraph: { rows: 1, width: '100%' },
+  // >>>>>>>>> loader
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
     };
+  } else if (typeof loading === 'object') {
+    if (loading.type == 'skeleton') {
+      if (loading?.loading) {
+        const skeletonProps: SkeletonProps = {
+          active: true,
+          title: false,
+          paragraph: { rows: 1, width: '100%' },
+        };
 
-    const skeletonColumns = mergedColumns.map((c, i) => ({
-      key: i,
-      ...c,
-      render: () => <Skeleton {...skeletonProps} />,
-    }));
+        const skeletonColumns = mergedColumns.map((c, i) => ({
+          key: i,
+          ...c,
+          render: () => <Skeleton {...skeletonProps} />,
+        }));
 
-    const tableRows = typeof loading === 'object' ? loading?.rows ?? 3 : 3;
-    const data = Array(tableRows).fill(0);
+        const tableRows = typeof loading === 'object' ? loading?.rows ?? 3 : 3;
+        const data = Array(tableRows).fill(0);
 
-    const { expandable, ...skeletonTableProps } = tableProps;
+        const { expandable, ...skeletonTableProps } = tableProps;
 
-    return (
-      <RcTable<RecordType>
-        {...skeletonTableProps}
-        columns={skeletonColumns as RcTableProps<RecordType>['columns']}
-        direction={direction}
-        prefixCls={prefixCls}
-        className={tableClassNames}
-        data={data}
-        rowKey={getRowKey}
-        rowClassName={internalRowClassName}
-      />
-    );
+        return (
+          <RcTable<RecordType>
+            {...skeletonTableProps}
+            columns={skeletonColumns as RcTableProps<RecordType>['columns']}
+            direction={direction}
+            prefixCls={prefixCls}
+            className={tableClassNames}
+            data={data}
+            rowKey={getRowKey}
+            rowClassName={internalRowClassName}
+          />
+        );
+      }
+    } else {
+      spinProps = {
+        spinning: true,
+        ...loading,
+      };
+    }
   }
 
   const wrapperClassNames = classNames(
@@ -552,23 +566,31 @@ function InternalTable<RecordType extends object = any>(
   return (
     <div ref={ref} className={wrapperClassNames} style={style}>
       {topPaginationNode}
-      <RcTable<RecordType>
-        {...tableProps}
-        columns={mergedColumns as RcTableProps<RecordType>['columns']}
-        direction={direction}
-        expandable={mergedExpandable}
-        prefixCls={prefixCls}
-        className={tableClassNames}
-        data={pageData}
-        rowKey={getRowKey}
-        rowClassName={internalRowClassName}
-        emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
-        // Internal
-        internalHooks={INTERNAL_HOOKS}
-        internalRefs={internalRefs as any}
-        transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
-      />
-      {bottomPaginationNode}
+      <Spin spinning={false} {...spinProps}>
+        {topPaginationNode}
+        <RcTable<RecordType>
+          {...tableProps}
+          columns={mergedColumns as RcTableProps<RecordType>['columns']}
+          direction={direction}
+          expandable={mergedExpandable}
+          prefixCls={prefixCls}
+          className={classNames({
+            [`${prefixCls}-middle`]: mergedSize === 'middle',
+            [`${prefixCls}-small`]: mergedSize === 'small',
+            [`${prefixCls}-bordered`]: bordered,
+            [`${prefixCls}-empty`]: rawData.length === 0,
+          })}
+          data={pageData}
+          rowKey={getRowKey}
+          rowClassName={internalRowClassName}
+          emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
+          // Internal
+          internalHooks={INTERNAL_HOOKS}
+          internalRefs={internalRefs as any}
+          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+        />
+        {bottomPaginationNode}
+      </Spin>
     </div>
   );
 }

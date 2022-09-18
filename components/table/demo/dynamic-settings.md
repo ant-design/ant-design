@@ -16,7 +16,7 @@ Select different settings to see the result.
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
-import { Form, Radio, Space, Switch, Table } from 'antd';
+import { Form, Radio, Space, Switch, Table, TableLoadingProps } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import type { ColumnsType, TableProps } from 'antd/es/table';
 import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
@@ -98,7 +98,6 @@ const defaultFooter = () => 'Here is footer';
 
 const App: React.FC = () => {
   const [bordered, setBordered] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [size, setSize] = useState<SizeType>('large');
   const [expandable, setExpandable] = useState<ExpandableConfig<DataType> | undefined>(
     defaultExpandable,
@@ -114,6 +113,9 @@ const App: React.FC = () => {
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
   const [xScroll, setXScroll] = useState<string | undefined>(undefined);
+
+  const [loading, setLoading] = useState(false);
+  const [loadingType, setLoadingType] = useState<TableLoadingProps>('spin');
 
   const handleBorderChange = (enable: boolean) => {
     setBordered(enable);
@@ -157,6 +159,10 @@ const App: React.FC = () => {
 
   const handleYScrollChange = (enable: boolean) => {
     setYScroll(enable);
+  };
+
+  const handleLoadingTypeChange = (e: RadioChangeEvent) => {
+    setLoadingType(e.target.value);
   };
 
   const handleXScrollChange = (e: RadioChangeEvent) => {
@@ -204,9 +210,6 @@ const App: React.FC = () => {
         <Form.Item label="Bordered">
           <Switch checked={bordered} onChange={handleBorderChange} />
         </Form.Item>
-        <Form.Item label="loading">
-          <Switch checked={loading} onChange={handleLoadingChange} />
-        </Form.Item>
         <Form.Item label="Title">
           <Switch checked={showTitle} onChange={handleTitleChange} />
         </Form.Item>
@@ -236,6 +239,13 @@ const App: React.FC = () => {
             <Radio.Button value="large">Large</Radio.Button>
             <Radio.Button value="middle">Middle</Radio.Button>
             <Radio.Button value="small">Small</Radio.Button>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="Loading">
+          <Switch checked={loading} onChange={handleLoadingChange} />
+          <Radio.Group value={loadingType} onChange={handleLoadingTypeChange}>
+            <Radio.Button value="spin">Spin</Radio.Button>
+            <Radio.Button value="skeleton">Skeleton</Radio.Button>
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Table Scroll">
@@ -280,6 +290,7 @@ const App: React.FC = () => {
       </Form>
       <Table
         {...tableProps}
+        loading={loadingType == 'skeleton' ? { type: 'skeleton', loading }: { type: 'spin', spinning: loading }}
         pagination={{ position: [top as TablePaginationPosition, bottom] }}
         columns={tableColumns}
         dataSource={hasData ? data : []}
