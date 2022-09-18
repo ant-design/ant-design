@@ -1,4 +1,4 @@
-import React, { memo, useContext, useState } from 'react';
+import React, { useRef, memo, useContext, useState } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -50,8 +50,22 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   const [visible, setVisible] = useState<boolean>(false);
 
+  const actionsRef = useRef<React.HTMLAttributes<HTMLDivElement>>({});
+
+  if (trigger === 'click') {
+    actionsRef.current = {
+      onClick: () => setVisible(v => !v),
+    };
+  }
+  if (trigger === 'hover') {
+    actionsRef.current = {
+      onMouseEnter: () => setVisible(true),
+      onMouseLeave: () => setVisible(false),
+    };
+  }
+
   const tiggerElement = (
-    <div className={classStringMenu} onClick={() => setVisible(!visible)}>
+    <div className={classStringMenu} {...actionsRef.current}>
       <div className={`${prefixCls}-body`}>
         <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
           {visible ? closeIcon || <CloseOutlined /> : icon || <FileTextOutlined />}
