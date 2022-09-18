@@ -518,9 +518,9 @@ function InternalTable<RecordType extends object = any>(
     if (loading.type == 'skeleton') {
       if (loading?.loading) {
         const skeletonProps: SkeletonProps = {
-          active: true,
           title: false,
           paragraph: { rows: 1, width: '100%' },
+          ...loading,
         };
 
         const skeletonColumns = mergedColumns.map((c, i) => ({
