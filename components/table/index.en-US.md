@@ -166,11 +166,11 @@ Properties for loading.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| loading | Flag to enable skeleton loading | boolean | false |
-| active | Show animation effect | boolean | false |
-| rows | Number of table rows | number | 3 |
+| type | Loading component to use. Options: `spin` and `skeleton` | string | `spin` |
 
-More about pagination, please check [`Pagination`](/components/pagination/).
+For more on props to configure `spin` please check [`Spin`](/components/spin/).
+
+For more on props to configure `skeleton` please check [`Skeleton`](/components/skeleton/).
 
 ### pagination
 
