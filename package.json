@@ -119,6 +119,7 @@
     "@ant-design/react-slick": "~0.29.1",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
+    "@testing-library/user-event": "^14.4.2",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
