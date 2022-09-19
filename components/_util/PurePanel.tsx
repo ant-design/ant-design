@@ -18,6 +18,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
 
     const holderRef = React.useRef<HTMLDivElement>(null);
     const [popupHeight, setPopupHeight] = React.useState(0);
+    const [popupWidth, setPopupWidth] = React.useState(0);
     const [open, setOpen] = useMergedState(false, {
       value: props.open,
     });
@@ -33,6 +34,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
         const resizeObserver = new ResizeObserver(entries => {
           const element: HTMLDivElement = entries[0].target as any;
           setPopupHeight(element.offsetHeight + 8);
+          setPopupWidth(element.offsetWidth);
         });
 
         const interval = setInterval(() => {
@@ -66,7 +68,12 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       >
         <div
           ref={holderRef}
-          style={{ paddingBottom: popupHeight, position: 'relative', width: 'fit-content' }}
+          style={{
+            paddingBottom: popupHeight,
+            position: 'relative',
+            width: 'fit-content',
+            minWidth: popupWidth,
+          }}
         >
           <Component
             {...props}

@@ -404,7 +404,7 @@ Array [
 
 exports[`renders ./components/tree-select/demo/render-panel.md correctly 1`] = `
 <div
-  style="padding-bottom: 0px; position: relative;"
+  style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
     class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
