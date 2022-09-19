@@ -6,13 +6,13 @@ import { initMotion } from './motion';
 
 export const moveDownIn = new Keyframes('antMoveDownIn', {
   '0%': {
-    transform: 'translateY(100%)',
+    transform: 'translate3d(0, 100%, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
 
   '100%': {
-    transform: 'translateY(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
@@ -20,13 +20,13 @@ export const moveDownIn = new Keyframes('antMoveDownIn', {
 
 export const moveDownOut = new Keyframes('antMoveDownOut', {
   '0%': {
-    transform: 'translateY(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
 
   '100%': {
-    transform: 'translateY(100%)',
+    transform: 'translate3d(0, 100%, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
@@ -34,13 +34,13 @@ export const moveDownOut = new Keyframes('antMoveDownOut', {
 
 export const moveLeftIn = new Keyframes('antMoveLeftIn', {
   '0%': {
-    transform: 'translateX(-100%)',
+    transform: 'translate3d(-100%, 0, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
 
   '100%': {
-    transform: 'translateX(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
@@ -48,13 +48,13 @@ export const moveLeftIn = new Keyframes('antMoveLeftIn', {
 
 export const moveLeftOut = new Keyframes('antMoveLeftOut', {
   '0%': {
-    transform: 'translateX(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
 
   '100%': {
-    transform: 'translateX(-100%)',
+    transform: 'translate3d(-100%, 0, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
@@ -62,13 +62,13 @@ export const moveLeftOut = new Keyframes('antMoveLeftOut', {
 
 export const moveRightIn = new Keyframes('antMoveRightIn', {
   '0%': {
-    transform: 'translateX(100%)',
+    transform: 'translate3d(100%, 0, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
 
   '100%': {
-    transform: 'translateX(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
@@ -76,13 +76,13 @@ export const moveRightIn = new Keyframes('antMoveRightIn', {
 
 export const moveRightOut = new Keyframes('antMoveRightOut', {
   '0%': {
-    transform: 'translateX(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
 
   '100%': {
-    transform: 'translateX(100%)',
+    transform: 'translate3d(100%, 0, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
@@ -90,13 +90,13 @@ export const moveRightOut = new Keyframes('antMoveRightOut', {
 
 export const moveUpIn = new Keyframes('antMoveUpIn', {
   '0%': {
-    transform: 'translateY(-100%)',
+    transform: 'translate3d(0, -100%, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
 
   '100%': {
-    transform: 'translateY(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
@@ -104,13 +104,13 @@ export const moveUpIn = new Keyframes('antMoveUpIn', {
 
 export const moveUpOut = new Keyframes('antMoveUpOut', {
   '0%': {
-    transform: 'translateY(0%)',
+    transform: 'translate3d(0, 0, 0)',
     transformOrigin: '0 0',
     opacity: 1,
   },
 
   '100%': {
-    transform: 'translateY(-100%)',
+    transform: 'translate3d(0, -100%, 0)',
     transformOrigin: '0 0',
     opacity: 0,
   },
