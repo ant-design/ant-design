@@ -5,18 +5,41 @@ title: FloatButton
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 ---
 
-`FloatButton` makes it easy to go back to the top of the page.
+A more general button component
 
 ## When To Use
 
-- When the page content is very long.
-- When you need to go back to the top very frequently in order to view the contents.
+- Many websites will choose to provide some obvious features, hoping that users can browse the site, no matter where you can notice, often will be a floating button in the way of the bottom right.
 
 ## API
 
+### FloatButton
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 | 4.4.0 |
+| icon | Set the icon component of button | ReactNode |  |  |
+| description | Text and other | ReactNode |  |  |
+| tooltip | The text shown in the tooltip | ReactNode \| () => ReactNode |  |  |
+| type | Setting button type | `default` \| `primary` | `default` |  |
+| shape | Setting button shape | `circle` \| `square` | `circle` |  |
+| onClick | Set the handler to handle `click` event | (event) => void |  |  |
+| href | The target of hyperlink | string |  |  |
+| target | Specifies where to display the linked URL | string |  |  |
+
+### FloatButton.Group
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
+| trigger | Which action can trigger menu open/close | `click` \| `hover` |  |  |
+| open | Whether the menu is visible or not | boolean |  |  |
+| onOpenChange | Callback executed when active menu is changed | (open: boolean) => void |  |  |
+
+### FloatButton.BackTop
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| duration | Time to return to top（ms） | number | 450 |  |
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
-| visibilityHeight | The FloatButton button will not show until the scroll height reaches this value | number | 400 |  |
-| onClick | A callback function, which can be executed when you click the button | function | - |  |
+| visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
+| onClick | A callback function, which can be executed when you click the button | () => void |  |  |

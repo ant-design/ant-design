@@ -32,7 +32,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 | 参数         | 说明                             | 类型                    | 默认值   | 版本 |
 | ------------ | -------------------------------- | ----------------------- | -------- | ---- |
 | shape        | 设置包含的 FloatButton 按钮形状  | `circle` \| `square`    | `circle` |      |
-| children     | 包含的 FloatButton               | ReactNode               |          |      |
 | trigger      | 触发方式（有触发方式为菜单模式） | `click` \| `hover`      |          |      |
 | open         | 受控展开                         | boolean                 |          |      |
 | onOpenChange | 展开收起时的回调                 | (open: boolean) => void |          |      |
