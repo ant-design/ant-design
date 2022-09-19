@@ -25,7 +25,6 @@ class ComponentDoc extends React.Component {
     expandAll: false,
     visibleAll: process.env.NODE_ENV !== 'production',
     showRiddleButton: false,
-    react17Demo: false,
   };
 
   componentDidMount() {
@@ -108,7 +107,7 @@ class ComponentDoc extends React.Component {
     } = this.props;
     const { content, meta } = doc;
     const demoValues = Object.keys(demos).map(key => demos[key]);
-    const { expandAll, visibleAll, showRiddleButton, react17Demo } = this.state;
+    const { expandAll, visibleAll, showRiddleButton } = this.state;
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
@@ -131,7 +130,6 @@ class ComponentDoc extends React.Component {
             location={location}
             theme={theme}
             setIframeTheme={setIframeTheme}
-            react18={react17Demo}
           />
         );
         if (index % 2 === 0 || isSingleCol) {
@@ -218,27 +216,6 @@ class ComponentDoc extends React.Component {
                   <BugFilled className={expandTriggerClass} onClick={this.handleVisibleToggle} />
                 ) : (
                   <BugOutlined className={expandTriggerClass} onClick={this.handleVisibleToggle} />
-                )}
-              </Tooltip>
-              <Tooltip
-                title={
-                  <FormattedMessage
-                    id={`app.component.examples.${
-                      react17Demo ? 'openDemoWithReact18' : 'openDemoNotReact18'
-                    }`}
-                  />
-                }
-              >
-                {react17Demo ? (
-                  <ExperimentFilled
-                    className={expandTriggerClass}
-                    onClick={this.handleDemoVersionToggle}
-                  />
-                ) : (
-                  <ExperimentOutlined
-                    className={expandTriggerClass}
-                    onClick={this.handleDemoVersionToggle}
-                  />
                 )}
               </Tooltip>
             </span>
