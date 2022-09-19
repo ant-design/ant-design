@@ -523,7 +523,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               style="opacity: 0;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -813,7 +813,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               style="opacity: 0;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"

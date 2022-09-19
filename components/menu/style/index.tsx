@@ -1,3 +1,4 @@
+import { TinyColor } from '@ctrl/tinycolor';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
@@ -31,6 +32,8 @@ export interface ComponentToken {
   colorDangerItemText: string;
   colorDangerItemTextHover: string;
   colorDangerItemTextSelected: string;
+  colorDangerItemBgActive: string;
+  colorDangerItemBgSelected: string;
 
   // Item Bg
   colorItemBg: string;
@@ -40,10 +43,6 @@ export interface ComponentToken {
   colorItemBgActive: string;
   colorItemBgSelected: string;
   colorItemBgSelectedHorizontal: string;
-
-  // > Danger
-  colorDangerItemBgActive: string;
-  colorDangerItemBgSelected: string;
 
   // Ink Bar
   colorActiveBarWidth: number;
@@ -392,11 +391,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Menu',
-    token => {
+    (token, { overrideComponentToken }) => {
       // Dropdown will handle menu style self. We do not need to handle this.
       if (injectStyle === false) {
         return [];
       }
+
+      const { colorPrimary, colorError, colorErrorHover, colorTextLightSolid, colorTextSecondary } =
+        token;
 
       const { controlHeightLG, fontSize } = token;
 
@@ -413,6 +415,36 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
       });
 
+      const menuDarkToken = mergeToken<MenuToken>(
+        menuToken,
+        {
+          colorItemText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+          colorItemTextHover: colorTextLightSolid,
+          colorGroupTitle: colorTextSecondary,
+          colorItemTextSelected: colorTextLightSolid,
+          colorItemBg: '#001529',
+          colorSubItemBg: '#000c17',
+          colorItemBgActive: 'transparent',
+          colorItemBgSelected: colorPrimary,
+          colorActiveBarWidth: 0,
+          colorActiveBarHeight: 0,
+          colorActiveBarBorderSize: 0,
+
+          // Disabled
+          colorItemTextDisabled: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+
+          // Danger
+          colorDangerItemText: colorError,
+          colorDangerItemTextHover: colorErrorHover,
+          colorDangerItemTextSelected: colorTextLightSolid,
+          colorDangerItemBgActive: colorError,
+          colorDangerItemBgSelected: colorError,
+        },
+        {
+          ...overrideComponentToken,
+        },
+      );
+
       return [
         // Basic
         getBaseStyle(menuToken),
@@ -424,7 +456,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         getVerticalStyle(menuToken), // Hard code for some light style
 
         // Theme
-        getThemeStyle(menuToken),
+        getThemeStyle(menuToken, 'light'),
+        getThemeStyle(menuDarkToken, 'dark'),
 
         // RTL
         getRTLStyle(menuToken),

@@ -6,7 +6,7 @@ const accessibilityFocus = (token: MenuToken) => ({
   ...genFocusOutline(token),
 });
 
-const getThemeStyle = (token: MenuToken): CSSInterpolation => {
+const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation => {
   const {
     componentCls,
     colorItemText,
@@ -41,7 +41,7 @@ const getThemeStyle = (token: MenuToken): CSSInterpolation => {
   } = token;
 
   return {
-    [componentCls]: {
+    [`${componentCls}-${themeSuffix}`]: {
       color: colorItemText,
       background: colorItemBg,
 

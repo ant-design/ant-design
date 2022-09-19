@@ -3,7 +3,7 @@
 exports[`renders ./components/menu/demo/deprecated.md correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -132,7 +132,7 @@ Array [
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -310,7 +310,7 @@ Array [
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -569,7 +569,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -825,7 +825,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -1046,7 +1046,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1191,7 +1191,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -1307,7 +1307,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -1585,7 +1585,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
@@ -1789,7 +1789,7 @@ Array [
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
     data-menu-list="true"
     role="menu"
     style="width: 256px;"
