@@ -16,8 +16,10 @@ Try to copy `Lucy,Jack` and paste to the input. Only available in tags and multi
 ```tsx
 import { Select } from 'antd';
 import React from 'react';
+import type { SelectProps } from 'antd';
 
-const options = [];
+const options: SelectProps['options'] = [];
+
 for (let i = 10; i < 36; i++) {
   options.push({
     value: i.toString(36) + i,

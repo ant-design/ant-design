@@ -33,7 +33,7 @@ const App: React.FC = () => (
     onChange={onChange}
     onSearch={onSearch}
     filterOption={(input, option) =>
-      (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())
+      (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
     }
     options={[
       {

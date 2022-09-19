@@ -16,8 +16,10 @@ Select with tags, transform input to tag (scroll the menu).
 ```tsx
 import { Select } from 'antd';
 import React from 'react';
+import type { SelectProps } from 'antd';
 
-const options = [];
+const options: SelectProps['options'] = [];
+
 for (let i = 10; i < 36; i++) {
   options.push({
     value: i.toString(36) + i,

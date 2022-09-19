@@ -18,8 +18,6 @@ Basic Usage.
 import { Button, Input, Select } from 'antd';
 import React from 'react';
 
-const { Option } = Select;
-
 const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
 };

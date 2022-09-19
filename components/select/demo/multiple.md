@@ -16,8 +16,9 @@ Multiple selection, selecting from existing items.
 ```tsx
 import { Select } from 'antd';
 import React from 'react';
+import type { SelectProps } from 'antd';
 
-const options = [];
+const options: SelectProps['options'] = [];
 for (let i = 10; i < 36; i++) {
   options.push({
     label: i.toString(36) + i,

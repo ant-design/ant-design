@@ -17,18 +17,15 @@ Search the options with sorting.
 import { Select } from 'antd';
 import React from 'react';
 
-const getLabel: string = (label: ReactNode | string) =>
-  React.isValidElement(label) ? label?.props?.children : label;
-
 const App: React.FC = () => (
   <Select
     showSearch
     style={{ width: 200 }}
     placeholder="Search to Select"
     optionFilterProp="children"
-    filterOption={(input, option) => getLabel(option.label).includes(input)}
+    filterOption={(input, option) => (option?.label ?? '').includes(input)}
     filterSort={(optionA, optionB) =>
-      getLabel(optionA.label).toLowerCase().localeCompare(getLabel(optionB.label).toLowerCase())
+      (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
     }
     options={[
       {
