@@ -4,13 +4,105 @@
 // input in Space.Compact styles
 .@{space-compact-prefix-cls} {
   .space-compact(~'@{space-compact-prefix-cls}');
-  // >:first-child {
-  //   border-top-right-radius: 0;
-  //   border-bottom-right-radius: 0;
-  // }
 }
 
 .space-compact(@spaceCompactClass) {
+  // Undo padding and float of grid classes
+  &[class*='col-'] {
+    float: none;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  > [class*='col-'] {
+    padding-right: 8px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &-addon,
+  &-wrap,
+  > .@{ant-prefix}-input {
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &-addon,
+  &-wrap {
+    width: 1px; // To make addon/wrap as small as possible
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &-wrap > * {
+    display: block !important;
+  }
+
+  .@{ant-prefix}-input {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: inherit;
+
+    &:focus {
+      z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+      border-right-width: 1px;
+    }
+
+    &:hover {
+      z-index: 1;
+      border-right-width: 1px;
+      .@{ant-prefix}-input-search-with-button & {
+        z-index: 0;
+      }
+    }
+  }
+
+  &-addon {
+    position: relative;
+    padding: 0 @input-padding-horizontal-base;
+    color: @input-color;
+    font-weight: normal;
+    font-size: @font-size-base;
+    text-align: center;
+    background-color: @input-addon-bg;
+    border: @border-width-base @border-style-base @input-border-color;
+    border-radius: @control-border-radius;
+    transition: all 0.3s;
+
+    // Reset Select's style in addon
+    .@{ant-prefix}-select {
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
+
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
+        background-color: inherit;
+        border: @border-width-base @border-style-base transparent;
+        box-shadow: none;
+      }
+
+      &-open,
+      &-focused {
+        .@{ant-prefix}-select-selector {
+          color: @primary-color;
+        }
+      }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/31333
+    .@{ant-prefix}-cascader-picker {
+      margin: -9px (-@control-padding-horizontal);
+      background-color: transparent;
+      .@{ant-prefix}-cascader-input {
+        text-align: left;
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
   // Reset rounded corners
   > .@{ant-prefix}-input:first-child,
   &-addon:first-child {
@@ -24,13 +116,17 @@
     }
   }
 
-  > .@{spaceCompactClass}-affix-wrapper {
-    &:not(:first-child) .@{spaceCompactClass} {
+  .@{ant-prefix}-select:not(.@{ant-prefix}select-customize-input) > .@{ant-prefix}-select-selector {
+    border-radius: 0;
+  }
+
+  > .@{ant-prefix}-input-affix-wrapper {
+    &:not(:first-child) .@{ant-prefix}-input {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
 
-    &:not(:last-child) .@{spaceCompactClass} {
+    &:not(:last-child) .@{ant-prefix}-input {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -56,8 +152,158 @@
     }
   }
 
-  > .@{ant-prefix}-input:not(:last-child) {
+  // Sizing options
+  &-lg .@{ant-prefix}-input,
+  &-lg > &-addon {
+    .input-lg();
+  }
+
+  &-sm .@{ant-prefix}-input,
+  &-sm > &-addon {
+    .input-sm();
+  }
+
+  // Fix https://github.com/ant-design/ant-design/issues/5754
+  &-lg .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
+    height: @input-height-lg;
+  }
+
+  &-sm .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
+    height: @input-height-sm;
+  }
+
+  .@{ant-prefix}-input-affix-wrapper {
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      .@{ant-prefix}-input-search & {
+        border-top-left-radius: @control-border-radius;
+        border-bottom-left-radius: @control-border-radius;
+      }
+    }
+
+    &:not(:first-child),
+    .@{ant-prefix}-input-search &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  // ant-input-search
+  .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+    margin-left: -1px;
+    .@{ant-prefix}-input-affix-wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &-addon,
+  &-wrap,
+  > .@{ant-prefix}-input {
+    &:not(:first-child):not(:last-child) {
+      border-right-width: @border-width-base;
+
+      &:hover {
+        z-index: 1;
+      }
+
+      &:focus {
+        z-index: 1;
+      }
+    }
+  }
+
+  & > * {
+    display: inline-block;
+    float: none;
+    vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
+    border-radius: 0;
+  }
+
+  & > .@{ant-prefix}-input-affix-wrapper {
+    display: inline-flex;
+  }
+
+  & > .@{ant-prefix}-picker-range {
+    display: inline-flex;
+  }
+
+  & > *:not(:last-child) {
     margin-right: -@border-width-base;
     border-right-width: @border-width-base;
+  }
+
+  // Undo float for .ant-input-group .ant-input
+  .@{ant-prefix}-input {
+    float: none;
+  }
+
+  // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
+  & > .@{ant-prefix}-select > .@{ant-prefix}-select-selector,
+  & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input,
+  & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
+  & > .@{ant-prefix}-input {
+    border-right-width: @border-width-base;
+    border-radius: 0;
+
+    &:hover {
+      z-index: 1;
+    }
+
+    &:focus {
+      z-index: 1;
+    }
+  }
+
+  & > .@{ant-prefix}-select-focused {
+    z-index: 1;
+  }
+
+  // update z-index for arrow icon
+  & > .@{ant-prefix}-select > .@{ant-prefix}-select-arrow {
+    z-index: 1; // https://github.com/ant-design/ant-design/issues/20371
+  }
+
+  & > *:first-child,
+  & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
+  & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
+  & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
+    border-top-left-radius: @control-border-radius;
+    border-bottom-left-radius: @control-border-radius;
+  }
+
+  & > input:last-child,
+  & > .@{ant-prefix}-btn-compact-last-item,
+  & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
+  & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
+  & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
+    border-right-width: @border-width-base;
+    border-top-right-radius: @control-border-radius;
+    border-bottom-right-radius: @control-border-radius;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/12493
+  & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
+    vertical-align: top;
+  }
+
+  .@{ant-prefix}-input-group-wrapper:not(:last-child) {
+    &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
+      & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
+        border-radius: 0;
+      }
+
+      & > .@{ant-prefix}-input {
+        border-radius: @control-border-radius 0 0 @control-border-radius;
+      }
+    }
+  }
+
+  .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+    .@{ant-prefix}-input-affix-wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
