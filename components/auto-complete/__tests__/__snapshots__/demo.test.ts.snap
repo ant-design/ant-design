@@ -1105,7 +1105,7 @@ exports[`renders ./components/auto-complete/demo/render-panel.md correctly 1`] =
     class="ant-space-item"
   >
     <div
-      style="padding-bottom: 0px; position: relative;"
+      style="padding-bottom: 0px; position: relative; min-width: 0;"
     >
       <div
         class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
