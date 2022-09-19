@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -111,5 +112,25 @@ describe('AutoComplete', () => {
       'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
     );
     errorSpy.mockRestore();
+  });
+
+  it('Can inputNumber be input normally', async () => {
+    render(
+      <AutoComplete dataSource={['12345', '23456', '34567']}>
+        <InputNumber />
+      </AutoComplete>,
+    );
+
+    expect(screen.getByRole('combobox')).toBeInTheDocument();
+
+    // should show options when type in input
+    await userEvent.type(screen.getByRole('combobox'), '123');
+
+    // should not filter data source by default
+    expect(screen.getByTitle('12345')).toBeInTheDocument();
+    expect(screen.getByTitle('23456')).toBeInTheDocument();
+    expect(screen.getByTitle('34567')).toBeInTheDocument();
+
+    await userEvent.type(screen.getByRole('combobox'), '12345');
   });
 });
