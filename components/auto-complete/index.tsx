@@ -60,7 +60,7 @@ function Input(
     onChange?: <T>(event: T) => {};
     className?: string;
   },
-  ref: React.ForwardedRef<{ focus: () => void; blur: () => void }>,
+  ref: React.ForwardedRef<{ focus: () => void }>,
 ) {
   let inputNode = props.inputElement || <input />;
 
@@ -72,20 +72,15 @@ function Input(
         inputRef.current.focus();
       }
     },
-    blur: () => {
-      if (inputRef.current) {
-        inputRef.current.blur();
-      }
-    },
   }));
-  
+
   inputNode = React.cloneElement(inputNode, {
     ...omit(props, ['inputElement']),
     ...inputNode.props,
     className: classNames(props.className, inputNode?.props?.className),
     ref: composeRef(
-      inputRef,
       (inputNode as React.ComponentPropsWithRef<'input'>).ref as React.RefObject<HTMLInputElement>,
+      inputRef,
     ),
     onChange: (event: Event) => {
       if (props.onChange) {
@@ -128,7 +123,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement =>  <InputRef inputElement={customizeInput!} /> : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => <InputRef inputElement={customizeInput!} />
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
