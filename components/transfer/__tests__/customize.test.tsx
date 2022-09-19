@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import Transfer from '../index';
@@ -16,18 +15,16 @@ describe('Transfer.Customize', () => {
 
   it('props#body does not work anymore', () => {
     const body = jest.fn();
-    render(<Transfer body={body} />);
-
+    const props = { body };
+    render(<Transfer {...props} />);
     expect(errorSpy).not.toHaveBeenCalled();
     expect(body).not.toHaveBeenCalled();
   });
 
   describe('deprecated function', () => {
-    const dataSource = [];
+    const dataSource: Record<'key', string>[] = [];
     for (let i = 0; i < 10; i += 1) {
-      dataSource.push({
-        key: i.toString(),
-      });
+      dataSource.push({ key: i.toString() });
     }
     const commonProps = {
       dataSource,
@@ -36,7 +33,7 @@ describe('Transfer.Customize', () => {
     };
 
     it('should not exist in render props', () => {
-      mount(
+      render(
         <Transfer {...commonProps}>
           {props => {
             expect('handleFilter' in props).toBeFalsy();
@@ -45,6 +42,7 @@ describe('Transfer.Customize', () => {
             expect('handleClear' in props).toBeFalsy();
             expect('body' in props).toBeFalsy();
             expect('checkedKeys' in props).toBeFalsy();
+            return null;
           }}
         </Transfer>,
       );
@@ -52,12 +50,11 @@ describe('Transfer.Customize', () => {
   });
 
   it('warning if use `pagination`', () => {
-    mount(
+    render(
       <Transfer dataSource={[]} pagination>
         {() => null}
       </Transfer>,
     );
-
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `pagination` not support customize render list.',
     );

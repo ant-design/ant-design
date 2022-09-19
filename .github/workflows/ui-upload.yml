@@ -52,12 +52,11 @@ jobs:
           path: imageSnapshots
 
       - name: Install
-        run: npm i fast-glob lodash argos-cli
+        run: npm i fast-glob lodash @argos-ci/core
 
-      - name: Upload argos-ci
+      - name: Upload on Argos
         id: deploy
         run: npm run argos
         env:
           ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-          ARGOS_GITHUB_BRANCH: ${{ steps.branch.outputs.id }}
-          ARGOS_GITHUB_COMMIT: ${{ steps.commit.outputs.id }}
+          ARGOS_PARALLEL_NONCE: ${{ github.run_id }}

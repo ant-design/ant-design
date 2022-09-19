@@ -3,7 +3,7 @@
 exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
 <div
   class="ant-mentions"
-  style="width:100%"
+  style="width: 100%;"
 >
   <textarea
     class="rc-textarea"
@@ -15,7 +15,7 @@ exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
 exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
 <div
   class="ant-mentions"
-  style="width:100%"
+  style="width: 100%;"
 >
   <textarea
     class="rc-textarea"
@@ -27,7 +27,7 @@ exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
 exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
 <div
   class="ant-mentions"
-  style="width:100%"
+  style="width: 100%;"
 >
   <textarea
     class="rc-textarea"
@@ -147,7 +147,6 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
                 Submit
               </span>
             </button>
-               
             <button
               class="ant-btn ant-btn-default"
               type="button"
@@ -167,7 +166,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
 exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
 <div
   class="ant-mentions"
-  style="width:100%"
+  style="width: 100%;"
 >
   <textarea
     class="rc-textarea"
@@ -179,7 +178,7 @@ exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
 exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 <div
   class="ant-mentions"
-  style="width:100%"
+  style="width: 100%;"
 >
   <textarea
     class="rc-textarea"
@@ -192,11 +191,11 @@ exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
 exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
 Array [
   <div
-    style="margin-bottom:10px"
+    style="margin-bottom: 10px;"
   >
     <div
       class="ant-mentions ant-mentions-disabled"
-      style="width:100%"
+      style="width: 100%;"
     >
       <textarea
         class="rc-textarea rc-textarea-disabled"
@@ -208,7 +207,7 @@ Array [
   </div>,
   <div
     class="ant-mentions"
-    style="width:100%"
+    style="width: 100%;"
   >
     <textarea
       class="rc-textarea"
@@ -226,7 +225,7 @@ exports[`renders ./components/mentions/demo/status.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-mentions ant-mentions-status-error"

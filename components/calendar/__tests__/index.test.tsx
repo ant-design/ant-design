@@ -15,7 +15,7 @@ import Header from '../Header';
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, true);
+  rtlTest(Calendar, { mockDate: true });
 
   function openSelect(wrapper: HTMLElement, className: string) {
     fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
