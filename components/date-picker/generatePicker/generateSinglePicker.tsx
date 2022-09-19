@@ -95,7 +95,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         );
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
-        const mergedSize = customizeSize ?? size;
+        const mergedSize = customizeSize || size;
 
         // ===================== Disabled =====================
         const disabled = React.useContext(DisabledContext);

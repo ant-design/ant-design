@@ -146,7 +146,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
   const divProps = omit(others, ['onTabChange']);
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = customizeSize || size;
   const classString = classNames(
     prefixCls,
     {

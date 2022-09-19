@@ -173,7 +173,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;

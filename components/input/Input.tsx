@@ -143,7 +143,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
-  const mergedSize = customSize ?? size;
+  const mergedSize = customSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);

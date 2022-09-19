@@ -79,7 +79,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     });
   }
 
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = customizeSize || size;
   const classString = classNames(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,

@@ -56,7 +56,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
-  const mergedSize = customSize ?? size;
+  const mergedSize = customSize || size;
 
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo(

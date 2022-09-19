@@ -182,7 +182,7 @@ function InternalTable<RecordType extends object = any>(
     renderEmpty,
     direction,
   } = React.useContext(ConfigContext);
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = customizeSize || size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 

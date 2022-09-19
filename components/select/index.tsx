@@ -157,7 +157,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
-  const mergedSize = customizeSize ?? size;
+  const mergedSize = customizeSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
