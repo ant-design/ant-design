@@ -17,7 +17,6 @@ Use `treeLine` to show the line style.
 import { Space, Switch, TreeSelect } from 'antd';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
 const treeData = [
   {
     value: 'parent 1',
@@ -29,11 +28,11 @@ const treeData = [
         children: [
           {
             value: 'leaf1',
-            title: 'my leaf',
+            title: 'leaf1',
           },
           {
             value: 'leaf2',
-            title: 'your leaf',
+            title: 'leaf2',
           },
         ],
       },

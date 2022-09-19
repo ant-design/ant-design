@@ -17,8 +17,6 @@ Multiple selection usage.
 import { TreeSelect } from 'antd';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
-
 const treeData = [
   {
     value: 'parent 1',
@@ -51,7 +49,6 @@ const treeData = [
     ],
   },
 ];
-
 const App: React.FC = () => {
   const [value, setValue] = useState<string>();
 

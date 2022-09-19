@@ -19,7 +19,6 @@ import { Radio, TreeSelect } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
 const treeData = [
   {
     value: 'parent 1',
@@ -46,14 +45,12 @@ const treeData = [
           {
             value: 'leaf3',
             title: <b style={{ color: '#08c' }}>leaf3</b>,
-            label: 'leaf3',
           },
         ],
       },
     ],
   },
 ];
-
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
