@@ -162,7 +162,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const size = React.useContext(SizeContext);
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);

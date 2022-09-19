@@ -182,7 +182,7 @@ function InternalTable<RecordType extends object = any>(
     renderEmpty,
     direction,
   } = React.useContext(ConfigContext);
-  const mergedSize = customizeSize || size;
+  const mergedSize = customizeSize ?? size;
   const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
@@ -269,7 +269,8 @@ function InternalTable<RecordType extends object = any>(
   /**
    * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
    * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big
+   * version.
    */
 
   // ============================ Sorter =============================
