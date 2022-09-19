@@ -165,4 +165,18 @@ describe('Badge', () => {
 
     expect(container.querySelectorAll('.ant-badge')).toHaveLength(2);
   });
+
+  it('Badge should display count when color and count are both exist', () => {
+    const { container } = render(
+      <>
+        <Badge className="badge1" text="badge" color="pink" count={44} />
+        <Badge className="badge2" text="badge" color="pink" count={0} />
+        <Badge className="badge3" text="badge" color="pink" />
+      </>,
+    );
+
+    expect(container.querySelectorAll('.ant-badge-count')).toHaveLength(1);
+    expect(container.querySelectorAll('[title="44"]')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(2);
+  });
 });
