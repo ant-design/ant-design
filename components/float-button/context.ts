@@ -1,7 +1,7 @@
 import React from 'react';
-import type { FloatButtonGroupProps } from './interface';
+import type { FloatButtonShape } from './interface';
 
-const FloatButtonGroupContext = React.createContext<FloatButtonGroupProps>({});
+const FloatButtonGroupContext = React.createContext<FloatButtonShape>('circle');
 
 export const { Provider: FloatButtonGroupProvider } = FloatButtonGroupContext;
 

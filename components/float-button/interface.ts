@@ -3,11 +3,11 @@ import type Group from './FloatButtonGroup';
 import type BackTop from '../back-top';
 import type { TooltipProps } from '../tooltip';
 
-type FloatButtonType = 'default' | 'primary';
+export type FloatButtonType = 'default' | 'primary';
 
-type FloatButtonShape = 'circle' | 'square';
+export type FloatButtonShape = 'circle' | 'square';
 
-type FloatButtonGroupTrigger = 'click' | 'hover';
+export type FloatButtonGroupTrigger = 'click' | 'hover';
 
 export interface FloatButtonProps {
   prefixCls?: string;

@@ -1,3 +1,4 @@
+import type { ProviderProps } from 'react';
 import React, { useRef, memo, useContext, useState, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
@@ -6,7 +7,7 @@ import { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
-import type { FloatButtonGroupProps } from './interface';
+import type { FloatButtonGroupProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
@@ -90,8 +91,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   // 如果用户没传 open，则为非受控组件，用 visible 控制
   const showMenu = useMemo<boolean>(() => ('open' in props ? open : visible), [open, visible]);
 
+  // Provider 组件的值用 useMemo 缓存一下，以防止每次渲染影响后续子组件
+  const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
+
   return wrapSSR(
-    <FloatButtonGroupProvider value={{ shape }}>
+    <FloatButtonGroupProvider value={providerValue}>
       <div className={classString}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
