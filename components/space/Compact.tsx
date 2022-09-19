@@ -5,7 +5,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 
-interface SpaceCompactItemContextType {
+export interface SpaceCompactItemContextType {
   size?: SizeType;
   direction?: 'horizontal' | 'vertical';
   isItem?: boolean;
