@@ -2475,4 +2475,26 @@ describe('Table.filter', () => {
         ?.disabled,
     ).toBeTruthy();
   });
+
+  it('title render function support `filter`', () => {
+    const title = jest.fn(() => 'RenderTitle');
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            title,
+            filteredValue: ['boy'],
+          },
+        ],
+      }),
+    );
+
+    expect(container.querySelector('.ant-table-column-title')?.textContent).toEqual('RenderTitle');
+    expect(title).toHaveBeenCalledWith(
+      expect.objectContaining({
+        filters: { name: ['boy'] },
+      }),
+    );
+  });
 });
