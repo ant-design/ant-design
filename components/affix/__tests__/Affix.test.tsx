@@ -65,6 +65,11 @@ describe('Affix Render', () => {
     } as DOMRect,
   };
 
+  beforeEach(() => {
+    const entities = getObserverEntities();
+    entities.splice(0, entities.length);
+  });
+
   beforeAll(() => {
     domMock.mockImplementation(function fn(this: HTMLElement) {
       return (
@@ -171,22 +176,20 @@ describe('Affix Render', () => {
     });
 
     it('instance change', async () => {
-      const getObserverLength = () => Object.keys(getObserverEntities()).length;
-
       const container = document.createElement('div');
       document.body.appendChild(container);
       let target: HTMLDivElement | null = container;
 
-      const originLength = getObserverLength();
       const getTarget = () => target;
       const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
       await sleep(100);
+      expect(getObserverEntities()).toHaveLength(1);
+      expect(getObserverEntities()[0].target).toBe(container);
 
-      expect(getObserverLength()).toBe(originLength + 1);
       target = null;
       rerender(<Affix>{null}</Affix>);
-      await sleep(100);
-      expect(getObserverLength()).toBe(originLength);
+      expect(getObserverEntities()).toHaveLength(1);
+      expect(getObserverEntities()[0].target).toBe(window);
     });
   });
 

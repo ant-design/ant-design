@@ -12,8 +12,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -101,8 +101,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -190,8 +190,8 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
   </a>
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -295,8 +295,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -325,7 +325,7 @@ Array [
                   aria-label="question-circle"
                   class="anticon anticon-question-circle"
                   role="img"
-                  style="color:red"
+                  style="color: red;"
                 >
                   <svg
                     aria-hidden="true"
@@ -388,8 +388,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -473,7 +473,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
   class="demo"
 >
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left: 70px; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -485,8 +485,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -572,8 +572,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -659,8 +659,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -738,7 +738,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width: 70px; float: left;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -750,8 +750,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -837,8 +837,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -924,8 +924,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1003,7 +1003,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width: 70px; margin-left: 304px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1015,8 +1015,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1102,8 +1102,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1189,8 +1189,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1268,7 +1268,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left: 70px; clear: both; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1280,8 +1280,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1367,8 +1367,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1454,8 +1454,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
+        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -1547,8 +1547,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"

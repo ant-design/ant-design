@@ -17,7 +17,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -231,26 +231,9 @@ Array [
     />
   </button>,
   <div
-    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </div>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -259,13 +242,13 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -281,27 +264,10 @@ Array [
     </span>
   </div>,
   <span
-    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    style="width:100px"
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    style="width: 100px;"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </span>,
 ]
 `;
@@ -370,7 +336,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
@@ -382,14 +348,14 @@ Array [
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
     <span
       class="ant-typography"
     >
@@ -401,35 +367,19 @@ Array [
         </del>
       </code>
     </span>
-     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
+    case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <span
     aria-label="Ant Design is a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    style="width:100px"
+    style="width: 100px;"
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
     <div
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -454,13 +404,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -471,7 +421,7 @@ Array [
         aria-label="Copy"
         class="ant-typography-copy"
         role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
         tabindex="0"
       >
         <span
@@ -499,54 +449,20 @@ Array [
   <p>
     [Before]
     <span
-      aria-label="not ellipsis"
-      class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
     >
       not ellipsis
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-      >
-        lg
-      </span>
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-      >
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </span>
     </span>
     [After]
   </p>,
   <div
-    style="display:none"
+    style="display: none;"
   >
     <span
-      aria-label="默认display none 样式的超长文字， 悬停tooltip失效了"
-      class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-      style="width:100px"
+      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+      style="width: 100px;"
     >
       默认display none 样式的超长文字， 悬停tooltip失效了
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-      >
-        lg
-      </span>
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-      >
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </span>
     </span>
   </div>,
 ]
@@ -556,18 +472,19 @@ exports[`renders ./components/typography/demo/ellipsis-middle.md correctly 1`] =
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of"
   class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-  style="max-width:100%"
+  style="max-width: 100%;"
 >
-  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency ofdevelopment.
+  In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of
+  development.
   <span
     aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
   >
     lg
   </span>
   <span
     aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
   >
     <span
       aria-hidden="true"
@@ -589,7 +506,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -621,7 +538,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -645,7 +562,6 @@ Array [
       </span>
     </div>
   </div>,
-  "Trigger edit with: ",
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -716,7 +632,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -748,7 +664,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -780,7 +696,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -812,7 +728,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -844,7 +760,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -870,14 +786,14 @@ Array [
   </div>,
   <h1
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h1. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -903,14 +819,14 @@ Array [
   </h1>,
   <h2
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h2. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -936,14 +852,14 @@ Array [
   </h2>,
   <h3
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h3. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -969,14 +885,14 @@ Array [
   </h3>,
   <h4
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h4. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1002,14 +918,14 @@ Array [
   </h4>,
   <h5
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h5. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1045,7 +961,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1077,7 +993,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1109,7 +1025,7 @@ Array [
       aria-label="click here"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1141,7 +1057,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1379,7 +1295,7 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
@@ -1391,7 +1307,7 @@ Array [
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
   </div>,
@@ -1400,16 +1316,17 @@ Array [
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
     title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
-    To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
+    To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life
+    --William Shakespeare
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -1434,7 +1351,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1444,7 +1361,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-secondary"
@@ -1454,7 +1371,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-success"
@@ -1464,7 +1381,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-warning"
@@ -1474,7 +1391,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-danger"
@@ -1484,7 +1401,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography ant-typography-disabled"
@@ -1494,7 +1411,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1506,7 +1423,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1518,7 +1435,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1530,7 +1447,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1542,7 +1459,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1554,7 +1471,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
@@ -1566,7 +1483,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-typography"
