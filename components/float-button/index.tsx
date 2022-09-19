@@ -15,7 +15,7 @@ import type {
 import Group from './FloatButtonGroup';
 import FloatButtonGroupContext from './context';
 
-export const floatButtonPrefixCls = 'float-button';
+export const floatButtonPrefixCls = 'float-btn';
 
 const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
   const {

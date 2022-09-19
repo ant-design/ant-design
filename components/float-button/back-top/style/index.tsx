@@ -9,7 +9,7 @@ export interface ComponentToken {
   zIndexPopup: number;
 }
 
-type BackTopToken = FullToken<'FloatButtonBackTop'> & {
+type BackTopToken = FullToken<'FloatButton'> & {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
@@ -80,7 +80,7 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'FloatButtonBackTop'>('FloatButtonBackTop', token => {
+export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
   const {
     fontSizeHeading3,
     colorTextDescription,

@@ -64,7 +64,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         borderRadius: 0,
         boxShadow: 'none',
         '&:not(:first-child)': {
-          borderTop: `1px solid ${token.colorFillContent}`,
+          borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
         [`${componentCls}-body`]: {
           width: floatButtonSize - token.paddingXXS * 2,
@@ -77,7 +77,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonFontSize, floatButtonSize } = token;
+  const { componentCls, floatButtonIconSize, floatButtonSize } = token;
 
   return {
     [componentCls]: {
@@ -111,7 +111,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         },
         [`${componentCls}-icon`]: {
           ...resetIcon(),
-          fontSize: floatButtonFontSize,
+          fontSize: floatButtonIconSize,
           lineHeight: 1,
         },
         [`${componentCls}-default-icon`]: {
@@ -139,10 +139,13 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
     },
     [`${componentCls}-default`]: {
       backgroundColor: token.colorBgContainer,
+      transition: `background-color ${token.motionDurationFast}`,
       [`${componentCls}-body`]: {
         backgroundColor: token.colorBgContainer,
+        transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
           backgroundColor: token.colorFillContent,
+          transition: `background-color ${token.motionDurationFast}`,
         },
       },
     },
@@ -150,8 +153,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       backgroundColor: token.colorPrimary,
       [`${componentCls}-body`]: {
         backgroundColor: token.colorPrimary,
+        transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
           backgroundColor: token.colorPrimaryHover,
+          transition: `background-color ${token.motionDurationFast}`,
         },
       },
     },

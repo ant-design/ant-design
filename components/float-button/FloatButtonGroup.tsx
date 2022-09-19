@@ -1,8 +1,9 @@
 import type { ProviderProps } from 'react';
-import React, { useRef, memo, useContext, useState, useMemo } from 'react';
+import React, { useRef, memo, useContext, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -16,7 +17,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     className,
     shape = 'circle',
     type = 'default',
-    open = false,
     trigger,
     icon,
     children,
@@ -49,15 +49,15 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     className,
   );
 
-  const [visible, setVisible] = useState<boolean>(false);
+  const [open, setOpen] = useMergedState(false, { value: props.open });
 
   const actionsRef = useRef<React.HTMLAttributes<HTMLDivElement>>({});
 
   if (trigger === 'click') {
     actionsRef.current = {
       onClick() {
-        setVisible(prevState => {
-          onOpenChange?.(prevState);
+        setOpen(prevState => {
+          onOpenChange?.(!prevState);
           return !prevState;
         });
       },
@@ -67,39 +67,35 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   if (trigger === 'hover') {
     actionsRef.current = {
       onMouseEnter() {
-        setVisible(true);
+        setOpen(true);
         onOpenChange?.(true);
       },
       onMouseLeave() {
-        setVisible(false);
+        setOpen(false);
         onOpenChange?.(false);
       },
     };
   }
 
+  // Provider 组件的值用 useMemo 缓存一下，以防止每次渲染影响后续子组件
+  const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
+
   const tiggerElement = (
     <div className={classStringMenu} {...actionsRef.current}>
       <div className={`${prefixCls}-body`}>
-        <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
-          {visible ? closeIcon || <CloseOutlined /> : icon || <FileTextOutlined />}
+        <div className={classNames(`${prefixCls}-icon`, `${prefixCls}-${type}-icon`)}>
+          {open ? closeIcon || <CloseOutlined /> : icon || <FileTextOutlined />}
         </div>
       </div>
     </div>
   );
-
-  // 如果用户传了 open，则为受控组件，用 open 控制
-  // 如果用户没传 open，则为非受控组件，用 visible 控制
-  const showMenu = useMemo<boolean>(() => ('open' in props ? open : visible), [open, visible]);
-
-  // Provider 组件的值用 useMemo 缓存一下，以防止每次渲染影响后续子组件
-  const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
 
   return wrapSSR(
     <FloatButtonGroupProvider value={providerValue}>
       <div className={classString}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
-            {showMenu ? children : null}
+            {open ? children : null}
             {tiggerElement}
           </>
         ) : (
