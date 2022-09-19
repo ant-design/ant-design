@@ -179,14 +179,14 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
     >
       <div
         class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        style="margin-left: -8px; margin-right: -8px;"
       >
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -217,11 +217,11 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -252,11 +252,11 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -287,11 +287,11 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
           </div>
         </div>
         <div
-          style="width:25%;max-width:25%"
+          style="width: 25%; max-width: 25%;"
         >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -340,14 +340,14 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -378,11 +378,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -413,11 +413,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -448,11 +448,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -483,11 +483,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -518,11 +518,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -567,14 +567,14 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -605,11 +605,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -640,11 +640,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -675,11 +675,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -710,11 +710,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -745,11 +745,11 @@ Array [
             </div>
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -794,14 +794,14 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -833,11 +833,11 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -869,11 +869,11 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -905,11 +905,11 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -941,11 +941,11 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -977,11 +977,11 @@ Array [
             <div />
           </div>
           <div
-            style="width:25%;max-width:25%"
+            style="width: 25%; max-width: 25%;"
           >
             <div
               class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
                 class="ant-list-item"
@@ -1022,14 +1022,14 @@ Array [
 exports[`renders ./components/list/demo/infinite-load.md extend context correctly 1`] = `
 <div
   id="scrollableDiv"
-  style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
+  style="height: 400px; overflow: auto; padding: 0px 16px; border: 1px solid rgba(140, 140, 140, 0.35);"
 >
   <div
     class="infinite-scroll-component__outerdiv"
   >
     <div
       class="infinite-scroll-component "
-      style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch"
+      style="height: auto; overflow: auto;"
     >
       <div
         class="ant-list ant-list-split"
@@ -1108,7 +1108,7 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
         >
           <h3
             class="ant-skeleton-title"
-            style="width:50%"
+            style="width: 50%;"
           />
           <ul
             class="ant-skeleton-paragraph"
@@ -1157,7 +1157,7 @@ exports[`renders ./components/list/demo/loadmore.md extend context correctly 1`]
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        style="min-height:53px"
+        style="min-height: 53px;"
       />
     </div>
   </div>
@@ -1176,12 +1176,14 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
     >
       <div
         class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        style="margin-left: -8px; margin-right: -8px;"
       >
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1211,10 +1213,12 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1244,10 +1248,12 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1277,10 +1283,12 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1310,10 +1318,12 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1343,10 +1353,12 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
             </div>
           </div>
         </div>
-        <div>
+        <div
+          style="width: 100%; max-width: 100%;"
+        >
           <div
             class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
           >
             <div
               class="ant-list-item"
@@ -1423,7 +1435,7 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Racing car sprays burning fuel into crowd.
+            Racing car sprays burning fuel into crowd.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1435,7 +1447,7 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Japanese princess to wed commoner.
+            Japanese princess to wed commoner.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1447,7 +1459,7 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Australian walks 100km after outback crash.
+            Australian walks 100km after outback crash.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1459,7 +1471,7 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Man charged over missing wedding girl.
+            Man charged over missing wedding girl.
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1471,7 +1483,7 @@ Array [
                 [ITEM]
               </mark>
             </span>
-             Los Angeles battles huge wildfires.
+            Los Angeles battles huge wildfires.
           </li>
         </ul>
       </div>
@@ -1679,7 +1691,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="star"
@@ -1717,7 +1729,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="like"
@@ -1755,7 +1767,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="message"
@@ -1845,7 +1857,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="star"
@@ -1883,7 +1895,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="like"
@@ -1921,7 +1933,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="message"
@@ -2011,7 +2023,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="star"
@@ -2049,7 +2061,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="like"
@@ -2087,7 +2099,7 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
+                    style="margin-right: 8px;"
                   >
                     <span
                       aria-label="message"
@@ -2333,16 +2345,16 @@ exports[`renders ./components/list/demo/virtual-list.md extend context correctly
     >
       <div
         class="rc-virtual-list"
-        style="position:relative"
+        style="position: relative;"
       >
         <div
           class="rc-virtual-list-holder"
-          style="height:400px;overflow-y:auto;overflow-anchor:none"
+          style="height: 400px; overflow-y: auto;"
         >
           <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display:flex;flex-direction:column"
+              style="display: flex; flex-direction: column;"
             />
           </div>
         </div>

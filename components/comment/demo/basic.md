@@ -16,7 +16,6 @@ A basic comment with author, avatar, time and actions.
 ```tsx
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
 import { Avatar, Comment, Tooltip } from 'antd';
-import moment from 'moment';
 import React, { createElement, useState } from 'react';
 
 const App: React.FC = () => {
@@ -65,8 +64,8 @@ const App: React.FC = () => {
         </p>
       }
       datetime={
-        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-          <span>{moment().fromNow()}</span>
+        <Tooltip title="2016-11-22 11:22:33">
+          <span>8 hours ago</span>
         </Tooltip>
       }
     />
