@@ -614,6 +614,16 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         '&-row': {
           td: {
             transition: `background ${token.motionDurationFast}`,
+
+            '&:first-child': {
+              borderStartStartRadius: token.radiusSM,
+              borderEndStartRadius: token.radiusSM,
+            },
+
+            '&:last-child': {
+              borderStartEndRadius: token.radiusSM,
+              borderEndEndRadius: token.radiusSM,
+            },
           },
 
           '&:hover td': {

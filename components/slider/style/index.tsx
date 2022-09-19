@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type * as React from 'react';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
@@ -15,6 +15,7 @@ export interface ComponentToken {
   controlSize: number;
   railSize: number;
   handleSize: number;
+  handleSizeHover: number;
   handleLineWidth: number;
   handleLineWidthHover: number;
   dotSize: number;
@@ -24,7 +25,6 @@ interface SliderToken extends FullToken<'Slider'> {
   marginFull: number;
   marginPart: number;
   marginPartWithMark: number;
-  handleFocusShadow: string;
 }
 
 // =============================== Base ===============================
@@ -72,25 +72,58 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
-        backgroundColor: token.colorBgContainer,
-        border: `${token.handleLineWidth}px solid ${token.colorPrimaryBorder}`,
-        outline: `0 solid ${token.colorPrimaryBorder}`,
-        borderRadius: '50%',
-        cursor: 'pointer',
-        transition: `
-          border ${token.motionDurationFast},
-          outline ${token.motionDurationFast}
-        `,
 
         [`${componentCls}-dragging`]: {
           zIndex: 1,
         },
 
+        // 扩大选区
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          insetInlineStart: 0,
+          insetBlockStart: 0,
+          width: token.handleSize + token.handleLineWidth * 2,
+          height: token.handleSize + token.handleLineWidth * 2,
+          backgroundColor: 'transparent',
+        },
+
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          insetBlockStart: 0,
+          insetInlineStart: 0,
+          width: token.handleSize,
+          height: token.handleSize,
+          backgroundColor: token.colorBgContainer,
+          outline: `${token.handleLineWidth}px solid ${token.colorPrimaryBorder}`,
+          borderRadius: '50%',
+          cursor: 'pointer',
+          transition: `
+            inset-inline-start ${token.motionDurationFast},
+            inset-block-start ${token.motionDurationFast},
+            width ${token.motionDurationFast},
+            height ${token.motionDurationFast},
+            outline ${token.motionDurationFast}
+          `,
+        },
+
         '&:hover, &:active, &:focus-visible': {
-          boxShadow: `none`,
-          outlineWidth: token.handleLineWidthHover,
-          outlineColor: token.colorPrimary,
-          borderWidth: 0,
+          '&::before': {
+            insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
+            insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
+            width: token.handleSizeHover + token.handleLineWidthHover * 2,
+            height: token.handleSizeHover + token.handleLineWidthHover * 2,
+          },
+
+          '&::after': {
+            outlineWidth: token.handleLineWidthHover,
+            outlineColor: token.colorPrimary,
+            width: token.handleSizeHover,
+            height: token.handleSizeHover,
+            insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
+            insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
+          },
         },
       },
 
@@ -107,18 +140,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           borderColor: colorFillContentHover,
         },
 
-        [`${componentCls}-handle${antCls}-tooltip-open`]: {
-          borderColor: token.colorPrimary,
+        [`${componentCls}-handle${antCls}-tooltip-open::after`]: {
           outlineColor: token.colorPrimary,
         },
 
-        // We use below style instead
-        //     ${sliderCls}-handle:not(.@{ant-prefix}-tooltip-open) {
-        //       border-color: @slider-handle-color-hover;
-        //     }
-
         [`
-          ${componentCls}-handle,
+          ${componentCls}-handle::after,
           ${componentCls}-dot-active
         `]: {
           borderColor: token.colorPrimary,
@@ -166,7 +193,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
       },
 
-      '&-disabled': {
+      '&&-disabled': {
         cursor: 'not-allowed',
 
         [`${componentCls}-rail`]: {
@@ -178,13 +205,24 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`
-          ${componentCls}-handle,
+          ${componentCls}-handle::after,
           ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgContainer,
-          borderColor: `${token.colorTextDisabled} !important`,
+          borderColor: token.colorTextDisabled,
+          outlineColor: new TinyColor(token.colorTextDisabled)
+            .onBackground(token.colorBgContainer)
+            .toHexString(),
           boxShadow: 'none',
           cursor: 'not-allowed',
+        },
+
+        [`${componentCls}-handle::after`]: {
+          width: token.handleSize,
+          height: token.handleSize,
+          outlineWidth: token.handleLineWidth,
+          insetInlineStart: 0,
+          insetBlockStart: 0,
         },
 
         [`
@@ -283,9 +321,6 @@ export default genComponentStyleHook(
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
-      handleFocusShadow: `0 0 0 5px ${new TinyColor(token.colorPrimary)
-        .setAlpha(0.12)
-        .toRgbString()}`,
     });
     return [
       genBaseStyle(sliderToken),
@@ -296,13 +331,15 @@ export default genComponentStyleHook(
   token => {
     // Handle line width is always width-er 1px
     const increaseHandleWidth = 1;
-    const controlSize = token.controlHeightSM / 2;
+    const controlSize = token.controlHeightLG / 4;
+    const controlSizeHover = token.controlHeightSM / 2;
     const handleLineWidth = token.lineWidth + increaseHandleWidth;
     const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 3;
     return {
       controlSize,
       railSize: controlSize / 3,
-      handleSize: controlSize + handleLineWidth,
+      handleSize: controlSize,
+      handleSizeHover: controlSizeHover,
       dotSize: (controlSize / 3) * 2,
       handleLineWidth,
       handleLineWidthHover,

@@ -70,12 +70,22 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
-  const { prefixCls, colorError, colorWarning, colorErrorOutline, colorWarningOutline } = token;
+  const {
+    prefixCls,
+    colorError,
+    colorWarning,
+    colorErrorOutline,
+    colorWarningOutline,
+    colorErrorBorderHover,
+    colorWarningBorderHover,
+  } = token;
 
   return {
     '&-status-error:not(&-disabled):not(&-borderless)&': {
-      '&, &:hover': {
-        borderColor: colorError,
+      borderColor: colorError,
+
+      '&:hover': {
+        borderColor: colorErrorBorderHover,
       },
 
       '&:focus, &-focused': {
@@ -93,8 +103,10 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
     },
     '&-status-warning:not(&-disabled):not(&-borderless)&': {
-      '&, &:hover': {
-        borderColor: colorWarning,
+      borderColor: colorWarning,
+
+      '&:hover': {
+        borderColor: colorWarningBorderHover,
       },
 
       '&:focus, &-focused': {
@@ -751,6 +763,14 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
           [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
             color: token.colorTextDescription,
+
+            '&:hover': {
+              color: token.colorPrimaryHover,
+            },
+
+            '&:active': {
+              color: token.colorPrimaryActive,
+            },
 
             [`&${antCls}-btn-loading::before`]: {
               insetInlineStart: 0,
