@@ -80,7 +80,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergeSize = customizeSize ?? size;
+  const mergeSize = customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
