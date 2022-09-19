@@ -37,7 +37,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       insetInlineEnd: token.floatButtonInlineEnd,
       insetBlockEnd: token.floatButtonBlockEnd,
       backgroundColor: token.colorBgContainer,
-      borderRadius: token.radiusBase,
+      borderRadius: token.radiusSM,
       '&&-rtl': {
         direction: 'rtl',
       },
@@ -132,9 +132,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
     [`${componentCls}-square`]: {
       height: 'auto',
       minHeight: floatButtonSize,
-      borderRadius: token.radiusBase,
+      borderRadius: token.radiusSM,
       [`${componentCls}-body`]: {
-        borderRadius: token.radiusBase,
+        borderRadius: token.radiusSM,
       },
     },
     [`${componentCls}-default`]: {
