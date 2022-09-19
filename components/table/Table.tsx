@@ -269,7 +269,8 @@ function InternalTable<RecordType extends object = any>(
   /**
    * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?) to read
    * state out and then put it back to title render. Move these code into `hooks` but still too
-   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   * complex. We should provides Table props like `sorter` & `filter` to handle control in next big
+   * version.
    */
 
   // ============================ Sorter =============================
@@ -317,7 +318,7 @@ function InternalTable<RecordType extends object = any>(
     );
   };
 
-  const [transformFilterColumns, filterStates, getFilters] = useFilter<RecordType>({
+  const [transformFilterColumns, filterStates, filters] = useFilter<RecordType>({
     prefixCls,
     locale: tableLocale,
     dropdownPrefixCls,
@@ -327,16 +328,23 @@ function InternalTable<RecordType extends object = any>(
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
-  changeEventInfo.filters = getFilters();
+  changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
-  const columnTitleProps = React.useMemo(
-    () => ({
+  const columnTitleProps = React.useMemo(() => {
+    const mergedFilters: Record<string, FilterValue> = {};
+    Object.keys(filters).forEach(filterKey => {
+      if (filters[filterKey] !== null) {
+        mergedFilters[filterKey] = filters[filterKey]!;
+      }
+    });
+    return {
       ...sorterTitleProps,
-    }),
-    [sorterTitleProps],
-  );
+      filters: mergedFilters,
+    };
+  }, [sorterTitleProps, filters]);
+
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
