@@ -32,6 +32,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     hashId,
     prefixCls,
     className,
+    `${prefixCls}-tigger`,
     `${prefixCls}-${type}`,
     `${prefixCls}-${shape}`,
     {

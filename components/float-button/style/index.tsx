@@ -33,6 +33,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       position: 'fixed',
       width: floatButtonSize,
       height: 'auto',
+      boxShadow: 'none',
       minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInlineEnd,
       insetBlockEnd: token.floatButtonBlockEnd,
@@ -46,9 +47,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-circle`]: {
-      boxShadow: 'none',
-      [`${componentCls}-circle:not(:first-child)`]: {
-        marginTop: 16,
+      [`${componentCls}-circle:not(:last-child)`]: {
+        marginBottom: token.margin,
         [`${componentCls}-body`]: {
           width: floatButtonSize,
           height: floatButtonSize,
@@ -56,21 +56,21 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
-      overflow: 'hidden',
-      boxShadow: token.boxShadowSecondary,
       [`${componentCls}-square`]: {
         padding: token.paddingXXS,
         marginTop: 0,
         borderRadius: 0,
-        boxShadow: 'none',
-        '&:not(:first-child)': {
-          borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        '&:not(:last-child)': {
+          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
         [`${componentCls}-body`]: {
           width: floatButtonSize - token.paddingXXS * 2,
           height: floatButtonSize - token.paddingXXS * 2,
         },
       },
+    },
+    [`${componentCls}-tigger`]: {
+      marginTop: `${token.margin}px !important`,
     },
   };
 };

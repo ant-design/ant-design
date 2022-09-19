@@ -29,7 +29,7 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
-  const groupShape = useContext<FloatButtonShape>(FloatButtonGroupContext);
+  const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
