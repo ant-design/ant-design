@@ -138,7 +138,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md extend context corre
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -429,7 +429,7 @@ exports[`renders ./components/layout/demo/fixed.md extend context correctly 1`] 
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -577,7 +577,7 @@ exports[`renders ./components/layout/demo/fixed.md extend context correctly 1`] 
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
             style="opacity: 0;"
           >
             <ul
@@ -739,7 +739,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md extend context correctl
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1606,7 +1606,7 @@ exports[`renders ./components/layout/demo/responsive.md extend context correctly
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2006,7 +2006,7 @@ exports[`renders ./components/layout/demo/side.md extend context correctly 1`] =
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2163,7 +2163,7 @@ exports[`renders ./components/layout/demo/side.md extend context correctly 1`] =
           </div>
           <div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
               style="opacity: 0;"
             >
               <ul
@@ -2324,7 +2324,7 @@ exports[`renders ./components/layout/demo/side.md extend context correctly 1`] =
           </div>
           <div>
             <div
-              class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+              class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark"
               style="opacity: 0;"
             >
               <ul
@@ -2738,7 +2738,7 @@ exports[`renders ./components/layout/demo/top.md extend context correctly 1`] = 
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -3294,7 +3294,7 @@ exports[`renders ./components/layout/demo/top.md extend context correctly 1`] = 
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
             style="opacity: 0;"
           >
             <ul
@@ -3715,7 +3715,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -3863,7 +3863,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
             style="opacity: 0;"
           >
             <ul
@@ -4006,7 +4006,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
             data-menu-list="true"
             role="menu"
             style="height: 100%;"
@@ -4056,7 +4056,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                   style="opacity: 0;"
                 >
                   <ul
@@ -4398,7 +4398,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                   style="opacity: 0;"
                 >
                   <ul
@@ -4594,7 +4594,7 @@ exports[`renders ./components/layout/demo/top-side.md extend context correctly 1
               </div>
               <div>
                 <div
-                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                  class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                   style="opacity: 0;"
                 >
                   <ul
@@ -5046,7 +5046,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -5194,7 +5194,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
         </div>
         <div>
           <div
-            class="ant-menu-submenu ant-menu-submenu-popup"
+            class="ant-menu-submenu ant-menu-submenu-popup ant-menu-dark"
             style="opacity: 0;"
           >
             <ul
@@ -5289,7 +5289,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
           style="height: 100%; border-right: 0;"
@@ -5339,7 +5339,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
             </div>
             <div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                 style="opacity: 0;"
               >
                 <ul
@@ -5681,7 +5681,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
             </div>
             <div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                 style="opacity: 0;"
               >
                 <ul
@@ -5877,7 +5877,7 @@ exports[`renders ./components/layout/demo/top-side-2.md extend context correctly
             </div>
             <div>
               <div
-                class="ant-menu-submenu ant-menu-submenu-popup ant-menu"
+                class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light"
                 style="opacity: 0;"
               >
                 <ul

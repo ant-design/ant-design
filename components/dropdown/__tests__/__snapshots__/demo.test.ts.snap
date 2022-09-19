@@ -914,7 +914,7 @@ exports[`renders ./components/dropdown/demo/render-panel.md correctly 1`] = `
       style="opacity: 0;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
         data-menu-list="true"
         role="menu"
         tabindex="0"

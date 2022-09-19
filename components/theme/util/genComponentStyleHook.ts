@@ -14,11 +14,12 @@ export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   ComponentTokenMap[ComponentName];
 
-export interface StyleInfo {
+export interface StyleInfo<ComponentName extends OverrideComponent> {
   hashId: string;
   prefixCls: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
+  overrideComponentToken: ComponentTokenMap[ComponentName];
 }
 
 export type TokenWithCommonCls<T> = T & {
@@ -37,7 +38,7 @@ export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommon
 
 export default function genComponentStyleHook<ComponentName extends OverrideComponent>(
   component: ComponentName,
-  styleFn: (token: FullToken<ComponentName>, info: StyleInfo) => CSSInterpolation,
+  styleFn: (token: FullToken<ComponentName>, info: StyleInfo<ComponentName>) => CSSInterpolation,
   getDefaultToken?:
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
@@ -98,6 +99,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             prefixCls,
             rootPrefixCls,
             iconPrefixCls,
+            overrideComponentToken: token[component],
           });
           flush(component, mergedComponentToken);
           return styleInterpolation;

@@ -32,7 +32,7 @@ export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   items?: ItemType[];
 }
 
-type InternalMenuProps = Omit<MenuProps, 'theme'> &
+type InternalMenuProps = MenuProps &
   SiderContextProps & {
     collapsedWidth?: string | number;
   };
@@ -47,6 +47,8 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const {
     prefixCls: customizePrefixCls,
+    className,
+    theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
     inlineCollapsed,
@@ -116,6 +118,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls, !override);
+  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ====================== Expand Icon ========================
   let mergedExpandIcon: MenuProps[`expandIcon`];
@@ -134,9 +137,10 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       inlineCollapsed: mergedInlineCollapsed || false,
       direction,
       firstLevel: true,
+      theme,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
     }),
-    [prefixCls, mergedInlineCollapsed, direction, _internalDisableMenuItemTitleTooltip],
+    [prefixCls, mergedInlineCollapsed, direction, _internalDisableMenuItemTitleTooltip, theme],
   );
 
   // ========================= Render ==========================
@@ -146,11 +150,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
+          className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}
           defaultMotions={defaultMotions}
