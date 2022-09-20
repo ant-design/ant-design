@@ -26,40 +26,66 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchHandleActiveInset: string;
 }
 
-const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
-  [`&${token.componentCls}-small`]: {
-    minWidth: token.switchMinWidthSM,
-    height: token.switchHeightSM,
-    lineHeight: `${token.switchHeightSM}px`,
+const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+  const switchInnerCls = `${token.componentCls}-inner`;
 
-    [`${token.componentCls}-inner`]: {
-      marginInlineStart: token.switchInnerMarginMaxSM,
-      marginInlineEnd: token.switchInnerMarginMinSM,
-      fontSize: token.fontSizeSM,
-    },
+  return {
+    [`&${token.componentCls}-small`]: {
+      minWidth: token.switchMinWidthSM,
+      height: token.switchHeightSM,
+      lineHeight: `${token.switchHeightSM}px`,
 
-    [`${token.componentCls}-handle`]: {
-      width: token.switchPinSizeSM,
-      height: token.switchPinSizeSM,
-    },
-
-    [`${token.componentCls}-loading-icon`]: {
-      top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
-      fontSize: token.switchLoadingIconSize,
-    },
-
-    [`&${token.componentCls}-checked`]: {
       [`${token.componentCls}-inner`]: {
-        marginInlineStart: token.switchInnerMarginMinSM,
-        marginInlineEnd: token.switchInnerMarginMaxSM,
+        [`${switchInnerCls}-checked`]: {
+          marginInlineStart: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+            token.switchPinSizeSM + token.switchPadding * 2
+          }px)`,
+          marginInlineEnd: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
+            token.switchPinSizeSM + token.switchPadding * 2
+          }px)`,
+        },
+
+        [`${switchInnerCls}-unchecked`]: {
+          marginTop: -token.switchHeightSM,
+          marginInlineStart: token.switchInnerMarginMaxSM,
+          marginInlineEnd: token.switchInnerMarginMinSM,
+        },
       },
 
       [`${token.componentCls}-handle`]: {
-        insetInlineStart: `calc(100% - ${token.switchPinSizeSM + token.switchPadding}px)`,
+        width: token.switchPinSizeSM,
+        height: token.switchPinSizeSM,
+      },
+
+      [`${token.componentCls}-loading-icon`]: {
+        top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
+        fontSize: token.switchLoadingIconSize,
+      },
+
+      [`&${token.componentCls}-checked`]: {
+        [`${token.componentCls}-inner`]: {
+          [`${switchInnerCls}-checked`]: {
+            marginInlineStart: token.switchInnerMarginMinSM,
+            marginInlineEnd: token.switchInnerMarginMaxSM,
+          },
+
+          [`${switchInnerCls}-unchecked`]: {
+            marginInlineStart: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
+              token.switchPinSizeSM + token.switchPadding * 2
+            }px)`,
+            marginInlineEnd: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+              token.switchPinSizeSM + token.switchPadding * 2
+            }px)`,
+          },
+        },
+
+        [`${token.componentCls}-handle`]: {
+          insetInlineStart: `calc(100% - ${token.switchPinSizeSM + token.switchPadding}px)`,
+        },
       },
     },
-  },
-});
+  };
+};
 
 const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
   [`${token.componentCls}-loading-icon${token.iconCls}`]: {
@@ -124,16 +150,47 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
   return {
     [switchInnerCls]: {
       display: 'block',
-      marginInlineEnd: token.switchInnerMarginMin,
-      marginInlineStart: token.switchInnerMarginMax,
-      color: token.colorTextLightSolid,
-      fontSize: token.fontSizeSM,
-      transition: `margin-inline-end ${token.switchDuration}, margin-inline-start ${token.switchDuration}`,
+      overflow: 'hidden',
+      borderRadius: 100,
+
+      [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
+        display: 'block',
+        color: token.colorError,
+        fontSize: token.fontSizeSM,
+        transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
+        pointerEvents: 'none',
+      },
+
+      [`${switchInnerCls}-checked`]: {
+        marginInlineStart: `calc(${token.switchInnerMarginMin}px - 100% + ${
+          token.switchPinSize + token.switchPadding * 2
+        }px)`,
+        marginInlineEnd: `calc(${token.switchInnerMarginMax}px + 100% - ${
+          token.switchPinSize + token.switchPadding * 2
+        }px)`,
+      },
+
+      [`${switchInnerCls}-unchecked`]: {
+        marginTop: -token.switchHeight,
+        marginInlineStart: token.switchInnerMarginMax,
+        marginInlineEnd: token.switchInnerMarginMin,
+      },
     },
 
     [`&${token.componentCls}-checked ${switchInnerCls}`]: {
-      marginInlineEnd: token.switchInnerMarginMax,
-      marginInlineStart: token.switchInnerMarginMin,
+      [`${switchInnerCls}-checked`]: {
+        marginInlineStart: token.switchInnerMarginMin,
+        marginInlineEnd: token.switchInnerMarginMax,
+      },
+
+      [`${switchInnerCls}-unchecked`]: {
+        marginInlineStart: `calc(${token.switchInnerMarginMax}px + 100% - ${
+          token.switchPinSize + token.switchPadding * 2
+        }px)`,
+        marginInlineEnd: `calc(${token.switchInnerMarginMin}px - 100% + ${
+          token.switchPinSize + token.switchPadding * 2
+        }px)`,
+      },
     },
   };
 };
