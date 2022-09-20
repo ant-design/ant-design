@@ -4,6 +4,7 @@ import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
+import { TableLoadingProps } from '../Table';
 
 const { Column, ColumnGroup } = Table;
 
@@ -70,7 +71,7 @@ describe('Table', () => {
   });
 
   it('loading with Spin', async () => {
-    const loading = {
+    let loading: TableLoadingProps = {
       spinning: false,
       delay: 500,
     };
@@ -88,11 +89,13 @@ describe('Table', () => {
 
   // https://github.com/ant-design/ant-design/issues/22733
   it('support loading tip', async () => {
-    const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
+    let loading: TableLoadingProps = {
+      tip: 'loading...',
+    };
+    const { container, rerender } = render(<Table loading={loading} />);
     await sleep(500);
-    rerender(
-      <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
-    );
+    loading.loading = true;
+    rerender(<Table loading={loading} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
   });
 
