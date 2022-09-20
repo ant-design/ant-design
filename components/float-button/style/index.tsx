@@ -59,7 +59,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       [`${componentCls}-square`]: {
         padding: token.paddingXXS,
         marginTop: 0,
-        borderRadius: 0,
         '&:not(:last-child)': {
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
@@ -69,8 +68,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         },
       },
     },
-    [`${componentCls}-tigger`]: {
+    [`${componentCls}-square-tigger`]: {
       marginTop: `${token.margin}px !important`,
+      borderRadius: `${token.radiusBase}px !important`,
     },
   };
 };
@@ -130,9 +130,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       },
     },
     [`${componentCls}-square`]: {
-      height: 'auto',
       minHeight: floatButtonSize,
-      borderRadius: token.radiusSM,
+      borderRadius: token.radiusBase,
       [`${componentCls}-body`]: {
         borderRadius: token.radiusSM,
       },

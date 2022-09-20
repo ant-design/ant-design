@@ -17,10 +17,10 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     className,
     shape = 'circle',
     type = 'default',
+    icon = <FileTextOutlined />,
+    closeIcon = <CloseOutlined />,
     trigger,
-    icon,
     children,
-    closeIcon,
     onOpenChange,
   } = props;
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -32,9 +32,9 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     hashId,
     prefixCls,
     className,
-    `${prefixCls}-tigger`,
     `${prefixCls}-${type}`,
     `${prefixCls}-${shape}`,
+    `${prefixCls}-${shape}-tigger`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -85,7 +85,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     <div className={classStringMenu} {...actionsRef.current}>
       <div className={`${prefixCls}-body`}>
         <div className={classNames(`${prefixCls}-icon`, `${prefixCls}-${type}-icon`)}>
-          {open ? closeIcon || <CloseOutlined /> : icon || <FileTextOutlined />}
+          {open ? closeIcon : icon}
         </div>
       </div>
     </div>
