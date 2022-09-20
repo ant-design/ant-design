@@ -155,7 +155,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 
       [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
         display: 'block',
-        color: token.colorError,
+        color: token.colorTextLightSolid,
         fontSize: token.fontSizeSM,
         transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
         pointerEvents: 'none',
