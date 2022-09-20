@@ -9,7 +9,9 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
+import Space from '../space';
 import { SpaceCompactItemContext } from '../space/Compact';
+import Typography from '../typography';
 import { getCompactClassNames } from '../_util/compactUtils';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -217,62 +219,62 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
+  const Wrapper = addonBefore || addonAfter ? Space.Compact : React.Fragment;
+
   return (
-    <RcInput
-      ref={composeRef(ref, inputRef)}
-      prefixCls={prefixCls}
-      autoComplete={input?.autoComplete}
-      {...rest}
-      disabled={mergedDisabled || undefined}
-      onBlur={handleBlur}
-      onFocus={handleFocus}
-      suffix={suffixNode}
-      allowClear={mergedAllowClear}
-      addonAfter={
-        addonAfter && (
-          <NoFormStyle override status>
-            {addonAfter}
-          </NoFormStyle>
-        )
-      }
-      addonBefore={
-        addonBefore && (
-          <NoFormStyle override status>
-            {addonBefore}
-          </NoFormStyle>
-        )
-      }
-      inputClassName={classNames(
-        {
-          [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-lg`]: mergedSize === 'large',
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-borderless`]: !bordered,
-        },
-        getCompactClassNames(prefixCls, restCompactContext),
-        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+    <Wrapper block>
+      {addonBefore && (
+        <NoFormStyle override status>
+          <span className={`${prefixCls}-addon`}>{addonBefore}</span>
+        </NoFormStyle>
       )}
-      affixWrapperClassName={classNames(
-        {
-          [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-          [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-          [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        },
-        getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+      <RcInput
+        ref={composeRef(ref, inputRef)}
+        prefixCls={prefixCls}
+        autoComplete={input?.autoComplete}
+        {...rest}
+        disabled={mergedDisabled || undefined}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        suffix={suffixNode}
+        allowClear={mergedAllowClear}
+        inputClassName={classNames(
+          {
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
+          },
+          getCompactClassNames(prefixCls, restCompactContext),
+          !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        )}
+        affixWrapperClassName={classNames(
+          {
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+          },
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+        )}
+        wrapperClassName={classNames({
+          [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        })}
+        groupClassName={classNames(
+          {
+            [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+          },
+          getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+        )}
+      />
+      {addonAfter && (
+        <NoFormStyle override status>
+          <span className={`${prefixCls}-addon`}>{addonAfter}</span>
+        </NoFormStyle>
       )}
-      wrapperClassName={classNames({
-        [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
-      groupClassName={classNames(
-        {
-          [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
-          [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
-          [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-        },
-        getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
-      )}
-    />
+    </Wrapper>
   );
 });
 
