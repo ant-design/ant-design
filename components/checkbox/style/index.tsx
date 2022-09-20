@@ -200,6 +200,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           height: '100%',
           borderRadius: token.controlRadiusSM,
           visibility: 'hidden',
+          border: `${token.lineWidthBold}px solid ${token.colorPrimary}`,
           animationName: antCheckboxEffect,
           animationDuration: token.motionDurationSlow,
           animationTimingFunction: 'ease-in-out',

@@ -1040,7 +1040,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Dark
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Dark
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        Light
+      </span>
     </span>
   </button>,
   <br />,
@@ -1185,7 +1194,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Light
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Dark
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        Light
+      </span>
     </span>
   </button>,
   <br />,
@@ -1285,7 +1303,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     class="ant-divider ant-divider-vertical"
@@ -1302,7 +1327,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <br />,
   <br />,
@@ -1579,7 +1611,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Dark
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Dark
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        Light
+      </span>
     </span>
   </button>,
   <br />,

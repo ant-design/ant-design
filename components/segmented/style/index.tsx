@@ -84,7 +84,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationFast} ${token.motionEaseInOut}, background-color ${token.motionDurationFast} ${token.motionEaseInOut}`,
+        transition: `color ${token.motionDurationFast} ${token.motionEaseInOut}`,
         borderRadius: token.controlRadiusSM,
 
         '&-selected': {
@@ -92,17 +92,21 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.labelColorHover,
         },
 
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          top: 0,
+          insetInlineStart: 0,
+          borderRadius: token.controlRadiusSM,
+          transition: `background-color ${token.motionDurationFast}`,
+        },
+
         [`&:hover:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
           color: token.labelColorHover,
 
           '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: 0,
-            insetInlineStart: 0,
-            borderRadius: token.controlRadiusSM,
             backgroundColor: token.bgColorHover,
           },
         },
@@ -171,6 +175,11 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         height: '100%',
         padding: `${token.paddingXXS}px 0`,
         borderRadius: token.controlRadiusSM,
+
+        [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
+          {
+            backgroundColor: 'transparent',
+          },
       },
 
       // transition effect when `appear-active`

@@ -158,7 +158,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
     ...genHoverActiveButtonStyle(
       {
         color: token.colorErrorHover,
-        borderColor: token.colorErrorHover,
+        borderColor: token.colorErrorBorder,
       },
       {
         color: token.colorErrorActive,
@@ -288,10 +288,12 @@ const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
     ...genPureDisabledButtonStyle(token),
     ...genHoverActiveButtonStyle(
       {
-        color: token.colorError,
+        color: token.colorErrorHover,
+        backgroundColor: token.colorErrorBg,
       },
       {
-        color: token.colorError,
+        color: token.colorErrorHover,
+        backgroundColor: token.colorErrorBg,
       },
     ),
   },

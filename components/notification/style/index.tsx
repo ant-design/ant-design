@@ -19,6 +19,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginEdge: number;
   animationMaxHeight: number;
   notificationIconSize: number;
+  notificationCloseButtonSize: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
@@ -226,9 +227,17 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
           insetInlineEnd: token.notificationPaddingHorizontal,
           color: token.colorIcon,
           outline: 'none',
+          width: token.notificationCloseButtonSize,
+          height: token.notificationCloseButtonSize,
+          borderRadius: token.radiusSM,
+          transition: `background-color ${token.motionDurationFast}, color ${token.motionDurationFast}`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
 
           '&:hover': {
             color: token.colorIconHover,
+            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
           },
         },
 
@@ -266,6 +275,7 @@ export default genComponentStyleHook(
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
       notificationIconSize: token.fontSizeLG * token.lineHeightLG,
+      notificationCloseButtonSize: token.controlHeightLG * 0.55,
     });
 
     return [genNotificationStyle(notificationToken)];

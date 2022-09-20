@@ -99,7 +99,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlItemBgHover: mergedToken.colorFillTertiary,
     controlItemBgActive: mergedToken.colorPrimaryBg,
     controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
-    controlItemBgActiveDisabled: mergedToken.colorTextQuaternary,
+    controlItemBgActiveDisabled: mergedToken.colorFill,
     controlTmpOutline: mergedToken.colorFillQuaternary,
     controlOutline: getAlphaColor(mergedToken.colorPrimaryBg, mergedToken.colorBgContainer),
 

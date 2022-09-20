@@ -3,7 +3,7 @@ import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { clearFix, resetComponent } from '../../style';
+import { clearFix, genFocusStyle, resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -24,6 +24,7 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalContentBg: string;
   modalHeadingColor: string;
   modalCloseColor: string;
+  modalCloseBtnSize: number;
   modalFooterBg: string;
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
@@ -169,8 +170,8 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
         [`${componentCls}-close`]: {
           position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
+          top: (token.modalHeaderCloseSize - token.modalCloseBtnSize) / 2,
+          insetInlineEnd: (token.modalHeaderCloseSize - token.modalCloseBtnSize) / 2,
           zIndex: token.zIndexPopupBase + 10,
           padding: 0,
           color: token.modalCloseColor,
@@ -178,27 +179,35 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           lineHeight: 1,
           textDecoration: 'none',
           background: 'transparent',
+          borderRadius: token.radiusSM,
+          width: token.modalConfirmIconSize,
+          height: token.modalConfirmIconSize,
           border: 0,
           outline: 0,
           cursor: 'pointer',
-          transition: `color ${token.motionDurationSlow}`,
+          transition: `color ${token.motionDurationFast}, background-color ${token.motionDurationFast}`,
 
           '&-x': {
             display: 'block',
-            width: token.modalHeaderCloseSize,
-            height: token.modalHeaderCloseSize,
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${token.modalHeaderCloseSize}px`,
+            lineHeight: `${token.modalCloseBtnSize}px`,
             textAlign: 'center',
             textTransform: 'none',
             textRendering: 'auto',
           },
 
-          '&:focus, &:hover': {
+          '&:hover': {
             color: token.modalIconHoverColor,
+            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
             textDecoration: 'none',
           },
+
+          '&:active': {
+            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContentHover,
+          },
+
+          ...genFocusStyle(token),
         },
 
         [`${componentCls}-header`]: {
@@ -271,12 +280,15 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           fontWeight: token.fontWeightStrong,
           fontSize: token.modalHeaderTitleFontSize,
           lineHeight: token.modalHeaderTitleLineHeight,
+
+          [`+ ${confirmComponentCls}-content`]: {
+            marginBlockStart: token.marginXS,
+          },
         },
 
         [`${confirmComponentCls}-content`]: {
           color: token.colorText,
           fontSize: token.fontSizeBase,
-          marginBlockStart: token.marginXS,
         },
 
         [`> ${token.iconCls}`]: {
@@ -417,6 +429,7 @@ export default genComponentStyleHook('Modal', token => {
     modalConfirmTitleFontSize: token.fontSizeLG,
     modalIconHoverColor: token.colorIconHover,
     modalConfirmIconSize: token.fontSize * token.lineHeight,
+    modalCloseBtnSize: token.controlHeightLG * 0.55,
   });
   return [
     genModalStyle(modalToken),

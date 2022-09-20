@@ -228,7 +228,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
@@ -286,7 +293,14 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Long Text
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Long Text
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      />
     </span>
   </button>,
   <button
@@ -300,7 +314,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -313,7 +334,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -326,7 +354,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     class="ant-slider ant-slider-horizontal"
