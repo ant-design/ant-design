@@ -19,6 +19,7 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   prefixCls?: string;
   size?: SizeType;
   direction?: 'horizontal' | 'vertical';
+  block?: boolean;
 }
 
 const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = React.memo(
@@ -35,9 +36,10 @@ const Compact: React.FC<SpaceCompactProps> = props => {
   const {
     size = 'middle',
     direction,
+    block,
+    prefixCls: customizePrefixCls,
     className,
     children,
-    prefixCls: customizePrefixCls,
     ...otherProps
   } = props;
 
@@ -46,6 +48,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     prefixCls,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
+      [`${prefixCls}-block`]: block,
       [`${prefixCls}-vertical`]: direction === 'vertical',
     },
     className,

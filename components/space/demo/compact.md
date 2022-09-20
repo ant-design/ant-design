@@ -69,22 +69,11 @@ const options = [
 
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
-    <Space.Compact size="small">
+    <Space.Compact size="small" block>
       <Button type="primary">Button 1</Button>
     </Space.Compact>
     <br />
-    <Space.Compact size="small">
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} disabled />
-      </Tooltip>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} />
-      </Tooltip>
-    </Space.Compact>
-    <br />
-    <Space.Compact>
+    <Space.Compact size="small" block>
       <Button type="primary">Button 1</Button>
       <Button type="primary">Button 2</Button>
       <Tooltip title="Tooltip">
@@ -95,7 +84,18 @@ const App: React.FC = () => (
       </Tooltip>
     </Space.Compact>
     <br />
-    <Space.Compact size="large">
+    <Space.Compact block>
+      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 2</Button>
+      <Tooltip title="Tooltip">
+        <Button type="primary" icon={<DownloadOutlined />} disabled />
+      </Tooltip>
+      <Tooltip title="Tooltip">
+        <Button type="primary" icon={<DownloadOutlined />} />
+      </Tooltip>
+    </Space.Compact>
+    <br />
+    <Space.Compact size="large" block>
       <Button type="primary">Button 1</Button>
       <Button>Button 2</Button>
       <Tooltip title="Tooltip">
@@ -106,7 +106,7 @@ const App: React.FC = () => (
       </Tooltip>
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Button type="primary">Button 1</Button>
       <Dropdown
         placement="bottomRight"
@@ -134,27 +134,29 @@ const App: React.FC = () => (
       </Dropdown>
     </Space.Compact>
     <br />
-    <Space.Compact size="large">
+    <Space.Compact size="large" block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Input
         style={{ width: 'calc(100% - 200px)' }}
-        defaultValue="git@github.com:ant-design/ant-design.git"
+        addonBefore="git@"
+        defaultValue="github.com:ant-design/ant-design"
+        addonAfter=".git"
       />
       <Tooltip title="copy git url">
         <Button icon={<CopyOutlined />} />
       </Tooltip>
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select defaultValue="Zhejiang">
         <Option value="Zhejiang">Zhejiang</Option>
         <Option value="Jiangsu">Jiangsu</Option>
@@ -162,12 +164,18 @@ const App: React.FC = () => (
       <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
     <br />
-    <Space.Compact>
-      <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
+    <Space.Compact block>
+      <Input.Search
+        addonBefore="+86"
+        addonAfter="00"
+        allowClear
+        style={{ width: '40%' }}
+        defaultValue="0571"
+      />
       <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select defaultValue="Option1">
         <Option value="Option1">Option1</Option>
         <Option value="Option2">Option2</Option>
@@ -176,17 +184,17 @@ const App: React.FC = () => (
       <InputNumber />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Input style={{ width: '50%' }} defaultValue="input content" />
       <DatePicker style={{ width: '50%' }} />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Input style={{ width: '30%' }} defaultValue="input content" />
       <DatePicker.RangePicker style={{ width: '70%' }} />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select defaultValue="Option1-1">
         <Option value="Option1-1">Option1-1</Option>
         <Option value="Option1-2">Option1-2</Option>
@@ -197,7 +205,7 @@ const App: React.FC = () => (
       </Select>
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select defaultValue="1">
         <Option value="1">Between</Option>
         <Option value="2">Except</Option>
@@ -224,7 +232,7 @@ const App: React.FC = () => (
       />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select defaultValue="Sign Up" style={{ width: '30%' }}>
         <Option value="Sign Up">Sign Up</Option>
         <Option value="Sign In">Sign In</Option>
@@ -236,7 +244,7 @@ const App: React.FC = () => (
       />
     </Space.Compact>
     <br />
-    <Space.Compact>
+    <Space.Compact block>
       <Select style={{ width: '30%' }} defaultValue="Home">
         <Option value="Home">Home</Option>
         <Option value="Company">Company</Option>
