@@ -32,7 +32,7 @@ export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElem
 
 export interface FloatButtonGroupProps extends FloatButtonProps {
   // 包含的 Float Button
-  children?: React.ReactNode;
+  children: React.ReactNode;
   // 触发方式 (有触发方式为菜单模式）
   trigger?: FloatButtonGroupTrigger;
   // 受控展开

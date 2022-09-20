@@ -30,6 +30,13 @@ describe('FloatButton', () => {
     rerender(<FloatButton type={primaryType} />);
     expect(container.querySelector(`.ant-float-btn-${primaryType}`)).toBeTruthy();
   });
+  it('support shape', () => {
+    const [defaultShape, squareShape] = ['circle', 'square'] as const;
+    const { container, rerender } = render(<FloatButton shape={defaultShape} />);
+    expect(container.querySelector(`.ant-float-btn-${defaultShape}`)).toBeTruthy();
+    rerender(<FloatButton shape={squareShape} />);
+    expect(container.querySelector(`.ant-float-btn-${squareShape}`)).toBeTruthy();
+  });
   it('support onClick', () => {
     const onClick = jest.fn();
     const { container } = render(<FloatButton onClick={onClick} />);
