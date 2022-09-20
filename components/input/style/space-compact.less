@@ -1,248 +1,79 @@
-@space-compact-prefix-cls: ~'@{ant-prefix}-space-compact';
 @input-prefix-clx: ~'@{ant-prefix}-input';
 
 // input in Space.Compact styles
-.@{space-compact-prefix-cls} {
-  .space-compact(~'@{space-compact-prefix-cls}');
-}
-
-.space-compact(@spaceCompactClass) {
-  // Undo padding and float of grid classes
-  &[class*='col-'] {
-    float: none;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  > [class*='col-'] {
-    padding-right: 8px;
-
-    &:last-child {
-      padding-right: 0;
-    }
-  }
-
-  &-addon,
-  &-wrap,
-  > .@{ant-prefix}-input {
-    &:not(:first-child):not(:last-child) {
+.@{input-prefix-clx} {
+  &-compact-item {
+    &.@{input-prefix-clx} {
+      border-right-width: @border-width-base;
       border-radius: 0;
-    }
-  }
 
-  &-addon,
-  &-wrap {
-    width: 1px; // To make addon/wrap as small as possible
-    white-space: nowrap;
-    vertical-align: middle;
-  }
-
-  &-wrap > * {
-    display: block !important;
-  }
-
-  .@{ant-prefix}-input {
-    width: 100%;
-    margin-bottom: 0;
-    text-align: inherit;
-
-    &:focus {
-      z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
-      border-right-width: 1px;
-    }
-
-    &:hover {
-      z-index: 1;
-      border-right-width: 1px;
-      .@{ant-prefix}-input-search-with-button & {
-        z-index: 0;
-      }
-    }
-  }
-
-  &-addon {
-    position: relative;
-    padding: 0 @input-padding-horizontal-base;
-    color: @input-color;
-    font-weight: normal;
-    font-size: @font-size-base;
-    text-align: center;
-    background-color: @input-addon-bg;
-    border: @border-width-base @border-style-base @input-border-color;
-    border-radius: @control-border-radius;
-    transition: all 0.3s;
-
-    // Reset Select's style in addon
-    .@{ant-prefix}-select {
-      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
-
-      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
-        .@{ant-prefix}-select-selector {
-        background-color: inherit;
-        border: @border-width-base @border-style-base transparent;
-        box-shadow: none;
-      }
-
-      &-open,
-      &-focused {
-        .@{ant-prefix}-select-selector {
-          color: @primary-color;
-        }
-      }
-    }
-
-    // https://github.com/ant-design/ant-design/issues/31333
-    .@{ant-prefix}-cascader-picker {
-      margin: -9px (-@control-padding-horizontal);
-      background-color: transparent;
-      .@{ant-prefix}-cascader-input {
-        text-align: left;
-        border: 0;
-        box-shadow: none;
-      }
-    }
-  }
-
-  // Reset rounded corners
-  > .@{ant-prefix}-input:first-child,
-  &-addon:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-
-    // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  .@{ant-prefix}-select:not(.@{ant-prefix}select-customize-input) > .@{ant-prefix}-select-selector {
-    border-radius: 0;
-  }
-
-  > .@{ant-prefix}-input-affix-wrapper {
-    &:not(:first-child) .@{ant-prefix}-input {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &:not(:last-child) .@{ant-prefix}-input {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  &-addon:first-child {
-    border-right: 0;
-  }
-
-  &-addon:last-child {
-    border-left: 0;
-  }
-
-  > .@{ant-prefix}-input:last-child,
-  &-addon:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-    // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  // Sizing options
-  &-lg .@{ant-prefix}-input,
-  &-lg > &-addon {
-    .input-lg();
-  }
-
-  &-sm .@{ant-prefix}-input,
-  &-sm > &-addon {
-    .input-sm();
-  }
-
-  // Fix https://github.com/ant-design/ant-design/issues/5754
-  &-lg .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
-    height: @input-height-lg;
-  }
-
-  &-sm .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
-    height: @input-height-sm;
-  }
-
-  .@{ant-prefix}-input-affix-wrapper {
-    &:not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      .@{ant-prefix}-input-search & {
+      &.@{input-prefix-cls}-compact-first-item {
         border-top-left-radius: @control-border-radius;
         border-bottom-left-radius: @control-border-radius;
       }
-    }
 
-    &:not(:first-child),
-    .@{ant-prefix}-input-search &:not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  // ant-input-search
-  .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
-    margin-left: -1px;
-    .@{ant-prefix}-input-affix-wrapper {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
-  &-addon,
-  &-wrap,
-  > .@{ant-prefix}-input {
-    &:not(:first-child):not(:last-child) {
-      border-right-width: @border-width-base;
-
-      &:hover {
-        z-index: 1;
+      &.@{input-prefix-cls}-compact-last-item {
+        border-top-right-radius: @control-border-radius;
+        border-bottom-right-radius: @control-border-radius;
       }
 
-      &:focus {
-        z-index: 1;
+      &:not(.@{input-prefix-cls}-compact-last-item) {
+        margin-right: -@border-width-base;
+        border-right-width: @border-width-base;
       }
     }
   }
+}
 
-  & > * {
-    display: inline-block;
-    float: none;
-    vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
-    border-radius: 0;
+.@{ant-prefix}-input {
+  width: 100%;
+  margin-bottom: 0;
+  text-align: inherit;
+
+  &:focus {
+    z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+    border-right-width: 1px;
   }
 
-  & > .@{ant-prefix}-input-affix-wrapper {
-    display: inline-flex;
+  &:hover {
+    z-index: 1;
+    border-right-width: 1px;
+    .@{ant-prefix}-input-search-with-button & {
+      z-index: 0;
+    }
   }
+}
 
-  & > .@{ant-prefix}-picker-range {
-    display: inline-flex;
-  }
-
+.@{ant-prefix}-space-compact {
   & > *:not(:last-child) {
     margin-right: -@border-width-base;
     border-right-width: @border-width-base;
   }
 
-  // Undo float for .ant-input-group .ant-input
-  .@{ant-prefix}-input {
-    float: none;
+  .@{ant-prefix}-select:not(:first-child):not(.@{ant-prefix}-select-customize-input) {
+    .ant-select-selector {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
+}
 
-  // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
+// ant-input-search
+.@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+  margin-left: -1px;
+  .@{ant-prefix}-input-affix-wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
+.@{ant-prefix}-space-compact {
   & > .@{ant-prefix}-select > .@{ant-prefix}-select-selector,
   & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input,
   & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
+  & > .@{ant-prefix}-picker,
+  & > .@{ant-prefix}-picker-range,
   & > .@{ant-prefix}-input {
     border-right-width: @border-width-base;
     border-radius: 0;
@@ -265,45 +96,80 @@
     z-index: 1; // https://github.com/ant-design/ant-design/issues/20371
   }
 
-  & > *:first-child,
-  & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
-  & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
-  & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
-    border-top-left-radius: @control-border-radius;
-    border-bottom-left-radius: @control-border-radius;
-  }
-
-  & > input:last-child,
-  & > .@{ant-prefix}-btn-compact-last-item,
-  & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
-  & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
-  & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
-    border-right-width: @border-width-base;
-    border-top-right-radius: @control-border-radius;
-    border-bottom-right-radius: @control-border-radius;
-  }
-
-  // https://github.com/ant-design/ant-design/issues/12493
-  & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
-    vertical-align: top;
-  }
-
-  .@{ant-prefix}-input-group-wrapper:not(:last-child) {
-    &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
-      & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
-        border-radius: 0;
-      }
-
-      & > .@{ant-prefix}-input {
-        border-radius: @control-border-radius 0 0 @control-border-radius;
-      }
+  // https://github.com/ant-design/ant-design/issues/31333
+  .@{ant-prefix}-cascader-picker {
+    margin: -9px (-@control-padding-horizontal);
+    background-color: transparent;
+    .@{ant-prefix}-cascader-input {
+      text-align: left;
+      border: 0;
+      box-shadow: none;
     }
   }
+}
 
-  .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
-    .@{ant-prefix}-input-affix-wrapper {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+.@{ant-prefix}-input-group-wrapper:not(:last-child) {
+  &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
+    & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
+      border-radius: 0;
     }
+
+    & > .@{ant-prefix}-input {
+      border-radius: @control-border-radius 0 0 @control-border-radius;
+    }
+  }
+}
+
+.@{ant-prefix}-input-group-wrapper.@{ant-prefix}-input-search
+  + .@{ant-prefix}-input-group-wrapper.@{ant-prefix}-input-search {
+  .@{ant-prefix}-input-affix-wrapper {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// Reset rounded corners
+.@{ant-prefix}-select:first-child:not(:last-child) {
+  > .@{ant-prefix}-select-selector {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  // Reset Select's style in addon
+  .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+> .@{ant-prefix}-input-affix-wrapper {
+  &:not(:first-child) .@{ant-prefix}-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &:not(:last-child) .@{ant-prefix}-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+&-addon:first-child {
+  border-right: 0;
+}
+
+&-addon:last-child {
+  border-left: 0;
+}
+
+> .@{ant-prefix}-input:last-child,
+&-addon:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  // Reset Select's style in addon
+  .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
