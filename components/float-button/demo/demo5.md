@@ -19,7 +19,7 @@ import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group trigger="click">
+  <FloatButton.Group trigger="hover">
     <FloatButton />
     <FloatButton />
     <FloatButton />

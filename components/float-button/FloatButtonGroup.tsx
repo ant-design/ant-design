@@ -60,10 +60,12 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
-  const actionsRef = useRef<React.HTMLAttributes<HTMLDivElement>>({});
+  const clickAction = useRef<React.HTMLAttributes<HTMLDivElement>>({});
+
+  const hoverAction = useRef<React.HTMLAttributes<HTMLDivElement>>({});
 
   if (trigger === 'click') {
-    actionsRef.current = {
+    clickAction.current = {
       onClick() {
         setOpen(prevState => {
           onOpenChange?.(!prevState);
@@ -74,7 +76,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   }
 
   if (trigger === 'hover') {
-    actionsRef.current = {
+    hoverAction.current = {
       onMouseEnter() {
         setOpen(true);
         onOpenChange?.(true);
@@ -90,7 +92,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
 
   const tiggerElement = (
-    <div className={classStringMenu} {...actionsRef.current}>
+    <div className={classStringMenu} {...clickAction.current}>
       <div className={`${prefixCls}-body`}>
         <div className={classNames(`${prefixCls}-icon`, `${prefixCls}-${type}-icon`)}>
           {open ? closeIcon : icon}
@@ -101,7 +103,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   return wrapSSR(
     <FloatButtonGroupProvider value={providerValue}>
-      <div className={classString}>
+      <div className={classString} {...hoverAction.current}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
             {open && <div className={wrapClsString}>{children}</div>}

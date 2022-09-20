@@ -41,15 +41,13 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       borderRadius: token.radiusSM,
       [`${groupPrefixCls}-wrap`]: {
         display: 'block',
+        marginBottom: margin,
       },
       '&&-rtl': {
         direction: 'rtl',
       },
       [componentCls]: {
         position: 'static',
-      },
-      [`${componentCls}-tigger`]: {
-        marginTop: margin,
       },
       [`${componentCls}-square-tigger`]: {
         borderRadius: `${radiusBase}px !important`,
