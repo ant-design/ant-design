@@ -188,7 +188,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -3433,7 +3433,7 @@ Array [
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                                 data-menu-list="true"
                                 role="menu"
                                 tabindex="0"
@@ -7757,7 +7757,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               </span>
                             </div>
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -8583,7 +8583,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               </span>
                             </div>
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -12069,7 +12069,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -13485,7 +13485,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -13638,7 +13638,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                 </div>
                                 <div>
                                   <div
-                                    class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu"
+                                    class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-table-filter-dropdown-submenu ant-dropdown-menu-light"
                                     style="opacity: 0;"
                                   >
                                     <ul
@@ -14004,7 +14004,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                             class="ant-table-filter-dropdown"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -16567,7 +16567,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -16787,7 +16787,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -17007,7 +17007,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -17617,7 +17617,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -17837,7 +17837,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -18057,7 +18057,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -18667,7 +18667,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -18887,7 +18887,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -19107,7 +19107,7 @@ Array [
                                                   style="opacity: 0;"
                                                 >
                                                   <ul
-                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                                    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                                                     data-menu-list="true"
                                                     role="menu"
                                                     tabindex="0"
@@ -20586,7 +20586,7 @@ Array [
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                                 data-menu-list="true"
                                 role="menu"
                                 tabindex="0"
@@ -20981,7 +20981,7 @@ Array [
                               class="ant-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-without-submenu"
+                                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
                                 data-menu-list="true"
                                 role="menu"
                                 tabindex="0"
@@ -22940,7 +22940,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                             style="opacity: 0;"
                           >
                             <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"

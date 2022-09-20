@@ -7,6 +7,7 @@ export interface MenuContextProps {
   prefixCls: string;
   inlineCollapsed: boolean;
   direction?: DirectionType;
+  theme?: MenuTheme;
   firstLevel: boolean;
   /** @private Internal Usage. Safe to remove */
   disableMenuItemTitleTooltip?: boolean;

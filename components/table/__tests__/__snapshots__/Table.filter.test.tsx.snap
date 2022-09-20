@@ -557,7 +557,7 @@ exports[`Table.filter renders menu correctly 1`] = `
   class="ant-table-filter-dropdown"
 >
   <ul
-    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -699,7 +699,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
   class="ant-table-filter-dropdown"
 >
   <ul
-    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical"
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
     data-menu-list="true"
     role="menu"
     tabindex="0"

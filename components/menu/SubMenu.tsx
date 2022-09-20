@@ -24,14 +24,13 @@ export interface SubMenuProps {
   popupOffset?: [number, number];
   popupClassName?: string;
   children?: React.ReactNode;
-  // FIXME: not implemented in v5 yet
   theme?: MenuTheme;
 }
 
 function SubMenu(props: SubMenuProps) {
-  const { popupClassName, icon, title } = props;
+  const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed } = context;
+  const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
 
   const parentPath = useFullPath();
 
@@ -74,7 +73,11 @@ function SubMenu(props: SubMenuProps) {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
-        popupClassName={classNames(prefixCls, popupClassName)}
+        popupClassName={classNames(
+          prefixCls,
+          popupClassName,
+          `${prefixCls}-${customTheme || contextTheme}`,
+        )}
       />
     </MenuContext.Provider>
   );

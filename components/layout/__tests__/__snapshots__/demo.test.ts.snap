@@ -138,7 +138,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -296,7 +296,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -461,7 +461,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -975,7 +975,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-inline-collapsed"
+        class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1182,7 +1182,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1470,7 +1470,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1774,7 +1774,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1920,7 +1920,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
             data-menu-list="true"
             role="menu"
             style="height: 100%;"
@@ -2148,7 +2148,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       class="logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -2246,7 +2246,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
           style="height: 100%; border-right: 0;"
