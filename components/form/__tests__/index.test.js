@@ -1522,7 +1522,6 @@ describe('Form', () => {
     const App = () => <Form disabled>{renderComps(false)}</Form>;
 
     const wrapper = render(<App />);
-    console.log(wrapper.container.innerHTML);
     expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 

@@ -48,7 +48,8 @@ exports[`renders ./components/switch/demo/loading.md extend context correctly 1`
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-loading ant-switch-checked"
+    class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >
@@ -82,7 +83,8 @@ Array [
   <br />,
   <button
     aria-checked="false"
-    class="ant-switch ant-switch-small ant-switch-loading"
+    class="ant-switch ant-switch-small ant-switch-loading ant-switch-disabled"
+    disabled=""
     role="switch"
     type="button"
   >

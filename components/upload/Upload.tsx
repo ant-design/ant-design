@@ -449,7 +449,6 @@ Upload.defaultProps = {
   showUploadList: true,
   listType: 'text' as UploadListType, // or picture
   className: '',
-  disabled: false,
   supportServerRender: true,
 };
 
