@@ -203,7 +203,7 @@ function useFilter<RecordType>({
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
   FilterState<RecordType>[],
-  () => Record<string, FilterValue | null>,
+  Record<string, FilterValue | null>,
 ] {
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
     collectFilterStates(mergedColumns, true),
@@ -235,10 +235,7 @@ function useFilter<RecordType>({
     return collectedStates;
   }, [mergedColumns, filterStates]);
 
-  const getFilters = React.useCallback(
-    () => generateFilterInfo(mergedFilterStates),
-    [mergedFilterStates],
-  );
+  const filters = React.useMemo(() => generateFilterInfo(mergedFilterStates), [mergedFilterStates]);
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
     const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
@@ -258,7 +255,7 @@ function useFilter<RecordType>({
       tableLocale,
     );
 
-  return [transformColumns, mergedFilterStates, getFilters];
+  return [transformColumns, mergedFilterStates, filters];
 }
 
 export default useFilter;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert action of Alert custom action 1`] = `
+exports[`Alert custom action 1`] = `
 <div
   class="ant-alert ant-alert-success"
   data-show="true"
@@ -74,29 +74,6 @@ exports[`Alert action of Alert custom action 1`] = `
 </div>
 `;
 
-exports[`Alert could accept none react element icon 1`] = `
-<div
-  class="ant-alert ant-alert-success"
-  data-show="true"
-  role="alert"
->
-  <span
-    class="ant-alert-icon"
-  >
-    icon
-  </span>
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Success Tips
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
@@ -106,32 +83,5 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
   <div
     class="ant-alert-content"
   />
-</div>
-`;
-
-exports[`Alert support closeIcon 1`] = `
-<div
-  class="ant-alert ant-alert-warning ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
-    </div>
-  </div>
-  <button
-    class="ant-alert-close-icon"
-    tabindex="0"
-    type="button"
-  >
-    <span>
-      close
-    </span>
-  </button>
 </div>
 `;

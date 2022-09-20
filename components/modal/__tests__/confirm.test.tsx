@@ -850,4 +850,44 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     jest.useRealTimers();
   });
+
+  // https://github.com/ant-design/ant-design/issues/37461
+  it('Update should closable', async () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    jest.useFakeTimers();
+
+    const modal = Modal.confirm({});
+
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < 3; i += 1) {
+      modal.update({
+        visible: true,
+      });
+
+      await act(async () => {
+        jest.runAllTimers();
+        await sleep();
+      });
+
+      expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
+
+      $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+
+      await act(async () => {
+        jest.runAllTimers();
+        await sleep();
+      });
+
+      expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
+    }
+    /* eslint-enable */
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
+    );
+
+    jest.useRealTimers();
+    errSpy.mockRestore();
+  });
 });

@@ -117,7 +117,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Hover me
     </div>
@@ -151,7 +151,7 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 <div
   class="ant-dropdown-trigger site-dropdown-context-menu"
-  style="text-align:center;height:200px;line-height:200px"
+  style="text-align: center; height: 200px; line-height: 200px;"
 >
   Right Click on here
 </div>
@@ -160,11 +160,11 @@ exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -205,7 +205,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -246,7 +246,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -289,7 +289,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -334,7 +334,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -345,7 +345,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           Button
         </div>
@@ -377,7 +377,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="padding-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -428,7 +428,7 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Hover me, Click menu item
     </div>
@@ -468,7 +468,7 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Hover me
     </div>
@@ -505,7 +505,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -516,10 +516,11 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
       >
         <span
           class="ant-btn-loading-icon"
+          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
+            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
             role="img"
           >
             <svg
@@ -569,7 +570,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-btn-group-sm ant-dropdown-button"
@@ -580,10 +581,11 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
       >
         <span
           class="ant-btn-loading-icon"
+          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin"
+            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
             role="img"
           >
             <svg
@@ -633,7 +635,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-btn-group ant-dropdown-button"
@@ -724,7 +726,7 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Hover to check menu style
     </div>
@@ -764,7 +766,7 @@ exports[`renders ./components/dropdown/demo/overlay-open.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Hover me
     </div>
@@ -801,15 +803,15 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -822,7 +824,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -835,7 +837,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
+        style="padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -853,11 +855,11 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -870,7 +872,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -883,7 +885,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
+        style="padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -908,7 +910,7 @@ exports[`renders ./components/dropdown/demo/selectable.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Selectable
     </div>
@@ -948,7 +950,7 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Cascading menu
     </div>
@@ -988,7 +990,7 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Click me
     </div>

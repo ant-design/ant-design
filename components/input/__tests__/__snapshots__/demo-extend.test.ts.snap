@@ -6,7 +6,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -34,7 +34,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -55,16 +55,17 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -79,19 +80,19 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             </div>
             <div>
               <div
-                class="ant-select-dropdown"
-                style="opacity:0"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <div>
                   <div
-                    id="undefined_list"
+                    id="rc_select_test_list"
                     role="listbox"
-                    style="height:0;width:0;overflow:hidden"
+                    style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label="http://"
                       aria-selected="true"
-                      id="undefined_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       http://
@@ -99,7 +100,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label="https://"
                       aria-selected="false"
-                      id="undefined_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       https://
@@ -107,16 +108,16 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                   </div>
                   <div
                     class="rc-virtual-list"
-                    style="position:relative"
+                    style="position: relative;"
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          style="display:flex;flex-direction:column"
+                          style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="true"
@@ -131,7 +132,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -148,7 +149,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -162,7 +163,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -205,16 +206,17 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="undefined_list_0"
+                  aria-activedescendant="rc_select_test_list_test"
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -229,19 +231,19 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             </div>
             <div>
               <div
-                class="ant-select-dropdown"
-                style="opacity:0"
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <div>
                   <div
-                    id="undefined_list"
+                    id="rc_select_test_list"
                     role="listbox"
-                    style="height:0;width:0;overflow:hidden"
+                    style="height: 0px; width: 0px; overflow: hidden;"
                   >
                     <div
                       aria-label=".com"
                       aria-selected="true"
-                      id="undefined_list_0"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       .com
@@ -249,7 +251,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                     <div
                       aria-label=".jp"
                       aria-selected="false"
-                      id="undefined_list_1"
+                      id="rc_select_test_list_test"
                       role="option"
                     >
                       .jp
@@ -257,16 +259,16 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                   </div>
                   <div
                     class="rc-virtual-list"
-                    style="position:relative"
+                    style="position: relative;"
                   >
                     <div
                       class="rc-virtual-list-holder"
-                      style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                      style="max-height: 256px; overflow-y: auto;"
                     >
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          style="display:flex;flex-direction:column"
+                          style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="true"
@@ -281,7 +283,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -298,7 +300,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -315,7 +317,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -332,7 +334,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <span
                               aria-hidden="true"
                               class="ant-select-item-option-state"
-                              style="user-select:none;-webkit-user-select:none"
+                              style="user-select: none;"
                               unselectable="on"
                             />
                           </div>
@@ -346,7 +348,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -376,7 +378,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -417,7 +419,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper"
@@ -461,7 +463,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
         >
           <div
             class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-            style="width:150px"
+            style="width: 150px;"
           >
             <div
               class="ant-select-selector"
@@ -471,14 +473,15 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="rc_select_test_list"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="rc_select_test_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity:0"
+                  style="opacity: 0;"
                   type="search"
                   unselectable="on"
                   value=""
@@ -492,8 +495,8 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             </div>
             <div>
               <div
-                class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-                style="opacity:0"
+                class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <div>
                   <div
@@ -568,7 +571,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -608,7 +611,7 @@ exports[`renders ./components/input/demo/align.md extend context correctly 1`] =
 Array [
   <div
     class="ant-mentions"
-    style="width:100px"
+    style="width: 100px;"
   >
     <textarea
       class="rc-textarea"
@@ -618,7 +621,7 @@ Array [
   <textarea
     class="ant-input"
     rows="1"
-    style="width:100px"
+    style="width: 100px;"
   />,
   <button
     class="ant-btn ant-btn-primary"
@@ -630,7 +633,7 @@ Array [
   </button>,
   <input
     class="ant-input"
-    style="width:100px"
+    style="width: 100px;"
     type="text"
     value=""
   />,
@@ -642,7 +645,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -667,8 +670,8 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -692,7 +695,7 @@ Array [
   </span>,
   <span
     class="ant-input-affix-wrapper"
-    style="width:100px"
+    style="width: 100px;"
   >
     <span
       class="ant-input-prefix"
@@ -712,7 +715,7 @@ Array [
   </span>,
   <span
     class="ant-input-group-wrapper"
-    style="width:100px"
+    style="width: 100px;"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -736,7 +739,7 @@ Array [
   </span>,
   <div
     class="ant-input-number"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -810,7 +813,7 @@ Array [
   </div>,
   <div
     class="ant-picker"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-picker-input"
@@ -850,8 +853,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
-      style="opacity:0"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1404,7 +1407,7 @@ Array [
   </div>,
   <div
     class="ant-picker"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-picker-input"
@@ -1447,8 +1450,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
-      style="opacity:0"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-panel-container"
@@ -1465,7 +1468,7 @@ Array [
             >
               <ul
                 class="ant-picker-time-panel-column"
-                style="position:relative"
+                style="position: relative;"
               >
                 <li
                   class="ant-picker-time-panel-cell"
@@ -1686,7 +1689,7 @@ Array [
               </ul>
               <ul
                 class="ant-picker-time-panel-column"
-                style="position:relative"
+                style="position: relative;"
               >
                 <li
                   class="ant-picker-time-panel-cell"
@@ -2231,7 +2234,7 @@ Array [
               </ul>
               <ul
                 class="ant-picker-time-panel-column"
-                style="position:relative"
+                style="position: relative;"
               >
                 <li
                   class="ant-picker-time-panel-cell"
@@ -2812,7 +2815,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-select-selector"
@@ -2821,16 +2824,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_test_list_test"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -2845,19 +2849,19 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown"
-        style="opacity:0"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0;"
       >
         <div>
           <div
-            id="undefined_list"
+            id="rc_select_test_list"
             role="listbox"
-            style="height:0;width:0;overflow:hidden"
+            style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
               aria-label="Jack"
               aria-selected="true"
-              id="undefined_list_0"
+              id="rc_select_test_list_test"
               role="option"
             >
               jack
@@ -2865,7 +2869,7 @@ Array [
             <div
               aria-label="Lucy"
               aria-selected="false"
-              id="undefined_list_1"
+              id="rc_select_test_list_test"
               role="option"
             >
               lucy
@@ -2873,16 +2877,16 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
-            style="position:relative"
+            style="position: relative;"
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="true"
@@ -2897,7 +2901,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -2914,7 +2918,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -2931,7 +2935,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -2948,7 +2952,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select:none;-webkit-user-select:none"
+                      style="user-select: none;"
                       unselectable="on"
                     />
                   </div>
@@ -2962,7 +2966,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -2988,7 +2992,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-select-selector"
@@ -2998,14 +3002,15 @@ Array [
       >
         <input
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -3017,8 +3022,8 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0;"
       >
         <div>
           <div
@@ -3078,7 +3083,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -3113,14 +3118,15 @@ Array [
       >
         <input
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -3135,8 +3141,8 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
+        class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0; min-width: auto;"
       >
         <div>
           <div
@@ -3226,7 +3232,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -3252,7 +3258,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-clear"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -3331,7 +3337,7 @@ Array [
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
+      style="left: 0px; width: 0px; position: absolute;"
     />
     <span
       class="ant-picker-suffix"
@@ -3359,20 +3365,20 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0"
+      class="ant-picker-dropdown ant-picker-dropdown-range ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
-        style="min-width:0"
+        style="min-width: 0;"
       >
         <div
           class="ant-picker-range-arrow"
-          style="left:0"
+          style="left: 0px;"
         />
         <div
           class="ant-picker-panel-container"
-          style="margin-left:0"
+          style="margin-left: 0px;"
         >
           <div
             class="ant-picker-panels"
@@ -3425,7 +3431,7 @@ Array [
                   </div>
                   <button
                     class="ant-picker-header-next-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -3435,7 +3441,7 @@ Array [
                   </button>
                   <button
                     class="ant-picker-header-super-next-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -3925,7 +3931,7 @@ Array [
                 >
                   <button
                     class="ant-picker-header-super-prev-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -3935,7 +3941,7 @@ Array [
                   </button>
                   <button
                     class="ant-picker-header-prev-btn"
-                    style="visibility:hidden"
+                    style="visibility: hidden;"
                     tabindex="-1"
                     type="button"
                   >
@@ -4495,8 +4501,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown"
-      style="opacity:0"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-panel-container"
@@ -4728,7 +4734,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-    style="width:100px"
+    style="width: 100px;"
   >
     <div
       class="ant-select-selector"
@@ -4737,13 +4743,14 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_test_list_-test"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_test_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_test_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_test"
           role="combobox"
           type="search"
           value=""
@@ -4757,13 +4764,13 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-select-dropdown-empty"
-        style="opacity:0"
+        class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0;"
       >
         <div>
           <div
             class="ant-select-item-empty"
-            id="undefined_list"
+            id="rc_select_test_list"
             role="listbox"
           />
         </div>
@@ -4805,7 +4812,7 @@ Array [
   </span>,
   <span
     class="ant-input-affix-wrapper"
-    style="width:50px"
+    style="width: 50px;"
   >
     <input
       class="ant-input"
@@ -4820,13 +4827,13 @@ Array [
   </span>,
   <input
     class="ant-input"
-    style="width:50px"
+    style="width: 50px;"
     type="text"
     value=""
   />,
   <span
     class="ant-input-affix-wrapper"
-    style="width:50px"
+    style="width: 50px;"
   >
     <input
       class="ant-input"
@@ -4923,14 +4930,14 @@ Array [
     placeholder="Autosize height based on content lines"
   />,
   <div
-    style="margin:24px 0"
+    style="margin: 24px 0px;"
   />,
   <textarea
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
   />,
   <div
-    style="margin:24px 0"
+    style="margin: 24px 0px;"
   />,
   <textarea
     class="ant-input"
@@ -4959,7 +4966,7 @@ exports[`renders ./components/input/demo/borderless.md extend context correctly 
 
 exports[`renders ./components/input/demo/borderless-debug.md extend context correctly 1`] = `
 <div
-  style="background-color:rgba(0, 0, 128, .2)"
+  style="background-color: rgba(0, 0, 128, 0.2);"
 >
   <input
     class="ant-input ant-input-borderless"
@@ -5089,19 +5096,19 @@ exports[`renders ./components/input/demo/borderless-debug.md extend context corr
 exports[`renders ./components/input/demo/focus.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5114,7 +5121,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5127,7 +5134,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5140,7 +5147,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5153,7 +5160,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
+        style="padding-bottom: 8px;"
       >
         <button
           aria-checked="true"
@@ -5175,7 +5182,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <br />
   </div>
@@ -5184,7 +5191,7 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:100%"
+      style="width: 100%;"
       type="text"
       value="Ant Design love you!"
     />
@@ -5201,11 +5208,11 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <div
       class="ant-row"
-      style="margin-left:-4px;margin-right:-4px"
+      style="margin-left: -4px; margin-right: -4px;"
     >
       <div
         class="ant-col ant-col-5"
-        style="padding-left:4px;padding-right:4px"
+        style="padding-left: 4px; padding-right: 4px;"
       >
         <input
           class="ant-input"
@@ -5215,7 +5222,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:4px;padding-right:4px"
+        style="padding-left: 4px; padding-right: 4px;"
       >
         <input
           class="ant-input"
@@ -5231,13 +5238,13 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:20%"
+      style="width: 20%;"
       type="text"
       value="0571"
     />
     <input
       class="ant-input"
-      style="width:30%"
+      style="width: 30%;"
       type="text"
       value="26888888"
     />
@@ -5248,7 +5255,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:calc(100% - 200px)"
+      style="width: calc(100% - 200px);"
       type="text"
       value="https://ant.design"
     />
@@ -5267,7 +5274,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:calc(100% - 200px)"
+      style="width: calc(100% - 200px);"
       type="text"
       value="git@github.com:ant-design/ant-design.git"
     />
@@ -5297,8 +5304,8 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </button>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -5334,16 +5341,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -5358,19 +5366,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Zhejiang"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Zhejiang
@@ -5378,7 +5386,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Jiangsu"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Jiangsu
@@ -5386,16 +5394,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -5410,7 +5418,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5427,7 +5435,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5441,7 +5449,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -5467,7 +5475,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <input
       class="ant-input"
-      style="width:50%"
+      style="width: 50%;"
       type="text"
       value="Xihu District, Hangzhou"
     />
@@ -5478,7 +5486,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:40%"
+      style="width: 40%;"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -5553,7 +5561,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </span>
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:40%"
+      style="width: 40%;"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -5641,16 +5649,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -5665,19 +5674,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Option1"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1
@@ -5685,7 +5694,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option2"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2
@@ -5693,16 +5702,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -5717,7 +5726,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5734,7 +5743,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -5748,7 +5757,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -5774,7 +5783,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <input
       class="ant-input"
-      style="width:50%"
+      style="width: 50%;"
       type="text"
       value="input content"
     />
@@ -5858,13 +5867,13 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:50%"
+      style="width: 50%;"
       type="text"
       value="input content"
     />
     <div
       class="ant-picker"
-      style="width:50%"
+      style="width: 50%;"
     >
       <div
         class="ant-picker-input"
@@ -5904,8 +5913,8 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <div>
       <div
-        class="ant-picker-dropdown"
-        style="opacity:0"
+        class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0;"
       >
         <div
           class="ant-picker-panel-container"
@@ -6463,13 +6472,13 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <input
       class="ant-input"
-      style="width:30%"
+      style="width: 30%;"
       type="text"
       value="input content"
     />
     <div
       class="ant-picker ant-picker-range"
-      style="width:70%"
+      style="width: 70%;"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -6523,7 +6532,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="left: 0px; width: 0px; position: absolute;"
       />
       <span
         class="ant-picker-suffix"
@@ -6551,20 +6560,20 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <div>
       <div
-        class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0"
+        class="ant-picker-dropdown ant-picker-dropdown-range ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+        style="opacity: 0;"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
-          style="min-width:0"
+          style="min-width: 0;"
         >
           <div
             class="ant-picker-range-arrow"
-            style="left:0"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container"
-            style="margin-left:0"
+            style="margin-left: 0px;"
           >
             <div
               class="ant-picker-panels"
@@ -6617,7 +6626,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                     </div>
                     <button
                       class="ant-picker-header-next-btn"
-                      style="visibility:hidden"
+                      style="visibility: hidden;"
                       tabindex="-1"
                       type="button"
                     >
@@ -6627,7 +6636,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                     </button>
                     <button
                       class="ant-picker-header-super-next-btn"
-                      style="visibility:hidden"
+                      style="visibility: hidden;"
                       tabindex="-1"
                       type="button"
                     >
@@ -7117,7 +7126,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                   >
                     <button
                       class="ant-picker-header-super-prev-btn"
-                      style="visibility:hidden"
+                      style="visibility: hidden;"
                       tabindex="-1"
                       type="button"
                     >
@@ -7127,7 +7136,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                     </button>
                     <button
                       class="ant-picker-header-prev-btn"
-                      style="visibility:hidden"
+                      style="visibility: hidden;"
                       tabindex="-1"
                       type="button"
                     >
@@ -7661,16 +7670,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -7685,19 +7695,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Option1-1"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1-1
@@ -7705,7 +7715,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option1-2"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option1-2
@@ -7713,16 +7723,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -7737,7 +7747,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -7754,7 +7764,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -7768,7 +7778,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -7802,16 +7812,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -7826,19 +7837,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Option2-1"
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2-1
@@ -7846,7 +7857,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Option2-2"
                 aria-selected="true"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Option2-2
@@ -7854,16 +7865,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
@@ -7878,7 +7889,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -7895,7 +7906,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -7909,7 +7920,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -7948,16 +7959,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -7972,19 +7984,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Between"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 1
@@ -7992,7 +8004,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Except"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 2
@@ -8000,16 +8012,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -8024,7 +8036,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8041,7 +8053,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8055,7 +8067,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -8082,7 +8094,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     <input
       class="ant-input"
       placeholder="Minimum"
-      style="width:100px;text-align:center"
+      style="width: 100px; text-align: center;"
       type="text"
       value=""
     />
@@ -8090,14 +8102,14 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       class="ant-input ant-input-disabled site-input-split"
       disabled=""
       placeholder="~"
-      style="width:30px;border-left:0;border-right:0;pointer-events:none"
+      style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
       type="text"
       value=""
     />
     <input
       class="ant-input site-input-right"
       placeholder="Maximum"
-      style="width:100px;text-align:center"
+      style="width: 100px; text-align: center;"
       type="text"
       value=""
     />
@@ -8108,7 +8120,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
-      style="width:30%"
+      style="width: 30%;"
     >
       <div
         class="ant-select-selector"
@@ -8117,16 +8129,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -8141,19 +8154,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Sign Up"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Sign Up
@@ -8161,7 +8174,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Sign In"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Sign In
@@ -8169,16 +8182,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -8193,7 +8206,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8210,7 +8223,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8224,7 +8237,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -8250,7 +8263,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <div
       class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-      style="width:70%"
+      style="width: 70%;"
     >
       <div
         class="ant-select-selector"
@@ -8259,13 +8272,14 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_-test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             role="combobox"
             type="search"
             value=""
@@ -8279,46 +8293,39 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-selected="false"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 text 1
               </div>
-              <div
-                aria-selected="false"
-                id="undefined_list_1"
-                role="option"
-              >
-                text 2
-              </div>
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
-                      class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                      class="ant-select-item ant-select-item-option"
                       title="text 1"
                     >
                       <div
@@ -8329,7 +8336,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8346,7 +8353,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8365,7 +8372,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
-      style="width:30%"
+      style="width: 30%;"
     >
       <div
         class="ant-select-selector"
@@ -8374,16 +8381,17 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -8398,19 +8406,19 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="Home"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Home
@@ -8418,7 +8426,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
               <div
                 aria-label="Company"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 Company
@@ -8426,16 +8434,16 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -8450,7 +8458,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8467,7 +8475,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -8481,7 +8489,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -8507,7 +8515,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
     </div>
     <div
       class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-      style="width:70%"
+      style="width: 70%;"
     >
       <div
         class="ant-select-selector"
@@ -8517,14 +8525,15 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -8538,8 +8547,8 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-cascader-dropdown"
-          style="opacity:0;min-width:auto"
+          class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0; min-width: auto;"
         >
           <div>
             <div
@@ -8629,7 +8638,7 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -8663,7 +8672,7 @@ exports[`renders ./components/input/demo/password-input.md extend context correc
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -8790,7 +8799,7 @@ Array [
         aria-label="info-circle"
         class="anticon anticon-info-circle"
         role="img"
-        style="color:rgba(0,0,0,.45)"
+        style="color: rgba(0, 0, 0, 0.45);"
       >
         <svg
           aria-hidden="true"
@@ -8811,8 +8820,8 @@ Array [
       </span>
       <div>
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+          style="opacity: 0;"
         >
           <div
             class="ant-tooltip-content"
@@ -8887,11 +8896,11 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:200px"
+      style="width: 200px;"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -8935,11 +8944,11 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:200px"
+      style="width: 200px;"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9016,11 +9025,11 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
-      style="width:304px"
+      style="width: 304px;"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9102,7 +9111,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
@@ -9149,7 +9158,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
@@ -9236,7 +9245,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
               aria-label="audio"
               class="anticon anticon-audio"
               role="img"
-              style="font-size:16px;color:#1890ff"
+              style="font-size: 16px; color: rgb(24, 144, 255);"
             >
               <svg
                 aria-hidden="true"
@@ -9391,10 +9400,11 @@ Array [
         >
           <span
             class="ant-btn-loading-icon"
+            style="width: 0px; opacity: 0; transform: scale(0);"
           >
             <span
               aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
+              class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
               role="img"
             >
               <svg
@@ -9567,11 +9577,11 @@ Array [
 exports[`renders ./components/input/demo/status.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <input
       class="ant-input ant-input-status-error"
@@ -9582,7 +9592,7 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <input
       class="ant-input ant-input-status-warning"
@@ -9593,7 +9603,7 @@ exports[`renders ./components/input/demo/status.md extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
@@ -9695,7 +9705,7 @@ exports[`renders ./components/input/demo/textarea-resize.md extend context corre
 Array [
   <button
     class="ant-btn ant-btn-default"
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
     type="button"
   >
     <span>
@@ -9710,7 +9720,7 @@ Array [
   </textarea>,
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
-    style="width:93px"
+    style="width: 93px;"
   >
     <textarea
       class="ant-input"
@@ -9743,7 +9753,7 @@ exports[`renders ./components/input/demo/textarea-show-count.md extend context c
 <div
   class="ant-input-textarea ant-input-textarea-show-count"
   data-count="0 / 100"
-  style="height:120px"
+  style="height: 120px;"
 >
   <textarea
     class="ant-input"
@@ -9757,14 +9767,14 @@ Array [
     class="ant-input"
     maxlength="25"
     placeholder="Input a number"
-    style="width:120px"
+    style="width: 120px;"
     type="text"
     value=""
   />,
   <div>
     <div
-      class="ant-tooltip numeric-input"
-      style="opacity:0"
+      class="ant-tooltip numeric-input ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+      style="opacity: 0;"
     >
       <div
         class="ant-tooltip-content"

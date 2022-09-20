@@ -18,7 +18,7 @@ Array [
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
           >
             <span
@@ -63,7 +63,7 @@ Array [
         >
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -76,7 +76,7 @@ Array [
           </div>
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -241,7 +241,7 @@ Array [
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
           >
             <span
@@ -295,7 +295,7 @@ Array [
         >
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -308,7 +308,7 @@ Array [
           </div>
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -360,7 +360,7 @@ Array [
         </div>
         <div
           class="ant-statistic"
-          style="margin:0 32px"
+          style="margin: 0px 32px;"
         >
           <div
             class="ant-statistic-title"
@@ -446,7 +446,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
           aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
           tabindex="0"
         >
           <span
@@ -665,7 +665,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -678,7 +678,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         </div>
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -691,7 +691,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         </div>
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -713,7 +713,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
               aria-label="more"
               class="anticon anticon-more"
               role="img"
-              style="font-size:20px"
+              style="font-size: 20px;"
             >
               <svg
                 aria-hidden="true"
@@ -741,7 +741,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       class="ant-row"
     >
       <div
-        style="flex:1"
+        style="flex: 1;"
       >
         <div
           class="ant-typography"
@@ -820,7 +820,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
           >
             <span
@@ -865,7 +865,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
         >
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -878,7 +878,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
           </div>
           <div
             class="ant-space-item"
-            style="margin-right:8px"
+            style="margin-right: 8px;"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -1046,7 +1046,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
           aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
-          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
           tabindex="0"
         >
           <span
@@ -1091,7 +1091,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -1104,7 +1104,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         </div>
         <div
           class="ant-space-item"
-          style="margin-right:8px"
+          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -1265,11 +1265,11 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         class="extra"
       >
         <div
-          style="display:flex;width:max-content;justify-content:flex-end"
+          style="display: flex; justify-content: flex-end;"
         >
           <div
             class="ant-statistic"
-            style="margin-right:32px"
+            style="margin-right: 32px;"
           >
             <div
               class="ant-statistic-title"
@@ -1337,14 +1337,16 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         >
           <div
             class="ant-tabs-nav-list"
-            style="transform:translate(0px, 0px)"
+            style="transform: translate(0px, 0px);"
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
+                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1355,8 +1357,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               class="ant-tabs-tab"
             >
               <div
+                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1372,13 +1376,13 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
         >
           <button
-            aria-controls="null-more-popup"
+            aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-hidden="true"
             class="ant-tabs-nav-more"
-            id="null-more"
-            style="visibility:hidden;order:1"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
             tabindex="-1"
             type="button"
           >
@@ -1412,7 +1416,9 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         >
           <div
             aria-hidden="false"
+            aria-labelledby="rc-tabs-test-tab-test"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            id="rc-tabs-test-panel-test"
             role="tabpanel"
             tabindex="0"
           />

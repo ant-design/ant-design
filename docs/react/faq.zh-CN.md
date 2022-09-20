@@ -122,7 +122,7 @@ import { Table } from 'antd';
 
 type Props<T extends (...args: any) => any> = Parameters<T>[0];
 
-type TableProps = Props<typeof Table<{ key: string, name: string, age: number }>>;
+type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
 type DataSource = TableProps['dataSource'];
 ```
 
@@ -187,6 +187,12 @@ ConfigProvider.config({
 ## 为什么我不应该通过 ref 访问组件内部的 props 和 state？
 
 你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://reactjs.org/docs/hooks-intro.html) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
+
+<div id="why-open"></div>
+
+## 弹层类组件为什么要统一至 `open` 属性？
+
+因为历史原因，弹层类组件展示命名并不统一，出现了 `open` 与 `visible` 都在使用的情况。这使得非 tsx 用户在开发时遭遇的记忆成本。同样导致新增 feature 时选择何种命名的模棱两可。因而我们希望统一该属性命名，你仍然可以使用原本的 `visible` 它仍然会向下兼容，但是从 v5 起我们将从文档中移除该属性。
 
 ## 如何正确的拼写 Ant Design？
 

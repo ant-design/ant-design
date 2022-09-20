@@ -63,7 +63,7 @@ export interface ColumnTitleProps<RecordType> {
   sortColumn?: ColumnType<RecordType>;
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
 
-  filters?: Record<string, string[]>;
+  filters?: Record<string, FilterValue>;
 }
 
 export type ColumnTitle<RecordType> =

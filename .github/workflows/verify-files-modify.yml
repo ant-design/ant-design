@@ -19,6 +19,7 @@ jobs:
           forbid-paths: '.github/, scripts/'
           forbid-files: 'CHANGELOG.zh-CN.md, CHANGELOG.en-US.md, LICENSE'
           skip-verify-authority: 'write'
+          skip-label: 'skip-verify-files'
           assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
           comment-mark: 'version'
           comment: |
