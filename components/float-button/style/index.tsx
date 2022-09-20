@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent, resetIcon } from '../../style';
+import { resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -23,7 +23,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonSize } = token;
+  const { componentCls, floatButtonSize, margin, radiusBase } = token;
   const groupPrefixCls = `${componentCls}-group`;
   return {
     [groupPrefixCls]: {
@@ -59,6 +59,13 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       [`${componentCls}-square`]: {
         padding: token.paddingXXS,
         marginTop: 0,
+        borderRadius: 0,
+        '&:first-child': {
+          borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
+        },
+        '&:nth-last-child(2)': {
+          borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
+        },
         '&:not(:last-child)': {
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
@@ -69,8 +76,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${componentCls}-square-tigger`]: {
-      marginTop: `${token.margin}px !important`,
-      borderRadius: `${token.radiusBase}px !important`,
+      marginTop: `${margin}px !important`,
+      borderRadius: `${radiusBase}px !important`,
     },
   };
 };
@@ -78,7 +85,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls, floatButtonIconSize, floatButtonSize } = token;
-
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -110,7 +116,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           textAlign: 'center',
         },
         [`${componentCls}-icon`]: {
-          ...resetIcon(),
+          width: floatButtonIconSize,
           fontSize: floatButtonIconSize,
           lineHeight: 1,
         },
