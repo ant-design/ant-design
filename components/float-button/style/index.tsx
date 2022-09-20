@@ -92,6 +92,15 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         },
       },
     },
+    [`${groupPrefixCls}-circle-shadow`]: {
+      boxShadow: 'none',
+    },
+    [`${groupPrefixCls}-square-shadow`]: {
+      boxShadow: token.boxShadowSecondary,
+      [`${componentCls}-square`]: {
+        boxShadow: 'none',
+      },
+    },
   };
 };
 

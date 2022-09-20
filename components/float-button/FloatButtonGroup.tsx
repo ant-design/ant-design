@@ -48,6 +48,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       [`${groupPrefixCls}-${shape}`]: shape,
+      [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
     },
     className,
   );
