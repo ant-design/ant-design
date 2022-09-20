@@ -76,7 +76,7 @@ export interface TableSkeletonProps extends SkeletonProps {
 
 export interface TableLoadingProps extends SpinProps, TableSkeletonProps {
   /** Type of loading component to use - defaulting to spin */
-  type?: 'spin' | 'skeleton';
+  component?: 'spin' | 'skeleton';
 }
 
 export interface TableProps<RecordType>
