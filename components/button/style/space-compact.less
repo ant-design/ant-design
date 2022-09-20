@@ -1,110 +1,73 @@
-@space-compact-prefix-cls: ~'@{ant-prefix}-space-compact';
-@btn-prefix-clx: ~'@{ant-prefix}-btn';
+@btn-prefix-cls: ~'@{ant-prefix}-btn';
 
 // btn in Space.Compact styles
-.@{space-compact-prefix-cls} {
-  .space-compact(~'@{space-compact-prefix-cls}');
-}
-
-.space-compact(@btnClassName: @btn-prefix-clx) {
-  .@{ant-prefix}-btn + .@{ant-prefix}-btn,
-  .@{ant-prefix}-btn + &,
-  span + .@{ant-prefix}-btn,
-  .@{ant-prefix}-btn + span,
-  > span + span,
-  & + .@{ant-prefix}-btn,
-  & + & {
+.@{btn-prefix-cls} {
+  &-compact-item + &-compact-item,
+  span + &-compact-item,
+  &-compact-item + span {
     margin-left: -1px;
   }
-  .@{ant-prefix}-btn-primary + .@{ant-prefix}-btn:not(.@{ant-prefix}-btn-primary):not([disabled]) {
-    border-left-color: transparent;
-  }
-  .@{ant-prefix}-btn {
-    border-radius: 0;
-  }
-  > :first-child,
-  > span:first-child > .@{ant-prefix}-btn {
-    margin-left: 0;
-  }
-  > :only-child {
-    border-radius: @btn-border-radius-base;
-  }
-  > span:only-child > .@{ant-prefix}-btn {
-    border-radius: @btn-border-radius-base;
-  }
-  // > :first-child:not(:last-child),
-  > span:first-child:not(:last-child) > .@{ant-prefix}-btn {
-    border-top-left-radius: @btn-border-radius-base;
-    border-bottom-left-radius: @btn-border-radius-base;
-  }
-  // > :last-child:not(:first-child),
-  > span:last-child:not(:first-child) > .@{ant-prefix}-btn {
-    border-top-right-radius: @btn-border-radius-base;
-    border-bottom-right-radius: @btn-border-radius-base;
-  }
 
-  &-sm {
-    > .@{ant-prefix}-btn:only-child {
-      border-radius: @btn-border-radius-sm;
+  &-compact-item {
+    &.@{btn-prefix-cls} {
+      border-radius: 0;
+
+      &.@{btn-prefix-cls}-icon-only {
+        border-radius: 0;
+      }
     }
-    > span:only-child > .@{ant-prefix}-btn {
-      border-radius: @btn-border-radius-sm;
+
+    &.@{btn-prefix-cls} {
+      &.@{btn-prefix-cls}-compact-first-item {
+        border-top-left-radius: @btn-border-radius-base;
+        border-bottom-left-radius: @btn-border-radius-base;
+      }
+
+      &.@{btn-prefix-cls}-compact-last-item {
+        border-top-right-radius: @btn-border-radius-base;
+        border-bottom-right-radius: @btn-border-radius-base;
+      }
+
+      &.@{btn-prefix-cls}-sm {
+        &.@{btn-prefix-cls}-compact-first-item {
+          border-top-left-radius: @btn-border-radius-sm;
+          border-bottom-left-radius: @btn-border-radius-sm;
+        }
+
+        &.@{btn-prefix-cls}-compact-last-item {
+          border-top-right-radius: @btn-border-radius-sm;
+          border-bottom-right-radius: @btn-border-radius-sm;
+        }
+      }
     }
-    > .@{ant-prefix}-btn:first-child:not(:last-child),
-    > span:first-child:not(:last-child) > .@{ant-prefix}-btn {
-      border-top-left-radius: @btn-border-radius-sm;
-      border-bottom-left-radius: @btn-border-radius-sm;
+
+    &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
+      border-left-color: transparent;
     }
-    > .@{ant-prefix}-btn:last-child:not(:first-child),
-    > span:last-child:not(:first-child) > .@{ant-prefix}-btn {
-      border-top-right-radius: @btn-border-radius-sm;
-      border-bottom-right-radius: @btn-border-radius-sm;
+
+    &.@{btn-prefix-cls}-primary:not(:first-child):not(:last-child) {
+      border-right-color: @btn-group-border;
+      border-left-color: @btn-group-border;
+
+      &:disabled {
+        border-color: @btn-default-border;
+      }
     }
-  }
 
-  & > & {
-    float: left;
-  }
-  & > &:not(:first-child):not(:last-child) > .@{ant-prefix}-btn {
-    border-radius: 0;
-  }
+    &.@{btn-prefix-cls}-primary:first-child:not(:last-child) {
+      border-right-color: @btn-group-border;
 
-  & > &:first-child:not(:last-child) {
-    > .@{ant-prefix}-btn:last-child {
-      padding-right: 8px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      &[disabled] {
+        border-right-color: @btn-default-border;
+      }
     }
-  }
-  & > &:last-child:not(:first-child) > .@{ant-prefix}-btn:first-child {
-    padding-left: 8px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
 
-  .@{ant-prefix}-btn-primary:not(:first-child):not(:last-child) {
-    border-right-color: @btn-group-border;
-    border-left-color: @btn-group-border;
+    &.@{btn-prefix-cls}-primary:last-child:not(:first-child) {
+      border-left-color: @btn-group-border;
 
-    &:disabled {
-      border-color: @btn-default-border;
-    }
-  }
-
-  .@{ant-prefix}-btn-primary:first-child:not(:last-child) {
-    border-right-color: @btn-group-border;
-
-    &[disabled] {
-      border-right-color: @btn-default-border;
-    }
-  }
-
-  .@{ant-prefix}-btn-primary:last-child:not(:first-child),
-  .@{ant-prefix}-btn-primary + .@{ant-prefix}-btn-primary {
-    border-left-color: @btn-group-border;
-
-    &[disabled] {
-      border-left-color: @btn-default-border;
+      &[disabled] {
+        border-left-color: @btn-default-border;
+      }
     }
   }
 }
