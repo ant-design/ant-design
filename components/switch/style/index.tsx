@@ -159,7 +159,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       transition: `all ${token.motionDurationFast}`,
       userSelect: 'none',
 
-      '&:hover': {
+      [`&:hover:not(${componentCls}-disabled)`]: {
         background: token.colorTextTertiary,
       },
 
@@ -168,7 +168,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       [`&${token.componentCls}-checked`]: {
         background: token.switchColor,
 
-        '&:hover': {
+        [`&:hover:not(${componentCls}-disabled)`]: {
           background: token.colorPrimaryHover,
         },
       },
