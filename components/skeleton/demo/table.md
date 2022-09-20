@@ -14,9 +14,7 @@ title:
 Use skeleton in table component.
 
 ```tsx
-import type Icon from '@ant-design/icons';
-import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
-import { Avatar, Skeleton, Switch, Table } from 'antd';
+import { Switch, Table } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
