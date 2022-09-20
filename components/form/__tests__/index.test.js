@@ -1495,7 +1495,14 @@ describe('Form', () => {
       </Button>,
       <Cascader key="Cascader" disabled={disabled} options={[]} />,
       <Checkbox key="Checkbox" disabled={disabled} />,
-      // DatePicker,
+      <Checkbox.Group
+        key="CheckboxGroup"
+        disabled={disabled}
+        options={[
+          { label: 'male', value: 0 },
+          { label: 'female', value: 1 },
+        ]}
+      />,
       <InputNumber key="InputNumber" disabled={disabled} />,
       <Input key="Input" disabled={disabled} />,
       <Select key="Select" disabled={disabled} />,
@@ -1515,25 +1522,25 @@ describe('Form', () => {
     const App = () => <Form disabled>{renderComps(false)}</Form>;
 
     const wrapper = render(<App />);
-
+    console.log(wrapper.container.innerHTML);
     expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 
     const wrapper2 = render(<App2 />);
-    // 时间范围组件中会有两个 input 框，因此虽然上述只有 16 个组件，但，实际有 17 个 带有 disabled 属性的表单组件
-    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(17);
+    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
 
     const App3 = () => <Form disabled>{renderComps(true)}</Form>;
 
     const wrapper3 = render(<App3 />);
 
-    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(17);
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
 
     const App4 = () => <Form>{renderComps(true)}</Form>;
 
     const wrapper4 = render(<App4 />);
 
-    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(17);
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
 
     const App5 = () => <Form>{renderComps()}</Form>;
 
