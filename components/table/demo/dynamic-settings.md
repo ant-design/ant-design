@@ -290,7 +290,7 @@ const App: React.FC = () => {
       </Form>
       <Table
         {...tableProps}
-        loading={loadingType == 'skeleton' ? { type: 'skeleton', loading }: { type: 'spin', spinning: loading }}
+        loading={loadingType == 'skeleton' ? { type: 'skeleton', loading } : { type: 'spin', spinning: loading }}
         pagination={{ position: [top as TablePaginationPosition, bottom] }}
         columns={tableColumns}
         dataSource={hasData ? data : []}
