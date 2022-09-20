@@ -161,7 +161,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const mergedClassName = classNames(
     {

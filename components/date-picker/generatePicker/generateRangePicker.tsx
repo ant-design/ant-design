@@ -76,7 +76,7 @@ export default function generateRangePicker<DateType>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
