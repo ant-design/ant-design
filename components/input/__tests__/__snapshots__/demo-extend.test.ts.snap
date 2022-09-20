@@ -5172,7 +5172,16 @@ exports[`renders ./components/input/demo/focus.md extend context correctly 1`] =
           <span
             class="ant-switch-inner"
           >
-            Input
+            <span
+              class="ant-switch-inner-checked"
+            >
+              Input
+            </span>
+            <span
+              class="ant-switch-inner-unchecked"
+            >
+              TextArea
+            </span>
           </span>
         </button>
       </div>

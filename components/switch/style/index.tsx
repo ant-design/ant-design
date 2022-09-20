@@ -26,114 +26,218 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchHandleActiveInset: string;
 }
 
-const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
-  [`&${token.componentCls}-small`]: {
-    minWidth: token.switchMinWidthSM,
-    height: token.switchHeightSM,
-    lineHeight: `${token.switchHeightSM}px`,
-
-    [`${token.componentCls}-inner`]: {
-      marginInlineStart: token.switchInnerMarginMaxSM,
-      marginInlineEnd: token.switchInnerMarginMinSM,
-      fontSize: token.fontSizeSM,
-    },
-
-    [`${token.componentCls}-handle`]: {
-      width: token.switchPinSizeSM,
-      height: token.switchPinSizeSM,
-    },
-
-    [`${token.componentCls}-loading-icon`]: {
-      top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
-      fontSize: token.switchLoadingIconSize,
-    },
-
-    [`&${token.componentCls}-checked`]: {
-      [`${token.componentCls}-inner`]: {
-        marginInlineStart: token.switchInnerMarginMinSM,
-        marginInlineEnd: token.switchInnerMarginMaxSM,
-      },
-
-      [`${token.componentCls}-handle`]: {
-        insetInlineStart: `calc(100% - ${token.switchPinSizeSM + token.switchPadding}px)`,
-      },
-    },
-  },
-});
-
-const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
-  [`${token.componentCls}-loading-icon${token.iconCls}`]: {
-    position: 'relative',
-    top: (token.switchPinSize - token.fontSize) / 2,
-    color: token.switchLoadingIconColor,
-    verticalAlign: 'top',
-  },
-
-  [`&${token.componentCls}-checked ${token.componentCls}-loading-icon`]: {
-    color: token.switchColor,
-  },
-});
-
-const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
-  const switchHandleCls = `${token.componentCls}-handle`;
+const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+  const { componentCls } = token;
+  const switchInnerCls = `${componentCls}-inner`;
 
   return {
-    [switchHandleCls]: {
-      position: 'absolute',
-      top: token.switchPadding,
-      insetInlineStart: token.switchPadding,
-      width: token.switchPinSize,
-      height: token.switchPinSize,
-      transition: `all ${token.switchDuration} ease-in-out`,
+    [componentCls]: {
+      [`&${componentCls}-small`]: {
+        minWidth: token.switchMinWidthSM,
+        height: token.switchHeightSM,
+        lineHeight: `${token.switchHeightSM}px`,
 
-      '&::before': {
+        [`${componentCls}-inner`]: {
+          [`${switchInnerCls}-checked`]: {
+            marginInlineStart: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+              token.switchPinSizeSM + token.switchPadding * 2
+            }px)`,
+            marginInlineEnd: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
+              token.switchPinSizeSM + token.switchPadding * 2
+            }px)`,
+          },
+
+          [`${switchInnerCls}-unchecked`]: {
+            marginTop: -token.switchHeightSM,
+            marginInlineStart: token.switchInnerMarginMaxSM,
+            marginInlineEnd: token.switchInnerMarginMinSM,
+          },
+        },
+
+        [`${componentCls}-handle`]: {
+          width: token.switchPinSizeSM,
+          height: token.switchPinSizeSM,
+        },
+
+        [`${componentCls}-loading-icon`]: {
+          top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
+          fontSize: token.switchLoadingIconSize,
+        },
+
+        [`&${componentCls}-checked`]: {
+          [`${componentCls}-inner`]: {
+            [`${switchInnerCls}-checked`]: {
+              marginInlineStart: token.switchInnerMarginMinSM,
+              marginInlineEnd: token.switchInnerMarginMaxSM,
+            },
+
+            [`${switchInnerCls}-unchecked`]: {
+              marginInlineStart: `calc(${token.switchInnerMarginMaxSM}px + 100% - ${
+                token.switchPinSizeSM + token.switchPadding * 2
+              }px)`,
+              marginInlineEnd: `calc(${token.switchInnerMarginMinSM}px - 100% + ${
+                token.switchPinSizeSM + token.switchPadding * 2
+              }px)`,
+            },
+          },
+
+          [`${componentCls}-handle`]: {
+            insetInlineStart: `calc(100% - ${token.switchPinSizeSM + token.switchPadding}px)`,
+          },
+        },
+
+        [`&:not(${componentCls}-disabled):active`]: {
+          [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
+            [`${switchInnerCls}-unchecked`]: {
+              marginInlineStart: token.switchInnerMarginMaxSM + token.marginXXS / 2,
+              marginInlineEnd: token.switchInnerMarginMinSM - token.marginXXS / 2,
+            },
+          },
+
+          [`&${componentCls}-checked ${switchInnerCls}`]: {
+            [`${switchInnerCls}-checked`]: {
+              marginInlineStart: token.switchInnerMarginMinSM - token.marginXXS / 2,
+              marginInlineEnd: token.switchInnerMarginMaxSM + token.marginXXS / 2,
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
+const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      [`${componentCls}-loading-icon${token.iconCls}`]: {
+        position: 'relative',
+        top: (token.switchPinSize - token.fontSize) / 2,
+        color: token.switchLoadingIconColor,
+        verticalAlign: 'top',
+      },
+
+      [`&${componentCls}-checked ${componentCls}-loading-icon`]: {
+        color: token.switchColor,
+      },
+    },
+  };
+};
+
+const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+  const { componentCls } = token;
+  const switchHandleCls = `${componentCls}-handle`;
+
+  return {
+    [componentCls]: {
+      [switchHandleCls]: {
         position: 'absolute',
-        top: 0,
-        insetInlineEnd: 0,
-        bottom: 0,
-        insetInlineStart: 0,
-        backgroundColor: token.switchBg,
-        borderRadius: token.switchPinSize / 2,
-        boxShadow: token.switchHandleShadow,
+        top: token.switchPadding,
+        insetInlineStart: token.switchPadding,
+        width: token.switchPinSize,
+        height: token.switchPinSize,
         transition: `all ${token.switchDuration} ease-in-out`,
-        content: '""',
+
+        '&::before': {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: 0,
+          bottom: 0,
+          insetInlineStart: 0,
+          backgroundColor: token.switchBg,
+          borderRadius: token.switchPinSize / 2,
+          boxShadow: token.switchHandleShadow,
+          transition: `all ${token.switchDuration} ease-in-out`,
+          content: '""',
+        },
       },
-    },
 
-    [`&${token.componentCls}-checked ${switchHandleCls}`]: {
-      insetInlineStart: `calc(100% - ${token.switchPinSize + token.switchPadding}px)`,
-    },
-
-    [`&:not(${token.componentCls}-disabled):active`]: {
-      [`${switchHandleCls}::before`]: {
-        insetInlineEnd: token.switchHandleActiveInset,
-        insetInlineStart: 0,
+      [`&${componentCls}-checked ${switchHandleCls}`]: {
+        insetInlineStart: `calc(100% - ${token.switchPinSize + token.switchPadding}px)`,
       },
 
-      [`&${token.componentCls}-checked ${switchHandleCls}::before`]: {
-        insetInlineEnd: 0,
-        insetInlineStart: token.switchHandleActiveInset,
+      [`&:not(${componentCls}-disabled):active`]: {
+        [`${switchHandleCls}::before`]: {
+          insetInlineEnd: token.switchHandleActiveInset,
+          insetInlineStart: 0,
+        },
+
+        [`&${componentCls}-checked ${switchHandleCls}::before`]: {
+          insetInlineEnd: 0,
+          insetInlineStart: token.switchHandleActiveInset,
+        },
       },
     },
   };
 };
 
 const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
-  const switchInnerCls = `${token.componentCls}-inner`;
+  const { componentCls } = token;
+  const switchInnerCls = `${componentCls}-inner`;
 
   return {
-    [switchInnerCls]: {
-      display: 'block',
-      marginInlineEnd: token.switchInnerMarginMin,
-      marginInlineStart: token.switchInnerMarginMax,
-      color: token.colorTextLightSolid,
-      fontSize: token.fontSizeSM,
-      transition: `margin-inline-end ${token.switchDuration}, margin-inline-start ${token.switchDuration}`,
-    },
+    [componentCls]: {
+      [switchInnerCls]: {
+        display: 'block',
+        overflow: 'hidden',
+        borderRadius: 100,
 
-    [`&${token.componentCls}-checked ${switchInnerCls}`]: {
-      marginInlineEnd: token.switchInnerMarginMax,
-      marginInlineStart: token.switchInnerMarginMin,
+        [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
+          display: 'block',
+          color: token.colorTextLightSolid,
+          fontSize: token.fontSizeSM,
+          transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
+          pointerEvents: 'none',
+        },
+
+        [`${switchInnerCls}-checked`]: {
+          marginInlineStart: `calc(${token.switchInnerMarginMin}px - 100% + ${
+            token.switchPinSize + token.switchPadding * 2
+          }px)`,
+          marginInlineEnd: `calc(${token.switchInnerMarginMax}px + 100% - ${
+            token.switchPinSize + token.switchPadding * 2
+          }px)`,
+        },
+
+        [`${switchInnerCls}-unchecked`]: {
+          marginTop: -token.switchHeight,
+          marginInlineStart: token.switchInnerMarginMax,
+          marginInlineEnd: token.switchInnerMarginMin,
+        },
+      },
+
+      [`&${componentCls}-checked ${switchInnerCls}`]: {
+        [`${switchInnerCls}-checked`]: {
+          marginInlineStart: token.switchInnerMarginMin,
+          marginInlineEnd: token.switchInnerMarginMax,
+        },
+
+        [`${switchInnerCls}-unchecked`]: {
+          marginInlineStart: `calc(${token.switchInnerMarginMax}px + 100% - ${
+            token.switchPinSize + token.switchPadding * 2
+          }px)`,
+          marginInlineEnd: `calc(${token.switchInnerMarginMin}px - 100% + ${
+            token.switchPinSize + token.switchPadding * 2
+          }px)`,
+        },
+      },
+
+      [`&:not(${componentCls}-disabled):active`]: {
+        [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
+          [`${switchInnerCls}-unchecked`]: {
+            marginInlineStart: token.switchInnerMarginMax + token.marginXXS,
+            marginInlineEnd: token.switchInnerMarginMin - token.marginXXS,
+          },
+        },
+
+        [`&${componentCls}-checked ${switchInnerCls}`]: {
+          [`${switchInnerCls}-checked`]: {
+            marginInlineStart: token.switchInnerMarginMin - token.marginXXS,
+            marginInlineEnd: token.switchInnerMarginMax + token.marginXXS,
+          },
+        },
+      },
     },
   };
 };
@@ -165,7 +269,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
       ...genFocusStyle(token),
 
-      [`&${token.componentCls}-checked`]: {
+      [`&${componentCls}-checked`]: {
         background: token.switchColor,
 
         [`&:hover:not(${componentCls}-disabled)`]: {
@@ -173,7 +277,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
         },
       },
 
-      [`&${token.componentCls}-loading, &${token.componentCls}-disabled`]: {
+      [`&${componentCls}-loading, &${componentCls}-disabled`]: {
         cursor: 'not-allowed',
         opacity: token.switchDisabledOpacity,
 
@@ -183,20 +287,8 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
         },
       },
 
-      // inner style
-      ...genSwitchInnerStyle(token),
-
-      // handle style
-      ...genSwitchHandleStyle(token),
-
-      // loading style
-      ...genSwitchLoadingStyle(token),
-
-      // small style
-      ...genSwitchSmallStyle(token),
-
       // rtl style
-      [`&${token.componentCls}-rtl`]: {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -233,5 +325,19 @@ export default genComponentStyleHook('Switch', token => {
     switchHandleActiveInset: '-30%',
   });
 
-  return [genSwitchStyle(switchToken)];
+  return [
+    genSwitchStyle(switchToken),
+
+    // inner style
+    genSwitchInnerStyle(switchToken),
+
+    // handle style
+    genSwitchHandleStyle(switchToken),
+
+    // loading style
+    genSwitchLoadingStyle(switchToken),
+
+    // small style
+    genSwitchSmallStyle(switchToken),
+  ];
 });

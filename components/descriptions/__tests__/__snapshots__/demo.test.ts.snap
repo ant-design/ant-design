@@ -1001,7 +1001,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Border
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Border
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        No Border
+      </span>
     </span>
   </button>,
   <div
