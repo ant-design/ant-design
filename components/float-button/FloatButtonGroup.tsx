@@ -32,6 +32,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     hashId,
     prefixCls,
     className,
+    `${prefixCls}-tigger`,
     `${prefixCls}-${type}`,
     `${prefixCls}-${shape}`,
     `${prefixCls}-${shape}-tigger`,
@@ -48,6 +49,12 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
       [`${groupPrefixCls}-${shape}`]: shape,
     },
     className,
+  );
+
+  const wrapClsString = classNames(
+    hashId,
+    `${groupPrefixCls}-wrap`,
+    `${groupPrefixCls}-wrap-${shape}`,
   );
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
@@ -96,7 +103,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
       <div className={classString}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
-            {open ? children : null}
+            {open && <div className={wrapClsString}>{children}</div>}
             {tiggerElement}
           </>
         ) : (

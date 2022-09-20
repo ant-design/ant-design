@@ -39,11 +39,20 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       insetBlockEnd: token.floatButtonBlockEnd,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusSM,
+      [`${groupPrefixCls}-wrap`]: {
+        display: 'block',
+      },
       '&&-rtl': {
         direction: 'rtl',
       },
       [componentCls]: {
         position: 'static',
+      },
+      [`${componentCls}-tigger`]: {
+        marginTop: margin,
+      },
+      [`${componentCls}-square-tigger`]: {
+        borderRadius: `${radiusBase}px !important`,
       },
     },
     [`${groupPrefixCls}-circle`]: {
@@ -56,28 +65,31 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
-      [`${componentCls}-square`]: {
-        padding: token.paddingXXS,
-        marginTop: 0,
-        borderRadius: 0,
-        '&:first-child': {
-          borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
-        },
-        '&:nth-last-child(2)': {
-          borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
-        },
-        '&:not(:last-child)': {
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-        },
-        [`${componentCls}-body`]: {
-          width: floatButtonSize - token.paddingXXS * 2,
-          height: floatButtonSize - token.paddingXXS * 2,
+      [`${groupPrefixCls}-wrap`]: {
+        display: 'block',
+        borderRadius: radiusBase,
+        boxShadow: token.boxShadowSecondary,
+        overflow: 'hidden',
+        [`${componentCls}-square`]: {
+          boxShadow: 'none',
+          padding: token.paddingXXS,
+          marginTop: 0,
+          borderRadius: 0,
+          '&:first-child': {
+            borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
+          },
+          '&:last-child': {
+            borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
+          },
+          '&:not(:last-child)': {
+            borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          },
+          [`${componentCls}-body`]: {
+            width: floatButtonSize - token.paddingXXS * 2,
+            height: floatButtonSize - token.paddingXXS * 2,
+          },
         },
       },
-    },
-    [`${componentCls}-square-tigger`]: {
-      marginTop: `${margin}px !important`,
-      borderRadius: `${radiusBase}px !important`,
     },
   };
 };
