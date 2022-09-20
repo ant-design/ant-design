@@ -48,14 +48,13 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipOpen } = this.state;
-    const { expand, theme, showRiddleButton, react18 } = this.props;
+    const { expand, theme, showRiddleButton } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
       copyTooltipOpen !== nextState.copyTooltipOpen ||
       nextProps.theme !== theme ||
-      nextProps.showRiddleButton !== showRiddleButton ||
-      nextProps.react18 !== react18
+      nextProps.showRiddleButton !== showRiddleButton
     );
   }
 
@@ -137,7 +136,6 @@ class Demo extends React.Component {
       intl: { locale },
       theme,
       showRiddleButton,
-      react18,
     } = props;
     const { copied, copyTooltipOpen } = state;
     if (!this.liveDemo) {
@@ -206,13 +204,13 @@ class Demo extends React.Component {
     );
 
     dependencies['@ant-design/icons'] = 'latest';
-    dependencies.react = react18 ? '^18.0.0' : '^17.0.0';
-    dependencies['react-dom'] = react18 ? '^18.0.0' : '^17.0.0';
+    dependencies.react = '^18.0.0';
+    dependencies['react-dom'] = '^18.0.0';
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       html,
-      js: `${react18 ? 'const { createRoot } = ReactDOM;\n' : ''}${sourceCode
+      js: `${'const { createRoot } = ReactDOM;\n'}${sourceCode
         .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -224,20 +222,17 @@ class Demo extends React.Component {
           'const { $1 } = ReactRouterDOM;',
         )
         .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-        .replace(/export default/, 'const ComponentDemo =')}\n\n${
-        react18
-          ? 'createRoot(mountNode).render(<ComponentDemo />)'
-          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
-      };\n`,
+        .replace(
+          /export default/,
+          'const ComponentDemo =',
+        )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
       css: prefillStyle,
       editors: '001',
       // eslint-disable-next-line no-undef
       css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
-        react18 ? 'react@18/umd/react.development.js' : 'react@16.x/umd/react.development.js',
-        react18
-          ? 'react-dom@18/umd/react-dom.development.js'
-          : 'react-dom@16.x/umd/react-dom.development.js',
+        'react@18/umd/react.development.js',
+        'react-dom@18/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
         `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
@@ -254,15 +249,10 @@ class Demo extends React.Component {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       js: `${
         /import React(\D*)from 'react';/.test(sourceCode) ? '' : `import React from 'react';\n`
-      }${
-        react18
-          ? `import { createRoot } from 'react-dom/client';\n`
-          : `import ReactDOM from 'react-dom';\n`
-      }${sourceCode.replace(/export default/, 'const ComponentDemo =')}\n\n${
-        react18
-          ? 'createRoot(mountNode).render(<ComponentDemo />)'
-          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
-      };\n`,
+      }import { createRoot } from 'react-dom/client';\n${sourceCode.replace(
+        /export default/,
+        'const ComponentDemo =',
+      )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
       css: prefillStyle,
       json: JSON.stringify(
         {
@@ -297,20 +287,12 @@ ${parsedSourceCode}
       .replace('</style>', '')
       .replace('<style>', '');
 
-    const indexJsContent = react18
-      ? `
+    const indexJsContent = `
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')).render(<Demo />);
-`
-      : `
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Demo from './demo';
-
-ReactDOM.render(<Demo />, document.getElementById('container'));
 `;
 
     const codesandboxPackage = {
@@ -318,8 +300,8 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
       main: 'index.js',
       dependencies: {
         ...dependencies,
-        react: react18 ? '^18.0.0' : '^16.14.0',
-        'react-dom': react18 ? '^18.0.0' : '^16.14.0',
+        react: '^18.0.0',
+        'react-dom': '^18.0.0',
         'react-scripts': '^4.0.0',
       },
       devDependencies: {
