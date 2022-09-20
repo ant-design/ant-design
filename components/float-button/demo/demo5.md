@@ -8,7 +8,7 @@ title:
 
 ## zh-CN
 
-悬浮按钮组 (shape = circle)
+按钮组菜单模式
 
 ## en-US
 

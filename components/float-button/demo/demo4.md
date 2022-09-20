@@ -8,7 +8,7 @@ title:
 
 ## zh-CN
 
-可以自定义悬浮按钮的样式。(type = primary, shape = square)
+自定义按钮组的样式
 
 ## en-US
 
@@ -18,7 +18,13 @@ You can customize the style of the button.
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton type="primary" shape="square" />;
+const App: React.FC = () => (
+  <FloatButton.Group shape="square">
+    <FloatButton />
+    <FloatButton />
+    <FloatButton />
+  </FloatButton.Group>
+);
 
 export default App;
 ```

@@ -23,6 +23,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     children,
     onOpenChange,
   } = props;
+
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);

@@ -8,7 +8,7 @@ title:
 
 ## zh-CN
 
-悬浮按钮组 (shape = square)
+悬浮按钮组菜单模式
 
 ## en-US
 
@@ -19,7 +19,7 @@ import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group shape="square" trigger="click">
+  <FloatButton.Group shape="square" trigger="hover">
     <FloatButton />
     <FloatButton />
     <FloatButton />

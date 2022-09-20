@@ -8,7 +8,7 @@ title:
 
 ## zh-CN
 
-最简单的用法。(type = default, shape = circle)
+最简单的用法。
 
 ## en-US
 
@@ -18,7 +18,7 @@ The most basic usage.
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton />;
+const App: React.FC = () => <FloatButton onClick={() => console.log('click')} />;
 
 export default App;
 ```
