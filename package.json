@@ -127,7 +127,7 @@
     "moment": "^2.29.2",
     "rc-cascader": "~3.7.0",
     "rc-checkbox": "~2.3.0",
-    "rc-collapse": "~3.3.0",
+    "rc-collapse": "~3.4.2",
     "rc-dialog": "~8.9.0",
     "rc-drawer": "~5.1.0",
     "rc-dropdown": "~4.0.0",
