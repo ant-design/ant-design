@@ -30,7 +30,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | Whether destroy tooltip when hidden, parent container of tooltip will be destroyed when `keepParent` is false | boolean \| { keepParent?: boolean } | false |  |
-| getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
+| getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
 | overlayClassName | Class name of the tooltip card | string | - |  |
@@ -40,7 +40,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
 | zIndex | Config `z-index` of Tooltip | number | - |  |
-| onOpenChange | Callback executed when visibility of the tooltip card is changed | (open) => void | - | 4.23.0 |
+| onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |
 
 ## Note
 
