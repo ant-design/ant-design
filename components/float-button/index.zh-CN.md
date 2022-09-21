@@ -3,25 +3,26 @@ category: Components
 type: 其他
 subtitle: 悬浮按钮
 title: FloatButton
-cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
 ---
 
 悬浮按钮。自 `antd@5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
-- 当下许多网站都会选择提供一些明显的功能，希望用户可以在浏览网站时，无论在什么位置都可以注意到，往往就会是一个浮动按钮的方式放在右下角
+- 用于网站上的全局功能；
+- 无论浏览到何处都可以看见的按钮。
 
 ## API
 
 > 自 `antd@5.0.0` 版本开始提供该组件。
 
-### FloatButton
+### 共同的 API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 自定义图标 | ReactNode | - |  |
-| description | 文字及其它内容 | ReactNode |  |  |
+| description | 文字及其它内容 | ReactNode | - |  |
 | tooltip | 气泡卡片的内容 | ReactNode \| () => ReactNode | - |  |
 | type | 设置按钮类型 | `default` \| `primary` | `default` |  |
 | shape | 设置按钮形状 | `circle` \| `square` | `circle` |  |

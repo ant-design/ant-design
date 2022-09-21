@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 iframe: 360
 title:
   zh-CN: 自定义按钮组样式

@@ -2,20 +2,21 @@
 category: Components
 type: Other
 title: FloatButton
-cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
 ---
 
 FloatButton. This component is available since `antd@5.0.0`.
 
 ## When To Use
 
-- Many websites will choose to provide some obvious features, hoping that users can browse the site, no matter where you can notice, often will be a floating button in the way of the bottom right.
+- For global functionality on the site.
+- Buttons that can be seen wherever you browse.
 
 ## API
 
 > This component is available since `antd@5.0.0`
 
-### FloatButton
+### common API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

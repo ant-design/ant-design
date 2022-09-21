@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 iframe: 360
 title:
   zh-CN: 多个悬浮按钮组合

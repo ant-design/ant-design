@@ -18,8 +18,8 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonIconSize: number;
 
   // Position
-  floatButtonBlockEnd: number;
-  floatButtonInlineEnd: number;
+  floatButtonInsetBlockEnd: number;
+  floatButtonInsetInlineEnd: number;
 };
 
 // ============================== Group ==============================
@@ -62,8 +62,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       height: 'auto',
       boxShadow: 'none',
       minHeight: floatButtonSize,
-      insetInlineEnd: token.floatButtonInlineEnd,
-      insetBlockEnd: token.floatButtonBlockEnd,
+      insetInlineEnd: token.floatButtonInsetInlineEnd,
+      insetBlockEnd: token.floatButtonInsetBlockEnd,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusSM,
       [`${groupPrefixCls}-wrap`]: {
@@ -162,8 +162,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       alignItems: 'center',
       width: floatButtonSize,
       height: floatButtonSize,
-      insetInlineEnd: token.floatButtonInlineEnd,
-      insetBlockEnd: token.floatButtonBlockEnd,
+      insetInlineEnd: token.floatButtonInsetInlineEnd,
+      insetBlockEnd: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
       '&:empty': {
         display: 'none',
@@ -252,8 +252,8 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     floatButtonIconSize: fontSizeHeading4,
     floatButtonSize: controlHeightLG,
 
-    floatButtonBlockEnd: marginXXL,
-    floatButtonInlineEnd: marginLG,
+    floatButtonInsetBlockEnd: marginXXL,
+    floatButtonInsetInlineEnd: marginLG,
   });
   return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
 });
