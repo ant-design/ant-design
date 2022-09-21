@@ -308,6 +308,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       clearFilters: onReset,
       filters: column.filters,
       visible: mergedVisible,
+      closeDropDown:triggerVisible,
     });
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
