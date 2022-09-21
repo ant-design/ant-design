@@ -3,7 +3,7 @@ order: 6
 iframe: 360
 title:
   zh-CN: 菜单模式
-  en-US: Custom style
+  en-US: Menu mode
 ---
 
 ## zh-CN
@@ -19,7 +19,7 @@ import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group shape="square" trigger="click">
+  <FloatButton.Group shape="primary" trigger="click">
     <FloatButton />
     <FloatButton />
     <FloatButton />

@@ -3,7 +3,7 @@ order: 3
 iframe: 360
 title:
   zh-CN: 含有气泡卡片的悬浮按钮
-  en-US: button with tooltip
+  en-US: FloatButton with tooltip
 ---
 
 ## zh-CN
@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-Setting the `tooltip` can open the tooltip.
+Setting `tooltip` prop to show FloatButton with tooltip.
 
 ```tsx
 import React from 'react';

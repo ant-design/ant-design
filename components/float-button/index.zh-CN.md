@@ -6,7 +6,7 @@ title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
 ---
 
-悬浮按钮。自 `antd@5.0.0` 版本开始提供该组件。
+悬浮按钮。自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -14,8 +14,6 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b29936
 - 无论浏览到何处都可以看见的按钮。
 
 ## API
-
-> 自 `antd@5.0.0` 版本开始提供该组件。
 
 ### 共同的 API
 

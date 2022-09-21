@@ -2,8 +2,8 @@
 order: 4
 iframe: 360
 title:
-  zh-CN: 多个悬浮按钮组合
-  en-US: Group of FloatButton
+  zh-CN: 浮动按钮组
+  en-US: FloatButton Group
 ---
 
 ## zh-CN
