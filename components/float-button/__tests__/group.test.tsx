@@ -36,13 +36,13 @@ describe('FloatButtonGroup', () => {
   it('support onOpenChange', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
-      <FloatButton.Group onOpenChange={onOpenChange}>
+      <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
         <FloatButton />
         <FloatButton />
         <FloatButton />
       </FloatButton.Group>,
     );
-    fireEvent.click(container.querySelector('.ant-float-btn')!);
+    fireEvent.click(container.querySelector('.ant-float-btn-tigger')!);
     expect(onOpenChange).toHaveBeenCalled();
   });
 });

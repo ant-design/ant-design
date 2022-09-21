@@ -1,16 +1,19 @@
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+import React, { memo, useContext, useEffect, useMemo, useRef } from 'react';
 import { floatButtonPrefixCls } from '.';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 import FloatButtonGroupContext from './context';
-import type { BackTopProps, FloatButtonShape } from './interface';
+import FloatButtonContent from './FloatButtonContent';
+import type { BackTopProps, FloatButtonContentProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
 const BackTop: React.FC<BackTopProps> = props => {
@@ -19,19 +22,19 @@ const BackTop: React.FC<BackTopProps> = props => {
     className = '',
     type = 'default',
     shape = 'circle',
-    visibilityHeight,
-    icon,
+    visibilityHeight = 400,
+    icon = <VerticalAlignTopOutlined />,
     description,
     target,
     onClick,
     duration = 450,
   } = props;
 
-  const [, setVisible] = useMergedState(false, { value: props.visible });
+  const [visible, setVisible] = useMergedState(false, { value: props.visible });
 
-  const ref = React.createRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
 
-  const scrollEvent = React.useRef<any>();
+  const scrollEvent = useRef<any>(null);
 
   const getDefaultTarget = (): HTMLElement | Document | Window => {
     if (ref.current && ref.current.ownerDocument) {
@@ -56,7 +59,7 @@ const BackTop: React.FC<BackTopProps> = props => {
     handleScroll({ target: container });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     bindScrollEvent();
     return () => {
       if (scrollEvent.current) {
@@ -73,13 +76,13 @@ const BackTop: React.FC<BackTopProps> = props => {
     }
   };
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-
+  const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const groupShape = React.useContext<FloatButtonShape | null>(FloatButtonGroupContext);
+  const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
 
   const mergeShape = groupShape || shape;
 
@@ -103,28 +106,20 @@ const BackTop: React.FC<BackTopProps> = props => {
     'visible',
   ]);
 
-  const defaultElement = (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
-        <VerticalAlignTopOutlined />
-      </div>
-    </div>
+  const contentProps = useMemo<FloatButtonContentProps>(
+    () => ({ prefixCls, description, icon, type }),
+    [prefixCls, description, icon, type],
   );
 
   return wrapSSR(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      <div className={`${prefixCls}-body`}>
-        <div className={`${prefixCls}-content`}>
-          {icon || description ? (
-            <>
-              {icon && <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{icon}</div>}
-              {description && <div>{description}</div>}
-            </>
-          ) : (
-            defaultElement
-          )}
-        </div>
-      </div>
+      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
+        {({ className: motionClassName }) => (
+          <div className={`${prefixCls}-body`}>
+            <FloatButtonContent className={motionClassName} {...contentProps} />
+          </div>
+        )}
+      </CSSMotion>
     </div>,
   );
 };
@@ -133,4 +128,4 @@ BackTop.defaultProps = {
   visibilityHeight: 400,
 };
 
-export default React.memo(BackTop);
+export default memo(BackTop);

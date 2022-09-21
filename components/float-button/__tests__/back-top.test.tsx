@@ -17,13 +17,13 @@ describe('BackTop', () => {
     });
     window.scrollTo(0, 400);
     expect(document.documentElement.scrollTop).toBe(400);
-    fireEvent.click(container.querySelector('.ant-back-top')!);
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
     await sleep(500);
     expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
   });
 
-  it('support onClick', async () => {
+  it('support onClick', () => {
     const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} visibilityHeight={-1} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
@@ -32,15 +32,15 @@ describe('BackTop', () => {
     });
     document.dispatchEvent(new Event('scroll'));
     window.scrollTo(0, 400);
-    fireEvent.click(container.querySelector('.ant-back-top')!);
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
     scrollToSpy.mockRestore();
   });
 
-  it('invalid target', async () => {
+  it('invalid target', () => {
     const onClick = jest.fn();
     const { container } = render(<BackTop onClick={onClick} visible target={undefined} />);
-    fireEvent.click(container.querySelector('.ant-back-top')!);
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
 });

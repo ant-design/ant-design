@@ -67,6 +67,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusSM,
       [`${groupPrefixCls}-wrap`]: {
+        zIndex: 30,
         display: 'block',
         marginBottom: margin,
       },
@@ -75,6 +76,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
       [componentCls]: {
         position: 'static',
+      },
+      [`${componentCls}-tigger`]: {
+        zIndex: 99999,
       },
       [`${componentCls}-square-tigger`]: {
         padding: `0 !important`,

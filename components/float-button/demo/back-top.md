@@ -27,7 +27,7 @@ const App: React.FC = () => (
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
-    <FloatButton.BackTop />
+    <FloatButton.BackTop shape="square" />
   </div>
 );
 

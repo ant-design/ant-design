@@ -24,6 +24,7 @@ export interface FloatButtonProps {
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
+  className?: string;
   icon?: FloatButtonProps['icon'];
   description?: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
