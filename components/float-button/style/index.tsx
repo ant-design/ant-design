@@ -81,11 +81,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         zIndex: 99999,
       },
       [`${componentCls}-square-tigger`]: {
-        padding: `0 !important`,
-        borderRadius: `${radiusBase}px !important`,
+        padding: 0,
+        borderRadius: radiusBase,
         [`${componentCls}-body`]: {
-          width: `${floatButtonSize}px !important`,
-          height: `${floatButtonSize}px !important`,
+          width: floatButtonSize,
+          height: floatButtonSize,
         },
       },
     },
@@ -99,23 +99,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
-      [`${componentCls}-square`]: {
-        borderRadius: 0,
-        padding: token.paddingXXS,
-        '&:first-child': {
-          borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
-        },
-        '&:last-child': {
-          borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
-        },
-        '&:not(:last-child)': {
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-        },
-        [`${componentCls}-body`]: {
-          width: floatButtonSize - token.paddingXXS * 2,
-          height: floatButtonSize - token.paddingXXS * 2,
-        },
-      },
       [`${groupPrefixCls}-wrap`]: {
         display: 'block',
         borderRadius: radiusBase,
@@ -125,6 +108,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
           boxShadow: 'none',
           marginTop: 0,
           borderRadius: 0,
+          padding: token.paddingXXS,
+          '&:first-child': {
+            borderTopLeftRadius: radiusBase,
+            borderTopRightRadius: radiusBase,
+          },
+          '&:last-child': {
+            borderBottomLeftRadius: radiusBase,
+            borderBottomRightRadius: radiusBase,
+          },
+          '&:not(:last-child)': {
+            borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          },
+          [`${componentCls}-body`]: {
+            width: floatButtonSize - token.paddingXXS * 2,
+            height: floatButtonSize - token.paddingXXS * 2,
+          },
         },
       },
     },
@@ -145,6 +144,11 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       boxShadow: token.boxShadowSecondary,
       [`${componentCls}-square`]: {
         boxShadow: 'none',
+        padding: token.paddingXXS,
+        [`${componentCls}-body`]: {
+          width: floatButtonSize - token.paddingXXS * 2,
+          height: floatButtonSize - token.paddingXXS * 2,
+        },
       },
     },
   };
