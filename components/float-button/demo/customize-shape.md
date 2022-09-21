@@ -18,9 +18,10 @@ You can customize the shape of the FloatButton.
 import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { FloatButton, Radio } from 'antd';
+import type { FloatButtonShape } from '../interface';
 
 const App: React.FC = () => {
-  const [shape, setShape] = useState<string>('circle');
+  const [shape, setShape] = useState<FloatButtonShape>('circle');
   const onChange = (e: RadioChangeEvent) => {
     setShape(e.target.value);
   };
