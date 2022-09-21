@@ -20,6 +20,8 @@ const BackTop: React.FC<BackTopProps> = props => {
     type = 'default',
     shape = 'circle',
     visibilityHeight,
+    icon,
+    description,
     target,
     onClick,
     duration = 450,
@@ -113,12 +115,10 @@ const BackTop: React.FC<BackTopProps> = props => {
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <div className={`${prefixCls}-body`}>
         <div className={`${prefixCls}-content`}>
-          {props.icon || props.description ? (
+          {icon || description ? (
             <>
-              {props.icon && (
-                <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{props.icon}</div>
-              )}
-              {props.description && <div>{props.description}</div>}
+              {icon && <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{icon}</div>}
+              {description && <div>{description}</div>}
             </>
           ) : (
             defaultElement
