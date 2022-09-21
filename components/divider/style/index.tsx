@@ -99,8 +99,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         background: 'none',
         borderColor: colorSplit,
         borderStyle: 'dashed',
-        borderWidth: 0,
-        borderBlockStart: `${controlLineWidth}px`,
+        borderWidth: `${controlLineWidth}px 0 0`,
       },
 
       '&-horizontal&-with-text&-dashed': {
