@@ -1,6 +1,5 @@
-import type { TableProps } from 'rc-table/lib/Table';
 import * as React from 'react';
-import type { ColumnGroupType, ColumnProps, ColumnType } from '..';
+import type { ColumnProps } from '..';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import Table from '../Table';
 
