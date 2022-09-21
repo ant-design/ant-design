@@ -1,4 +1,3 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import RcDrawer from 'rc-drawer';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
@@ -9,6 +8,8 @@ import { NoFormStyle } from '../form/context';
 import { getTransitionName } from '../_util/motion';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
+import DrawerPanel from './DrawerPanel';
+import type { DrawerPanelProps } from './DrawerPanel';
 
 // CSSINJS
 import useStyle from './style';
@@ -21,22 +22,10 @@ export interface PushState {
 }
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
-export interface DrawerProps extends RcDrawerProps {
+export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
-  closable?: boolean;
-  closeIcon?: React.ReactNode;
 
-  /** Wrapper dom node style of header and body */
-  drawerStyle?: React.CSSProperties;
-  headerStyle?: React.CSSProperties;
-  bodyStyle?: React.CSSProperties;
-  footerStyle?: React.CSSProperties;
-
-  title?: React.ReactNode;
   open?: boolean;
-
-  footer?: React.ReactNode;
-  extra?: React.ReactNode;
 
   afterOpenChange?: (open: boolean) => void;
 
@@ -55,23 +44,13 @@ function Drawer(props: DrawerProps) {
     width,
     height,
     size = 'default',
-    closable = true,
     mask = true,
     push = defaultPushState,
-    closeIcon = <CloseOutlined />,
-    bodyStyle,
-    drawerStyle,
     open,
     afterOpenChange,
-    children,
-    title,
-    headerStyle,
     onClose,
-    footer,
-    footerStyle,
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
-    extra,
 
     // Deprecated
     visible,
@@ -91,46 +70,6 @@ function Drawer(props: DrawerProps) {
     customizeGetContainer === undefined && getPopupContainer
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
-
-  const closeIconNode = closable && (
-    <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-      {closeIcon}
-    </button>
-  );
-
-  function renderHeader() {
-    if (!title && !closable) {
-      return null;
-    }
-
-    return (
-      <div
-        className={classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-header-close-only`]: closable && !title && !extra,
-        })}
-        style={headerStyle}
-      >
-        <div className={`${prefixCls}-header-title`}>
-          {closeIconNode}
-          {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        </div>
-        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
-      </div>
-    );
-  }
-
-  function renderFooter() {
-    if (!footer) {
-      return null;
-    }
-
-    const footerClassName = `${prefixCls}-footer`;
-    return (
-      <div className={footerClassName} style={footerStyle}>
-        {footer}
-      </div>
-    );
-  }
 
   const drawerClassName = classNames(
     {
@@ -197,13 +136,7 @@ function Drawer(props: DrawerProps) {
         getContainer={getContainer}
         afterOpenChange={afterOpenChange ?? afterVisibleChange}
       >
-        <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
-          {renderHeader()}
-          <div className={`${prefixCls}-body`} style={bodyStyle}>
-            {children}
-          </div>
-          {renderFooter()}
-        </div>
+        <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
       </RcDrawer>
     </NoFormStyle>,
   );
@@ -213,21 +146,27 @@ if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
 
-function PurePanel({ style, ...restProps }: DrawerProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+function PurePanel({
+  prefixCls: customizePrefixCls,
+  style,
+  className,
+  ...restProps
+}: Omit<DrawerPanelProps, 'prefixCls' | 'drawerStyle'> & {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  className?: string;
+}) {
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        minHeight: 100,
-        overflow: 'hidden',
-        ...style,
-      }}
-    >
-      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} open />
-    </div>
+  const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
+    <div className={classNames(prefixCls, `${prefixCls}-pure`, hashId, className)} style={style}>
+      <DrawerPanel prefixCls={prefixCls} {...restProps} />
+    </div>,
   );
 }
 
