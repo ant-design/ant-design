@@ -12,7 +12,7 @@ import Tooltip from '../../tooltip';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
-import { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
+import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
