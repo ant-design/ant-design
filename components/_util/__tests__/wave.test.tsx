@@ -1,6 +1,6 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, sleep, fireEvent } from '../../../tests/utils';
+import { render, sleep, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 
@@ -211,5 +211,32 @@ describe('Wave component', () => {
 
   it('should not throw when no children', () => {
     expect(() => render(<Wave />)).not.toThrow();
+  });
+
+  it('Wave style should append to validate element', () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Wave>
+        <div className="bamboo" style={{ borderColor: 'red' }} />
+      </Wave>,
+    );
+
+    // Mock shadow container
+    const fakeDoc = document.createElement('div');
+    fakeDoc.append('text');
+    fakeDoc.appendChild(document.createElement('span'));
+    expect(fakeDoc.childNodes).toHaveLength(2);
+
+    (container.querySelector('.bamboo') as any).getRootNode = () => fakeDoc;
+
+    // Click should not throw
+    fireEvent.click(container.querySelector('.bamboo')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(fakeDoc.querySelector('style')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });
