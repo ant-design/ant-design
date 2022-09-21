@@ -5,12 +5,12 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import { ConfigContext } from '../../config-provider';
-import getScroll from '../../_util/getScroll';
-import { cloneElement } from '../../_util/reactNode';
-import scrollTo from '../../_util/scrollTo';
-import { throttleByAnimationFrame } from '../../_util/throttleByAnimationFrame';
-import useStyle from './style';
+import { ConfigContext } from '../config-provider';
+import getScroll from '../_util/getScroll';
+import { cloneElement } from '../_util/reactNode';
+import scrollTo from '../_util/scrollTo';
+import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
+import useStyle from './back-top/style';
 
 export interface BackTopProps {
   visibilityHeight?: number;

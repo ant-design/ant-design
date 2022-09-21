@@ -1,6 +1,6 @@
 import type React from 'react';
 import type Group from './FloatButtonGroup';
-import type BackTop from '../back-top';
+import type BackTop from './BackTop';
 import type { TooltipProps } from '../tooltip';
 
 export type FloatButtonType = 'default' | 'primary';

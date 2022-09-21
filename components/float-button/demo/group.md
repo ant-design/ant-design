@@ -1,14 +1,14 @@
 ---
-order: 4
+order: 3
 iframe: 360
 title:
-  zh-CN: 悬浮按钮组
-  en-US: Custom style
+  zh-CN: 多个悬浮按钮组合
+  en-US: Group of FloatButton
 ---
 
 ## zh-CN
 
-按钮组菜单模式
+按钮组合使用时，推荐使用 FloatButton.Group
 
 ## en-US
 
@@ -19,11 +19,12 @@ import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group trigger="click">
+  <FloatButton.Group>
     <FloatButton />
     <FloatButton />
     <FloatButton />
   </FloatButton.Group>
 );
+
 export default App;
 ```

@@ -1,14 +1,14 @@
 ---
-order: 6
+order: 2
 iframe: 360
 title:
   zh-CN: 含有气泡卡片的悬浮按钮
-  en-US: Custom style
+  en-US: button with tooltip
 ---
 
 ## zh-CN
 
-含有气泡卡片的悬浮按钮
+设置 tooltip 属性，即可开启气泡卡片
 
 ## en-US
 
@@ -18,7 +18,7 @@ You can customize the style of the button.
 import React from 'react';
 import { FloatButton } from 'antd';
 
-const App: React.FC = () => <FloatButton tooltip={<div>text</div>} />;
+const App: React.FC = () => <FloatButton tooltip={<div>帮助文档</div>} />;
 
 export default App;
 ```
