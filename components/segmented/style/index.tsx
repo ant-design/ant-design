@@ -150,7 +150,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       '&&-sm': {
         borderRadius: token.controlRadiusSM,
-        [`&&-sm ${componentCls}-item-label`]: {
+        [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
           lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
