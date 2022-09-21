@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
@@ -23,8 +24,34 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonSize, margin, radiusBase } = token;
+  const { componentCls, floatButtonSize, margin, radiusBase, motionDurationSlow } = token;
   const groupPrefixCls = `${componentCls}-group`;
+  const moveDownIn = new Keyframes('antMoveDownIn', {
+    '0%': {
+      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
+      transformOrigin: '0 0',
+      opacity: 0,
+    },
+
+    '100%': {
+      transform: 'translate3d(0, 0, 0)',
+      transformOrigin: '0 0',
+      opacity: 1,
+    },
+  });
+  const moveDownOut = new Keyframes('antMoveDownOut', {
+    '0%': {
+      transform: 'translate3d(0, 0, 0)',
+      transformOrigin: '0 0',
+      opacity: 1,
+    },
+
+    '100%': {
+      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
+      transformOrigin: '0 0',
+      opacity: 0,
+    },
+  });
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
@@ -92,6 +119,16 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         },
       },
     },
+
+    [`${groupPrefixCls}-wrap-enter,${groupPrefixCls}-wrap-enter-active`]: {
+      animationName: moveDownIn,
+      animationDuration: motionDurationSlow,
+    },
+    [`${groupPrefixCls}-wrap-leave`]: {
+      animationName: moveDownOut,
+      animationDuration: motionDurationSlow,
+    },
+
     [`${groupPrefixCls}-circle-shadow`]: {
       boxShadow: 'none',
     },

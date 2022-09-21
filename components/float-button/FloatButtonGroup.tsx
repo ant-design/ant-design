@@ -3,6 +3,7 @@ import React, { useRef, memo, useContext, useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -107,7 +108,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
       <div className={classString} {...hoverAction.current}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
-            {open && <div className={wrapClsString}>{children}</div>}
+            <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
+              {({ className: motionClassName }) => (
+                <div className={classNames(motionClassName, wrapClsString)}>{children}</div>
+              )}
+            </CSSMotion>
             {tiggerElement}
           </>
         ) : (
