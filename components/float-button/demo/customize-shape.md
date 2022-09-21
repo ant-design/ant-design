@@ -16,8 +16,8 @@ You can customize the shape of the FloatButton.
 
 ```tsx
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
 import { FloatButton, Radio } from 'antd';
+import type { RadioChangeEvent } from 'antd';
 import type { FloatButtonShape } from 'antd/es/float-button/interface';
 
 const App: React.FC = () => {
