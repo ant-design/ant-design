@@ -146,22 +146,24 @@ if (process.env.NODE_ENV !== 'production') {
   Drawer.displayName = 'Drawer';
 }
 
-function PurePanel({ style, ...restProps }: DrawerProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+function PurePanel({
+  prefixCls: customizePrefixCls,
+  style,
+  className,
+  ...restProps
+}: Omit<DrawerPanelProps, 'prefixCls' | 'drawerStyle'> & {
+  prefixCls?: string;
+  style?: React.CSSProperties;
+  className?: string;
+}) {
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        minHeight: 100,
-        overflow: 'hidden',
-        ...style,
-      }}
-    >
-      <Drawer {...restProps} getContainer={false} maskMotion={{}} motion={{}} open />
-    </div>
-  );
+  const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+  // Style
+  useStyle(prefixCls);
+
+  return <DrawerPanel prefixCls={prefixCls} {...restProps} drawerStyle={style} />;
 }
 
 Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
