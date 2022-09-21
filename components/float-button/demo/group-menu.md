@@ -8,11 +8,11 @@ title:
 
 ## zh-CN
 
-设置 trigger 属性，即可开启气泡卡片，你可以选择 hover 或者 click 两种触发方式
+设置 trigger 属性即可开启菜单模式，你可以选择 `hover` 或者 `click` 两种触发方式
 
 ## en-US
 
-You can customize the style of the button.
+Setting the trigger can open the menu mode, and you can select `Hover` or `click` to trigger
 
 ```tsx
 import React from 'react';

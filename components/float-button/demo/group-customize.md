@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-You can customize the style of the button.
+You can customize the shape of the group by setting the Shape property. The shape of the group overrides the internal shape property.
 
 ```tsx
 import React from 'react';

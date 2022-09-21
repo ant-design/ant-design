@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-You can customize the style of the button.
+We have deprecated the BackTop component in `antd@4.x`, In `antd@5.0.0`, BackTop is integrated in the FloatButton, which you can use by using `<FloatButton.backtop />`.
 
 ```tsx
 import React from 'react';

@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-You can customize the style of the button.
+Setting the `tooltip` can open the tooltip.
 
 ```tsx
 import React from 'react';

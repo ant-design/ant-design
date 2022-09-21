@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-You can customize the style of the button.
+When multiple buttons are used together，you can use `<FloatButton.Group />`.
 
 ```tsx
 import React from 'react';
