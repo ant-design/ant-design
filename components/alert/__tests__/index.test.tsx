@@ -39,7 +39,7 @@ describe('Alert', () => {
       jest.runAllTimers();
     });
 
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('custom action', () => {
