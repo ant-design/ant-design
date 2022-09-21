@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import BackTop from './back-top';
+import BackTop from './BackTop';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import Tooltip from '../tooltip';

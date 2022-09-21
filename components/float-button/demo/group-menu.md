@@ -1,25 +1,25 @@
 ---
-order: 2
+order: 5
 iframe: 360
 title:
-  zh-CN: 自定义样式
+  zh-CN: 菜单模式
   en-US: Custom style
 ---
 
 ## zh-CN
 
-悬浮按钮组
+设置 trigger 属性即可开启菜单模式，你可以选择 `hover` 或者 `click` 两种触发方式
 
 ## en-US
 
-You can customize the style of the button.
+Setting the trigger can open the menu mode, and you can select `Hover` or `click` to trigger
 
 ```tsx
 import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group>
+  <FloatButton.Group shape="square" trigger="click">
     <FloatButton />
     <FloatButton />
     <FloatButton />
