@@ -2,7 +2,7 @@
 
 exports[`FloatButtonGroup should correct render 1`] = `
 <div
-  class="ant-float-btn-group ant-float-btn-group-circle"
+  class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
 >
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"

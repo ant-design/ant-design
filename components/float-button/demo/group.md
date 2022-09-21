@@ -22,7 +22,7 @@ const App: React.FC = () => (
   <FloatButton.Group>
     <FloatButton />
     <FloatButton />
-    <FloatButton />
+    <FloatButton.BackTop />
   </FloatButton.Group>
 );
 

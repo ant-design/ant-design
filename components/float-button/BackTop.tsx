@@ -1,75 +1,51 @@
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import { floatButtonPrefixCls } from '.';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
-import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
-import useStyle from './back-top/style';
-
-export interface BackTopProps {
-  visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
-  target?: () => HTMLElement | Window | Document;
-  prefixCls?: string;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  duration?: number;
-  visible?: boolean; // Only for test. Don't use it.
-}
-
-interface ChildrenProps {
-  prefixCls: string;
-  rootPrefixCls: string;
-  children?: React.ReactNode;
-  visible?: boolean; // Only for test. Don't use it.
-}
-
-const BackTopContent: React.FC<ChildrenProps> = props => {
-  const { prefixCls, rootPrefixCls, children, visible } = props;
-  const defaultElement = (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-icon`}>
-        <VerticalAlignTopOutlined />
-      </div>
-    </div>
-  );
-  return (
-    <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
-      {({ className: motionClassName }) =>
-        cloneElement(children || defaultElement, ({ className }) => ({
-          className: classNames(motionClassName, className),
-        }))
-      }
-    </CSSMotion>
-  );
-};
+import FloatButtonGroupContext from './context';
+import type { BackTopProps, FloatButtonShape } from './interface';
+import useStyle from './style';
 
 const BackTop: React.FC<BackTopProps> = props => {
-  const [visible, setVisible] = useMergedState(false, { value: props.visible });
+  const {
+    prefixCls: customizePrefixCls,
+    className = '',
+    type = 'default',
+    shape = 'circle',
+    visibilityHeight,
+    target,
+    onClick,
+    duration = 450,
+  } = props;
+
+  const [, setVisible] = useMergedState(false, { value: props.visible });
 
   const ref = React.createRef<HTMLDivElement>();
+
   const scrollEvent = React.useRef<any>();
 
-  const getDefaultTarget = () =>
-    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+  const getDefaultTarget = (): HTMLElement | Document | Window => {
+    if (ref.current && ref.current.ownerDocument) {
+      return ref.current.ownerDocument;
+    }
+    return window;
+  };
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement> | { target: any }) => {
-      const { visibilityHeight } = props;
       const scrollTop = getScroll(e.target, true);
       setVisible(scrollTop > visibilityHeight!);
     },
   );
 
   const bindScrollEvent = () => {
-    const { target } = props;
     const getTarget = target || getDefaultTarget;
     const container = getTarget();
     scrollEvent.current = addEventListener(container, 'scroll', (e: React.UIEvent<HTMLElement>) => {
@@ -86,35 +62,36 @@ const BackTop: React.FC<BackTopProps> = props => {
       }
       handleScroll.cancel();
     };
-  }, [props.target]);
+  }, [target]);
 
-  const scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { onClick, target, duration = 450 } = props;
-    scrollTo(0, {
-      getContainer: target || getDefaultTarget,
-      duration,
-    });
+  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = e => {
+    scrollTo(0, { getContainer: target || getDefaultTarget, duration });
     if (typeof onClick === 'function') {
       onClick(e);
     }
   };
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '' } = props;
-  const prefixCls = getPrefixCls('float-button-back-top', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
+
+  const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
+
   const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const groupShape = React.useContext<FloatButtonShape | null>(FloatButtonGroupContext);
+
+  const mergeShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
     prefixCls,
+    className,
+    `${prefixCls}-${type}`,
+    `${prefixCls}-${mergeShape}`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    className,
   );
 
-  // fix https://fb.me/react-unknown-prop
   const divProps = omit(props, [
     'prefixCls',
     'className',
@@ -124,11 +101,30 @@ const BackTop: React.FC<BackTopProps> = props => {
     'visible',
   ]);
 
+  const defaultElement = (
+    <div className={`${prefixCls}-content`}>
+      <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
+        <VerticalAlignTopOutlined />
+      </div>
+    </div>
+  );
+
   return wrapSSR(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      <BackTopContent prefixCls={prefixCls} rootPrefixCls={rootPrefixCls} visible={visible}>
-        {props.children}
-      </BackTopContent>
+      <div className={`${prefixCls}-body`}>
+        <div className={`${prefixCls}-content`}>
+          {props.icon || props.description ? (
+            <>
+              {props.icon && (
+                <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{props.icon}</div>
+              )}
+              {props.description && <div>{props.description}</div>}
+            </>
+          ) : (
+            defaultElement
+          )}
+        </div>
+      </div>
     </div>,
   );
 };
