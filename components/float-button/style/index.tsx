@@ -50,7 +50,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         position: 'static',
       },
       [`${componentCls}-square-tigger`]: {
+        padding: `0 !important`,
         borderRadius: `${radiusBase}px !important`,
+        [`${componentCls}-body`]: {
+          width: `${floatButtonSize}px !important`,
+          height: `${floatButtonSize}px !important`,
+        },
       },
     },
     [`${groupPrefixCls}-circle`]: {
