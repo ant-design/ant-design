@@ -136,7 +136,7 @@ function Drawer(props: DrawerProps) {
         getContainer={getContainer}
         afterOpenChange={afterOpenChange ?? afterVisibleChange}
       >
-        <DrawerPanel prefixCls={prefixCls} {...props} />
+        <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
       </RcDrawer>
     </NoFormStyle>,
   );
@@ -161,9 +161,13 @@ function PurePanel({
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
   // Style
-  useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  return <DrawerPanel prefixCls={prefixCls} {...restProps} drawerStyle={style} />;
+  return wrapSSR(
+    <div className={classNames(prefixCls, `${prefixCls}-pure`, hashId, className)} style={style}>
+      <DrawerPanel prefixCls={prefixCls} {...restProps} />
+    </div>,
+  );
 }
 
 Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;

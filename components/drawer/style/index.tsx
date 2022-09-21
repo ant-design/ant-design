@@ -45,6 +45,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       zIndex: zIndexPopup,
       pointerEvents: 'none',
 
+      '&-pure': {
+        position: 'relative',
+      },
+
       '&-inline': {
         position: 'absolute',
       },
