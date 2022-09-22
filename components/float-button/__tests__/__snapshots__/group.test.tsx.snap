@@ -13,7 +13,6 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
-        type="default"
       >
         <div
           class="ant-float-btn-icon"
@@ -50,7 +49,6 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
-        type="default"
       >
         <div
           class="ant-float-btn-icon"
@@ -87,7 +85,6 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
-        type="default"
       >
         <div
           class="ant-float-btn-icon"

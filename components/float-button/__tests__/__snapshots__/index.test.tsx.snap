@@ -10,7 +10,6 @@ exports[`FloatButton rtl render component should be rendered correctly in RTL di
   >
     <div
       class="ant-float-btn-content"
-      type="default"
     >
       <div
         class="ant-float-btn-icon"
@@ -50,7 +49,6 @@ exports[`FloatButton should correct render 1`] = `
   >
     <div
       class="ant-float-btn-content"
-      type="default"
     >
       <div
         class="ant-float-btn-icon"
