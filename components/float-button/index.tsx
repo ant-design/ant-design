@@ -52,15 +52,15 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode = (
-    <div className={`${prefixCls}-body`}>
-      {tooltip ? (
-        <Tooltip title={tooltip} placement="left">
-          <Content {...contentProps} />
-        </Tooltip>
-      ) : (
+  const buttonNode = tooltip ? (
+    <Tooltip title={tooltip} placement="left">
+      <div className={`${prefixCls}-body`}>
         <Content {...contentProps} />
-      )}
+      </div>
+    </Tooltip>
+  ) : (
+    <div className={`${prefixCls}-body`}>
+      <Content {...contentProps} />
     </div>
   );
 
