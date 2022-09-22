@@ -767,6 +767,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-tabtest"
+                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-tabtest"
@@ -781,6 +782,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-tabtest"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-tabtest"
@@ -888,6 +890,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-article"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-article"
@@ -902,6 +905,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-app"
+                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-app"
@@ -916,6 +920,7 @@ Array [
               >
                 <div
                   aria-controls="rc-tabs-test-panel-project"
+                  aria-disabled="false"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
                   id="rc-tabs-test-tab-project"
