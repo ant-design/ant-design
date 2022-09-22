@@ -237,7 +237,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           backgroundColor: token.colorFillContent,
         },
         [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
+          [`${componentCls}-icon,${componentCls}-description`]: {
             color: token.colorText,
           },
         },
@@ -252,7 +252,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           backgroundColor: token.colorPrimaryHover,
         },
         [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
+          [`${componentCls}-icon,${componentCls}-description`]: {
             color: token.colorTextLightSolid,
           },
         },

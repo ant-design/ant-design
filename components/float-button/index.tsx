@@ -14,6 +14,7 @@ import type {
 } from './interface';
 import Group from './FloatButtonGroup';
 import FloatButtonGroupContext from './context';
+import warning from '../_util/warning';
 
 export const floatButtonPrefixCls = 'float-btn';
 
@@ -62,6 +63,14 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
       )}
     </div>
   );
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !(shape === 'circle' && description),
+      'FloatButton',
+      'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
+    );
+  }
 
   return wrapSSR(
     props.href ? (

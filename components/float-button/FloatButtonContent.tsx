@@ -21,7 +21,7 @@ const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
       {icon || description ? (
         <>
           {icon && <div className={`${prefixCls}-icon`}>{icon}</div>}
-          {description && <div>{description}</div>}
+          {description && <div className={`${prefixCls}-description`}>{description}</div>}
         </>
       ) : (
         defaultElement

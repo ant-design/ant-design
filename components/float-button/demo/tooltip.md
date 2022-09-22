@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 含有气泡卡片的悬浮按钮
   en-US: FloatButton with tooltip

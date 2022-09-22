@@ -43,4 +43,12 @@ describe('FloatButton', () => {
     fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
+  it('should console Error', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<FloatButton description="test" shape="circle" />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
+    );
+    errSpy.mockRestore();
+  });
 });

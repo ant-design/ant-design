@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 iframe: 360
 title:
   zh-CN: 菜单模式
