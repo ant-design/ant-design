@@ -4,7 +4,7 @@ import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { floatButtonPrefixCls } from '.';
+import FloatButton, { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
@@ -20,6 +20,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     type = 'default',
     icon = <FileTextOutlined />,
     closeIcon = <CloseOutlined />,
+    description,
     trigger,
     children,
     onOpenChange,
@@ -37,14 +38,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   });
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
-
-  const tiggerCls = classNames(
-    hashId,
-    prefixCls,
-    `${prefixCls}-tigger`,
-    `${prefixCls}-${type}`,
-    `${prefixCls}-${shape}`,
-  );
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
@@ -76,14 +69,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     };
   }
 
-  const tiggerElement = (
-    <div className={tiggerCls} {...clickAction.current}>
-      <div className={`${prefixCls}-body`}>
-        <div className={`${prefixCls}-icon`}>{open ? closeIcon : icon}</div>
-      </div>
-    </div>
-  );
-
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
       <div className={groupCls} style={style} {...hoverAction.current}>
@@ -94,7 +79,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
                 <div className={classNames(motionClassName, wrapperCls)}>{children}</div>
               )}
             </CSSMotion>
-            {tiggerElement}
+            <FloatButton
+              type={type}
+              shape={shape}
+              icon={open ? closeIcon : icon}
+              description={description}
+              {...clickAction.current}
+            />
           </>
         ) : (
           children

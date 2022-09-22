@@ -235,7 +235,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
           backgroundColor: token.colorFillContent,
-          transition: `background-color ${token.motionDurationFast}`,
         },
         [`${componentCls}-content`]: {
           [`${componentCls}-icon`]: {
@@ -251,7 +250,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
           backgroundColor: token.colorPrimaryHover,
-          transition: `background-color ${token.motionDurationFast}`,
         },
         [`${componentCls}-content`]: {
           [`${componentCls}-icon`]: {
