@@ -222,6 +222,7 @@ class Demo extends React.Component {
           'const ComponentDemo =',
         )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
       editors: '001',
+      css: '',
       // eslint-disable-next-line no-undef
       js_external: [
         'react@18/umd/react.development.js',
@@ -245,6 +246,7 @@ class Demo extends React.Component {
         /export default/,
         'const ComponentDemo =',
       )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
+      css: '',
       json: JSON.stringify(
         {
           name: 'antd-demo',
