@@ -326,25 +326,27 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 <Header {...restProps} changeDirection={this.changeDirection} />
                 {children}
 
-                <DynamicTheme
-                  componentName={(this.props as any).params?.children?.replace('-cn', '')}
-                  defaultToken={
-                    {
-                      theme: v5theme,
-                      ...designToken,
-                      hashed: hashedStyle,
-                    } as any
-                  }
-                  onChangeTheme={newToken => {
-                    console.log('Change Theme:', newToken);
-                    const { hashed, theme: newTheme, ...restToken } = newToken as any;
-                    this.setState({
-                      v5theme: newTheme,
-                      designToken: restToken,
-                      hashedStyle: hashed,
-                    });
-                  }}
-                />
+                {process.env.NODE_ENV !== 'production' && (
+                  <DynamicTheme
+                    componentName={(this.props as any).params?.children?.replace('-cn', '')}
+                    defaultToken={
+                      {
+                        theme: v5theme,
+                        ...designToken,
+                        hashed: hashedStyle,
+                      } as any
+                    }
+                    onChangeTheme={newToken => {
+                      console.log('Change Theme:', newToken);
+                      const { hashed, theme: newTheme, ...restToken } = newToken as any;
+                      this.setState({
+                        v5theme: newTheme,
+                        designToken: restToken,
+                        hashedStyle: hashed,
+                      });
+                    }}
+                  />
+                )}
               </ConfigProvider>
             </IntlProvider>
           </HelmetProvider>
