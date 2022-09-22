@@ -6,7 +6,7 @@ import RcInputNumber from 'rc-input-number';
 import type { ValueType } from 'rc-input-number/lib/utils/MiniDecimal';
 import * as React from 'react';
 import { useContext } from 'react';
-import { ConfigContext } from '../config-provider';
+import ConfigProvider, { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -203,8 +203,29 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   return wrapSSR(element);
 });
 
-export default InputNumber as (<T extends ValueType = ValueType>(
+const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(
   props: React.PropsWithChildren<InputNumberProps<T>> & {
     ref?: React.Ref<HTMLInputElement>;
   },
-) => React.ReactElement) & { displayName?: string };
+) => React.ReactElement) & {
+  displayName?: string;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PureInputNumber;
+};
+
+const PureInputNumber = (props: InputNumberProps<any>) => (
+  <ConfigProvider
+    theme={{
+      override: {
+        InputNumber: {
+          handleVisible: true,
+        },
+      },
+    }}
+  >
+    <InputNumber {...props} />
+  </ConfigProvider>
+);
+
+TypedInputNumber._InternalPanelDoNotUseOrYouWillBeFired = PureInputNumber;
+
+export default TypedInputNumber;
