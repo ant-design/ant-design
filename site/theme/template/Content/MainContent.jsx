@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
+import { Link } from 'bisheng/router';
+import { Affix, Avatar, Col, Menu, Row, Tooltip } from 'antd';
 import { injectIntl } from 'react-intl';
-import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
+import { ExportOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
-
-import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -468,7 +466,6 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
-    const componentPage = /^\/?components/.test(location.pathname);
     return (
       <div className="main-wrapper">
         <Row>
