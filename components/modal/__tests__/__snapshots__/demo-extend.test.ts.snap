@@ -329,7 +329,7 @@ exports[`renders ./components/modal/demo/render-panel.md extend context correctl
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width: 100%;"
+    style="width: 100%; height: 200px;"
   >
     <div
       aria-hidden="true"
@@ -413,7 +413,7 @@ exports[`renders ./components/modal/demo/render-panel.md extend context correctl
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width: 200px;"
+    style="width: 200px; height: 150px;"
   >
     <div
       aria-hidden="true"
@@ -482,7 +482,7 @@ exports[`renders ./components/modal/demo/render-panel.md extend context correctl
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width: 300px;"
+    style="width: 300px; height: 200px;"
   >
     <div
       aria-hidden="true"

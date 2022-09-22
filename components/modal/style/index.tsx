@@ -245,6 +245,20 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
       [`${componentCls}-pure-panel`]: {
         top: 'auto',
         padding: 0,
+        display: 'flex',
+        flexDirection: 'column',
+
+        [`${componentCls}-content,
+          ${componentCls}-body,
+          ${componentCls}-confirm-body-wrapper`]: {
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 'auto',
+        },
+
+        [`${componentCls}-confirm-body`]: {
+          marginBottom: 'auto',
+        },
       },
     },
   ];

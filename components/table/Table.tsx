@@ -311,7 +311,7 @@ function InternalTable<RecordType extends object = any>(
     );
   };
 
-  const [transformFilterColumns, filterStates, getFilters] = useFilter<RecordType>({
+  const [transformFilterColumns, filterStates, filters] = useFilter<RecordType>({
     prefixCls,
     locale: tableLocale,
     dropdownPrefixCls,
@@ -321,16 +321,23 @@ function InternalTable<RecordType extends object = any>(
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
-  changeEventInfo.filters = getFilters();
+  changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
-  const columnTitleProps = React.useMemo(
-    () => ({
+  const columnTitleProps = React.useMemo(() => {
+    const mergedFilters: Record<string, FilterValue> = {};
+    Object.keys(filters).forEach(filterKey => {
+      if (filters[filterKey] !== null) {
+        mergedFilters[filterKey] = filters[filterKey]!;
+      }
+    });
+    return {
       ...sorterTitleProps,
-    }),
-    [sorterTitleProps],
-  );
+      filters: mergedFilters,
+    };
+  }, [sorterTitleProps, filters]);
+
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
