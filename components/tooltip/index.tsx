@@ -276,9 +276,12 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     prefixCls,
   );
   const childProps = child.props;
-  const childCls = classNames(childProps.className, {
-    [openClassName || `${prefixCls}-open`]: true,
-  });
+  const childCls =
+    !childProps.className || typeof childProps.className === 'string'
+      ? classNames(childProps.className, {
+          [openClassName || `${prefixCls}-open`]: true,
+        })
+      : childProps.className;
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);

@@ -13,6 +13,7 @@ import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
 import { resetWarned } from '../../_util/warning';
+import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -1950,6 +1951,35 @@ describe('Table.filter', () => {
       expect(container.querySelectorAll('li.ant-dropdown-menu-item').length).toBe(2);
     });
 
+    it('should supports filterSearch has type of function when filterMode is tree', () => {
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { container } = render(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filterMode: 'tree',
+              filters: [
+                { text: '节点一', value: 'node1' },
+                { text: '节点二', value: 'node2' },
+                { text: '节点三', value: 'node3' },
+              ],
+              filterSearch: (input: any, record: TreeColumnFilterItem) =>
+                (record.title as string).includes(input),
+            },
+          ],
+        }),
+      );
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+      });
+      expect(container.querySelectorAll('.ant-table-filter-dropdown-tree').length).toBe(1);
+      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '节点二' } });
+      expect(container.querySelectorAll('.ant-tree-treenode.filter-node').length).toBe(1);
+    });
+
     it('supports check all items', () => {
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
@@ -2456,5 +2486,27 @@ describe('Table.filter', () => {
       container.querySelector<HTMLLinkElement>('.ant-table-filter-dropdown-btns .ant-btn-link')
         ?.disabled,
     ).toBeTruthy();
+  });
+
+  it('title render function support `filter`', () => {
+    const title = jest.fn(() => 'RenderTitle');
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            title,
+            filteredValue: ['boy'],
+          },
+        ],
+      }),
+    );
+
+    expect(container.querySelector('.ant-table-column-title')?.textContent).toEqual('RenderTitle');
+    expect(title).toHaveBeenCalledWith(
+      expect.objectContaining({
+        filters: { name: ['boy'] },
+      }),
+    );
   });
 });
