@@ -241,6 +241,49 @@ Array [
 ]
 `;
 
+exports[`renders ./components/float-button/demo/description.md extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    style="right: 24px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-description"
+        >
+          帮助文档
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    style="right: 94px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-description"
+        >
+          帮助文档
+        </div>
+      </div>
+    </div>
+  </button>,
+]
+`;
+
 exports[`renders ./components/float-button/demo/group.md extend context correctly 1`] = `
 Array [
   <div

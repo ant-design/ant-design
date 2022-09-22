@@ -24,8 +24,8 @@ import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <FloatButton description="帮助文档" shape="square" type="primary" style={{ right: 24 }} />
-    <FloatButton description="帮助文档" shape="square" type="default" style={{ right: 94 }} />
+    <FloatButton style={{ right: 24 }} description="帮助文档" shape="square" type="primary" />
+    <FloatButton style={{ right: 94 }} description="帮助文档" shape="square" type="default" />
   </>
 );
 

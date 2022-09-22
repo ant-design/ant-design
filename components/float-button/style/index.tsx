@@ -206,6 +206,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           overflow: 'hidden',
           textAlign: 'center',
           [`${componentCls}-icon`]: {
+            textAlign: 'center',
+            margin: 'auto',
             width: floatButtonIconSize,
             fontSize: floatButtonIconSize,
             lineHeight: 1,
@@ -237,7 +239,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           backgroundColor: token.colorFillContent,
         },
         [`${componentCls}-content`]: {
-          [`${componentCls}-icon,${componentCls}-description`]: {
+          [`${componentCls}-icon`]: {
+            color: token.colorText,
+          },
+          [`${componentCls}-description`]: {
+            padding: token.paddingXXS,
+            fontSize: token.fontSizeSM,
             color: token.colorText,
           },
         },
@@ -252,7 +259,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           backgroundColor: token.colorPrimaryHover,
         },
         [`${componentCls}-content`]: {
-          [`${componentCls}-icon,${componentCls}-description`]: {
+          [`${componentCls}-icon`]: {
+            color: token.colorTextLightSolid,
+          },
+          [`${componentCls}-description`]: {
+            padding: token.paddingXXS,
+            fontSize: token.fontSizeSM,
             color: token.colorTextLightSolid,
           },
         },
