@@ -180,7 +180,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       position: 'fixed',
       cursor: 'pointer',
       overflow: 'hidden',
-      zIndex: 20,
+      zIndex: 99,
       display: 'block',
       justifyContent: 'center',
       alignItems: 'center',
@@ -202,17 +202,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
-        },
-        [`${componentCls}-icon`]: {
-          width: floatButtonIconSize,
-          fontSize: floatButtonIconSize,
-          lineHeight: 1,
-        },
-        [`${componentCls}-default-icon`]: {
-          color: token.colorText,
-        },
-        [`${componentCls}-primary-icon`]: {
-          color: token.colorTextLightSolid,
+          [`${componentCls}-icon`]: {
+            width: floatButtonIconSize,
+            fontSize: floatButtonIconSize,
+            lineHeight: 1,
+          },
         },
       },
     },
@@ -240,6 +234,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
           backgroundColor: token.colorFillContent,
           transition: `background-color ${token.motionDurationFast}`,
         },
+        [`${componentCls}-content`]: {
+          [`${componentCls}-icon`]: {
+            color: token.colorText,
+          },
+        },
       },
     },
     [`${componentCls}-primary`]: {
@@ -250,6 +249,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         '&:hover': {
           backgroundColor: token.colorPrimaryHover,
           transition: `background-color ${token.motionDurationFast}`,
+        },
+        [`${componentCls}-content`]: {
+          [`${componentCls}-icon`]: {
+            color: token.colorTextLightSolid,
+          },
         },
       },
     },

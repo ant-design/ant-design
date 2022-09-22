@@ -31,34 +31,23 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const classStringMenu = classNames(
+  const groupCls = classNames(groupPrefixCls, hashId, className, {
+    [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+    [`${groupPrefixCls}-${shape}`]: shape,
+    [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
+  });
+
+  const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
+
+  const tiggerCls = classNames(
     hashId,
     prefixCls,
-    className,
     `${prefixCls}-tigger`,
     `${prefixCls}-${type}`,
     `${prefixCls}-${shape}`,
-    `${prefixCls}-${shape}-tigger`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-  );
-
-  const classString = classNames(
-    groupPrefixCls,
-    hashId,
-    {
-      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-      [`${groupPrefixCls}-${shape}`]: shape,
-      [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
-    },
-    className,
-  );
-
-  const wrapClsString = classNames(
-    hashId,
-    `${groupPrefixCls}-wrap`,
-    `${groupPrefixCls}-wrap-${shape}`,
   );
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
@@ -95,23 +84,21 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
 
   const tiggerElement = (
-    <div className={classStringMenu} {...clickAction.current}>
+    <div className={tiggerCls} {...clickAction.current}>
       <div className={`${prefixCls}-body`}>
-        <div className={classNames(`${prefixCls}-icon`, `${prefixCls}-${type}-icon`)}>
-          {open ? closeIcon : icon}
-        </div>
+        <div className={`${prefixCls}-icon`}>{open ? closeIcon : icon}</div>
       </div>
     </div>
   );
 
   return wrapSSR(
     <FloatButtonGroupProvider value={providerValue}>
-      <div className={classString} style={style} {...hoverAction.current}>
+      <div className={groupCls} style={style} {...hoverAction.current}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
               {({ className: motionClassName }) => (
-                <div className={classNames(motionClassName, wrapClsString)}>{children}</div>
+                <div className={classNames(motionClassName, wrapperCls)}>{children}</div>
               )}
             </CSSMotion>
             {tiggerElement}

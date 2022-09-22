@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import type { FloatButtonContentProps } from './interface';
 
 const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
-  const { icon, description, prefixCls, type, className, ...rest } = props;
+  const { icon, description, prefixCls, className, ...rest } = props;
   const defaultElement = (
-    <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>
+    <div className={`${prefixCls}-icon`}>
       <FileTextOutlined />
     </div>
   );
@@ -14,7 +14,7 @@ const FloatButtonContent: React.FC<FloatButtonContentProps> = props => {
     <div {...rest} className={classNames(className, `${prefixCls}-content`)}>
       {icon || description ? (
         <>
-          {icon && <div className={`${prefixCls}-icon ${prefixCls}-${type}-icon`}>{icon}</div>}
+          {icon && <div className={`${prefixCls}-icon`}>{icon}</div>}
           {description && <div>{description}</div>}
         </>
       ) : (

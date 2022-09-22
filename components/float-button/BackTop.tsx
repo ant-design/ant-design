@@ -107,8 +107,8 @@ const BackTop: React.FC<BackTopProps> = props => {
   ]);
 
   const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type }),
-    [prefixCls, description, icon, type],
+    () => ({ prefixCls, description, icon }),
+    [prefixCls, description, icon],
   );
 
   return wrapSSR(
