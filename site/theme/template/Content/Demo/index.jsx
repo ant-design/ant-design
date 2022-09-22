@@ -166,11 +166,6 @@ class Demo extends React.Component {
     const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
     });
-
-    const prefillStyle = `@import '~antd/dist/antd.css';\n\n${style || ''}`.replace(
-      new RegExp(`#${meta.id}\\s*`, 'g'),
-      '',
-    );
     const html = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -226,10 +221,9 @@ class Demo extends React.Component {
           /export default/,
           'const ComponentDemo =',
         )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-      css: prefillStyle,
       editors: '001',
+      css: '',
       // eslint-disable-next-line no-undef
-      css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
         'react@18/umd/react.development.js',
         'react-dom@18/umd/react-dom.development.js',
@@ -252,7 +246,7 @@ class Demo extends React.Component {
         /export default/,
         'const ComponentDemo =',
       )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-      css: prefillStyle,
+      css: '',
       json: JSON.stringify(
         {
           name: 'antd-demo',
@@ -276,7 +270,6 @@ class Demo extends React.Component {
 
     const demoJsContent = `
 ${importReactContent}
-import 'antd/dist/antd.css';
 import './index.css';
 ${parsedSourceCode}
 `.trim();
