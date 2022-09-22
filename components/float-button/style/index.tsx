@@ -26,7 +26,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const { componentCls, floatButtonSize, margin, radiusBase, motionDurationSlow } = token;
   const groupPrefixCls = `${componentCls}-group`;
-  const moveDownIn = new Keyframes('antMoveDownIn', {
+  const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
     '0%': {
       transform: `translate3d(0, ${floatButtonSize}px, 0)`,
       transformOrigin: '0 0',
@@ -39,7 +39,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       opacity: 1,
     },
   });
-  const moveDownOut = new Keyframes('antMoveDownOut', {
+  const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
     '0%': {
       transform: 'translate3d(0, 0, 0)',
       transformOrigin: '0 0',
