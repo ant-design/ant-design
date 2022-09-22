@@ -813,16 +813,18 @@ describe('Form', () => {
     // Repeat enough time for validator promise sequence
     for (let i = 0; i < 20; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      await Promise.resolve();
-      act(() => {
+      await act(async () => {
+        await Promise.resolve();
         jest.advanceTimersByTime(1000);
       });
     }
+    console.log(container.innerHTML);
 
     expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('请输入Bamboo');
 
     jest.clearAllTimers();
     jest.useRealTimers();
+    console.log('end!!!!!!!~~~~');
   });
 
   it('`name` support template when label is not provided', async () => {
