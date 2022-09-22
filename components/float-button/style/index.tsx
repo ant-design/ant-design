@@ -110,12 +110,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
           borderRadius: 0,
           padding: token.paddingXXS,
           '&:first-child': {
-            borderTopLeftRadius: radiusBase,
-            borderTopRightRadius: radiusBase,
+            borderStartStartRadius: radiusBase,
+            borderStartEndRadius: radiusBase,
           },
           '&:last-child': {
-            borderBottomLeftRadius: radiusBase,
-            borderBottomRightRadius: radiusBase,
+            borderEndStartRadius: radiusBase,
+            borderEndEndRadius: radiusBase,
           },
           '&:not(:last-child)': {
             borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
