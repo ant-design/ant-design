@@ -18,6 +18,16 @@ function isHidden(element: HTMLElement) {
   return !element || element.offsetParent === null || element.hidden;
 }
 
+function getValidateContainer(nodeRoot: Node): Element {
+  if (nodeRoot instanceof Document) {
+    return nodeRoot.body;
+  }
+
+  return Array.from(nodeRoot.childNodes).find(
+    ele => ele?.nodeType === Node.ELEMENT_NODE,
+  ) as Element;
+}
+
 function isNotGrey(color: string) {
   // eslint-disable-next-line no-useless-escape
   const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\d.]*)?\)/);
@@ -119,8 +129,7 @@ class InternalWave extends React.Component<WaveProps> {
       extraNode.style.borderColor = waveColor;
 
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
-      const nodeBody: Element =
-        nodeRoot instanceof Document ? nodeRoot.body : (nodeRoot.firstChild as Element) ?? nodeRoot;
+      const nodeBody = getValidateContainer(nodeRoot) ?? nodeRoot;
 
       styleForPseudo = updateCSS(
         `

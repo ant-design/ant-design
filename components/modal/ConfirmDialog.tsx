@@ -132,6 +132,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     close,
     zIndex,
     afterClose,
+    visible,
     open,
     keyboard,
     centered,
@@ -148,6 +149,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     modalRender,
     focusTriggerAfterClose,
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      visible === undefined,
+      'Modal',
+      `\`visible\` is deprecated, please use \`open\` instead.`,
+    );
+  }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 

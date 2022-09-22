@@ -36,6 +36,7 @@ const MAINTAINERS = [
   'fireairforce',
   'kerm1it',
   'madccc',
+  'MadCcc',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
