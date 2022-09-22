@@ -55,6 +55,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
+      zIndex: 99,
       display: 'block',
       border: 'none',
       position: 'fixed',
@@ -67,7 +68,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusBase,
       [`${groupPrefixCls}-wrap`]: {
-        zIndex: 30,
+        zIndex: -1,
         display: 'block',
         position: 'relative',
         marginBottom: margin,
