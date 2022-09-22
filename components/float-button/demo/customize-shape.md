@@ -17,11 +17,11 @@ Change the shape of the FloatButton with `shape`.
 ```tsx
 import React, { useState } from 'react';
 import { FloatButton, Radio } from 'antd';
-import type { RadioChangeEvent } from 'antd';
-import type { FloatButtonShape } from 'antd/es/float-button/interface';
+import type { RadioChangeEvent, FloatButtonProps } from 'antd';
+import { CustomerServiceOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
-  const [shape, setShape] = useState<FloatButtonShape>('circle');
+  const [shape, setShape] = useState<FloatButtonProps['shape']>('circle');
   const onChange = (e: RadioChangeEvent) => {
     setShape(e.target.value);
   };
@@ -31,7 +31,7 @@ const App: React.FC = () => {
         <Radio value="circle">圆形</Radio>
         <Radio value="square">方形</Radio>
       </Radio.Group>
-      <FloatButton type="primary" shape={shape} />
+      <FloatButton icon={<CustomerServiceOutlined />} type="primary" shape={shape} />
     </>
   );
 };

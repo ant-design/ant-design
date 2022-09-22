@@ -17,18 +17,13 @@ Open menu mode with `trigger`, which could be `hover` or `click`.
 ```tsx
 import React from 'react';
 import { FloatButton } from 'antd';
+import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => (
   <>
-    <FloatButton.Group shape="circle" trigger="click" style={{ right: 24 }}>
+    <FloatButton.Group icon={<CustomerServiceOutlined />} type="primary" trigger="click">
       <FloatButton />
-      <FloatButton />
-      <FloatButton />
-    </FloatButton.Group>
-    <FloatButton.Group shape="square" trigger="click" style={{ right: 94 }}>
-      <FloatButton />
-      <FloatButton />
-      <FloatButton />
+      <FloatButton icon={<CommentOutlined />} />
     </FloatButton.Group>
   </>
 );
