@@ -270,7 +270,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     marginXXL,
     marginLG,
     fontSize,
-    fontSizeHeading4,
+    fontSizeIcon,
     controlItemBgHover,
   } = token;
   const floatButtonToken = mergeToken<FloatButtonToken>(token, {
@@ -278,7 +278,7 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     floatButtonColor: colorTextLightSolid,
     floatButtonHoverBackgroundColor: controlItemBgHover,
     floatButtonFontSize: fontSize,
-    floatButtonIconSize: fontSizeHeading4,
+    floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,
 
     floatButtonInsetBlockEnd: marginXXL,
