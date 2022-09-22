@@ -11,8 +11,8 @@ export function parseColor(prefixCls: string, color?: string) {
     [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
   });
 
-  let overlayStyle: React.CSSProperties | null = null;
-  let arrowStyle: React.CSSProperties | null = null;
+  let overlayStyle: React.CSSProperties | undefined;
+  let arrowStyle: React.CSSProperties | undefined;
 
   if (color && !PresetColorRegex.test(color)) {
     overlayStyle = { background: color };

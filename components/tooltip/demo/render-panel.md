@@ -22,7 +22,8 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;
 
 const App: React.FC = () => (
   <>
-    <InternalTooltip title="Hello, Pure Panel!" color="red" />
+    <InternalTooltip title="Hello, Pure Panel!" color="pink" />
+    <InternalTooltip title="Hello, Pure Panel!" color="#f50" />
     <InternalTooltip title="Hello, Pure Panel!" placement="bottomLeft" style={{ width: 200 }} />
   </>
 );
