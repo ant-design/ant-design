@@ -42,7 +42,7 @@ describe('FloatButtonGroup', () => {
         <FloatButton />
       </FloatButton.Group>,
     );
-    fireEvent.click(container.querySelector('.ant-float-btn-tigger')!);
+    fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onOpenChange).toHaveBeenCalled();
   });
 });
