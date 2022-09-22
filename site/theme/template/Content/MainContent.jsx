@@ -290,24 +290,6 @@ class MainContent extends Component {
     );
   }
 
-  getThemeSwitchMenu() {
-    const { theme } = this.context;
-    const {
-      intl: { formatMessage },
-    } = this.props;
-    return (
-      <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
-        {[
-          { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
-          { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
-          { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
-        ].map(({ type, text }) => (
-          <Menu.Item key={type}>{text}</Menu.Item>
-        ))}
-      </Menu>
-    );
-  }
-
   flattenMenu(menu) {
     if (!menu) {
       return null;
@@ -320,30 +302,6 @@ class MainContent extends Component {
     }
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
-
-  changeThemeMode = theme => {
-    const { setTheme, theme: selectedTheme } = this.context;
-    const { pathname, hash, query } = this.props.location;
-    if (selectedTheme !== theme) {
-      setTheme(theme);
-      if (theme === 'default') {
-        document.documentElement.style.colorScheme = 'light';
-        setColor(false);
-        delete query.theme;
-      } else {
-        if (theme === 'dark') {
-          document.documentElement.style.colorScheme = 'dark';
-          setColor(true);
-        }
-        query.theme = theme;
-      }
-      browserHistory.push({
-        pathname: `/${pathname}`,
-        query,
-        hash,
-      });
-    }
-  };
 
   renderContributors() {
     const {
@@ -529,13 +487,6 @@ class MainContent extends Component {
             <section className={mainContainerClass}>
               {this.renderMainContent({ theme, setIframeTheme })}
             </section>
-            {componentPage && (
-              <div className="fixed-widgets">
-                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
-                  <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
-                </Dropdown>
-              </div>
-            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer location={location} />
           </Col>
