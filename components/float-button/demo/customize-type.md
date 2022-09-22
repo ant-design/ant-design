@@ -21,7 +21,7 @@ import { FloatButton } from 'antd';
 const App: React.FC = () => (
   <>
     <FloatButton type="primary" style={{ right: 24 }} />
-    <FloatButton type="default" style={{ right: 80 }} />
+    <FloatButton type="default" style={{ right: 94 }} />
   </>
 );
 

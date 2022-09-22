@@ -2,13 +2,13 @@
 order: 2
 iframe: 360
 title:
-  zh-CN: 自定义形状
+  zh-CN: 设置不同的形状
   en-US: Custom shape
 ---
 
 ## zh-CN
 
-你可以定义悬浮按钮的形状
+你可以通过 shape 设置不同的形状
 
 ## en-US
 

@@ -69,6 +69,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       [`${groupPrefixCls}-wrap`]: {
         zIndex: 30,
         display: 'block',
+        position: 'relative',
         marginBottom: margin,
       },
       '&&-rtl': {
@@ -78,7 +79,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         position: 'static',
       },
       [`${componentCls}-tigger`]: {
-        zIndex: 99999,
+        zIndex: 99,
       },
       [`${componentCls}-square-tigger`]: {
         padding: 0,
@@ -99,6 +100,21 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
+      [`${componentCls}-square`]: {
+        borderRadius: 0,
+        padding: 0,
+        '&:first-child': {
+          borderStartStartRadius: radiusBase,
+          borderStartEndRadius: radiusBase,
+        },
+        '&:last-child': {
+          borderEndStartRadius: radiusBase,
+          borderEndEndRadius: radiusBase,
+        },
+        '&:not(:last-child)': {
+          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        },
+      },
       [`${groupPrefixCls}-wrap`]: {
         display: 'block',
         borderRadius: radiusBase,
