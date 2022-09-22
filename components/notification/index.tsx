@@ -10,6 +10,10 @@ import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
 import createUseNotification from './hooks/useNotification';
 
+interface DivProps extends React.HTMLProps<HTMLDivElement> {
+  'data-testid'?: string;
+}
+
 export type NotificationPlacement =
   | 'top'
   | 'topLeft'
@@ -43,6 +47,7 @@ export interface ConfigProps {
   closeIcon?: React.ReactNode;
   rtl?: boolean;
   maxCount?: number;
+  props?: DivProps;
 }
 
 function setNotificationConfig(options: ConfigProps) {
@@ -216,6 +221,7 @@ export interface ArgsProps {
   bottom?: number;
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
+  props?: DivProps;
 }
 
 function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: string) {
@@ -232,6 +238,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     style,
     className,
     closeIcon = defaultCloseIcon,
+    props,
   } = args;
 
   const duration = durationArg === undefined ? defaultDuration : durationArg;
@@ -280,6 +287,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     className: classNames(className, {
       [`${prefixCls}-${type}`]: !!type,
     }),
+    props,
   };
 }
 
