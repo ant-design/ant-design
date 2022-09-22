@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 iframe: 360
 title:
   zh-CN: 菜单模式
@@ -19,11 +19,18 @@ import React from 'react';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
-  <FloatButton.Group shape="square" trigger="click">
-    <FloatButton />
-    <FloatButton />
-    <FloatButton />
-  </FloatButton.Group>
+  <>
+    <FloatButton.Group shape="circle" trigger="click" style={{ right: 24 }}>
+      <FloatButton />
+      <FloatButton />
+      <FloatButton />
+    </FloatButton.Group>
+    <FloatButton.Group shape="square" trigger="click" style={{ right: 80 }}>
+      <FloatButton />
+      <FloatButton />
+      <FloatButton />
+    </FloatButton.Group>
+  </>
 );
 
 export default App;

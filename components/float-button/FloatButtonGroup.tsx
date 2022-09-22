@@ -16,6 +16,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     shape = 'circle',
     type = 'default',
     icon = <FileTextOutlined />,
@@ -105,7 +106,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   return wrapSSR(
     <FloatButtonGroupProvider value={providerValue}>
-      <div className={classString} {...hoverAction.current}>
+      <div className={classString} style={style} {...hoverAction.current}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>
             <CSSMotion visible={open} motionName={`${groupPrefixCls}-wrap`}>
