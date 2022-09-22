@@ -206,6 +206,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
         [`${componentCls}-content`]: {
           overflow: 'hidden',
           textAlign: 'center',
+          minHeight: floatButtonSize,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: `2px 4px`,
           [`${componentCls}-icon`]: {
             textAlign: 'center',
             margin: 'auto',
@@ -224,9 +230,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       },
     },
     [`${componentCls}-square`]: {
+      height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: token.radiusBase,
       [`${componentCls}-body`]: {
+        height: 'auto',
         borderRadius: token.radiusSM,
       },
     },
@@ -244,10 +252,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
             color: token.colorText,
           },
           [`${componentCls}-description`]: {
-            minHeight: floatButtonSize,
+            display: 'flex',
+            alignItems: 'center',
+            lineHeight: '16px',
             color: token.colorText,
             fontSize: token.fontSizeSM,
-            padding: `0 ${token.paddingXXS}px`,
           },
         },
       },
@@ -265,10 +274,11 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
             color: token.colorTextLightSolid,
           },
           [`${componentCls}-description`]: {
-            minHeight: floatButtonSize,
+            display: 'flex',
+            alignItems: 'center',
+            lineHeight: '16px',
             color: token.colorTextLightSolid,
             fontSize: token.fontSizeSM,
-            padding: `0 ${token.paddingXXS}px`,
           },
         },
       },

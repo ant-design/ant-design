@@ -18,7 +18,10 @@ import warning from '../_util/warning';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
+const FloatButton: React.ForwardRefRenderFunction<
+  HTMLAnchorElement | HTMLButtonElement,
+  FloatButtonProps
+> = (props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -74,11 +77,16 @@ const FloatButton: React.FC<FloatButtonProps> & CompoundedComponent = props => {
 
   return wrapSSR(
     props.href ? (
-      <a {...restProps} className={classString}>
+      <a ref={ref as React.LegacyRef<HTMLAnchorElement>} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
-      <button {...restProps} className={classString} type="button">
+      <button
+        ref={ref as React.LegacyRef<HTMLButtonElement>}
+        {...restProps}
+        className={classString}
+        type="button"
+      >
         {buttonNode}
       </button>
     ),
@@ -89,7 +97,12 @@ if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';
 }
 
-FloatButton.Group = Group;
-FloatButton.BackTop = BackTop;
+const ForwardFloatButton = React.forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  FloatButtonProps
+>(FloatButton) as CompoundedComponent;
 
-export default FloatButton;
+ForwardFloatButton.Group = Group;
+ForwardFloatButton.BackTop = BackTop;
+
+export default ForwardFloatButton;

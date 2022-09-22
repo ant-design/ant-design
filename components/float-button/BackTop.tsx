@@ -5,14 +5,13 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import React, { memo, useContext, useEffect, useMemo, useRef } from 'react';
-import { floatButtonPrefixCls } from '.';
+import FloatButton, { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 import FloatButtonGroupContext from './context';
-import FloatButtonContent from './FloatButtonContent';
 import type { BackTopProps, FloatButtonContentProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
@@ -32,7 +31,7 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   const [visible, setVisible] = useMergedState(false, { value: props.visible });
 
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
 
   const scrollEvent = useRef<any>(null);
 
@@ -108,15 +107,17 @@ const BackTop: React.FC<BackTopProps> = props => {
   );
 
   return wrapSSR(
-    <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
-      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
-        {({ className: motionClassName }) => (
-          <div className={`${prefixCls}-body`}>
-            <FloatButtonContent className={motionClassName} {...contentProps} />
-          </div>
-        )}
-      </CSSMotion>
-    </div>,
+    <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
+      {({ className: motionClassName }) => (
+        <FloatButton
+          ref={ref}
+          {...divProps}
+          {...contentProps}
+          onClick={scrollToTop}
+          className={classNames(motionClassName, classString)}
+        />
+      )}
+    </CSSMotion>,
   );
 };
 

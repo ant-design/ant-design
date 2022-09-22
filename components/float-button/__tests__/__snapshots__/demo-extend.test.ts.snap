@@ -25,10 +25,6 @@ exports[`renders ./components/float-button/demo/back-top.md extend context corre
   <div>
     Scroll to bottom
   </div>
-  <div
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    shape="square"
-  />
 </div>
 `;
 
@@ -255,6 +251,38 @@ Array [
         class="ant-float-btn-content"
       >
         <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="comment"
+            class="anticon anticon-comment"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="comment"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs>
+                <style />
+              </defs>
+              <path
+                d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+              />
+              <path
+                d="M894 345a343.92 343.92 0 00-189-130v.1c-17.1-19-36.4-36.5-58-52.1-163.7-119-393.5-82.7-513 81-96.3 133-92.2 311.9 6 439l.8 132.6c0 3.2.5 6.4 1.5 9.4a31.95 31.95 0 0040.1 20.9L309 806c33.5 11.9 68.1 18.7 102.5 20.6l-.5.4c89.1 64.9 205.9 84.4 313 49l127.1 41.4c3.2 1 6.5 1.6 9.9 1.6 17.7 0 32-14.3 32-32V753c88.1-119.6 90.4-284.9 1-408zM323 735l-12-5-99 31-1-104-8-9c-84.6-103.2-90.2-251.9-11-361 96.4-132.2 281.2-161.4 413-66 132.2 96.1 161.5 280.6 66 412-80.1 109.9-223.5 150.5-348 102zm505-17l-8 10 1 104-98-33-12 5c-56 20.8-115.7 22.5-171 7l-.2-.1A367.31 367.31 0 00729 676c76.4-105.3 88.8-237.6 44.4-350.4l.6.4c23 16.5 44.1 37.1 62 62 72.6 99.6 68.5 235.2-8 330z"
+              />
+              <path
+                d="M433 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
           class="ant-float-btn-description"
         >
           帮助文档
@@ -263,7 +291,7 @@ Array [
     </div>
   </button>,
   <button
-    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
     style="right: 94px;"
     type="button"
   >
@@ -277,6 +305,76 @@ Array [
           class="ant-float-btn-description"
         >
           帮助文档
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    style="right: 164px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="comment"
+            class="anticon anticon-comment"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="comment"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs>
+                <style />
+              </defs>
+              <path
+                d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+              />
+              <path
+                d="M894 345a343.92 343.92 0 00-189-130v.1c-17.1-19-36.4-36.5-58-52.1-163.7-119-393.5-82.7-513 81-96.3 133-92.2 311.9 6 439l.8 132.6c0 3.2.5 6.4 1.5 9.4a31.95 31.95 0 0040.1 20.9L309 806c33.5 11.9 68.1 18.7 102.5 20.6l-.5.4c89.1 64.9 205.9 84.4 313 49l127.1 41.4c3.2 1 6.5 1.6 9.9 1.6 17.7 0 32-14.3 32-32V753c88.1-119.6 90.4-284.9 1-408zM323 735l-12-5-99 31-1-104-8-9c-84.6-103.2-90.2-251.9-11-361 96.4-132.2 281.2-161.4 413-66 132.2 96.1 161.5 280.6 66 412-80.1 109.9-223.5 150.5-348 102zm505-17l-8 10 1 104-98-33-12 5c-56 20.8-115.7 22.5-171 7l-.2-.1A367.31 367.31 0 00729 676c76.4-105.3 88.8-237.6 44.4-350.4l.6.4c23 16.5 44.1 37.1 62 62 72.6 99.6 68.5 235.2-8 330z"
+              />
+              <path
+                d="M433 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-float-btn-description"
+        >
+          文档
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    style="right: 234px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-description"
+        >
+          文档
         </div>
       </div>
     </div>
@@ -365,9 +463,6 @@ Array [
         </div>
       </div>
     </button>
-    <div
-      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    />
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
@@ -484,9 +579,6 @@ Array [
         </div>
       </div>
     </button>
-    <div
-      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    />
   </div>,
 ]
 `;

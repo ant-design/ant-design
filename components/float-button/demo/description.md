@@ -21,11 +21,26 @@ Setting `description` prop to show FloatButton with description.
 ```tsx
 import React from 'react';
 import { FloatButton } from 'antd';
+import { CommentOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => (
   <>
-    <FloatButton style={{ right: 24 }} description="帮助文档" shape="square" type="primary" />
-    <FloatButton style={{ right: 94 }} description="帮助文档" shape="square" type="default" />
+    <FloatButton
+      icon={<CommentOutlined />}
+      description="帮助文档"
+      shape="square"
+      type="primary"
+      style={{ right: 24 }}
+    />
+    <FloatButton description="帮助文档" shape="square" type="primary" style={{ right: 94 }} />
+    <FloatButton
+      icon={<CommentOutlined />}
+      description="文档"
+      shape="square"
+      type="primary"
+      style={{ right: 164 }}
+    />
+    <FloatButton description="文档" shape="square" type="primary" style={{ right: 234 }} />
   </>
 );
 

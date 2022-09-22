@@ -55,7 +55,9 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   visible?: boolean; // Only for test. Don't use it.
 }
 
-export interface CompoundedComponent {
+export type CompoundedComponent = React.ForwardRefExoticComponent<
+  FloatButtonProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
+> & {
   Group: typeof Group;
   BackTop: typeof BackTop;
-}
+};

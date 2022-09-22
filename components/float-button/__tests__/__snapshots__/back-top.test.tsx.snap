@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BackTop rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-rtl"
-/>
-`;
+exports[`BackTop rtl render component should be rendered correctly in RTL direction 1`] = `null`;
