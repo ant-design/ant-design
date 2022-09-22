@@ -215,7 +215,7 @@ const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = Value
 const PureInputNumber = (props: InputNumberProps<any>) => (
   <ConfigProvider
     theme={{
-      override: {
+      components: {
         InputNumber: {
           handleVisible: true,
         },
