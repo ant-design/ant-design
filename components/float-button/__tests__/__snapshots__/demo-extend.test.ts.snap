@@ -42,9 +42,10 @@ exports[`renders ./components/float-button/demo/basic.md extend context correctl
   >
     <div
       class="ant-float-btn-content"
+      type="default"
     >
       <div
-        class="ant-float-btn-icon ant-float-btn-default-icon"
+        class="ant-float-btn-icon"
       >
         <span
           aria-label="file-text"
@@ -128,9 +129,10 @@ Array [
     >
       <div
         class="ant-float-btn-content"
+        type="primary"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-primary-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -170,9 +172,10 @@ Array [
     >
       <div
         class="ant-float-btn-content"
+        type="primary"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-primary-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -207,9 +210,10 @@ Array [
     >
       <div
         class="ant-float-btn-content"
+        type="default"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -252,9 +256,10 @@ Array [
       >
         <div
           class="ant-float-btn-content"
+          type="default"
         >
           <div
-            class="ant-float-btn-icon ant-float-btn-default-icon"
+            class="ant-float-btn-icon"
           >
             <span
               aria-label="file-text"
@@ -288,9 +293,10 @@ Array [
       >
         <div
           class="ant-float-btn-content"
+          type="default"
         >
           <div
-            class="ant-float-btn-icon ant-float-btn-default-icon"
+            class="ant-float-btn-icon"
           >
             <span
               aria-label="file-text"
@@ -321,7 +327,7 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
-    style="right: 80px;"
+    style="right: 94px;"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -332,9 +338,10 @@ Array [
       >
         <div
           class="ant-float-btn-content"
+          type="default"
         >
           <div
-            class="ant-float-btn-icon ant-float-btn-default-icon"
+            class="ant-float-btn-icon"
           >
             <span
               aria-label="file-text"
@@ -368,9 +375,10 @@ Array [
       >
         <div
           class="ant-float-btn-content"
+          type="default"
         >
           <div
-            class="ant-float-btn-icon ant-float-btn-default-icon"
+            class="ant-float-btn-icon"
           >
             <span
               aria-label="file-text"
@@ -409,13 +417,13 @@ Array [
     style="right: 24px;"
   >
     <div
-      class="ant-float-btn ant-float-btn-tigger ant-float-btn-default ant-float-btn-circle ant-float-btn-circle-tigger"
+      class="ant-float-btn ant-float-btn-tigger ant-float-btn-default ant-float-btn-circle"
     >
       <div
         class="ant-float-btn-body"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -442,16 +450,16 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square"
-    style="right: 80px;"
+    style="right: 94px;"
   >
     <div
-      class="ant-float-btn ant-float-btn-tigger ant-float-btn-default ant-float-btn-square ant-float-btn-square-tigger"
+      class="ant-float-btn ant-float-btn-tigger ant-float-btn-default ant-float-btn-square"
     >
       <div
         class="ant-float-btn-body"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -489,9 +497,10 @@ exports[`renders ./components/float-button/demo/tooltip.md extend context correc
   >
     <div
       class="ant-float-btn-content"
+      type="default"
     >
       <div
-        class="ant-float-btn-icon ant-float-btn-default-icon"
+        class="ant-float-btn-icon"
       >
         <span
           aria-label="file-text"

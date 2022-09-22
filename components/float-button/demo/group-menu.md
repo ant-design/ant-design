@@ -25,7 +25,7 @@ const App: React.FC = () => (
       <FloatButton />
       <FloatButton />
     </FloatButton.Group>
-    <FloatButton.Group shape="square" trigger="click" style={{ right: 80 }}>
+    <FloatButton.Group shape="square" trigger="click" style={{ right: 94 }}>
       <FloatButton />
       <FloatButton />
       <FloatButton />

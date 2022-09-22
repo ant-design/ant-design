@@ -13,9 +13,10 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
+        type="default"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -49,9 +50,10 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
+        type="default"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"
@@ -85,9 +87,10 @@ exports[`FloatButtonGroup should correct render 1`] = `
     >
       <div
         class="ant-float-btn-content"
+        type="default"
       >
         <div
-          class="ant-float-btn-icon ant-float-btn-default-icon"
+          class="ant-float-btn-icon"
         >
           <span
             aria-label="file-text"

@@ -25,7 +25,7 @@ const App: React.FC = () => (
       <FloatButton />
       <FloatButton.BackTop visibilityHeight={-1} />
     </FloatButton.Group>
-    <FloatButton.Group shape="square" style={{ right: 80 }}>
+    <FloatButton.Group shape="square" style={{ right: 94 }}>
       <FloatButton />
       <FloatButton />
       <FloatButton.BackTop visibilityHeight={-1} />
