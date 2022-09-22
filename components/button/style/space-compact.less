@@ -12,6 +12,16 @@
     &.@{btn-prefix-cls} {
       border-radius: 0;
 
+      &:hover,
+      &:focus,
+      &:active {
+        z-index: 2;
+      }
+
+      &[disabled] {
+        z-index: 0;
+      }
+
       &.@{btn-prefix-cls}-icon-only {
         border-radius: 0;
       }

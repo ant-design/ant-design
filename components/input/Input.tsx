@@ -125,109 +125,101 @@ export interface InputProps
   [key: `data-${string}`]: string | undefined;
 }
 
-const Input = forwardRef<InputRef, InputProps>((props, ref) => {
-  const {
-    prefixCls: customizePrefixCls,
-    bordered = true,
-    status: customStatus,
-    size: customSize,
-    disabled: customDisabled,
-    onBlur,
-    onFocus,
-    suffix,
-    allowClear,
-    addonAfter,
-    addonBefore,
-    ...rest
-  } = props;
-  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
+const InternalInput = forwardRef<InputRef, Omit<InputProps, 'addonBefore' | 'addonAfter'>>(
+  (props, ref) => {
+    const {
+      prefixCls: customizePrefixCls,
+      bordered = true,
+      status: customStatus,
+      size: customSize,
+      disabled: customDisabled,
+      onBlur,
+      onFocus,
+      suffix,
+      allowClear,
+      className,
+      ...rest
+    } = props;
+    const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('input', customizePrefixCls);
-  const inputRef = useRef<InputRef>(null);
+    const prefixCls = getPrefixCls('input', customizePrefixCls);
+    const inputRef = useRef<InputRef>(null);
 
-  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
+    const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
 
-  // ===================== Size =====================
-  const size = React.useContext(SizeContext);
-  const mergedSize = compactSize || customSize || size;
+    // ===================== Size =====================
+    const size = React.useContext(SizeContext);
+    const mergedSize = compactSize || customSize || size;
 
-  // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled || disabled;
 
-  // ===================== Status =====================
-  const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
-  const mergedStatus = getMergedStatus(contextStatus, customStatus);
+    // ===================== Status =====================
+    const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
+    const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  // ===================== Focus warning =====================
-  const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
-  const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
-  useEffect(() => {
-    if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
-      warning(
-        document.activeElement === inputRef.current?.input,
-        'Input',
-        `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
+    // ===================== Focus warning =====================
+    const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
+    const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
+    useEffect(() => {
+      if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
+        warning(
+          document.activeElement === inputRef.current?.input,
+          'Input',
+          `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
+        );
+      }
+      prevHasPrefixSuffix.current = inputHasPrefixSuffix;
+    }, [inputHasPrefixSuffix]);
+
+    // ===================== Remove Password value =====================
+    const removePasswordTimeoutRef = useRef<number[]>([]);
+    const removePasswordTimeout = () => {
+      removePasswordTimeoutRef.current.push(
+        window.setTimeout(() => {
+          if (
+            inputRef.current?.input &&
+            inputRef.current?.input.getAttribute('type') === 'password' &&
+            inputRef.current?.input.hasAttribute('value')
+          ) {
+            inputRef.current?.input.removeAttribute('value');
+          }
+        }),
       );
-    }
-    prevHasPrefixSuffix.current = inputHasPrefixSuffix;
-  }, [inputHasPrefixSuffix]);
+    };
 
-  // ===================== Remove Password value =====================
-  const removePasswordTimeoutRef = useRef<number[]>([]);
-  const removePasswordTimeout = () => {
-    removePasswordTimeoutRef.current.push(
-      window.setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
-        }
-      }),
+    useEffect(() => {
+      removePasswordTimeout();
+      return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
+    }, []);
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+      removePasswordTimeout();
+      onBlur?.(e);
+    };
+
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+      removePasswordTimeout();
+      onFocus?.(e);
+    };
+
+    const suffixNode = (hasFeedback || suffix) && (
+      <>
+        {suffix}
+        {hasFeedback && feedbackIcon}
+      </>
     );
-  };
 
-  useEffect(() => {
-    removePasswordTimeout();
-    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
-  }, []);
+    // Allow clear
+    let mergedAllowClear;
+    if (typeof allowClear === 'object' && allowClear?.clearIcon) {
+      mergedAllowClear = allowClear;
+    } else if (allowClear) {
+      mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
+    }
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    removePasswordTimeout();
-    onBlur?.(e);
-  };
-
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    removePasswordTimeout();
-    onFocus?.(e);
-  };
-
-  const suffixNode = (hasFeedback || suffix) && (
-    <>
-      {suffix}
-      {hasFeedback && feedbackIcon}
-    </>
-  );
-
-  // Allow clear
-  let mergedAllowClear;
-  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
-    mergedAllowClear = allowClear;
-  } else if (allowClear) {
-    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
-  }
-
-  const Wrapper = addonBefore || addonAfter ? Space.Compact : React.Fragment;
-
-  return (
-    <Wrapper block>
-      {addonBefore && (
-        <NoFormStyle override status>
-          <span className={`${prefixCls}-addon`}>{addonBefore}</span>
-        </NoFormStyle>
-      )}
+    return (
       <RcInput
         ref={composeRef(ref, inputRef)}
         prefixCls={prefixCls}
@@ -237,6 +229,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         onBlur={handleBlur}
         onFocus={handleFocus}
         suffix={suffixNode}
+        className={classNames(className, getCompactClassNames(prefixCls, restCompactContext))}
         allowClear={mergedAllowClear}
         inputClassName={classNames(
           {
@@ -245,7 +238,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-rtl`]: direction === 'rtl',
             [`${prefixCls}-borderless`]: !bordered,
           },
-          getCompactClassNames(prefixCls, restCompactContext),
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
         )}
         affixWrapperClassName={classNames(
@@ -269,11 +261,60 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
         )}
       />
-      {addonAfter && (
-        <NoFormStyle override status>
-          <span className={`${prefixCls}-addon`}>{addonAfter}</span>
-        </NoFormStyle>
-      )}
+    );
+  },
+);
+
+const InputAddon: React.FC<
+  React.PropsWithChildren<{
+    prefixCls: string;
+  }>
+> = ({ prefixCls, children }) => {
+  const compactContext = React.useContext(SpaceCompactItemContext);
+
+  return (
+    <NoFormStyle override status>
+      <span
+        className={classNames(
+          `${prefixCls}-addon`,
+          getCompactClassNames(prefixCls, compactContext),
+        )}
+      >
+        {children}
+      </span>
+    </NoFormStyle>
+  );
+};
+
+const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    size: customSize,
+    addonAfter,
+    addonBefore,
+    ...restProps
+  } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
+  // restCompactContext 被消费，其要处理的即为嵌套场景
+
+  // ===================== Size =====================
+  const size = React.useContext(SizeContext);
+  const mergedSize = compactSize || customSize || size;
+
+  const Wrapper = addonBefore || addonAfter ? Space.Compact : React.Fragment;
+
+  return (
+    <Wrapper
+      block
+      size={mergedSize}
+      className={getCompactClassNames(prefixCls, restCompactContext)}
+    >
+      {addonBefore && <InputAddon prefixCls={prefixCls}>{addonBefore}</InputAddon>}
+      <InternalInput ref={ref} prefixCls={prefixCls} {...restProps} />
+      {addonAfter && <InputAddon prefixCls={prefixCls}>{addonAfter}</InputAddon>}
     </Wrapper>
   );
 });

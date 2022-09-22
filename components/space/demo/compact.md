@@ -14,7 +14,12 @@ title:
 Space.Compact example.
 
 ```tsx
-import { CopyOutlined, DownloadOutlined, EllipsisOutlined } from '@ant-design/icons';
+import {
+  CopyOutlined,
+  DownloadOutlined,
+  EllipsisOutlined,
+  SearchOutlined,
+} from '@ant-design/icons';
 import {
   AutoComplete,
   Button,
@@ -134,6 +139,25 @@ const App: React.FC = () => (
       </Dropdown>
     </Space.Compact>
     <br />
+    <h2>测试 Space.Compact 嵌套 Button CopyOutlined、Input、Button CopyOutlined</h2>
+    <Space.Compact block>
+      <Button icon={<CopyOutlined />} />
+      <Input addonBefore="http://" addonAfter=".cn" suffix=".com" defaultValue="mysite" />
+      <Button type="primary" icon={<CopyOutlined />} />
+    </Space.Compact>
+    <br />
+    <h2>单独用 input addon 实现的：</h2>
+    <Input addonAfter={<SearchOutlined />} defaultValue="mysite" />
+    <br />
+    <h2>单独用 Input.Search 实现：</h2>
+    <Input.Search allowClear defaultValue="0571" />
+    <br />
+    <h2>Space.Compact 包裹 Input.Search 实现：</h2>
+    <Space.Compact block>
+      <Input.Search allowClear defaultValue="0571" />
+    </Space.Compact>
+    <br />
+    <h2>其他实现：</h2>
     <Space.Compact size="large" block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
@@ -147,9 +171,7 @@ const App: React.FC = () => (
     <Space.Compact block>
       <Input
         style={{ width: 'calc(100% - 200px)' }}
-        addonBefore="git@"
         defaultValue="github.com:ant-design/ant-design"
-        addonAfter=".git"
       />
       <Tooltip title="copy git url">
         <Button icon={<CopyOutlined />} />
@@ -164,15 +186,13 @@ const App: React.FC = () => (
       <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
     <br />
+    <h2>注意去掉 style 的宽度</h2>
     <Space.Compact block>
-      <Input.Search
-        addonBefore="+86"
-        addonAfter="00"
-        allowClear
-        style={{ width: '40%' }}
-        defaultValue="0571"
-      />
-      <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
+      <Input.Search allowClear defaultValue="0571" />
+    </Space.Compact>
+    <Space.Compact block>
+      <Input.Search allowClear defaultValue="0571" />
+      <Input.Search allowClear defaultValue="26888888" />
     </Space.Compact>
     <br />
     <Space.Compact block>
@@ -250,6 +270,29 @@ const App: React.FC = () => (
         <Option value="Company">Company</Option>
       </Select>
       <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input
+        style={{ width: 'calc(100% - 200px)' }}
+        addonBefore="git@"
+        defaultValue="github.com:ant-design/ant-design"
+        addonAfter=".git"
+      />
+      <Tooltip title="copy git url">
+        <Button icon={<CopyOutlined />} />
+      </Tooltip>
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input.Search
+        addonBefore="+86"
+        addonAfter="00"
+        allowClear
+        style={{ width: '40%' }}
+        defaultValue="0571"
+      />
+      <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
     </Space.Compact>
   </div>
 );

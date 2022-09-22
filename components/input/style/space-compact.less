@@ -9,7 +9,6 @@
     color: @input-color;
     font-weight: normal;
     font-size: @font-size-base;
-
     white-space: nowrap;
     text-align: center;
     background-color: @input-addon-bg;
@@ -18,9 +17,16 @@
     transition: all 0.3s;
   }
 
+  &-compact-item {
+    // <Input.Search /> 右边的搜索按钮
+    .@{ant-prefix}-input-search-button {
+      border: 0;
+    }
+  }
+
   // Reset rounded corners
-  // > &:first-child,
-  &-addon:first-child {
+  &-compact-first-item {
+    border-right-width: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
@@ -31,11 +37,45 @@
     }
   }
 
-  &-addon:first-child {
-    border-right: 0;
+  // nested compact-item
+  &-compact-item > &-compact-item {
+    border-radius: 0;
   }
 
-  &-addon:last-child {
-    border-left: 0;
+  &-compact-item:not(&-compact-first-item):not(&-compact-last-item) {
+    border-radius: 0;
+  }
+
+  &-compact-last-item {
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    // Reset Select's style in addon
+    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &-compact-first-item + &-compact-last-item {
+    border-left-width: 1px;
+  }
+}
+
+// FIXME: 要删掉，input select 还没把 compact-item 类加上去
+.@{ant-prefix}-space-compact-block {
+  .@{ant-prefix}-input-addon {
+    .@{ant-prefix}-select {
+      margin: -5px -11px;
+
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input) {
+        .@{ant-prefix}-select-selector {
+          background-color: inherit;
+          border: 1px solid transparent;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }

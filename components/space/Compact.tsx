@@ -54,7 +54,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     className,
   );
 
-  const childNodes = toArray(children, { keepEmpty: true });
+  const childNodes = toArray(children, { keepEmpty: false });
 
   const nodes = React.useMemo(
     () =>
