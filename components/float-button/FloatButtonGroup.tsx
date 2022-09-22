@@ -45,9 +45,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     `${prefixCls}-tigger`,
     `${prefixCls}-${type}`,
     `${prefixCls}-${shape}`,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
   );
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
