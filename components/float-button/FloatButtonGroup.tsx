@@ -1,5 +1,4 @@
-import type { ProviderProps } from 'react';
-import React, { useRef, memo, useContext, useMemo } from 'react';
+import React, { useRef, memo, useContext } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -9,7 +8,7 @@ import { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
-import type { FloatButtonGroupProps, FloatButtonShape } from './interface';
+import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
@@ -77,9 +76,6 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
     };
   }
 
-  // Provider 组件的值用 useMemo 缓存一下，以防止每次渲染影响后续子组件
-  const providerValue = useMemo<ProviderProps<FloatButtonShape>['value']>(() => shape, [shape]);
-
   const tiggerElement = (
     <div className={tiggerCls} {...clickAction.current}>
       <div className={`${prefixCls}-body`}>
@@ -89,7 +85,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
   );
 
   return wrapSSR(
-    <FloatButtonGroupProvider value={providerValue}>
+    <FloatButtonGroupProvider value={shape}>
       <div className={groupCls} style={style} {...hoverAction.current}>
         {trigger && ['click', 'hover'].includes(trigger) ? (
           <>

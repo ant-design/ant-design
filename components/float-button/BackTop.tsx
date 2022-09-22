@@ -124,8 +124,4 @@ const BackTop: React.FC<BackTopProps> = props => {
   );
 };
 
-BackTop.defaultProps = {
-  visibilityHeight: 400,
-};
-
 export default memo(BackTop);

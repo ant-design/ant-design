@@ -65,7 +65,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       backgroundColor: token.colorBgContainer,
-      borderRadius: token.radiusSM,
+      borderRadius: token.radiusBase,
       [`${groupPrefixCls}-wrap`]: {
         zIndex: 30,
         display: 'block',
@@ -80,10 +80,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
       [`${componentCls}-tigger`]: {
         zIndex: 99,
-      },
-      [`${componentCls}-square-tigger`]: {
         padding: 0,
-        borderRadius: radiusBase,
         [`${componentCls}-body`]: {
           width: floatButtonSize,
           height: floatButtonSize,
@@ -91,6 +88,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-circle`]: {
+      [`${componentCls}-tigger`]: {
+        borderRadius: '50%',
+      },
       [`${componentCls}-circle:not(:last-child)`]: {
         marginBottom: token.margin,
         [`${componentCls}-body`]: {
@@ -100,6 +100,9 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
+      [`${componentCls}-tigger`]: {
+        borderRadius: radiusBase,
+      },
       [`${componentCls}-square`]: {
         borderRadius: 0,
         padding: 0,
