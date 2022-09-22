@@ -8,11 +8,11 @@ title:
 
 ## zh-CN
 
-设置 trigger 属性即可开启菜单模式，你可以选择 `hover` 或者 `click` 两种触发方式
+设置 `trigger` 属性即可开启菜单模式。提供 `hover` 和 `click` 两种触发方式
 
 ## en-US
 
-Setting the trigger can open the menu mode, and you can select `Hover` or `click` to trigger
+Open menu mode with `trigger`, which could be `hover` or `click`.
 
 ```tsx
 import React from 'react';

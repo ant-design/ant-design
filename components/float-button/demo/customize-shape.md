@@ -2,17 +2,17 @@
 order: 2
 iframe: 360
 title:
-  zh-CN: 设置不同的形状
-  en-US: Custom shape
+  zh-CN: 形状
+  en-US: shape
 ---
 
 ## zh-CN
 
-你可以通过 shape 设置不同的形状
+你可以通过 `shape` 设置不同的形状
 
 ## en-US
 
-You can customize the shape of the FloatButton.
+Change the shape of the FloatButton with `shape`.
 
 ```tsx
 import React, { useState } from 'react';
@@ -27,8 +27,7 @@ const App: React.FC = () => {
   };
   return (
     <>
-      <p>点击切换形状</p>
-      <Radio.Group onChange={onChange} value={shape}>
+      <Radio.Group onChange={onChange} value={shape} style={{ margin: 20 }}>
         <Radio value="circle">圆形</Radio>
         <Radio value="square">方形</Radio>
       </Radio.Group>

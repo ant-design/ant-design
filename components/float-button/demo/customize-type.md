@@ -2,17 +2,17 @@
 order: 1
 iframe: 360
 title:
-  zh-CN: 自定义类型
-  en-US: Custom type
+  zh-CN: 类型
+  en-US: type
 ---
 
 ## zh-CN
 
-你可以定义悬浮按钮的类型
+通过 `type` 改变悬浮按钮的类型
 
 ## en-US
 
-You can customize the type of the FloatButton.
+Change the type of the FloatButton with `type`.
 
 ```tsx
 import React from 'react';

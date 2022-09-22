@@ -5,7 +5,7 @@ title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
 ---
 
-FloatButton. Available since `antd@5.0.0`.
+FloatButton. Available since `5.0.0`.
 
 ## When To Use
 
@@ -13,8 +13,6 @@ FloatButton. Available since `antd@5.0.0`.
 - Buttons that can be seen wherever you browse.
 
 ## API
-
-> This component is available since `antd@5.0.0`
 
 ### common API
 
