@@ -154,6 +154,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
     whiteSpace: 'normal',
     margin: 0,
     padding: 0,
+    fontSize: 14,
   };
 
   const renderMeasure = (
@@ -172,6 +173,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
+        fontSize: 14,
         ...style,
       }}
     >
