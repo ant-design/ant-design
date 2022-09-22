@@ -1,6 +1,5 @@
 import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import classNames from 'classnames';
 import Form from '..';
@@ -21,7 +20,7 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -795,7 +794,9 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/33691
   it('should keep upper locale in nested ConfigProvider', async () => {
-    const wrapper = mount(
+    jest.useFakeTimers();
+
+    const { container } = render(
       <ConfigProvider locale={zhCN}>
         <ConfigProvider>
           <Form>
@@ -807,11 +808,21 @@ describe('Form', () => {
       </ConfigProvider>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入Bamboo');
+    fireEvent.submit(container.querySelector('form')!);
+
+    // Repeat enough time for validator promise sequence
+    for (let i = 0; i < 20; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await Promise.resolve();
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+    }
+
+    expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('请输入Bamboo');
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('`name` support template when label is not provided', async () => {
