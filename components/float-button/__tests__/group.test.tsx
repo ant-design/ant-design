@@ -33,7 +33,7 @@ describe('FloatButtonGroup', () => {
     );
     expect(container.querySelectorAll(`.ant-float-btn-${squareShape}`)).toHaveLength(3);
   });
-  it('support onOpenChange', () => {
+  it('support onOpenChange for click', () => {
     const onOpenChange = jest.fn();
     const { container } = render(
       <FloatButton.Group trigger="click" onOpenChange={onOpenChange}>
@@ -43,6 +43,19 @@ describe('FloatButtonGroup', () => {
       </FloatButton.Group>,
     );
     fireEvent.click(container.querySelector('.ant-float-btn')!);
+    expect(onOpenChange).toHaveBeenCalled();
+  });
+  it('support onOpenChange for hover', () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <FloatButton.Group trigger="hover" onOpenChange={onOpenChange}>
+        <FloatButton />
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-float-btn-group')!);
+    fireEvent.mouseLeave(container.querySelector('.ant-float-btn-group')!);
     expect(onOpenChange).toHaveBeenCalled();
   });
 });
