@@ -1222,7 +1222,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
 exports[`renders ./components/tooltip/demo/render-panel.md extend context correctly 1`] = `
 Array [
   <div
-    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
+    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
       class="ant-tooltip-content"
@@ -1234,7 +1234,26 @@ Array [
         class="ant-tooltip-inner"
         role="tooltip"
       >
-        Hello, Pure Panel!
+        Hello, Pink Pure Panel!
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
+    style="--antd-arrow-background-color: #f50;"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      />
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+        style="background: rgb(255, 85, 0);"
+      >
+        Hello, Customize Color Pure Panel!
       </div>
     </div>
   </div>,

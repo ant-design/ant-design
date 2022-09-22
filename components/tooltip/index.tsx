@@ -6,7 +6,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
-import { PresetColorTypes } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
@@ -15,6 +14,7 @@ import warning from '../_util/warning';
 import PurePanel from './PurePanel';
 
 import useStyle from './style';
+import { parseColor } from './util';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -105,7 +105,6 @@ const splitObject = (obj: any, keys: string[]) => {
   });
   return { picked, omitted };
 };
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
 
 // Fix Tooltip won't hide at disabled button
 // mouse events don't trigger at disabled button in Chrome
@@ -286,22 +285,19 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
 
+  // Color
+  const colorInfo = parseColor(prefixCls, color);
+  const formattedOverlayInnerStyle = { ...overlayInnerStyle, ...colorInfo.overlayStyle };
+  const arrowContentStyle = colorInfo.arrowStyle;
+
   const customOverlayClassName = classNames(
     overlayClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
     },
+    colorInfo.className,
     hashId,
   );
-
-  let formattedOverlayInnerStyle = overlayInnerStyle;
-  let arrowContentStyle;
-  if (color && !PresetColorRegex.test(color)) {
-    formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };
-    // @ts-ignore
-    arrowContentStyle = { '--antd-arrow-background-color': color };
-  }
 
   return wrapSSR(
     <RcTooltip
