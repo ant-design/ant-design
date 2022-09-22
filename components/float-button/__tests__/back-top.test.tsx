@@ -1,15 +1,16 @@
 import React from 'react';
-import BackTop from '../BackTop';
+import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 
+const { BackTop } = FloatButton;
 describe('BackTop', () => {
   mountTest(BackTop);
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
-    const { container } = render(<BackTop visibilityHeight={-1} />);
+    const { container } = render(<BackTop visible visibilityHeight={-1} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
@@ -25,7 +26,7 @@ describe('BackTop', () => {
 
   it('support onClick', () => {
     const onClick = jest.fn();
-    const { container } = render(<BackTop onClick={onClick} visibilityHeight={-1} />);
+    const { container } = render(<BackTop visible visibilityHeight={-1} onClick={onClick} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
