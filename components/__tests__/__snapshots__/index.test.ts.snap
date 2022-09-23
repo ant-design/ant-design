@@ -25,6 +25,7 @@ Array [
   "Drawer",
   "Dropdown",
   "Empty",
+  "FloatButton",
   "Form",
   "Grid",
   "Image",

@@ -26,6 +26,8 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
+export { default as FloatButton } from './float-button';
+export type { FloatButtonProps } from './float-button/interface';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
