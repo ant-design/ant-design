@@ -216,22 +216,24 @@ describe('Affix Render', () => {
     });
 
     // Trigger inner and outer element for the two <ResizeObserver>s.
-    it.each([
-      { selector: '.ant-btn' }, // inner
-      { selector: '.fixed' }, // outer
-    ])('trigger listener when size change', async ({ selector }) => {
-      const updateCalled = jest.fn();
-      const { container } = render(
-        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
-        {
-          container: document.getElementById('mounter')!,
-        },
-      );
+    [
+      '.ant-btn', // inner
+      '.fixed', // outer
+    ].forEach(selector => {
+      it(`trigger listener when size change: ${selector}`, async () => {
+        const updateCalled = jest.fn();
+        const { container } = render(
+          <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+          {
+            container: document.getElementById('mounter')!,
+          },
+        );
 
-      updateCalled.mockReset();
-      triggerResize(container.querySelector(selector)!);
-      await sleep(20);
-      expect(updateCalled).toHaveBeenCalled();
+        updateCalled.mockReset();
+        triggerResize(container.querySelector(selector)!);
+        await sleep(20);
+        expect(updateCalled).toHaveBeenCalled();
+      });
     });
   });
 });
