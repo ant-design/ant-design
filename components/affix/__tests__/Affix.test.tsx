@@ -3,7 +3,7 @@ import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep, triggerResize, act, waitFakeTimer } from '../../../tests/utils';
+import { render, sleep, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import { getObserverEntities } from '../utils';
 
