@@ -79,19 +79,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       [componentCls]: {
         position: 'static',
       },
-      [`${componentCls}-tigger`]: {
-        zIndex: 99,
-        padding: 0,
-        [`${componentCls}-body`]: {
-          width: floatButtonSize,
-          height: floatButtonSize,
-        },
-      },
     },
     [`${groupPrefixCls}-circle`]: {
-      [`${componentCls}-tigger`]: {
-        borderRadius: '50%',
-      },
       [`${componentCls}-circle:not(:last-child)`]: {
         marginBottom: token.margin,
         [`${componentCls}-body`]: {
@@ -101,9 +90,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
     },
     [`${groupPrefixCls}-square`]: {
-      [`${componentCls}-tigger`]: {
-        borderRadius: radiusBase,
-      },
       [`${componentCls}-square`]: {
         borderRadius: 0,
         padding: 0,
