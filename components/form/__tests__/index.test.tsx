@@ -818,13 +818,11 @@ describe('Form', () => {
         jest.advanceTimersByTime(1000);
       });
     }
-    console.log(container.innerHTML);
 
     expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('请输入Bamboo');
 
     jest.clearAllTimers();
     jest.useRealTimers();
-    console.log('end!!!!!!!~~~~');
   });
 
   it('`name` support template when label is not provided', async () => {
