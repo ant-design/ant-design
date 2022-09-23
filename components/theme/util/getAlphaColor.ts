@@ -5,7 +5,11 @@ function isStableColor(color: number): boolean {
 }
 
 function getAlphaColor(frontColor: string, backgroundColor: string): string {
-  const { r: fR, g: fG, b: fB } = new TinyColor(frontColor).toRgb();
+  const { r: fR, g: fG, b: fB, a: originAlpha } = new TinyColor(frontColor).toRgb();
+  if (originAlpha < 1) {
+    return frontColor;
+  }
+
   const { r: bR, g: bG, b: bB } = new TinyColor(backgroundColor).toRgb();
 
   for (let fA = 0.01; fA <= 1; fA += 0.01) {
