@@ -1,56 +1,20 @@
+@import '../../style/mixins/index';
+
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
 // btn in Space.Compact styles
 .@{btn-prefix-cls} {
-  &-compact-item + &-compact-item,
+  .compact-item(@btn-prefix-cls);
+
+  // Special styles for `<Tooltip><Button></Tooltip>`
+  & + &,
   span + &-compact-item,
   &-compact-item + span {
     margin-left: -1px;
   }
 
   &-compact-item {
-    &.@{btn-prefix-cls} {
-      border-radius: 0;
-
-      &:hover,
-      &:focus,
-      &:active {
-        z-index: 2;
-      }
-
-      &[disabled] {
-        z-index: 0;
-      }
-
-      &.@{btn-prefix-cls}-icon-only {
-        border-radius: 0;
-      }
-    }
-
-    &.@{btn-prefix-cls} {
-      &.@{btn-prefix-cls}-compact-first-item {
-        border-top-left-radius: @btn-border-radius-base;
-        border-bottom-left-radius: @btn-border-radius-base;
-      }
-
-      &.@{btn-prefix-cls}-compact-last-item {
-        border-top-right-radius: @btn-border-radius-base;
-        border-bottom-right-radius: @btn-border-radius-base;
-      }
-
-      &.@{btn-prefix-cls}-sm {
-        &.@{btn-prefix-cls}-compact-first-item {
-          border-top-left-radius: @btn-border-radius-sm;
-          border-bottom-left-radius: @btn-border-radius-sm;
-        }
-
-        &.@{btn-prefix-cls}-compact-last-item {
-          border-top-right-radius: @btn-border-radius-sm;
-          border-bottom-right-radius: @btn-border-radius-sm;
-        }
-      }
-    }
-
+    // Special styles for Primary Button
     &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
       border-left-color: transparent;
     }

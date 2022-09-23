@@ -1,6 +1,12 @@
+@import '../../style/mixins/index';
+
 @input-prefix-clx: ~'@{ant-prefix}-input';
 
 .@{input-prefix-clx} {
+  // compact-item style for Input
+  .compact-item(@input-prefix-cls);
+
+  // addon style
   &-addon {
     position: relative;
     display: flex;
@@ -15,25 +21,17 @@
     border: @border-width-base @border-style-base @input-border-color;
     border-radius: @control-border-radius;
     transition: all 0.3s;
-  }
-
-  &-compact-item {
-    // <Input.Search /> 右边的搜索按钮
-    .@{ant-prefix}-input-search-button {
-      border: 0;
-    }
-  }
-
-  // Reset rounded corners
-  &-compact-first-item {
-    border-right-width: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selector {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    // Reset Button's style in addon
+    .@{ant-prefix}-btn {
+      border-width: 0;
+      border-radius: 0;
     }
   }
 
@@ -46,21 +44,27 @@
     border-radius: 0;
   }
 
-  &-compact-last-item {
-    border-left-width: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-
-    // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-
   &-compact-first-item + &-compact-last-item {
     border-left-width: 1px;
   }
+
+  // addon in Input.Search
+  &-search + &-addon {
+    padding: 0;
+
+    &:hover,
+    &:active {
+      color: @input-color;
+      border-color: @input-hover-border-color;
+    }
+  }
+
+  // &-compact-item {
+  //   // <Input.Search /> 右边的搜索按钮
+  //   .@{ant-prefix}-input-search-button {
+  //     border: 0;
+  //   }
+  // }
 }
 
 // FIXME: 要删掉，input select 还没把 compact-item 类加上去

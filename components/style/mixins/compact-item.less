@@ -1,0 +1,52 @@
+.compact-item(@prefix-cls) {
+  &-compact-item {
+    // border collapse
+    &:not(.@{prefix-cls}-compact-first-item) {
+      margin-left: -1px;
+    }
+
+    &.@{prefix-cls} {
+      border-radius: 0;
+
+      &:hover,
+      &:focus,
+      &:active {
+        z-index: 2;
+      }
+
+      &[disabled] {
+        z-index: 0;
+      }
+
+      // TODO: button special
+      &.@{prefix-cls}-icon-only {
+        border-radius: 0;
+      }
+    }
+
+    &.@{prefix-cls} {
+      &.@{prefix-cls}-compact-first-item {
+        border-top-left-radius: @btn-border-radius-base;
+        border-bottom-left-radius: @btn-border-radius-base;
+      }
+
+      &.@{prefix-cls}-compact-last-item {
+        border-top-right-radius: @btn-border-radius-base;
+        border-bottom-right-radius: @btn-border-radius-base;
+      }
+
+      // TODO: button special
+      &.@{prefix-cls}-sm {
+        &.@{prefix-cls}-compact-first-item {
+          border-top-left-radius: @btn-border-radius-sm;
+          border-bottom-left-radius: @btn-border-radius-sm;
+        }
+
+        &.@{prefix-cls}-compact-last-item {
+          border-top-right-radius: @btn-border-radius-sm;
+          border-bottom-right-radius: @btn-border-radius-sm;
+        }
+      }
+    }
+  }
+}

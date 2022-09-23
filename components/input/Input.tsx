@@ -292,6 +292,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     size: customSize,
     addonAfter,
     addonBefore,
+    style,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -304,16 +305,23 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const size = React.useContext(SizeContext);
   const mergedSize = compactSize || customSize || size;
 
-  const Wrapper = addonBefore || addonAfter ? Space.Compact : React.Fragment;
+  const hasAddon = addonBefore || addonAfter;
+  const Wrapper = hasAddon ? Space.Compact : React.Fragment;
 
   return (
     <Wrapper
       block
+      style={style}
       size={mergedSize}
       className={getCompactClassNames(prefixCls, restCompactContext)}
     >
       {addonBefore && <InputAddon prefixCls={prefixCls}>{addonBefore}</InputAddon>}
-      <InternalInput ref={ref} prefixCls={prefixCls} {...restProps} />
+      <InternalInput
+        ref={ref}
+        prefixCls={prefixCls}
+        style={hasAddon ? undefined : style}
+        {...restProps}
+      />
       {addonAfter && <InputAddon prefixCls={prefixCls}>{addonAfter}</InputAddon>}
     </Wrapper>
   );
