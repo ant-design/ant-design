@@ -20,7 +20,7 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, act } from '../../../tests/utils';
+import { fireEvent, render, sleep, act, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -811,13 +811,7 @@ describe('Form', () => {
     fireEvent.submit(container.querySelector('form')!);
 
     // Repeat enough time for validator promise sequence
-    for (let i = 0; i < 20; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      await act(async () => {
-        await Promise.resolve();
-        jest.advanceTimersByTime(1000);
-      });
-    }
+    await waitFakeTimer();
 
     expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('请输入Bamboo');
 
@@ -1415,6 +1409,8 @@ describe('Form', () => {
   });
 
   it('Form.Item.useStatus should work', async () => {
+    jest.useFakeTimers();
+
     const {
       Item: { useStatus },
     } = Form;
@@ -1461,11 +1457,16 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
+
     fireEvent.click(container.querySelector('.submit-button')!);
-    await sleep(0);
+    await waitFakeTimer();
+
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-error',
     );
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('item customize margin', async () => {

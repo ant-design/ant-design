@@ -3,7 +3,7 @@ import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep, triggerResize } from '../../../tests/utils';
+import { render, sleep, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import { getObserverEntities } from '../utils';
 
@@ -216,22 +216,31 @@ describe('Affix Render', () => {
     });
 
     // Trigger inner and outer element for the two <ResizeObserver>s.
-    it.each([
-      { selector: '.ant-btn' }, // inner
-      { selector: '.fixed' }, // outer
-    ])('trigger listener when size change', async ({ selector }) => {
-      const updateCalled = jest.fn();
-      const { container } = render(
-        <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
-        {
-          container: document.getElementById('mounter')!,
-        },
-      );
+    [
+      '.ant-btn', // inner
+      '.fixed', // outer
+    ].forEach(selector => {
+      it(`trigger listener when size change: ${selector}`, async () => {
+        jest.useFakeTimers();
 
-      updateCalled.mockReset();
-      triggerResize(container.querySelector(selector)!);
-      await sleep(20);
-      expect(updateCalled).toHaveBeenCalled();
+        const updateCalled = jest.fn();
+        const { container } = render(
+          <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+          {
+            container: document.getElementById('mounter')!,
+          },
+        );
+
+        updateCalled.mockReset();
+        triggerResize(container.querySelector(selector)!);
+
+        await waitFakeTimer();
+
+        expect(updateCalled).toHaveBeenCalled();
+
+        jest.clearAllTimers();
+        jest.useRealTimers();
+      });
     });
   });
 });
