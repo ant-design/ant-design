@@ -66,6 +66,6 @@ jobs:
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.NEXT_SITE_DEPLOY }}
           external_repository: ant-design/next.ant.design
           publish_dir: ./_site
