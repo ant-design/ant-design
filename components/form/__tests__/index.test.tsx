@@ -1,9 +1,9 @@
 import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import classNames from 'classnames';
 import Form from '..';
+import type { FormInstance } from '..';
 import * as Util from '../util';
 
 import Button from '../../button';
@@ -20,7 +20,7 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -38,10 +38,10 @@ describe('Form', () => {
   rtlTest(Form);
   rtlTest(Form.Item);
 
-  scrollIntoView.mockImplementation(() => {});
+  (scrollIntoView as any).mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  async function change(container, index, value, executeMockTimer) {
+  async function change(container: Element, index: number, value: any, executeMockTimer: boolean) {
     fireEvent.change(container.querySelectorAll('input')[index], {
       target: { value },
     });
@@ -59,7 +59,7 @@ describe('Form', () => {
 
   beforeEach(() => {
     jest.useRealTimers();
-    scrollIntoView.mockReset();
+    (scrollIntoView as any).mockReset();
   });
 
   afterEach(() => {
@@ -68,7 +68,7 @@ describe('Form', () => {
 
   afterAll(() => {
     errorSpy.mockRestore();
-    scrollIntoView.mockRestore();
+    (scrollIntoView as any).mockRestore();
   });
 
   describe('noStyle Form.Item', () => {
@@ -143,11 +143,11 @@ describe('Form', () => {
 
       const { container } = render(<Demo />);
       await change(container, 0, '1', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
+      expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('aaa');
       await change(container, 0, '2', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('ccc');
+      expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('ccc');
       await change(container, 0, '1', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
+      expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('aaa');
 
       jest.useRealTimers();
     });
@@ -356,9 +356,9 @@ describe('Form', () => {
   });
 
   describe('scrollToField', () => {
-    function test(name, genForm) {
+    function test(name: string, genForm: () => { props: any; getForm: () => FormInstance }) {
       it(name, () => {
-        let callGetForm;
+        let callGetForm: () => FormInstance = undefined!;
 
         const Demo = () => {
           const { props, getForm } = genForm();
@@ -402,10 +402,10 @@ describe('Form', () => {
 
     // ref
     test('ref', () => {
-      let form;
+      let form: FormInstance;
       return {
         props: {
-          ref: instance => {
+          ref: (instance: FormInstance) => {
             form = instance;
           },
         },
@@ -442,7 +442,7 @@ describe('Form', () => {
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const wrapper = mount(
       <Form>
-        <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
+        <Form.Item data-text="123" aria-hidden="true" {...{ cccc: 'bbbb' }}>
           text
         </Form.Item>
       </Form>,
@@ -547,13 +547,13 @@ describe('Form', () => {
     for (let i = 0; i < 3; i += 1) {
       await change(container, 0, 'bamboo', true);
       await change(container, 0, '', true);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual(
+      expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual(
         "'name' is required",
       );
 
       await change(container, 0, 'p', true);
       await sleep(100);
-      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('not a p');
+      expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('not a p');
     }
     /* eslint-enable */
 
@@ -605,7 +605,7 @@ describe('Form', () => {
       return <Input />;
     };
 
-    const formRef = React.createRef();
+    const formRef = React.createRef<FormInstance>();
 
     mount(
       <div>
@@ -620,13 +620,13 @@ describe('Form', () => {
       </div>,
       {
         strictMode: false,
-      },
+      } as any,
     );
 
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
-    formRef.current.setFieldsValue({ light: 'bamboo' });
+    formRef.current!.setFieldsValue({ light: 'bamboo' });
     await Promise.resolve();
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(2);
@@ -659,7 +659,7 @@ describe('Form', () => {
 
     await change(container, 0, '', true);
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
-    expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('help');
+    expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('help');
 
     jest.useRealTimers();
   });
@@ -710,7 +710,7 @@ describe('Form', () => {
 
   it('`null` triggers warning and is treated as `undefined`', () => {
     const wrapper = mount(
-      <Form.Item name={null}>
+      <Form.Item name={null!}>
         <input />
       </Form.Item>,
     );
@@ -747,7 +747,7 @@ describe('Form', () => {
 
   it('change `help` should not warning', () => {
     const Demo = () => {
-      const [error, setError] = React.useState(null);
+      const [error, setError] = React.useState<boolean | null>(null);
 
       return (
         <Form>
@@ -770,7 +770,7 @@ describe('Form', () => {
     };
 
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
 
     expect(errorSpy).not.toHaveBeenCalled();
   });
@@ -794,7 +794,9 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/33691
   it('should keep upper locale in nested ConfigProvider', async () => {
-    const wrapper = mount(
+    jest.useFakeTimers();
+
+    const { container } = render(
       <ConfigProvider locale={zhCN}>
         <ConfigProvider>
           <Form>
@@ -806,11 +808,21 @@ describe('Form', () => {
       </ConfigProvider>,
     );
 
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入Bamboo');
+    fireEvent.submit(container.querySelector('form')!);
+
+    // Repeat enough time for validator promise sequence
+    for (let i = 0; i < 20; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      await act(async () => {
+        await Promise.resolve();
+        jest.advanceTimersByTime(1000);
+      });
+    }
+
+    expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('请输入Bamboo');
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('`name` support template when label is not provided', async () => {
@@ -886,7 +898,7 @@ describe('Form', () => {
 
     const wrapper = mount(<App />, {
       strictMode: false,
-    });
+    } as any);
     for (let i = 0; i < 5; i += 1) {
       wrapper.find('button').simulate('click');
     }
@@ -911,7 +923,7 @@ describe('Form', () => {
 
     const wrapper = mount(<Demo />, {
       strictMode: false,
-    });
+    } as any);
     renderTimes = 0;
 
     wrapper.find('input').simulate('change', {
@@ -941,7 +953,7 @@ describe('Form', () => {
   });
 
   it('Remove Field should also reset error', async () => {
-    const Demo = ({ showA }) => (
+    const Demo = ({ showA }: { showA: boolean }) => (
       <Form>
         {showA ? (
           <Form.Item name="a" help="error">
@@ -968,7 +980,7 @@ describe('Form', () => {
   it('no warning of initialValue & getValueProps & preserve', () => {
     render(
       <Form>
-        <Form.Item initialValue="bamboo" getValueProps={() => null} preserve={false}>
+        <Form.Item initialValue="bamboo" getValueProps={(() => null) as any} preserve={false}>
           <Input />
         </Form.Item>
       </Form>,
@@ -1117,15 +1129,17 @@ describe('Form', () => {
       <Form>
         <Form.Item
           name="light"
-          _internalItemRender={{
-            mark: 'pro_table_render',
-            render: (_, doms) => (
-              <div id="_test">
-                {doms.input}
-                {doms.errorList}
-                {doms.extra}
-              </div>
-            ),
+          {...{
+            _internalItemRender: {
+              mark: 'pro_table_render',
+              render: (_: any, doms: any) => (
+                <div id="_test">
+                  {doms.input}
+                  {doms.errorList}
+                  {doms.extra}
+                </div>
+              ),
+            },
           }}
         >
           <input defaultValue="should warning" />
@@ -1173,7 +1187,7 @@ describe('Form', () => {
 
     const wrapper = mount(<Demo />, { attachTo: document.body });
     expect(mockFn).toHaveBeenCalled();
-    expect(Util.getFieldId()).toBe(itemName);
+    expect((Util as any).getFieldId()).toBe(itemName); // Mock here
 
     // make sure input id is parentNode
     expect(wrapper.find(`#${itemName}`).exists()).toBeTruthy();
@@ -1244,7 +1258,7 @@ describe('Form', () => {
 
   it('not warning when remove on validate', async () => {
     jest.useFakeTimers();
-    let rejectFn = null;
+    let rejectFn: Function = null!;
 
     const { container, unmount } = render(
       <Form>
@@ -1381,7 +1395,7 @@ describe('Form', () => {
   it('should not affect Popup children style', () => {
     const Demo = () => (
       <Form>
-        <Form.Item labelCol={4} validateStatus="error">
+        <Form.Item validateStatus="error">
           <Modal open>
             <Select className="modal-select" />
           </Modal>
@@ -1405,7 +1419,7 @@ describe('Form', () => {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput = ({ className, value }) => {
+    const CustomInput = ({ className, value }: { className: string; value?: React.ReactNode }) => {
       const { status } = useStatus();
       return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
     };
@@ -1447,7 +1461,7 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
-    fireEvent.click(container.querySelector('.submit-button'));
+    fireEvent.click(container.querySelector('.submit-button')!);
     await sleep(0);
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-error',
@@ -1455,9 +1469,12 @@ describe('Form', () => {
   });
 
   it('item customize margin', async () => {
-    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
-      marginBottom: 24,
-    }));
+    const computeSpy = jest.spyOn(window, 'getComputedStyle').mockImplementation(
+      () =>
+        ({
+          marginBottom: 24,
+        } as any),
+    );
 
     const { container } = render(
       <Form>
@@ -1467,7 +1484,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    fireEvent.change(container.querySelector('input'), {
+    fireEvent.change(container.querySelector('input')!, {
       target: {
         value: '',
       },
