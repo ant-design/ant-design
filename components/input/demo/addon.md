@@ -39,6 +39,9 @@ const App: React.FC = () => (
   <Space direction="vertical">
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+    <br />
+    <br />
+    上方是 button + icon，下方是纯 icon
     <Input
       addonAfter={
         <Button>
@@ -47,8 +50,13 @@ const App: React.FC = () => (
       }
       defaultValue="mysite"
     />
-    上方是 button + icon，下方是纯 icon
     <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
+    <br />
+    Input addon Button:
+    <Input addonAfter={<Button type="primary">Submit</Button>} defaultValue="mysite" />
+    <Input addonAfter={<Button>Submit</Button>} defaultValue="mysite" />
+    <br />
+    <br />
     <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
     <Input
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
