@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
 import React, { memo, useContext, useEffect, useMemo, useRef } from 'react';
 import FloatButton, { floatButtonPrefixCls } from '.';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -71,39 +70,19 @@ const BackTop: React.FC<BackTopProps> = props => {
     }
   };
 
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapSSR] = useStyle(prefixCls);
 
   const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
 
   const mergeShape = groupShape || shape;
 
-  const classString = classNames(
-    hashId,
-    prefixCls,
-    className,
-    `${prefixCls}-${type}`,
-    `${prefixCls}-${mergeShape}`,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-  );
-
-  const divProps = omit(props, [
-    'prefixCls',
-    'className',
-    'children',
-    'visibilityHeight',
-    'target',
-    'visible',
-  ]);
-
   const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon }),
-    [prefixCls, description, icon],
+    () => ({ prefixCls, description, icon, type, shape: mergeShape }),
+    [prefixCls, description, icon, type, mergeShape],
   );
 
   return wrapSSR(
@@ -111,10 +90,9 @@ const BackTop: React.FC<BackTopProps> = props => {
       {({ className: motionClassName }) => (
         <FloatButton
           ref={ref}
-          {...divProps}
           {...contentProps}
           onClick={scrollToTop}
-          className={classNames(motionClassName, classString)}
+          className={classNames(className, motionClassName)}
         />
       )}
     </CSSMotion>,
