@@ -3,7 +3,7 @@ order: 3
 iframe: 360
 title:
   zh-CN: 描述
-  en-US: description
+  en-US: Description
 ---
 
 ## zh-CN
@@ -29,7 +29,6 @@ const App: React.FC = () => (
       icon={<CommentOutlined />}
       description="帮助文档"
       shape="square"
-      type="primary"
       style={{ right: 24 }}
     />
     <FloatButton description="帮助文档" shape="square" type="primary" style={{ right: 94 }} />
@@ -37,10 +36,8 @@ const App: React.FC = () => (
       icon={<CommentOutlined />}
       description="文档"
       shape="square"
-      type="primary"
       style={{ right: 164 }}
     />
-    <FloatButton description="文档" shape="square" type="primary" style={{ right: 234 }} />
   </>
 );
 
