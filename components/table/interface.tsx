@@ -83,10 +83,16 @@ export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
+  /**
+   * Confirm filter value, if you want to close dropdown before commit, you can call with
+   * {closeDropdown: true}
+   */
   confirm: (param?: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
+  /** Only close filterDropdown */
+  close: () => void;
 }
 
 export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
