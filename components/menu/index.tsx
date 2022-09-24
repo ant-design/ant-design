@@ -5,14 +5,14 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import type { MenuProps } from './menu';
 import InternalMenu from './menu';
 import { SiderContext } from '../layout/Sider';
-import { MenuTheme } from './MenuContext';
+import type { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
-import Item, { MenuItemProps } from './MenuItem';
-import SubMenu, { SubMenuProps } from './SubMenu';
+import Item, { type MenuItemProps } from './MenuItem';
+import SubMenu, { type SubMenuProps } from './SubMenu';
 
-export { MenuItemGroupProps } from 'rc-menu';
-export { MenuDividerProps } from './MenuDivider';
-export { MenuTheme, SubMenuProps, MenuItemProps, MenuProps };
+export type { MenuItemGroupProps } from 'rc-menu';
+export type { MenuDividerProps } from './MenuDivider';
+export type { MenuTheme, SubMenuProps, MenuItemProps, MenuProps };
 
 export type MenuRef = {
   menu: RcMenuRef | null;

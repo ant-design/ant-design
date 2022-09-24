@@ -13,14 +13,14 @@ import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
-import TabPane, { TabPaneProps } from './TabPane';
+import TabPane, { type TabPaneProps } from './TabPane';
 
 import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
-export { TabPaneProps };
+export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;

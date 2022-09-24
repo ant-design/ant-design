@@ -3,8 +3,8 @@ import type { CheckboxProps } from './Checkbox';
 import InternalCheckbox from './Checkbox';
 import Group from './Group';
 
-export { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
-export { CheckboxGroupProps, CheckboxOptionType } from './Group';
+export type { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
+export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>> {

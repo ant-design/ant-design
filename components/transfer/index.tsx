@@ -18,9 +18,9 @@ import Search from './search';
 
 import useStyle from './style';
 
-export { TransferListProps } from './list';
-export { TransferOperationProps } from './operation';
-export { TransferSearchProps } from './search';
+export type { TransferListProps } from './list';
+export type { TransferOperationProps } from './operation';
+export type { TransferSearchProps } from './search';
 
 export type TransferDirection = 'left' | 'right';
 

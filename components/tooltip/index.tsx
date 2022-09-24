@@ -16,7 +16,7 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
 
-export { AdjustOverflow, PlacementsConfig };
+export type { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
   | 'top'

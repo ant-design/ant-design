@@ -14,19 +14,19 @@ import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
-import { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 
 export {
-  RenderEmptyHandler,
+  type RenderEmptyHandler,
   ConfigContext,
   ConfigConsumer,
-  CSPConfig,
-  DirectionType,
-  ConfigConsumerProps,
+  type CSPConfig,
+  type DirectionType,
+  type ConfigConsumerProps,
 };
 export { defaultIconPrefixCls };
 
