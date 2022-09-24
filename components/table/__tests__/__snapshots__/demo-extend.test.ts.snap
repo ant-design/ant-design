@@ -1407,6 +1407,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1414,6 +1415,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
@@ -1530,6 +1543,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1537,6 +1551,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
@@ -1733,6 +1759,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1740,6 +1767,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
