@@ -139,6 +139,22 @@ export default {
   export default App;
 ```
 
+- BackTop components are removed in 5.0.0, and moved to FloatButton components, If you need to use, you can import it from the FloatButton components.
+
+```diff
+- import { BackTop } from 'antd';
++ import { FloatButton } from 'antd';
+
+  const App: React.FC = () => (
+    <div>
+-     <BackTop />
++     <FloatButton.BackTop />
+    </div>
+  );
+
+  export default App;
+```
+
 ## Start upgrading
 
 #### Migrate with codemod

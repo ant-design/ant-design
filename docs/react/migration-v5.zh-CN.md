@@ -140,6 +140,22 @@ export default {
   export default App;
 ```
 
+- BackTop 组件在 5.0.0 中移除，移至 FloatButton 悬浮按钮中，如需使用，可以从 FloatButton 中引入。
+
+```diff
+- import { BackTop } from 'antd';
++ import { FloatButton } from 'antd';
+
+  const App: React.FC = () => (
+    <div>
+-     <BackTop />
++     <FloatButton.BackTop />
+    </div>
+  );
+
+  export default App;
+```
+
 ## 开始升级
 
 #### 使用迁移工具修改
