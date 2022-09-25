@@ -42,12 +42,12 @@ describe('Form.List.NoStyle', () => {
       });
     };
 
-    addItem();
-    addItem();
+    await addItem();
+    await addItem();
 
     // Submit
     await act(async () => {
-      fireEvent.submit(container.querySelector('input')!);
+      fireEvent.submit(container.querySelector('form')!);
       await sleep(100);
       jest.runAllTimers();
     });
