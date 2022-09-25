@@ -657,6 +657,15 @@ describe('Form', () => {
     jest.useRealTimers();
   });
 
+  it('empty help should also render', () => {
+    const { container } = render(
+      <Form.Item help="">
+        <input />
+      </Form.Item>,
+    );
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeTruthy();
+  });
+
   it('Form.Item with `help` should display error style when validate failed', async () => {
     const { container } = render(
       <Form>
