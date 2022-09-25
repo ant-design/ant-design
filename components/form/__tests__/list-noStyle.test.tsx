@@ -59,7 +59,7 @@ describe('Form.List.NoStyle', () => {
       jest.runAllTimers();
     });
     // Match error message
-    expect(container.querySelector('.ant-form-item-explain-error')?.innerHTML).toBe(
+    expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toBe(
       "'users.1.first' is required",
     );
     jest.useRealTimers();

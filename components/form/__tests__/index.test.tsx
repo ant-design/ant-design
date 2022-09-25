@@ -19,7 +19,15 @@ import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, act, screen, pureRender } from '../../../tests/utils';
+import {
+  fireEvent,
+  render,
+  sleep,
+  act,
+  screen,
+  pureRender,
+  waitFakeTimer,
+} from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -632,16 +640,15 @@ describe('Form', () => {
       </Form>,
     );
 
-    await userEvent.type(screen.getByLabelText('test'), 'test');
-    await userEvent.clear(screen.getByLabelText('test'));
-
-    // should have alert with help text and form item with style
-    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('help');
+    await change(container, 0, '', true);
     expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
+    expect(container.querySelector('.ant-form-item-explain')!.textContent).toEqual('help');
+    jest.useRealTimers();
   });
 
-  it('should clear validation message when input something', async () => {
-    render(
+  it('clear validation message when', async () => {
+    jest.useFakeTimers();
+    const { container } = render(
       <Form>
         <Form.Item name="test" label="test" rules={[{ required: true, message: 'message' }]}>
           <Input />
@@ -649,22 +656,16 @@ describe('Form', () => {
       </Form>,
     );
 
-    await userEvent.type(screen.getByLabelText('test'), 'test');
+    await change(container, 0, '1', true);
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
 
-    // should not show alert when field have value
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    await change(container, 0, '', true);
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeTruthy();
 
-    await userEvent.clear(screen.getByLabelText('test'));
+    await change(container, 0, '123', true);
     await sleep(800);
-
-    // should show alert when field value clear
-    await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
-
-    await userEvent.type(screen.getByLabelText('test'), 'test');
-    await sleep(800);
-
-    // should not show alert when type something in field again
-    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/21167
@@ -1392,11 +1393,16 @@ describe('Form', () => {
   });
 
   it('Form.Item.useStatus should work', async () => {
+    jest.useFakeTimers();
+
     const {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput = ({ className, value }: { className: string; value?: string }) => {
+    const CustomInput: React.FC<{ className?: string; value?: React.ReactNode }> = ({
+      className,
+      value,
+    }) => {
       const { status } = useStatus();
       return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
     };
@@ -1425,26 +1431,29 @@ describe('Form', () => {
 
     const { container } = render(<Demo />);
 
-    await sleep(1000);
-
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-',
     );
-    expect(container.querySelector('.custom-input-warning')).toHaveClass(
+    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
       'custom-input-status-warning',
     );
     expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
+    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
-    await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-    expect(container.querySelector('.custom-input-required')).toHaveClass(
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-error',
     );
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('item customize margin', async () => {
