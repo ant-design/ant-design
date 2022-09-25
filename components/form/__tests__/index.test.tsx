@@ -19,7 +19,7 @@ import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, act, screen } from '../../../tests/utils';
+import { fireEvent, render, sleep, act, screen, pureRender } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -583,20 +583,20 @@ describe('Form', () => {
   // https://github.com/ant-design/ant-design/issues/20948
   it('not repeat render when Form.Item is not a real Field', async () => {
     const shouldNotRender = jest.fn();
-    const StaticInput = () => {
+    const StaticInput: React.FC = () => {
       shouldNotRender();
       return <Input />;
     };
 
     const shouldRender = jest.fn();
-    const DynamicInput = () => {
+    const DynamicInput: React.FC = () => {
       shouldRender();
       return <Input />;
     };
 
     const formRef = React.createRef<FormInstance>();
 
-    render(
+    pureRender(
       <Form ref={formRef}>
         <Form.Item>
           <StaticInput />
@@ -607,14 +607,14 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(shouldNotRender).toHaveBeenCalledTimes(2);
-    expect(shouldRender).toHaveBeenCalledTimes(2);
+    expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenCalledTimes(1);
 
     formRef.current?.setFieldsValue({ light: 'bamboo' });
     await Promise.resolve();
 
-    expect(shouldNotRender).toHaveBeenCalledTimes(2);
-    expect(shouldRender).toHaveBeenCalledTimes(5);
+    expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenCalledTimes(2);
   });
 
   it('Form.Item with `help` should display error style when validate failed', async () => {
