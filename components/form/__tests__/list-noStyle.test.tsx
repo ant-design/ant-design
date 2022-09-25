@@ -1,8 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
 
@@ -12,12 +11,11 @@ describe('Form.List.NoStyle', () => {
 
     let operation: FormListOperation;
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.List name="users">
           {(fields, op) => {
             operation = op;
-
             return fields.map(field => (
               <Form.Item key={field.key}>
                 <Form.Item
@@ -41,7 +39,6 @@ describe('Form.List.NoStyle', () => {
         operation!.add();
         await sleep(100);
         jest.runAllTimers();
-        wrapper.update();
       });
     }
 
@@ -50,10 +47,9 @@ describe('Form.List.NoStyle', () => {
 
     // Submit
     await act(async () => {
-      wrapper.find('form').simulate('submit');
+      fireEvent.submit(container.querySelector('input')!);
       await sleep(100);
       jest.runAllTimers();
-      wrapper.update();
     });
 
     // Remove first field
@@ -61,14 +57,11 @@ describe('Form.List.NoStyle', () => {
       operation!.remove(0);
       await sleep(100);
       jest.runAllTimers();
-      wrapper.update();
     });
-
     // Match error message
-    expect(wrapper.find('.ant-form-item-explain-error').text()).toEqual(
+    expect(container.querySelector('.ant-form-item-explain-error')?.innerHTML).toBe(
       "'users.1.first' is required",
     );
-
     jest.useRealTimers();
   });
 });
