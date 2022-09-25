@@ -3,6 +3,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import userEvent from '@testing-library/user-event';
 import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
+import type { FormInstance } from '..';
 import Form from '..';
 import * as Util from '../util';
 import Button from '../../button';
@@ -23,6 +24,7 @@ import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import type { NamePath } from '../interface';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -206,8 +208,133 @@ describe('Form', () => {
     );
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBeFalsy();
+  });
+
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const { container } = render(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
+      'form_test_help',
+    );
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('form_test_help');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'Invalid number' } });
+    await sleep(800);
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
+
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'Invalid number' } });
+    await sleep(800);
+    expect(container.querySelector('input')?.getAttribute('aria-invalid')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when the prop `required` is true', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when there is a rule with required', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
+    expect(container.querySelector('.ant-form-item-extra')?.id).toBe('test_extra');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
+    expect(container.querySelector('.ant-form-item-extra')?.id).toBeFalsy();
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
+      'test_help test_extra',
+    );
+  });
+
   describe('scrollToField', () => {
-    function test(name: string, genForm: any) {
+    const test = (name: string, genForm: () => any) => {
       it(name, () => {
         let callGetForm: any;
 
@@ -238,7 +365,7 @@ describe('Form', () => {
           scrollMode: 'if-needed',
         });
       });
-    }
+    };
 
     // hooks
     test('useForm', () => {
@@ -467,7 +594,7 @@ describe('Form', () => {
       return <Input />;
     };
 
-    const formRef = React.createRef<any>();
+    const formRef = React.createRef<FormInstance>();
 
     render(
       <Form ref={formRef}>
@@ -483,7 +610,7 @@ describe('Form', () => {
     expect(shouldNotRender).toHaveBeenCalledTimes(2);
     expect(shouldRender).toHaveBeenCalledTimes(2);
 
-    formRef.current.setFieldsValue({ light: 'bamboo' });
+    formRef.current?.setFieldsValue({ light: 'bamboo' });
     await Promise.resolve();
 
     expect(shouldNotRender).toHaveBeenCalledTimes(2);
@@ -564,8 +691,7 @@ describe('Form', () => {
 
   it('`null` triggers warning and is treated as `undefined`', () => {
     render(
-      // @ts-ignore
-      <Form.Item name={null} label="test">
+      <Form.Item name={null as unknown as NamePath} label="test">
         <input />
       </Form.Item>,
     );
