@@ -599,7 +599,7 @@ describe('Form', () => {
       return <Input />;
     };
 
-    const formRef = React.useRef<FormInstance>(null);
+    const formRef = React.createRef<FormInstance>();
 
     pureRender(
       <Form ref={formRef}>
