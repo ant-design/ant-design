@@ -255,6 +255,7 @@ describe('Form', () => {
   });
 
   it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    jest.useFakeTimers();
     const { container } = pureRender(
       <Form>
         <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
@@ -263,9 +264,14 @@ describe('Form', () => {
       </Form>,
     );
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Invalid number' } });
-    await sleep(800);
+
+    await waitFakeTimer();
+
     expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
     expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('input element should have the prop aria-invalid when there are errors', async () => {
@@ -586,6 +592,8 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20948
   it('not repeat render when Form.Item is not a real Field', async () => {
+    jest.useFakeTimers();
+
     const shouldNotRender = jest.fn();
     const StaticInput: React.FC = () => {
       shouldNotRender();
@@ -615,9 +623,14 @@ describe('Form', () => {
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
     formRef.current?.setFieldsValue({ light: 'bamboo' });
-    await Promise.resolve();
+
+    await waitFakeTimer();
+
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(2);
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('Form.Item with `help` should display error style when validate failed', async () => {
