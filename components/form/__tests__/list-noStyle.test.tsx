@@ -34,13 +34,13 @@ describe('Form.List.NoStyle', () => {
     );
 
     // Add two
-    async function addItem() {
+    const addItem = async () => {
       await act(async () => {
         operation!.add();
         await sleep(100);
         jest.runAllTimers();
       });
-    }
+    };
 
     addItem();
     addItem();

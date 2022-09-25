@@ -209,7 +209,7 @@ describe('Form', () => {
   });
 
   it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
-    const { container } = render(
+    const { container } = pureRender(
       <Form>
         <Form.Item name="test" help="This is a help">
           <input />
@@ -247,7 +247,7 @@ describe('Form', () => {
   });
 
   it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
-    const { container } = render(
+    const { container } = pureRender(
       <Form>
         <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
           <input />
@@ -546,7 +546,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
-    function App() {
+    const App: React.FC = () => {
       const [message, updateMessage] = React.useState('');
       return (
         <Form>
@@ -556,7 +556,7 @@ describe('Form', () => {
           <Button onClick={() => updateMessage('bamboo')} />
         </Form>
       );
-    }
+    };
 
     render(<App />);
 
@@ -1430,11 +1430,11 @@ describe('Form', () => {
     expect(container.querySelector('.custom-input-required')?.classList).toContain(
       'custom-input-status-',
     );
-    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+    expect(container.querySelector('.custom-input-warning')).toHaveClass(
       'custom-input-status-warning',
     );
     expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
-    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+    expect(container.querySelector('.custom-input-wrong')).toHaveClass(
       'custom-input-status-undefined',
     );
     expect(errorSpy).toHaveBeenCalledWith(
@@ -1442,7 +1442,7 @@ describe('Form', () => {
     );
     await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 
-    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+    expect(container.querySelector('.custom-input-required')).toHaveClass(
       'custom-input-status-error',
     );
   });
