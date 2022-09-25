@@ -1,4 +1,5 @@
-import React, { Component, useState } from 'react';
+import type { ChangeEventHandler } from 'react';
+import React, { useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import userEvent from '@testing-library/user-event';
 import classNames from 'classnames';
@@ -509,10 +510,12 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20706
   it('Error change should work', async () => {
-    render(
+    jest.useFakeTimers();
+
+    const { container } = render(
       <Form>
         <Form.Item
-          name="test"
+          name="name"
           label="test"
           rules={[
             { required: true },
@@ -531,25 +534,19 @@ describe('Form', () => {
       </Form>,
     );
 
-    // user type something and clear
-    await userEvent.type(screen.getByLabelText('test'), 'bamboo');
-    await userEvent.clear(screen.getByLabelText('test'));
-
-    await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'test' is required");
-
-    // user type value that fulfill the validator
-    await userEvent.type(screen.getByLabelText('test'), 'p');
-
-    await sleep(100);
-
-    await expect(screen.findByRole('alert')).resolves.toHaveTextContent('not a p');
-
-    // user clear field again
-    await userEvent.clear(screen.getByLabelText('test'));
-
-    await sleep(100);
-
-    await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'test' is required");
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < 3; i += 1) {
+      await change(container, 0, 'bamboo', true);
+      await change(container, 0, '', true);
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual(
+        "'name' is required",
+      );
+      await change(container, 0, 'p', true);
+      await sleep(100);
+      expect(container.querySelector('.ant-form-item-explain')?.textContent).toEqual('not a p');
+    }
+    /* eslint-enable */
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20813
@@ -602,7 +599,7 @@ describe('Form', () => {
       return <Input />;
     };
 
-    const formRef = React.createRef<FormInstance>();
+    const formRef = React.useRef<FormInstance>(null);
 
     pureRender(
       <Form ref={formRef}>
@@ -620,7 +617,6 @@ describe('Form', () => {
 
     formRef.current?.setFieldsValue({ light: 'bamboo' });
     await Promise.resolve();
-
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(2);
   });
@@ -706,17 +702,9 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/21415
   it('should not throw error when Component.props.onChange is null', () => {
-    // eslint-disable-next-line react/prefer-stateless-function
-    class CustomComponent extends Component {
-      static defaultProps = {
-        onChange: null,
-      };
-
-      render() {
-        return <input {...this.props} />;
-      }
-    }
-
+    const CustomComponent: React.FC = () => (
+      <input onChange={null as unknown as ChangeEventHandler<HTMLInputElement>} />
+    );
     render(
       <Form>
         <Form.Item name="custom">
@@ -724,10 +712,10 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-
-    expect(async () => {
+    const handle = async () => {
       await userEvent.type(screen.getByRole('textbox'), 'aaa');
-    }).not.toThrow();
+    };
+    expect(handle).not.toThrow();
   });
 
   it('change `help` should not warning', async () => {
