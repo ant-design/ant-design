@@ -115,7 +115,6 @@ describe('Form', () => {
       jest.useFakeTimers();
       const Demo: React.FC = () => {
         const [form] = Form.useForm();
-
         return (
           <Form form={form} initialValues={{ aaa: '2' }}>
             <Form.Item name="aaa">
@@ -124,7 +123,7 @@ describe('Form', () => {
                   await sleep(0);
                   try {
                     await form.validateFields();
-                  } catch (e) {
+                  } catch {
                     // do nothing
                   }
                 }}

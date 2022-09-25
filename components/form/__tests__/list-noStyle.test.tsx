@@ -36,7 +36,7 @@ describe('Form.List.NoStyle', () => {
     // Add two
     const addItem = async () => {
       await act(async () => {
-        operation!.add();
+        operation?.add();
         await sleep(100);
         jest.runAllTimers();
       });
@@ -54,7 +54,7 @@ describe('Form.List.NoStyle', () => {
 
     // Remove first field
     await act(async () => {
-      operation!.remove(0);
+      operation?.remove(0);
       await sleep(100);
       jest.runAllTimers();
     });
