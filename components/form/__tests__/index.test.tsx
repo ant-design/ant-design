@@ -872,22 +872,21 @@ describe('Form', () => {
       );
     };
 
-    render(<App />);
+    pureRender(<App />);
 
     for (let i = 0; i < 5; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       await userEvent.click(screen.getByRole('button'));
     }
 
-    // it didn't re render when user click button, but rtl will render it twice(not sure why)
-    expect(instances.size).toBe(2);
+    expect(instances.size).toBe(1);
   });
 
   it('should avoid re-render', async () => {
-    const mockRenderFunction = jest.fn();
+    let renderTimes = 0;
 
-    const MyInput = ({ value = '', ...props }) => {
-      mockRenderFunction();
+    const MyInput: React.FC<{ value?: string }> = ({ value = '', ...props }) => {
+      renderTimes += 1;
       return <input value={value} {...props} />;
     };
 
@@ -898,14 +897,11 @@ describe('Form', () => {
         </Form.Item>
       </Form>
     );
-
-    render(<Demo />);
+    pureRender(<Demo />);
+    renderTimes = 0;
     jest.clearAllMocks();
-
     fireEvent.change(screen.getByLabelText('username'), { target: { value: 'a' } });
-
-    expect(mockRenderFunction).toHaveBeenCalledTimes(2);
-
+    expect(renderTimes).toEqual(1);
     expect(screen.getByLabelText('username')).toHaveValue('a');
   });
 
