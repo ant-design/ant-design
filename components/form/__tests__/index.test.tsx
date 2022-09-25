@@ -506,6 +506,30 @@ describe('Form', () => {
     await expect(screen.findByRole('alert')).resolves.toHaveTextContent('');
   });
 
+  describe('should show related className when customize help', () => {
+    it('normal', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item help="good">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+    });
+
+    it('empty string', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item help="">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+    });
+  });
+
   it('warning when use v3 function', () => {
     Form.create();
     expect(errorSpy).toHaveBeenCalledWith(
