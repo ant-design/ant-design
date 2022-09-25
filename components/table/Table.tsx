@@ -515,7 +515,7 @@ function InternalTable<RecordType extends object = any>(
       spinning: loading,
     };
   } else if (typeof loading === 'object') {
-    if (loading.type == 'skeleton') {
+    if (loading.component == 'skeleton') {
       if (loading?.loading) {
         const skeletonProps: SkeletonProps = {
           title: false,
