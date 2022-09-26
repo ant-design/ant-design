@@ -5,8 +5,6 @@ const moment = require('moment');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 
-const { default: inquirer } = await import('inquirer');
-
 const DEPRECIATED_VERSION = {
   '>= 4.21.6 < 4.22.0': ['https://github.com/ant-design/ant-design/pull/36682'],
   '>=4.22.2 <=4.22.5': [
@@ -96,6 +94,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     defaultVersion = distTags.conch;
   }
 
+  const { default: inquirer } = await import('inquirer');
   // Selection
   let { conchVersion } = await inquirer.prompt([
     {
