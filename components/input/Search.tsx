@@ -5,6 +5,7 @@ import * as React from 'react';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
+import { SpaceCompactItemContext } from '../space/Compact';
 import { cloneElement } from '../_util/reactNode';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -44,7 +45,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const composedRef = React.useRef<boolean>(false);
 
-  const size = customizeSize || contextSize;
+  const { size: compactSize } = React.useContext(SpaceCompactItemContext);
+
+  const size = compactSize || customizeSize || contextSize;
 
   const inputRef = React.useRef<InputRef>(null);
 

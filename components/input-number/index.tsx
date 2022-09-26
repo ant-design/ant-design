@@ -11,6 +11,8 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { SpaceCompactItemContext } from '../space/Compact';
+import { getCompactClassNames } from '../_util/compactUtils';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -33,6 +35,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const size = React.useContext(SizeContext);
   const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -79,7 +82,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const mergeSize = customizeSize || size;
+  const mergeSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled || disabled;
@@ -93,6 +96,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
+    getCompactClassNames(prefixCls, restCompactContext),
     className,
   );
 

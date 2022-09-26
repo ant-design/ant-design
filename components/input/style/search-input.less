@@ -3,7 +3,8 @@
 @import '../../button/style/mixin';
 @import './mixin';
 
-@search-prefix: ~'@{ant-prefix}-input-search';
+@input-prefix-cls: ~'@{ant-prefix}-input';
+@search-prefix: ~'@{input-prefix-cls}-search';
 
 .@{search-prefix} {
   .@{ant-prefix}-input {
@@ -61,11 +62,11 @@
     }
   }
 
-  &-large &-button {
+  &-large + .@{input-prefix-cls}-addon > &-button {
     height: @input-height-lg;
   }
 
-  &-small &-button {
+  &-small + .@{input-prefix-cls}-addon > &-button {
     height: @input-height-sm;
   }
 }

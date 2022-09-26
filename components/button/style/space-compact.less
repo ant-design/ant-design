@@ -6,15 +6,8 @@
 .@{btn-prefix-cls} {
   .compact-item(@btn-prefix-cls);
 
-  // Special styles for `<Tooltip><Button></Tooltip>`
-  & + &,
-  span + &-compact-item,
-  &-compact-item + span {
-    margin-left: -1px;
-  }
-
+  // Special styles for Primary Button
   &-compact-item {
-    // Special styles for Primary Button
     &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
       border-left-color: transparent;
     }

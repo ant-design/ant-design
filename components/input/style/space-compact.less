@@ -30,23 +30,33 @@
 
     // Reset Button's style in addon
     .@{ant-prefix}-btn {
-      border-width: 0;
-      border-radius: 0;
+      // border-width: 0;
+      // border-radius: 0;
     }
 
     // addon 跟的是 button 的时候需要给 .ant-btn 的 padding 置为0
-    & > .@{ant-prefix}-btn {
-      padding: 0;
+    // & > .@{ant-prefix}-btn {
+    //   // padding: 0;
 
-      &:not(.@{ant-prefix}-btn-primary) {
-        background-color: @input-addon-bg;
-      }
-    }
+    //   &:not(.@{ant-prefix}-btn-primary) {
+    //     background-color: @input-addon-bg;
+    //   }
+    // }
   }
 
   // nested compact-item
   &-compact-item > &-compact-item {
     border-radius: 0;
+  }
+
+  &-compact-item&-compact-first-item {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &-compact-item&-compact-last-item {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   &-compact-item:not(&-compact-first-item):not(&-compact-last-item) {
@@ -60,6 +70,7 @@
   // addon in Input.Search
   &-search + &-addon {
     padding: 0;
+    border: 0;
 
     &:hover,
     &:active {

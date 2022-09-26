@@ -20,6 +20,8 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 import warning from '../_util/warning';
+import { SpaceCompactItemContext } from '../space/Compact';
+import { getCompactClassNames } from '../_util/compactUtils';
 
 type RawValue = string | number;
 
@@ -93,6 +95,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
+  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -157,7 +160,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = compactSize || customizeSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -172,6 +175,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    getCompactClassNames(prefixCls, restCompactContext),
     className,
   );
 

@@ -11,7 +11,6 @@ import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import Space from '../space';
 import { SpaceCompactItemContext } from '../space/Compact';
-import Typography from '../typography';
 import { getCompactClassNames } from '../_util/compactUtils';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -265,6 +264,16 @@ const InternalInput = forwardRef<InputRef, Omit<InputProps, 'addonBefore' | 'add
   },
 );
 
+export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+  const overrideSpaceContext = React.useMemo(() => ({}), []);
+
+  return (
+    <SpaceCompactItemContext.Provider value={overrideSpaceContext}>
+      {children}
+    </SpaceCompactItemContext.Provider>
+  );
+};
+
 const InputAddon: React.FC<
   React.PropsWithChildren<{
     prefixCls: string;
@@ -274,14 +283,16 @@ const InputAddon: React.FC<
 
   return (
     <NoFormStyle override status>
-      <span
-        className={classNames(
-          `${prefixCls}-addon`,
-          getCompactClassNames(prefixCls, compactContext),
-        )}
-      >
-        {children}
-      </span>
+      <NoCompactStyle>
+        <span
+          className={classNames(
+            `${prefixCls}-addon`,
+            getCompactClassNames(prefixCls, compactContext),
+          )}
+        >
+          {children}
+        </span>
+      </NoCompactStyle>
     </NoFormStyle>
   );
 };
