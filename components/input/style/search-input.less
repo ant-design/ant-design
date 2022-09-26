@@ -12,7 +12,8 @@
     &:focus {
       border-color: @input-hover-border-color;
 
-      + .@{ant-prefix}-input-group-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+      // FIXME: 这一行似乎没用
+      + .@{input-prefix-cls}-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
         border-left-color: @input-hover-border-color;
       }
     }
@@ -28,27 +29,25 @@
     line-height: @line-height-base - 0.0002;
   }
 
-  > .@{ant-prefix}-input-group {
-    > .@{ant-prefix}-input-group-addon:last-child {
-      left: -1px;
-      padding: 0;
-      border: 0;
+  & + .@{input-prefix-cls}-addon.@{input-prefix-cls}-compact-last-item {
+    left: -1px;
+    padding: 0;
+    border: 0;
 
-      .@{search-prefix}-button {
-        padding-top: 0;
-        padding-bottom: 0;
-        border-radius: 0 @border-radius-base @border-radius-base 0;
-      }
+    .@{search-prefix}-button {
+      padding-top: 0;
+      padding-bottom: 0;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
 
-      .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
-        color: @text-color-secondary;
+    .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+      color: @text-color-secondary;
 
-        &.@{ant-prefix}-btn-loading::before {
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        }
+      &.@{ant-prefix}-btn-loading::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
     }
   }

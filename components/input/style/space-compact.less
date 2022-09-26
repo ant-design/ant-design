@@ -22,6 +22,14 @@
     border-radius: @control-border-radius;
     transition: all 0.3s;
 
+    // addon has no hover effect
+    // Reset compact-item hover effect
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 0;
+    }
+
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selector {
       border-top-left-radius: 0;

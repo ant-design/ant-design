@@ -123,7 +123,7 @@
 // label input
 .input-group(@inputClass) {
   position: relative;
-  display: table;
+  display: flex;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -310,7 +310,7 @@
   }
 
   &&-compact {
-    display: block;
+    display: flex;
     .clearfix();
 
     &-addon,
@@ -330,7 +330,6 @@
     }
 
     & > * {
-      display: inline-block;
       float: none;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       border-radius: 0;
@@ -411,6 +410,7 @@
 
     .@{ant-prefix}-input-group-wrapper:not(:last-child) {
       &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
+        // TODO: remove this 因为在 input.search 用 compact 重新实现了
         & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
           border-radius: 0;
         }

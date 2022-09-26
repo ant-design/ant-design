@@ -321,7 +321,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   return (
     <Wrapper
-      block
       style={style}
       size={mergedSize}
       className={getCompactClassNames(prefixCls, restCompactContext)}
