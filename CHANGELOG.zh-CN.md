@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.23.3
 
-`2022-09-26`
+`2022-09-27`
 
 - 🆕 Uploader 支持支持 Apple 图片格式: heic、heif。[#37651](https://github.com/ant-design/ant-design/pull/37651) [@Johnny-young](https://github.com/Johnny-young)
 - 🐞 修复 Typography `ellipsis` 在某些情况下不精确的问题。[#37700](https://github.com/ant-design/ant-design/pull/37700) [@zheeeng](https://github.com/zheeeng)
