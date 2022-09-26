@@ -16501,9 +16501,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16721,9 +16718,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16940,9 +16934,6 @@ Array [
                                             >
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
-                                              />
-                                              <span
-                                                class="ant-badge-status-text"
                                               />
                                             </span>
                                             Finished
@@ -17551,9 +17542,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17771,9 +17759,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17990,9 +17975,6 @@ Array [
                                             >
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
-                                              />
-                                              <span
-                                                class="ant-badge-status-text"
                                               />
                                             </span>
                                             Finished
@@ -18601,9 +18583,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18821,9 +18800,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -19040,9 +19016,6 @@ Array [
                                             >
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
-                                              />
-                                              <span
-                                                class="ant-badge-status-text"
                                               />
                                             </span>
                                             Finished
