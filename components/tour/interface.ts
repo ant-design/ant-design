@@ -9,7 +9,7 @@ export type FloatButtonShape = 'circle' | 'square';
 
 export type FloatButtonGroupTrigger = 'click' | 'hover';
 
-export interface FloatButtonProps {
+export interface TourProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -25,12 +25,12 @@ export interface FloatButtonProps {
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
   className?: string;
-  icon?: FloatButtonProps['icon'];
-  description?: FloatButtonProps['description'];
-  prefixCls: FloatButtonProps['prefixCls'];
+  icon?: TourProps['icon'];
+  description?: TourProps['description'];
+  prefixCls: TourProps['prefixCls'];
 }
 
-export interface FloatButtonGroupProps extends FloatButtonProps {
+export interface FloatButtonGroupProps extends TourProps {
   // 包含的 Float Button
   children: React.ReactNode;
   // 触发方式 (有触发方式为菜单模式）
@@ -43,7 +43,7 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
   onOpenChange?: (open: boolean) => void;
 }
 
-export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
+export interface BackTopProps extends Omit<TourProps, 'target'> {
   visibilityHeight?: number;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   target?: () => HTMLElement | Window | Document;
@@ -56,7 +56,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
+  TourProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;

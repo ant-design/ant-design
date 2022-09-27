@@ -1,27 +1,27 @@
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
-import BackTop from './BackTop';
 import { ConfigContext } from '../config-provider';
+import Trigger from 'rc-trigger';
+import Popover from '../popover';
 import useStyle from './style';
-import Tooltip from '../tooltip';
-import Content from './FloatButtonContent';
+// import Tooltip from '../tooltip';
+// import Content from './TourContent';
 import type {
   CompoundedComponent,
-  FloatButtonContentProps,
-  FloatButtonProps,
-  FloatButtonShape,
+  TourProps,
+  // TourShape,
 } from './interface';
-import Group from './FloatButtonGroup';
-import FloatButtonGroupContext from './context';
+// import Group from './TourGroup';
+import TourGroupContext from './context';
 import warning from '../_util/warning';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.ForwardRefRenderFunction<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
-> = (props, ref) => {
+const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement, TourProps> = (
+  props,
+  ref,
+) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -30,10 +30,12 @@ const FloatButton: React.ForwardRefRenderFunction<
     icon,
     description,
     tooltip,
+    steps,
     ...restProps
   } = props;
+  console.log('props', props);
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
-  const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
+  const groupShape = useContext(TourGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -50,59 +52,86 @@ const FloatButton: React.ForwardRefRenderFunction<
     },
   );
 
-  const contentProps = useMemo<FloatButtonContentProps>(
+  const contentProps = useMemo(
     () => ({ prefixCls, description, icon, type }),
     [prefixCls, description, icon, type],
-  );
-
-  const buttonNode = tooltip ? (
-    <Tooltip title={tooltip} placement="left">
-      <div className={`${prefixCls}-body`}>
-        <Content {...contentProps} />
-      </div>
-    </Tooltip>
-  ) : (
-    <div className={`${prefixCls}-body`}>
-      <Content {...contentProps} />
-    </div>
   );
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
       !(shape === 'circle' && description),
-      'FloatButton',
+      'Tour',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
   }
+  const builtinPlacements = {
+    left: {
+      points: ['cr', 'cl'],
+    },
+    right: {
+      points: ['cl', 'cr'],
+    },
+    top: {
+      points: ['bc', 'tc'],
+    },
+    bottom: {
+      points: ['tc', 'bc'],
+    },
+    topLeft: {
+      points: ['bl', 'tl'],
+    },
+    topRight: {
+      points: ['br', 'tr'],
+    },
+    bottomRight: {
+      points: ['tr', 'br'],
+    },
+    bottomLeft: {
+      points: ['tl', 'bl'],
+    },
+  };
 
-  return wrapSSR(
-    props.href ? (
-      <a ref={ref as React.LegacyRef<HTMLAnchorElement>} {...restProps} className={classString}>
-        {buttonNode}
-      </a>
-    ) : (
-      <button
-        ref={ref as React.LegacyRef<HTMLButtonElement>}
-        {...restProps}
-        className={classString}
-        type="button"
-      >
-        {buttonNode}
-      </button>
-    ),
-  );
+  const dom = steps.map(item => {
+    return (
+      <Trigger
+        getPopupContainer={item.getTarget}
+        // popupAlign={getPopupAlign(state)}
+        popupPlacement={{
+          left: {
+            points: ['cr', 'cl'],
+          },
+        }}
+        // destroyPopupOnHide={this.state.destroyPopupOnHide}
+        // zIndex={40}
+        mask={false}
+        maskClosable={false}
+        stretch={''}
+        // maskAnimation="fade"
+        // mouseEnterDelay={0.1}
+        // mouseLeaveDelay={0.1}
+        action={['hover']}
+        builtinPlacements={builtinPlacements}
+        popupStyle={{
+          border: '1px solid red',
+          padding: 10,
+          background: 'white',
+          boxSizing: 'border-box',
+        }}
+        popup={<div>i am a popup</div>}
+        // popupTransitionName={state.transitionName}
+      ></Trigger>
+    );
+  });
+
+  return wrapSSR(<div>{dom}</div>);
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  FloatButton.displayName = 'FloatButton';
+  Tour.displayName = 'Tour';
 }
 
-const ForwardFloatButton = React.forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
->(FloatButton) as CompoundedComponent;
+const ForwardTour = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, TourProps>(
+  Tour,
+) as CompoundedComponent;
 
-ForwardFloatButton.Group = Group;
-ForwardFloatButton.BackTop = BackTop;
-
-export default ForwardFloatButton;
+export default ForwardTour;
