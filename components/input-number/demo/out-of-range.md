@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
   return (
     <Space>
-      <InputNumber min={1} max={10} value={value} onChange={setValue} />
+      <InputNumber min={1} max={10} value={value} onChange={val => setValue(val)} />
       <Button
         type="primary"
         onClick={() => {
