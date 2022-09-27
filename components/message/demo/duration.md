@@ -18,7 +18,7 @@ import { Button, message } from 'antd';
 import React from 'react';
 
 const success = () => {
-  message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
+  message.success('新增成功，插件包发布中，等待1-2分钟后刷新页面', 10);
 };
 
 const App: React.FC = () => <Button onClick={success}>Customized display duration</Button>;
