@@ -4,7 +4,7 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
-import type { EditableConfig } from 'rc-tabs/lib/interface';
+import type { EditableConfig, Tab as RcTab } from 'rc-tabs/lib/interface';
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
@@ -17,6 +17,7 @@ import TabPane, { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+export type Tab = RcTab;
 
 export { TabPaneProps };
 
