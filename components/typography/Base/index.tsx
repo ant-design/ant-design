@@ -446,7 +446,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
     const { tooltips, icon } = copyConfig;
 
-    const tooltipNodes = toList(tooltips, true);
+    const tooltipNodes = toList(tooltips);
     const iconNodes = toList(icon);
 
     const copyTitle = copied
