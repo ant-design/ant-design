@@ -26,7 +26,7 @@ timeline: true
 - 🐞 修复 Tabs `animated: true` 时面板切换动画不生效的问题。[#37642](https://github.com/ant-design/ant-design/pull/37642)
 - 🐞 修复 Table `column.title` 渲染函数丢失 `filters` 属性的问题。[#37629](https://github.com/ant-design/ant-design/pull/37629)
 - 🐞 修复 Modal.confirm 实例引用配置废弃 `visible: true` 重新展示时不生效的问题。[#37613](https://github.com/ant-design/ant-design/pull/37613)
-- 💄 修复 Badge 未传入 text 属性时，渲染了一个带有样式的空元素问题。[#37681](https://github.com/ant-design/ant-design/pull/37681) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 修复 Badge 未传入 `text` 属性时，渲染了一个带有样式的空元素问题。[#37681](https://github.com/ant-design/ant-design/pull/37681) [@Wxh16144](https://github.com/Wxh16144)
 - 💄 修复 Button 波纹样式在 shadow dom 下不生效的问题。[#37677](https://github.com/ant-design/ant-design/pull/37677)
 - 💄 移除 Tab.TabPane focus 时的 outline 样式。[#37638](https://github.com/ant-design/ant-design/pull/37638)
 - TypeScript

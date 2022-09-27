@@ -26,7 +26,7 @@ timeline: true
 - 🐞 Fix Tabs `animated: true` missing tabPane animation. [#37642](https://github.com/ant-design/ant-design/pull/37642)
 - 🐞 Fix Table `column.title` render function missing `filters` props. [#37629](https://github.com/ant-design/ant-design/pull/37629)
 - 🐞 Fix Modal.confirm instance ref legacy config `visible: true` back to show not work. [#37613](https://github.com/ant-design/ant-design/pull/37613)
-- 💄 Fix the problem of rendering an empty element with styles when Badge not pass text property. [#37681](https://github.com/ant-design/ant-design/pull/37681) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Fix the problem of rendering an empty element with styles when Badge not pass `text` property. [#37681](https://github.com/ant-design/ant-design/pull/37681) [@Wxh16144](https://github.com/Wxh16144)
 - 💄 Fix Button wave style not work in shadow dom. [#37677](https://github.com/ant-design/ant-design/pull/37677)
 - 💄 Remove Tab.TabPane outline style when focused. [#37638](https://github.com/ant-design/ant-design/pull/37638)
 - TypeScript
