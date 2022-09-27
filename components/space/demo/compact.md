@@ -1,27 +1,88 @@
 ---
 order: 3
 title:
-  zh-CN: 紧凑布局
-  en-US: Compact Mode
+  zh-CN: Input 紧凑布局
+  en-US: Compact Mode for Input
 ---
 
 ## zh-CN
 
-紧凑布局。
+Input 紧凑布局。
 
 ## en-US
 
-Space.Compact example.
+Space.Compact example for Input.
 
 ```tsx
 import { CopyOutlined } from '@ant-design/icons';
-import { Button, Input, Space, Tooltip } from 'antd';
+import {
+  AutoComplete,
+  Button,
+  Cascader,
+  DatePicker,
+  Input,
+  InputNumber,
+  Select,
+  Tooltip,
+  Space,
+} from 'antd';
 import React from 'react';
+
+const { Option } = Select;
+
+const selectBefore = (
+  <Select defaultValue="http://" className="select-before">
+    <Option value="http://">http://</Option>
+    <Option value="https://">https://</Option>
+  </Select>
+);
+const selectAfter = (
+  <Select defaultValue=".com" className="select-after">
+    <Option value=".com">.com</Option>
+    <Option value=".jp">.jp</Option>
+    <Option value=".cn">.cn</Option>
+    <Option value=".org">.org</Option>
+  </Select>
+);
+
+const options = [
+  {
+    value: 'zhejiang',
+    label: 'Zhejiang',
+    children: [
+      {
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [
+          {
+            value: 'xihu',
+            label: 'West Lake',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [
+      {
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [
+          {
+            value: 'zhonghuamen',
+            label: 'Zhong Hua Men',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 const App: React.FC = () => (
   <div className="site-input-group-wrapper">
-    <h3>Input</h3>
-    <Space.Compact size="large" block>
+    <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
     </Space.Compact>
@@ -34,7 +95,7 @@ const App: React.FC = () => (
     <Space.Compact block>
       <Input
         style={{ width: 'calc(100% - 200px)' }}
-        defaultValue="github.com:ant-design/ant-design"
+        defaultValue="git@github.com:ant-design/ant-design.git"
       />
       <Tooltip title="copy git url">
         <Button icon={<CopyOutlined />} />
@@ -42,37 +103,154 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Input
-        style={{ width: 'calc(100% - 200px)' }}
-        addonBefore="git@"
-        defaultValue="github.com:ant-design/ant-design"
-        addonAfter=".git"
-      />
-      <Tooltip title="copy git url">
-        <Button icon={<CopyOutlined />} />
-      </Tooltip>
-    </Space.Compact>
-    <br />
-    <h3>Input.Search</h3>
-    <Space.Compact block>
-      <Input.Search allowClear defaultValue="0571" />
+      <Select defaultValue="Zhejiang">
+        <Option value="Zhejiang">Zhejiang</Option>
+        <Option value="Jiangsu">Jiangsu</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Input.Search allowClear defaultValue="0571" />
-      <Input.Search allowClear defaultValue="26888888" />
+      <Select defaultValue="Zhejianggggg" style={{ width: '50%' }}>
+        <Option value="Zhejianggggg">Zhejianggggg</Option>
+        <Option value="Jiangsu">Jiangsu</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
     <br />
+    <Select defaultValue="Zhejianggggg">
+      <Option value="Zhejianggggg">Zhejianggggg</Option>
+      <Option value="Jiangsu">Jiangsu</Option>
+    </Select>
+    <br />
+    <br />
     <Space.Compact block>
-      <Input.Search
-        addonBefore="+86"
-        addonAfter="00"
-        allowClear
-        style={{ width: '40%' }}
-        defaultValue="0571"
-      />
+      <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
       <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
     </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Select defaultValue="Option1">
+        <Option value="Option1">Option1</Option>
+        <Option value="Option2">Option2</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <InputNumber />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <DatePicker style={{ width: '50%' }} />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input style={{ width: '30%' }} defaultValue="input content" />
+      <DatePicker.RangePicker style={{ width: '70%' }} />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Select defaultValue="Option1-1">
+        <Option value="Option1-1">Option1-1</Option>
+        <Option value="Option1-2">Option1-2</Option>
+      </Select>
+      <Select defaultValue="Option2-2">
+        <Option value="Option2-1">Option2-1</Option>
+        <Option value="Option2-2">Option2-2</Option>
+      </Select>
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Select defaultValue="1">
+        <Option value="1">Between</Option>
+        <Option value="2">Except</Option>
+      </Select>
+      <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
+      <Input
+        className="site-input-split"
+        style={{
+          width: 30,
+          borderLeft: 0,
+          borderRight: 0,
+          pointerEvents: 'none',
+        }}
+        placeholder="~"
+        disabled
+      />
+      <Input
+        className="site-input-right"
+        style={{
+          width: 100,
+          textAlign: 'center',
+        }}
+        placeholder="Maximum"
+      />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Select defaultValue="Sign Up" style={{ width: '30%' }}>
+        <Option value="Sign Up">Sign Up</Option>
+        <Option value="Sign In">Sign In</Option>
+      </Select>
+      <AutoComplete
+        style={{ width: '70%' }}
+        placeholder="Email"
+        options={[{ value: 'text 1' }, { value: 'text 2' }]}
+      />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Select style={{ width: '30%' }} defaultValue="Home">
+        <Option value="Home">Home</Option>
+        <Option value="Company">Company</Option>
+      </Select>
+      <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
+    </Space.Compact>
+    <br />
+    <br />
+    Input addon 纯文本 + Button：
+    <Space.Compact block>
+      <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
+      <Button type="primary">Submit</Button>
+    </Space.Compact>
+    <br />
+    <br />
+    Input addon Select + Button：
+    <Space.Compact block>
+      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+      <Button icon={<CopyOutlined />} />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+      <Button type="primary">Submit</Button>
+    </Space.Compact>
+    <br />
+    <br />
+    （官网无此组合案例）Input addon Select + Input.Search + Button：
+    <Space.Compact block>
+      <Input.Search allowClear defaultValue="0571" />
+      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+      <Button icon={<CopyOutlined />} />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+      <Input.Search allowClear defaultValue="0571" />
+      <Button icon={<CopyOutlined />} />
+    </Space.Compact>
+    <br />
+    <br />
+    （官网无此组合案例）Input.Search + Button：
+    <Space.Compact block>
+      <Input.Search allowClear defaultValue="0571" />
+      <Button type="primary">Submit</Button>
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <Input.Search allowClear defaultValue="0571" />
+      <Button icon={<CopyOutlined />} />
+    </Space.Compact>
+    <br />
   </div>
 );
 
