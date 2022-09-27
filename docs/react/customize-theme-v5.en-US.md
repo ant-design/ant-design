@@ -1,6 +1,6 @@
 ---
 order: 7
-title: 5.0 定制主题
+title: 定制主题
 ---
 
 Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
@@ -12,222 +12,415 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 3. 支持针对某个/某些组件主题变量；
 4. ...
 
-> TODO: 这里需要一张 GIF 展示动态主题能力
+## 在 ConfigProvider 中配置主题
 
-## Design Token
-
-在正式介绍 5.0 定制主题的方案之前，我们需要对主题的组成部分有一个基本的了解。
-
-与 4.x 版本相同的是，5.0 也提供了一批变量用于更改主题的各项参数。 在 4.x 中我们使用了 less 变量来实现定制主题的能力；而在 5.0 的 CSS-in-JS 方案中，我们使用 JS 变量作为动态主题的基础，这些变量我们统称为 **Design Token**。
-
-### 基本组成
-
-用过 4.x 定制主题的同学应该知道，在 4.x 中所有的 less 变量都是平铺的，`default.less` 这个文件就长达 1000+ 行。在 Design Token 中我们对原有的变量进行了精简，并且在设计师的引导下产出了一套更加贴合设计的三层结构，将 Design Token 拆解为 **Seed Token**、**Map Token** 和 **Alias Token** 三部分。
-
-这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。这中间经历的过程实际上也是设计到代码的过程，Seed Token 和 Map Token 主要是由设计师产出并展开，命名逻辑会更偏向设计；到了 Alias Token 实际上已经是 Token 投入到代码中使用的环节，所以命名逻辑会逐渐偏向使用侧。
-
-设计师对于这三种 Token 的定义是这样的：
-
-- **Seed Token**：基础变量基础变量（Seed Token）意味着所有设计意图的起源。在 Ant Design 中，我们会基于 Seed Token 自动派生一套具有设计语义的梯度变量（Map Token）
-- **Map Token**：梯度变量梯度变量（Map Token） 是基于 Seed 派生的梯度变量，我们精心设计的梯度变量模型具有良好的设计语义，可保证在亮暗色模式切换时保证视觉梯度的一致性。
-- **Alias Token**：别名变量别名变量（Alias Token）是 Map Token 的别名。Alias Token 用于批量控制某些共性组件的样式。
-
-### 基本算法
-
-> TODO
-
-### 演变过程
-
-> TODO
-
-### Component Token
-
-除了整体的 Token 链路之外，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。一般来说会是一些具体场景下的 CSS 变量，我们会单独提出来作为 Component Token。
-
-> TODO: 需要对各个组件补充 Component Token 的说明，这里可以链接到某个组件的页面
-
-## 在代码中定制主题
-
-### 使用 ConfigProvider
-
-我们为 ConfigProvider 添加了 `theme` 属性，用于传递主题配置，你可以在这里任意修改在上文中提到的 Design Token 和 Component Token。
+通过在 ConfigProvider 中传入 theme，可以配置主题，在升级 v5 后，将默认使用 v5 的主题，以下是将主题切换至 v4 的示例：
 
 ```tsx
-import { ConfigProvider, Button } from 'antd';
+import React from 'react';
+import { ConfigProvider, Button, theme } from 'antd';
 
-export default () => (
+const { defaultAlgorithmV4 } = theme;
+
+const App: React.FC = () => (
   <ConfigProvider
     theme={{
       token: {
         colorPrimary: '#1890ff',
         radiusBase: 2,
       },
+      algorithm: defaultAlgorithmV4,
     }}
   >
     <Button />
   </ConfigProvider>
 );
+
+export default App;
 ```
+
+> 完整的主题配置将会在 v4 兼容包中提供。
+
+## 定制主题
+
+`theme` 是一系列 **Design Token** 的集合，当我们传入 `theme` 后，antd 的组件就会根据相应的 **Design Token** 改变自己的样式。
+
+我们将依次介绍四类 **Design Token**
+
+### 基础变量（Seed Token）
+
+在大部分情况下，使用 **Seed Token** 就可以基本满足定制主题的需要，比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 **Seed Token** 计算出对应的一系列颜色并应用：
+
+```tsx
+const theme = {
+  token: {
+    colorPrimary: '#1890ff',
+  },
+};
+```
+
+### 梯度变量（Map Token）
+
+**Map Token** 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
+
+```tsx
+const theme = {
+  token: {
+    colorPrimaryBg: '#e6f7ff',
+  },
+};
+```
+
+### 别名变量（Alias Token）
+
+Alias Token 用于批量控制某些共性组件的样式，基本上是 Map Token 别名，或者特殊处理过的 Map Token。
+
+```tsx
+const theme = {
+  token: {
+    colorLink: '#1890ff',
+  },
+};
+```
+
+### 组件变量（Component Token）
+
+除了整体的 Token 链路之外，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
+
+```tsx
+const theme = {
+  components: {
+    Menu: {
+      colorItemText: 'rgba(0, 0, 0, 0.88)',
+      colorLink: '#1890ff',
+    },
+  },
+};
+```
+
+### 基本算法（algorithm)
+
+基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。在 v5 中，我们默认提供了三种算法，分别是默认算法（defaultAlgorithm）、暗色算法（darkAlgorithm）和紧凑算法（compactAlgorithm）。算法可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
+
+```tsx
+import { theme } from 'antd';
+
+const { darkAlgorithm, compactAlgorithm } = theme;
+
+const theme = {
+  algorithm: [darkAlgorithm, compactAlgorithm],
+};
+```
+
+### 演变过程
+
+![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
+
+## 动态主题的其他使用方式
+
+### 动态切换
+
+在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不用额外配置任何东西。
 
 ### 局部主题
 
-> TODO
+可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
+
+```tsx
+import React from 'react';
+import { ConfigProvider, Button } from 'antd';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#1677ff',
+      },
+    }}
+  >
+    <Button />
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#1890ff',
+        },
+      }}
+    >
+      <Button />
+    </ConfigProvider>
+  </ConfigProvider>
+);
+
+export default App;
+```
+
+### 使用 Design Token
+
+如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
+
+```tsx
+import React from 'react';
+import { Button, theme } from 'antd';
+
+const { useToken } = theme;
+
+const App: React.FC = () => {
+  const { token } = useToken();
+
+  return <Button style={{ backgroundColor: token.colorPrimary }}>Button</Button>;
+};
+
+export default App;
+```
 
 ### 在 umi 4 中定制主题
 
 > TODO
 
-### API (暂定)
+## API
 
-#### Theme
+### Theme
 
-| 属性 | 类型 | 默认值 | 说明 |
+| 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| token | `AliasToken` | - | 用于修改 Design Token |
-| algorithm | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` | 用于修改 Seed Token 到 Map Token 的算法 |
-| components | OverrideToken | - | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token |
+| token | 用于修改 Design Token | `AliasToken` | - |
+| algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
+| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | OverrideToken | - |
 
-#### OverrideToken
+### OverrideToken
 
-| 属性 | 类型 | 默认值 | 说明 |
+| 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| `Component` (可以是任意 antd 组件名，如 `Button`) | `ComponentToken & AliasToken` | - | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token |
+| `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken` | - |
 
-#### SeedToken
+### SeedToken
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| colorPrimary | `string` | `#1677ff` | 品牌主色 |
-| colorSuccess | `string` | `#52c41a` | 成功色 |
-| colorWarning | `string` | `#faad14` | 警戒色 |
-| colorError | `string` | `#f5222d` | 错误色 |
-| colorInfo | `string` | `#1677ff` | 信息色 |
-| colorTextBase | `string` | `#000` | 基础文本色 |
-| colorTextLightSolid | `string` | `#fff` | 亮色文本色 |
-| colorBgBase | `string` | `#fff` | 基础背景色 |
-| fontFamily | `string` | `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'` | 字体 |
-| fontSizeBase | `number` | `14` | 基础字号 |
-| gridUnit | `number` | `4` | - |
-| gridBaseStep | `number` | `2` | - |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- | --- |
+| colorPrimary | 品牌主色 | `string` | `#1677ff` |
+| colorSuccess | 成功色 | `string` | `#52c41a` |
+| colorWarning | 警戒色 | `string` | `#faad14` |
+| colorError | 错误色 | `string` | `#f5222d` |
+| colorInfo | 信息色 | `string` | `#1677ff` |
+| colorTextBase | 基础文本色 | `string` | `#000` |
+| colorTextLightSolid | 亮色文本色 | `string` | `#fff` |
+| colorBgBase | 基础背景色 | `string` | `#fff` |
+| fontFamily | 字体 | `string` | `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'` |
+| fontSizeBase | 基础字号 | `number` | `14` |
+| gridUnit | - | `number` | `4` |
+| gridBaseStep | - | `number` | `2` |
 | lineWidth | `number` | `1` | 基础线宽 |
 | lineType | `string` | `solid` | 线条样式 |
 | motionUnit | `number` | `0.1` | 动画时长变化单位 |
 | motionBase | `number` | `0` | 动画基础时长 |
-| motionEaseOutCirc | `string` | `cubic-bezier(0.08, 0.82, 0.17, 1)` | - |
-| motionEaseInOutCirc | `string` | `cubic-bezier(0.78, 0.14, 0.15, 0.86)` | - |
-| motionEaseOut | `string` | `cubic-bezier(0.215, 0.61, 0.355, 1)` | - |
-| motionEaseInOut | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` | - |
-| motionEaseOutBack | `string` | `cubic-bezier(0.12, 0.4, 0.29, 1.46)` | - |
-| motionEaseInQuint | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` | - |
-| motionEaseOutQuint | `string` | `cubic-bezier(0.23, 1, 0.32, 1)` | - |
-| radiusBase | `number` | `6` | 基础圆角 |
-| sizeUnit | `number` | `4` | 尺寸变化单位 |
-| sizeBaseStep | `number` | `4` | 尺寸基础大小 |
-| sizePopupArrow | `number` | `16` | 组件箭头尺寸 |
-| controlHeight | `number` | `32` | - |
-| zIndexBase | `number` | `0` | 基础 `z-index` |
-| zIndexPopupBase | `number` | `1000` | 浮层基础 `z-index` |
-| opacityImage | `number` | `1` | - |
-| wireframe | `boolean` | `false` | 线框化 |
+| motionEaseOutCirc | - | `string` | `cubic-bezier(0.08, 0.82, 0.17, 1)` |
+| motionEaseInOutCirc | `string` | `cubic-bezier(0.78, 0.14, 0.15, 0.86)` |
+| motionEaseOut | - | `string` | `cubic-bezier(0.215, 0.61, 0.355, 1)` | - |
+| motionEaseInOut | - | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` |
+| motionEaseOutBack | - | `string` | `cubic-bezier(0.12, 0.4, 0.29, 1.46)` |
+| motionEaseInQuint | - | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` |
+| motionEaseOutQuint | - | `string` | `cubic-bezier(0.23, 1, 0.32, 1)` |
+| radiusBase | 基础圆角 | `number` | `6` |
+| sizeUnit | 尺寸变化单位 | `number` | `4` |
+| sizeBaseStep | 尺寸基础大小 | `number` | `4` |
+| sizePopupArrow | 组件箭头尺寸 | `number` | `16` |
+| controlHeight | - | `number` | `32` |
+| zIndexBase | 基础 `z-index` | `number` | `0` |
+| zIndexPopupBase | 浮层基础 `z-index` | `number` | `1000` |
+| opacityImage | - | `number` | `1` |
+| wireframe | 线框化 | `boolean` | `false` |
 
-#### MapToken
+### MapToken
 
-| 属性 | 类型 | 默认值 | 说明 |
+| 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| colorText | `string` | `rgba(0, 0, 0, 0.88)` | 一级文本色 |
-| colorTextSecondary | `string` | `rgba(0, 0, 0, 0.65)` | 二级文本色 |
-| colorTextTertiary | `string` | `rgba(0, 0, 0, 0.45)` | 三级文本色 |
-| colorTextQuaternary | `string` | `rgba(0, 0, 0, 0.25)` | 四级文本色 |
-| colorFill | `string` | `rgba(0, 0, 0, 0.15)` | 一级填充色 |
-| colorFillSecondary | `string` | `rgba(0, 0, 0, 0.06)` | 二级填充色 |
-| colorFillTertiary | `string` | `rgba(0, 0, 0, 0.04)` | 三级填充色 |
-| colorFillQuaternary | `string` | `rgba(0, 0, 0, 0.02)` | 四级填充色 |
-| colorBgContainer | `string` | `#ffffff` | 组件容器背景色 |
-| colorBgElevated | `string` | `#ffffff` | 浮层容器背景色 |
-| colorBgLayout | `string` | `#f5f5f5` | 布局背景色 |
-| colorBgSpotlight | `string` | `rgba(0, 0, 0, 0.85)` | - |
-| colorBorder | `string` | `#d9d9d9` | 一级边框色 |
-| colorBorderSecondary | `string` | `#f0f0f0` | 二级边框色 |
-| colorSplit | `string` | `rgba(0, 0, 0, 0.06)` | 分割线颜色 |
-| colorPrimaryBg | `string` | `#e6f4ff` | 主色的浅色背景颜色 |
-| colorPrimaryBgHover | `string` | `#bae0ff` | 主色的浅色背景色悬浮态 |
-| colorPrimaryBorder | `string` | `#91caff` | 主色的描边色 |
-| colorPrimaryBorderHover | `string` | `#69b1ff` | 主色的描边色悬浮态 |
-| colorPrimaryHover | `string` | `#4096ff` | 主色的深色悬浮态 |
-| colorPrimary | `string` | `#1677ff` | 品牌主色 |
-| colorPrimaryActive | `string` | `#0958d9` | 主色的深色激活态 |
-| colorPrimaryTextHover | `string` | `#4096ff` | 主色的文本悬浮态 |
-| colorPrimaryText | `string` | `#1677ff` | 主色的文本默认态 |
-| colorPrimaryTextActive | `string` | `#0958d9` | 主色的文本激活态 |
-| colorSuccessBg | `string` | `#f6ffed` | 成功色的浅色背景颜色 |
-| colorSuccessBgHover | `string` | `#d9f7be` | 成功色的浅色背景色悬浮态 |
-| colorSuccessBorder | `string` | `#b7eb8f` | 成功色的描边色 |
-| colorSuccessBorderHover | `string` | `#95de64` | 成功色的描边色悬浮态 |
-| colorSuccessHover | `string` | `#95de64` | 成功色的深色悬浮态 |
-| colorSuccess | `string` | `#52c41a` | 成功色 |
-| colorSuccessActive | `string` | `#389e0d` | 成功色的深色激活态 |
-| colorSuccessTextHover | `string` | `#73d13d` | 成功色的文本悬浮态 |
-| colorSuccessText | `string` | `#52c41a` | 成功色的文本默认态 |
-| colorSuccessTextActive | `string` | `#389e0d` | 成功色的文本激活态 |
-| colorWarningBg | `string` | `#fffbe6` | 警戒色的浅色背景颜色 |
-| colorWarningBgHover | `string` | `#fff1b8` | 警戒色的浅色背景色悬浮态 |
-| colorWarningBorder | `string` | `#ffe58f` | 警戒色的描边色 |
-| colorWarningBorderHover | `string` | `#ffd666` | 警戒色的描边色悬浮态 |
-| colorWarningHover | `string` | `#ffd666` | 警戒色的深色悬浮态 |
-| colorWarning | `string` | `#faad14` | 警戒色 |
-| colorWarningActive | `string` | `#d48806` | 警戒色的深色激活态 |
-| colorWarningTextHover | `string` | `#ffc53d` | 警戒色的文本悬浮态 |
-| colorWarningText | `string` | `#faad14` | 警戒色的文本默认态 |
-| colorWarningTextActive | `string` | `#d48806` | 警戒色的文本激活态 |
-| colorErrorBg | `string` | `#fff1f0` | 错误色的浅色背景颜色 |
-| colorErrorBgHover | `string` | `#ffccc7` | 错误色的浅色背景色悬浮态 |
-| colorErrorBorder | `string` | `#ffa39e` | 错误色的描边色 |
-| colorErrorBorderHover | `string` | `#ff7875` | 错误色的描边色悬浮态 |
-| colorErrorHover | `string` | `#ff7875` | 错误色的深色悬浮态 |
-| colorError | `string` | `#ff4d4f` | 错误色 |
-| colorErrorActive | `string` | `#cf1322` | 错误色的深色激活态 |
-| colorErrorTextHover | `string` | `#ff4d4f` | 错误色的文本悬浮态 |
-| colorErrorText | `string` | `#f5222d` | 错误色的文本默认态 |
-| colorErrorTextActive | `string` | `#cf1322` | 错误色的文本激活态 |
-| colorInfoBg | `string` | `#e6f4ff` | 信息色的浅色背景颜色 |
-| colorInfoBgHover | `string` | `#bae0ff` | 信息色的浅色背景色悬浮态 |
-| colorInfoBorder | `string` | `#91caff` | 信息色的描边色 |
-| colorInfoBorderHover | `string` | `#69b1ff` | 信息色的描边色悬浮态 |
-| colorInfoHover | `string` | `#69b1ff` | 信息色的深色悬浮态 |
-| colorInfo | `string` | `#e6f4ff` | 信息色 |
-| colorInfoActive | `string` | `#0958d9` | 信息色的深色激活态 |
-| colorInfoTextHover | `string` | `#4096ff` | 信息色的文本悬浮态 |
-| colorInfoText | `string` | `#1677ff` | 信息色的文本默认态 |
-| colorInfoTextActive | `string` | `#0958d9` | 信息色的文本激活态 |
-| colorBgMask | `string` | `rgba(0, 0, 0, 0.45)` | 浮层的背景蒙层颜色 |
-| sizeSpace | `number` | `12` | - |
-| sizeSpaceSM | `number` | `16` | - |
-| sizeSpaceXS | `number` | `8` | - |
-| sizeSpaceXXS | `number` | `4` | - |
-| gridSpaceSM | `number` | `4` | - |
-| gridSpaceBase | `number` | `8` | - |
-| gridSpaceLG | `number` | `12` | - |
-| gridSpaceXL | `number` | `16` | - |
-| gridSpaceXXL | `number` | `28` | - |
-| lineWidthBold | `number` | `2` | 较粗的线宽 |
-| motionDurationFast | `string` | `0.1s` | 动画速度快 |
-| motionDurationMid | `string` | `0.2s` | 动画速度中等 |
-| motionDurationSlow | `string` | `0.3s` | 动画速度慢 |
-| radiusXS | `number` | `2` | 更小的圆角 |
-| radiusSM | `number` | `4` | 较小的圆角 |
-| radiusLG | `number` | `8` | 较大的圆角 |
-| radiusOuter | `number` | `4` | 向外的圆角（常用于箭头与其他元素相接处） |
-| controlHeightXS | `number` | `24` | - |
-| controlHeightSM | `number` | `16` | - |
-| controlHeightLG | `number` | `40` | - |
+| colorText | 一级文本色 | `string` | `rgba(0, 0, 0, 0.88)` |
+| colorTextSecondary | 二级文本色 | `string` | `rgba(0, 0, 0, 0.65)` |
+| colorTextTertiary | 三级文本色 | `string` | `rgba(0, 0, 0, 0.45)` |
+| colorTextQuaternary | 四级文本色 | `string` | `rgba(0, 0, 0, 0.25)` |
+| colorFill | 一级填充色 | `string` | `rgba(0, 0, 0, 0.15)` |
+| colorFillSecondary | 二级填充色 | `string` | `rgba(0, 0, 0, 0.06)` |
+| colorFillTertiary | 三级填充色 | `string` | `rgba(0, 0, 0, 0.04)` |
+| colorFillQuaternary | 四级填充色 | `string` | `rgba(0, 0, 0, 0.02)` |
+| colorBgContainer | 组件容器背景色 | `string` | `#ffffff` |
+| colorBgElevated | 浮层容器背景色 | `string` | `#ffffff` |
+| colorBgLayout | 布局背景色 | `string` | `#f5f5f5` |
+| colorBgSpotlight | - | `string` | `rgba(0, 0, 0, 0.85)` |
+| colorBorder | 一级边框色 | `string` | `#d9d9d9` |
+| colorBorderSecondary | 二级边框色 | `string` | `#f0f0f0` |
+| colorSplit | 分割线颜色 | `string` | `rgba(0, 0, 0, 0.06)` |
+| colorPrimaryBg | 主色的浅色背景颜色 | `string` | `#e6f4ff` |
+| colorPrimaryBgHover | 主色的浅色背景色悬浮态 | `string` | `#bae0ff` |
+| colorPrimaryBorder | 主色的描边色 | `string` | `#91caff` |
+| colorPrimaryBorderHover | 主色的描边色悬浮态 | `string` | `#69b1ff` |
+| colorPrimaryHover | 主色的深色悬浮态 | `string` | `#4096ff` |
+| colorPrimary | 品牌主色 | `string` | `#1677ff` |
+| colorPrimaryActive | 主色的深色激活态 | `string` | `#0958d9` |
+| colorPrimaryTextHover | 主色的文本悬浮态 | `string` | `#4096ff` |
+| colorPrimaryText | 主色的文本默认态 | `string` | `#1677ff` |
+| colorPrimaryTextActive | 主色的文本激活态 | `string` | `#0958d9` |
+| colorSuccessBg | 成功色的浅色背景颜色 | `string` | `#f6ffed` |
+| colorSuccessBgHover | 成功色的浅色背景色悬浮态 | `string` | `#d9f7be` |
+| colorSuccessBorder | 成功色的描边色 | `string` | `#b7eb8f` |
+| colorSuccessBorderHover | 成功色的描边色悬浮态 | `string` | `#95de64` |
+| colorSuccessHover | 成功色的深色悬浮态 | `string` | `#95de64` |
+| colorSuccess | 成功色 | `string` | `#52c41a` |
+| colorSuccessActive | 成功色的深色激活态 | `string` | `#389e0d` |
+| colorSuccessTextHover | 成功色的文本悬浮态 | `string` | `#73d13d` |
+| colorSuccessText | 成功色的文本默认态 | `string` | `#52c41a` |
+| colorSuccessTextActive | 成功色的文本激活态 | `string` | `#389e0d` |
+| colorWarningBg | 警戒色的浅色背景颜色 | `string` | `#fffbe6` |
+| colorWarningBgHover | 警戒色的浅色背景色悬浮态 | `string` | `#fff1b8` |
+| colorWarningBorder | 警戒色的描边色 | `string` | `#ffe58f` |
+| colorWarningBorderHover | 警戒色的描边色悬浮态 | `string` | `#ffd666` |
+| colorWarningHover | 警戒色的深色悬浮态 | `string` | `#ffd666` |
+| colorWarning | 警戒色 | `string` | `#faad14` |
+| colorWarningActive | 警戒色的深色激活态 | `string` | `#d48806` |
+| colorWarningTextHover | 警戒色的文本悬浮态 | `string` | `#ffc53d` |
+| colorWarningText | 警戒色的文本默认态 | `string` | `#faad14` |
+| colorWarningTextActive | 警戒色的文本激活态 | `string` | `#d48806` |
+| colorErrorBg | 错误色的浅色背景颜色 | `string` | `#fff1f0` |
+| colorErrorBgHover | 错误色的浅色背景色悬浮态 | `string` | `#ffccc7` |
+| colorErrorBorder | 错误色的描边色 | `string` | `#ffa39e` |
+| colorErrorBorderHover | 错误色的描边色悬浮态 | `string` | `#ff7875` |
+| colorErrorHover | 错误色的深色悬浮态 | `string` | `#ff7875` |
+| colorError | 错误色 | `string` | `#ff4d4f` |
+| colorErrorActive | 错误色的深色激活态 | `string` | `#cf1322` |
+| colorErrorTextHover | 错误色的文本悬浮态 | `string` | `#ff4d4f` |
+| colorErrorText | 错误色的文本默认态 | `string` | `#f5222d` |
+| colorErrorTextActive | 错误色的文本激活态 | `string` | `#cf1322` |
+| colorInfoBg | 信息色的浅色背景颜色 | `string` | `#e6f4ff` |
+| colorInfoBgHover | 信息色的浅色背景色悬浮态 | `string` | `#bae0ff` |
+| colorInfoBorder | 信息色的描边色 | `string` | `#91caff` |
+| colorInfoBorderHover | 信息色的描边色悬浮态 | `string` | `#69b1ff` |
+| colorInfoHover | 信息色的深色悬浮态 | `string` | `#69b1ff` |
+| colorInfo | 信息色 | `string` | `#e6f4ff` |
+| colorInfoActive | 信息色的深色激活态 | `string` | `#0958d9` |
+| colorInfoTextHover | 信息色的文本悬浮态 | `string` | `#4096ff` |
+| colorInfoText | 信息色的文本默认态 | `string` | `#1677ff` |
+| colorInfoTextActive | 信息色的文本激活态 | `string` | `#0958d9` |
+| colorBgMask | 浮层的背景蒙层颜色 | `string` | `rgba(0, 0, 0, 0.45)` |
+| sizeSpace | - | `number` | `12` |
+| sizeSpaceSM | - | `number` | `16` |
+| sizeSpaceXS | - | `number` | `8` |
+| sizeSpaceXXS | - | `number` | `4` |
+| gridSpaceSM | - | `number` | `4` |
+| gridSpaceBase | - | `number` | `8` |
+| gridSpaceLG | - | `number` | `12` |
+| gridSpaceXL | - | `number` | `16` |
+| gridSpaceXXL | - | `number` | `28` |
+| lineWidthBold | 较粗的线宽 | `number` | `2` |
+| motionDurationFast | 动画速度快 | `string` | `0.1s` |
+| motionDurationMid | 动画速度中等 | `string` | `0.2s` |
+| motionDurationSlow | 动画速度慢 | `string` | `0.3s` |
+| radiusXS | 更小的圆角 | `number` | `2` |
+| radiusSM | 较小的圆角 | `number` | `4` |
+| radiusLG | 较大的圆角 | `number` | `8` |
+| radiusOuter | 向外的圆角（常用于箭头与其他元素相接处） | `number` | `4` |
+| controlHeightXS | - | `number` | `24` |
+| controlHeightSM | - | `number` | `16` |
+| controlHeightLG | - | `number` | `40` |
 
-#### AliasToken (待补全)
+### AliasToken (待补全)
 
-| 属性                | 类型     | 默认值    | 说明                                     |
-| ------------------- | -------- | --------- | ---------------------------------------- |
-| controlItemBgActive | `string` | `#e6f4ff` | 用于控件类组件中的单项的激活态选中样式。 |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| colorFillContent | - | `string` | `rgba(0, 0, 0, 0.06)` |
+| colorFillContentHover | - | `string` | `rgba(0, 0, 0, 0.12)` |
+| colorFillAlter | - | `string` | `rgba(0, 0, 0, 0.02)` |
+| colorBgContainerDisabled | - | `string` | `rgba(0, 0, 0, 0.04)` |
+| colorBorderBg | - | `string` | `#ffffff` |
+| colorSplit | - | `string` | `rgba(0, 0, 0, 0.06)` |
+| colorTextPlaceholder | - | `string` | `rgba(0, 0, 0, 0.25)` |
+| colorTextDisabled | - | `string` | `rgba(0, 0, 0, 0.25)` |
+| colorTextHeading | - | `string` | `rgba(0, 0, 0, 0.85)` |
+| colorTextLabel | - | `string` | `rgba(0, 0, 0, 0.65)` |
+| colorTextDescription | - | `string` | `rgba(0, 0, 0, 0.45)` |
+| colorBgTextHover | - | `string` | `rgba(0, 0, 0, 0.06)` |
+| colorBgTextActive | - | `string` | `rgba(0, 0, 0, 0.15)` |
+| colorIcon | - | `string` | `rgba(0, 0, 0, 0.45)` |
+| colorIconHover | - | `string` | `rgba(0, 0, 0, 0.88)` |
+| colorLink | - | `string` | `#1677ff` |
+| colorLinkHover | - | `string` | `#69b1ff` |
+| colorLinkActive | - | `string` | `#0958d9` |
+| colorHighlight | - | `string` | `#ff4d4f` |
+| controlOutline | - | `string` | `rgba(5, 145, 255, 0.1)` |
+| colorWarningOutline | - | `string` | `rgba(255, 215, 5, 0.1)` |
+| colorErrorOutline | - | `string` | `rgba(255, 22, 5, 0.06)` |
+| fontSizeSM | - | `number` | `12` |
+| fontSize | - | `number` | `14` |
+| fontSizeLG | - | `number` | `16` |
+| fontSizeXL | - | `number` | `20` |
+| fontSizeIcon | - | `number` | `12` |
+| fontSizeHeading1 | - | `number` | `38` |
+| fontSizeHeading2 | - | `number` | `30` |
+| fontSizeHeading3 | - | `number` | `24` |
+| fontSizeHeading4 | - | `number` | `20` |
+| fontSizeHeading5 | - | `number` | `16` |
+| fontWeightStrong | - | `number` | `600` |
+| lineHeight | - | `number` | `1.5714` |
+| lineHeightLG | - | `number` | `1.5` |
+| lineHeightSM | - | `number` | `1.6667` |
+| lineHeightHeading1 | - | `number` | `1.2105` |
+| lineHeightHeading2 | - | `number` | `1.2667` |
+| lineHeightHeading3 | - | `number` | `1.3333` |
+| lineHeightHeading4 | - | `number` | `1.4` |
+| lineHeightHeading5 | - | `number` | `1.5` |
+| controlLineWidth | - | `number` | `1` |
+| controlLineType | - | `string` | `solid` |
+| controlRadius | - | `number` | `6` |
+| controlRadiusXS | - | `number` | `2` |
+| controlRadiusSM | - | `number` | `4` |
+| controlRadiusLG | - | `number` | `8` |
+| controlOutlineWidth | - | `number` | `8` |
+| controlItemBgHover | - | `string` | `rgba(0, 0, 0, 0.04)` |
+| controlItemBgActive | - | `string` | `#e6f4ff` |
+| controlItemBgActiveHover | - | `string` | `#bae0ff` |
+| controlInteractiveSize | - | `number` | `16` |
+| controlItemBgActiveDisabled | - | `string` | `rgba(0, 0, 0, 0.15)` |
+| controlTmpOutline | - | `string` | `rgba(0, 0, 0, 0.02)` |
+| opacityLoading | - | `number` | `0.65` |
+| padding | - | `number` | `16` |
+| paddingSM | - | `number` | `12` |
+| paddingXS | - | `number` | `8` |
+| paddingXXS | - | `number` | `4` |
+| paddingLG | - | `number` | `24` |
+| paddingXL | - | `number` | `32` |
+| paddingTmp | - | `number` | `20` |
+| margin | - | `number` | `16` |
+| marginSM | - | `number` | `12` |
+| marginXS | - | `number` | `8` |
+| marginXXS | - | `number` | `4` |
+| marginLG | - | `number` | `24` |
+| marginXL | - | `number` | `32` |
+| marginXXL | - | `number` | `48` |
+| boxShadow | - | `string` | `0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02)` |
+| boxShadowSecondary | - | `string` | `0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05)` |
+| linkDecoration | - | `React.CSSProperties['textDecoration']` | `none` |
+| linkHoverDecoration | - | `React.CSSProperties['textDecoration']` | `none` |
+| linkFocusDecoration | - | `React.CSSProperties['textDecoration']` | `none` |
+| controlPaddingHorizontal | - | `number` | `12` |
+| controlPaddingHorizontalSM | - | `number` | `8` |
+| screenXS | - | `number` | `480` |
+| screenXSMin | - | `number` | `480` |
+| screenXSMax | - | `number` | `479` |
+| screenSM | - | `number` | `576` |
+| screenSMMin | - | `number` | `576` |
+| screenSMMax | - | `number` | `575` |
+| screenMD | - | `number` | `768` |
+| screenMDMin | - | `number` | `768` |
+| screenMDMax | - | `number` | `767` |
+| screenLG | - | `number` | `992` |
+| screenLGMin | - | `number` | `992` |
+| screenLGMax | - | `number` | `991` |
+| screenXL | - | `number` | `1200` |
+| screenXLMin | - | `number` | `1200` |
+| screenXLMax | - | `number` | `1199` |
+| screenXXL | - | `number` | `1600` |
+| screenXXLMin | - | `number` | `1599` |
+| screenXXLMax | - | `number` | `1600` |
 
-### 调试主题
+## 调试主题
 
 我们提供了帮助用户调试主题的工具：[主题编辑器](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
 
@@ -236,8 +429,6 @@ export default () => (
 ## 主题展示
 
 - [Ant Design 4.x 主题](https://ant-design.github.io/antd-token-previewer/~demos/docs-v4-theme)
-
-> 可以引导用户贡献一些优质主题并收集起来
 
 ## FAQ
 

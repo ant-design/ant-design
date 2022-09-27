@@ -139,7 +139,7 @@ export default {
   export default App;
 ```
 
-- BackTop components are removed in 5.0.0, and moved to FloatButton components, If you need to use, you can import it from the FloatButton components.
+- BackTop is deprecated in `5.0.0`, and is merged into FloatButton.
 
 ```diff
 - import { BackTop } from 'antd';
@@ -159,6 +159,8 @@ export default {
 
 #### Migrate with codemod
 
+> Not provided yet, coming soon after `5.0.0` release.
+
 ```bash
 # Run directly through npx
 npx -p @ant-design/codemod-v5 antd5-codemod src
@@ -176,22 +178,6 @@ antd5-codemod src
 > Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
 
 At the same time, you can also use the codemod tool to apply a single change for a certain change. The following is a description of all the migration scripts:
-
-##### popup-visible-to-open
-
-Change prop of components with popup from `visible` to `open`。
-
-```bash
-antd5-codemod popup-visible-to-open <path>
-```
-
-##### popup-classname-to-popupClassName
-
-Change `className` of popup in components to `popupClassName`。
-
-```bash
-antd5-codemod popup-classname-to-popupClassName <path>
-```
 
 #### Install compatible package
 

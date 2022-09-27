@@ -347,7 +347,6 @@ export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, Commo
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface AliasToken extends MapToken {
   // Background
-  colorFillSecondary: string;
   colorFillContentHover: string;
   colorFillAlter: string;
   colorBgContainerDisabled: string;
