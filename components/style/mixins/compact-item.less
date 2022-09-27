@@ -25,6 +25,13 @@
       }
     }
   }
+
+  // .@{ant-prefix}-space-compact + .@{ant-prefix}-space-compact {
+  //   > &-first-item {
+  //     border-radius: 0;
+  //   }
+  // }
+
   & when (not (@real-cls = null)) {
     // border-radius
     &-item .@{real-cls} {
@@ -74,11 +81,6 @@
   }
 
   & when (not (@real-cls = null)) {
-    // border-radius
-    &-item:not(&-last-item) .@{real-cls} {
-      border-radius: 0;
-    }
-
     // border collapse
     &-item:not(&-last-item) .@{real-cls} {
       margin-right: -1px;

@@ -18,6 +18,16 @@
 
   // nested compact
   & > &:not(:first-child) {
-    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    z-index: 2;
+  }
+
+  &[disabled] {
+    z-index: 0;
   }
 }

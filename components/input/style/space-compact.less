@@ -45,6 +45,13 @@
         border: @border-width-base @border-style-base transparent;
         box-shadow: none;
       }
+
+      &-open,
+      &-focused {
+        .@{ant-prefix}-select-selector {
+          color: @primary-color;
+        }
+      }
     }
   }
 
