@@ -35,21 +35,6 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-
-    // Reset Button's style in addon
-    .@{ant-prefix}-btn {
-      // border-width: 0;
-      // border-radius: 0;
-    }
-
-    // addon 跟的是 button 的时候需要给 .ant-btn 的 padding 置为0
-    // & > .@{ant-prefix}-btn {
-    //   // padding: 0;
-
-    //   &:not(.@{ant-prefix}-btn-primary) {
-    //     background-color: @input-addon-bg;
-    //   }
-    // }
   }
 
   // nested compact-item
@@ -86,28 +71,9 @@
       border-color: @input-hover-border-color;
     }
   }
-
-  // &-compact-item {
-  //   // <Input.Search /> 右边的搜索按钮
-  //   .@{ant-prefix}-input-search-button {
-  //     border: 0;
-  //   }
-  // }
 }
 
-// FIXME: 要删掉，input select 还没把 compact-item 类加上去
-.@{ant-prefix}-space-compact-block {
-  .@{ant-prefix}-input-addon {
-    .@{ant-prefix}-select {
-      margin: -5px -11px;
-
-      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input) {
-        .@{ant-prefix}-select-selector {
-          background-color: inherit;
-          border: 1px solid transparent;
-          box-shadow: none;
-        }
-      }
-    }
-  }
+// compact-item style for Select
+.@{ant-prefix}-select {
+  .compact-item('@{ant-prefix}-select');
 }
