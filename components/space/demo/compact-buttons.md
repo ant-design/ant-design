@@ -57,6 +57,29 @@ const App: React.FC = () => (
       </Tooltip>
     </Space.Compact>
     <br />
+    <Space.Compact size="large" block>
+      <Button>default Button 1</Button>
+      <Button>default Button 2</Button>
+      <Button>default Button 3</Button>
+      <Tooltip title="Tooltip">
+        <Button icon={<DownloadOutlined />} disabled />
+      </Tooltip>
+      <Tooltip title="Tooltip">
+        <Button icon={<DownloadOutlined />} />
+      </Tooltip>
+    </Space.Compact>
+    <br />
+    <Space.Compact size="large" block>
+      <Button>default Button</Button>
+      <Button danger>danger Button</Button>
+      <Button type="dashed">dashed Button</Button>
+      <Button type="text">text Button</Button>
+      <Button type="link">Link Button</Button>
+      <Tooltip title="Tooltip">
+        <Button icon={<DownloadOutlined />} disabled />
+      </Tooltip>
+    </Space.Compact>
+    <br />
     <Space.Compact block>
       <Button type="primary">Button 1</Button>
       <Dropdown
