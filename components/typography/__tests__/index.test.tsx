@@ -5,7 +5,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
+import { fireEvent, render, waitFor, act, waitFakeTimer } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
@@ -88,6 +88,14 @@ describe('Typography', () => {
 
   describe('Base', () => {
     describe('copyable', () => {
+      /**
+       * @param name Test case name
+       * @param text Origin text context
+       * @param target Copy to clipboard text
+       * @param icon Icon
+       * @param tooltips Tooltip config
+       * @param format Copy context format
+       */
       function copyTest(
         name: string,
         text?: string,
@@ -99,60 +107,45 @@ describe('Typography', () => {
         it(name, async () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
-          const { container: wrapper, unmount } = render(
+          const { container, unmount } = render(
             <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
             </Base>,
           );
 
           if (icon) {
-            expect(wrapper.querySelectorAll('.anticon-smile').length).toBeGreaterThan(0);
+            expect(container.querySelector('.anticon-smile')).toBeTruthy();
           } else {
-            expect(wrapper.querySelectorAll('.anticon-copy').length).toBeGreaterThan(0);
+            expect(container.querySelector('.anticon-copy')).toBeTruthy();
           }
 
-          fireEvent.mouseEnter(wrapper.querySelector('.ant-typography-copy')!);
+          // Mouse enter to show tooltip
+          fireEvent.mouseEnter(container.querySelector('.ant-typography-copy')!);
           act(() => {
-            jest.runAllTimers();
+            jest.advanceTimersByTime(10000);
           });
 
           if (tooltips === undefined || tooltips === true) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
           } else if (tooltips === false) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
           } else if ((tooltips as any)[0] === '' && (tooltips as any)[1] === '') {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
           } else if ((tooltips as any)[0] === '' && (tooltips as any)[1]) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
           } else if ((tooltips as any)[1] === '' && (tooltips as any)[0]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-                (tooltips as any)[0],
-              );
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              (tooltips as any)[0],
+            );
           } else {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
-                (tooltips as any)[0],
-              );
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+              (tooltips as any)[0],
+            );
           }
 
-          fireEvent.click(wrapper.querySelector('.ant-typography-copy')!);
-          jest.useRealTimers();
-          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mouseEnterDelay 的时长
-          if (tooltips && (tooltips as any)[0] === '' && (tooltips as any)[1]) {
-            await sleep(150);
-          }
+          // Click to copy
+          fireEvent.click(container.querySelector('.ant-typography-copy')!);
+          await waitFakeTimer(1);
 
           expect((copy as any).lastStr).toEqual(target);
           expect((copy as any).lastOptions.format).toEqual(format);
@@ -165,43 +158,32 @@ describe('Typography', () => {
             copiedIcon = '.anticon-check';
           }
 
-          expect(wrapper.querySelectorAll(copiedIcon).length).toBeGreaterThan(0);
-          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+          expect(container.querySelector(copiedIcon)).toBeTruthy();
+
+          // Timeout will makes copy tooltip back to origin
+          fireEvent.mouseEnter(container.querySelector('.ant-typography-copy')!);
+          await waitFakeTimer(15, 10);
 
           if (tooltips === undefined || tooltips === true) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
           } else if (tooltips === false) {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            await waitFor(() => {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')).toBeFalsy();
           } else if (tooltips[0] === '' && tooltips[1]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           } else if (tooltips[1] === '' && tooltips[0]) {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
           } else {
-            await waitFor(() => {
-              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
-            });
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           }
 
-          jest.useFakeTimers();
-          fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
-          jest.runAllTimers();
-
           // Will set back when 3 seconds pass
-          await sleep(3000);
-          expect(wrapper.querySelectorAll(copiedIcon).length).toBe(0);
+          await waitFakeTimer();
+          expect(container.querySelector(copiedIcon)).toBeFalsy();
+
           unmount();
+          jest.clearAllTimers();
           jest.useRealTimers();
         });
       }
@@ -209,7 +191,7 @@ describe('Typography', () => {
       copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
       copyTest(
-        'costomize copy with plain text',
+        'customize copy with plain text',
         'bamboo',
         'bamboo',
         undefined,
@@ -217,14 +199,14 @@ describe('Typography', () => {
         'text/plain',
       );
       copyTest(
-        'costomize copy with html text',
+        'customize copy with html text',
         'bamboo',
         'bamboo',
         undefined,
         undefined,
         'text/html',
       );
-      copyTest('customize copy icon', 'bamboo', 'bamboo', <SmileOutlined />);
+      copyTest('customize copy icon with one', 'bamboo', 'bamboo', <SmileOutlined />);
       copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
         <SmileOutlined key="copy-icon" />,
       ]);

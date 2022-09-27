@@ -99,15 +99,25 @@ function wrapperDecorations(
   return currentContent;
 }
 
-function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
-  if (dom === true || dom === undefined) {
-    return defaultNode;
+function getIndex<T>(origin: T | T[], index: number) {
+  if (Array.isArray(origin)) {
+    return origin[index];
   }
-  return dom || (needDom && defaultNode);
+
+  return origin;
 }
 
-function toList<T>(val: T | T[]): T[] {
-  return Array.isArray(val) ? val : [val];
+function getNode(
+  nodeOrList: React.ReactNode,
+  index: number,
+  defaultNode: React.ReactNode,
+  needDom?: boolean,
+) {
+  const val = getIndex(nodeOrList, index);
+  if (val === true || val === undefined) {
+    return defaultNode;
+  }
+  return val || (needDom && defaultNode);
 }
 
 interface InternalBlockProps extends BlockProps {
@@ -443,12 +453,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
     const { tooltips, icon } = copyConfig;
 
-    const tooltipNodes = toList(tooltips);
-    const iconNodes = toList(icon);
-
     const copyTitle = copied
-      ? getNode(tooltipNodes[1], textLocale.copied)
-      : getNode(tooltipNodes[0], textLocale.copy);
+      ? getNode(tooltips, 1, textLocale.copied)
+      : getNode(tooltips, 0, textLocale.copy);
     const systemStr = copied ? textLocale.copied : textLocale.copy;
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
@@ -460,8 +467,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
           aria-label={ariaLabel}
         >
           {copied
-            ? getNode(iconNodes[1], <CheckOutlined />, true)
-            : getNode(iconNodes[0], <CopyOutlined />, true)}
+            ? getNode(icon, 1, <CheckOutlined />, true)
+            : getNode(icon, 0, <CopyOutlined />, true)}
         </TransButton>
       </Tooltip>
     );
