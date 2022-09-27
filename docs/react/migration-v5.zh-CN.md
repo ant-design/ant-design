@@ -140,7 +140,7 @@ export default {
   export default App;
 ```
 
-- BackTop 组件在 5.0.0 中移除，移至 FloatButton 悬浮按钮中，如需使用，可以从 FloatButton 中引入。
+- BackTop 组件在 `5.0.0` 中废弃，移至 FloatButton 悬浮按钮中。如需使用，可以从 FloatButton 中引入。
 
 ```diff
 - import { BackTop } from 'antd';
@@ -160,6 +160,8 @@ export default {
 
 #### 使用迁移工具修改
 
+> 将会在 5.0 正式版发布后提供。
+
 ```bash
 # 通过 npx 直接运行
 npx -p @ant-design/codemod-v5 antd5-codemod <path>
@@ -177,22 +179,6 @@ antd5-codemod src
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
 
 同时也可以针对某项改动使用迁移工具单独执行，下面是所有迁移脚本的说明：
-
-##### popup-visible-to-open
-
-将含有弹出框的组件属性 `visible` 改为 `open`。
-
-```bash
-antd5-codemod popup-visible-to-open <path>
-```
-
-##### popup-classname-to-popupClassName
-
-将弹出框的 `className` 属性统一为 `popupClassName`。
-
-```bash
-antd5-codemod popup-classname-to-popupClassName <path>
-```
 
 #### 安装兼容包
 

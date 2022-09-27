@@ -32,9 +32,9 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
 
 if (typeof window !== 'undefined') {
   // Redirect to `ant.design` if is not next version anymore
-  if (location.hostname === 'next.ant.design') {
-    location.href = location.href.replace('next.ant.design', 'ant.design');
-  }
+  // if (location.hostname === 'next.ant.design') {
+  //   location.href = location.href.replace('next.ant.design', 'ant.design');
+  // }
 
   // eslint-disable-next-line global-require
   require('../../static/style');
