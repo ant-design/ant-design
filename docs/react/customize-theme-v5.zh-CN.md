@@ -45,7 +45,7 @@ export default App;
 
 `theme` 是一系列 **Design Token** 的集合，当我们传入 `theme` 后，antd 的组件就会根据相应的 **Design Token** 改变自己的样式。
 
-我们将依次介绍四类 **Design Token**（这里把组件 Token 算上了）
+我们将依次介绍四类 **Design Token**
 
 ### 基础变量（Seed Token）
 
