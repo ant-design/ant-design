@@ -35,6 +35,17 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
+
+    .@{ant-prefix}-select {
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
+
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
+        background-color: inherit;
+        border: @border-width-base @border-style-base transparent;
+        box-shadow: none;
+      }
+    }
   }
 
   // nested compact-item
