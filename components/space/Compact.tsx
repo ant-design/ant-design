@@ -36,6 +36,16 @@ export const useCompactItemContext = (prefixCls: string) => {
   };
 };
 
+export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+  const overrideSpaceContext = React.useMemo(() => ({}), []);
+
+  return (
+    <SpaceCompactItemContext.Provider value={overrideSpaceContext}>
+      {children}
+    </SpaceCompactItemContext.Provider>
+  );
+};
+
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   size?: SizeType;
