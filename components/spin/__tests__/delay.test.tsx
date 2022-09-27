@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import debounce from 'lodash/debounce';
 import Spin from '..';
-import { sleep, waitFakeTimer } from '../../../tests/utils';
+import { waitFakeTimer } from '../../../tests/utils';
 
 jest.mock('lodash/debounce');
 (debounce as jest.Mock).mockImplementation((...args: any[]) =>
