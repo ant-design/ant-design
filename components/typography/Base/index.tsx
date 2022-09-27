@@ -106,16 +106,11 @@ function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: b
   return dom || (needDom && defaultNode);
 }
 
-function toList<T>(val: T | T[], fill?: boolean): T[] {
-  if (Array.isArray(val)) {
-    return val;
+function toList<T>(val: T | T[]): T[] {
+  if (val === false) {
+    return [false, false] as T[];
   }
-
-  if (fill) {
-    return [val, val];
-  }
-
-  return [val];
+  return Array.isArray(val) ? val : [val];
 }
 
 interface InternalBlockProps extends BlockProps {
