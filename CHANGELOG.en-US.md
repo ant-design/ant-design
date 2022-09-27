@@ -23,7 +23,7 @@ timeline: true
 - 🐞 Fix Typography `ellipsis` not working correctly in some cases. [#37700](https://github.com/ant-design/ant-design/pull/37700) [@zheeeng](https://github.com/zheeeng)
 - 🐞 Fix Divider shows `children` when in `vertical` mode. [#37697](https://github.com/ant-design/ant-design/pull/37697)
 - 🐞 Fix Anchor `getCurrentAnchor` not updated. [#37644](https://github.com/ant-design/ant-design/pull/37644)
-- 🐞 Fix Tabs `animated=true` missing tabPane animation. [#37642](https://github.com/ant-design/ant-design/pull/37642)
+- 🐞 Fix Tabs `animated: true` missing tabPane animation. [#37642](https://github.com/ant-design/ant-design/pull/37642)
 - 🐞 Fix Table `column.title` render function missing `filters` props. [#37629](https://github.com/ant-design/ant-design/pull/37629)
 - 🐞 Fix Modal.confirm instance ref legacy config `visible: true` back to show not work. [#37613](https://github.com/ant-design/ant-design/pull/37613)
 - 💄 Fix the problem of rendering an empty element with styles when Badge not pass text property. [#37681](https://github.com/ant-design/ant-design/pull/37681) [@Wxh16144](https://github.com/Wxh16144)
