@@ -19,6 +19,7 @@ timeline: true
 
 `2022-09-27`
 
+- 🆕 Tree `showLeafIcon` 属性支持自定义图标。[#37144](https://github.com/ant-design/ant-design/pull/37144) [@xWiiLLz](https://github.com/xWiiLLz)
 - 🆕 Uploader 支持支持 Apple 图片格式: heic、heif。[#37651](https://github.com/ant-design/ant-design/pull/37651) [@Johnny-young](https://github.com/Johnny-young)
 - 🐞 修复 Typography `ellipsis` 在某些情况下不精确的问题。[#37700](https://github.com/ant-design/ant-design/pull/37700) [@zheeeng](https://github.com/zheeeng)
 - 🐞 修复 Divider 在 `vertical` 模式下仍然会错误展示 `children` 的问题。[#37697](https://github.com/ant-design/ant-design/pull/37697)
