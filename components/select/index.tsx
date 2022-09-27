@@ -20,8 +20,7 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 import warning from '../_util/warning';
-import { SpaceCompactItemContext } from '../space/Compact';
-import { getCompactClassNames } from '../_util/compactUtils';
+import { useCompactItemContext } from '../space/Compact';
 
 type RawValue = string | number;
 
@@ -95,10 +94,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     dropdownMatchSelectWidth,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
-  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -175,7 +174,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-    getCompactClassNames(prefixCls, restCompactContext),
+    compactItemClassnames,
     className,
   );
 

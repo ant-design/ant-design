@@ -10,8 +10,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import Space from '../space';
-import { SpaceCompactItemContext } from '../space/Compact';
-import { getCompactClassNames } from '../_util/compactUtils';
+import { SpaceCompactItemContext, useCompactItemContext } from '../space/Compact';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -144,7 +143,7 @@ const InternalInput = forwardRef<InputRef, Omit<InputProps, 'addonBefore' | 'add
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     const inputRef = useRef<InputRef>(null);
 
-    const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
+    const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
@@ -228,7 +227,7 @@ const InternalInput = forwardRef<InputRef, Omit<InputProps, 'addonBefore' | 'add
         onBlur={handleBlur}
         onFocus={handleFocus}
         suffix={suffixNode}
-        className={classNames(className, getCompactClassNames(prefixCls, restCompactContext))}
+        className={classNames(className, compactItemClassnames)}
         allowClear={mergedAllowClear}
         inputClassName={classNames(
           {
@@ -279,19 +278,12 @@ const InputAddon: React.FC<
     prefixCls: string;
   }>
 > = ({ prefixCls, children }) => {
-  const compactContext = React.useContext(SpaceCompactItemContext);
+  const { compactItemClassnames } = useCompactItemContext(prefixCls);
 
   return (
     <NoFormStyle override status>
       <NoCompactStyle>
-        <span
-          className={classNames(
-            `${prefixCls}-addon`,
-            getCompactClassNames(prefixCls, compactContext),
-          )}
-        >
-          {children}
-        </span>
+        <span className={classNames(`${prefixCls}-addon`, compactItemClassnames)}>{children}</span>
       </NoCompactStyle>
     </NoFormStyle>
   );
@@ -309,7 +301,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
-  const { size: compactSize, ...restCompactContext } = React.useContext(SpaceCompactItemContext);
+  const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
   // restCompactContext 被消费，其要处理的即为嵌套场景
 
   // ===================== Size =====================
@@ -320,11 +312,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const Wrapper = hasAddon ? Space.Compact : React.Fragment;
 
   return (
-    <Wrapper
-      style={style}
-      size={mergedSize}
-      className={getCompactClassNames(prefixCls, restCompactContext)}
-    >
+    <Wrapper style={style} size={mergedSize} className={compactItemClassnames}>
       {addonBefore && <InputAddon prefixCls={prefixCls}>{addonBefore}</InputAddon>}
       <InternalInput
         ref={ref}

@@ -15,6 +15,27 @@ export interface SpaceCompactItemContextType {
 
 export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType>({});
 
+export const useCompactItemContext = (prefixCls: string) => {
+  const { size, direction, isItem, isFirstItem, isLastItem } =
+    React.useContext(SpaceCompactItemContext);
+
+  const compactItemClassnames = React.useMemo(() => {
+    const joiner = direction === 'vertical' ? 'vertical-' : '-';
+
+    return classNames({
+      [`${prefixCls}-compact${joiner}item`]: isItem,
+      [`${prefixCls}-compact${joiner}first-item`]: isFirstItem,
+      [`${prefixCls}-compact${joiner}last-item`]: isLastItem,
+    });
+  }, [prefixCls, isItem, isFirstItem, isLastItem]);
+
+  return {
+    size,
+    direction,
+    compactItemClassnames,
+  };
+};
+
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   size?: SizeType;
