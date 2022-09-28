@@ -43,7 +43,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >
@@ -86,7 +86,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    Press 
+    Press
     <span
       class="ant-typography"
     >
@@ -1125,7 +1125,7 @@ Array [
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >
