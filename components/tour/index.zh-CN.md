@@ -1,47 +1,49 @@
 ---
 category: Components
-type: 其他
-subtitle: 悬浮按钮
-title: FloatButton
-cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
+subtitle: 文字提示
+type: 数据展示
+title: Tooltip
+cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
-悬浮按钮。自 `5.0.0` 版本开始提供该组件。
+简单的文字提示气泡框。
 
 ## 何时使用
 
-- 用于网站上的全局功能；
-- 无论浏览到何处都可以看见的按钮。
+鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。
+
+可用来代替系统默认的 `title` 提示，提供一个 `按钮/文字/操作` 的文案解释。
 
 ## API
 
+| 参数  | 说明     | 类型                         | 默认值 |
+| ----- | -------- | ---------------------------- | ------ |
+| title | 提示文字 | ReactNode \| () => ReactNode | -      |
+
 ### 共同的 API
+
+以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| icon | 自定义图标 | ReactNode | - |  |
-| description | 文字及其它内容 | ReactNode | - |  |
-| tooltip | 气泡卡片的内容 | ReactNode \| () => ReactNode | - |  |
-| type | 设置按钮类型 | `default` \| `primary` | `default` |  |
-| shape | 设置按钮形状 | `circle` \| `square` | `circle` |  |
-| onClick | 点击按钮时的回调 | (event) => void | - |  |
-| href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
-| target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
+| align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
+| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | false |  |
+| autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
+| color | 背景颜色 | string | - | 4.3.0 |
+| defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
+| destroyTooltipOnHide | 关闭后是否销毁 Tooltip，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
+| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
+| mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
+| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
+| overlayClassName | 卡片类名 | string | - |  |
+| overlayStyle | 卡片样式 | object | - |  |
+| overlayInnerStyle | 卡片内容区域的样式对象 | object | - |  |
+| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
+| trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
+| open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | false | 4.23.0 |
+| zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
+| onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
 
-### FloatButton.Group
+## 注意
 
-| 参数         | 说明                             | 类型                    | 默认值   | 版本 |
-| ------------ | -------------------------------- | ----------------------- | -------- | ---- |
-| shape        | 设置包含的 FloatButton 按钮形状  | `circle` \| `square`    | `circle` |      |
-| trigger      | 触发方式（有触发方式为菜单模式） | `click` \| `hover`      | -        |      |
-| open         | 受控展开                         | boolean                 | -        |      |
-| onOpenChange | 展开收起时的回调                 | (open: boolean) => void | -        |      |
-
-### FloatButton.BackTop
-
-| 参数             | 说明                               | 类型              | 默认值       | 版本 |
-| ---------------- | ---------------------------------- | ----------------- | ------------ | ---- |
-| duration         | 回到顶部所需时间（ms）             | number            | 450          |      |
-| target           | 设置需要监听其滚动事件的元素       | () => HTMLElement | () => window |      |
-| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number            | 400          |      |
-| onClick          | 点击按钮的回调函数                 | () => void        | -            |      |
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。

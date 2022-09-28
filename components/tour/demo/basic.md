@@ -66,7 +66,6 @@ const App: React.FC = () => {
           },
         ]}
       />
-      <a href="">asdfasdf</a>
     </div>
   );
 };

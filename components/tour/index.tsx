@@ -1,18 +1,11 @@
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
+import Trigger from 'rc-trigger';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import Trigger from 'rc-trigger';
-import Popover from '../popover';
 import useStyle from './style';
-// import Tooltip from '../tooltip';
-// import Content from './TourContent';
-import type {
-  CompoundedComponent,
-  TourProps,
-  // TourShape,
-} from './interface';
-// import Group from './TourGroup';
+import TourRc from '../tour-rc';
+import type { CompoundedComponent, TourProps, TourShape } from './interface';
 import TourGroupContext from './context';
 import warning from '../_util/warning';
 
@@ -25,17 +18,14 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
   const {
     prefixCls: customizePrefixCls,
     className,
-    type = 'default',
-    shape = 'circle',
-    icon,
-    description,
-    tooltip,
+    type = 'default', // TODO  删除
+    shape = 'circle', // TODO  删除
     steps,
+    description,
     ...restProps
   } = props;
-  console.log('props', props);
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
-  const groupShape = useContext(TourGroupContext);
+  const groupShape = useContext<TourShape | null>(TourGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -52,78 +42,22 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     },
   );
 
-  const contentProps = useMemo(
-    () => ({ prefixCls, description, icon, type }),
-    [prefixCls, description, icon, type],
+  // const contentProps = useMemo<TourContentProps>(
+  //   () => ({ prefixCls, description, icon, type }),
+  //   [prefixCls, description, icon, type],
+  // );
+  const currentTarget = steps[0].getTarget;
+
+  return wrapSSR(
+    <TourRc
+      // className={classString}
+      // ref={ref as React.LegacyRef<HTMLButtonElement>}
+      // {...props}
+      getPopupContainer={currentTarget}
+      popup={<span>popuppopuppopup</span>}
+      popupVisible
+    />,
   );
-
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !(shape === 'circle' && description),
-      'Tour',
-      'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
-    );
-  }
-  const builtinPlacements = {
-    left: {
-      points: ['cr', 'cl'],
-    },
-    right: {
-      points: ['cl', 'cr'],
-    },
-    top: {
-      points: ['bc', 'tc'],
-    },
-    bottom: {
-      points: ['tc', 'bc'],
-    },
-    topLeft: {
-      points: ['bl', 'tl'],
-    },
-    topRight: {
-      points: ['br', 'tr'],
-    },
-    bottomRight: {
-      points: ['tr', 'br'],
-    },
-    bottomLeft: {
-      points: ['tl', 'bl'],
-    },
-  };
-
-  const dom = steps.map(item => {
-    return (
-      <Trigger
-        getPopupContainer={item.getTarget}
-        // popupAlign={getPopupAlign(state)}
-        popupPlacement={{
-          left: {
-            points: ['cr', 'cl'],
-          },
-        }}
-        // destroyPopupOnHide={this.state.destroyPopupOnHide}
-        // zIndex={40}
-        mask={false}
-        maskClosable={false}
-        stretch={''}
-        // maskAnimation="fade"
-        // mouseEnterDelay={0.1}
-        // mouseLeaveDelay={0.1}
-        action={['hover']}
-        builtinPlacements={builtinPlacements}
-        popupStyle={{
-          border: '1px solid red',
-          padding: 10,
-          background: 'white',
-          boxSizing: 'border-box',
-        }}
-        popup={<div>i am a popup</div>}
-        // popupTransitionName={state.transitionName}
-      ></Trigger>
-    );
-  });
-
-  return wrapSSR(<div>{dom}</div>);
 };
 
 if (process.env.NODE_ENV !== 'production') {
