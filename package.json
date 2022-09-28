@@ -34,7 +34,9 @@
     "dist",
     "es"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "*.less"
+  ],
   "main": "dist/antd.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
