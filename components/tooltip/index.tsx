@@ -12,6 +12,7 @@ import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placem
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
+import flow from 'lodash/flow';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -280,11 +281,15 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
   const childProps = child.props;
   const childCls =
-    !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, {
+    typeof childProps.className === 'function'
+      ? flow(childProps.className, (childClassName: string) =>
+          classNames(childClassName, {
+            [openClassName || `${prefixCls}-open`]: true,
+          }),
+        )
+      : classNames(childProps.className, {
           [openClassName || `${prefixCls}-open`]: true,
-        })
-      : childProps.className;
+        });
 
   const customOverlayClassName = classNames(overlayClassName, {
     [`${prefixCls}-rtl`]: direction === 'rtl',

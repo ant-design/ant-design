@@ -545,4 +545,15 @@ describe('Tooltip', () => {
     expect(container.querySelector('.bamboo')).toBeTruthy();
     expect(container.querySelector('.ant-tooltip')).toBeTruthy();
   });
+
+  it('add className `${prefixCls}-open` when children className is function', () => {
+    const HOC = ({ className }: { className: Function }) => <span className={className()} />;
+    const { container } = render(
+      <Tooltip open>
+        <HOC className={() => 'bamboo'} />
+      </Tooltip>,
+    );
+
+    expect(container.querySelector('.bamboo.ant-tooltip-open')).not.toBeNull();
+  });
 });
