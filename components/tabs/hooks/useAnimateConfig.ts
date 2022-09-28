@@ -26,7 +26,7 @@ export default function useAnimateConfig(
   } else if (animated === true) {
     mergedAnimated = {
       inkBar: true,
-      tabPane: false,
+      tabPane: true,
     };
   } else {
     mergedAnimated = {

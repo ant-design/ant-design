@@ -595,15 +595,15 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
           tabindex="0"
         >
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
         </div>
@@ -2184,7 +2184,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
                   />
                 </svg>
               </span>
-              Tab 
+              Tab
               1
             </span>
           </div>
@@ -2220,7 +2220,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
                   />
                 </svg>
               </span>
-              Tab 
+              Tab
               2
             </span>
           </div>
@@ -2385,7 +2385,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Parent - 
+                      Parent -
                       left
                     </div>
                     <span
@@ -2402,7 +2402,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Parent - 
+                      Parent -
                       right
                     </div>
                     <span
@@ -2419,7 +2419,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Parent - 
+                      Parent -
                       top
                     </div>
                     <span
@@ -2436,7 +2436,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Parent - 
+                      Parent -
                       bottom
                     </div>
                     <span
@@ -2557,7 +2557,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Child - 
+                      Child -
                       left
                     </div>
                     <span
@@ -2574,7 +2574,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Child - 
+                      Child -
                       right
                     </div>
                     <span
@@ -2591,7 +2591,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Child - 
+                      Child -
                       top
                     </div>
                     <span
@@ -2608,7 +2608,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <div
                       class="ant-select-item-option-content"
                     >
-                      Child - 
+                      Child -
                       bottom
                     </div>
                     <span

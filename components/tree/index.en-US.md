@@ -43,7 +43,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 | selectable | Whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean} | false |  |
+| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
@@ -109,9 +109,9 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 File icon realize by using switcherIcon. You can overwrite the style to hide it: <https://codesandbox.io/s/883vo47xp8>
 
-### Why defaultExpandedAll not working on ajax data?
+### Why defaultExpandAll not working on ajax data?
 
-`default` prefix prop only works when inited. So `defaultExpandedAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
+`default` prefix prop only works when inited. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
 
 ### Virtual scroll limitation
 

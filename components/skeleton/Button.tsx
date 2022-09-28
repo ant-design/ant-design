@@ -10,8 +10,14 @@ export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> 
   block?: boolean;
 }
 
-const SkeletonButton = (props: SkeletonButtonProps) => {
-  const { prefixCls: customizePrefixCls, className, active, block = false } = props;
+const SkeletonButton: React.FC<SkeletonButtonProps> = props => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    active,
+    block = false,
+    size = 'default',
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
@@ -27,13 +33,9 @@ const SkeletonButton = (props: SkeletonButtonProps) => {
   );
   return (
     <div className={cls}>
-      <Element prefixCls={`${prefixCls}-button`} {...otherProps} />
+      <Element prefixCls={`${prefixCls}-button`} size={size} {...otherProps} />
     </div>
   );
-};
-
-SkeletonButton.defaultProps = {
-  size: 'default',
 };
 
 export default SkeletonButton;
