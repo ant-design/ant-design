@@ -1520,7 +1520,7 @@ describe('Form', () => {
       },
       capture: true,
     };
-    const renderComps = disabled => [
+    const renderComps = (disabled?: boolean) => [
       <Button key="Button" disabled={disabled} type="primary" htmlType="submit">
         test
       </Button>,
