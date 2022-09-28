@@ -123,7 +123,7 @@
 // label input
 .input-group(@inputClass) {
   position: relative;
-  display: flex;
+  display: table;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -184,8 +184,52 @@
     }
   }
 
+  &-addon {
+    position: relative;
+    padding: 0 @input-padding-horizontal-base;
+    color: @input-color;
+    font-weight: normal;
+    font-size: @font-size-base;
+    text-align: center;
+    background-color: @input-addon-bg;
+    border: @border-width-base @border-style-base @input-border-color;
+    border-radius: @control-border-radius;
+    transition: all 0.3s;
+
+    // Reset Select's style in addon
+    .@{ant-prefix}-select {
+      margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
+
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
+        background-color: inherit;
+        border: @border-width-base @border-style-base transparent;
+        box-shadow: none;
+      }
+
+      &-open,
+      &-focused {
+        .@{ant-prefix}-select-selector {
+          color: @primary-color;
+        }
+      }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/31333
+    .@{ant-prefix}-cascader-picker {
+      margin: -9px (-@control-padding-horizontal);
+      background-color: transparent;
+      .@{ant-prefix}-cascader-input {
+        text-align: left;
+        border: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
   // Reset rounded corners
-  > .@{inputClass}:first-child {
+  > .@{inputClass}:first-child,
+  &-addon:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
@@ -208,7 +252,16 @@
     }
   }
 
-  > .@{inputClass}:last-child {
+  &-addon:first-child {
+    border-right: 0;
+  }
+
+  &-addon:last-child {
+    border-left: 0;
+  }
+
+  > .@{inputClass}:last-child,
+  &-addon:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
@@ -220,11 +273,13 @@
   }
 
   // Sizing options
-  &-lg .@{inputClass} {
+  &-lg .@{inputClass},
+  &-lg > &-addon {
     .input-lg();
   }
 
-  &-sm .@{inputClass} {
+  &-sm .@{inputClass},
+  &-sm > &-addon {
     .input-sm();
   }
 
@@ -255,15 +310,10 @@
   }
 
   &&-compact {
-    display: flex;
+    display: block;
     .clearfix();
 
-    > .@{ant-prefix}-space-compact + .@{ant-prefix}-space-compact {
-      > .@{ant-prefix}-compact-first-item {
-        border-radius: 0;
-      }
-    }
-
+    &-addon,
     &-wrap,
     > .@{inputClass} {
       &:not(:first-child):not(:last-child) {
@@ -280,6 +330,7 @@
     }
 
     & > * {
+      display: inline-block;
       float: none;
       vertical-align: top; // https://github.com/ant-design/ant-design-pro/issues/139
       border-radius: 0;
@@ -351,20 +402,22 @@
       vertical-align: top;
     }
 
-    .@{ant-prefix}-space-compact + .@{ant-prefix}-space-compact {
+    .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+      margin-left: -1px;
       .@{ant-prefix}-input-affix-wrapper {
         border-radius: 0;
       }
     }
 
-    // Input.Search under Input.Group
-    .@{ant-prefix}-space-compact:not(:last-child) > .@{ant-prefix}-input-search {
-      + .@{ant-prefix}-input-addon > .@{ant-prefix}-input-search-button {
-        border-radius: 0;
-      }
+    .@{ant-prefix}-input-group-wrapper:not(:last-child) {
+      &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
+        & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
+          border-radius: 0;
+        }
 
-      > .@{ant-prefix}-input {
-        border-radius: @control-border-radius 0 0 @control-border-radius;
+        & > .@{ant-prefix}-input {
+          border-radius: @control-border-radius 0 0 @control-border-radius;
+        }
       }
     }
   }
@@ -410,7 +463,7 @@
   @text-color: @input-color;
   @border-color: @input-border-color;
 ) {
-  .@{prefix-cls}-addon {
+  .@{prefix-cls}-group-addon {
     color: @text-color;
     border-color: @border-color;
   }
