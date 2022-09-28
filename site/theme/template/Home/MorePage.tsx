@@ -2,22 +2,13 @@ import * as React from 'react';
 import { useIntl } from 'react-intl';
 import { Card, Row, Col } from 'antd';
 import { useSiteData } from './util';
+import type { Icons, Extra } from './util';
 import './MorePage.less';
 
-type SourceType = 'zhihu' | 'yuque';
-
-type Icons = { name: string; href: string }[];
-
-interface MoreProps {
-  title: string;
-  description: string;
-  date: string;
-  img: string;
-  source: SourceType;
-  href: string;
+type MoreProps = Partial<Extra> & {
   icons?: Icons;
   loading?: boolean;
-}
+};
 
 const MoreCard = ({ title, description, date, img, source, href, icons, loading }: MoreProps) => (
   <Col xs={24} sm={6}>
@@ -54,16 +45,14 @@ const MoreCard = ({ title, description, date, img, source, href, icons, loading 
 
 export default function MorePage() {
   const { locale } = useIntl();
-  const [{ extras, icons }, loading] = useSiteData<any>();
+  const [{ extras, icons }, loading] = useSiteData();
   const list = extras?.[locale === 'zh-CN' ? 'cn' : 'en'] || [];
   const loadingProps = { loading: loading || list.length === 0 } as MoreProps;
   return (
     <Row gutter={[24, 32]}>
-      {(list || [loadingProps, loadingProps, loadingProps, loadingProps]).map(
-        (more: any, i: number) => (
-          <MoreCard key={more.title || i} {...more} icons={icons} />
-        ),
-      )}
+      {(list ?? [loadingProps, loadingProps, loadingProps, loadingProps]).map((more, i) => (
+        <MoreCard key={more.title || i} {...more} icons={icons} />
+      ))}
     </Row>
   );
 }

@@ -519,15 +519,15 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
           tabindex="0"
         >
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
           <p>
-            Content of Tab Pane 
+            Content of Tab Pane
             1
           </p>
         </div>
@@ -1937,7 +1937,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              Tab 
+              Tab
               1
             </span>
           </div>
@@ -1973,7 +1973,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              Tab 
+              Tab
               2
             </span>
           </div>

@@ -736,5 +736,21 @@ describe('Anchor Render', () => {
       fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
       expect(getCurrentAnchor).toHaveBeenCalledWith(`#${hash2}`);
     });
+
+    // https://github.com/ant-design/ant-design/issues/37627
+    it('should update anchorLink when component is rerender', async () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const Demo: React.FC<{ current: string }> = ({ current }) => (
+        <Anchor getCurrentAnchor={() => `#${current}`}>
+          <Link href={`#${hash1}`} title={hash1} />
+          <Link href={`#${hash2}`} title={hash2} />
+        </Anchor>
+      );
+      const { container, rerender } = render(<Demo current={hash1} />);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash1);
+      rerender(<Demo current={hash2} />);
+      expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+    });
   });
 });

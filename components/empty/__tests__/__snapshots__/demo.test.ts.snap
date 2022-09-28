@@ -744,7 +744,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
     class="ant-empty-description"
   >
     <span>
-      Customize 
+      Customize
       <a
         href="#API"
       >

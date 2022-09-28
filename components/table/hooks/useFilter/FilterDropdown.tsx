@@ -60,7 +60,7 @@ function renderFilterItems({
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
-  filterSearch: FilterSearchType;
+  filterSearch: FilterSearchType<ColumnFilterItem>;
 }): Required<MenuProps>['items'] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -102,6 +102,8 @@ function renderFilterItems({
   });
 }
 
+export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
+
 export interface FilterDropdownProps<RecordType> {
   tablePrefixCls: string;
   prefixCls: string;
@@ -110,7 +112,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: FilterSearchType;
+  filterSearch?: FilterSearchType<ColumnFilterItem | TreeColumnFilterItem>;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -296,6 +298,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       }
       return item;
     });
+  const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
+    ...node,
+    text: node.title,
+    value: node.key,
+    children: node.children?.map(item => getFilterData(item)) || [],
+  });
 
   let dropdownContent: React.ReactNode;
 
@@ -332,7 +340,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       if (filterMode === 'tree') {
         return (
           <>
-            <FilterSearch
+            <FilterSearch<TreeColumnFilterItem>
               filterSearch={filterSearch}
               value={searchValue}
               onChange={onSearch}
@@ -371,7 +379,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                   searchValue.trim()
                     ? node => {
                         if (typeof filterSearch === 'function') {
-                          return filterSearch(searchValue, node);
+                          return filterSearch(searchValue, getFilterData(node));
                         }
                         return searchValueMatched(searchValue, node.title);
                       }

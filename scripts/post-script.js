@@ -2,7 +2,6 @@
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const moment = require('moment');
-const inquirer = require('inquirer');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 
@@ -95,6 +94,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     defaultVersion = distTags.conch;
   }
 
+  const { default: inquirer } = await import('inquirer');
   // Selection
   let { conchVersion } = await inquirer.prompt([
     {

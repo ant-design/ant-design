@@ -44,7 +44,7 @@ exports[`renders ./components/image/demo/basic.md extend context correctly 1`] =
 exports[`renders ./components/image/demo/controlled-preview.md extend context correctly 1`] = `
 Array [
   <div>
-    scaleStep: 
+    scaleStep:
     <div
       class="ant-input-number"
     >
