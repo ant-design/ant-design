@@ -1,17 +1,18 @@
 ---
-order: 3
+order: 99
 title:
-  zh-CN: input 前置/后置标签
-  en-US: Pre / Post tab
+  zh-CN: debug input 前置/后置标签
+  en-US: debug Pre / Post tab
+debug: true
 ---
 
 ## zh-CN
 
-input 前置/后置标签。
+debug input 前置/后置标签。
 
 ## en-US
 
-Using pre & post tabs example.
+Using pre & post tabs example for debug.
 
 ```tsx
 import { SettingOutlined, CopyOutlined } from '@ant-design/icons';
@@ -37,26 +38,37 @@ const selectAfter = (
 
 const App: React.FC = () => (
   <Space direction="vertical">
-    <Space.Compact block>
+    <Space.Compact>
+      <Button>Prefix</Button>
       <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
-    <Space.Compact block>
+    <Space.Compact>
+      <Input placeholder="prefix" />
       <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
       <Button icon={<CopyOutlined />} />
     </Space.Compact>
-    <Space.Compact block>
-      <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
+    <Space.Compact>
+      <Input.Search />
+      <Input.Search />
+      <Button icon={<CopyOutlined />} />
     </Space.Compact>
-    <Space.Compact block>
+    <Space.Compact>
+      <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
+      <Button type="primary">Submit</Button>
+      <Input placeholder="suffix" addonAfter={<SettingOutlined />} />
+    </Space.Compact>
+    <Space.Compact>
       <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
-    <Space.Compact block>
+    <Space.Compact>
+      <Button>Prefix</Button>
       <Input
         addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
         defaultValue="mysite"
       />
+      <Button type="primary">Submit</Button>
     </Space.Compact>
   </Space>
 );

@@ -6,35 +6,6 @@
   // compact-item style for Input
   .compact-item(@input-prefix-cls);
 
-  // compact for input with addon
-  .@{input-prefix-clx}-compact-item:not(:first-child) &-group {
-    > .@{input-prefix-clx}-group-addon:not(:last-child),
-    > .@{input-prefix-clx}:not(:last-child) {
-      border-radius: 0;
-    }
-
-    > .@{input-prefix-clx}-group-addon:not(:last-child) .@{ant-prefix}-select-selector {
-      border-radius: 0;
-    }
-  }
-
-  .@{input-prefix-clx}-compact-item:not(:last-child) &-group {
-    > .@{input-prefix-clx}-group-addon:not(:first-child),
-    > .@{input-prefix-clx}:not(:first-child) {
-      border-radius: 0;
-    }
-
-    > .@{input-prefix-clx}-group-addon:not(:first-child) .@{ant-prefix}-select-selector {
-      border-radius: 0;
-    }
-
-    // compact for input.search
-    > .@{input-prefix-clx}-group-addon .@{input-prefix-clx}-search-button {
-      margin-right: -1px;
-      border-radius: 0;
-    }
-  }
-
   // addon style
   &-addon {
     position: relative;
@@ -118,4 +89,9 @@
       border-color: @input-hover-border-color;
     }
   }
+}
+
+// compact-item style for Select
+.@{ant-prefix}-select {
+  // .compact-item('@{ant-prefix}-select');
 }
