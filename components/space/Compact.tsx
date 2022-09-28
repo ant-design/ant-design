@@ -20,7 +20,7 @@ export const useCompactItemContext = (prefixCls: string) => {
     React.useContext(SpaceCompactItemContext);
 
   const compactItemClassnames = React.useMemo(() => {
-    const joiner = direction === 'vertical' ? 'vertical-' : '-';
+    const joiner = direction === 'vertical' ? '-vertical-' : '-';
 
     return classNames({
       [`${prefixCls}-compact${joiner}item`]: isItem,
