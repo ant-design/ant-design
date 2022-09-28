@@ -129,7 +129,7 @@
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.4.2",
     "rc-dialog": "~8.9.0",
-    "rc-drawer": "~5.1.0",
+    "rc-drawer": "~6.0.0",
     "rc-dropdown": "~4.0.0",
     "rc-field-form": "~1.27.0",
     "rc-image": "~5.8.0",
@@ -332,7 +332,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "282 kB"
+      "maxSize": "283 kB"
     },
     {
       "path": "./dist/antd.min.css",
