@@ -85,6 +85,7 @@ const Tour = (props: any, ref: any) => {
       id={id}
       overlayInnerStyle={overlayInnerStyle}
     >
+      <span>popuppopuppopup</span>
       {overlay}
     </Popup>
   );
@@ -98,9 +99,30 @@ const Tour = (props: any, ref: any) => {
     destroyTour = keepParent === true;
     autoDestroy = keepParent === false;
   }
-  console.log('currentTarget', getPopupContainer);
+
   return (
     <Trigger
+      // popupClassName={overlayClassName}
+      // prefixCls={prefixCls}
+      // popup={getPopupElement}
+      // action={trigger}
+      builtinPlacements={placements}
+      popupPlacement={placement} // 位置不对
+      // ref={domRef}
+      // popupAlign={align}
+      // getPopupContainer={getPopupContainer}
+      onPopupVisibleChange={onVisibleChange}
+      afterPopupVisibleChange={afterVisibleChange}
+      popupTransitionName={transitionName}
+      popupAnimation={animation}
+      popupMotion={motion}
+      defaultPopupVisible={defaultVisible}
+      destroyPopupOnHide={destroyTour}
+      autoDestroy={autoDestroy}
+      mouseLeaveDelay={mouseLeaveDelay}
+      popupStyle={overlayStyle}
+      mouseEnterDelay={mouseEnterDelay}
+      {...extraProps}
       getPopupContainer={getPopupContainer()}
       popup={<span>popuppopuppopup</span>}
       popupAlign={{
