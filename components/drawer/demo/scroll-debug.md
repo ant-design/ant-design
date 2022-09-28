@@ -54,6 +54,9 @@ const App: React.FC = () => {
       </Space>
       <Drawer title="Drawer" open={drawer}>
         Some contents...
+        <Drawer title="Drawer Sub" open={drawer}>
+          Sub contents...
+        </Drawer>
       </Drawer>
       <Drawer title="Drawer2" open={drawer2}>
         Some contents...
