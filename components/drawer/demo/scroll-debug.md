@@ -1,7 +1,7 @@
 ---
 order: 999
 title:
-  zh-CN: 滚动调试
+  zh-CN: 滚动锁定调试
   en-US: Scroll Debug
 debug: true
 ---
