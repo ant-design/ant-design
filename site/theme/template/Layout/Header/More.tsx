@@ -94,7 +94,7 @@ export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
           </span>
         </a>
       ),
-      key: 'vue',
+      key: 'blazor',
     },
   ];
 }
