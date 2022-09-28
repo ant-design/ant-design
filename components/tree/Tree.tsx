@@ -11,6 +11,7 @@ import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
 
 export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
+export type TreeLeafIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -107,7 +108,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     RcTreeProps<T>,
     'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
   > {
-  showLine?: boolean | { showLeafIcon: boolean };
+  showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;

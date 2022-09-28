@@ -107,6 +107,9 @@ function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: b
 }
 
 function toList<T>(val: T | T[]): T[] {
+  if (val === false) {
+    return [false, false] as T[];
+  }
   return Array.isArray(val) ? val : [val];
 }
 

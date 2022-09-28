@@ -247,8 +247,13 @@ Array [
       Presets
     </span>
   </div>,
-  <div>
-    <div>
+  <div
+    class="ant-space ant-space-vertical"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -262,7 +267,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -276,7 +284,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -290,7 +301,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -304,7 +318,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -318,7 +335,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -332,7 +352,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -346,7 +369,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -360,7 +386,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -374,7 +403,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -388,7 +420,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -402,7 +437,10 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -416,7 +454,9 @@ Array [
         </span>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-space-item"
+    >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
@@ -441,61 +481,80 @@ Array [
       Custom
     </span>
   </div>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  <div
+    class="ant-space ant-space-vertical"
   >
-    <span
-      class="ant-badge-status-dot"
-      style="background: rgb(255, 85, 0);"
-    />
-    <span
-      class="ant-badge-status-text"
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
-      #f50
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot"
-      style="background: rgb(45, 183, 245);"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot"
+          style="background: rgb(255, 85, 0);"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          #f50
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
-      #2db7f5
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot"
-      style="background: rgb(135, 208, 104);"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot"
+          style="background: rgb(45, 183, 245);"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          rgb(45, 183, 245)
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
     >
-      #87d068
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot"
-      style="background: rgb(16, 142, 233);"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot"
+          style="background: rgb(103, 103, 103);"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          hsl(102, 53%, 61%)
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      #108ee9
-    </span>
-  </span>,
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          hwb(205 6% 9%)
+        </span>
+      </span>
+    </div>
+  </div>,
 ]
 `;
 
@@ -2050,121 +2109,158 @@ Array [
 
 exports[`renders ./components/badge/demo/status.md correctly 1`] = `
 Array [
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
-    <span
-      class="ant-badge-status-dot ant-badge-status-success"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-error"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-default"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-processing"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-warning"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-success"
-    />
-    <span
-      class="ant-badge-status-text"
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      Success
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-error"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-success"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      Error
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-default"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-error"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      Default
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-processing"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-default"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
     >
-      Processing
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-warning"
-    />
-    <span
-      class="ant-badge-status-text"
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-processing"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
     >
-      Warning
-    </span>
-  </span>,
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-warning"
+        />
+      </span>
+    </div>
+  </div>,
+  <br />,
+  <div
+    class="ant-space ant-space-vertical"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-success"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          Success
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-error"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          Error
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-default"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          Default
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-bottom: 8px;"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-processing"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          Processing
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+      >
+        <span
+          class="ant-badge-status-dot ant-badge-status-warning"
+        />
+        <span
+          class="ant-badge-status-text"
+        >
+          Warning
+        </span>
+      </span>
+    </div>
+  </div>,
 ]
 `;
 

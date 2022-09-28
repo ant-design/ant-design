@@ -179,4 +179,10 @@ describe('Badge', () => {
     expect(container.querySelectorAll('[title="44"]')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(2);
   });
+
+  it('Badge not render status-text when text is empty string', () => {
+    const { container } = render(<Badge status="default" text={undefined} />);
+
+    expect(container.querySelectorAll('.ant-badge > .ant-badge-status-text')).toHaveLength(0);
+
 });

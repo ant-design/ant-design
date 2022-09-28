@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import warning from '../_util/warning';
 
 export interface DividerProps {
   prefixCls?: string;
@@ -53,9 +54,18 @@ const Divider: React.FC<DividerProps> = props => {
     ...(hasCustomMarginRight && { marginRight: orientationMargin }),
   };
 
+  // Warning children not work in vertical mode
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !children || type !== 'vertical',
+      'Divider',
+      '`children` not working in `vertical` mode.',
+    );
+  }
+
   return (
     <div className={classString} {...restProps} role="separator">
-      {children && (
+      {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
         </span>
