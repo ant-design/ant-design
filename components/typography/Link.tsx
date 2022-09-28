@@ -4,15 +4,12 @@ import type { BlockProps } from './Base';
 import Base from './Base';
 
 export interface LinkProps
-  extends BlockProps,
-    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'> {
+  extends BlockProps<'a'>,
+    Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type' | keyof BlockProps<'a'>> {
   ellipsis?: boolean;
 }
 
-const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
-  { ellipsis, rel, ...restProps },
-  ref,
-) => {
+const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restProps }, ref) => {
   warning(
     typeof ellipsis !== 'object',
     'Typography.Link',
@@ -28,11 +25,10 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
     rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
   };
 
-  // https://github.com/ant-design/ant-design/issues/26622
-  // @ts-ignore
+  // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
   delete mergedProps.navigate;
 
   return <Base {...mergedProps} ref={baseRef} ellipsis={!!ellipsis} component="a" />;
-};
+});
 
-export default React.forwardRef(Link);
+export default Link;
