@@ -77,7 +77,7 @@ export default App;
 
 ### 动态切换
 
-在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不用额外配置任何东西。
+在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不需要任何额外配置。
 
 ### 局部主题
 
@@ -132,7 +132,7 @@ export default App;
 
 ## 进阶使用
 
-在 Design Token 中我们提供了一套更加贴合设计的三层结构，将 Design Token 拆解为 Seed Token、Map Token 和 Alias Token 三部分。这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。
+在 Design Token 中我们提供了一套更加贴合设计的三层结构，将 Design Token 拆解为 Seed Token、Map Token 和 Alias Token 三部分。这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。在大部分情况下，使用 Seed Token 就可以满足定制主题的需要。但如果您需要更高程度的主题定制，您需要了解 antd 中 Design Token 的生命周期。
 
 ### 演变过程
 
@@ -140,7 +140,7 @@ export default App;
 
 ### 基础变量（Seed Token）
 
-在大部分情况下，使用 **Seed Token** 就可以基本满足定制主题的需要，比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 **Seed Token** 计算出对应的一系列颜色并应用：
+Seed Token 意味着所有设计意图的起源。比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 Seed Token 计算出对应的一系列颜色并应用：
 
 ```tsx
 const theme = {
@@ -152,7 +152,7 @@ const theme = {
 
 ### 梯度变量（Map Token）
 
-**Map Token** 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
+Map Token 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
 
 ```tsx
 const theme = {
