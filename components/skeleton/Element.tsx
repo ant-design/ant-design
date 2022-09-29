@@ -10,7 +10,7 @@ export interface SkeletonElementProps {
   active?: boolean;
 }
 
-const Element = (props: SkeletonElementProps) => {
+const Element: React.FC<SkeletonElementProps> = props => {
   const { prefixCls, className, style, size, shape } = props;
 
   const sizeCls = classNames({
@@ -24,14 +24,17 @@ const Element = (props: SkeletonElementProps) => {
     [`${prefixCls}-round`]: shape === 'round',
   });
 
-  const sizeStyle: React.CSSProperties =
-    typeof size === 'number'
-      ? {
-          width: size,
-          height: size,
-          lineHeight: `${size}px`,
-        }
-      : {};
+  const sizeStyle = React.useMemo<React.CSSProperties>(
+    () =>
+      typeof size === 'number'
+        ? {
+            width: size,
+            height: size,
+            lineHeight: `${size}px`,
+          }
+        : {},
+    [size],
+  );
 
   return (
     <span

@@ -3554,7 +3554,7 @@ exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = 
 exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
 <input
   class="ant-input"
-  maxlength="25"
+  maxlength="16"
   placeholder="Input a number"
   style="width: 120px;"
   type="text"

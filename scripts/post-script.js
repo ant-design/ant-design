@@ -102,6 +102,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     defaultVersion = distTags.conch;
   }
 
+  const { default: inquirer } = await import('inquirer');
   // Selection
   let { conchVersion } = await inquirer.prompt([
     {
