@@ -6,7 +6,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
 >
   <div
     class="ant-transfer-list ant-transfer-list-with-footer"
-    style="width:250px;height:300px"
+    style="width: 250px; height: 300px;"
   >
     <div
       class="ant-transfer-list-header"
@@ -20,6 +20,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -48,7 +49,8 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -123,63 +125,277 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content2-description of content2"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            content2-description of content2
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4-description of content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content4-description of content4
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content6-description of content6"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content6-description of content6
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content8-description of content8"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content8-description of content8
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content10-description of content10"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content10-description of content10
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content12-description of content12"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content12-description of content12
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content14-description of content14"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content14-description of content14
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content16-description of content16"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content16-description of content16
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content18-description of content18"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content18-description of content18
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content20-description of content20"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content20-description of content20
+          </span>
+        </li>
+      </ul>
     </div>
     <div
       class="ant-transfer-list-footer"
     >
       <button
         class="ant-btn ant-btn-default ant-btn-sm"
-        style="float:left;margin:5px"
+        style="float: left; margin: 5px;"
         type="button"
       >
         <span>
@@ -250,7 +466,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
   </div>
   <div
     class="ant-transfer-list ant-transfer-list-with-footer"
-    style="width:250px;height:300px"
+    style="width: 250px; height: 300px;"
   >
     <div
       class="ant-transfer-list-header"
@@ -264,6 +480,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -292,7 +509,8 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -367,63 +585,277 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content1-description of content1"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            content1-description of content1
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content3-description of content3"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content3-description of content3
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content5-description of content5"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content5-description of content5
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content7-description of content7"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content7-description of content7
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content9-description of content9"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content9-description of content9
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content11-description of content11"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content11-description of content11
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content13-description of content13"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content13-description of content13
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content15-description of content15"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content15-description of content15
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content17-description of content17"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content17-description of content17
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content19-description of content19"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content19-description of content19
+          </span>
+        </li>
+      </ul>
     </div>
     <div
       class="ant-transfer-list-footer"
     >
       <button
         class="ant-btn ant-btn-default ant-btn-sm"
-        style="float:right;margin:5px"
+        style="float: right; margin: 5px;"
         type="button"
       >
         <span>
@@ -454,6 +886,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -482,7 +915,8 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        11 items
+        11
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -509,6 +943,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -534,6 +969,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -559,6 +995,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -584,6 +1021,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -609,6 +1047,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -634,6 +1073,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -659,6 +1099,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -684,6 +1125,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -709,6 +1151,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -734,6 +1177,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -759,6 +1203,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -843,6 +1288,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -871,7 +1317,8 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        9 items
+        9
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -898,6 +1345,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -923,6 +1371,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -948,6 +1397,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -973,6 +1423,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -998,6 +1449,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1023,6 +1475,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1048,6 +1501,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1073,6 +1527,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1098,6 +1553,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1122,7 +1578,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
 >
   <div
     class="ant-transfer-list"
-    style="width:300px;height:300px"
+    style="width: 300px; height: 300px;"
   >
     <div
       class="ant-transfer-list-header"
@@ -1136,6 +1592,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -1164,7 +1621,8 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -1173,56 +1631,330 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content2"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            <span
+              class="custom-item"
+            >
+              content2
+               - 
+              description of content2
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content4
+               - 
+              description of content4
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content6"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content6
+               - 
+              description of content6
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content8"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content8
+               - 
+              description of content8
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content10"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content10
+               - 
+              description of content10
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content12"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content12
+               - 
+              description of content12
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content14"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content14
+               - 
+              description of content14
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content16"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content16
+               - 
+              description of content16
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content18"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content18
+               - 
+              description of content18
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content20"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content20
+               - 
+              description of content20
+            </span>
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -1281,7 +2013,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
   </div>
   <div
     class="ant-transfer-list"
-    style="width:300px;height:300px"
+    style="width: 300px; height: 300px;"
   >
     <div
       class="ant-transfer-list-header"
@@ -1295,6 +2027,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -1323,7 +2056,8 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -1332,56 +2066,330 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     <div
       class="ant-transfer-list-body"
     >
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content1"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            <span
+              class="custom-item"
+            >
+              content1
+               - 
+              description of content1
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content3"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content3
+               - 
+              description of content3
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content5"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content5
+               - 
+              description of content5
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content7"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content7
+               - 
+              description of content7
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content9"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content9
+               - 
+              description of content9
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content11"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content11
+               - 
+              description of content11
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content13"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content13
+               - 
+              description of content13
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content15"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content15
+               - 
+              description of content15
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content17"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content17
+               - 
+              description of content17
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content19"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content19
+               - 
+              description of content19
+            </span>
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -1406,6 +2414,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -1459,6 +2468,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1484,6 +2494,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1509,6 +2520,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1534,6 +2546,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1559,6 +2572,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1584,6 +2598,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1609,6 +2624,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1693,6 +2709,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -1746,6 +2763,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1771,6 +2789,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1796,6 +2815,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md correctl
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -1847,7 +2867,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          0 item
+          1000
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -1856,56 +2877,353 @@ Array [
       <div
         class="ant-transfer-list-body"
       >
-        <div
-          class="ant-transfer-list-body-not-found"
+        <ul
+          class="ant-transfer-list-content"
         >
-          <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+          <li
+            class="ant-transfer-list-content-item"
+            title="content2"
           >
-            <div
-              class="ant-empty-image"
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
             >
-              <svg
-                class="ant-empty-img-simple"
-                height="41"
-                viewBox="0 0 64 41"
-                width="64"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="ant-checkbox"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  transform="translate(0 1)"
-                >
-                  <ellipse
-                    class="ant-empty-img-simple-ellipse"
-                    cx="32"
-                    cy="33"
-                    rx="32"
-                    ry="7"
-                  />
-                  <g
-                    class="ant-empty-img-simple-g"
-                    fill-rule="nonzero"
-                  >
-                    <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                    />
-                    <path
-                      class="ant-empty-img-simple-path"
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div
-              class="ant-empty-description"
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
             >
-              No Data
-            </div>
-          </div>
-        </div>
+              content2
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content4"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content4
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content6"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content6
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content8"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content8
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content10"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content10
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content12"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content12
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content14"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content14
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content16"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content16
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content18"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content18
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content20"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content20
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ant-pagination ant-pagination-simple ant-pagination-mini ant-transfer-list-pagination"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/100"
+          >
+            <input
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            100
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
     <div
@@ -1990,7 +3308,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          0 item
+          1000
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -1999,56 +3318,353 @@ Array [
       <div
         class="ant-transfer-list-body"
       >
-        <div
-          class="ant-transfer-list-body-not-found"
+        <ul
+          class="ant-transfer-list-content"
         >
-          <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+          <li
+            class="ant-transfer-list-content-item"
+            title="content1"
           >
-            <div
-              class="ant-empty-image"
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
             >
-              <svg
-                class="ant-empty-img-simple"
-                height="41"
-                viewBox="0 0 64 41"
-                width="64"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="ant-checkbox"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  transform="translate(0 1)"
-                >
-                  <ellipse
-                    class="ant-empty-img-simple-ellipse"
-                    cx="32"
-                    cy="33"
-                    rx="32"
-                    ry="7"
-                  />
-                  <g
-                    class="ant-empty-img-simple-g"
-                    fill-rule="nonzero"
-                  >
-                    <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                    />
-                    <path
-                      class="ant-empty-img-simple-path"
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div
-              class="ant-empty-description"
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
             >
-              No Data
-            </div>
-          </div>
-        </div>
+              content1
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content3"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content3
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content5"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content5
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content7"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content7
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content9"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content9
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content11"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content11
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content13"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content13
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content15"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content15
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content17"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content17
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content19"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content19
+            </span>
+          </li>
+        </ul>
+        <ul
+          class="ant-pagination ant-pagination-simple ant-pagination-mini ant-transfer-list-pagination"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/100"
+          >
+            <input
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            100
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>,
@@ -2075,7 +3691,7 @@ exports[`renders ./components/transfer/demo/oneWay.md correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-transfer-list"
@@ -2092,6 +3708,7 @@ Array [
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -2120,7 +3737,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          14 items
+          14
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -2148,6 +3766,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2173,6 +3792,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2199,6 +3819,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2224,6 +3845,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2250,6 +3872,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2275,6 +3898,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2301,6 +3925,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2326,6 +3951,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2352,6 +3978,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2377,6 +4004,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2403,6 +4031,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2428,6 +4057,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2454,6 +4084,7 @@ Array [
                   class="ant-checkbox-input"
                   disabled=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2479,6 +4110,7 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -2551,7 +4183,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          6 items
+          6
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -2578,7 +4211,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2615,7 +4248,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2652,7 +4285,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2689,7 +4322,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2726,7 +4359,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2763,7 +4396,7 @@ Array [
               aria-label="Remove"
               class="ant-transfer-list-content-item-remove"
               role="button"
-              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
             >
               <span
@@ -2828,6 +4461,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -2856,7 +4490,8 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -2931,56 +4566,270 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content2"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            content2
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content4
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content6"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content6
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content8"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content8
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content10"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content10
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content12"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content12
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content14"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content14
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content16"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content16
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content18"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content18
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content20"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content20
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -3052,6 +4901,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value=""
           />
           <span
             class="ant-checkbox-inner"
@@ -3080,7 +4930,8 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        10
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -3155,56 +5006,270 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           </span>
         </span>
       </div>
-      <div
-        class="ant-transfer-list-body-not-found"
+      <ul
+        class="ant-transfer-list-content"
       >
-        <div
-          class="ant-empty ant-empty-normal ant-empty-small"
+        <li
+          class="ant-transfer-list-content-item"
+          title="content1"
         >
-          <div
-            class="ant-empty-image"
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
           >
-            <svg
-              class="ant-empty-img-simple"
-              height="41"
-              viewBox="0 0 64 41"
-              width="64"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="ant-checkbox"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                transform="translate(0 1)"
-              >
-                <ellipse
-                  class="ant-empty-img-simple-ellipse"
-                  cx="32"
-                  cy="33"
-                  rx="32"
-                  ry="7"
-                />
-                <g
-                  class="ant-empty-img-simple-g"
-                  fill-rule="nonzero"
-                >
-                  <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-                  />
-                  <path
-                    class="ant-empty-img-simple-path"
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="ant-empty-description"
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
           >
-            No Data
-          </div>
-        </div>
-      </div>
+            content1
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content3"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content3
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content5"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content5
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content7"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content7
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content9"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content9
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content11"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content11
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content13"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content13
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content15"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content15
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content17"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content17
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content19"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content19
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -3216,7 +5281,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-transfer ant-transfer-status-error"
@@ -3236,6 +5301,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -3264,7 +5330,8 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -3394,6 +5461,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -3422,7 +5490,8 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -3506,6 +5575,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -3534,7 +5604,8 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -3730,6 +5801,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
+                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -3758,7 +5830,8 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
           <span
             class="ant-transfer-list-header-selected"
           >
-            0 item
+            0
+            item
           </span>
           <span
             class="ant-transfer-list-header-title"
@@ -3910,6 +5983,7 @@ Array [
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -3938,7 +6012,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          14 items
+          14
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -3969,7 +6044,7 @@ Array [
                       class="ant-table-content"
                     >
                       <table
-                        style="table-layout:auto"
+                        style="table-layout: auto;"
                       >
                         <colgroup>
                           <col
@@ -3995,6 +6070,7 @@ Array [
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
+                                      value=""
                                     />
                                     <span
                                       class="ant-checkbox-inner"
@@ -4040,6 +6116,7 @@ Array [
                                     class="ant-checkbox-input"
                                     disabled=""
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4083,6 +6160,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4126,6 +6204,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4170,6 +6249,7 @@ Array [
                                     class="ant-checkbox-input"
                                     disabled=""
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4213,6 +6293,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4256,6 +6337,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4299,6 +6381,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4342,6 +6425,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4386,6 +6470,7 @@ Array [
                                     class="ant-checkbox-input"
                                     disabled=""
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4429,6 +6514,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4627,6 +6713,7 @@ Array [
             <input
               class="ant-checkbox-input"
               type="checkbox"
+              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -4655,7 +6742,8 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          6 items
+          6
+          items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -4686,7 +6774,7 @@ Array [
                       class="ant-table-content"
                     >
                       <table
-                        style="table-layout:auto"
+                        style="table-layout: auto;"
                       >
                         <colgroup>
                           <col
@@ -4712,6 +6800,7 @@ Array [
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
+                                      value=""
                                     />
                                     <span
                                       class="ant-checkbox-inner"
@@ -4746,6 +6835,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4775,6 +6865,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4805,6 +6896,7 @@ Array [
                                     class="ant-checkbox-input"
                                     disabled=""
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4834,6 +6926,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4863,6 +6956,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -4892,6 +6986,7 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
+                                    value=""
                                   />
                                   <span
                                     class="ant-checkbox-inner"
@@ -5001,7 +7096,7 @@ Array [
     aria-checked="false"
     class="ant-switch"
     role="switch"
-    style="margin-top:16px"
+    style="margin-top: 16px;"
     type="button"
   >
     <div
@@ -5017,7 +7112,7 @@ Array [
     aria-checked="false"
     class="ant-switch"
     role="switch"
-    style="margin-top:16px"
+    style="margin-top: 16px;"
     type="button"
   >
     <div
@@ -5045,7 +7140,8 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        5 items
+        5
+        items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -5064,7 +7160,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
           <div>
             <input
               aria-label="for screen reader"
-              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
               tabindex="0"
               value=""
             />
@@ -5072,7 +7168,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-tree-treenode"
-            style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+            style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
           >
             <div
               class="ant-tree-indent"
@@ -5084,7 +7180,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
           </div>
           <div
             class="ant-tree-list"
-            style="position:relative"
+            style="position: relative;"
           >
             <div
               class="ant-tree-list-holder"
@@ -5092,7 +7188,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
               <div>
                 <div
                   class="ant-tree-list-holder-inner"
-                  style="display:flex;flex-direction:column"
+                  style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-grabbed="false"
@@ -5343,7 +7439,8 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        0 item
+        0
+        item
       </span>
       <span
         class="ant-transfer-list-header-title"

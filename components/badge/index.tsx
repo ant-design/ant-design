@@ -165,9 +165,11 @@ const Badge: CompoundedComponent = ({
     return (
       <span {...restProps} className={badgeClassName} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
-        <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-          {text}
-        </span>
+        {text && (
+          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
+            {text}
+          </span>
+        )}
       </span>
     );
   }

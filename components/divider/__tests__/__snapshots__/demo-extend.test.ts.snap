@@ -5,17 +5,17 @@ Array [
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-    style="border-width:2px;border-color:#7cb305"
+    style="border-width: 2px; border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
     role="separator"
-    style="border-color:#7cb305"
+    style="border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
     role="separator"
-    style="border-color:#7cb305"
+    style="border-color: #7cb305;"
   >
     <span
       class="ant-divider-inner-text"
@@ -26,12 +26,12 @@ Array [
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
-    style="height:60px;border-color:#7cb305"
+    style="height: 60px; border-color: #7cb305;"
   />,
   <div
     class="ant-divider ant-divider-vertical ant-divider-dashed"
     role="separator"
-    style="height:60px;border-color:#7cb305"
+    style="height: 60px; border-color: #7cb305;"
   />,
 ]
 `;
@@ -107,7 +107,6 @@ Array [
 
 exports[`renders ./components/divider/demo/vertical.md extend context correctly 1`] = `
 Array [
-  "Text",
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
@@ -179,7 +178,7 @@ Array [
   >
     <span
       class="ant-divider-inner-text"
-      style="margin-left:0"
+      style="margin-left: 0px;"
     >
       Left Text with 0 orientationMargin
     </span>
@@ -193,7 +192,7 @@ Array [
   >
     <span
       class="ant-divider-inner-text"
-      style="margin-right:50px"
+      style="margin-right: 50px;"
     >
       Right Text with 50px orientationMargin
     </span>

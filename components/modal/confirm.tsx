@@ -88,6 +88,12 @@ export default function confirm(config: ModalFuncProps) {
         destroy.apply(this, args);
       },
     };
+
+    // Legacy support
+    if (currentConfig.visible) {
+      delete currentConfig.visible;
+    }
+
     render(currentConfig);
   }
 

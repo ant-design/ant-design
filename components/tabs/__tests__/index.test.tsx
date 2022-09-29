@@ -118,7 +118,6 @@ describe('Tabs', () => {
         invalidate
       </Tabs>,
     );
-
     expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(

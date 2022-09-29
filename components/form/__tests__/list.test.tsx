@@ -1,16 +1,24 @@
 import React from 'react';
+import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
 import { fireEvent, render, sleep, act } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 
 describe('Form.List', () => {
-  async function change(wrapper, index, value) {
-    fireEvent.change(wrapper.getElementsByClassName('ant-input')[index], { target: { value } });
+  const change = async (
+    wrapper: ReturnType<typeof render>['container'],
+    index: number,
+    value: string,
+  ) => {
+    fireEvent.change(wrapper.getElementsByClassName('ant-input')?.[index], { target: { value } });
     await sleep();
-  }
+  };
 
-  function testList(name, renderField) {
+  const testList = (
+    name: string,
+    renderField: (value: FormListFieldData) => React.ReactNode,
+  ): void => {
     it(name, async () => {
       jest.useFakeTimers();
 
@@ -19,30 +27,20 @@ describe('Form.List', () => {
           <Form.List name="list">
             {(fields, { add, remove }) => (
               <>
-                {fields.map(field => renderField(field))}
+                {fields.map(renderField)}
                 <Button className="add" onClick={add}>
                   Add
                 </Button>
-                <Button
-                  className="remove-0"
-                  onClick={() => {
-                    remove(0);
-                  }}
-                />
-                <Button
-                  className="remove-1"
-                  onClick={() => {
-                    remove(1);
-                  }}
-                />
+                <Button className="remove-0" onClick={() => remove(0)} />
+                <Button className="remove-1" onClick={() => remove(1)} />
               </>
             )}
           </Form.List>
         </Form>,
       );
 
-      function operate(className) {
-        fireEvent.click(container.querySelector(className));
+      function operate(className: string) {
+        fireEvent.click(container.querySelector(className)!);
         act(() => {
           jest.runAllTimers();
         });
@@ -75,7 +73,7 @@ describe('Form.List', () => {
 
       jest.useRealTimers();
     });
-  }
+  };
 
   testList('operation correctly', field => (
     <Form.Item {...field} rules={[{ required: true }]}>
@@ -93,8 +91,8 @@ describe('Form.List', () => {
   ));
 
   it('correct onFinish values', async () => {
-    async function click(wrapper, className) {
-      fireEvent.click(wrapper.querySelector(className));
+    async function click(wrapper: ReturnType<typeof render>['container'], className: string) {
+      fireEvent.click(wrapper.querySelector(className)!);
     }
 
     const onFinish = jest.fn().mockImplementation(() => {});
@@ -134,7 +132,7 @@ describe('Form.List', () => {
 
     await click(container, '.add');
     await change(container, 0, 'input1');
-    fireEvent.submit(container.querySelector('form'));
+    fireEvent.submit(container.querySelector('form')!);
     await sleep();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1'] });
 
@@ -142,12 +140,12 @@ describe('Form.List', () => {
     await change(container, 1, 'input2');
     await click(container, '.add');
     await change(container, 2, 'input3');
-    fireEvent.submit(container.querySelector('form'));
+    fireEvent.submit(container.querySelector('form')!);
     await sleep();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1', 'input2', 'input3'] });
 
     await click(container, '.remove'); // will remove first input
-    fireEvent.submit(container.querySelector('form'));
+    fireEvent.submit(container.querySelector('form')!);
     await sleep();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input2', 'input3'] });
   });
@@ -155,7 +153,7 @@ describe('Form.List', () => {
   it('list errors', async () => {
     jest.useFakeTimers();
 
-    let operation;
+    let operation: FormListOperation;
     const { container } = render(
       <Form>
         <Form.List
@@ -191,7 +189,7 @@ describe('Form.List', () => {
     }
 
     await addItem();
-    expect(container.querySelector('.ant-form-item-explain div').innerHTML).toEqual('At least 2');
+    expect(container.querySelector('.ant-form-item-explain div')?.innerHTML).toEqual('At least 2');
 
     await addItem();
     expect(container.getElementsByClassName('ant-form-item-explain div')).toHaveLength(0);
@@ -221,7 +219,7 @@ describe('Form.List', () => {
           <Form.List name="list">
             {fields =>
               fields.map(field => (
-                <Form.Item key={field.key} {...field}>
+                <Form.Item {...field} key={field.key}>
                   <Input />
                 </Form.Item>
               ))
@@ -243,7 +241,7 @@ describe('Form.List', () => {
     };
 
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
 
     await sleep();
 

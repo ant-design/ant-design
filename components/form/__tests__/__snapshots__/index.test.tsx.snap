@@ -198,7 +198,7 @@ exports[`Form form should support disabled 1`] = `
                   />
                 </span>
                 <span>
-                   Apple 
+                  Apple
                 </span>
               </label>
               <label
@@ -218,7 +218,7 @@ exports[`Form form should support disabled 1`] = `
                   />
                 </span>
                 <span>
-                   Pear 
+                  Pear
                 </span>
               </label>
             </div>

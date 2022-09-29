@@ -192,18 +192,19 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -218,19 +219,19 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="10 / page"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 10
@@ -238,7 +239,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
               <div
                 aria-label="20 / page"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 20
@@ -246,16 +247,16 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -270,7 +271,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -287,7 +288,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -304,7 +305,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -321,7 +322,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -335,7 +336,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -358,6 +359,9 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
           </svg>
         </span>
       </span>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
     <div
       class="ant-pagination-options-quick-jumper"
@@ -689,18 +693,19 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -715,19 +720,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -735,7 +740,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -743,16 +748,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -767,7 +772,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -784,7 +789,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -801,7 +806,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -818,7 +823,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -832,7 +837,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -855,6 +860,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
     </li>
   </ul>,
@@ -1045,19 +1053,20 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1072,19 +1081,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -1092,7 +1101,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -1100,16 +1109,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -1124,7 +1133,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1141,7 +1150,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1158,7 +1167,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1175,7 +1184,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1189,7 +1198,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -1212,6 +1221,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
     </li>
   </ul>,
@@ -1489,18 +1501,19 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -1515,19 +1528,19 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="10 / page"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 10
@@ -1535,7 +1548,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
               <div
                 aria-label="20 / page"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 20
@@ -1543,16 +1556,16 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -1567,7 +1580,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -1584,7 +1597,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -1601,7 +1614,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -1618,7 +1631,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -1632,7 +1645,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -1655,6 +1668,9 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
           </svg>
         </span>
       </span>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
   </li>
 </ul>
@@ -1848,18 +1864,19 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1874,19 +1891,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -1894,7 +1911,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -1902,16 +1919,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -1926,7 +1943,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1943,7 +1960,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1960,7 +1977,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1977,7 +1994,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -1991,7 +2008,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -2014,6 +2031,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -2215,19 +2235,20 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -2242,19 +2263,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -2262,7 +2283,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -2270,16 +2291,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -2294,7 +2315,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2311,7 +2332,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2328,7 +2349,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2345,7 +2366,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2359,7 +2380,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -2382,6 +2403,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -2663,18 +2687,19 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -2689,19 +2714,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -2709,7 +2734,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -2717,16 +2742,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -2741,7 +2766,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2758,7 +2783,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2775,7 +2800,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2792,7 +2817,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -2806,7 +2831,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -2829,6 +2854,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -3114,19 +3142,20 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -3141,19 +3170,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="true"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -3161,7 +3190,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="false"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -3169,16 +3198,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="true"
@@ -3193,7 +3222,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -3210,7 +3239,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -3227,7 +3256,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -3244,7 +3273,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -3258,7 +3287,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -3281,6 +3310,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -3535,18 +3567,19 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_test_list_test"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_test_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_test_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -3561,19 +3594,19 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
       </div>
       <div>
         <div
-          class="ant-select-dropdown"
-          style="opacity:0"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+          style="opacity: 0;"
         >
           <div>
             <div
-              id="undefined_list"
+              id="rc_select_test_list"
               role="listbox"
-              style="height:0;width:0;overflow:hidden"
+              style="height: 0px; width: 0px; overflow: hidden;"
             >
               <div
                 aria-label="10 / page"
                 aria-selected="true"
-                id="undefined_list_0"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 10
@@ -3581,7 +3614,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
               <div
                 aria-label="20 / page"
                 aria-selected="false"
-                id="undefined_list_1"
+                id="rc_select_test_list_test"
                 role="option"
               >
                 20
@@ -3589,16 +3622,16 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
             </div>
             <div
               class="rc-virtual-list"
-              style="position:relative"
+              style="position: relative;"
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                style="max-height: 256px; overflow-y: auto;"
               >
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    style="display:flex;flex-direction:column"
+                    style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
@@ -3613,7 +3646,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -3630,7 +3663,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -3647,7 +3680,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -3664,7 +3697,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
                       <span
                         aria-hidden="true"
                         class="ant-select-item-option-state"
-                        style="user-select:none;-webkit-user-select:none"
+                        style="user-select: none;"
                         unselectable="on"
                       />
                     </div>
@@ -3678,7 +3711,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -3701,6 +3734,9 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
           </svg>
         </span>
       </span>
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
   </li>
 </ul>
@@ -4025,18 +4061,19 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -4051,19 +4088,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="false"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -4071,7 +4108,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="true"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -4079,16 +4116,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="false"
@@ -4103,7 +4140,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4120,7 +4157,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4137,7 +4174,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4154,7 +4191,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4168,7 +4205,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -4191,6 +4228,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
     </li>
   </ul>,
@@ -4337,18 +4377,19 @@ Array [
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_test_list_test"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_test_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_test_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_test"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -4363,19 +4404,19 @@ Array [
         </div>
         <div>
           <div
-            class="ant-select-dropdown"
-            style="opacity:0"
+            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+            style="opacity: 0;"
           >
             <div>
               <div
-                id="undefined_list"
+                id="rc_select_test_list"
                 role="listbox"
-                style="height:0;width:0;overflow:hidden"
+                style="height: 0px; width: 0px; overflow: hidden;"
               >
                 <div
                   aria-label="10 / page"
                   aria-selected="false"
-                  id="undefined_list_0"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   10
@@ -4383,7 +4424,7 @@ Array [
                 <div
                   aria-label="20 / page"
                   aria-selected="true"
-                  id="undefined_list_1"
+                  id="rc_select_test_list_test"
                   role="option"
                 >
                   20
@@ -4391,16 +4432,16 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                style="position:relative"
+                style="position: relative;"
               >
                 <div
                   class="rc-virtual-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                  style="max-height: 256px; overflow-y: auto;"
                 >
                   <div>
                     <div
                       class="rc-virtual-list-holder-inner"
-                      style="display:flex;flex-direction:column"
+                      style="display: flex; flex-direction: column;"
                     >
                       <div
                         aria-selected="false"
@@ -4415,7 +4456,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4432,7 +4473,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4449,7 +4490,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4466,7 +4507,7 @@ Array [
                         <span
                           aria-hidden="true"
                           class="ant-select-item-option-state"
-                          style="user-select:none;-webkit-user-select:none"
+                          style="user-select: none;"
                           unselectable="on"
                         />
                       </div>
@@ -4480,7 +4521,7 @@ Array [
         <span
           aria-hidden="true"
           class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
+          style="user-select: none;"
           unselectable="on"
         >
           <span
@@ -4503,6 +4544,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div
+          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+        />
       </div>
     </li>
   </ul>,
