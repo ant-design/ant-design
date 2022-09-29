@@ -546,7 +546,7 @@ describe('Tooltip', () => {
     expect(container.querySelector('.ant-tooltip')).toBeTruthy();
   });
 
-  it('add className `${prefixCls}-open` when children className is function', () => {
+  it('add className ant-tooltip-open when children className is function', () => {
     const HOC = ({ className }: { className: Function }) => <span className={className()} />;
     const { container } = render(
       <Tooltip open>

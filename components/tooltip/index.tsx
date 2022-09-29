@@ -4,6 +4,7 @@ import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import flow from 'lodash/flow';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
@@ -12,7 +13,6 @@ import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placem
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
-import flow from 'lodash/flow';
 
 export { AdjustOverflow, PlacementsConfig };
 
