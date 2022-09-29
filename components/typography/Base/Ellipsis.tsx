@@ -172,7 +172,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
-        fontSize: 14,
+        fontSize: 12,
         ...style,
       }}
     >
