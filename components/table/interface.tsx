@@ -87,7 +87,7 @@ export interface FilterDropdownProps {
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
-  closeFilter?: () => void;
+  closeFilter?: () => Function;
 }
 
 export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
