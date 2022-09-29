@@ -17,6 +17,10 @@ const Banner = (props: { location: any }) => {
     <div className="home-banner">
       <Background />
 
+      <p style={{ position: 'absolute', right: 16, bottom: 12, fontSize: 14, color: '#bfbfbf' }}>
+        <FormattedMessage id="app.home.pr-welcome" />
+      </p>
+
       <div className="home-banner-holder">
         <div className="home-banner-content">
           <div>
