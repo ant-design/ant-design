@@ -9772,7 +9772,7 @@ exports[`renders ./components/input/demo/tooltip.md extend context correctly 1`]
 Array [
   <input
     class="ant-input"
-    maxlength="25"
+    maxlength="16"
     placeholder="Input a number"
     style="width: 120px;"
     type="text"

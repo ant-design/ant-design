@@ -169,9 +169,11 @@ const Badge: CompoundedComponent = ({
     return wrapSSR(
       <span {...restProps} className={classNames(badgeClassName, hashId)} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
-        <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-          {text}
-        </span>
+        {text && (
+          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
+            {text}
+          </span>
+        )}
       </span>,
     );
   }
