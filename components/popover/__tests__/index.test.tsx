@@ -43,33 +43,27 @@ describe('Popover', () => {
   });
 
   it('handles empty title/content props safely', () => {
-    const ref = React.createRef<any>();
-
     const { container } = render(
-      <Popover trigger="click" ref={ref}>
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-
     fireEvent.click(container.querySelector('span')!);
 
-    const popup = ref.current?.getPopupDomNode();
-    expect(popup).toBe(null);
+    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
+    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
   });
 
   it('should not render popover when the title & content props is empty', () => {
-    const ref = React.createRef<any>();
-
     const { container } = render(
-      <Popover trigger="click" ref={ref}>
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
-
     fireEvent.click(container.querySelector('span')!);
 
-    const popup = ref.current?.getPopupDomNode();
-    expect(popup).toBe(null);
+    expect(container.querySelector('.ant-popover-title')?.textContent).toBeFalsy();
+    expect(container.querySelector('.ant-popover-inner-content')?.textContent).toBeFalsy();
   });
 
   it('props#overlay do not warn anymore', () => {

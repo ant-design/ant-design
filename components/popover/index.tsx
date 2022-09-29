@@ -59,8 +59,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>((props, ref) => {
       {...otherProps}
       prefixCls={prefixCls}
       ref={ref}
-      overlay={_overlay || Overlay({ title, content, prefixCls })}
-      // overlay={_overlay || <Overlay prefixCls={prefixCls} title={title} content={content} />}
+      overlay={_overlay || <Overlay prefixCls={prefixCls} title={title} content={content} />}
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
     />
   );
