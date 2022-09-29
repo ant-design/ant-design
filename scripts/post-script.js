@@ -2,7 +2,6 @@
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const dayjs = require('dayjs');
-const inquirer = require('inquirer');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
 const packageJson = require('../package.json');
