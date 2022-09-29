@@ -45,31 +45,30 @@ describe('Popover', () => {
   it('handles empty title/content props safely', () => {
     const ref = React.createRef<any>();
 
-    const popover = render(
+    const { container } = render(
       <Popover trigger="click" ref={ref}>
         <span>show me your code</span>
       </Popover>,
     );
 
-    fireEvent.click(popover.container.querySelector('span')!);
+    fireEvent.click(container.querySelector('span')!);
 
-    const popup = ref.current.getPopupDomNode();
+    const popup = ref.current?.getPopupDomNode();
     expect(popup).toBe(null);
   });
 
   it('should not render popover when the title & content props is empty', () => {
     const ref = React.createRef<any>();
 
-    const popover = render(
-      <Popover trigger="click" ref={ref} content="">
+    const { container } = render(
+      <Popover trigger="click" ref={ref}>
         <span>show me your code</span>
       </Popover>,
     );
 
-    fireEvent.click(popover.container.querySelector('span')!);
+    fireEvent.click(container.querySelector('span')!);
 
-    const popup = ref.current.getPopupDomNode();
-
+    const popup = ref.current?.getPopupDomNode();
     expect(popup).toBe(null);
   });
 
