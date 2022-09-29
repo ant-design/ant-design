@@ -24,13 +24,29 @@
         border-bottom-right-radius: @btn-border-radius-sm;
       }
     }
-  }
 
-  // .@{ant-prefix}-space-compact + .@{ant-prefix}-space-compact {
-  //   > &-first-item {
-  //     border-radius: 0;
-  //   }
-  // }
+    // ----------rtl for first item----------
+    &-item&-item-rtl&-first-item {
+      border-top-right-radius: @btn-border-radius-base;
+      border-bottom-right-radius: @btn-border-radius-base;
+
+      .@{prefix-cls}-sm & {
+        border-top-right-radius: @btn-border-radius-sm;
+        border-bottom-right-radius: @btn-border-radius-sm;
+      }
+    }
+
+    // ----------rtl for last item----------
+    &-item&-item-rtl&-last-item {
+      border-top-left-radius: @btn-border-radius-base;
+      border-bottom-left-radius: @btn-border-radius-base;
+
+      .@{prefix-cls}-sm & {
+        border-top-left-radius: @btn-border-radius-sm;
+        border-bottom-left-radius: @btn-border-radius-sm;
+      }
+    }
+  }
 
   & when (not (@real-cls = null)) {
     // border-radius
@@ -57,6 +73,28 @@
         border-bottom-right-radius: @btn-border-radius-sm;
       }
     }
+
+    // ----------rtl for first item----------
+    &-item&-item-rtl&-first-item .@{real-cls} {
+      border-top-right-radius: @btn-border-radius-base;
+      border-bottom-right-radius: @btn-border-radius-base;
+
+      .@{prefix-cls}-sm & {
+        border-top-right-radius: @btn-border-radius-sm;
+        border-bottom-right-radius: @btn-border-radius-sm;
+      }
+    }
+
+    // ----------rtl for last item----------
+    &-item&-item-rtl&-last-item .@{real-cls} {
+      border-top-left-radius: @btn-border-radius-base;
+      border-bottom-left-radius: @btn-border-radius-base;
+
+      .@{prefix-cls}-sm & {
+        border-top-left-radius: @btn-border-radius-sm;
+        border-bottom-left-radius: @btn-border-radius-sm;
+      }
+    }
   }
 }
 
@@ -65,6 +103,11 @@
     // border collapse
     &-item:not(&-last-item) {
       margin-right: -1px;
+    }
+
+    // rtl border collapse
+    &-item&-item-rtl:not(&-last-item) {
+      margin-left: -1px;
     }
 
     &-item {
@@ -84,6 +127,11 @@
     // border collapse
     &-item:not(&-last-item) .@{real-cls} {
       margin-right: -1px;
+    }
+
+    // rtl border collapse
+    &-item&-item-rtl:not(&-last-item) .@{real-cls} {
+      margin-left: -1px;
     }
 
     &-item {

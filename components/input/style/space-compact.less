@@ -107,6 +107,21 @@
     border-left-width: 1px;
   }
 
+  // -------rtl------
+  &-compact-item&-compact-item-rtl&-compact-first-item {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &-compact-item&-compact-item-rtl&-compact-last-item {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &-compact-item&-compact-item-rtl:not(&-compact-first-item):not(&-compact-last-item) {
+    border-radius: 0;
+  }
+
   // addon in Input.Search
   &-search + &-addon {
     padding: 0;
