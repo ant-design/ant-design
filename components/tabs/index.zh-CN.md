@@ -61,7 +61,7 @@ return <Tabs items={items} />;
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
-| size | 大小，提供 `large` `default` 和 `small` 三种大小 | string | `default` |  |
+| size | 大小，提供 `large` `middle` 和 `small` 三种大小 | string | `middle` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
