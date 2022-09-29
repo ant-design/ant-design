@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
 
@@ -36,20 +36,59 @@ describe('Tree', () => {
     const { container } = render(
       <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
     expect(container.querySelectorAll('.switcherIcon').length).toBe(1);
   });
 
+  it('leaf nodes should render custom icons when provided', () => {
+    const { container } = render(
+      <Tree showLine={{ showLeafIcon: <i className="customLeafIcon" /> }} defaultExpandAll>
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(container.querySelectorAll('.customLeafIcon').length).toBe(2);
+  });
+
+  it('leaf nodes should render custom icons when provided as render function', () => {
+    const { container } = render(
+      <Tree showLine={{ showLeafIcon: () => <i className="customLeafIcon" /> }} defaultExpandAll>
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+
+    expect(container.querySelectorAll('.customLeafIcon').length).toBe(2);
+  });
+
+  it('leaf nodes should render custom icons when provided as string', async () => {
+    render(
+      <Tree showLine={{ showLeafIcon: 'customLeafIcon' }} defaultExpandAll>
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+
+    const customIcons = await screen.findAllByText('customLeafIcon');
+    expect(customIcons).toHaveLength(2);
+  });
+
   it('switcherIcon in Tree could be string', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -66,8 +105,8 @@ describe('Tree', () => {
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
@@ -83,8 +122,8 @@ describe('Tree', () => {
         }
       >
         <TreeNode icon="icon">
-          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
-          <TreeNode id="node2" title="node2" key="0-0-3" />
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
         </TreeNode>
       </Tree>,
     );

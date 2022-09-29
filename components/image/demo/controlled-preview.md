@@ -30,7 +30,7 @@ const App: React.FC = () => {
           max={5}
           defaultValue={0.5}
           step={0.1}
-          onChange={val => setScaleStep(val)}
+          onChange={val => setScaleStep(val!)}
         />
       </div>
       <br />

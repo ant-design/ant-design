@@ -12,6 +12,7 @@ import Tooltip from '../../tooltip';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
+import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -1953,7 +1954,8 @@ describe('Table.filter', () => {
                 { text: '节点二', value: 'node2' },
                 { text: '节点三', value: 'node3' },
               ],
-              filterSearch: (input: any, record: any) => record.title.includes(input),
+              filterSearch: (input: any, record: TreeColumnFilterItem) =>
+                (record.title as string).includes(input),
             },
           ],
         }),

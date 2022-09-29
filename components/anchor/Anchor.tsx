@@ -147,6 +147,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
   }
 
   componentDidUpdate() {
+    const { getCurrentAnchor } = this.props;
+    const { activeLink } = this.state;
     if (this.scrollEvent) {
       const currentContainer = this.getContainer();
       if (this.scrollContainer !== currentContainer) {
@@ -155,6 +157,9 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
         this.scrollEvent = addEventListener(this.scrollContainer, 'scroll', this.handleScroll);
         this.handleScroll();
       }
+    }
+    if (typeof getCurrentAnchor === 'function') {
+      this.setCurrentActiveLink(getCurrentAnchor(activeLink || ''), false);
     }
     this.updateInk();
   }
@@ -224,7 +229,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     this.inkNode = node;
   };
 
-  setCurrentActiveLink = (link: string) => {
+  setCurrentActiveLink = (link: string, triggerChange = true) => {
     const { activeLink } = this.state;
     const { onChange, getCurrentAnchor } = this.props;
     if (activeLink === link) {
@@ -234,7 +239,9 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     this.setState({
       activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link,
     });
-    onChange?.(link);
+    if (triggerChange) {
+      onChange?.(link);
+    }
   };
 
   handleScroll = () => {

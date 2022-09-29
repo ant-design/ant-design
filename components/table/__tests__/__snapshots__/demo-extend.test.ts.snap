@@ -551,7 +551,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           John Brown
                         </a>
                       </div>
@@ -606,7 +606,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Jim Green
                         </a>
                       </div>
@@ -666,7 +666,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Joe Black
                         </a>
                       </div>
@@ -14535,7 +14535,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Brown
                         </a>
                       </div>
@@ -14593,7 +14593,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Green
                         </a>
                       </div>
@@ -14656,7 +14656,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Black
                         </a>
                       </div>
@@ -16548,9 +16548,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16588,7 +16585,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16768,9 +16765,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16808,7 +16802,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16988,9 +16982,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17028,7 +17019,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17598,9 +17589,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17638,7 +17626,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17818,9 +17806,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17858,7 +17843,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18038,9 +18023,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18078,7 +18060,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18648,9 +18630,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18688,7 +18667,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18868,9 +18847,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18908,7 +18884,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19088,9 +19064,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -19128,7 +19101,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20214,7 +20187,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             John Brown
                           </a>
                         </div>
@@ -20271,7 +20244,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             Jim Green
                           </a>
                         </div>
@@ -20333,7 +20306,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             Joe Black
                           </a>
                         </div>
@@ -23912,7 +23885,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -23955,7 +23928,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -23998,7 +23971,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -24041,7 +24014,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -24084,7 +24057,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26576,7 +26549,7 @@ Array [
       class="ant-space-item"
       style="margin-right: 8px;"
     >
-      CheckStrictly: 
+      CheckStrictly:
     </div>
     <div
       class="ant-space-item"
@@ -26878,7 +26851,7 @@ Array [
       class="ant-space-item"
       style="margin-right: 8px;"
     >
-      Fixed first column: 
+      Fixed first column:
     </div>
     <div
       class="ant-space-item"

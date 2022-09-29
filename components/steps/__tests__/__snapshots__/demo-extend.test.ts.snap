@@ -278,9 +278,9 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md extend conte
                     class="ant-popover-inner-content"
                   >
                     <span>
-                      step 
+                      step
                       0
-                       status: 
+                       status:
                       finish
                     </span>
                   </div>
@@ -347,9 +347,9 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md extend conte
                     class="ant-popover-inner-content"
                   >
                     <span>
-                      step 
+                      step
                       1
-                       status: 
+                       status:
                       process
                     </span>
                   </div>
@@ -416,9 +416,9 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md extend conte
                     class="ant-popover-inner-content"
                   >
                     <span>
-                      step 
+                      step
                       2
-                       status: 
+                       status:
                       wait
                     </span>
                   </div>
@@ -485,9 +485,9 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md extend conte
                     class="ant-popover-inner-content"
                   >
                     <span>
-                      step 
+                      step
                       3
-                       status: 
+                       status:
                       wait
                     </span>
                   </div>

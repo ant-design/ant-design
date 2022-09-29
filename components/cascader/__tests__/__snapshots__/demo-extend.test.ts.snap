@@ -495,11 +495,11 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
     >
       <span>
         Zhejiang
-         / 
+         /
       </span>
       <span>
         Hangzhou
-         / 
+         /
       </span>
       <span>
         West Lake
