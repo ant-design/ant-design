@@ -134,6 +134,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
+    onChange,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -198,6 +199,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus?.(e);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    removePasswordTimeout();
+    onChange?.(e);
+  };
+
   const suffixNode = (hasFeedback || suffix) && (
     <>
       {suffix}
@@ -224,6 +230,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
+      onChange={handleChange}
       addonAfter={
         addonAfter && (
           <NoFormStyle override status>
