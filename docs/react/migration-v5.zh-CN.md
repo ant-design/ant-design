@@ -158,36 +158,8 @@ export default {
 
 ## 开始升级
 
-#### 使用迁移工具修改
-
-> 将会在 5.0 正式版发布后提供。
-
-```bash
-# 通过 npx 直接运行
-npx -p @ant-design/codemod-v5 antd5-codemod <path>
-
-# 或者全局安装
-# 使用 npm
-npm i -g @ant-design/codemod-v5
-# 或者使用 yarn
-yarn global add @ant-design/codemod-v5
-
-# 运行
-antd5-codemod src
-```
-
-> 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
-
-同时也可以针对某项改动使用迁移工具单独执行，下面是所有迁移脚本的说明：
-
-#### 安装兼容包
-
-安装 `@ant-design/compatible` 通过指定 `v5-compatible-v4` tag 确认为 v5 兼容 v4 版本：
-
-```bash
-npm install --save @ant-design/compatible@v5-compatible-v4
-```
+您可以参照上文所述改动手动修改，我们也会在正式版发布后提供 codemod 工具来帮助您自动升级。
 
 ## 遇到问题
 
-如果你在升级过程中遇到了问题，请到 [GitHub issues](http://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。
+如果您在升级过程中遇到了问题，请到 [GitHub issues](http://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。

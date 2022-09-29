@@ -157,35 +157,7 @@ export default {
 
 ## Start upgrading
 
-#### Migrate with codemod
-
-> Not provided yet, coming soon after `5.0.0` release.
-
-```bash
-# Run directly through npx
-npx -p @ant-design/codemod-v5 antd5-codemod src
-
-# Or global installation
-# Use npm
-npm i -g @ant-design/codemod-v5
-# Use yarn
-yarn global add @ant-design/codemod-v5
-
-# Execute
-antd5-codemod src
-```
-
-> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
-
-At the same time, you can also use the codemod tool to apply a single change for a certain change. The following is a description of all the migration scripts:
-
-#### Install compatible package
-
-Install `@ant-design/compatible` with `v5-compatible-v4` tag:
-
-```bash
-npm install --save @ant-design/compatible@v5-compatible-v4
-```
+You can apply the changes mentioned above manually, and also we will provide codemod tool after released to help you upgrade.
 
 ## Encounter problems
 
