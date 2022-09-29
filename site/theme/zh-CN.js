@@ -37,6 +37,8 @@ module.exports = {
     'app.demo.stackblitz': '在 Stackblitz 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
     'app.home.introduce': '企业级产品设计体系，创造高效愉悦的工作体验',
+    'app.home.pr-welcome':
+      '💡 当前为 alpha 版本，仍在开发中。欢迎社区一起共建，让 Ant Design 变得更好！',
     'app.home.recommend': '精彩推荐',
     'app.home.popularize': '推广',
     'app.home.design-and-framework': '设计语言与研发框架',

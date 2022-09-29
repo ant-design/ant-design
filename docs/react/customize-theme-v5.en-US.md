@@ -14,22 +14,22 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ## 在 ConfigProvider 中配置主题
 
-通过在 ConfigProvider 中传入 theme，可以配置主题，在升级 v5 后，将默认使用 v5 的主题，以下是将主题切换至 v4 的示例：
+在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。
+
+### 修改主题变量
+
+通过在 ConfigProvider 中传入 `theme`，可以配置主题。在升级 v5 后，将默认使用 v5 的主题，以下是将配置主题示例：
 
 ```tsx
 import React from 'react';
-import { ConfigProvider, Button, theme } from 'antd';
-
-const { defaultAlgorithmV4 } = theme;
+import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
       token: {
-        colorPrimary: '#1890ff',
-        radiusBase: 2,
+        colorPrimary: '#00b96b',
       },
-      algorithm: defaultAlgorithmV4,
     }}
   >
     <Button />
@@ -39,88 +39,45 @@ const App: React.FC = () => (
 export default App;
 ```
 
-> 完整的主题配置将会在 v4 兼容包中提供。
+这将会得到一个以 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b` 为主色的主题，以 Button 组件为例可以看到相应的变化：
 
-## 定制主题
+![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
-`theme` 是一系列 **Design Token** 的集合，当我们传入 `theme` 后，antd 的组件就会根据相应的 **Design Token** 改变自己的样式。
+### 修改组件变量 (Component Token)
 
-我们将依次介绍四类 **Design Token**
-
-### 基础变量（Seed Token）
-
-在大部分情况下，使用 **Seed Token** 就可以基本满足定制主题的需要，比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 **Seed Token** 计算出对应的一系列颜色并应用：
+除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
 
 ```tsx
-const theme = {
-  token: {
-    colorPrimary: '#1890ff',
-  },
-};
+import React from 'react';
+import { ConfigProvider, Radio, Checkbox } from 'antd';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
 ```
 
-### 梯度变量（Map Token）
+通过这种方式，我们可以仅将 Radio 组件的主色改为 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`，而不会影响其他组件。
 
-**Map Token** 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
-
-```tsx
-const theme = {
-  token: {
-    colorPrimaryBg: '#e6f7ff',
-  },
-};
-```
-
-### 别名变量（Alias Token）
-
-Alias Token 用于批量控制某些共性组件的样式，基本上是 Map Token 别名，或者特殊处理过的 Map Token。
-
-```tsx
-const theme = {
-  token: {
-    colorLink: '#1890ff',
-  },
-};
-```
-
-### 组件变量（Component Token）
-
-除了整体的 Token 链路之外，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
-
-```tsx
-const theme = {
-  components: {
-    Menu: {
-      colorItemText: 'rgba(0, 0, 0, 0.88)',
-      colorLink: '#1890ff',
-    },
-  },
-};
-```
-
-### 基本算法（algorithm)
-
-基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。在 v5 中，我们默认提供了三种算法，分别是默认算法（defaultAlgorithm）、暗色算法（darkAlgorithm）和紧凑算法（compactAlgorithm）。算法可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
-
-```tsx
-import { theme } from 'antd';
-
-const { darkAlgorithm, compactAlgorithm } = theme;
-
-const theme = {
-  algorithm: [darkAlgorithm, compactAlgorithm],
-};
-```
-
-### 演变过程
-
-![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
+![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 
 ## 动态主题的其他使用方式
 
 ### 动态切换
 
-在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不用额外配置任何东西。
+在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不需要任何额外配置。
 
 ### 局部主题
 
@@ -173,9 +130,63 @@ const App: React.FC = () => {
 export default App;
 ```
 
-### 在 umi 4 中定制主题
+## 进阶使用
 
-> TODO
+在 Design Token 中我们提供了一套更加贴合设计的三层结构，将 Design Token 拆解为 Seed Token、Map Token 和 Alias Token 三部分。这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。在大部分情况下，使用 Seed Token 就可以满足定制主题的需要。但如果您需要更高程度的主题定制，您需要了解 antd 中 Design Token 的生命周期。
+
+### 演变过程
+
+![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
+
+### 基础变量（Seed Token）
+
+Seed Token 意味着所有设计意图的起源。比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 Seed Token 计算出对应的一系列颜色并应用：
+
+```tsx
+const theme = {
+  token: {
+    colorPrimary: '#1890ff',
+  },
+};
+```
+
+### 梯度变量（Map Token）
+
+Map Token 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
+
+```tsx
+const theme = {
+  token: {
+    colorPrimaryBg: '#e6f7ff',
+  },
+};
+```
+
+### 别名变量（Alias Token）
+
+Alias Token 用于批量控制某些共性组件的样式，基本上是 Map Token 别名，或者特殊处理过的 Map Token。
+
+```tsx
+const theme = {
+  token: {
+    colorLink: '#1890ff',
+  },
+};
+```
+
+### 基本算法（algorithm)
+
+基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。在 v5 中，我们默认提供了三种算法，分别是默认算法（defaultAlgorithm）、暗色算法（darkAlgorithm）和紧凑算法（compactAlgorithm）。算法可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
+
+```tsx
+import { theme } from 'antd';
+
+const { darkAlgorithm, compactAlgorithm } = theme;
+
+const theme = {
+  algorithm: [darkAlgorithm, compactAlgorithm],
+};
+```
 
 ## API
 
@@ -231,6 +242,8 @@ export default App;
 | wireframe | 线框化 | `boolean` | `false` |
 
 ### MapToken
+
+> 继承所有 SeedToken 的属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -321,7 +334,9 @@ export default App;
 | controlHeightSM | - | `number` | `16` |
 | controlHeightLG | - | `number` | `40` |
 
-### AliasToken (待补全)
+### AliasToken
+
+> 继承所有 SeedToken 和 MapToken 的属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -435,3 +450,9 @@ export default App;
 ### 为什么 `theme` 从 `undefined` 变为对象或者变为 `undefined` 时组件重新 mount 了？
 
 在 ConfigProvider 中我们通过 `DesignTokenContext` 传递 context，`theme` 为 `undefined` 时不会套一层 Provider，所以从无到有或者从有到无时 React 的 VirtualDOM 结构变化，导致组件重新 mount。解决方法：将 `undefined` 替换为空对象 `{}` 即可。
+
+<div style="display: none;">
+- 在 Umi 4 中定制主题
+- 与 V4 定制主题的区别
+- less 变量与 Design Token 对照表
+</div>
