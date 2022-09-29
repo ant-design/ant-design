@@ -2,12 +2,13 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
 
+import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 
 export interface SpaceCompactItemContextType {
-  size?: SizeType;
-  direction?: 'horizontal' | 'vertical';
+  compactSize?: SizeType;
+  compactDirection?: 'horizontal' | 'vertical';
   isItem?: boolean;
   isFirstItem?: boolean;
   isLastItem?: boolean;
@@ -15,23 +16,24 @@ export interface SpaceCompactItemContextType {
 
 export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType>({});
 
-export const useCompactItemContext = (prefixCls: string) => {
-  const { size, direction, isItem, isFirstItem, isLastItem } =
+export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
+  const { compactSize, compactDirection, isItem, isFirstItem, isLastItem } =
     React.useContext(SpaceCompactItemContext);
 
   const compactItemClassnames = React.useMemo(() => {
-    const joiner = direction === 'vertical' ? '-vertical-' : '-';
+    const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
     return classNames({
-      [`${prefixCls}-compact${joiner}item`]: isItem,
-      [`${prefixCls}-compact${joiner}first-item`]: isFirstItem,
-      [`${prefixCls}-compact${joiner}last-item`]: isLastItem,
+      [`${prefixCls}-compact${separator}item`]: isItem,
+      [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
+      [`${prefixCls}-compact${separator}last-item`]: isLastItem,
+      [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
     });
-  }, [prefixCls, isItem, isFirstItem, isLastItem]);
+  }, [prefixCls, compactDirection, direction, isItem, isFirstItem, isLastItem]);
 
   return {
-    size,
-    direction,
+    compactSize,
+    compactDirection,
     compactItemClassnames,
   };
 };
@@ -95,8 +97,8 @@ const Compact: React.FC<SpaceCompactProps> = props => {
         return (
           <CompactItem
             key={key}
-            size={size}
-            direction={direction}
+            compactSize={size}
+            compactDirection={direction}
             isItem
             isFirstItem={i === 0}
             isLastItem={i === childNodes.length - 1}

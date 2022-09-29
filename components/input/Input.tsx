@@ -144,7 +144,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputRef = useRef<InputRef>(null);
 
   // ===================== Compact Item =====================
-  const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);

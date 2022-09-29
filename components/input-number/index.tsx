@@ -53,7 +53,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
-  const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;

@@ -239,7 +239,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
-  const { size: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
   const sizeFullname = compactSize || groupSize || customizeSize || size;
