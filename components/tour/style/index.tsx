@@ -1,299 +1,150 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken } from '../../theme';
+import { initZoomMotion } from '../../style/motion';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
 import { resetComponent } from '../../style';
+import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 
-/** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   zIndexPopup: number;
+  colorBgDefault: string;
 }
 
-type FloatButtonToken = FullToken<'FloatButton'> & {
-  floatButtonColor: string;
-  floatButtonBackgroundColor: string;
-  floatButtonHoverBackgroundColor: string;
-  floatButtonFontSize: number;
-  floatButtonSize: number;
-  floatButtonIconSize: number;
+interface TooltipToken extends FullToken<'Tooltip'> {
+  // default variables
+  tooltipMaxWidth: number;
+  tooltipColor: string;
+  tooltipBg: string;
+  tooltipBorderRadius: number;
+  tooltipRadiusOuter: number;
+}
 
-  // Position
-  floatButtonInsetBlockEnd: number;
-  floatButtonInsetInlineEnd: number;
+const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = token => {
+  const { componentCls } = token;
+
+  return PresetColors.reduce((previousValue: any, currentValue: keyof PresetColorType) => {
+    const lightColor = token[`${currentValue}-6`];
+    previousValue[`&${componentCls}-${currentValue}`] = {
+      [`${componentCls}-inner`]: {
+        backgroundColor: lightColor,
+      },
+      [`${componentCls}-arrow`]: {
+        '--antd-arrow-background-color': lightColor,
+      },
+    };
+    return previousValue;
+  }, {});
 };
 
-// ============================== Group ==============================
-const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonSize, margin, radiusBase, motionDurationSlow } = token;
-  const groupPrefixCls = `${componentCls}-group`;
-  const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
-    '0%': {
-      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-
-    '100%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-  });
-  const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
-    '0%': {
-      transform: 'translate3d(0, 0, 0)',
-      transformOrigin: '0 0',
-      opacity: 1,
-    },
-
-    '100%': {
-      transform: `translate3d(0, ${floatButtonSize}px, 0)`,
-      transformOrigin: '0 0',
-      opacity: 0,
-    },
-  });
-  return {
-    [groupPrefixCls]: {
-      ...resetComponent(token),
-      zIndex: 99,
-      display: 'block',
-      border: 'none',
-      position: 'fixed',
-      width: floatButtonSize,
-      height: 'auto',
-      boxShadow: 'none',
-      minHeight: floatButtonSize,
-      insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
-      backgroundColor: token.colorBgContainer,
-      borderRadius: token.radiusBase,
-      [`${groupPrefixCls}-wrap`]: {
-        zIndex: -1,
-        display: 'block',
-        position: 'relative',
-        marginBottom: margin,
-      },
-      '&&-rtl': {
-        direction: 'rtl',
-      },
-      [componentCls]: {
-        position: 'static',
-      },
-    },
-    [`${groupPrefixCls}-circle`]: {
-      [`${componentCls}-circle:not(:last-child)`]: {
-        marginBottom: token.margin,
-        [`${componentCls}-body`]: {
-          width: floatButtonSize,
-          height: floatButtonSize,
-        },
-      },
-    },
-    [`${groupPrefixCls}-square`]: {
-      [`${componentCls}-square`]: {
-        borderRadius: 0,
-        padding: 0,
-        '&:first-child': {
-          borderStartStartRadius: radiusBase,
-          borderStartEndRadius: radiusBase,
-        },
-        '&:last-child': {
-          borderEndStartRadius: radiusBase,
-          borderEndEndRadius: radiusBase,
-        },
-        '&:not(:last-child)': {
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-        },
-      },
-      [`${groupPrefixCls}-wrap`]: {
-        display: 'block',
-        borderRadius: radiusBase,
-        boxShadow: token.boxShadowSecondary,
-        overflow: 'hidden',
-        [`${componentCls}-square`]: {
-          boxShadow: 'none',
-          marginTop: 0,
-          borderRadius: 0,
-          padding: token.paddingXXS,
-          '&:first-child': {
-            borderStartStartRadius: radiusBase,
-            borderStartEndRadius: radiusBase,
-          },
-          '&:last-child': {
-            borderEndStartRadius: radiusBase,
-            borderEndEndRadius: radiusBase,
-          },
-          '&:not(:last-child)': {
-            borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          },
-          [`${componentCls}-body`]: {
-            width: floatButtonSize - token.paddingXXS * 2,
-            height: floatButtonSize - token.paddingXXS * 2,
-          },
-        },
-      },
-    },
-
-    [`${groupPrefixCls}-wrap-enter,${groupPrefixCls}-wrap-enter-active`]: {
-      animationName: moveDownIn,
-      animationDuration: motionDurationSlow,
-    },
-    [`${groupPrefixCls}-wrap-leave`]: {
-      animationName: moveDownOut,
-      animationDuration: motionDurationSlow,
-    },
-
-    [`${groupPrefixCls}-circle-shadow`]: {
-      boxShadow: 'none',
-    },
-    [`${groupPrefixCls}-square-shadow`]: {
-      boxShadow: token.boxShadowSecondary,
-      [`${componentCls}-square`]: {
-        boxShadow: 'none',
-        padding: token.paddingXXS,
-        [`${componentCls}-body`]: {
-          width: floatButtonSize - token.paddingXXS * 2,
-          height: floatButtonSize - token.paddingXXS * 2,
-        },
-      },
-    },
-  };
-};
-
-// ============================== Shared ==============================
-const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonIconSize, floatButtonSize } = token;
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-      border: 'none',
-      position: 'fixed',
-      cursor: 'pointer',
-      overflow: 'hidden',
-      zIndex: 99,
-      display: 'block',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: floatButtonSize,
-      height: floatButtonSize,
-      insetInlineEnd: token.floatButtonInsetInlineEnd,
-      insetBlockEnd: token.floatButtonInsetBlockEnd,
-      boxShadow: token.boxShadowSecondary,
-      '&:empty': {
-        display: 'none',
-      },
-      [`${componentCls}-body`]: {
-        width: floatButtonSize,
-        height: floatButtonSize,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        transition: `all ${token.motionDurationFast}`,
-        [`${componentCls}-content`]: {
-          overflow: 'hidden',
-          textAlign: 'center',
-          minHeight: floatButtonSize,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: `2px 4px`,
-          [`${componentCls}-icon`]: {
-            textAlign: 'center',
-            margin: 'auto',
-            width: floatButtonIconSize,
-            fontSize: floatButtonIconSize,
-            lineHeight: 1,
-          },
-        },
-      },
-    },
-    [`${componentCls}-circle`]: {
-      height: floatButtonSize,
-      borderRadius: '50%',
-      [`${componentCls}-body`]: {
-        borderRadius: '50%',
-      },
-    },
-    [`${componentCls}-square`]: {
-      height: 'auto',
-      minHeight: floatButtonSize,
-      borderRadius: token.radiusBase,
-      [`${componentCls}-body`]: {
-        height: 'auto',
-        borderRadius: token.radiusSM,
-      },
-    },
-    [`${componentCls}-default`]: {
-      backgroundColor: token.colorBgContainer,
-      transition: `background-color ${token.motionDurationFast}`,
-      [`${componentCls}-body`]: {
-        backgroundColor: token.colorBgContainer,
-        transition: `background-color ${token.motionDurationFast}`,
-        '&:hover': {
-          backgroundColor: token.colorFillContent,
-        },
-        [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
-            color: token.colorText,
-          },
-          [`${componentCls}-description`]: {
-            display: 'flex',
-            alignItems: 'center',
-            lineHeight: `${token.fontSizeLG}px`,
-            color: token.colorText,
-            fontSize: token.fontSizeSM,
-          },
-        },
-      },
-    },
-    [`${componentCls}-primary`]: {
-      backgroundColor: token.colorPrimary,
-      [`${componentCls}-body`]: {
-        backgroundColor: token.colorPrimary,
-        transition: `background-color ${token.motionDurationFast}`,
-        '&:hover': {
-          backgroundColor: token.colorPrimaryHover,
-        },
-        [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
-            color: token.colorTextLightSolid,
-          },
-          [`${componentCls}-description`]: {
-            display: 'flex',
-            alignItems: 'center',
-            lineHeight: `${token.fontSizeLG}px`,
-            color: token.colorTextLightSolid,
-            fontSize: token.fontSizeSM,
-          },
-        },
-      },
-    },
-  };
-};
-
-// ============================== Export ==============================
-export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
+const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
   const {
-    colorTextLightSolid,
-    colorBgContainer,
-    controlHeightLG,
-    marginXXL,
-    marginLG,
-    fontSize,
-    fontSizeIcon,
-    controlItemBgHover,
+    componentCls, // ant-tooltip
+    tooltipMaxWidth,
+    tooltipColor,
+    tooltipBg,
+    tooltipBorderRadius,
+    zIndexPopup,
+    controlHeight,
+    boxShadowSecondary,
+    paddingSM,
+    paddingXS,
+    tooltipRadiusOuter,
   } = token;
-  const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-    floatButtonBackgroundColor: colorBgContainer,
-    floatButtonColor: colorTextLightSolid,
-    floatButtonHoverBackgroundColor: controlItemBgHover,
-    floatButtonFontSize: fontSize,
-    floatButtonIconSize: fontSizeIcon * 1.5,
-    floatButtonSize: controlHeightLG,
+  return [
+    {
+      [componentCls]: {
+        ...resetComponent(token),
+        position: 'absolute',
+        zIndex: zIndexPopup,
+        display: 'block',
+        '&': [{ width: 'max-content' }, { width: 'intrinsic' }],
+        maxWidth: tooltipMaxWidth,
+        visibility: 'visible',
+        '&-hidden': {
+          display: 'none',
+        },
 
-    floatButtonInsetBlockEnd: marginXXL,
-    floatButtonInsetInlineEnd: marginLG,
+        [`${componentCls}-content`]: {
+          position: 'relative',
+        },
+
+        '--antd-arrow-background-color': tooltipBg,
+
+        // Wrapper for the tooltip content
+        [`${componentCls}-inner`]: {
+          minWidth: controlHeight,
+          minHeight: controlHeight,
+          padding: `${paddingSM / 2}px ${paddingXS}px`,
+          color: tooltipColor,
+          textAlign: 'start',
+          textDecoration: 'none',
+          wordWrap: 'break-word',
+          backgroundColor: tooltipBg,
+          borderRadius: tooltipBorderRadius,
+          boxShadow: boxShadowSecondary,
+        },
+
+        // Limit left and right placement radius
+        [[
+          `&-placement-left`,
+          `&-placement-leftTop`,
+          `&-placement-leftBottom`,
+          `&-placement-right`,
+          `&-placement-rightTop`,
+          `&-placement-rightBottom`,
+        ].join(',')]: {
+          [`${componentCls}-inner`]: {
+            borderRadius:
+              tooltipBorderRadius > MAX_VERTICAL_CONTENT_RADIUS
+                ? MAX_VERTICAL_CONTENT_RADIUS
+                : tooltipBorderRadius,
+          },
+        },
+
+        // generator for preset color
+        ...generatorTooltipPresetColor(token),
+
+        // RTL
+        '&-rtl': {
+          direction: 'rtl',
+        },
+      },
+    },
+
+    // Arrow Style
+    getArrowStyle<TooltipToken>(
+      mergeToken<TooltipToken>(token, {
+        radiusOuter: tooltipRadiusOuter,
+      }),
+      {
+        colorBg: 'var(--antd-arrow-background-color)',
+        showArrowCls: '',
+        contentRadius: tooltipBorderRadius,
+        limitVerticalRadius: true,
+      },
+    ),
+
+    // Pure Render
+    {
+      [`${componentCls}-pure`]: {
+        position: 'relative',
+        maxWidth: 'none',
+      },
+    },
+  ];
+};
+// ============================== Export ==============================
+
+export default genComponentStyleHook('Tooltip', token => {
+  const { radiusBase, colorTextLightSolid, colorBgDefault, radiusOuter } = token;
+  const TooltipToken = mergeToken<TooltipToken>(token, {
+    // default variables
+    tooltipMaxWidth: 250,
+    tooltipColor: colorTextLightSolid,
+    tooltipBorderRadius: radiusBase,
+    tooltipBg: colorBgDefault,
+    tooltipRadiusOuter: radiusOuter > 4 ? 4 : radiusOuter,
   });
-  return [floatButtonGroupStyle(floatButtonToken), sharedFloatButtonStyle(floatButtonToken)];
+  console.log('styles', genTooltipStyle(TooltipToken));
+  return [genTooltipStyle(TooltipToken)];
 });
