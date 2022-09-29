@@ -60,19 +60,21 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
   return nodeList;
 }
 
-enum WalkingState {
-  NONE,
-  PREPARE,
-  WALKING,
-  DONE_WITH_ELLIPSIS,
-  DONE_WITHOUT_ELLIPSIS,
-}
+const WalkingStates = {
+  NONE: 0,
+  PREPARE: 1,
+  WALKING: 2,
+  DONE_WITH_ELLIPSIS: 3,
+  DONE_WITHOUT_ELLIPSIS: 4,
+} as const;
+
+type WalkingState = typeof WalkingStates[keyof typeof WalkingStates];
 
 const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: EllipsisProps) => {
   const [[startLen, midLen, endLen], setCutLength] = React.useState<
     [startLen: number, midLen: number, endLen: number]
   >([0, 0, 0]);
-  const [walkingState, setWalkingState] = React.useState(WalkingState.NONE);
+  const [walkingState, setWalkingState] = React.useState<WalkingState>(WalkingStates.NONE);
 
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
 
@@ -83,7 +85,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
 
   const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure || walkingState !== WalkingState.DONE_WITH_ELLIPSIS) {
+    if (!enabledMeasure || walkingState !== WalkingStates.DONE_WITH_ELLIPSIS) {
       return children(nodeList, false);
     }
 
@@ -93,31 +95,31 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   // ======================== Walk ========================
   useIsomorphicLayoutEffect(() => {
     if (enabledMeasure && width && totalLen) {
-      setWalkingState(WalkingState.PREPARE);
+      setWalkingState(WalkingStates.PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
   }, [enabledMeasure, width, text, totalLen, rows]);
 
   useIsomorphicLayoutEffect(() => {
-    if (walkingState === WalkingState.PREPARE) {
+    if (walkingState === WalkingStates.PREPARE) {
       setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
     }
   }, [walkingState]);
 
   useIsomorphicLayoutEffect(() => {
     if (singleRowHeight) {
-      if (walkingState === WalkingState.PREPARE) {
+      if (walkingState === WalkingStates.PREPARE) {
         // Ignore if position is enough
         const midHeight = midRowRef.current?.offsetHeight || 0;
         const maxHeight = rows * singleRowHeight;
 
         if (midHeight <= maxHeight) {
-          setWalkingState(WalkingState.DONE_WITHOUT_ELLIPSIS);
+          setWalkingState(WalkingStates.DONE_WITHOUT_ELLIPSIS);
           onEllipsis(false);
         } else {
-          setWalkingState(WalkingState.WALKING);
+          setWalkingState(WalkingStates.WALKING);
         }
-      } else if (walkingState === WalkingState.WALKING) {
+      } else if (walkingState === WalkingStates.WALKING) {
         if (startLen !== endLen) {
           const midHeight = midRowRef.current?.offsetHeight || 0;
           const maxHeight = rows * singleRowHeight;
@@ -138,7 +140,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
 
           setCutLength([nextStartLen, nextMidLen, nextEndLen]);
         } else {
-          setWalkingState(WalkingState.DONE_WITH_ELLIPSIS);
+          setWalkingState(WalkingStates.DONE_WITH_ELLIPSIS);
           onEllipsis(true);
         }
       }
@@ -188,13 +190,13 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
       {mergedChildren}
       {/* Measure usage */}
       {enabledMeasure &&
-        walkingState !== WalkingState.DONE_WITH_ELLIPSIS &&
-        walkingState !== WalkingState.DONE_WITHOUT_ELLIPSIS && (
+        walkingState !== WalkingStates.DONE_WITH_ELLIPSIS &&
+        walkingState !== WalkingStates.DONE_WITHOUT_ELLIPSIS && (
           <>
             {/* `l` for top & `g` for bottom measure */}
             {renderMeasure('lg', singleRowRef, { wordBreak: 'keep-all', whiteSpace: 'nowrap' })}
             {/* {renderMeasureSlice(midLen, midRowRef)} */}
-            {walkingState === WalkingState.PREPARE
+            {walkingState === WalkingStates.PREPARE
               ? renderMeasure(children(nodeList, false), midRowRef, measureStyle)
               : renderMeasureSlice(midLen, midRowRef)}
           </>
