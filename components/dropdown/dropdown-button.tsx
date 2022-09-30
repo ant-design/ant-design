@@ -28,6 +28,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
 }
 
 interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+  /** @internal */
   __ANT_BUTTON: boolean;
 }
 
