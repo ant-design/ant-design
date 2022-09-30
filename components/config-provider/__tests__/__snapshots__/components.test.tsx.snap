@@ -16231,7 +16231,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     class="config-input-affix-wrapper config-input-password"
   >
     <input
-      action="click"
       class="config-input"
       type="password"
       value=""
@@ -16329,7 +16328,6 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password"
   >
     <input
-      action="click"
       class="config-input config-input-disabled"
       disabled=""
       type="password"
@@ -16426,7 +16424,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
-      action="click"
       class="config-input config-input-lg"
       type="password"
       value=""
@@ -16521,7 +16518,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     class="config-input-affix-wrapper config-input-password"
   >
     <input
-      action="click"
       class="config-input"
       type="password"
       value=""
@@ -16616,7 +16612,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
     class="ant-input-affix-wrapper ant-input-password"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""
@@ -16711,7 +16706,6 @@ exports[`ConfigProvider components Input normal 1`] = `
     class="ant-input-affix-wrapper ant-input-password"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""
@@ -16806,7 +16800,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     class="ant-input-affix-wrapper prefix-Input"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""

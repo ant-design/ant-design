@@ -3,12 +3,14 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-
 import { useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
+
+const defaultIconRender = (visible: boolean) =>
+  visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
@@ -30,13 +32,12 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (disabled) {
       return;
     }
-
-    setVisible(!visible);
+    setVisible(prevState => !prevState);
   };
 
   const getIcon = (prefixCls: string) => {
-    const { action, iconRender = () => null } = props;
-    const iconTrigger = ActionMap[action!] || '';
+    const { action = 'click', iconRender = defaultIconRender } = props;
+    const iconTrigger = ActionMap[action] || '';
     const icon = iconRender(visible);
     const iconProps = {
       [iconTrigger]: onVisibleChange,
@@ -62,7 +63,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
       size,
-      visibilityToggle,
+      visibilityToggle = true,
       ...restProps
     } = props;
 
@@ -91,12 +92,6 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
   return <ConfigConsumer>{renderPassword}</ConfigConsumer>;
 });
-
-Password.defaultProps = {
-  action: 'click',
-  visibilityToggle: true,
-  iconRender: (visible: boolean) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />),
-};
 
 if (process.env.NODE_ENV !== 'production') {
   Password.displayName = 'Password';
