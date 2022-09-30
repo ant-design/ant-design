@@ -60,7 +60,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props));
 
-    let initExpandedKeys: any;
+    let initExpandedKeys: Key[];
 
     // Expanded keys
     if (defaultExpandAll) {
@@ -71,7 +71,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         keyEntities,
       );
     } else {
-      initExpandedKeys = props.expandedKeys || defaultExpandedKeys;
+      initExpandedKeys = (props.expandedKeys || defaultExpandedKeys)!;
     }
     return initExpandedKeys;
   };
@@ -89,7 +89,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
 
   React.useEffect(() => {
     if ('expandedKeys' in props) {
-      setExpandedKeys(props.expandedKeys);
+      setExpandedKeys(props.expandedKeys!);
     }
   }, [props.expandedKeys]);
 
