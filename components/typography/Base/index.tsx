@@ -106,7 +106,7 @@ function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: b
   return dom || (needDom && defaultNode);
 }
 
-function toList<T>(val: T | T[]): T[] {
+function toList<T extends any>(val: T | T[]): T[] {
   if (val === false) {
     return [false, false] as T[];
   }
