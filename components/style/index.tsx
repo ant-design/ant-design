@@ -97,7 +97,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-export const genCommonStyle = (token: DerivativeToken, rootPrefixCls: string) => {
+export const genCommonStyle = (token: DerivativeToken, rootPrefixCls: string): CSSObject => {
   const { fontFamily, fontSize } = token;
 
   const rootPrefixSelector = `[class^="${rootPrefixCls}-"], [class*=" ${rootPrefixCls}-"]`;
