@@ -97,7 +97,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const { compactSize: compactSize, compactItemClassnames } = useCompactItemContext(prefixCls);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;

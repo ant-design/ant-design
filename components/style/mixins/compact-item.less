@@ -5,7 +5,7 @@
       border-radius: 0;
     }
 
-    &-item&-first-item {
+    &-item&-first-item:not(&-item-rtl) {
       border-top-left-radius: @btn-border-radius-base;
       border-bottom-left-radius: @btn-border-radius-base;
 
@@ -15,7 +15,7 @@
       }
     }
 
-    &-item&-last-item {
+    &-item&-last-item:not(&-item-rtl) {
       border-top-right-radius: @btn-border-radius-base;
       border-bottom-right-radius: @btn-border-radius-base;
 
@@ -54,7 +54,7 @@
       border-radius: 0;
     }
 
-    &-item&-first-item .@{real-cls} {
+    &-item&-first-item:not(&-item-rtl) .@{real-cls} {
       border-top-left-radius: @btn-border-radius-base;
       border-bottom-left-radius: @btn-border-radius-base;
 
@@ -64,7 +64,7 @@
       }
     }
 
-    &-item&-last-item .@{real-cls} {
+    &-item&-last-item:not(&-item-rtl) .@{real-cls} {
       border-top-right-radius: @btn-border-radius-base;
       border-bottom-right-radius: @btn-border-radius-base;
 
@@ -101,7 +101,7 @@
 .compact-item-border(@prefix-cls, @real-cls: null) {
   & when (@real-cls = null) {
     // border collapse
-    &-item:not(&-last-item) {
+    &-item:not(&-last-item):not(&-item-rtl) {
       margin-right: -1px;
     }
 
@@ -125,7 +125,7 @@
 
   & when (not (@real-cls = null)) {
     // border collapse
-    &-item:not(&-last-item) .@{real-cls} {
+    &-item:not(&-last-item):not(&-item-rtl) .@{real-cls} {
       margin-right: -1px;
     }
 
