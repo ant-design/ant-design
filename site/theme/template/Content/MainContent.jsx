@@ -1,7 +1,7 @@
 import React, { cloneElement, Component } from 'react';
 import { Link, browserHistory } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown, Drawer } from 'antd';
-import { injectIntl } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import {
   LeftOutlined,
   RightOutlined,
@@ -523,8 +523,8 @@ class MainContent extends Component {
                 onClick={() => this.setState({ mobileMenuOpen: true })}
                 className="mobile-menu-trigger"
               >
-                <DoubleRightOutlined style={{ marginRight: 4, fontSize: 12 }} />
-                目录
+                <DoubleRightOutlined style={{ marginRight: 3 }} />
+                <FormattedMessage id="app.header.menu.article.trigger" />
               </a>
               <Drawer
                 placement="left"
