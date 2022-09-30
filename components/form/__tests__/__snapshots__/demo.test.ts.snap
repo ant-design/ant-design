@@ -516,7 +516,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password"
             >
               <input
-                action="click"
                 aria-required="true"
                 class="ant-input"
                 id="basic_password"
@@ -703,7 +702,6 @@ Array [
                 class="ant-input-affix-wrapper ant-input-password"
               >
                 <input
-                  action="click"
                   aria-required="true"
                   class="ant-input"
                   id="basic_password"
@@ -966,7 +964,6 @@ Array [
                 class="ant-input-affix-wrapper ant-input-password"
               >
                 <input
-                  action="click"
                   aria-required="true"
                   class="ant-input"
                   id="responsive_password"
@@ -4382,7 +4379,6 @@ exports[`renders ./components/form/demo/label-debug.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password"
             >
               <input
-                action="click"
                 class="ant-input"
                 id="label-ellipsis_password"
                 type="password"
@@ -5398,7 +5394,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
             >
               <input
-                action="click"
                 aria-required="true"
                 class="ant-input"
                 id="register_password"
@@ -5468,7 +5463,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
             >
               <input
-                action="click"
                 aria-required="true"
                 class="ant-input"
                 id="register_confirm"
@@ -10869,7 +10863,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
             >
               <input
-                action="click"
                 class="ant-input"
                 placeholder="with input password"
                 type="password"
@@ -10960,7 +10953,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <input
-                action="click"
                 class="ant-input"
                 placeholder="with input password and allowClear"
                 type="password"
