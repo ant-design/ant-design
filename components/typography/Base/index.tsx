@@ -285,8 +285,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
-  const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
+  const [ellipsisFontSize, setEllipsisFontSize] = React.useState(0);
+  const onResize = ({ offsetWidth }: { offsetWidth: number }, element: HTMLElement) => {
     setEllipsisWidth(offsetWidth);
+    setEllipsisFontSize(parseInt(window.getComputedStyle?.(element).fontSize, 10));
   };
 
   // >>>>> JS Ellipsis
@@ -523,6 +525,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
               text={children}
               rows={rows}
               width={ellipsisWidth}
+              fontSize={ellipsisFontSize}
               onEllipsis={onJsEllipsis}
             >
               {(node, needEllipsis) => {
