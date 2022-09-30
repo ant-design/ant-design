@@ -18,6 +18,7 @@ jobs:
     name: deploy preview
     runs-on: ubuntu-latest
     if: >
+      github.repository == 'ant-design/ant-design' &&
       github.event.workflow_run.conclusion == 'success'
     steps:
       - name: checkout
