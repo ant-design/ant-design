@@ -7,7 +7,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import type { PickerDateProps, PickerLocale, PickerProps, PickerTimeProps } from '.';
+import type { PickerDateProps, PickerProps, PickerTimeProps } from '.';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -114,7 +114,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         return (
           <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-            {(contextLocale: PickerLocale) => {
+            {contextLocale => {
               const locale = { ...contextLocale, ...props.locale };
 
               return (

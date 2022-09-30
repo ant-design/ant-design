@@ -9,7 +9,11 @@ export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
 export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleComponentName> {
   componentName: C;
   defaultLocale?: Locale[C] | (() => Locale[C]);
-  children: (locale: Locale[C], localeCode?: string, fullLocale?: object) => React.ReactNode;
+  children: (
+    locale: NonNullable<Locale[C]>,
+    localeCode: string,
+    fullLocale: Locale,
+  ) => React.ReactNode;
 }
 
 export default class LocaleReceiver<
@@ -23,7 +27,7 @@ export default class LocaleReceiver<
 
   context: LocaleContextProps;
 
-  getLocale(): Locale[C] {
+  getLocale(): NonNullable<Locale[C]> {
     const { componentName, defaultLocale } = this.props;
     const locale = defaultLocale || defaultLocaleData[componentName ?? 'global'];
     const antLocale = this.context;

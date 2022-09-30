@@ -25,7 +25,7 @@ export interface Locale {
   Table?: TableLocale;
   Modal?: ModalLocale;
   Popconfirm?: PopconfirmLocale;
-  Transfer?: Partial<TransferLocale>;
+  Transfer?: TransferLocale;
   Select?: Record<string, any>;
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
