@@ -17,8 +17,6 @@ import ComponentDoc from './ComponentDoc';
 import ComponentOverview from './ComponentOverview';
 import * as utils from '../utils';
 
-const { SubMenu } = Menu;
-
 function getModuleData(props) {
   const { pathname } = props.location;
   const moduleName = /^\/?components/.test(pathname)
@@ -147,7 +145,7 @@ class MainContent extends Component {
       }
       if (menuItem.children) {
         return (
-          <SubMenu title={menuItem.title} key={menuItem.title}>
+          <Menu.SubMenu title={menuItem.title} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
@@ -158,7 +156,7 @@ class MainContent extends Component {
               }
               return this.generateMenuItem(false, child, footerNavIcons);
             })}
-          </SubMenu>
+          </Menu.SubMenu>
         );
       }
       return this.generateMenuItem(true, menuItem, footerNavIcons);
@@ -312,7 +310,7 @@ class MainContent extends Component {
     if (!menu) {
       return null;
     }
-    if (menu.type && menu.type.isMenuItem) {
+    if (menu.type && menu.type === Menu.Item) {
       return menu;
     }
     if (Array.isArray(menu)) {
