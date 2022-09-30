@@ -8678,7 +8678,6 @@ exports[`renders ./components/input/demo/password-input.md extend context correc
       class="ant-input-affix-wrapper ant-input-password"
     >
       <input
-        action="click"
         class="ant-input"
         placeholder="input password"
         type="password"
@@ -8720,7 +8719,6 @@ exports[`renders ./components/input/demo/password-input.md extend context correc
       class="ant-input-affix-wrapper ant-input-password"
     >
       <input
-        action="click"
         class="ant-input"
         placeholder="input password"
         type="password"

@@ -3,13 +3,13 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-
 import { useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
+const defaultIconRender = (v: boolean) => (v ? <EyeOutlined /> : <EyeInvisibleOutlined />);
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
@@ -30,24 +30,23 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (disabled) {
       return;
     }
-
-    setVisible(!visible);
+    setVisible(v => !v);
   };
 
   const getIcon = (prefixCls: string) => {
-    const { action, iconRender = () => null } = props;
-    const iconTrigger = ActionMap[action!] || '';
+    const { action = 'click', iconRender = defaultIconRender } = props;
+    const iconTrigger = ActionMap[action] || '';
     const icon = iconRender(visible);
     const iconProps = {
       [iconTrigger]: onVisibleChange,
       className: `${prefixCls}-icon`,
       key: 'passwordIcon',
-      onMouseDown: (e: MouseEvent) => {
+      onMouseDown(e: MouseEvent) {
         // Prevent focused state lost
         // https://github.com/ant-design/ant-design/issues/15173
         e.preventDefault();
       },
-      onMouseUp: (e: MouseEvent) => {
+      onMouseUp(e: MouseEvent) {
         // Prevent caret position change
         // https://github.com/ant-design/ant-design/issues/23524
         e.preventDefault();
@@ -62,7 +61,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
       size,
-      visibilityToggle,
+      visibilityToggle = true,
       ...restProps
     } = props;
 
@@ -91,12 +90,6 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
   return <ConfigConsumer>{renderPassword}</ConfigConsumer>;
 });
-
-Password.defaultProps = {
-  action: 'click',
-  visibilityToggle: true,
-  iconRender: (visible: boolean) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />),
-};
 
 if (process.env.NODE_ENV !== 'production') {
   Password.displayName = 'Password';
