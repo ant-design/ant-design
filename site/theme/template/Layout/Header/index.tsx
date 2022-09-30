@@ -296,11 +296,12 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
             {isMobile && <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />}
             <Drawer
               open={menuVisible}
-              placement="left"
+              placement="right"
               title={null}
               closable={false}
               onClose={() => setHeaderState(prev => ({ ...prev, menuVisible: false }))}
               bodyStyle={{ margin: '0 -23px' }}
+              drawerStyle={{ overflowX: 'hidden' }}
               width={260}
             >
               {menu}

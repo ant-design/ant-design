@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React, { cloneElement, Component } from 'react';
 import { Link, browserHistory } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown } from 'antd';
+import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown, Drawer } from 'antd';
 import { injectIntl } from 'react-intl';
-import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
+import {
+  LeftOutlined,
+  RightOutlined,
+  ExportOutlined,
+  DoubleRightOutlined,
+} from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
-import MobileMenu from 'rc-drawer';
 
 import ThemeIcon from './ThemeIcon';
 import Article from './Article';
@@ -484,7 +488,7 @@ class MainContent extends Component {
 
   render() {
     const { demos, location } = this.props;
-    const { openKeys } = this.state;
+    const { openKeys, mobileMenuOpen } = this.state;
     const { isMobile, theme, setIframeTheme } = this.context;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
@@ -504,6 +508,7 @@ class MainContent extends Component {
         openKeys={openKeys}
         selectedKeys={[activeMenuItem]}
         onOpenChange={this.handleMenuOpenChange}
+        onClick={() => this.setState({ mobileMenuOpen: false })}
       >
         {menuItems}
       </Menu>
@@ -513,9 +518,28 @@ class MainContent extends Component {
       <div className="main-wrapper">
         <Row>
           {isMobile ? (
-            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
-              {menuChild}
-            </MobileMenu>
+            <>
+              <a
+                onClick={() => this.setState({ mobileMenuOpen: true })}
+                className="mobile-menu-trigger"
+              >
+                <DoubleRightOutlined style={{ marginRight: 4, fontSize: 12 }} />
+                目录
+              </a>
+              <Drawer
+                placement="left"
+                width={300}
+                title={null}
+                closable={false}
+                open={mobileMenuOpen}
+                bodyStyle={{ overflowX: 'hidden' }}
+                onClose={() => this.setState({ mobileMenuOpen: false })}
+              >
+                {cloneElement(menuChild, {
+                  style: { margin: '0 -24px' },
+                })}
+              </Drawer>
+            </>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
               <Affix>
