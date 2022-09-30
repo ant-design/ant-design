@@ -2,7 +2,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { genFontStyle, genLinkStyle } from '../../style';
+import { genCommonStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
@@ -67,7 +67,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         // Link
         '&': genLinkStyle(token),
       },
-      genFontStyle(token, rootPrefixCls),
+      genCommonStyle(token, rootPrefixCls),
     ]);
 
     return [
