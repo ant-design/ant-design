@@ -190,4 +190,125 @@ describe('Dropdown', () => {
 
     errSpy.mockRestore();
   });
+
+  it('control dropdown visibility by menu keys when click menu item', () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Dropdown
+        trigger={['click']}
+        closeOnSelectKeys={['close']}
+        overlay={
+          <Menu
+            items={[
+              {
+                key: '1',
+                label: 'menu item 1',
+                title: 'menu item 1',
+              },
+              {
+                key: '2',
+                label: 'menu item 2',
+                title: 'menu item 2',
+              },
+              {
+                key: '3',
+                label: 'menu item 3',
+                title: 'menu item 3',
+              },
+              {
+                key: 'close',
+                danger: true,
+                label: 'close',
+                title: 'close',
+              },
+            ]}
+          />
+        }
+      >
+        <a />
+      </Dropdown>,
+    );
+
+    // Open
+    fireEvent.click(container.querySelector('a')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // do not close when click item's key is not include in closeOnSelectKeys
+    fireEvent.click(container.querySelector('[title="menu item 1"]')!);
+
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
+
+    // Open
+    fireEvent.click(container.querySelector('a')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // dropdown should be closed when click item's key is include closeOnSelectKeys
+    fireEvent.click(container.querySelector('[title="close"]')!);
+
+    // Force Motion move on
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+
+    // Motion End
+    fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active')!);
+
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
+
+    // =========================================
+    // if closeOnSelectKeys pass with empty array,dropdown will not close when click menu item
+    const { container: container2 } = render(
+      <Dropdown
+        trigger={['click']}
+        closeOnSelectKeys={[]}
+        overlay={
+          <Menu
+            items={[
+              {
+                key: '1',
+                label: 'menu item 1',
+                title: 'menu item 1',
+              },
+              {
+                key: '2',
+                label: 'menu item 2',
+                title: 'menu item 2',
+              },
+              {
+                key: '3',
+                label: 'menu item 3',
+                title: 'menu item 3',
+              },
+              {
+                key: 'close',
+                danger: true,
+                label: 'close',
+                title: 'close',
+              },
+            ]}
+          />
+        }
+      >
+        <a />
+      </Dropdown>,
+    );
+    // Open
+    fireEvent.click(container2.querySelector('a')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // do not close when click item's key is not include in closeOnSelectKeys
+    fireEvent.click(container2.querySelector('[title="menu item 1"]')!);
+    expect(container2.querySelector('.ant-dropdown-hidden')).toBeFalsy();
+    fireEvent.click(container2.querySelector('[title="close"]')!);
+    expect(container2.querySelector('.ant-dropdown-hidden')).toBeFalsy();
+    jest.useRealTimers();
+  });
 });

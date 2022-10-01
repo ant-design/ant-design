@@ -1,6 +1,7 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
+import { MenuInfo } from 'rc-menu/lib/interface';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
@@ -76,6 +77,7 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+  closeOnSelectKeys?: React.Key[];
 }
 
 interface DropdownInterface extends React.FC<DropdownProps> {
@@ -146,6 +148,7 @@ const Dropdown: DropdownInterface = props => {
     open,
     onVisibleChange,
     onOpenChange,
+    closeOnSelectKeys,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -189,8 +192,14 @@ const Dropdown: DropdownInterface = props => {
     autoAdjustOverflow: true,
   });
 
-  const onMenuClick = React.useCallback(() => {
-    setOpen(false);
+  const onMenuClick = React.useCallback((info: MenuInfo) => {
+    if (closeOnSelectKeys) {
+      if (closeOnSelectKeys.includes(info.key)) {
+        setOpen(false);
+      }
+    } else {
+      setOpen(false);
+    }
   }, []);
 
   const renderOverlay = () => {

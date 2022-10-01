@@ -33,6 +33,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | - | 4.23.0 |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#why-open)） | (open: boolean) => void | - | 4.23.0 |
+| closeOnSelectKeys | 当单击菜单项时，通过菜单`key`控制点击该菜单项点击之后是否需要关闭下拉菜单 | React.key[] | - |  |
 
 `overlay` 菜单使用 [Menu](/components/menu/)，还包括菜单项 `Menu.Item`，分割线 `Menu.Divider`。
 

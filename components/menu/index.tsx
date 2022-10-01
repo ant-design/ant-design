@@ -98,7 +98,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   // Tell dropdown that item clicked
   const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
     onClick?.(...args);
-    override?.onClick?.();
+    override?.onClick?.(...args);
   });
 
   // ========================== Mode ===========================
