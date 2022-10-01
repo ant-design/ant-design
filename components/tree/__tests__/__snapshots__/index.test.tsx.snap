@@ -230,9 +230,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               title="parent 1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1
@@ -283,9 +280,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               title="parent 1-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-0
@@ -320,9 +314,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               title="leaf"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 leaf
@@ -357,9 +348,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               title="leaf"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 leaf
@@ -393,9 +381,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="leaf"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -447,9 +432,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               title="parent 1-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-1
@@ -499,9 +481,6 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
               title="parent 1-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -573,11 +552,6 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
-              >
-                icon
-              </span>
-              <span
                 class="ant-tree-title"
               >
                 ---
@@ -605,11 +579,6 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
               title="node1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
-              >
-                icon
-              </span>
-              <span
                 class="ant-tree-title"
               >
                 node1
@@ -636,9 +605,6 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="node2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -710,11 +676,6 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
-              >
-                icon
-              </span>
-              <span
                 class="ant-tree-title"
               >
                 ---
@@ -762,10 +723,8 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               title="node1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
-              >
-                icon
-              </span>
+                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
+              />
               <span
                 class="ant-tree-title"
               >

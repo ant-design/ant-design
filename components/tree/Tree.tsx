@@ -177,10 +177,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     draggable,
     motion = { ...collapseMotion, motionAppear: false },
   } = props;
+
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
 
   const newProps = {
     ...props,
+    checkable,
+    selectable,
+    showIcon,
+    motion,
+    blockNode,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -212,7 +218,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   return (
     <RcTree
-      motion={motion}
       itemHeight={20}
       ref={ref}
       virtual={virtual}

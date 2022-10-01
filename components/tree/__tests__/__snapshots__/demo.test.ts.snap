@@ -82,9 +82,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               title="parent 1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1
@@ -139,9 +136,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               title="parent 1-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-0
@@ -179,9 +173,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               title="leaf"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 leaf
@@ -218,9 +209,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="leaf"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -276,9 +264,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               title="parent 1-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-1
@@ -315,9 +300,6 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title=""
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -418,9 +400,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0
@@ -475,9 +454,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-0
@@ -514,9 +490,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-0"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -555,9 +528,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0-0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-0-1
@@ -594,9 +564,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -652,9 +619,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-1
@@ -691,9 +655,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-1-0"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -732,9 +693,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0-1-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-1-1
@@ -772,9 +730,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-0-1-2"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-1-2
@@ -808,9 +763,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -862,9 +814,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               title="0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-1
@@ -894,9 +843,6 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -2460,9 +2406,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               title="0-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0
@@ -2533,9 +2476,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               title="0-0-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-0
@@ -2588,9 +2528,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-0"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -2645,9 +2582,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               title="0-0-0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-0-1
@@ -2700,9 +2634,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -2774,9 +2705,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               title="0-0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-0-1
@@ -2826,9 +2754,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -2896,9 +2821,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               title="0-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 0-1
@@ -2944,9 +2866,6 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -3036,9 +2955,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               title="Expand to load"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 Expand to load
@@ -3082,9 +2998,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               title="Expand to load"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 Expand to load
@@ -3107,9 +3020,6 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="Tree Node"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -3784,9 +3694,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 title=""
               >
                 <span
-                  class="ant-tree-iconEle ant-tree-icon__close"
-                />
-                <span
                   class="ant-tree-title"
                 >
                   <span>
@@ -3835,9 +3742,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 title=""
               >
                 <span
-                  class="ant-tree-iconEle ant-tree-icon__close"
-                />
-                <span
                   class="ant-tree-title"
                 >
                   <span>
@@ -3865,9 +3769,6 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                 class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
                 title=""
               >
-                <span
-                  class="ant-tree-iconEle ant-tree-icon__docu"
-                />
                 <span
                   class="ant-tree-title"
                 >
@@ -3963,9 +3864,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               title="parent 1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1
@@ -4013,9 +3911,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               title="parent 1-0"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-0
@@ -4050,9 +3945,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               title="leaf"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 leaf
@@ -4087,9 +3979,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               title="leaf"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
-              <span
                 class="ant-tree-title"
               >
                 leaf
@@ -4123,9 +4012,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="leaf"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__docu"
-              />
               <span
                 class="ant-tree-title"
               >
@@ -4174,9 +4060,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               title="parent 1-1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
-              <span
                 class="ant-tree-title"
               >
                 parent 1-1
@@ -4223,9 +4106,6 @@ exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
               title="parent 1-2"
             >
-              <span
-                class="ant-tree-iconEle ant-tree-icon__close"
-              />
               <span
                 class="ant-tree-title"
               >
