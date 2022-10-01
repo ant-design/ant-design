@@ -51,7 +51,7 @@ export const Overlay: React.FC<OverlayProps> = props => {
 
   return (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
-      {(popconfirmLocale: PopconfirmLocale) => (
+      {contextLocale => (
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             {icon}
@@ -60,7 +60,7 @@ export const Overlay: React.FC<OverlayProps> = props => {
           <div className={`${prefixCls}-buttons`}>
             {showCancel && (
               <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-                {cancelText || popconfirmLocale.cancelText}
+                {cancelText ?? contextLocale.cancelText}
               </Button>
             )}
             <ActionButton
@@ -71,7 +71,7 @@ export const Overlay: React.FC<OverlayProps> = props => {
               quitOnNullishReturnValue
               emitEvent
             >
-              {okText || popconfirmLocale.okText}
+              {okText ?? contextLocale.okText}
             </ActionButton>
           </div>
         </div>

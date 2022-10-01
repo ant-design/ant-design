@@ -289,7 +289,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
           {context => (
             <ProviderChildren
               parentContext={context}
-              legacyLocale={legacyLocale as Locale}
+              legacyLocale={legacyLocale}
               {...props}
             />
           )}

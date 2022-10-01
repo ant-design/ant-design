@@ -15,7 +15,6 @@ import type {
   UploadChangeParam,
   UploadFile,
   UploadListType,
-  UploadLocale,
   UploadType,
 } from './interface';
 import { UploadProps } from './interface';
@@ -334,7 +333,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
-        {(locale: UploadLocale) => {
+        {contextLocale => {
           const {
             showRemoveIcon,
             showPreviewIcon,
@@ -360,7 +359,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               previewIcon={previewIcon}
               downloadIcon={downloadIcon}
               iconRender={iconRender}
-              locale={{ ...locale, ...propLocale }}
+              locale={{ ...contextLocale, ...propLocale }}
               isImageUrl={isImageUrl}
               progress={progress}
               appendAction={button}

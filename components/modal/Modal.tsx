@@ -168,25 +168,6 @@ const Modal: React.FC<ModalProps> = props => {
     `\`visible\` will be removed in next major version, please use \`open\` instead.`,
   );
 
-  const renderFooter = (locale: ModalLocale) => {
-    const { okText, okType, cancelText, confirmLoading } = props;
-    return (
-      <>
-        <Button onClick={handleCancel} {...props.cancelButtonProps}>
-          {cancelText || locale.cancelText}
-        </Button>
-        <Button
-          {...convertLegacyProps(okType)}
-          loading={confirmLoading}
-          onClick={handleOk}
-          {...props.okButtonProps}
-        >
-          {okText || locale.okText}
-        </Button>
-      </>
-    );
-  };
-
   const {
     prefixCls: customizePrefixCls,
     footer,
@@ -205,7 +186,25 @@ const Modal: React.FC<ModalProps> = props => {
 
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {renderFooter}
+      {contextLocale => {
+        const { okText, okType, cancelText, confirmLoading } = props;
+
+        return (
+          <>
+            <Button onClick={handleCancel} {...props.cancelButtonProps}>
+              {cancelText || contextLocale.cancelText}
+            </Button>
+            <Button
+              {...convertLegacyProps(okType)}
+              loading={confirmLoading}
+              onClick={handleOk}
+              {...props.okButtonProps}
+            >
+              {okText ?? contextLocale.okText}
+            </Button>
+          </>
+        );
+      }}
     </LocaleReceiver>
   );
 

@@ -10,7 +10,6 @@ import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { ConfigProvider } from 'antd';
 import { browserHistory } from 'bisheng/router';
-import zhCN from 'antd/lib/locale/zh_CN';
 import type { DirectionType } from 'antd/es/config-provider';
 import Header from './Header';
 import type { SiteContextProps } from './SiteContext';
@@ -256,7 +255,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
             defaultLocale="en-US"
           >
             <ConfigProvider
-              locale={appLocale.locale === 'zh-CN' ? zhCN : undefined}
+              locale={appLocale.locale === 'zh-CN' ? cnLocale : undefined}
               direction={direction}
             >
               <Header {...restProps} changeDirection={this.changeDirection} />
