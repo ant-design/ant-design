@@ -192,15 +192,18 @@ const Dropdown: DropdownInterface = props => {
     autoAdjustOverflow: true,
   });
 
-  const onMenuClick = React.useCallback((info: MenuInfo) => {
-    if (closeOnSelectKeys) {
-      if (closeOnSelectKeys.includes(info.key)) {
+  const onMenuClick = React.useCallback(
+    (info: MenuInfo) => {
+      if (closeOnSelectKeys) {
+        if (closeOnSelectKeys.includes(info.key)) {
+          setOpen(false);
+        }
+      } else {
         setOpen(false);
       }
-    } else {
-      setOpen(false);
-    }
-  }, []);
+    },
+    [closeOnSelectKeys],
+  );
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
