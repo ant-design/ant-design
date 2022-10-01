@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.23.4
+
+`2022-10-01`
+
+- 🐞 修复 Typography `ellipsis` 精度问题。[#37802](https://github.com/ant-design/ant-design/pull/37802) [@zheeeng](https://github.com/zheeeng)
+- 🐞 修复 Input.Password 在输入时 input 上会有 `value` 属性的问题。[#37801](https://github.com/ant-design/ant-design/pull/37801) [@MadCcc](https://github.com/MadCcc)
+
 ## 4.23.3
 
 `2022-09-27`
