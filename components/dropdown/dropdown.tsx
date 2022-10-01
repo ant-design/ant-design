@@ -1,7 +1,7 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import { MenuInfo } from 'rc-menu/lib/interface';
+import type { MenuInfo } from 'rc-menu/lib/interface';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
