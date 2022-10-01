@@ -181,7 +181,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   const newProps = {
     ...props,
-    motion,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -213,6 +212,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   return (
     <RcTree
+      motion={motion}
       itemHeight={20}
       ref={ref}
       virtual={virtual}
