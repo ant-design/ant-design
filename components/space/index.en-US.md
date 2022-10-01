@@ -10,7 +10,8 @@ Set components spacing.
 
 ## When To Use
 
-Avoid components clinging together and set a unified space.
+- Avoid components clinging together and set a unified space.
+- Use Space.Compact when child components are compactly connected.
 
 ## API
 
@@ -21,6 +22,14 @@ Avoid components clinging together and set a unified space.
 | size | The space size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
+
+### Space.Compact
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
+| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| size | Set child component size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.24.0 |
 
 ### Size
 
