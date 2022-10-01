@@ -48,7 +48,7 @@ const menu = (
 );
 
 const App: React.FC = () => (
-  <Dropdown closeOnSelectKeys={[]} overlay={menu}>
+  <Dropdown closeOnSelectKeys={['close']} overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
         Hover me
