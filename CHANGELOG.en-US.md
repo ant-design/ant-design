@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.23.4
+
+`2022-10-01`
+
+- 🐞 Fix Typography ellipsis percision bug. [#37802](https://github.com/ant-design/ant-design/pull/37802) [@zheeeng](https://github.com/zheeeng)
+- 🐞 Fix Input.Password that should not have value prop on input when inputing. [#37801](https://github.com/ant-design/ant-design/pull/37801) [@MadCcc](https://github.com/MadCcc)
+
 ## 4.23.3
 
 `2022-09-27`
