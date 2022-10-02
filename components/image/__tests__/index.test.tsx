@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -87,30 +87,20 @@ describe('Image', () => {
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
-  it('Preview children ReRender when forceRender', () => {
-    const PreviewImage: React.FC = () => {
-      const [visible, setVisible] = useState(true);
-      const [imgSrc, setImgSrc] = useState<string | undefined>(src);
-      return (
-        <Image
-          preview={{
-            visible,
-            src: imgSrc,
-            forceRender: true,
-            onVisibleChange: iVisible => {
-              setVisible(iVisible);
-              if (!iVisible) setImgSrc(undefined);
-            },
-          }}
-        />
-      );
-    };
-
-    const { baseElement } = render(<PreviewImage />);
-    const maskDom = baseElement.querySelector('.ant-image-preview-wrap');
-    fireEvent.click(maskDom!);
-    expect(baseElement.querySelector('.ant-image-preview-img')?.getAttribute('src')).toBe(
-      null,
+  it('Preview forceRender props', () => {
+    const onLoadCb = jest.fn();
+    const PreviewImage: React.FC = () => (
+      <Image
+        preview={{
+          visible: false,
+          src,
+          forceRender: true,
+        }}
+      />
     );
+    const { baseElement } = render(<PreviewImage />);
+    expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
+    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('onLoad', onLoadCb);
+    expect(onLoadCb).not.toHaveBeenCalled();
   });
 });
