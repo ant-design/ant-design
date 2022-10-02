@@ -77,7 +77,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 
   // Control mode will auto fill file uid if not provided
-  React.useMemo(() => {
+  React.useEffect(() => {
     const timestamp = Date.now();
 
     (fileList || []).forEach((file, index) => {
