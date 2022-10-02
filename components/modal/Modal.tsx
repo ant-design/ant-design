@@ -172,12 +172,13 @@ const Modal: React.FC<ModalProps> = props => {
     prefixCls: customizePrefixCls,
     footer,
     visible,
-    open,
+    open = false,
     wrapClassName,
     centered,
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
+    width = 520,
     ...restProps
   } = props;
 
@@ -187,7 +188,7 @@ const Modal: React.FC<ModalProps> = props => {
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
       {contextLocale => {
-        const { okText, okType, cancelText, confirmLoading } = props;
+        const { okText, okType = 'primary', cancelText, confirmLoading = false } = props;
 
         return (
           <>
@@ -221,6 +222,7 @@ const Modal: React.FC<ModalProps> = props => {
   return (
     <NoFormStyle status override>
       <Dialog
+        width={width}
         {...restProps}
         getContainer={
           getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
@@ -238,13 +240,6 @@ const Modal: React.FC<ModalProps> = props => {
       />
     </NoFormStyle>
   );
-};
-
-Modal.defaultProps = {
-  width: 520,
-  confirmLoading: false,
-  open: false,
-  okType: 'primary' as LegacyButtonType,
 };
 
 export default Modal;
