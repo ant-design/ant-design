@@ -81,7 +81,7 @@ const options = [
 ];
 
 const App: React.FC = () => (
-  <div className="site-input-group-wrapper">
+  <div className="site-space-compact-wrapper">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
@@ -116,18 +116,12 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Select defaultValue="Zhejianggggg" style={{ width: '50%' }}>
+      <Select multiple defaultValue="Zhejianggggg" style={{ width: '50%' }}>
         <Option value="Zhejianggggg">Zhejianggggg</Option>
         <Option value="Jiangsu">Jiangsu</Option>
       </Select>
       <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </Space.Compact>
-    <br />
-    <Select defaultValue="Zhejianggggg">
-      <Option value="Zhejianggggg">Zhejianggggg</Option>
-      <Option value="Jiangsu">Jiangsu</Option>
-    </Select>
-    <br />
     <br />
     <Space.Compact block>
       <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
@@ -140,7 +134,7 @@ const App: React.FC = () => (
         <Option value="Option2">Option2</Option>
       </Select>
       <Input style={{ width: '50%' }} defaultValue="input content" />
-      <InputNumber />
+      <InputNumber defaultValue={12} />
     </Space.Compact>
     <br />
     <Space.Compact block>
@@ -263,31 +257,25 @@ export default App;
 ```
 
 ```css
-.site-input-group-wrapper .site-input-split {
+.site-space-compact-wrapper .site-input-split {
   background-color: #fff;
 }
 
-.site-input-group-wrapper .site-input-right {
+.site-space-compact-wrapper .site-input-right {
   border-left-width: 0;
 }
 
-.site-input-group-wrapper .site-input-right:hover,
-.site-input-group-wrapper .site-input-right:focus {
+.site-space-compact-wrapper .site-input-right:hover,
+.site-space-compact-wrapper .site-input-right:focus {
   border-left-width: 1px;
 }
 
-.site-input-group-wrapper .ant-input-rtl.site-input-right {
+.site-space-compact-wrapper .ant-input-rtl.site-input-right {
   border-right-width: 0;
 }
 
-.site-input-group-wrapper .ant-input-rtl.site-input-right:hover,
-.site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
+.site-space-compact-wrapper .ant-input-rtl.site-input-right:hover,
+.site-space-compact-wrapper .ant-input-rtl.site-input-right:focus {
   border-right-width: 1px;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-input-group-wrapper .site-input-split {
-  background-color: transparent;
-}
-</style>

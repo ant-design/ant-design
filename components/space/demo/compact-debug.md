@@ -85,33 +85,3 @@ const App: React.FC = () => (
 
 export default App;
 ```
-
-```css
-.site-input-group-wrapper .site-input-split {
-  background-color: #fff;
-}
-
-.site-input-group-wrapper .site-input-right {
-  border-left-width: 0;
-}
-
-.site-input-group-wrapper .site-input-right:hover,
-.site-input-group-wrapper .site-input-right:focus {
-  border-left-width: 1px;
-}
-
-.site-input-group-wrapper .ant-input-rtl.site-input-right {
-  border-right-width: 0;
-}
-
-.site-input-group-wrapper .ant-input-rtl.site-input-right:hover,
-.site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
-  border-right-width: 1px;
-}
-```
-
-<style>
-[data-theme="dark"] .site-input-group-wrapper .site-input-split {
-  background-color: transparent;
-}
-</style>
