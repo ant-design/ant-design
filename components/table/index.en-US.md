@@ -164,9 +164,9 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 Properties for loading.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| type | Loading component to use. Options: `spin` and `skeleton` | string | `spin` |
+| Property  | Description                                              | Type   | Default |
+| --------- | -------------------------------------------------------- | ------ | ------- |
+| component | Loading component to use. Options: `spin` and `skeleton` | string | `spin`  |
 
 For more on props to configure `spin` please check [`Spin`](/components/spin/).
 
