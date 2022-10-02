@@ -87,6 +87,11 @@ const App: React.FC = () => (
       <Input style={{ width: '30%' }} defaultValue="26888888" />
     </Space.Compact>
     <br />
+    <Space.Compact block size="small">
+      <Input defaultValue="https://ant.design" />
+      <Button type="primary">Submit</Button>
+    </Space.Compact>
+    <br />
     <Space.Compact block>
       <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
       <Button type="primary">Submit</Button>
