@@ -15,8 +15,8 @@ Select different settings to see the result.
 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
-import { Form, Radio, Space, Switch, Table, TableLoadingProps } from 'antd';
+import type { RadioChangeEvent, TableLoadingProps } from 'antd';
+import { Form, Radio, Space, Switch, Table } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import type { ColumnsType, TableProps } from 'antd/es/table';
 import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
@@ -115,7 +115,7 @@ const App: React.FC = () => {
   const [xScroll, setXScroll] = useState<string | undefined>(undefined);
 
   const [loading, setLoading] = useState(false);
-  const [loadingType, setLoadingType] = useState<TableLoadingProps>('spin');
+  const [loadingComponent, setLoadingComponent] = useState<TableLoadingProps>('spin');
 
   const handleBorderChange = (enable: boolean) => {
     setBordered(enable);
@@ -161,8 +161,8 @@ const App: React.FC = () => {
     setYScroll(enable);
   };
 
-  const handleLoadingTypeChange = (e: RadioChangeEvent) => {
-    setLoadingType(e.target.value);
+  const handleLoadingComponentChange = (e: RadioChangeEvent) => {
+    setLoadingComponent(e.target.value);
   };
 
   const handleXScrollChange = (e: RadioChangeEvent) => {
@@ -243,7 +243,9 @@ const App: React.FC = () => {
         </Form.Item>
         <Form.Item label="Loading">
           <Switch checked={loading} onChange={handleLoadingChange} />
-          <Radio.Group value={loadingType} onChange={handleLoadingTypeChange}>
+        </Form.Item>
+        <Form.Item label="Loading Component">
+          <Radio.Group value={loadingComponent} onChange={handleLoadingComponentChange}>
             <Radio.Button value="spin">Spin</Radio.Button>
             <Radio.Button value="skeleton">Skeleton</Radio.Button>
           </Radio.Group>
@@ -290,7 +292,11 @@ const App: React.FC = () => {
       </Form>
       <Table
         {...tableProps}
-        loading={loadingType == 'skeleton' ? { type: 'skeleton', loading } : { type: 'spin', spinning: loading }}
+        loading={
+          loadingComponent === 'skeleton'
+            ? { component: 'skeleton', loading, active: true }
+            : { component: 'spin', spinning: loading }
+        }
         pagination={{ position: [top as TablePaginationPosition, bottom] }}
         columns={tableColumns}
         dataSource={hasData ? data : []}

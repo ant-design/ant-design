@@ -596,7 +596,7 @@ describe('Table.pagination', () => {
       } as TableProps<any>),
     );
 
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(2);
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(3);
   });
 
   it('showTotal should hide when removed', () => {

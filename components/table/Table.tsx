@@ -12,8 +12,10 @@ import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import Skeleton, { SkeletonProps } from '../skeleton';
-import Spin, { SpinProps } from '../spin';
+import Skeleton from '../skeleton';
+import type { SkeletonProps } from '../skeleton';
+import Spin from '../spin';
+import type { SpinProps } from '../spin';
 import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import scrollTo from '../_util/scrollTo';
@@ -515,7 +517,7 @@ function InternalTable<RecordType extends object = any>(
       spinning: loading,
     };
   } else if (typeof loading === 'object') {
-    if (loading.component == 'skeleton') {
+    if (loading.component === 'skeleton') {
       if (loading?.loading) {
         const skeletonProps: SkeletonProps = {
           title: false,
@@ -532,11 +534,10 @@ function InternalTable<RecordType extends object = any>(
         const tableRows = typeof loading === 'object' ? loading?.rows ?? 3 : 3;
         const data = Array(tableRows).fill(0);
 
-        const { expandable, ...skeletonTableProps } = tableProps;
-
         return (
           <RcTable<RecordType>
-            {...skeletonTableProps}
+            {...tableProps}
+            expandable={undefined}
             columns={skeletonColumns as RcTableProps<RecordType>['columns']}
             direction={direction}
             prefixCls={prefixCls}
