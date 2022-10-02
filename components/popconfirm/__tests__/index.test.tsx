@@ -28,7 +28,6 @@ describe('Popconfirm', () => {
   afterEach(() => {
     jest.clearAllTimers();
     jest.useRealTimers();
-    jest.runOnlyPendingTimers();
   });
 
   it('should popup Popconfirm dialog', () => {
@@ -133,23 +132,27 @@ describe('Popconfirm', () => {
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();
-    const onOpenChange = jest.fn();
+    const onOpenChange = jest.fn((_, e) => {
+      e?.persist?.();
+    });
     const popconfirm = render(
       <Popconfirm title="code" onConfirm={confirm} onCancel={cancel} onOpenChange={onOpenChange}>
         <span>show me your code</span>
       </Popconfirm>,
     );
-    const triggerNode = popconfirm.container.querySelectorAll('span')[0];
+    const triggerNode = popconfirm.container.querySelector('span')!;
     fireEvent.click(triggerNode);
+    await waitFakeTimer();
+
     fireEvent.click(popconfirm.container.querySelector('.ant-btn-primary')!);
     expect(confirm).toHaveBeenCalled();
-    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
 
     fireEvent.click(triggerNode);
-    fireEvent.click(popconfirm.container.querySelectorAll('.ant-btn')[0]);
-    expect(cancel).toHaveBeenCalled();
     await waitFakeTimer();
+
+    fireEvent.click(popconfirm.container.querySelector('.ant-btn')!);
+    expect(cancel).toHaveBeenCalled();
     expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
   });
 
@@ -158,7 +161,9 @@ describe('Popconfirm', () => {
       new Promise(res => {
         setTimeout(res, 300);
       });
-    const onOpenChange = jest.fn();
+    const onOpenChange = jest.fn((_, e) => {
+      e?.persist?.();
+    });
     const popconfirm = render(
       <Popconfirm title="code" onConfirm={confirm} onOpenChange={onOpenChange}>
         <span>show me your code</span>
@@ -170,7 +175,7 @@ describe('Popconfirm', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(1);
 
     fireEvent.click(popconfirm.container.querySelectorAll('.ant-btn')[0]);
-    await waitFakeTimer(400);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false, eventObject);
   });
 
@@ -225,7 +230,9 @@ describe('Popconfirm', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = jest.fn((_, e) => {
+      e?.persist?.();
+    });
     const wrapper = render(
       <Popconfirm title="title" mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
         <span>Delete</span>
