@@ -57,7 +57,7 @@ return <Tabs items={items} />;
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
-| items | 配置选项卡内容 | [TabItem](#TabItem) | [] | 4.23.0 |
+| items | 配置选项卡内容 | [TabItemType](#TabItemType) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
@@ -75,7 +75,7 @@ return <Tabs items={items} />;
 
 > 更多属性查看 [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
-### TabItem
+### TabItemType
 
 | 参数        | 说明                                            | 类型      | 默认值 |
 | ----------- | ----------------------------------------------- | --------- | ------ |

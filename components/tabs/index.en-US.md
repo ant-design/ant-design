@@ -68,11 +68,11 @@ return <Tabs items={items} />;
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
 | onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
 | onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
-| items | TabItem content | [TabItem](#TabItem) | [] | 4.23.0 |
+| items | TabItem content | [TabItemType](#TabItemType) | [] | 4.23.0 |
 
 More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 
-### TabItem
+### TabItemType
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
