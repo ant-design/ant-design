@@ -41,7 +41,7 @@ const App: React.FC = () => {
         placement="right"
         closable={false}
         onClose={onClose}
-        open={open}
+        visible={open}
         getContainer={false}
         style={{ position: 'absolute' }}
       >
