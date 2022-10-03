@@ -1,5 +1,5 @@
 import type React from 'react';
-import type { TooltipProps } from '../tooltip';
+import type { TourProps } from '../tour';
 
 export type TourType = 'default' | 'primary';
 
@@ -15,7 +15,7 @@ export interface TourProps {
   description?: React.ReactNode;
   type?: TourType;
   shape?: TourShape;
-  tooltip?: TooltipProps['title'];
+  tour?: TourProps['title'];
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   onClick?: React.MouseEventHandler<HTMLElement>;
