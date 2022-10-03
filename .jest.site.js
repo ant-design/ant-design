@@ -13,7 +13,6 @@ module.exports = {
   testRegex: 'check-site\\.js$',
   testEnvironment: 'node',
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',

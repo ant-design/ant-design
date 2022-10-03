@@ -15,7 +15,6 @@ function getTestRegex(libDir) {
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
-  setupFiles: ['./tests/setup.js'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],
@@ -47,7 +46,6 @@ module.exports = {
     '!components/__tests__/node.test.tsx',
   ],
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfig: './tsconfig.test.json',

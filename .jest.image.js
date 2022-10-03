@@ -2,7 +2,6 @@ const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 
 // jest config for image snapshots
 module.exports = {
-  setupFiles: ['./tests/setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   transform: {
@@ -13,7 +12,6 @@ module.exports = {
   },
   testRegex: 'image\\.test\\.(j|t)s$',
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',
