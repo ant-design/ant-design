@@ -6,6 +6,18 @@
 .@{btn-prefix-cls} {
   .compact-item(@btn-prefix-cls);
 
+  &&-compact-item {
+    min-width: @btn-height-base;
+  }
+
+  &-lg &&-compact-item {
+    min-width: @btn-height-lg;
+  }
+
+  &-sm &&-compact-item {
+    min-width: @btn-height-sm;
+  }
+
   // Special styles for Primary Button
   &-compact-item&:not(&-compact-item-rtl) {
     &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {

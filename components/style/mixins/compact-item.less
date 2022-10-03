@@ -98,7 +98,7 @@
   }
 }
 
-.compact-item-border(@prefix-cls, @bordered-item-cls: null) {
+.compact-item-border(@prefix-cls, @bordered-item-cls: null, @extra-open-cls) {
   & when (@bordered-item-cls = null) {
     // border collapse
     &-item:not(&-last-item):not(&-item-rtl) {
@@ -110,15 +110,18 @@
       margin-left: -1px;
     }
 
-    &-item&-first-item {
-      z-index: 2;
-    }
-
     &-item {
       &:hover,
       &:focus,
       &:active {
         z-index: 2;
+      }
+
+      // Select has an extra focus className
+      & when (not (@extra-item-cls = null)) {
+        &.@{extra-item-cls} {
+          z-index: 2;
+        }
       }
 
       &[disabled] {
@@ -138,15 +141,18 @@
       margin-left: -1px;
     }
 
-    &-item&-first-item > * {
-      z-index: 2;
-    }
-
     &-item {
       &:hover,
       &:focus,
       &:active {
         > * {
+          z-index: 2;
+        }
+      }
+
+      // Select has an extra focus className
+      & when (not (@extra-item-cls = null)) {
+        &.@{extra-item-cls} > * {
           z-index: 2;
         }
       }
@@ -158,9 +164,9 @@
   }
 }
 
-.compact-item(@prefix-cls, @bordered-item-cls: null) {
+.compact-item(@prefix-cls, @bordered-item-cls: null, @extra-item-cls: null) {
   &-compact {
-    .compact-item-border(@prefix-cls, @bordered-item-cls);
+    .compact-item-border(@prefix-cls, @bordered-item-cls, @extra-item-cls);
 
     .compact-item-border-radius(@prefix-cls, @bordered-item-cls);
   }
