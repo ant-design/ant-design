@@ -55,9 +55,7 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -227,9 +225,7 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -279,9 +275,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`
 `;
 
 exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -566,9 +560,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -681,9 +673,7 @@ exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -1795,9 +1785,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -1935,9 +1923,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
     class="ant-space-item"
     style="margin-bottom: 24px;"
   >
-    <span
-      class=""
-    >
+    <span>
       <div
         class="ant-upload ant-upload-select ant-upload-select-picture"
       >
@@ -1988,9 +1974,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <span
-      class=""
-    >
+    <span>
       <div
         class="ant-upload ant-upload-select ant-upload-select-picture"
       >
@@ -2622,9 +2606,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
 
 exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
 Array [
-  <span
-    class=""
-  >
+  <span>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
     >
@@ -3046,9 +3028,7 @@ Array [
 `;
 
 exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -3098,9 +3078,7 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -3150,9 +3128,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -3456,9 +3432,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
 
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
 Array [
-  <span
-    class=""
-  >
+  <span>
     <div
       class="ant-upload ant-upload-select ant-upload-select-text"
     >
@@ -3519,9 +3493,7 @@ Array [
 `;
 
 exports[`renders ./components/upload/demo/upload-png-only.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -3600,9 +3572,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class=""
-            >
+            <span>
               <div
                 class="ant-upload ant-upload-select ant-upload-select-text"
               >
