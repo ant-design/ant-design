@@ -3,7 +3,7 @@ import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, waitFakeTimer, render, sleep, triggerResize } from '../../../tests/utils';
+import { fireEvent, waitFakeTimer, render, sleep, triggerResize, pureRender } from '../../../tests/utils';
 import type { RenderOptions } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
@@ -48,7 +48,7 @@ describe('TextArea', () => {
       />
     );
 
-    const { container, rerender } = render(genTextArea());
+    const { container, rerender } = pureRender(genTextArea());
     await waitFakeTimer();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(1);
 
