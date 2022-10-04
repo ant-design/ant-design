@@ -20,6 +20,7 @@ exports[`renders ./components/mentions/demo/autoSize.md extend context correctly
   <textarea
     class="rc-textarea"
     rows="1"
+    style="height: 0px; resize: none;"
   />
 </div>
 `;
