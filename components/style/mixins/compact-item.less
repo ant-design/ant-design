@@ -106,7 +106,7 @@
     }
 
     // rtl border collapse
-    &-item&-item-rtl:not(&-last-item) {
+    &-item:not(&-last-item)&-item-rtl {
       margin-left: -1px;
     }
 
@@ -132,13 +132,13 @@
 
   & when (not (@bordered-item-cls = null)) {
     // border collapse
-    &-item:not(&-last-item):not(&-item-rtl) {
+    &-item:not(&-last-item) {
       margin-right: -1px;
-    }
 
-    // rtl border collapse
-    &-item&-item-rtl:not(&-last-item) .@{bordered-item-cls} {
-      margin-left: -1px;
+      &.@{prefix-cls}-compact-item-rtl {
+        margin-right: 0;
+        margin-left: -1px;
+      }
     }
 
     &-item {

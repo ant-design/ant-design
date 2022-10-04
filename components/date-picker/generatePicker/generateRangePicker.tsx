@@ -13,6 +13,7 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import { useCompactItemContext } from '../../space/Compact';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import enUS from '../locale/en_US';
@@ -54,6 +55,7 @@ export default function generateRangePicker<DateType>(
     const innerRef = React.useRef<RCRangePicker<DateType>>(null);
     const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
+    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
@@ -72,7 +74,7 @@ export default function generateRangePicker<DateType>(
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
-    const mergedSize = customizeSize || size;
+    const mergedSize = compactSize || customizeSize || size;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -131,6 +133,7 @@ export default function generateRangePicker<DateType>(
                   getMergedStatus(contextStatus, customStatus),
                   hasFeedback,
                 ),
+                compactItemClassnames,
                 className,
               )}
               locale={locale!.lang}

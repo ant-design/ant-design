@@ -8,6 +8,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { PickerDateProps, PickerLocale, PickerProps, PickerTimeProps } from '.';
+import { useCompactItemContext } from '../../space/Compact';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -54,6 +55,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
+        const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
@@ -95,7 +97,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         );
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
-        const mergedSize = customizeSize || size;
+        const mergedSize = compactSize || customizeSize || size;
 
         // ===================== Disabled =====================
         const disabled = React.useContext(DisabledContext);
@@ -145,6 +147,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       getMergedStatus(contextStatus, customStatus),
                       hasFeedback,
                     ),
+                    compactItemClassnames,
                     className,
                   )}
                   prefixCls={prefixCls}
