@@ -3,8 +3,8 @@ import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import { fireEvent, waitFakeTimer, render, sleep, triggerResize, pureRender } from '../../../tests/utils';
 import type { RenderOptions } from '../../../tests/utils';
-import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
@@ -29,10 +29,13 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', async () => {
+    jest.useFakeTimers();
+
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const ref = React.createRef<TextAreaRef>();
 
+    const onInternalAutoSize = jest.fn();
     const genTextArea = (props = {}) => (
       <TextArea
         value=""
@@ -41,27 +44,29 @@ describe('TextArea', () => {
         wrap="off"
         ref={ref}
         {...props}
+        {...{ onInternalAutoSize }}
       />
     );
 
-    const { container, rerender } = render(genTextArea());
-
-    const mockFunc = jest.spyOn(ref.current?.resizableTextArea!, 'resizeTextarea');
+    const { container, rerender } = pureRender(genTextArea());
+    await waitFakeTimer();
+    expect(onInternalAutoSize).toHaveBeenCalledTimes(1);
 
     rerender(genTextArea({ value: '1111\n2222\n3333' }));
-    // wrapper.setProps({ value: '1111\n2222\n3333' });
-    await sleep(0);
-    expect(mockFunc).toHaveBeenCalledTimes(1);
+    await waitFakeTimer();
+    expect(onInternalAutoSize).toHaveBeenCalledTimes(2);
 
     rerender(genTextArea({ value: '1111' }));
-    // wrapper.setProps({ value: '1111' });
-    await sleep(0);
-    expect(mockFunc).toHaveBeenCalledTimes(2);
+    await waitFakeTimer();
+    expect(onInternalAutoSize).toHaveBeenCalledTimes(3);
 
     expect(container.querySelector('textarea')?.style.overflow).toBeFalsy();
 
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should support onPressEnter and onKeyDown', () => {
@@ -188,14 +193,6 @@ describe('TextArea', () => {
     });
   });
 
-  it('when prop value not in this.props, resizeTextarea should be called', async () => {
-    const ref = React.createRef<TextAreaRef>();
-    const { container } = render(<TextArea aria-label="textarea" ref={ref} />);
-    const resizeTextarea = jest.spyOn(ref.current?.resizableTextArea!, 'resizeTextarea');
-    fireEvent.change(container.querySelector('textarea')!, { target: { value: 'test' } });
-    expect(resizeTextarea).toHaveBeenCalled();
-  });
-
   it('handleKeyDown', () => {
     const onPressEnter = jest.fn();
     const onKeyDown = jest.fn();
@@ -209,17 +206,21 @@ describe('TextArea', () => {
   });
 
   it('should trigger onResize', async () => {
+    jest.useFakeTimers();
     const onResize = jest.fn();
     const ref = React.createRef<TextAreaRef>();
-    render(<TextArea ref={ref} onResize={onResize} autoSize />);
-    await sleep(100);
-    const target = ref.current?.resizableTextArea?.textArea!;
-    triggerResize(target);
-    await Promise.resolve();
+    const { container } = render(<TextArea ref={ref} onResize={onResize} autoSize />);
+    await waitFakeTimer();
+
+    triggerResize(container.querySelector('textarea')!);
+    await waitFakeTimer();
 
     expect(onResize).toHaveBeenCalledWith(
       expect.objectContaining({ width: expect.any(Number), height: expect.any(Number) }),
     );
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should works same as Input', () => {
