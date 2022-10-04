@@ -42579,9 +42579,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Upload configProvider 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="config-upload config-upload-select config-upload-select-text"
   >
@@ -42681,9 +42679,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 `;
 
 exports[`ConfigProvider components Upload configProvider componentDisabled 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="config-upload config-upload-select config-upload-select-text config-upload-disabled"
   >
@@ -42755,9 +42751,7 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
 `;
 
 exports[`ConfigProvider components Upload configProvider componentSize large 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="config-upload config-upload-select config-upload-select-text"
   >
@@ -42857,9 +42851,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
 `;
 
 exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="config-upload config-upload-select config-upload-select-text"
   >
@@ -42959,9 +42951,7 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
 `;
 
 exports[`ConfigProvider components Upload configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -43061,9 +43051,7 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
 `;
 
 exports[`ConfigProvider components Upload normal 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -43163,9 +43151,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
 `;
 
 exports[`ConfigProvider components Upload prefixCls 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
   >

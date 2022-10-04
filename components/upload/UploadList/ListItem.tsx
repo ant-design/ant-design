@@ -7,7 +7,6 @@ import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
-
 import type {
   ItemRender,
   UploadFile,
@@ -232,7 +231,7 @@ const ListItem = React.forwardRef(
       </span>
     );
 
-    let message;
+    let message: string;
     if (file.response && typeof file.response === 'string') {
       message = file.response;
     } else {

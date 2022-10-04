@@ -1145,6 +1145,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height based on content lines"
+    style="height: 0px; resize: none;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -1152,6 +1153,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
+    style="height: -24px; resize: none; min-height: -8px; max-height: -24px;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -1159,6 +1161,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Controlled autosize"
+    style="height: -20px; resize: none; min-height: -12px; max-height: -20px;"
   />,
 ]
 `;
