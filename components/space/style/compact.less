@@ -19,6 +19,18 @@
   // nested compact
   & > &:not(:first-child) {
     margin-right: -1px;
+
+    .ant-btn-compact-first-item,
+    .ant-input-compact-first-item {
+      border-radius: 0;
+    }
+  }
+
+  & > &:not(:last-child) {
+    .ant-btn-compact-last-item,
+    .ant-input-compact-last-item {
+      border-radius: 0;
+    }
   }
 
   &:hover,

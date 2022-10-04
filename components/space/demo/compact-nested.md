@@ -2,66 +2,48 @@
 order: 3
 title:
   zh-CN: 紧凑布局嵌套
-  en-US: Nested Compact
+  en-US: Nested Space Compact
 ---
 
 ## zh-CN
 
-input 前置/后置标签。
+嵌套使用的紧凑布局
 
 ## en-US
 
-Using pre & post tabs example.
+Nested `Space.Compact`
 
 ```tsx
 import { CopyOutlined } from '@ant-design/icons';
-import { Input, Select, Space, Button } from 'antd';
+import { Input, Space, Button } from 'antd';
 import React from 'react';
 
-const { Option } = Select;
-
-const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
-);
-const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
-);
-
 const App: React.FC = () => (
-  <Space.Compact>
-    <Space.Compact>
-      <Button>Prefix</Button>
-      <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
-      <Button type="primary">Submit</Button>
+  <>
+    <Space.Compact block>
+      <Space.Compact>
+        <Input placeholder="Please input something" />
+        <Button type="primary">Submit</Button>
+      </Space.Compact>
     </Space.Compact>
-    <Space.Compact>
-      <Input placeholder="prefix" />
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-      <Button icon={<CopyOutlined />} />
+    <br />
+    <Space.Compact block>
+      <Space.Compact>
+        <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
+        <Button type="primary">Submit</Button>
+      </Space.Compact>
+      <Space.Compact>
+        <Input defaultValue="mysite" />
+        <Button icon={<CopyOutlined />} />
+      </Space.Compact>
     </Space.Compact>
-  </Space.Compact>
+  </>
 );
 
 export default App;
 ```
 
 ```css
-.select-before {
-  width: 90px;
-}
-
-.select-after {
-  width: 80px;
-}
-
 [data-theme='compact'] .select-before {
   width: 71px;
 }
