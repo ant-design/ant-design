@@ -20155,9 +20155,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class=""
-            >
+            <span>
               <div
                 class="ant-upload ant-upload-select ant-upload-select-picture"
               >

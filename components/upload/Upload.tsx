@@ -9,14 +9,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import warning from '../_util/warning';
-import type {
-  RcFile,
-  ShowUploadListInterface,
-  UploadChangeParam,
-  UploadFile,
-  UploadListType,
-  UploadType,
-} from './interface';
+import type { RcFile, ShowUploadListInterface, UploadChangeParam, UploadFile } from './interface';
 import { UploadProps } from './interface';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
@@ -30,25 +23,30 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     fileList,
     defaultFileList,
     onRemove,
-    showUploadList,
-    listType,
+    showUploadList = true,
+    listType = 'text',
     onPreview,
     onDownload,
     onChange,
     onDrop,
     previewFile,
-    disabled: customDisabled,
+    disabled: customDisabled = false,
     locale: propLocale,
     iconRender,
     isImageUrl,
     progress,
     prefixCls: customizePrefixCls,
     className,
-    type,
+    type = 'select',
     children,
     style,
     itemRender,
     maxCount,
+    data = {},
+    multiple = false,
+    action = '',
+    accept = '',
+    supportServerRender = true,
   } = props;
 
   // ===================== Disabled =====================
@@ -312,12 +310,17 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onError,
     onProgress,
     onSuccess,
-    ...(props as RcUploadProps),
+    ...props,
+    data,
+    multiple,
+    action,
+    accept,
+    supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
-  };
+  } as RcUploadProps;
 
   delete rcUploadProps.className;
   delete rcUploadProps.style;
@@ -435,21 +438,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 };
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
+
 if (process.env.NODE_ENV !== 'production') {
   Upload.displayName = 'Upload';
 }
-
-Upload.defaultProps = {
-  type: 'select' as UploadType,
-  multiple: false,
-  action: '',
-  data: {},
-  accept: '',
-  showUploadList: true,
-  listType: 'text' as UploadListType, // or picture
-  className: '',
-  disabled: false,
-  supportServerRender: true,
-};
 
 export default Upload;

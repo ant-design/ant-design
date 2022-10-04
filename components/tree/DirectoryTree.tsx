@@ -172,7 +172,13 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   };
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, className, ...otherProps } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    showIcon = true,
+    expandAction = 'click',
+    ...otherProps
+  } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const connectClassName = classNames(
@@ -189,6 +195,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       ref={treeRef}
       blockNode
       {...otherProps}
+      showIcon={showIcon}
+      expandAction={expandAction}
       prefixCls={prefixCls}
       className={connectClassName}
       expandedKeys={expandedKeys}
@@ -206,10 +214,5 @@ const ForwardDirectoryTree = React.forwardRef(
 if (process.env.NODE_ENV !== 'production') {
   ForwardDirectoryTree.displayName = 'DirectoryTree';
 }
-
-ForwardDirectoryTree.defaultProps = {
-  showIcon: true,
-  expandAction: 'click' as DirectoryTreeProps['expandAction'],
-};
 
 export default ForwardDirectoryTree;

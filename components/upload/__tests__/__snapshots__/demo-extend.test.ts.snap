@@ -55,9 +55,7 @@ exports[`renders ./components/upload/demo/avatar.md extend context correctly 1`]
 `;
 
 exports[`renders ./components/upload/demo/basic.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -227,9 +225,7 @@ exports[`renders ./components/upload/demo/crop-image.md extend context correctly
 `;
 
 exports[`renders ./components/upload/demo/customize-progress-bar.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -279,9 +275,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md extend conte
 `;
 
 exports[`renders ./components/upload/demo/defaultFileList.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -593,9 +587,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
 `;
 
 exports[`renders ./components/upload/demo/directory.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -708,9 +700,7 @@ exports[`renders ./components/upload/demo/drag.md extend context correctly 1`] =
 `;
 
 exports[`renders ./components/upload/demo/drag-sorting.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -1927,9 +1917,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
 `;
 
 exports[`renders ./components/upload/demo/fileList.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -2067,9 +2055,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
     class="ant-space-item"
     style="margin-bottom: 24px;"
   >
-    <span
-      class=""
-    >
+    <span>
       <div
         class="ant-upload ant-upload-select ant-upload-select-picture"
       >
@@ -2120,9 +2106,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
   <div
     class="ant-space-item"
   >
-    <span
-      class=""
-    >
+    <span>
       <div
         class="ant-upload ant-upload-select ant-upload-select-picture"
       >
@@ -2781,9 +2765,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
 
 exports[`renders ./components/upload/demo/picture-style.md extend context correctly 1`] = `
 Array [
-  <span
-    class=""
-  >
+  <span>
     <div
       class="ant-upload ant-upload-select ant-upload-select-picture"
     >
@@ -3259,9 +3241,7 @@ Array [
 `;
 
 exports[`renders ./components/upload/demo/preview-file.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -3311,9 +3291,7 @@ exports[`renders ./components/upload/demo/preview-file.md extend context correct
 `;
 
 exports[`renders ./components/upload/demo/transform-file.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -3363,9 +3341,7 @@ exports[`renders ./components/upload/demo/transform-file.md extend context corre
 `;
 
 exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -3696,9 +3672,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
 
 exports[`renders ./components/upload/demo/upload-manually.md extend context correctly 1`] = `
 Array [
-  <span
-    class=""
-  >
+  <span>
     <div
       class="ant-upload ant-upload-select ant-upload-select-text"
     >
@@ -3759,9 +3733,7 @@ Array [
 `;
 
 exports[`renders ./components/upload/demo/upload-png-only.md extend context correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -3840,9 +3812,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
-              class=""
-            >
+            <span>
               <div
                 class="ant-upload ant-upload-select ant-upload-select-text"
               >

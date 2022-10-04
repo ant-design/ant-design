@@ -178,9 +178,7 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
     class="ant-space-item"
     style="margin-right: 8px;"
   >
-    <span
-      class=""
-    >
+    <span>
       <div
         class="ant-upload ant-upload-select ant-upload-select-text"
       >
