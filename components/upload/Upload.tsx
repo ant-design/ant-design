@@ -36,7 +36,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     isImageUrl,
     progress,
     prefixCls: customizePrefixCls,
-    className = '',
+    className,
     type = 'select',
     children,
     style,
