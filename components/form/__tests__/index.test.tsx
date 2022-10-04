@@ -750,17 +750,16 @@ describe('Form', () => {
     const CustomComponent: React.FC = () => (
       <input onChange={null as unknown as ChangeEventHandler<HTMLInputElement>} />
     );
-    render(
+    const { container } = render(
       <Form>
         <Form.Item name="custom">
           <CustomComponent />
         </Form.Item>
       </Form>,
     );
-    const handle = async () => {
-      await userEvent.type(screen.getByRole('textbox'), 'aaa');
-    };
-    expect(handle).not.toThrow();
+    expect(() => {
+      fireEvent.change(container.querySelector('input')!);
+    }).not.toThrow();
   });
 
   it('change `help` should not warning', async () => {
