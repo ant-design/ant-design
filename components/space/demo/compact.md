@@ -124,8 +124,9 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Input.Search allowClear style={{ width: '40%' }} defaultValue="0571" />
-      <Input.Search allowClear style={{ width: '40%' }} defaultValue="26888888" />
+      <Input.Search style={{ width: '30%' }} defaultValue="0571" />
+      <Input.Search allowClear style={{ width: '50%' }} defaultValue="26888888" />
+      <Input.Search style={{ width: '20%' }} defaultValue="+1" />
     </Space.Compact>
     <br />
     <Space.Compact block>
