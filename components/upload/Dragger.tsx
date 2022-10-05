@@ -1,15 +1,14 @@
 import * as React from 'react';
-import type { UploadProps } from './interface';
+import type { UploadProps, UploadRef } from './interface';
 import Upload from './Upload';
 
 export type DraggerProps = UploadProps & { height?: number };
 
-const InternalDragger: React.ForwardRefRenderFunction<unknown, DraggerProps> = (
-  { style, height, ...restProps },
-  ref,
-) => <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />;
-
-const Dragger = React.forwardRef(InternalDragger) as React.FC<DraggerProps>;
+const Dragger = React.forwardRef<UploadRef, DraggerProps>(
+  ({ style, height, ...restProps }, ref) => (
+    <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />
+  ),
+);
 
 if (process.env.NODE_ENV !== 'production') {
   Dragger.displayName = 'Dragger';

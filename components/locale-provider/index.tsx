@@ -50,6 +50,7 @@ export interface Locale {
 export interface LocaleProviderProps {
   locale: Locale;
   children?: React.ReactNode;
+  /** @internal */
   _ANT_MARK__?: string;
 }
 
