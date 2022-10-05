@@ -6,6 +6,6 @@ export interface WrapHelmetProps extends HelmetProps {
   children?: React.ReactNode;
 }
 
-export default function WrapHelmet(props: WrapHelmetProps) {
-  return <Helmet {...props} />;
-}
+const WrapHelmet: React.FC<WrapHelmetProps> = props => <Helmet {...props} />;
+
+export default WrapHelmet;

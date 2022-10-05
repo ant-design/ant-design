@@ -8,13 +8,17 @@ const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度
 
 export default class ColorPaletteTool extends Component {
-  state = {
+  state: {
+    primaryColor: string;
+    backgroundColor: string;
+    primaryColorInstance: any;
+  } = {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
     primaryColorInstance: null,
   };
 
-  handleChangeColor = (e, color) => {
+  handleChangeColor = (e: any, color: { hex: string }) => {
     const value = e.target ? e.target.value : e;
     this.setState({
       primaryColor: value,
@@ -22,7 +26,7 @@ export default class ColorPaletteTool extends Component {
     });
   };
 
-  handleChangeBackgroundColor = e => {
+  handleChangeBackgroundColor = (e: any) => {
     const value = e.target ? e.target.value : e;
     this.setState({
       backgroundColor: value,

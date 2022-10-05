@@ -9,17 +9,17 @@ export interface EditButtonProps {
   filename?: string;
 }
 
-export default function EditButton({ title, filename }: EditButtonProps) {
-  return (
-    <Tooltip title={title}>
-      <a
-        className="edit-button"
-        href={`${branchUrl}${filename}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <EditOutlined />
-      </a>
-    </Tooltip>
-  );
-}
+const EditButton: React.FC<EditButtonProps> = ({ title, filename }) => (
+  <Tooltip title={title}>
+    <a
+      className="edit-button"
+      href={`${branchUrl}${filename}`}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <EditOutlined />
+    </a>
+  </Tooltip>
+);
+
+export default EditButton;

@@ -3,27 +3,36 @@ import { message } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { presetDarkPalettes } from '@ant-design/colors';
 
-const rgbToHex = rgbString => {
+const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
-  let r = parseInt(rgb[0], 10).toString(16);
-  let g = parseInt(rgb[1], 10).toString(16);
-  let b = parseInt(rgb[2], 10).toString(16);
+  let r = parseInt(rgb?.[0] || '', 10).toString(16);
+  let g = parseInt(rgb?.[1] || '', 10).toString(16);
+  let b = parseInt(rgb?.[2] || '', 10).toString(16);
   r = r.length === 1 ? `0${r}` : r;
   g = g.length === 1 ? `0${g}` : g;
   b = b.length === 1 ? `0${b}` : b;
   return `#${r}${g}${b}`;
 };
 
-export default class Palette extends React.Component {
+interface Props {
+  color: Record<PropertyKey, string>;
+  dark: boolean;
+  showTitle: boolean;
+  direction?: any;
+}
+
+export default class Palette extends React.Component<Props> {
+  hexColors: Record<PropertyKey, string> = {};
+
+  colorNodes: Record<PropertyKey, HTMLDivElement> = {};
+
   componentDidMount() {
     this.hexColors = {};
     Object.keys(this.colorNodes).forEach(key => {
-      const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
-      if (computedColor.indexOf('rgba') >= 0) {
-        this.hexColors[key] = computedColor;
-      } else {
-        this.hexColors[key] = rgbToHex(computedColor);
-      }
+      const computedColor = getComputedStyle(this.colorNodes[key])['background-color' as any];
+      this.hexColors[key] = computedColor.includes('rgba')
+        ? computedColor
+        : rgbToHex(computedColor);
     });
     this.forceUpdate();
   }
@@ -56,7 +65,7 @@ export default class Palette extends React.Component {
           <div
             key={i}
             ref={node => {
-              this.colorNodes[`${name}-${i}`] = node;
+              this.colorNodes[`${name}-${i}`] = node!;
             }}
             className={`main-color-item palette-${name}-${i}`}
             style={{

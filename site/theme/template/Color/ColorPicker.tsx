@@ -4,8 +4,9 @@ import { SketchPicker } from 'react-color';
 const noop = () => {};
 
 interface ColorPickerProps {
+  type?: string;
   color?: string;
-  small: boolean;
+  small?: boolean;
   position: string;
   presetColors?: string[];
   onChange: (hex: string, color: { hex: string }) => void;
@@ -58,13 +59,13 @@ export default class ColorPicker extends Component<ColorPickerProps> {
     const { small, position, presetColors } = this.props;
     const { color, displayColorPicker } = this.state;
     const width = small ? 80 : 120;
-    const styles = {
+    const styles: Record<PropertyKey, React.CSSProperties> = {
       color: {
         width: `${width}px`,
         height: small ? '16px' : '24px',
         borderRadius: '2px',
         background: color,
-      } as React.CSSProperties,
+      },
       swatch: {
         padding: '4px',
         background: '#fff',
@@ -72,22 +73,22 @@ export default class ColorPicker extends Component<ColorPickerProps> {
         boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
         display: 'inline-block',
         cursor: 'pointer',
-      } as React.CSSProperties,
+      },
       popover: {
         position: 'absolute',
         zIndex: 10,
-      } as React.CSSProperties,
+      },
       cover: {
         position: 'fixed',
         top: '0px',
         right: '0px',
         bottom: '0px',
         left: '0px',
-      } as React.CSSProperties,
+      },
       wrapper: {
         position: 'inherit',
         zIndex: 100,
-      } as React.CSSProperties,
+      },
     };
 
     if (position === 'top') {

@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
 
-const ThemeIcon = props => {
-  const SVGIcon = React.useCallback(
+const ThemeIcon: React.FC<any> = props => {
+  const SVGIcon = React.useMemo(
     () => (
       <svg width={21} height={21} viewBox="0 0 21 21" fill="currentColor" {...props}>
         <g fillRule="evenodd">
