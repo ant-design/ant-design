@@ -45,7 +45,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const composedRef = React.useRef<boolean>(false);
 
-  const { compactSize: compactSize } = React.useContext(SpaceCompactItemContext);
+  const { compactSize } = React.useContext(SpaceCompactItemContext);
 
   const size = compactSize || customizeSize || contextSize;
 

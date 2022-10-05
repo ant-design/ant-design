@@ -14,8 +14,7 @@ Button 垂直方向紧凑布局。
 Space.Compact vertical example for Button.
 
 ```tsx
-import { EllipsisOutlined } from '@ant-design/icons';
-import { Button, Menu, Dropdown, Space } from 'antd';
+import { Button, Space } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (

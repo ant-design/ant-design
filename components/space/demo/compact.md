@@ -119,7 +119,7 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Select multiple defaultValue="Zhejianggggg" style={{ width: '50%' }}>
+      <Select mode="multiple" defaultValue="Zhejianggggg" style={{ width: '50%' }}>
         <Option value="Zhejianggggg">Zhejianggggg</Option>
         <Option value="Jiangsu">Jiangsu</Option>
       </Select>
