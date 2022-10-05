@@ -2,6 +2,7 @@ const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 
 // jest config for image snapshots
 module.exports = {
+  setupFiles: ['./tests/setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   transform: {
