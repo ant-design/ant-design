@@ -1,8 +1,9 @@
 ---
-order: 3
+order: 99
 title:
   zh-CN: 紧凑布局嵌套
   en-US: Nested Space Compact
+debug: true
 ---
 
 ## zh-CN

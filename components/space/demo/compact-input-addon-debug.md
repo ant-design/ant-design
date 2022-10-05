@@ -1,18 +1,18 @@
 ---
 order: 99
 title:
-  zh-CN: debug input 前置/后置标签
-  en-US: debug Pre / Post tab
+  zh-CN: 调试 Input 前置/后置标签
+  en-US: Input addon debug
 debug: true
 ---
 
 ## zh-CN
 
-debug input 前置/后置标签。
+调试 Input 前置/后置标签。
 
 ## en-US
 
-Using pre & post tabs example for debug.
+Input addon debug.
 
 ```tsx
 import { SettingOutlined, CopyOutlined } from '@ant-design/icons';

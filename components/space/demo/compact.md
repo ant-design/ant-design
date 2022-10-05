@@ -1,17 +1,17 @@
 ---
-order: 3
+order: 8
 title:
-  zh-CN: Input 紧凑布局
-  en-US: Compact Mode for Input
+  zh-CN: 使用 Space.Compact 组合表单组件
+  en-US: Compact Mode for form component
 ---
 
 ## zh-CN
 
-Input 紧凑布局。
+使用 Space.Compact 组合表单组件。
 
 ## en-US
 
-Space.Compact example for Input.
+Compact Mode for form component.
 
 ```tsx
 import { CopyOutlined } from '@ant-design/icons';
@@ -23,9 +23,9 @@ import {
   Input,
   InputNumber,
   Select,
-  Tooltip,
   Space,
   TimePicker,
+  Tooltip,
   TreeSelect,
 } from 'antd';
 import React from 'react';
@@ -91,7 +91,7 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block size="small">
-      <Input defaultValue="https://ant.design" />
+      <Input style={{ width: 'calc(100% - 200px)' }} defaultValue="https://ant.design" />
       <Button type="primary">Submit</Button>
     </Space.Compact>
     <br />
@@ -144,6 +144,12 @@ const App: React.FC = () => (
     <Space.Compact block>
       <Input style={{ width: '50%' }} defaultValue="input content" />
       <DatePicker style={{ width: '50%' }} />
+    </Space.Compact>
+    <br />
+    <Space.Compact block>
+      <DatePicker.RangePicker style={{ width: '70%' }} />
+      <Input style={{ width: '30%' }} defaultValue="input content" />
+      <Button type="primary">查询</Button>
     </Space.Compact>
     <br />
     <Space.Compact block>
@@ -202,65 +208,15 @@ const App: React.FC = () => (
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <Select style={{ width: '30%' }} defaultValue="Home">
-        <Option value="Home">Home</Option>
-        <Option value="Company">Company</Option>
-      </Select>
+      <TimePicker style={{ width: '70%' }} />
       <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
     </Space.Compact>
     <br />
     <Space.Compact block>
-      <TimePicker />
       <TimePicker.RangePicker />
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
       <TreeSelect
         showSearch
-        style={{ width: '100%' }}
-        value="leaf1"
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder="Please select"
-        allowClear
-        treeDefaultExpandAll
-        onChange={() => {}}
-      >
-        <TreeNode value="parent 1" title="parent 1">
-          <TreeNode value="parent 1-0" title="parent 1-0">
-            <TreeNode value="leaf1" title="leaf1" />
-            <TreeNode value="leaf2" title="leaf2" />
-          </TreeNode>
-          <TreeNode value="parent 1-1" title="parent 1-1">
-            <TreeNode value="leaf3" title={<b style={{ color: '#08c' }}>leaf3</b>} />
-          </TreeNode>
-        </TreeNode>
-      </TreeSelect>
-      <TreeSelect
-        showSearch
-        style={{ width: '100%' }}
-        value="leaf2"
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder="Please select"
-        allowClear
-        treeDefaultExpandAll
-        onChange={() => {}}
-      >
-        <TreeNode value="parent 1" title="parent 1">
-          <TreeNode value="parent 1-0" title="parent 1-0">
-            <TreeNode value="leaf1" title="leaf1" />
-            <TreeNode value="leaf2" title="leaf2" />
-          </TreeNode>
-          <TreeNode value="parent 1-1" title="parent 1-1">
-            <TreeNode value="leaf3" title={<b style={{ color: '#08c' }}>leaf3</b>} />
-          </TreeNode>
-        </TreeNode>
-      </TreeSelect>
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <TreeSelect
-        showSearch
-        style={{ width: '100%' }}
+        style={{ width: '60%' }}
         value="leaf1"
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"
@@ -279,51 +235,6 @@ const App: React.FC = () => (
         </TreeNode>
       </TreeSelect>
       <Button type="primary">Submit</Button>
-    </Space.Compact>
-    <br />
-    <br />
-    Input addon 纯文本 + Button：
-    <Space.Compact block>
-      <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
-      <Button type="primary">Submit</Button>
-    </Space.Compact>
-    <br />
-    <br />
-    Input addon Select + Button：
-    <Space.Compact block>
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-      <Button icon={<CopyOutlined />} />
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-      <Button type="primary">Submit</Button>
-    </Space.Compact>
-    <br />
-    <br />
-    （官网无此组合案例）Input addon Select + Input.Search + Button：
-    <Space.Compact block>
-      <Input.Search allowClear defaultValue="0571" />
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-      <Button icon={<CopyOutlined />} />
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-      <Input.Search allowClear defaultValue="0571" />
-      <Button icon={<CopyOutlined />} />
-    </Space.Compact>
-    <br />
-    <br />
-    （官网无此组合案例）Input.Search + Button：
-    <Space.Compact block>
-      <Input.Search allowClear defaultValue="0571" />
-      <Button type="primary">Submit</Button>
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <Input.Search allowClear defaultValue="0571" />
-      <Button icon={<CopyOutlined />} />
     </Space.Compact>
     <br />
   </div>

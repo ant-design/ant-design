@@ -1,17 +1,17 @@
 ---
-order: 3
+order: 10
 title:
-  zh-CN: Button 垂直方向紧凑布局
-  en-US: Button vertical Compact Mode
+  zh-CN: 垂直方向紧凑布局
+  en-US: Vertical Compact Mode
 ---
 
 ## zh-CN
 
-Button 垂直方向紧凑布局。
+垂直方向的紧凑布局，目前仅支持 Button 组合。
 
 ## en-US
 
-Space.Compact vertical example for Button.
+Vertical Mode for Space.Compact, support Button only.
 
 ```tsx
 import { Button, Space } from 'antd';
@@ -19,35 +19,35 @@ import React from 'react';
 
 const App: React.FC = () => (
   <Space>
-    <Space.Compact size="small" direction="vertical">
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Button type="primary">Button 3</Button>
-      <Button type="primary">Button 4</Button>
+    <Space.Compact direction="vertical">
+      <Button>Button 1</Button>
+      <Button>Button 2</Button>
+      <Button>Button 3</Button>
     </Space.Compact>
     <Space.Compact direction="vertical">
-      <Button size="large">Button 1</Button>
-      <Button size="large">Button 2</Button>
-      <Button size="large">Button 3</Button>
-      <Button size="large">Button 4</Button>
-    </Space.Compact>
-    <Space.Compact direction="vertical">
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Button type="primary">Button 3</Button>
-      <Button type="primary">Button 4</Button>
+      <Button type="link">Button 1</Button>
+      <Button type="link">Button 2</Button>
+      <Button type="link">Button 3</Button>
     </Space.Compact>
     <Space.Compact direction="vertical">
       <Button type="dashed">Button 1</Button>
       <Button type="dashed">Button 2</Button>
       <Button type="dashed">Button 3</Button>
-      <Button type="dashed">Button 4</Button>
+    </Space.Compact>
+    <Space.Compact direction="vertical">
+      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 2</Button>
+      <Button type="primary">Button 3</Button>
+    </Space.Compact>
+    <Space.Compact size="small" direction="vertical">
+      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 2</Button>
+      <Button type="primary">Button 3</Button>
     </Space.Compact>
     <Space.Compact size="large" direction="vertical">
-      <Button>Button 1</Button>
-      <Button>Button 2</Button>
-      <Button>Button 3</Button>
-      <Button>Button 4</Button>
+      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 2</Button>
+      <Button type="primary">Button 3</Button>
     </Space.Compact>
   </Space>
 );
