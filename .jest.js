@@ -7,7 +7,7 @@ const transformIgnorePatterns = [
 
 function getTestRegex(libDir) {
   if (libDir === 'dist') {
-    return 'demo\\.test\\.(j|t)s$';
+    return 'demo\\.test\\.js$';
   }
   return '.*\\.test\\.(j|t)sx?$';
 }
