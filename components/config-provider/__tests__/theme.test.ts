@@ -47,13 +47,13 @@ describe('ConfigProvider.Theme', () => {
       },
     });
 
-    const styles: any[] = Array.from(document.querySelectorAll('style'));
+    const styles = Array.from(document.querySelectorAll('style'));
     const themeStyle = styles.find(style =>
-      style.getAttribute('rc-util-key').includes('-dynamic-theme'),
+      style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
     );
 
-    (Object.keys(infoColor) as Array<keyof typeof infoColor>).forEach(key => {
-      expect(themeStyle.innerHTML).toContain(
+    Object.keys(infoColor).forEach((key: keyof typeof infoColor) => {
+      expect(themeStyle?.innerHTML).toContain(
         `--${prefixCls}-info-color-${kebabCase(key)}: ${infoColor[key]}`,
       );
     });
