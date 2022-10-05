@@ -50,8 +50,27 @@
     }
   }
 
-  // ----------RTL Special styles for Primary Button----------
+  // ----------RTL----------
   &-compact-item-rtl {
+    &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
+      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
+    }
+
+    &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
+      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
+    }
+
+    &.@{ant-prefix}-btn-sm {
+      &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
+        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+      }
+
+      &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
+        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+      }
+    }
+
+    // ----------RTL Special styles for Primary Button----------
     &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
       border-right-color: transparent;
     }
@@ -78,27 +97,6 @@
 
       &[disabled] {
         border-right-color: @btn-default-border;
-      }
-    }
-  }
-
-  // ----------RTL----------
-  &-compact-item-rtl {
-    &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
-    }
-
-    &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
-    }
-
-    &.@{ant-prefix}-btn-sm {
-      &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
-      }
-
-      &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
       }
     }
   }
