@@ -10,12 +10,17 @@ import RowContext from './RowContext';
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
+type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'other';
+type ResponsiveLike<T> = {
+  [key in Responsive]?: T;
+};
+
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number];
-  justify?: typeof RowJustify[number];
+  align?: typeof RowAligns[number] | ResponsiveLike<typeof RowAligns[number]>;
+  justify?: typeof RowJustify[number] | ResponsiveLike<typeof RowJustify[number]>;
   prefixCls?: string;
   wrap?: boolean;
 }
@@ -43,6 +48,18 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xl: true,
     xxl: true,
   });
+  // to save screens info when responsiveObserve callback had been call
+  const [curScreens, setCurScreens] = React.useState<ScreenMap>({
+    xs: false,
+    sm: false,
+    md: false,
+    lg: false,
+    xl: false,
+    xxl: false,
+  });
+
+  const [mergeAlign, setMergeAlign] = React.useState(typeof align === 'string' ? align : '');
+  const [mergeJustify, setJustify] = React.useState(typeof justify === 'string' ? justify : '');
 
   const supportFlexGap = useFlexGapSupport();
 
@@ -51,6 +68,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   // ================================== Effect ==================================
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(screen => {
+      setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (
         (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
@@ -83,14 +101,53 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return results;
   };
 
+  // ================================== calc reponsive data ==================================
+  const clacMergeAlign = () => {
+    if (typeof align === 'object') {
+      for (let i = 0; i < responsiveArray.length; i++) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        // When 'align' sets the 'other' attribute,
+        // we need to set the value of the response attribute not explicitly set in 'align' to the value of 'other'
+        const curAlign = align[breakpoint];
+        if (align.other && !curScreens[breakpoint]) {
+          const otherVal = align.other;
+          if (!align[breakpoint]) {
+            setMergeAlign(otherVal);
+          }
+        } else if (curScreens[breakpoint] && curAlign !== undefined) {
+          setMergeAlign(curAlign!);
+        }
+      }
+    }
+  };
+
+  const clacMergeJustify = () => {
+    if (typeof justify === 'object') {
+      for (let i = 0; i < responsiveArray.length; i++) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        // When 'justify' sets the 'other' attribute,
+        // we need to set the value of the response attribute not explicitly set in 'justify' to the value of 'other'
+        const curJustify = justify[breakpoint];
+        if (justify.other && !curScreens[breakpoint]) {
+          const otherVal = justify.other;
+          if (!justify[breakpoint]) {
+            setMergeAlign(otherVal);
+          }
+        } else if (curScreens[breakpoint] && curJustify !== undefined) {
+          setJustify(curJustify);
+        }
+      }
+    }
+  };
+
   const prefixCls = getPrefixCls('row', customizePrefixCls);
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${justify}`]: justify,
-      [`${prefixCls}-${align}`]: align,
+      [`${prefixCls}-${mergeJustify}`]: mergeJustify,
+      [`${prefixCls}-${mergeAlign}`]: mergeAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -121,6 +178,14 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
     [gutterH, gutterV, wrap, supportFlexGap],
   );
+
+  React.useEffect(() => {
+    clacMergeAlign();
+  }, [align, curScreens]);
+
+  React.useEffect(() => {
+    clacMergeJustify();
+  }, [justify, curScreens]);
 
   return (
     <RowContext.Provider value={rowContext}>
