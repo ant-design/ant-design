@@ -8,9 +8,9 @@ import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
 import type { FormInstance } from '../../form';
 import type { UploadFile, UploadProps } from '..';
-import type { UploadListProps, UploadLocale } from '../interface';
+import type { UploadListProps, UploadLocale, UploadRef, UploadListRef } from '../interface';
 
-const fileList: UploadProps['fileList'] = [
+const fileList = [
   {
     uid: '-1',
     name: 'xxx.png',
@@ -25,7 +25,7 @@ const fileList: UploadProps['fileList'] = [
     url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
     thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   },
-];
+] as UploadFile[];
 
 describe('Upload List', () => {
   // Mock for rc-util raf
@@ -269,7 +269,7 @@ describe('Upload List', () => {
 
   it('does concat fileList when beforeUpload returns false', async () => {
     const handleChange = jest.fn();
-    const ref = React.createRef<any>();
+    const ref = React.createRef<UploadRef>();
     const { container: wrapper, unmount } = render(
       <Upload
         ref={ref}
@@ -287,7 +287,7 @@ describe('Upload List', () => {
 
     await sleep();
 
-    expect(ref.current.fileList.length).toBe(fileList.length + 1);
+    expect(ref.current?.fileList?.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
 
     unmount();
@@ -296,13 +296,9 @@ describe('Upload List', () => {
   it('In the case of listType=picture, the error status does not show the download.', () => {
     (global as any).testName =
       'In the case of listType=picture, the error status does not show the download.';
-    const file = { status: 'error', uid: 'file' };
+    const file = { status: 'error', uid: 'file' } as UploadFile;
     const { container: wrapper, unmount } = render(
-      <Upload
-        listType="picture"
-        fileList={[file] as UploadProps['fileList']}
-        showUploadList={{ showDownloadIcon: true }}
-      >
+      <Upload listType="picture" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -318,13 +314,9 @@ describe('Upload List', () => {
   it('In the case of listType=picture-card, the error status does not show the download.', () => {
     (global as any).testName =
       'In the case of listType=picture-card, the error status does not show the download.';
-    const file = { status: 'error', uid: 'file' };
+    const file = { status: 'error', uid: 'file' } as UploadFile;
     const { container: wrapper, unmount } = render(
-      <Upload
-        listType="picture-card"
-        fileList={[file] as UploadProps['fileList']}
-        showUploadList={{ showDownloadIcon: true }}
-      >
+      <Upload listType="picture-card" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -334,13 +326,9 @@ describe('Upload List', () => {
   });
 
   it('In the case of listType=text, the error status does not show the download.', () => {
-    const file = { status: 'error', uid: 'file' };
+    const file = { status: 'error', uid: 'file' } as UploadFile;
     const { container: wrapper, unmount } = render(
-      <Upload
-        listType="text"
-        fileList={[file] as UploadProps['fileList']}
-        showUploadList={{ showDownloadIcon: true }}
-      >
+      <Upload listType="text" fileList={[file]} showUploadList={{ showDownloadIcon: true }}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -392,14 +380,16 @@ describe('Upload List', () => {
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
-        defaultFileList={[
-          {
-            uid: '0',
-            name: 'xxx.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-        ]}
+        defaultFileList={
+          [
+            {
+              uid: '0',
+              name: 'xxx.png',
+              status: 'done',
+              url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            },
+          ] as UploadFile[]
+        }
         onDownload={handleDownload}
         showUploadList={{
           showDownloadIcon: true,
@@ -417,14 +407,16 @@ describe('Upload List', () => {
     const { container: wrapper, unmount } = render(
       <Upload
         listType="picture-card"
-        defaultFileList={[
-          {
-            uid: '0',
-            name: 'xxx.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-          },
-        ]}
+        defaultFileList={
+          [
+            {
+              uid: '0',
+              name: 'xxx.png',
+              status: 'done',
+              url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+            },
+          ] as UploadFile[]
+        }
         showUploadList={{
           showDownloadIcon: true,
         }}
@@ -448,15 +440,15 @@ describe('Upload List', () => {
         hookDrawImageCall(onDrawImage);
 
         const handlePreview = jest.fn();
-        const newFileList: UploadProps['fileList'] = [...fileList];
+        const newFileList: UploadFile[] = [...fileList];
         const newFile = {
           ...fileList[0],
           uid: '-3',
           originFileObj: new File([], 'xxx.png', { type: 'image/png' }),
-        };
+        } as UploadFile;
         delete newFile.thumbUrl;
-        newFileList.push(newFile as UploadFile);
-        const ref = React.createRef<any>();
+        newFileList.push(newFile);
+        const ref = React.createRef<UploadRef>();
         const { unmount } = render(
           <Upload
             ref={ref}
@@ -469,7 +461,7 @@ describe('Upload List', () => {
         );
         await sleep();
 
-        expect(ref.current.fileList[2].thumbUrl).not.toBe(undefined);
+        expect(ref.current?.fileList[2].thumbUrl).not.toBe(undefined);
         expect(onDrawImage).toHaveBeenCalled();
 
         // Offset check
@@ -754,18 +746,19 @@ describe('Upload List', () => {
   });
 
   it('return when prop onPreview not exists', () => {
-    const ref = React.createRef<any>();
+    const file = new File([''], 'test.txt', { type: 'text/plain' }) as UploadFile;
+    const ref = React.createRef<UploadListRef>();
     const { unmount } = render(
       <UploadList ref={ref} locale={undefined as unknown as UploadLocale} />,
     );
-    expect(ref.current?.handlePreview?.()).toBe(undefined);
+    expect(ref.current?.handlePreview?.(file)).toBe(undefined);
     unmount();
   });
 
   it('return when prop onDownload not exists', () => {
-    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const file = new File([''], 'test.txt', { type: 'text/plain' }) as UploadFile;
     const items = [{ uid: 'upload-list-item', url: '' }];
-    const ref = React.createRef<any>();
+    const ref = React.createRef<UploadListRef>();
     const showUploadList = { showUploadList: { showDownloadIcon: true } };
     const { unmount } = render(
       <UploadList
@@ -780,11 +773,11 @@ describe('Upload List', () => {
   });
 
   it('previewFile should work correctly', async () => {
-    const items = [{ uid: 'upload-list-item', url: '' }];
+    const items = [{ uid: 'upload-list-item', url: '' }] as UploadFile[];
     const previewFunc = jest.fn(previewImage);
     const { container: wrapper, unmount } = render(
       <Upload
-        fileList={items as UploadProps['fileList']}
+        fileList={items}
         previewFile={previewFunc}
         locale={{ previewFile: '' }}
         listType="picture-card"
@@ -805,12 +798,14 @@ describe('Upload List', () => {
 
   it('downloadFile should work correctly', async () => {
     const downloadFunc = jest.fn();
-    const items = [{ uid: 'upload-list-item', name: 'test', url: '', status: 'done' }];
+    const items = [
+      { uid: 'upload-list-item', name: 'test', url: '', status: 'done' },
+    ] as UploadFile[];
     const { container: wrapper, unmount } = render(
       <UploadList
         showDownloadIcon
         listType="picture-card"
-        items={items as UploadListProps['items']}
+        items={items}
         onDownload={downloadFunc}
         locale={{ downloadFile: 'Download file' }}
       />,
@@ -826,20 +821,16 @@ describe('Upload List', () => {
   });
 
   it('extname should work correctly when url not exists', () => {
-    const items = [{ uid: 'upload-list-item', url: '' }];
+    const items = [{ uid: 'upload-list-item', url: '' }] as UploadFile[];
     const { container: wrapper, unmount } = render(
-      <UploadList
-        listType="picture-card"
-        items={items as UploadListProps['items']}
-        locale={{ previewFile: '' }}
-      />,
+      <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
     expect(wrapper.querySelectorAll('.ant-upload-list-item-thumbnail').length).toBe(1);
     unmount();
   });
 
   it('extname should work correctly when url exists', done => {
-    const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
+    const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }] as UploadFile[];
     const { container: wrapper, unmount } = render(
       <UploadList
         listType="picture"
@@ -848,7 +839,7 @@ describe('Upload List', () => {
           unmount();
           done();
         }}
-        items={items as UploadListProps['items']}
+        items={items}
         locale={{ downloadFile: '' }}
         showDownloadIcon
       />,
@@ -857,13 +848,9 @@ describe('Upload List', () => {
   });
 
   it('when picture-card is loading, icon should render correctly', () => {
-    const items = [{ status: 'uploading', uid: 'upload-list-item' }];
+    const items = [{ status: 'uploading', uid: 'upload-list-item' }] as UploadFile[];
     const { container: wrapper, unmount } = render(
-      <UploadList
-        listType="picture-card"
-        items={items as UploadListProps['items']}
-        locale={{ uploading: 'uploading' }}
-      />,
+      <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
     );
     expect(wrapper.querySelectorAll('.ant-upload-list-item-thumbnail')?.length).toBe(1);
     expect(wrapper.querySelector('.ant-upload-list-item-thumbnail')?.textContent).toBe('uploading');
@@ -873,7 +860,7 @@ describe('Upload List', () => {
 
   it('onPreview should be called, when url exists', () => {
     const onPreview = jest.fn();
-    const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }];
+    const items = [{ thumbUrl: 'thumbUrl', url: 'url', uid: 'upload-list-item' }] as UploadFile[];
     const {
       container: wrapper,
       rerender,
@@ -881,7 +868,7 @@ describe('Upload List', () => {
     } = render(
       <UploadList
         listType="picture-card"
-        items={items as UploadListProps['items']}
+        items={items}
         locale={{ uploading: 'uploading' }}
         onPreview={onPreview}
       />,
@@ -893,7 +880,7 @@ describe('Upload List', () => {
     rerender(
       <UploadList
         listType="picture-card"
-        items={[{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] as UploadListProps['items']}
+        items={[{ thumbUrl: 'thumbUrl', uid: 'upload-list-item' }] as UploadFile[]}
         locale={{ uploading: 'uploading' }}
         onPreview={onPreview}
       />,
@@ -909,11 +896,13 @@ describe('Upload List', () => {
       type: 'image/png',
     });
 
+    const file = { originFileObj: mockFile } as UploadFile;
+
     const previewFunc = jest.fn(previewImage);
 
     const { unmount } = render(
       <Upload
-        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        fileList={[file]}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
         listType="picture-card"
@@ -942,7 +931,7 @@ describe('Upload List', () => {
 
     const { unmount } = render(
       <Upload
-        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        fileList={[{ originFileObj: mockFile }] as UploadFile[]}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
         listType="picture-card"
@@ -962,11 +951,12 @@ describe('Upload List', () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
     });
+    const file = { originFileObj: mockFile } as UploadFile;
     const previewFunc = jest.fn(previewImage);
 
     const { unmount } = render(
       <Upload
-        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        fileList={[file]}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
         listType="picture-card"
@@ -991,16 +981,11 @@ describe('Upload List', () => {
         const file = {
           ...fileList?.[0],
           originFileObj: renderInstance(),
-        };
+        } as UploadFile;
         delete file.thumbUrl;
-        const ref = React.createRef();
+        const ref = React.createRef<UploadRef>();
         const { container: wrapper, unmount } = render(
-          <Upload
-            ref={ref}
-            listType="picture"
-            defaultFileList={[file] as UploadProps['defaultFileList']}
-            previewFile={previewFile}
-          >
+          <Upload ref={ref} listType="picture" defaultFileList={[file]} previewFile={previewFile}>
             <button type="button">button</button>
           </Upload>,
         );
@@ -1030,10 +1015,10 @@ describe('Upload List', () => {
         thumbUrl:
           'http://image-demo.oss-cn-hangzhou.aliyuncs.com/example.jpg@!panda_style?spm=a2c4g.11186623.2.17.4dc56b29BHokyg&file=example.jpg@!panda_style',
       },
-    ];
+    ] as UploadFile[];
     it('should not render <img /> when file.thumbUrl use "!" as separator', () => {
       const { container: wrapper, unmount } = render(
-        <Upload listType="picture-card" fileList={list as UploadProps['fileList']}>
+        <Upload listType="picture-card" fileList={list}>
           <button type="button">button</button>
         </Upload>,
       );
@@ -1045,11 +1030,7 @@ describe('Upload List', () => {
     it('should render <img /> when custom imageUrl return true', () => {
       const isImageUrl = jest.fn(() => true);
       const { container: wrapper, unmount } = render(
-        <Upload
-          listType="picture-card"
-          fileList={list as UploadProps['fileList']}
-          isImageUrl={isImageUrl}
-        >
+        <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>
         </Upload>,
       );
@@ -1062,11 +1043,7 @@ describe('Upload List', () => {
     it('should not render <img /> when custom imageUrl return false', () => {
       const isImageUrl = jest.fn(() => false);
       const { container: wrapper, unmount } = render(
-        <Upload
-          listType="picture-card"
-          fileList={list as UploadProps['fileList']}
-          isImageUrl={isImageUrl}
-        >
+        <Upload listType="picture-card" fileList={list} isImageUrl={isImageUrl}>
           <button type="button">button</button>
         </Upload>,
       );
@@ -1102,23 +1079,21 @@ describe('Upload List', () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
       let wrapper: ReturnType<typeof render>;
-      const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
-        ({ fileList: files }) => {
-          const newFileList = files?.map<UploadFile<any>>(item => ({ ...item, thumbUrl }));
+      const onChange = jest.fn<void, { fileList: UploadFile[] }[]>(({ fileList: files }) => {
+        const newFileList = files?.map(item => ({ ...item, thumbUrl }));
 
-          wrapper.rerender(
-            <Upload
-              action="http://jsonplaceholder.typicode.com/posts/"
-              listType="picture-card"
-              fileList={newFileList}
-              onChange={onChange}
-              customRequest={successRequest}
-            >
-              <button type="button">upload</button>
-            </Upload>,
-          );
-        },
-      );
+        wrapper.rerender(
+          <Upload
+            action="http://jsonplaceholder.typicode.com/posts/"
+            listType="picture-card"
+            fileList={newFileList}
+            onChange={onChange}
+            customRequest={successRequest}
+          >
+            <button type="button">upload</button>
+          </Upload>,
+        );
+      });
 
       wrapper = render(
         <Upload
@@ -1247,7 +1222,7 @@ describe('Upload List', () => {
           {
             uid: '0',
             name: 'xxx.png',
-          },
+          } as UploadFiles,
         ]}
         showUploadList
       >
@@ -1265,7 +1240,7 @@ describe('Upload List', () => {
           {
             uid: '0',
             name: 'xxx.png',
-          },
+          } as UploadFile,
         ]}
         showUploadList={false}
       >
@@ -1283,7 +1258,7 @@ describe('Upload List', () => {
   it('multiple file upload should keep the internal fileList async', async () => {
     jest.useFakeTimers();
 
-    const uploadRef = React.createRef<any>();
+    const uploadRef = React.createRef<UploadRef>();
 
     const MyUpload: React.FC = () => {
       const [testFileList, setTestFileList] = React.useState<UploadFile[]>([]);
@@ -1309,21 +1284,22 @@ describe('Upload List', () => {
     const fileNames = ['light', 'bamboo', 'little'];
 
     await act(() => {
-      uploadRef.current.onBatchStart(
+      uploadRef.current?.onBatchStart(
         fileNames.map(fileName => {
-          const file = new File([], fileName);
-          (file as any).uid = fileName;
+          const file = new File([], fileName) as UploadFile;
+          file.uid = fileName;
           return { file, parsedFile: file };
         }),
       );
     });
 
-    expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
+    expect(uploadRef.current?.fileList).toHaveLength(fileNames.length);
 
     act(() => {
       jest.runAllTimers();
     });
-    expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
+
+    expect(uploadRef.current?.fileList).toHaveLength(fileNames.length);
 
     unmount();
 
@@ -1417,10 +1393,10 @@ describe('Upload List', () => {
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
       },
-    ];
+    ] as UploadFile[];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
+      <Upload fileList={list} listType="picture">
         <button type="button">upload</button>
       </Upload>,
     );
@@ -1457,10 +1433,10 @@ describe('Upload List', () => {
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
         crossOrigin: 'use-credentials',
       },
-    ];
+    ] as UploadFile[];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
+      <Upload fileList={list} listType="picture">
         <button type="button">upload</button>
       </Upload>,
     );
@@ -1481,10 +1457,10 @@ describe('Upload List', () => {
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
       },
-    ];
+    ] as UploadFile[];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
+      <Upload fileList={list} listType="picture">
         <button type="button">upload</button>
       </Upload>,
     );
@@ -1521,10 +1497,10 @@ describe('Upload List', () => {
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
         crossOrigin: 'use-credentials',
       },
-    ];
+    ] as UploadFile[];
 
     const { container: wrapper, unmount } = render(
-      <Upload fileList={list as UploadProps['fileList']} listType="picture">
+      <Upload fileList={list} listType="picture">
         <button type="button">upload</button>
       </Upload>,
     );
@@ -1546,9 +1522,9 @@ describe('Upload List', () => {
           url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
         },
-      ];
+      ] as UploadFile[];
       const { container: wrapper, unmount } = render(
-        <Upload fileList={list as UploadProps['defaultFileList']} listType="picture-card" />,
+        <Upload fileList={list} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
       expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
@@ -1567,13 +1543,9 @@ describe('Upload List', () => {
           url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
           thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
         },
-      ];
+      ] as UploadFile[];
       const { container: wrapper, unmount } = render(
-        <Upload
-          fileList={list as UploadProps['fileList']}
-          showUploadList={false}
-          listType="picture-card"
-        />,
+        <Upload fileList={list} showUploadList={false} listType="picture-card" />,
       );
       expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
       expect(wrapper.querySelectorAll<HTMLDivElement>('.ant-upload-select')[0]?.style.display).toBe(
@@ -1594,13 +1566,9 @@ describe('Upload List', () => {
         name: 'xxx.png',
         status: 'error',
       },
-    ];
+    ] as UploadFile[];
     const { container } = render(
-      <Upload
-        fileList={list as UploadProps['fileList']}
-        listType="picture-card"
-        onChange={onChange}
-      />,
+      <Upload fileList={list} listType="picture-card" onChange={onChange} />,
     );
 
     fireEvent.click(container.querySelector('.anticon-delete')!);

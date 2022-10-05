@@ -4,6 +4,7 @@ import type {
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
+import type RcUpload from 'rc-upload';
 import type { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -16,12 +17,12 @@ export interface HttpRequestHeader {
   [key: string]: string;
 }
 
-export interface UploadFile<T = any> {
+export interface UploadFile<T = any> extends File {
   uid: string;
-  size?: number;
+  size: number;
   name: string;
   fileName?: string;
-  lastModified?: number;
+  lastModified: number;
   lastModifiedDate?: Date;
   url?: string;
   status?: UploadFileStatus;
@@ -32,7 +33,7 @@ export interface UploadFile<T = any> {
   response?: T;
   error?: any;
   linkProps?: any;
-  type?: string;
+  type: string;
   xhr?: T;
   preview?: string;
 }
@@ -160,3 +161,17 @@ export interface UploadListProps<T = any> {
   appendActionVisible?: boolean;
   itemRender?: ItemRender<T>;
 }
+
+export type UploadRef = {
+  onBatchStart: (fileList: { file: UploadFile; parsedFile: string | File | Blob }[]) => void;
+  onSuccess: (response: any, file: UploadFile, xhr: any) => void;
+  onProgress: (e: { percent: number }, file: UploadFile) => void;
+  onError: (error: Error, response: any, file: UploadFile) => void;
+  fileList: UploadFile<any>[];
+  upload: RcUpload | null;
+};
+
+export type UploadListRef = {
+  handlePreview: (file: UploadFile, e?: React.SyntheticEvent<HTMLElement>) => void;
+  handleDownload: (file: UploadFile) => void;
+};

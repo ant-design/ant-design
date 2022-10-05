@@ -1,5 +1,5 @@
 import React from 'react';
-import type { UploadProps } from '..';
+import type { UploadProps, UploadFile } from '..';
 import Upload from '..';
 
 describe('Upload.typescript', () => {
@@ -150,7 +150,7 @@ describe('Upload.typescript', () => {
         name: 'yyy.png',
         status: 'error' as const,
       },
-    ];
+    ] as UploadFile[];
     const upload = <Upload fileList={fileList} defaultFileList={fileList} />;
     expect(upload).toBeTruthy();
   });

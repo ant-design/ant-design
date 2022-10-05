@@ -16,6 +16,7 @@ import type {
   UploadFile,
   UploadListType,
   UploadType,
+  UploadRef,
 } from './interface';
 import { UploadProps } from './interface';
 import UploadList from './UploadList';
@@ -23,9 +24,9 @@ import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
-export { UploadProps };
+export { UploadProps, UploadRef };
 
-const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
+const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (props, ref) => {
   const {
     fileList,
     defaultFileList,
@@ -62,7 +63,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [dragState, setDragState] = React.useState<string>('drop');
 
-  const upload = React.useRef<any>();
+  const uploadRef = React.useRef<RcUpload>(null);
 
   warning(
     'fileList' in props || !('value' in props),
@@ -278,7 +279,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             item.status = 'removed';
           }
         });
-        upload.current?.abort(currentFile);
+        uploadRef.current?.abort(currentFile);
 
         onInternalChange(currentFile, removedFileList);
       }
@@ -300,7 +301,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onProgress,
     onError,
     fileList: mergedFileList,
-    upload: upload.current,
+    upload: uploadRef.current,
   }));
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -394,7 +395,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           onDragLeave={onFileDrop}
           style={style}
         >
-          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+          <RcUpload {...rcUploadProps} ref={uploadRef} className={`${prefixCls}-btn`}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
@@ -412,7 +413,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
     <div className={uploadButtonCls} style={uploadButtonStyle}>
-      <RcUpload {...rcUploadProps} ref={upload} />
+      <RcUpload {...rcUploadProps} ref={uploadRef} />
     </div>
   );
 
@@ -434,7 +435,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 };
 
-const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
+const Upload = React.forwardRef<UploadRef, UploadProps>(InternalUpload);
+
 if (process.env.NODE_ENV !== 'production') {
   Upload.displayName = 'Upload';
 }

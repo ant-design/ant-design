@@ -12,7 +12,13 @@ import { ConfigContext } from '../../config-provider';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import collapseMotion from '../../_util/motion';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import type { InternalUploadFile, UploadFile, UploadListProps, UploadListType } from '../interface';
+import type {
+  InternalUploadFile,
+  UploadFile,
+  UploadListProps,
+  UploadListType,
+  UploadListRef,
+} from '../interface';
 import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
 
@@ -20,11 +26,13 @@ const listItemMotion: Partial<CSSMotionListProps> = {
   ...collapseMotion,
 };
 
+export { UploadListProps, UploadListRef };
+
 delete listItemMotion.onAppearEnd;
 delete listItemMotion.onEnterEnd;
 delete listItemMotion.onLeaveEnd;
 
-const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
+const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadListProps> = (
   {
     listType,
     previewFile,
@@ -246,7 +254,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   );
 };
 
-const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);
+const UploadList = React.forwardRef<UploadListRef, UploadListProps>(InternalUploadList);
 if (process.env.NODE_ENV !== 'production') {
   UploadList.displayName = 'UploadList';
 }

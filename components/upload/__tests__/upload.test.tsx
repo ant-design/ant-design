@@ -3,7 +3,7 @@ import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React from 'react';
-import type { RcFile, UploadFile, UploadProps } from '..';
+import type { UploadFile, UploadProps, UploadRef, RcFile } from '..';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -29,7 +29,7 @@ describe('Upload', () => {
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
-    let ref: React.ReactInstance;
+    let ref!: React.ReactInstance;
     class App extends React.Component {
       componentDidMount() {
         ref = this.refs.input;
@@ -44,7 +44,7 @@ describe('Upload', () => {
       }
     }
     render(<App />);
-    expect(ref!).toBeDefined();
+    expect(ref).toBeDefined();
   });
 
   it('return promise in beforeUpload', async () => {
@@ -173,7 +173,7 @@ describe('Upload', () => {
         uid: 'bar',
         name: 'bar.png',
       },
-    ];
+    ] as UploadFile[];
     const mockFile = new File(['foo'], 'foo.png', {
       type: 'image/png',
     });
@@ -307,15 +307,15 @@ describe('Upload', () => {
         status: 'done',
         url: 'http://www.baidu.com/xxx.png',
       },
-    ];
-    const ref = React.createRef<any>();
+    ] as UploadFile[];
+    const ref = React.createRef<UploadRef>();
     const { rerender } = render(<Upload ref={ref} />);
-    expect(ref.current.fileList).toEqual([]);
-    rerender(<Upload ref={ref} fileList={fileList as UploadProps['fileList']} />);
+    expect(ref.current?.fileList).toEqual([]);
+    rerender(<Upload ref={ref} fileList={fileList} />);
     act(() => {
       jest.runAllTimers();
     });
-    expect(ref.current.fileList).toEqual(fileList);
+    expect(ref.current?.fileList).toEqual(fileList);
     jest.useRealTimers();
   });
 
@@ -326,9 +326,9 @@ describe('Upload', () => {
         status: 'done',
         url: 'http://www.baidu.com/xxx.png',
       },
-    ];
-    render(<Upload fileList={fileList as UploadProps['fileList']} />);
-    (fileList as UploadProps['fileList'])?.forEach(file => {
+    ] as UploadFile[];
+    render(<Upload fileList={fileList} />);
+    fileList.forEach(file => {
       expect(file.uid).toBeDefined();
     });
   });
@@ -341,13 +341,13 @@ describe('Upload', () => {
           uid: '-1',
           name: 'item.jpg',
         },
-      ];
+      ] as UploadFile[];
       const targetItem = getFileItem(file, fileList);
       expect(targetItem).toBe(fileList[0]);
     });
 
     it('should be able to remove fileItem', () => {
-      const file = { uid: '-1', name: 'item.jpg' };
+      const file = { uid: '-1', name: 'item.jpg' } as UploadFile;
       const fileList = [
         {
           uid: '-1',
@@ -357,13 +357,13 @@ describe('Upload', () => {
           uid: '-2',
           name: 'item2.jpg',
         },
-      ];
+      ] as UploadFile[];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(1));
     });
 
     it('remove fileItem and fileList with immutable data', () => {
-      const file = { uid: '-3', name: 'item3.jpg' };
+      const file = { uid: '-3', name: 'item3.jpg' } as RcFile;
       const fileList = produce(
         [
           {
@@ -381,13 +381,13 @@ describe('Upload', () => {
             name: 'item3.jpg',
           });
         },
-      );
+      ) as UploadFile[];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toEqual(fileList.slice(0, 2));
     });
 
     it('should not be able to remove fileItem', () => {
-      const file = { uid: '-3', name: 'item.jpg' };
+      const file = { uid: '-3', name: 'item.jpg' } as UploadFile;
       const fileList = [
         {
           uid: '-1',
@@ -397,7 +397,7 @@ describe('Upload', () => {
           uid: '-2',
           name: 'item2.jpg',
         },
-      ];
+      ] as UploadFile[];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toBe(null);
     });
@@ -420,10 +420,8 @@ describe('Upload', () => {
           rel: 'noopener',
         },
       },
-    ];
-    const { container: wrapper } = render(
-      <Upload fileList={fileList as UploadProps['fileList']} />,
-    );
+    ] as UploadFile[];
+    const { container: wrapper } = render(<Upload fileList={fileList} />);
     const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
     expect(linkNode?.getAttribute('download')).toBe('image');
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
@@ -442,10 +440,8 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
         linkProps: linkPropsString,
       },
-    ];
-    const { container: wrapper } = render(
-      <Upload fileList={fileList as UploadProps['fileList']} />,
-    );
+    ] as UploadFile[];
+    const { container: wrapper } = render(<Upload fileList={fileList} />);
     const linkNode = wrapper.querySelector('a.ant-upload-list-item-name');
     expect(linkNode?.getAttribute('download')).toBe('image');
     expect(linkNode?.getAttribute('rel')).toBe('noopener');
@@ -462,7 +458,7 @@ describe('Upload', () => {
           status: 'done',
           url: 'http://www.baidu.com/xxx.png',
         },
-      ],
+      ] as UploadFile[],
     };
 
     const { container: wrapper } = render(<Upload {...props} />);
@@ -484,7 +480,7 @@ describe('Upload', () => {
       name: 'foo.png',
       status: 'uploading',
       url: 'http://www.baidu.com/xxx.png',
-    };
+    } as UploadFile;
 
     let removePromise: (value: boolean | Promise<void | boolean>) => void;
 
@@ -496,11 +492,7 @@ describe('Upload', () => {
     const onChange = jest.fn();
 
     const { container } = render(
-      <Upload
-        fileList={[file] as UploadProps['fileList']}
-        onChange={onChange}
-        onRemove={onRemove}
-      />,
+      <Upload fileList={[file]} onChange={onChange} onRemove={onRemove} />,
     );
     fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete')!);
 
@@ -533,7 +525,7 @@ describe('Upload', () => {
           status: 'done',
           url: 'http://www.baidu.com/xxx.png',
         },
-      ],
+      ] as UploadFile[],
     };
 
     const { container: wrapper } = render(<Upload {...props} onDownload={() => {}} />);
@@ -549,19 +541,19 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14439
   it('should allow call abort function through upload instance', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<UploadRef>();
     render(
       <Upload ref={ref}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(typeof ref.current?.upload.abort).toBe('function');
+    expect(typeof ref.current?.upload?.abort).toBe('function');
   });
 
   it('correct dragCls when type is drag', () => {
-    const fileList = [{ status: 'uploading', uid: 'file' }];
+    const fileList = [{ status: 'uploading', uid: 'file' }] as UploadFile[];
     const { container: wrapper } = render(
-      <Upload type="drag" fileList={fileList as UploadProps['fileList']}>
+      <Upload type="drag" fileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -569,21 +561,25 @@ describe('Upload', () => {
   });
 
   it('return when targetItem is null', () => {
-    const fileList = [{ uid: 'file' }];
-    const ref = React.createRef<any>();
+    const fileList = [{ uid: 'file' }] as UploadFile[];
+    const ref = React.createRef<UploadRef>();
     render(
-      <Upload ref={ref} type="drag" fileList={fileList as UploadProps['fileList']}>
+      <Upload ref={ref} type="drag" fileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(ref.current?.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
-    expect(ref.current?.onProgress('', { uid: 'fileItem' })).toBe(undefined);
-    expect(ref.current?.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+    expect(ref.current?.onSuccess('', { uid: 'fileItem' } as UploadFile, {})).toBe(undefined);
+    expect(ref.current?.onProgress({ percent: 0 }, { uid: 'fileItem' } as UploadFile)).toBe(
+      undefined,
+    );
+    expect(ref.current?.onError(new Error(), '', { uid: 'fileItem' } as UploadFile)).toBe(
+      undefined,
+    );
   });
 
   it('should replace file when targetItem already exists', () => {
-    const fileList = [{ uid: 'file', name: 'file' }];
-    const ref = React.createRef<any>();
+    const fileList = [{ uid: 'file', name: 'file' }] as UploadFile[];
+    const ref = React.createRef<UploadRef>();
     const { unmount } = render(
       <Upload ref={ref} defaultFileList={fileList}>
         <button type="button">upload</button>
@@ -593,7 +589,7 @@ describe('Upload', () => {
     const newFile = {
       uid: 'file',
       name: 'file1',
-    };
+    } as UploadFile;
 
     act(() => {
       ref.current?.onBatchStart([
@@ -604,8 +600,8 @@ describe('Upload', () => {
       ]);
     });
 
-    expect(ref.current.fileList.length).toBe(1);
-    expect(ref.current.fileList[0].originFileObj).toEqual({
+    expect(ref.current?.fileList.length).toBe(1);
+    expect(ref.current?.fileList[0].originFileObj).toEqual({
       name: 'file1',
       uid: 'file',
     });
@@ -630,10 +626,8 @@ describe('Upload', () => {
       uid: '-1',
       type: 'video/mp4',
       url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
-    };
-    const { container: wrapper } = render(
-      <Upload listType="picture-card" fileList={[file] as UploadProps['fileList']} />,
-    );
+    } as UploadFile;
+    const { container: wrapper } = render(<Upload listType="picture-card" fileList={[file]} />);
     expect(wrapper.querySelectorAll('img').length).toBe(0);
   });
 
@@ -743,14 +737,14 @@ describe('Upload', () => {
           uid: 'bar',
           name: 'bar.png',
         },
-      ];
+      ] as UploadFile[];
 
       const props = {
         action: 'http://upload.com',
         fileList,
         onChange,
         maxCount: 1,
-      };
+      } as UploadProps;
 
       const { container: wrapper } = render(
         <Upload {...props}>
@@ -781,14 +775,14 @@ describe('Upload', () => {
           uid: 'bar',
           name: 'bar.png',
         },
-      ];
+      ] as UploadFile[];
 
       const props = {
         action: 'http://upload.com',
         fileList,
         onChange,
         maxCount: 2,
-      };
+      } as UploadProps;
 
       const { container: wrapper } = render(
         <Upload {...props}>
@@ -822,17 +816,17 @@ describe('Upload', () => {
   });
 
   it('auto fill file uid', () => {
-    const fileList = [{ name: 'bamboo.png' }];
+    const fileList = [{ name: 'bamboo.png' }] as UploadFile[];
 
-    expect((fileList[0] as any).uid).toBeFalsy();
+    expect(fileList[0].uid).toBeFalsy();
 
     render(
-      <Upload fileList={fileList as UploadProps['fileList']}>
+      <Upload fileList={fileList}>
         <button type="button">upload</button>
       </Upload>,
     );
 
-    expect((fileList[0] as any).uid).toBeTruthy();
+    expect(fileList[0].uid).toBeTruthy();
   });
 
   it('Proxy should support deepClone', async () => {
@@ -875,11 +869,9 @@ describe('Upload', () => {
       },
     ];
 
-    const frozenFileList = fileList.map(Object.freeze);
+    const frozenFileList = fileList.map(Object.freeze) as UploadFile[];
 
-    const { container: wrapper } = render(
-      <Upload fileList={frozenFileList as unknown as UploadProps['fileList']} />,
-    );
+    const { container: wrapper } = render(<Upload fileList={frozenFileList} />);
     const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-card-actions-btn');
     fireEvent.click(rmBtn[rmBtn.length - 1]);
 
