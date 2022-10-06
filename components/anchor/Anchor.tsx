@@ -135,7 +135,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     const { getTargetContainer } = this.context;
     const { getContainer } = this.props;
 
-    const getFunc = getContainer || getTargetContainer || getDefaultContainer;
+    const getFunc = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
     return getFunc();
   };

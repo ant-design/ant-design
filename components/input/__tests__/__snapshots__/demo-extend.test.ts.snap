@@ -9751,15 +9751,29 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea-show-count.md extend context correctly 1`] = `
-<div
-  class="ant-input-textarea ant-input-textarea-show-count"
-  data-count="0 / 100"
-  style="height: 120px;"
->
-  <textarea
-    class="ant-input"
-  />
-</div>
+Array [
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="0 / 100"
+    style="height: 120px;"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="can resize"
+    />
+  </div>,
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="0 / 100"
+    style="height: 120px; resize: none;"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="disable resize"
+      style="resize: none;"
+    />
+  </div>,
+]
 `;
 
 exports[`renders ./components/input/demo/tooltip.md extend context correctly 1`] = `
