@@ -44,14 +44,18 @@ describe('Space.Compact', () => {
     const { container } = render(
       <Space.Compact block>
         <Input defaultValue="https://ant.design" />
+        <Input.Search />
         <Button type="primary">Submit</Button>
       </Space.Compact>,
     );
-    expect(container.querySelector('input')?.classList.contains('ant-input-compact-item')).toBe(
-      true,
-    );
     expect(
-      container.querySelector('input')?.classList.contains('ant-input-compact-first-item'),
+      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-item'),
+    ).toBe(true);
+    expect(
+      container.querySelector('.ant-input-search')?.classList.contains('ant-input-compact-item'),
+    ).toBe(true);
+    expect(
+      container.querySelector('.ant-input')?.classList.contains('ant-input-compact-first-item'),
     ).toBe(true);
     expect(
       container
@@ -67,11 +71,11 @@ describe('Space.Compact', () => {
         <Button type="primary">Submit</Button>
       </Space.Compact>,
     );
-    expect(container.querySelector('input')?.classList.contains('ant-input-sm')).toBe(true);
+    expect(container.querySelector('.ant-input')?.classList.contains('ant-input-sm')).toBe(true);
     expect(container.querySelector('.ant-btn')?.classList.contains('ant-btn-sm')).toBe(true);
   });
 
-  it('vertical', () => {
+  it('direction=vertical', () => {
     const { container } = render(
       <Space.Compact size="small" direction="vertical">
         <Button type="primary">Button 1</Button>
