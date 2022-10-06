@@ -4928,6 +4928,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height based on content lines"
+    style="height: 0px; resize: none;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -4935,6 +4936,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
+    style="height: -24px; resize: none; min-height: -8px; max-height: -24px;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -4942,6 +4944,7 @@ Array [
   <textarea
     class="ant-input"
     placeholder="Controlled autosize"
+    style="height: -20px; resize: none; min-height: -12px; max-height: -20px;"
   />,
 ]
 `;
@@ -8678,7 +8681,6 @@ exports[`renders ./components/input/demo/password-input.md extend context correc
       class="ant-input-affix-wrapper ant-input-password"
     >
       <input
-        action="click"
         class="ant-input"
         placeholder="input password"
         type="password"
@@ -8720,7 +8722,6 @@ exports[`renders ./components/input/demo/password-input.md extend context correc
       class="ant-input-affix-wrapper ant-input-password"
     >
       <input
-        action="click"
         class="ant-input"
         placeholder="input password"
         type="password"
@@ -9750,15 +9751,29 @@ Array [
 `;
 
 exports[`renders ./components/input/demo/textarea-show-count.md extend context correctly 1`] = `
-<div
-  class="ant-input-textarea ant-input-textarea-show-count"
-  data-count="0 / 100"
-  style="height: 120px;"
->
-  <textarea
-    class="ant-input"
-  />
-</div>
+Array [
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="0 / 100"
+    style="height: 120px;"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="can resize"
+    />
+  </div>,
+  <div
+    class="ant-input-textarea ant-input-textarea-show-count"
+    data-count="0 / 100"
+    style="height: 120px; resize: none;"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="disable resize"
+      style="resize: none;"
+    />
+  </div>,
+]
 `;
 
 exports[`renders ./components/input/demo/tooltip.md extend context correctly 1`] = `

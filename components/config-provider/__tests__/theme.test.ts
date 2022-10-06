@@ -53,7 +53,6 @@ describe('ConfigProvider.Theme', () => {
     );
 
     Object.keys(infoColor).forEach((key: keyof typeof infoColor) => {
-      expect(themeStyle).not.toBeTruthy();
       expect(themeStyle?.innerHTML).toContain(
         `--${prefixCls}-info-color-${kebabCase(key)}: ${infoColor[key]}`,
       );

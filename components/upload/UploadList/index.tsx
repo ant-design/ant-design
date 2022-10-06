@@ -32,31 +32,29 @@ delete listItemMotion.onAppearEnd;
 delete listItemMotion.onEnterEnd;
 delete listItemMotion.onLeaveEnd;
 
-const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadListProps> = (
-  {
-    listType,
-    previewFile,
+const UploadList = React.forwardRef<UploadListRef, UploadListProps>((props, ref) => {
+  const {
+    listType = 'text',
+    previewFile = previewImage,
     onPreview,
     onDownload,
     onRemove,
     locale,
     iconRender,
-    isImageUrl: isImgUrl,
+    isImageUrl: isImgUrl = isImageUrl,
     prefixCls: customizePrefixCls,
     items = [],
-    showPreviewIcon,
-    showRemoveIcon,
-    showDownloadIcon,
+    showPreviewIcon = true,
+    showRemoveIcon = true,
+    showDownloadIcon = false,
     removeIcon,
     previewIcon,
     downloadIcon,
-    progress,
+    progress = { strokeWidth: 2, showInfo: false },
     appendAction,
-    appendActionVisible,
+    appendActionVisible = true,
     itemRender,
-  },
-  ref,
-) => {
+  } = props;
   const forceUpdate = useForceUpdate();
   const [motionAppear, setMotionAppear] = React.useState(false);
 
@@ -252,25 +250,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       )}
     </div>
   );
-};
+});
 
-const UploadList = React.forwardRef<UploadListRef, UploadListProps>(InternalUploadList);
 if (process.env.NODE_ENV !== 'production') {
   UploadList.displayName = 'UploadList';
 }
-
-UploadList.defaultProps = {
-  listType: 'text' as UploadListType, // or picture
-  progress: {
-    strokeWidth: 2,
-    showInfo: false,
-  },
-  showRemoveIcon: true,
-  showDownloadIcon: false,
-  showPreviewIcon: true,
-  appendActionVisible: true,
-  previewFile: previewImage,
-  isImageUrl,
-};
 
 export default UploadList;

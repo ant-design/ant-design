@@ -44,7 +44,15 @@ interface StepsType extends React.FC<StepsProps> {
 }
 
 const Steps: StepsType = props => {
-  const { percent, size, className, direction, responsive, ...restProps } = props;
+  const {
+    percent,
+    size,
+    className,
+    direction,
+    responsive = true,
+    current = 0,
+    ...restProps
+  } = props;
   const { xs } = useBreakpoint(responsive);
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
@@ -99,6 +107,7 @@ const Steps: StepsType = props => {
     <RcSteps
       icons={icons}
       {...restProps}
+      current={current}
       size={size}
       direction={getDirection()}
       stepIcon={stepIconRender}
@@ -110,10 +119,5 @@ const Steps: StepsType = props => {
 };
 
 Steps.Step = RcSteps.Step;
-
-Steps.defaultProps = {
-  current: 0,
-  responsive: true,
-};
 
 export default Steps;

@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useRef, useState, useMemo } 
 import type { WrappedComponentProps } from 'react-intl';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Row, Col, Popover, Button, Modal } from 'antd';
+import { Select, Row, Col, Drawer, Button, Modal } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import type { DirectionType } from 'antd/es/config-provider';
@@ -110,9 +110,6 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
   }, []);
   const handleShowMenu = useCallback(() => {
     setHeaderState(prev => ({ ...prev, menuVisible: true }));
-  }, []);
-  const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState(prev => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = useCallback(() => {
     changeDirection(direction !== 'rtl' ? 'rtl' : 'ltr');
@@ -296,19 +293,19 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
 
         return (
           <header id="header" className={headerClassName}>
-            {isMobile && (
-              <Popover
-                overlayClassName="popover-menu"
-                placement="bottomRight"
-                content={menu}
-                trigger="click"
-                open={menuVisible}
-                arrowPointAtCenter
-                onOpenChange={onMenuVisibleChange}
-              >
-                <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
-              </Popover>
-            )}
+            {isMobile && <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />}
+            <Drawer
+              open={menuVisible}
+              placement="right"
+              title={null}
+              closable={false}
+              onClose={() => setHeaderState(prev => ({ ...prev, menuVisible: false }))}
+              bodyStyle={{ margin: '0 -23px' }}
+              drawerStyle={{ overflowX: 'hidden' }}
+              width={260}
+            >
+              {menu}
+            </Drawer>
             <Row style={{ flexFlow: 'nowrap', height: 64 }}>
               <Col {...colProps[0]}>
                 <Logo {...sharedProps} location={location} />

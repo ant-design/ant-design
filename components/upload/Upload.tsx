@@ -31,25 +31,30 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     fileList,
     defaultFileList,
     onRemove,
-    showUploadList,
-    listType,
+    showUploadList = true,
+    listType = 'text',
     onPreview,
     onDownload,
     onChange,
     onDrop,
     previewFile,
-    disabled: customDisabled,
+    disabled: customDisabled = false,
     locale: propLocale,
     iconRender,
     isImageUrl,
     progress,
     prefixCls: customizePrefixCls,
     className,
-    type,
+    type = 'select',
     children,
     style,
     itemRender,
     maxCount,
+    data = {},
+    multiple = false,
+    action = '',
+    accept = '',
+    supportServerRender = true,
   } = props;
 
   // ===================== Disabled =====================
@@ -313,12 +318,17 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onError,
     onProgress,
     onSuccess,
-    ...(props as RcUploadProps),
+    ...props,
+    data,
+    multiple,
+    action,
+    accept,
+    supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
-  };
+  } as RcUploadProps;
 
   delete rcUploadProps.className;
   delete rcUploadProps.style;
@@ -440,18 +450,5 @@ const Upload = React.forwardRef<UploadRef, UploadProps>(InternalUpload);
 if (process.env.NODE_ENV !== 'production') {
   Upload.displayName = 'Upload';
 }
-
-Upload.defaultProps = {
-  type: 'select' as UploadType,
-  multiple: false,
-  action: '',
-  data: {},
-  accept: '',
-  showUploadList: true,
-  listType: 'text' as UploadListType, // or picture
-  className: '',
-  disabled: false,
-  supportServerRender: true,
-};
 
 export default Upload;
