@@ -223,6 +223,13 @@ describe('TextArea', () => {
     jest.useRealTimers();
   });
 
+  it('should disabled trigger onResize', async () => {
+    const { container } = render(<TextArea showCount style={{ resize: 'none' }} />);
+    expect(container.innerHTML).toContain('resize: none;');
+    const { container: container2 } = render(<TextArea showCount />);
+    expect(container2.innerHTML).not.toContain('resize: none;');
+  });
+
   it('should works same as Input', () => {
     const { container: inputContainer, rerender: inputRerender } = render(<Input value="111" />);
     const { container: textareaContainer, rerender: textareaRerender } = render(
