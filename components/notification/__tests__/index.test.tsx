@@ -336,4 +336,16 @@ describe('notification', () => {
 
     expect(document.querySelectorAll('.anticon-user').length).toBe(1);
   });
+
+  it('support props', () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        props: { 'data-testid': 'test-notification' },
+      });
+    });
+
+    expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
+  });
 });

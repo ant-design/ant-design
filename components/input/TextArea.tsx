@@ -193,7 +193,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           },
           getStatusClassNames(prefixCls, mergedStatus),
         )}
-        style={showCount ? undefined : style}
+        style={showCount ? { resize: style?.resize } : style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
