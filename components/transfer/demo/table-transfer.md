@@ -32,6 +32,8 @@ interface DataType {
   title: string;
   tag: string;
   description: string;
+  key: string;
+  disabled: boolean;
 }
 
 interface TableTransferProps extends TransferProps<TransferItem> {
@@ -41,7 +43,11 @@ interface TableTransferProps extends TransferProps<TransferItem> {
 }
 
 // Customize Table Transfer
-const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransferProps) => (
+const TableTransfer: React.FC<TableTransferProps> = ({
+  leftColumns,
+  rightColumns,
+  ...restProps
+}) => (
   <Transfer {...restProps}>
     {({
       direction,
