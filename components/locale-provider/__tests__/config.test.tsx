@@ -6,8 +6,6 @@ import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
 class Demo extends React.Component<{ type: string }> {
-  static defaultProps = {};
-
   componentDidMount() {
     if (this.props.type === 'dashboard') {
       Modal.confirm({ title: 'Hello World!' });

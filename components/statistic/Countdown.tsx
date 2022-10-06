@@ -19,10 +19,6 @@ function getTime(value?: countdownValueType) {
 }
 
 class Countdown extends React.Component<CountdownProps, {}> {
-  static defaultProps: Partial<CountdownProps> = {
-    format: 'HH:mm:ss',
-  };
-
   countdownId?: number;
 
   componentDidMount() {
@@ -77,16 +73,14 @@ class Countdown extends React.Component<CountdownProps, {}> {
   };
 
   formatCountdown = (value: countdownValueType, config: FormatConfig) => {
-    const { format } = this.props;
+    const { format = 'HH:mm:ss' } = this.props;
     return formatCountdown(value, { ...config, format });
   };
 
   // Countdown do not need display the timestamp
   // eslint-disable-next-line class-methods-use-this
   valueRender = (node: React.ReactElement<HTMLDivElement>) =>
-    cloneElement(node, {
-      title: undefined,
-    });
+    cloneElement(node, { title: undefined });
 
   render() {
     return (

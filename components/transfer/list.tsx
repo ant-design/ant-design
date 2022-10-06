@@ -81,12 +81,6 @@ interface TransferListState {
 export default class TransferList<
   RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
-  static defaultProps = {
-    dataSource: [],
-    titleText: '',
-    showSearch: false,
-  };
-
   timer: number;
 
   triggerScrollTimer: number;
@@ -251,7 +245,7 @@ export default class TransferList<
     onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
     disabled?: boolean;
     prefixCls?: string;
-  }): false | JSX.Element {
+  }): React.ReactNode {
     const checkStatus = this.getCheckStatus(filteredItems);
     const checkedAll = checkStatus === 'all';
     const checkAllCheckbox = (
@@ -305,12 +299,12 @@ export default class TransferList<
     const { filterValue } = this.state;
     const {
       prefixCls,
-      dataSource,
-      titleText,
+      dataSource = [],
+      titleText = '',
       checkedKeys,
       disabled,
       footer,
-      showSearch,
+      showSearch = false,
       style,
       searchPlaceholder,
       notFoundContent,

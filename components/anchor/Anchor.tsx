@@ -89,16 +89,9 @@ export interface AntAnchor {
 }
 
 class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
-  static defaultProps = {
-    affix: true,
-    showInkInFixed: false,
-  };
-
   static contextType = ConfigContext;
 
-  state = {
-    activeLink: null,
-  };
+  state = { activeLink: null };
 
   context: ConfigConsumerProps;
 
@@ -283,8 +276,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       className = '',
       style,
       offsetTop,
-      affix,
-      showInkInFixed,
+      affix = true,
+      showInkInFixed = false,
       children,
       onClick,
     } = this.props;
@@ -353,7 +346,6 @@ const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
 
   const anchorProps: InternalAnchorProps = {
     ...props,
-
     anchorPrefixCls,
   };
 

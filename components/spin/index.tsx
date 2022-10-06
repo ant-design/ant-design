@@ -76,22 +76,14 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 }
 
 class Spin extends React.Component<SpinClassProps, SpinState> {
-  static defaultProps = {
-    spinning: true,
-    size: 'default' as SpinSize,
-    wrapperClassName: '',
-  };
-
   originalUpdateSpinning: () => void;
 
   constructor(props: SpinClassProps) {
     super(props);
 
-    const { spinning, delay } = props;
+    const { spinning = true, delay } = props;
     const shouldBeDelayed = shouldDelay(spinning, delay);
-    this.state = {
-      spinning: spinning && !shouldBeDelayed,
-    };
+    this.state = { spinning: spinning && !shouldBeDelayed };
     this.originalUpdateSpinning = this.updateSpinning;
     this.debouncifyUpdateSpinning(props);
   }
@@ -118,7 +110,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
   };
 
   updateSpinning = () => {
-    const { spinning } = this.props;
+    const { spinning = true } = this.props;
     const { spinning: currentSpinning } = this.state;
     if (currentSpinning !== spinning) {
       this.setState({ spinning });
@@ -140,12 +132,13 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
     const {
       spinPrefixCls: prefixCls,
       className,
-      size,
+      size = 'default',
       tip,
       wrapperClassName,
       style,
       ...restProps
     } = this.props;
+
     const { spinning } = this.state;
 
     const spinClassName = classNames(
@@ -196,7 +189,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
   }
 }
 
-const SpinFC: SpinFCType = (props: SpinProps) => {
+const SpinFC: SpinFCType = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

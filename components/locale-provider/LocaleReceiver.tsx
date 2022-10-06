@@ -19,16 +19,12 @@ export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleCompo
 export default class LocaleReceiver<
   C extends LocaleComponentName = LocaleComponentName,
 > extends React.Component<LocaleReceiverProps<C>> {
-  static defaultProps = {
-    componentName: 'global',
-  };
-
   static contextType = LocaleContext;
 
   context: LocaleContextProps;
 
   getLocale(): NonNullable<Locale[C]> {
-    const { componentName, defaultLocale } = this.props;
+    const { componentName = 'global' as C, defaultLocale } = this.props;
     const locale = defaultLocale || defaultLocaleData[componentName ?? 'global'];
     const antLocale = this.context;
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
@@ -59,7 +55,7 @@ export function useLocaleReceiver<T extends LocaleComponentName>(
 ): [Locale[T]] {
   const antLocale = React.useContext(LocaleContext);
 
-  const componentLocale = React.useMemo(() => {
+  const componentLocale = React.useMemo<Locale[T]>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
 

@@ -23,7 +23,6 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends 
 type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<DirectoryTreeProps<T>> & { ref?: React.Ref<RcTree> },
 ) => React.ReactElement) & {
-  defaultProps: Partial<React.PropsWithChildren<DirectoryTreeProps<any>>>;
   displayName?: string;
 };
 

@@ -54,11 +54,7 @@ export interface LocaleProviderProps {
   _ANT_MARK__?: string;
 }
 
-export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
-  static defaultProps = {
-    locale: {},
-  };
-
+export default class LocaleProvider extends React.Component<LocaleProviderProps, {}> {
   constructor(props: LocaleProviderProps) {
     super(props);
     changeConfirmLocale(props.locale && props.locale.Modal);
@@ -71,11 +67,12 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   }
 
   componentDidMount() {
-    changeConfirmLocale(this.props.locale && this.props.locale.Modal);
+    const { locale = {} as Locale } = this.props;
+    changeConfirmLocale(locale && locale.Modal);
   }
 
   componentDidUpdate(prevProps: LocaleProviderProps) {
-    const { locale } = this.props;
+    const { locale = {} as Locale } = this.props;
     if (prevProps.locale !== locale) {
       changeConfirmLocale(locale && locale.Modal);
     }
@@ -91,7 +88,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   }));
 
   render() {
-    const { locale, children } = this.props;
+    const { locale = {} as Locale, children } = this.props;
     const contextValue = this.getMemoizedContextValue(locale);
     return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
   }
