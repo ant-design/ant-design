@@ -84,7 +84,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const mergeSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const inputNumberClass = classNames(
     {

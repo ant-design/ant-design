@@ -30,7 +30,7 @@ function isReactFragment(node: React.ReactNode) {
 }
 
 // Insert one space between two chinese characters automatically.
-function insertSpace(child: React.ReactChild, needInserted: boolean) {
+function insertSpace(child: React.ReactElement | string | number, needInserted: boolean) {
   // Check the child if is undefined or null.
   if (child === null || child === undefined) {
     return;
@@ -75,7 +75,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 
   // Pass to React.Children.map to auto fill key
   return React.Children.map(childList, child =>
-    insertSpace(child as React.ReactChild, needInserted),
+    insertSpace(child as React.ReactElement | string | number, needInserted),
   );
 }
 
@@ -163,7 +163,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const size = React.useContext(SizeContext);
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);

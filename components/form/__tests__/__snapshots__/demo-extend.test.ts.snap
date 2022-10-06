@@ -2484,7 +2484,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Apple 
+                     Apple
                   </span>
                 </label>
                 <label
@@ -2504,7 +2504,7 @@ Array [
                     />
                   </span>
                   <span>
-                     Pear 
+                     Pear
                   </span>
                 </label>
               </div>
@@ -6614,7 +6614,7 @@ exports[`renders ./components/form/demo/form-context.md extend context correctly
             <span
               class="ant-typography ant-typography-secondary ant-form-text"
             >
-              ( 
+              (
               <span
                 aria-label="smile"
                 class="anticon anticon-smile"
@@ -7824,7 +7824,7 @@ exports[`renders ./components/form/demo/normal-login.md extend context correctly
                 Log in
               </span>
             </button>
-            Or 
+            Or
             <a
               href=""
             >
@@ -9259,7 +9259,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                 />
               </span>
               <span>
-                I have read the 
+                I have read the
                 <a
                   href=""
                 >
@@ -18751,7 +18751,7 @@ Array [
     class="ant-typography"
   >
     <pre>
-      Name Value: 
+      Name Value:
     </pre>
   </article>,
 ]

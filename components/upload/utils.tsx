@@ -58,7 +58,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
   const extension = extname(url);
   if (
     /^data:image\//.test(url) ||
-    /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico)$/i.test(extension)
+    /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico|heic|heif)$/i.test(extension)
   ) {
     return true;
   }

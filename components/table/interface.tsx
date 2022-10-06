@@ -63,7 +63,7 @@ export interface ColumnTitleProps<RecordType> {
   sortColumn?: ColumnType<RecordType>;
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
 
-  filters?: Record<string, string[]>;
+  filters?: Record<string, FilterValue>;
 }
 
 export type ColumnTitle<RecordType> =
@@ -72,7 +72,9 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
-export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
+export type FilterSearchType<RecordType = Record<string, any>> =
+  | boolean
+  | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -81,9 +83,15 @@ export interface FilterDropdownProps {
   prefixCls: string;
   setSelectedKeys: (selectedKeys: React.Key[]) => void;
   selectedKeys: React.Key[];
+  /**
+   * Confirm filter value, if you want to close dropdown before commit, you can call with
+   * {closeDropdown: true}
+   */
   confirm: (param?: FilterConfirmProps) => void;
   clearFilters?: () => void;
   filters?: ColumnFilterItem[];
+  /** Only close filterDropdown */
+  close: () => void;
   visible: boolean;
 }
 
@@ -112,7 +120,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
-  filterSearch?: FilterSearchType;
+  filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   /**
    * @deprecated `filterDropdownVisible` is deprecated which will be removed in next major version.

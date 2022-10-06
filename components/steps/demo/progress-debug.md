@@ -19,12 +19,26 @@ import type { StepsProps } from 'antd';
 import { Button, Steps } from 'antd';
 import React, { useState } from 'react';
 
-const { Step } = Steps;
-
 const App: React.FC = () => {
   const [percent, setPercentage] = useState(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');
+  const description = 'This is a description.';
+  const items = [
+    {
+      title: 'Finished',
+      description,
+    },
+    {
+      title: 'In Progress',
+      subTitle: 'Left 00:00:08',
+      description,
+    },
+    {
+      title: 'Waiting',
+      description,
+    },
+  ];
   return (
     <>
       <Button onClick={() => setPercentage(0)}>Percentage to undefined</Button>
@@ -41,26 +55,23 @@ const App: React.FC = () => {
       <Button onClick={() => setStatus('process')}>Status Process</Button>
       <Button onClick={() => setStatus('finish')}>Status Finish</Button>
       <Button onClick={() => setStatus('error')}>Status Error</Button>
-      <Steps current={current} percent={percent} status={status}>
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-      <Steps current={current} percent={percent} status={status} size="small">
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-      <Steps current={current} percent={percent} status={status} direction="vertical">
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
-      <Steps current={current} percent={percent} status={status} size="small" direction="vertical">
-        <Step title="Finished" description="This is a description." />
-        <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-        <Step title="Waiting" description="This is a description." />
-      </Steps>
+      <Steps current={current} percent={percent} status={status} items={items} />
+      <Steps current={current} percent={percent} status={status} size="small" items={items} />
+      <Steps
+        current={current}
+        percent={percent}
+        status={status}
+        direction="vertical"
+        items={items}
+      />
+      <Steps
+        current={current}
+        percent={percent}
+        status={status}
+        size="small"
+        direction="vertical"
+        items={items}
+      />
     </>
   );
 };

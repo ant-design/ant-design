@@ -551,7 +551,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           John Brown
                         </a>
                       </div>
@@ -606,7 +606,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Jim Green
                         </a>
                       </div>
@@ -666,7 +666,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Joe Black
                         </a>
                       </div>
@@ -1407,6 +1407,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1414,6 +1415,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
@@ -1530,6 +1543,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1537,6 +1551,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
@@ -1733,6 +1759,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                 </div>
                                 <div
                                   class="ant-space-item"
+                                  style="margin-right: 8px;"
                                 >
                                   <button
                                     class="ant-btn ant-btn-link ant-btn-sm"
@@ -1740,6 +1767,18 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   >
                                     <span>
                                       Filter
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                >
+                                  <button
+                                    class="ant-btn ant-btn-link ant-btn-sm"
+                                    type="button"
+                                  >
+                                    <span>
+                                      close
                                     </span>
                                   </button>
                                 </div>
@@ -4977,23 +5016,27 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                   class="ant-popover-message"
                                 >
                                   <span
-                                    aria-label="exclamation-circle"
-                                    class="anticon anticon-exclamation-circle"
-                                    role="img"
+                                    class="ant-popover-message-icon"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="exclamation-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      aria-label="exclamation-circle"
+                                      class="anticon anticon-exclamation-circle"
+                                      role="img"
                                     >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                                      />
-                                    </svg>
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="exclamation-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                        />
+                                      </svg>
+                                    </span>
                                   </span>
                                   <div
                                     class="ant-popover-message-title"
@@ -5084,23 +5127,27 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                   class="ant-popover-message"
                                 >
                                   <span
-                                    aria-label="exclamation-circle"
-                                    class="anticon anticon-exclamation-circle"
-                                    role="img"
+                                    class="ant-popover-message-icon"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="exclamation-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
+                                    <span
+                                      aria-label="exclamation-circle"
+                                      class="anticon anticon-exclamation-circle"
+                                      role="img"
                                     >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                                      />
-                                    </svg>
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="exclamation-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                        />
+                                      </svg>
+                                    </span>
                                   </span>
                                   <div
                                     class="ant-popover-message-title"
@@ -8615,9 +8662,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                                     </span>
                                   </label>
                                   <span>
-                                    <span>
-                                      London
-                                    </span>
+                                    London
                                   </span>
                                 </span>
                               </li>
@@ -8669,9 +8714,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                                     </span>
                                   </label>
                                   <span>
-                                    <span>
-                                      New York
-                                    </span>
+                                    New York
                                   </span>
                                 </span>
                               </li>
@@ -14492,7 +14535,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Brown
                         </a>
                       </div>
@@ -14550,7 +14593,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Green
                         </a>
                       </div>
@@ -14613,7 +14656,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
                         style="margin-right: 16px;"
                       >
                         <a>
-                          Invite 
+                          Invite
                           Black
                         </a>
                       </div>
@@ -16505,9 +16548,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16545,7 +16585,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16725,9 +16765,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16765,7 +16802,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16945,9 +16982,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -16985,7 +17019,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17555,9 +17589,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17595,7 +17626,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17775,9 +17806,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -17815,7 +17843,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17995,9 +18023,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18035,7 +18060,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18605,9 +18630,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18645,7 +18667,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18825,9 +18847,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -18865,7 +18884,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -19045,9 +19064,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -19085,7 +19101,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More 
+                                                More
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -20171,7 +20187,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             John Brown
                           </a>
                         </div>
@@ -20228,7 +20244,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             Jim Green
                           </a>
                         </div>
@@ -20290,7 +20306,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
                           style="margin-right: 16px;"
                         >
                           <a>
-                            Invite 
+                            Invite
                             Joe Black
                           </a>
                         </div>
@@ -23869,7 +23885,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -23912,7 +23928,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -23955,7 +23971,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -23998,7 +24014,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -24041,7 +24057,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                     rowspan="2"
                   >
                     false
-                    : 
+                    :
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26533,7 +26549,7 @@ Array [
       class="ant-space-item"
       style="margin-right: 8px;"
     >
-      CheckStrictly: 
+      CheckStrictly:
     </div>
     <div
       class="ant-space-item"
@@ -26835,7 +26851,7 @@ Array [
       class="ant-space-item"
       style="margin-right: 8px;"
     >
-      Fixed first column: 
+      Fixed first column:
     </div>
     <div
       class="ant-space-item"

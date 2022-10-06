@@ -10,7 +10,7 @@ export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | '
 }
 
 const SkeletonNode: React.FC<SkeletonNodeProps> = props => {
-  const { prefixCls: customizePrefixCls, className, style, active } = props;
+  const { prefixCls: customizePrefixCls, className, style, active, children } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
@@ -23,7 +23,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = props => {
     className,
   );
 
-  const content = props.children ?? <DotChartOutlined />;
+  const content = children ?? <DotChartOutlined />;
 
   return (
     <div className={cls}>

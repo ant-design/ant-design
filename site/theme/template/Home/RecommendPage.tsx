@@ -3,21 +3,14 @@ import classNames from 'classnames';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Row, Col, Typography } from 'antd';
 import { useSiteData } from './util';
+import type { Recommendation } from './util';
 import './RecommendPage.less';
 
 const { Title, Paragraph } = Typography;
 
-interface Recommend {
-  title?: string;
-  img?: string;
-  href?: string;
-  popularize?: boolean;
-  description?: string;
-  loading?: boolean;
-}
-
-interface RecommendBlockProps extends Recommend {
+interface RecommendBlockProps extends Recommendation {
   main?: boolean;
+  loading?: boolean;
 }
 
 const RecommendBlock = ({
@@ -59,7 +52,7 @@ const RecommendBlock = ({
 
 export default function RecommendPage() {
   const { locale } = useIntl();
-  const [{ recommendations }, loading] = useSiteData<any>();
+  const [{ recommendations }, loading] = useSiteData();
   const list = recommendations?.[locale === 'zh-CN' ? 'cn' : 'en'];
   const isLoading = loading || !list || list.length === 0;
   return (

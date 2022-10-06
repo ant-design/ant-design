@@ -17,8 +17,6 @@ Search the options while expanded.
 import { Select } from 'antd';
 import React from 'react';
 
-const { Option } = Select;
-
 const onChange = (value: string) => {
   console.log(`selected ${value}`);
 };
@@ -35,13 +33,23 @@ const App: React.FC = () => (
     onChange={onChange}
     onSearch={onSearch}
     filterOption={(input, option) =>
-      (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())
+      (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
     }
-  >
-    <Option value="jack">Jack</Option>
-    <Option value="lucy">Lucy</Option>
-    <Option value="tom">Tom</Option>
-  </Select>
+    options={[
+      {
+        value: 'jack',
+        label: 'Jack',
+      },
+      {
+        value: 'lucy',
+        label: 'Lucy',
+      },
+      {
+        value: 'tom',
+        label: 'Tom',
+      },
+    ]}
+  />
 );
 
 export default App;

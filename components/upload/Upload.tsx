@@ -54,7 +54,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
@@ -449,7 +449,6 @@ Upload.defaultProps = {
   showUploadList: true,
   listType: 'text' as UploadListType, // or picture
   className: '',
-  disabled: false,
   supportServerRender: true,
 };
 

@@ -17,14 +17,26 @@ The most basic step bar.
 import { Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
-
+const description = 'This is a description.';
 const App: React.FC = () => (
-  <Steps current={1}>
-    <Step title="Finished" description="This is a description." />
-    <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-    <Step title="Waiting" description="This is a description." />
-  </Steps>
+  <Steps
+    current={1}
+    items={[
+      {
+        title: 'Finished',
+        description,
+      },
+      {
+        title: 'In Progress',
+        description,
+        subTitle: 'Left 00:00:08',
+      },
+      {
+        title: 'Waiting',
+        description,
+      },
+    ]}
+  />
 );
 
 export default App;

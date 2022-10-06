@@ -101,7 +101,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         // ===================== Disabled =====================
         const disabled = React.useContext(DisabledContext);
-        const mergedDisabled = customDisabled || disabled;
+        const mergedDisabled = customDisabled ?? disabled;
 
         // ===================== FormItemInput =====================
         const formItemContext = useContext(FormItemInputContext);
