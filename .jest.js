@@ -47,7 +47,6 @@ module.exports = {
     '!components/__tests__/node.test.tsx',
   ],
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfig: './tsconfig.test.json',
