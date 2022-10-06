@@ -14,11 +14,9 @@ import type {
   ShowUploadListInterface,
   UploadChangeParam,
   UploadFile,
-  UploadListType,
-  UploadType,
+  UploadProps,
   UploadRef,
 } from './interface';
-import { UploadProps } from './interface';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 

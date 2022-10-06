@@ -1222,7 +1222,7 @@ describe('Upload List', () => {
           {
             uid: '0',
             name: 'xxx.png',
-          } as UploadFiles,
+          } as UploadFile,
         ]}
         showUploadList
       >
