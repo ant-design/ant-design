@@ -3,6 +3,31 @@
 
 @space-compact-prefix-cls: ~'@{ant-prefix}-space-compact';
 
+@child-names: btn null, cascader null, input null, input-number null, picker null,
+  select select-selector;
+
+.reset-border-radius(@suffix) {
+  each(@child-names, {
+    @namespace: extract(@value, 1);
+    @cls: ~'@{ant-prefix}-@{namespace}-@{suffix}';
+
+    @special-border-item: extract(@value, 2);
+
+    // Select has an special focus-item
+    & when(not (@special-border-item = null)) {
+      .@{cls} .@{ant-prefix}-@{special-border-item} {
+        border-radius: 0;
+      }
+    }
+
+    & when(@special-border-item = null) {
+      .@{cls} {
+        border-radius: 0;
+      }
+    }
+  });
+}
+
 .@{space-compact-prefix-cls} {
   display: inline-flex;
 
@@ -20,26 +45,10 @@
   & > &:not(:first-child) {
     margin-right: -1px;
 
-    .ant-btn-compact-first-item,
-    .ant-input-compact-first-item {
-      border-radius: 0;
-    }
+    .reset-border-radius(compact-first-item);
   }
 
   & > &:not(:last-child) {
-    .ant-btn-compact-last-item,
-    .ant-input-compact-last-item {
-      border-radius: 0;
-    }
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    z-index: 2;
-  }
-
-  &[disabled] {
-    z-index: 0;
+    .reset-border-radius(compact-last-item);
   }
 }

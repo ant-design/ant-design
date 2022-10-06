@@ -98,7 +98,7 @@
   }
 }
 
-.compact-item-border(@prefix-cls, @bordered-item-cls: null, @extra-open-cls) {
+.compact-item-border(@prefix-cls, @bordered-item-cls: null, @special-open-cls) {
   & when (@bordered-item-cls = null) {
     // border collapse
     &-item:not(&-last-item):not(&-item-rtl) {
@@ -118,8 +118,8 @@
       }
 
       // Select has an extra focus className
-      & when (not (@extra-item-cls = null)) {
-        &.@{extra-item-cls} {
+      & when (not (@special-item-cls = null)) {
+        &.@{special-item-cls} {
           z-index: 2;
         }
       }
@@ -150,9 +150,9 @@
         }
       }
 
-      // Select has an extra focus className
-      & when (not (@extra-item-cls = null)) {
-        &.@{extra-item-cls} > * {
+      // Select has an special focus-item
+      & when (not (@special-item-cls = null)) {
+        &.@{special-item-cls} > * {
           z-index: 2;
         }
       }
@@ -164,9 +164,9 @@
   }
 }
 
-.compact-item(@prefix-cls, @bordered-item-cls: null, @extra-item-cls: null) {
+.compact-item(@prefix-cls, @bordered-item-cls: null, @special-item-cls: null) {
   &-compact {
-    .compact-item-border(@prefix-cls, @bordered-item-cls, @extra-item-cls);
+    .compact-item-border(@prefix-cls, @bordered-item-cls, @special-item-cls);
 
     .compact-item-border-radius(@prefix-cls, @bordered-item-cls);
   }
