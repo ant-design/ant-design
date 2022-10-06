@@ -739,12 +739,12 @@ describe('Upload', () => {
         },
       ] as UploadFile[];
 
-      const props = {
+      const props: UploadProps = {
         action: 'http://upload.com',
         fileList,
         onChange,
         maxCount: 1,
-      } as UploadProps;
+      };
 
       const { container: wrapper } = render(
         <Upload {...props}>
@@ -777,12 +777,12 @@ describe('Upload', () => {
         },
       ] as UploadFile[];
 
-      const props = {
+      const props: UploadProps = {
         action: 'http://upload.com',
         fileList,
         onChange,
         maxCount: 2,
-      } as UploadProps;
+      };
 
       const { container: wrapper } = render(
         <Upload {...props}>

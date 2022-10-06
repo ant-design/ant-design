@@ -1284,7 +1284,7 @@ describe('Upload List', () => {
     const fileNames = ['light', 'bamboo', 'little'];
 
     await act(() => {
-      uploadRef.current?.onBatchStart(
+      uploadRef.current?.onBatchStart?.(
         fileNames.map(fileName => {
           const file = new File([], fileName) as UploadFile;
           file.uid = fileName;

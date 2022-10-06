@@ -163,10 +163,10 @@ export interface UploadListProps<T = any> {
 }
 
 export type UploadRef = {
-  onBatchStart: (fileList: { file: UploadFile; parsedFile: string | File | Blob }[]) => void;
-  onSuccess: (response: any, file: UploadFile, xhr: any) => void;
-  onProgress: (e: { percent: number }, file: UploadFile) => void;
-  onError: (error: Error, response: any, file: UploadFile) => void;
+  onBatchStart: RcUploadProps['onBatchStart'];
+  onSuccess: RcUploadProps['onSuccess'];
+  onProgress: RcUploadProps['onProgress'];
+  onError: RcUploadProps['onError'];
   fileList: UploadFile<any>[];
   upload: RcUpload | null;
 };
