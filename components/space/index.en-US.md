@@ -11,7 +11,7 @@ Set components spacing.
 ## When To Use
 
 - Avoid components clinging together and set a unified space.
-- Use Space.Compact when child components are compactly connected.
+- Use Space.Compact when child form components are compactly connected and the border is collapsed.
 
 ## API
 
@@ -23,14 +23,25 @@ Set components spacing.
 | split | Set split | ReactNode | - | 4.7.0 |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
+### Size
+
+`'small' | 'middle' | 'large' | number`
+
 ### Space.Compact
+
+Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
+
+- Button
+- Input/Input.Search
+- Select
+- Cascade
+- DatePicker
+- AutoComplete
+- TimePicker
+- TreeSelect
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
-| size | Set child component size | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.24.0 |
-
-### Size
-
-`'small' | 'middle' | 'large' | number`
+| size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
