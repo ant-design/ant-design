@@ -50,7 +50,7 @@ export default class LocaleReceiver<
 }
 
 export function useLocaleReceiver<T extends LocaleComponentName>(
-  componentName: T,
+  componentName?: T,
   defaultLocale?: Locale[T] | Function,
 ): [Locale[T]] {
   const antLocale = React.useContext(LocaleContext);

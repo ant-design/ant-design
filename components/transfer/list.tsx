@@ -44,7 +44,7 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
-  dataSource: RecordType[];
+  dataSource?: RecordType[];
   filterOption?: (filterText: string, item: RecordType) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
