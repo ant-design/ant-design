@@ -316,7 +316,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   };
 
   separateDataSource() {
-    const { dataSource, rowKey, targetKeys = [] } = this.props;
+    const { dataSource = [], rowKey, targetKeys = [] } = this.props;
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
