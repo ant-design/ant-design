@@ -170,7 +170,7 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^14.4.2",
-    "@types/gtag.js": "^0.0.11",
+    "@types/gtag.js": "^0.0.12",
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
