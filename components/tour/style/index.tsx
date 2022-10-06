@@ -1,6 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type * as React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
@@ -29,15 +28,7 @@ interface SliderToken extends FullToken<'Slider'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const {
-    componentCls,
-    controlSize,
-    dotSize,
-    marginFull,
-    marginPart,
-    colorFillContentHover,
-    antCls,
-  } = token;
+  const { componentCls } = token;
 
   return {
     [`${componentCls}-root`]: {
@@ -46,7 +37,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         transform: 'none',
         opacity: 0,
         animationDuration: token.motionDurationSlow,
-        // https://github.com/ant-design/ant-design/issues/11777
         userSelect: 'none',
       },
 
@@ -100,15 +90,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         fontWeight: 'bold',
       },
 
-      [`${componentCls}-popContent`]: {
-        position: 'relative',
-        backgroundColor: '#ffffff',
-        border: 'none',
-        borderRadius: '6px 6px',
-        backgroundClip: 'padding-box',
-        minHeight: '200px',
-      },
-
       [`${componentCls}-close`]: {
         cursor: 'pointer',
         border: '0',
@@ -133,7 +114,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       },
 
       [`${componentCls}-close-x`]: {
-        color: 'red',
         [`&::after`]: {
           content: '×',
         },
@@ -160,6 +140,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         background: '0 0',
         borderTop: '1px solid rgba(0,0,0,.06)',
         borderRadius: '0 0 2px 2px',
+        [`${componentCls}-prevButton,${componentCls}-nextButton`]: {
+          display: 'inline-block',
+        },
       },
 
       // Arrows
@@ -193,9 +176,12 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       // color: '#fff',
       textAlign: 'left',
       textDecoration: 'none',
-      backgroundColor: '#373737',
       borderRadius: '6px',
       boxShadow: '@overlay-shadow',
+      position: 'relative',
+      backgroundColor: '#ffffff',
+      border: 'none',
+      backgroundClip: 'padding-box',
     },
 
     [`${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-placement-topRight ${componentCls}-arrow`]:
@@ -203,7 +189,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         bottom: '4px',
         marginLeft: '-5px',
         borderWidth: '5px 5px 0',
-        borderTtopColor: '#373737',
+        borderTopColor: '#fff',
       },
 
     [`${componentCls}-placement-top ${componentCls}-arrow`]: {
@@ -223,7 +209,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         left: '4px',
         marginTop: '-5px',
         borderWidth: '5px 5px 5px 0',
-        borderRightColor: '#373737',
+        borderRightColor: '#fff',
       },
 
     [`${componentCls}-placement-right ${componentCls}-arrow`]: {
@@ -244,7 +230,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         right: '4px',
         marginTop: '-5px',
         borderWidth: '5px 0 5px 5px',
-        borderLeftColor: '#373737',
+        borderLeftColor: '#fff',
       },
 
     [`${componentCls}-placement-left ${componentCls}-arrow`]: {
@@ -264,8 +250,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       {
         top: '4px',
         marginLeft: '-5px',
-        borderwidth: '0 5px 5px',
-        borderBottomColor: '#373737',
+        borderWidth: '0 5px 5px',
+        borderBottomColor: '#fff',
       },
 
     [`${componentCls}-placement-bottom ${componentCls}-arrow`]: {

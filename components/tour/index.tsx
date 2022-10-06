@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour/src/index';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
