@@ -2,20 +2,21 @@
 
 @btn-prefix-cls: ~'@{ant-prefix}-btn';
 
-// btn in Space.Compact styles
+// Button in Space.Compact
 .@{btn-prefix-cls} {
   .compact-item(@btn-prefix-cls);
 
+  // make `btn-icon-only` not too narrow
   &-icon-only&-compact-item {
     min-width: @btn-height-base;
-  }
 
-  &-lg &-icon-only&-compact-item {
-    min-width: @btn-height-lg;
-  }
+    &.@{btn-prefix-cls}-lg {
+      min-width: @btn-height-lg;
+    }
 
-  &-sm &-icon-only&-compact-item {
-    min-width: @btn-height-sm;
+    &.@{btn-prefix-cls}-sm {
+      min-width: @btn-height-sm;
+    }
   }
 
   // Special styles for Primary Button
@@ -97,6 +98,43 @@
 
       &[disabled] {
         border-right-color: @btn-default-border;
+      }
+    }
+  }
+}
+
+// Button in Space.Compact when direction=vertical
+.@{btn-prefix-cls} {
+  .compact-item-vertical(@btn-prefix-cls);
+
+  // Special styles for Primary Button
+  &-compact-vertical-item {
+    &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
+      border-top-color: transparent;
+    }
+
+    &.@{btn-prefix-cls}-primary:not(:first-child):not(:last-child) {
+      border-top-color: @btn-group-border;
+      border-bottom-color: @btn-group-border;
+
+      &:disabled {
+        border-color: @btn-default-border;
+      }
+    }
+
+    &.@{btn-prefix-cls}-primary:first-child:not(:last-child) {
+      border-bottom-color: @btn-group-border;
+
+      &[disabled] {
+        border-bottom-color: @btn-default-border;
+      }
+    }
+
+    &.@{btn-prefix-cls}-primary:last-child:not(:first-child) {
+      border-top-color: @btn-group-border;
+
+      &[disabled] {
+        border-top-color: @btn-default-border;
       }
     }
   }
