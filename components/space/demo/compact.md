@@ -33,56 +33,6 @@ import React from 'react';
 const { Option } = Select;
 const { TreeNode } = TreeSelect;
 
-const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
-);
-const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
-);
-
-const options = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
-];
-
 const App: React.FC = () => (
   <div className="site-space-compact-wrapper">
     <Space.Compact block>
@@ -209,7 +159,44 @@ const App: React.FC = () => (
     <br />
     <Space.Compact block>
       <TimePicker style={{ width: '70%' }} />
-      <Cascader style={{ width: '70%' }} options={options} placeholder="Select Address" />
+      <Cascader
+        style={{ width: '70%' }}
+        options={[
+          {
+            value: 'zhejiang',
+            label: 'Zhejiang',
+            children: [
+              {
+                value: 'hangzhou',
+                label: 'Hangzhou',
+                children: [
+                  {
+                    value: 'xihu',
+                    label: 'West Lake',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: 'jiangsu',
+            label: 'Jiangsu',
+            children: [
+              {
+                value: 'nanjing',
+                label: 'Nanjing',
+                children: [
+                  {
+                    value: 'zhonghuamen',
+                    label: 'Zhong Hua Men',
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+        placeholder="Select Address"
+      />
     </Space.Compact>
     <br />
     <Space.Compact block>
