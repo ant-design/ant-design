@@ -7,7 +7,7 @@ import defaultLocaleData from './default';
 export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
 
 export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleComponentName> {
-  componentName: C;
+  componentName?: C;
   defaultLocale?: Locale[C] | (() => Locale[C]);
   children: (
     locale: NonNullable<Locale[C]>,
