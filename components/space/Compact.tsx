@@ -21,6 +21,8 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
     React.useContext(SpaceCompactItemContext);
 
   const compactItemClassnames = React.useMemo(() => {
+    if (!isItem) return '';
+
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
     return classNames({
