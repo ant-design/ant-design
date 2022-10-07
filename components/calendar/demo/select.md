@@ -20,8 +20,8 @@ import moment from 'moment';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [value, setValue] = useState(moment('2017-01-25'));
-  const [selectedValue, setSelectedValue] = useState(moment('2017-01-25'));
+  const [value, setValue] = useState(() => moment('2017-01-25'));
+  const [selectedValue, setSelectedValue] = useState(() => moment('2017-01-25'));
 
   const onSelect = (newValue: Moment) => {
     setValue(newValue);
