@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-紧凑布局。
+Button 组件紧凑排列示例。
 
 ## en-US
 
-Space.Compact example.
+Button component compact example.
 
 ```tsx
 import { DownloadOutlined, EllipsisOutlined } from '@ant-design/icons';

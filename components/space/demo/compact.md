@@ -1,13 +1,13 @@
 ---
 order: 8
 title:
-  zh-CN: 使用 Space.Compact 组合表单组件
+  zh-CN: 紧凑布局组合
   en-US: Compact Mode for form component
 ---
 
 ## zh-CN
 
-使用 Space.Compact 组合表单组件。
+使用 Space.Compact 让表单组件之间紧凑连接且合并边框。
 
 ## en-US
 
