@@ -1,5 +1,6 @@
 import { defineConfig } from 'dumi';
 import path from 'path';
+import rehypeAntd from './.dumi/rehypeAntd';
 import { version } from './package.json';
 
 export default defineConfig({
@@ -26,4 +27,5 @@ export default defineConfig({
     antd: require.resolve('./.dumi/theme/antd.js'),
   },
   plugins: [require.resolve('./.dumi/plugin.ts')],
+  extraRehypePlugins: [rehypeAntd],
 });
