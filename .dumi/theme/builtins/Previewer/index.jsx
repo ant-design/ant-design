@@ -7,13 +7,14 @@ import LZString from 'lz-string';
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
-import { FormattedMessage, injectIntl } from 'react-intl';
-import BrowserFrame from '../../BrowserFrame';
-import EditButton from '../EditButton';
-import CodePenIcon from './CodePenIcon';
-import CodePreview from './CodePreview';
-import CodeSandboxIcon from './CodeSandboxIcon';
-import RiddleIcon from './RiddleIcon';
+import { FormattedMessage } from 'react-intl';
+import BrowserFrame from '../../common/BrowserFrame';
+import EditButton from '../../common/EditButton';
+import CodePenIcon from '../../common/CodePenIcon';
+import CodePreview from '../../common/CodePreview';
+import CodeSandboxIcon from '../../common/CodeSandboxIcon';
+import RiddleIcon from '../../common/RiddleIcon';
+import fromDumiProps from './fromDumiProps';
 
 const { ErrorBoundary } = Alert;
 
@@ -132,7 +133,6 @@ class Demo extends React.Component {
       style,
       highlightedStyle,
       expand,
-      utils,
       intl: { locale },
       theme,
       showRiddleButton,
@@ -161,7 +161,7 @@ class Demo extends React.Component {
     });
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
+    const introChildren = <div dangerouslySetInnerHTML={{ __html: localizeIntro }}></div>;
 
     const highlightClass = classNames('highlight-wrapper', {
       'highlight-wrapper-expand': codeExpand,
@@ -484,4 +484,4 @@ createRoot(document.getElementById('container')).render(<Demo />);
   }
 }
 
-export default injectIntl(Demo);
+export default fromDumiProps(Demo);

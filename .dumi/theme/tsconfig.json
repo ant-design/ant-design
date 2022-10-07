@@ -1,0 +1,13 @@
+{
+  "extends": "../../.umi/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "../../",
+    "paths": {
+      "@@/*": [".umi/*"],
+      "antd": ["components/index.tsx"],
+      "antd/es/*": ["components/*"]
+    }
+  },
+  "include": ["./**/*", "../../site/theme/template/Content"]
+}
