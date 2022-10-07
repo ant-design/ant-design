@@ -1,5 +1,8 @@
 import React, { type FC } from 'react';
 import { useOutlet } from 'dumi';
+import Header from 'dumi/theme/slots/Header';
+import Content from 'dumi/theme/slots/Content';
+import Sidebar from 'dumi/theme/slots/Sidebar';
 import '../../static/style';
 
 const DocLayout: FC = () => {
@@ -9,19 +12,10 @@ const DocLayout: FC = () => {
 
   return (
     <div>
-      <header
-        style={{
-          borderBottom: '1px solid #eee',
-          padding: 22,
-        }}
-      >
-        Header area
-      </header>
+      <Header />
       <main style={{ display: 'flex' }}>
-        <section style={{ width: 240, padding: 22, borderRight: '1px solid #eee' }}>
-          Side Bar Area
-        </section>
-        <section style={{ flex: '1', padding: 24 }}>{outlet}</section>
+        <Sidebar />
+        <Content>{outlet}</Content>
       </main>
     </div>
   );
