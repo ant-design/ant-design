@@ -14,7 +14,7 @@ export interface AnchorLinkProps {
   className?: string;
 }
 
-class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
+class AnchorLink extends React.Component<AnchorLinkProps, {}, AntAnchor> {
   static contextType = AnchorContext;
 
   context: AntAnchor;

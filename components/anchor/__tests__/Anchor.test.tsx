@@ -1,4 +1,5 @@
 import React from 'react';
+import type { AnchorLinkProps } from '..';
 import Anchor from '..';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import type { InternalAnchorClass } from '../Anchor';
@@ -751,6 +752,15 @@ describe('Anchor Render', () => {
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash1);
       rerender(<Demo current={hash2} />);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
+    });
+    it('should render correctly when href is not exists', async () => {
+      expect(() => {
+        render(
+          <Anchor>
+            <Link title={null} href={null as unknown as AnchorLinkProps['href']} />
+          </Anchor>,
+        );
+      }).not.toThrow();
     });
   });
 });

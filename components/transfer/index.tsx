@@ -184,13 +184,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
     const newMoveKeys = moveKeys.filter(
-      (key: string) => !dataSource.some(data => !!(key === data.key && data.disabled)),
+      key => !dataSource.some(data => !!(key === data.key && data.disabled)),
     );
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
+        : targetKeys.filter(key => !newMoveKeys.includes(key));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -206,13 +206,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
     this.setStateKeys(direction, prevKeys => {
-      let mergedCheckedKeys = [];
+      let mergedCheckedKeys: string[] = [];
       if (checkAll) {
         // Merge current keys with origin key
         mergedCheckedKeys = Array.from(new Set([...prevKeys, ...selectedKeys]));
       } else {
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter((key: string) => selectedKeys.indexOf(key) === -1);
+        mergedCheckedKeys = prevKeys.filter(key => !selectedKeys.includes(key));
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
@@ -337,11 +337,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
         leftDataSource.push(record);
       }
     });
-
-    return {
-      leftDataSource,
-      rightDataSource,
-    };
+    return { leftDataSource, rightDataSource };
   }
 
   render() {

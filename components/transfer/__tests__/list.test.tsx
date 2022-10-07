@@ -1,3 +1,4 @@
+import { omit } from 'lodash';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import type { TransferListProps } from '../list';
@@ -42,5 +43,11 @@ describe('Transfer.List', () => {
     render(<List ref={instance} {...listCommonProps} handleFilter={handleFilter} />);
     expect(instance.current?.handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
+  });
+
+  it('when dataSource is not exists, List should render correctly', () => {
+    expect(() => {
+      render(<List {...omit(listCommonProps, ['dataSource'])} />);
+    }).not.toThrow();
   });
 });

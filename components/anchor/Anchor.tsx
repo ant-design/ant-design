@@ -167,7 +167,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
-      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
+      const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
       }
@@ -175,10 +175,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       if (target) {
         const top = getOffsetTop(target, container);
         if (top < offsetTop + bounds) {
-          linkSections.push({
-            link,
-            top,
-          });
+          linkSections.push({ link, top });
         }
       }
     });
