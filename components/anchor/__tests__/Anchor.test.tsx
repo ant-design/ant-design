@@ -757,7 +757,9 @@ describe('Anchor Render', () => {
       expect(() => {
         render(
           <Anchor>
-            <Link title={null} href={null as unknown as AnchorLinkProps['href']} />
+            <Link title="test" href={null as unknown as AnchorLinkProps['href']}>
+              test
+            </Link>
           </Anchor>,
         );
       }).not.toThrow();
