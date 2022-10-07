@@ -15,7 +15,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 
 - 适合行内元素的水平间距。
 - 可以设置各种水平对齐方式。
-- 当需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。
+- 需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact（自 antd@4.24.0 版本开始提供该组件。）。
 
 ## API
 
@@ -35,7 +35,9 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 
 ### Space.Compact
 
-当需要表单组件之间紧凑连接且合并边框时，使用该 Space.Compact。支持的组件有：
+> 自 antd@4.24.0 版本开始提供该组件。
+
+需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。支持的组件有：
 
 - Button
 - AutoComplete

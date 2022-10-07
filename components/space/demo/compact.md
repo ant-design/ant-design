@@ -1,5 +1,6 @@
 ---
 order: 8
+version: 4.24.0
 title:
   zh-CN: 紧凑布局组合
   en-US: Compact Mode for form component

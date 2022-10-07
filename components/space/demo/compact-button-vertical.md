@@ -1,5 +1,6 @@
 ---
 order: 10
+version: 4.24.0
 title:
   zh-CN: 垂直方向紧凑布局
   en-US: Vertical Compact Mode
@@ -25,26 +26,11 @@ const App: React.FC = () => (
       <Button>Button 3</Button>
     </Space.Compact>
     <Space.Compact direction="vertical">
-      <Button type="link">Button 1</Button>
-      <Button type="link">Button 2</Button>
-      <Button type="link">Button 3</Button>
-    </Space.Compact>
-    <Space.Compact direction="vertical">
       <Button type="dashed">Button 1</Button>
       <Button type="dashed">Button 2</Button>
       <Button type="dashed">Button 3</Button>
     </Space.Compact>
     <Space.Compact direction="vertical">
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Button type="primary">Button 3</Button>
-    </Space.Compact>
-    <Space.Compact size="small" direction="vertical">
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Button type="primary">Button 3</Button>
-    </Space.Compact>
-    <Space.Compact size="large" direction="vertical">
       <Button type="primary">Button 1</Button>
       <Button type="primary">Button 2</Button>
       <Button type="primary">Button 3</Button>

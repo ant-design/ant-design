@@ -1,5 +1,6 @@
 ---
 order: 9
+version: 4.24.0
 title:
   zh-CN: Button 紧凑布局
   en-US: Button Compact Mode
@@ -7,31 +8,37 @@ title:
 
 ## zh-CN
 
-Button 组件紧凑排列示例。
+Button 组件紧凑排列的示例。
 
 ## en-US
 
 Button component compact example.
 
 ```tsx
-import { DownloadOutlined, EllipsisOutlined } from '@ant-design/icons';
+import {
+  DownloadOutlined,
+  EllipsisOutlined,
+  HeartOutlined,
+  StarOutlined,
+  EnvironmentOutlined,
+} from '@ant-design/icons';
 import { Button, Menu, Dropdown, Space, Tooltip } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
-  <div className="site-input-group-wrapper">
-    <Space.Compact size="small" block>
-      <Button type="primary">Button 1</Button>
-    </Space.Compact>
-    <br />
-    <Space.Compact size="small" block>
-      <Button type="primary">Button 1</Button>
-      <Button type="primary">Button 2</Button>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} disabled />
+  <div>
+    <Space.Compact block>
+      <Tooltip title="Download">
+        <Button icon={<DownloadOutlined />} />
       </Tooltip>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} />
+      <Tooltip title="Environment">
+        <Button icon={<EnvironmentOutlined />} />
+      </Tooltip>
+      <Tooltip title="Star">
+        <Button icon={<StarOutlined />} />
+      </Tooltip>
+      <Tooltip title="Heart">
+        <Button icon={<HeartOutlined />} />
       </Tooltip>
     </Space.Compact>
     <br />
@@ -46,37 +53,15 @@ const App: React.FC = () => (
       </Tooltip>
     </Space.Compact>
     <br />
-    <Space.Compact size="large" block>
-      <Button type="primary">Button 1</Button>
+    <Space.Compact block>
+      <Button>Button 1</Button>
       <Button>Button 2</Button>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} disabled />
-      </Tooltip>
-      <Tooltip title="Tooltip">
-        <Button type="primary" icon={<DownloadOutlined />} />
-      </Tooltip>
-    </Space.Compact>
-    <br />
-    <Space.Compact size="large" block>
-      <Button>default Button 1</Button>
-      <Button>default Button 2</Button>
-      <Button>default Button 3</Button>
+      <Button>Button 3</Button>
       <Tooltip title="Tooltip">
         <Button icon={<DownloadOutlined />} disabled />
       </Tooltip>
       <Tooltip title="Tooltip">
         <Button icon={<DownloadOutlined />} />
-      </Tooltip>
-    </Space.Compact>
-    <br />
-    <Space.Compact size="large" block>
-      <Button>default Button</Button>
-      <Button danger>danger Button</Button>
-      <Button type="dashed">dashed Button</Button>
-      <Button type="text">text Button</Button>
-      <Button type="link">Link Button</Button>
-      <Tooltip title="Tooltip">
-        <Button icon={<DownloadOutlined />} disabled />
       </Tooltip>
     </Space.Compact>
     <br />

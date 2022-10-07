@@ -1,11 +1,11 @@
 .compact-item-border-radius(@prefix-cls, @bordered-item-cls: null) {
   & when (@bordered-item-cls = null) {
     // border-radius
-    &-item {
+    &-item.@{prefix-cls} {
       border-radius: 0;
     }
 
-    &-item&-first-item:not(&-item-rtl) {
+    &-item.@{prefix-cls}&-first-item:not(&-item-rtl) {
       border-top-left-radius: @btn-border-radius-base;
       border-bottom-left-radius: @btn-border-radius-base;
 
@@ -15,7 +15,7 @@
       }
     }
 
-    &-item&-last-item:not(&-item-rtl) {
+    &-item.@{prefix-cls}&-last-item:not(&-item-rtl) {
       border-top-right-radius: @btn-border-radius-base;
       border-bottom-right-radius: @btn-border-radius-base;
 
@@ -26,7 +26,7 @@
     }
 
     // ----------rtl for first item----------
-    &-item&-item-rtl&-first-item {
+    &-item.@{prefix-cls}&-item-rtl&-first-item {
       border-top-right-radius: @btn-border-radius-base;
       border-bottom-right-radius: @btn-border-radius-base;
 
@@ -37,7 +37,7 @@
     }
 
     // ----------rtl for last item----------
-    &-item&-item-rtl&-last-item {
+    &-item.@{prefix-cls}&-item-rtl&-last-item {
       border-top-left-radius: @btn-border-radius-base;
       border-bottom-left-radius: @btn-border-radius-base;
 

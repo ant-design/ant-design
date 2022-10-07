@@ -1,5 +1,6 @@
 ---
 order: 99
+version: 4.24.0
 title:
   zh-CN: 调试 Input 前置/后置标签
   en-US: Input addon debug
@@ -15,8 +16,8 @@ debug: true
 Input addon debug.
 
 ```tsx
-import { SettingOutlined, CopyOutlined } from '@ant-design/icons';
-import { Cascader, Input, Select, Space, Button } from 'antd';
+import { SettingOutlined, CopyOutlined, DownloadOutlined } from '@ant-design/icons';
+import { Cascader, Input, Select, Space, Button, Tooltip } from 'antd';
 import React from 'react';
 
 const { Option } = Select;
@@ -38,6 +39,17 @@ const selectAfter = (
 
 const App: React.FC = () => (
   <Space direction="vertical">
+    <Space.Compact block>
+      <Button>default Button</Button>
+      <Button danger>danger Button</Button>
+      <Button type="dashed">dashed Button</Button>
+      <Button type="text">text Button</Button>
+      <Button type="link">Link Button</Button>
+      <Tooltip title="Tooltip">
+        <Button icon={<DownloadOutlined />} disabled />
+      </Tooltip>
+    </Space.Compact>
+    <br />
     <Space.Compact>
       <Button>Prefix</Button>
       <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />

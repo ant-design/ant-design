@@ -1,5 +1,6 @@
 ---
 order: 99
+version: 4.24.0
 title:
   zh-CN: 紧凑布局嵌套
   en-US: Nested Space Compact
