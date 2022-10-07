@@ -1,0 +1,2 @@
+# workaround to keep /index route from umi conventional routes logic
+# ref: https://github.com/umijs/umi/blob/cabb186057d801494340f533195b6b330e5ef4e0/packages/core/src/route/routesConvention.ts#L91
