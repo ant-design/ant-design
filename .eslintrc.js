@@ -83,6 +83,12 @@ module.exports = {
         'react/no-unstable-nested-components': 0,
       },
     },
+    {
+      files: ['**/demo/*.tsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,

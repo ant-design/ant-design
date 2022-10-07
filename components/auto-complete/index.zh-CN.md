@@ -19,6 +19,18 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 - AutoComplete 是一个带提示的文本输入框，用户可以自由输入，关键词是辅助**输入**。
 - Select 是在限定的可选项中进行选择，关键词是**选择**。
 
+## 代码演示
+
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/options.tsx">自定义选项</code>
+<code src="./demo/custom.tsx">自定义输入组件</code>
+<code src="./demo/non-case-sensitive.tsx">不区分大小写</code>
+<code src="./demo/certain-category.tsx">查询模式 - 确定类目</code>
+<code src="./demo/uncertain-category.tsx">查询模式 - 不确定类目</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/form-debug.tsx">在 Form 中 Debug</code>
+<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

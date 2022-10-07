@@ -3,7 +3,6 @@ category: Components
 subtitle: 标签页
 type: 数据展示
 title: Tabs
-cols: 1
 cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 ---
 
@@ -44,6 +43,26 @@ return <Tabs items={items} />;
   </Tabs.TabPane>
 </Tabs>;
 ```
+
+## 代码演示
+
+<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/centered.tsx">居中</code>
+<code src="./demo/icon.tsx">图标</code>
+<code src="./demo/slide.tsx">滑动</code>
+<code src="./demo/extra.tsx">附加内容</code>
+<code src="./demo/size.tsx">大小</code>
+<code src="./demo/position.tsx">位置</code>
+<code src="./demo/card.tsx">卡片式页签</code>
+<code src="./demo/editable-card.tsx">新增和关闭页签</code>
+<code src="./demo/card-top.tsx">卡片式页签容器</code>
+<code src="./demo/custom-add-trigger.tsx">自定义新增页签触发器</code>
+<code src="./demo/custom-tab-bar.tsx">自定义页签头</code>
+<code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
+<code src="./demo/animated.tsx">动画</code>
+<code src="./demo/nest.tsx">嵌套</code>
 
 ## API
 

@@ -14,6 +14,18 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 - 需要展示图片时使用。
 - 加载大图时显示 loading 或加载失败时容错处理。
 
+## 代码演示
+
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/fallback.tsx">容错处理</code>
+<code src="./demo/placeholder.tsx">渐进加载</code>
+<code src="./demo/preview-group.tsx">多张图片预览</code>
+<code src="./demo/preview-group-visible.tsx">相册模式</code>
+<code src="./demo/previewSrc.tsx">自定义预览图片</code>
+<code src="./demo/controlled-preview.tsx">受控的预览</code>
+<code src="./demo/preview-mask.tsx">自定义预览文本</code>
+<code src="./demo/preview-group-top-progress.tsx">多图预览时顶部进度自定义</code>
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

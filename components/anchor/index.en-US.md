@@ -12,6 +12,15 @@ Hyperlinks to scroll on one page.
 
 For displaying anchor hyperlinks on page and jumping between them.
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/static.tsx">Static Anchor</code>
+<code src="./demo/onClick.tsx">Customize the onClick event</code>
+<code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
+<code src="./demo/targetOffset.tsx">Set Anchor scroll offset</code>
+<code src="./demo/onChange.tsx">Listening for anchor link change</code>
+
 ## API
 
 ### Anchor Props

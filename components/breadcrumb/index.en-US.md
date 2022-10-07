@@ -3,6 +3,8 @@ category: Components
 type: Navigation
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+demo:
+  cols: 2
 ---
 
 A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -12,6 +14,15 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 - When the system has more than two layers in a hierarchy.
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/withIcon.tsx">With an Icon</code>
+<code src="./demo/react-router.tsx">react-router V6</code>
+<code src="./demo/separator.tsx">Configuring the Separator</code>
+<code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
+<code src="./demo/separator-component.tsx">Configuring the Separator</code>
 
 ## API
 

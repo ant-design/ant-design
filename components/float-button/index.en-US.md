@@ -3,6 +3,8 @@ category: Components
 type: Other
 title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
+demo:
+  cols: 2
 ---
 
 FloatButton. Available since `5.0.0`.
@@ -11,6 +13,17 @@ FloatButton. Available since `5.0.0`.
 
 - For global functionality on the site.
 - Buttons that can be seen wherever you browse.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/type.tsx">Type</code>
+<code src="./demo/shape.tsx">Shape</code>
+<code src="./demo/description.tsx">Description</code>
+<code src="./demo/tooltip.tsx">FloatButton with tooltip</code>
+<code src="./demo/group.tsx">FloatButton Group</code>
+<code src="./demo/group-menu.tsx">Menu mode</code>
+<code src="./demo/back-top.tsx">BackTop</code>
 
 ## API
 

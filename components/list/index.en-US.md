@@ -2,7 +2,6 @@
 category: Components
 type: Data Display
 title: List
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 ---
 
@@ -11,6 +10,18 @@ Simple List.
 ## When To Use
 
 A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
+
+## Examples
+
+<code src="./demo/simple.tsx">Simple list</code>
+<code src="./demo/basic.tsx">Basic list</code>
+<code src="./demo/loadmore.tsx">Load more</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/grid.tsx">Grid</code>
+<code src="./demo/grid-test.tsx">Test Grid</code>
+<code src="./demo/responsive.tsx">Responsive grid list</code>
+<code src="./demo/infinite-load.tsx">Scrolling loaded</code>
+<code src="./demo/virtual-list.tsx">virtual list</code>
 
 ## API
 

@@ -13,6 +13,18 @@ Previewable image.
 - When you need to display pictures.
 - Display when loading a large image or fault tolerant handling when loading fail.
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/fallback.tsx">Fault tolerant</code>
+<code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/preview-group.tsx">Multiple image preview</code>
+<code src="./demo/preview-group-visible.tsx">Preview from one image</code>
+<code src="./demo/previewSrc.tsx">Custom preview image</code>
+<code src="./demo/controlled-preview.tsx">Controlled Preview</code>
+<code src="./demo/preview-mask.tsx">Custom preview mask</code>
+<code src="./demo/preview-group-top-progress.tsx">Top progress customization when previewing multiple images</code>
+
 ## API
 
 | Property | Description | Type | Default | Version |

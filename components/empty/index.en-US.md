@@ -2,7 +2,6 @@
 category: Components
 type: Data Display
 title: Empty
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
 ---
 
@@ -12,6 +11,14 @@ Empty state placeholder.
 
 - When there is no data provided, display for friendly tips.
 - User tutorial to create something in fresh new situation.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/simple.tsx">Chose image</code>
+<code src="./demo/customize.tsx">Customize</code>
+<code src="./demo/config-provider.tsx">ConfigProvider</code>
+<code src="./demo/description.tsx">No description</code>
 
 ## API
 

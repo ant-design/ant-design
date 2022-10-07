@@ -1,7 +1,6 @@
 ---
 category: Components
 type: Data Display
-cols: 1
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ---
@@ -11,6 +10,14 @@ Container for displaying data in calendar form.
 ## When To Use
 
 When data is in the form of dates, such as schedules, timetables, prices calendar, lunar calendar. This component also supports Year/Month switch.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/notice-calendar.tsx">Notice Calendar</code>
+<code src="./demo/card.tsx">Card</code>
+<code src="./demo/select.tsx">Selectable Calendar</code>
+<code src="./demo/customize-header.tsx">Customize Header</code>
 
 ## API
 

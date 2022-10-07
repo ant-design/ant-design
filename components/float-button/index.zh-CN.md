@@ -4,6 +4,8 @@ type: 其他
 subtitle: 悬浮按钮
 title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
+demo:
+  cols: 2
 ---
 
 悬浮按钮。自 `5.0.0` 版本开始提供该组件。
@@ -12,6 +14,17 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b29936
 
 - 用于网站上的全局功能；
 - 无论浏览到何处都可以看见的按钮。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/type.tsx">类型</code>
+<code src="./demo/shape.tsx">形状</code>
+<code src="./demo/description.tsx">描述</code>
+<code src="./demo/tooltip.tsx">含有气泡卡片的悬浮按钮</code>
+<code src="./demo/group.tsx">浮动按钮组</code>
+<code src="./demo/group-menu.tsx">菜单模式</code>
+<code src="./demo/back-top.tsx">回到顶部</code>
 
 ## API
 

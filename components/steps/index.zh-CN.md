@@ -2,7 +2,6 @@
 category: Components
 subtitle: 步骤条
 type: 导航
-cols: 1
 title: Steps
 cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 ---
@@ -12,6 +11,25 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 ## 何时使用
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+
+## 代码演示
+
+<code src="./demo/simple.tsx">基本用法</code>
+<code src="./demo/small-size.tsx">迷你版</code>
+<code src="./demo/icon.tsx">带图标的步骤条</code>
+<code src="./demo/step-next.tsx">步骤切换</code>
+<code src="./demo/vertical.tsx">竖直方向的步骤条</code>
+<code src="./demo/vertical-small.tsx">竖直方向的小型步骤条</code>
+<code src="./demo/error.tsx">步骤运行错误</code>
+<code src="./demo/progress-dot.tsx">点状步骤条</code>
+<code src="./demo/customized-progress-dot.tsx">自定义点状步骤条</code>
+<code src="./demo/progress-dot-small.tsx">迷你版点状步骤条</code>
+<code src="./demo/clickable.tsx">可点击</code>
+<code src="./demo/nav.tsx">导航步骤</code>
+<code src="./demo/progress.tsx">带有进度的步骤</code>
+<code src="./demo/label-placement.tsx">标签放置位置</code>
+<code src="./demo/progress-debug.tsx">Progress Debug</code>
+<code src="./demo/steps-in-steps.tsx">Steps 嵌套 Steps</code>
 
 ## API
 

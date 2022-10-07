@@ -2,7 +2,6 @@
 category: Components
 subtitle: 布局
 type: 布局
-cols: 1
 title: Layout
 cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 ---
@@ -56,6 +55,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 - `Footer`：底部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。
 
 > 注意：采用 flex 布局实现，请注意[浏览器兼容性](http://caniuse.com/#search=flex)问题。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本结构</code>
+<code src="./demo/top.tsx">上中下布局</code>
+<code src="./demo/top-side-2.tsx">顶部-侧边布局-通栏</code>
+<code src="./demo/top-side.tsx">顶部-侧边布局</code>
+<code src="./demo/side.tsx">侧边布局</code>
+<code src="./demo/custom-trigger.tsx">自定义触发器</code>
+<code src="./demo/responsive.tsx">响应式布局</code>
+<code src="./demo/fixed.tsx">固定头部</code>
+<code src="./demo/fixed-sider.tsx">固定侧边栏</code>
+<code src="./demo/custom-trigger-debug.tsx">自定义触发器 Debug</code>
 
 ## API
 

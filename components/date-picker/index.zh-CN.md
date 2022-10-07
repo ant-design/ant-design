@@ -4,6 +4,8 @@ type: 数据录入
 title: DatePicker
 subtitle: 日期选择框
 cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
+demo:
+  cols: 2
 ---
 
 输入或选择日期的控件。
@@ -11,6 +13,28 @@ cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 ## 何时使用
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/range-picker.tsx">范围选择器</code>
+<code src="./demo/switchable.tsx">切换不同的选择器</code>
+<code src="./demo/format.tsx">日期格式</code>
+<code src="./demo/time.tsx">日期时间选择</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/disabled-date.tsx">不可选择日期和时间</code>
+<code src="./demo/select-in-range.tsx">选择不超过七天的范围</code>
+<code src="./demo/presetted-ranges.tsx">预设范围</code>
+<code src="./demo/extra-footer.tsx">额外的页脚</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/date-render.tsx">定制日期单元格</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/placement.tsx">基本</code>
+<code src="./demo/mode.tsx">受控面板</code>
+<code src="./demo/start-end.tsx">自定义日期范围选择</code>
+<code src="./demo/suffix.tsx">后缀图标</code>
+<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

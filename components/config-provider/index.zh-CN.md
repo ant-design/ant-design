@@ -1,7 +1,6 @@
 ---
 category: Components
 subtitle: 全局化配置
-cols: 1
 type: 其他
 title: ConfigProvider
 cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
@@ -34,6 +33,14 @@ export default () => (
   <Button>My Button</Button>
 </ConfigProvider>
 ```
+
+## 代码演示
+
+<code src="./demo/locale.tsx">国际化</code>
+<code src="./demo/direction.tsx">方向</code>
+<code src="./demo/size.tsx">组件尺寸</code>
+<code src="./demo/theme.tsx">全局样式</code>
+<code src="./demo/prefixCls.tsx">前缀</code>
 
 ## API
 

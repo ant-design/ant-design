@@ -2,7 +2,6 @@
 category: Components
 type: 数据展示
 subtitle: 日历
-cols: 1
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ---
@@ -12,6 +11,14 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ## 何时使用
 
 当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。目前支持年/月切换。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/notice-calendar.tsx">通知事项日历</code>
+<code src="./demo/card.tsx">卡片模式</code>
+<code src="./demo/select.tsx">选择功能</code>
+<code src="./demo/customize-header.tsx">自定义头部</code>
 
 ## API
 

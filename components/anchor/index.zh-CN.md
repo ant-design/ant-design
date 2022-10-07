@@ -13,6 +13,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
 
 需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。
 
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/static.tsx">静态位置</code>
+<code src="./demo/onClick.tsx">自定义 onClick 事件</code>
+<code src="./demo/customizeHighlight.tsx">自定义锚点高亮</code>
+<code src="./demo/targetOffset.tsx">设置锚点滚动偏移量</code>
+<code src="./demo/onChange.tsx">监听锚点链接改变</code>
+
 ## API
 
 ### Anchor Props
