@@ -79,7 +79,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const [selectedKeys, setSelectedKeys] = React.useState(
     props.selectedKeys || props.defaultSelectedKeys || [],
   );
-  const [expandedKeys, setExpandedKeys] = React.useState(getInitExpandedKeys());
+  const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
 
   React.useEffect(() => {
     if ('selectedKeys' in props) {
