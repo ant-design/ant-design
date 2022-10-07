@@ -6,6 +6,12 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import Input from '../../input';
 import Button from '../../button';
+import AutoComplete from '../../auto-complete';
+import Cascader from '../../cascader';
+import DatePicker from '../../date-picker';
+import Select from '../../select';
+import TimePicker from '../../time-picker';
+import TreeSelect from '../../tree-select';
 
 describe('Space.Compact', () => {
   mountTest(Space.Compact);
@@ -42,7 +48,7 @@ describe('Space.Compact', () => {
 
   it('compact-item className', () => {
     const { container } = render(
-      <Space.Compact block>
+      <Space.Compact>
         <Input defaultValue="https://ant.design" />
         <Input.Search />
         <Button type="primary">Submit</Button>
@@ -64,9 +70,80 @@ describe('Space.Compact', () => {
     ).toBe(true);
   });
 
+  [
+    {
+      name: 'Button',
+      component: Button,
+      targetCls: 'ant-btn',
+      expectClsPrefix: 'ant-btn',
+    },
+    {
+      name: 'AutoComplete',
+      component: AutoComplete,
+      targetCls: 'ant-select',
+      expectClsPrefix: 'ant-select',
+    },
+    {
+      name: 'Cascader',
+      component: Cascader,
+      targetCls: 'ant-cascader',
+      expectClsPrefix: 'ant-select',
+    },
+    {
+      name: 'DatePicker',
+      component: DatePicker,
+      targetCls: 'ant-picker',
+      expectClsPrefix: 'ant-picker',
+    },
+    {
+      name: 'Input',
+      component: Input,
+      targetCls: 'ant-input',
+      expectClsPrefix: 'ant-input',
+    },
+    {
+      name: 'Input.Search',
+      component: Input.Search,
+      targetCls: 'ant-input-search',
+      expectClsPrefix: 'ant-input',
+    },
+    {
+      name: 'Select',
+      component: Select,
+      targetCls: 'ant-select',
+      expectClsPrefix: 'ant-select',
+    },
+    {
+      name: 'TimePicker',
+      component: TimePicker,
+      targetCls: 'ant-picker',
+      expectClsPrefix: 'ant-picker',
+    },
+    {
+      name: 'TreeSelect',
+      component: TreeSelect,
+      targetCls: 'ant-select',
+      expectClsPrefix: 'ant-select',
+    },
+  ].forEach(({ component, name, targetCls, expectClsPrefix }) => {
+    it(`compact-item for ${name}`, () => {
+      const { container } = render(
+        <Space.Compact>{React.createElement(component as any)}</Space.Compact>,
+      );
+      expect(container.querySelectorAll(`.${targetCls}`).length).toBe(1);
+      ['compact-item', 'compact-first-item', 'compact-last-item'].forEach(suffix => {
+        expect(
+          container
+            .querySelector(`.${targetCls}`)
+            ?.classList.contains([expectClsPrefix, suffix].join('-')),
+        ).toBe(true);
+      });
+    });
+  });
+
   it('size', () => {
     const { container } = render(
-      <Space.Compact block size="small">
+      <Space.Compact size="small">
         <Input defaultValue="https://ant.design" />
         <Button type="primary">Submit</Button>
       </Space.Compact>,

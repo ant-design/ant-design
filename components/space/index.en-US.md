@@ -32,11 +32,11 @@ Set components spacing.
 Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
 
 - Button
+- AutoComplete
+- Cascader
+- DatePicker
 - Input/Input.Search
 - Select
-- Cascade
-- DatePicker
-- AutoComplete
 - TimePicker
 - TreeSelect
 

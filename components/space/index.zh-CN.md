@@ -38,11 +38,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 当需要表单组件之间紧凑连接且合并边框时，使用该 Space.Compact。支持的组件有：
 
 - Button
+- AutoComplete
+- Cascader
+- DatePicker
 - Input/Input.Search
 - Select
-- Cascade
-- DatePicker
-- AutoComplete
 - TimePicker
 - TreeSelect
 
