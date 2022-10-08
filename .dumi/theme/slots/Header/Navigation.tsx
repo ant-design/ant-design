@@ -14,47 +14,66 @@ import { css } from '@emotion/react';
 const useStyle = () => {
   const { token } = useSiteToken();
 
+  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary } = token;
+
   return {
     nav: css`
       height: 100%;
       font-size: 14px;
-      font-family: Avenir, ${token.fontFamily}, sans-serif;
+      font-family: Avenir, ${fontFamily}, sans-serif;
       border: 0;
 
-      &.ant-menu-horizontal {
+      &${antCls}-menu-horizontal {
         border-bottom: none;
 
-        & > .ant-menu-item,
-        & > .ant-menu-submenu {
+        & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
           min-width: (40px + 12px * 2);
-          height: ${token.headerHeight}px;
+          height: ${headerHeight}px;
           padding-right: 12px;
           padding-left: 12px;
-          line-height: ${token.headerHeight}px;
+          line-height: ${headerHeight}px;
 
           &::after {
             top: 0;
             right: 12px;
             bottom: auto;
             left: 12px;
-            border-width: ${token.menuItemBorder}px;
+            border-width: ${menuItemBorder}px;
           }
         }
 
-        & .ant-menu-submenu-title .anticon {
+        & ${antCls}-menu-submenu-title ${iconCls} {
           margin: 0;
         }
 
-        & > .ant-menu-item-selected {
+        & > ${antCls}-menu-item-selected {
           a {
-            color: ${token.colorPrimary};
+            color: ${colorPrimary};
           }
         }
       }
 
-      & > .ant-menu-item,
-      & > .ant-menu-submenu {
+      & > ${antCls}-menu-item, & > ${antCls}-menu-submenu {
         text-align: center;
+      }
+    `,
+    popoverMenuNav: css`
+      ${antCls}-menu-item,
+      ${antCls}-menu-submenu {
+        text-align: left;
+      }
+
+      ${antCls}-menu-item-group-title {
+        padding-left: 24px;
+      }
+
+      ${antCls}-menu-item-group-list {
+        padding: 0 16px;
+      }
+
+      ${antCls}-menu-item,
+      a {
+        color: #333;
       }
     `,
   };

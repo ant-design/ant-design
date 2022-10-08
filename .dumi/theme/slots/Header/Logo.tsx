@@ -7,25 +7,27 @@ import useSiteToken from '../../../hooks/useSiteToken';
 const useStyle = () => {
   const { token } = useSiteToken();
 
+  const { antCls, headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+
   return {
     logo: css`
-      height: ${token.headerHeight}px;
+      height: ${headerHeight}px;
       padding-left: 40px;
       overflow: hidden;
-      color: ${token.colorTextHeading};
+      color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: PuHuiTi, ${token.fontFamily}, sans-serif;
-      line-height: ${token.headerHeight}px;
+      font-family: PuHuiTi, ${fontFamily}, sans-serif;
+      line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
       text-decoration: none;
 
       &:hover {
-        color: ${token.colorTextHeading};
+        color: ${colorTextHeading};
       }
 
-      .ant-row-rtl & {
+      ${antCls}-row-rtl & {
         float: right;
         padding-right: 40px;
         padding-left: 0;
@@ -36,13 +38,13 @@ const useStyle = () => {
         margin-right: 12px;
         vertical-align: middle;
 
-        .ant-row-rtl & {
+        ${antCls}-row-rtl & {
           margin-right: 0;
           margin-left: 16px;
         }
       }
 
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+      @media only screen and (max-width: ${mobileMaxWidth}px) {
         padding-right: 0;
         padding-left: 0;
       }

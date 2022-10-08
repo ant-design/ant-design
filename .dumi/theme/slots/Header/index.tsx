@@ -18,7 +18,7 @@ import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import { AlgoliaConfig } from './algolia-config';
 import { useLocation } from 'dumi';
-import { css } from '@emotion/react';
+import { css, ClassNames } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const RESPONSIVE_XS = 1120;
@@ -38,6 +38,10 @@ const useStyle = () => {
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+
+      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+        text-align: center;
+      }
     `,
     menuRow: css`
       display: flex;
@@ -57,6 +61,13 @@ const useStyle = () => {
       color: ${token.colorText};
       border-color: ${token.colorBorder};
     `,
+    popoverMenu: {
+      width: 300,
+
+      [`${token.antCls}-popover-inner-content`]: {
+        padding: 0,
+      },
+    },
   };
 };
 
@@ -74,6 +85,7 @@ const triggerDocSearchImport = () => {
     return Promise.resolve();
   }
 
+  // @ts-ignore
   return import('docsearch.js').then(ds => {
     docsearch = ds.default;
   });
@@ -319,20 +331,26 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
         { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
       ];
 
+  console.log(isMobile);
+
   return (
     <header css={style.header} className={headerClassName}>
       {isMobile && (
-        <Popover
-          overlayClassName="popover-menu"
-          placement="bottomRight"
-          content={menu}
-          trigger="click"
-          open={menuVisible}
-          arrowPointAtCenter
-          onOpenChange={onMenuVisibleChange}
-        >
-          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
-        </Popover>
+        <ClassNames>
+          {({ css }) => (
+            <Popover
+              overlayClassName={css(style.popoverMenu)}
+              placement="bottomRight"
+              content={menu}
+              trigger="click"
+              open={menuVisible}
+              arrowPointAtCenter
+              onOpenChange={onMenuVisibleChange}
+            >
+              <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+            </Popover>
+          )}
+        </ClassNames>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>

@@ -21,6 +21,8 @@ const useStyle = () => {
   const { token } = useSiteToken();
   const searchIconColor = '#ced4d9';
 
+  const { antCls, iconCls } = token;
+
   return {
     searchBox: css`
       position: relative;
@@ -35,7 +37,7 @@ const useStyle = () => {
       border-left: 1px solid ${searchIconColor};
       transition: width 0.5s;
 
-      .ant-row-rtl & {
+      ${antCls}-row-rtl & {
         margin: 0 0 0 auto !important;
         padding-right: 16px;
         padding-left: 0;
@@ -47,7 +49,7 @@ const useStyle = () => {
         flex: auto;
       }
 
-      .anticon {
+      ${iconCls} {
         position: absolute;
         top: 50%;
         z-index: 1;
@@ -57,7 +59,7 @@ const useStyle = () => {
         pointer-events: none;
       }
 
-      .ant-input-affix-wrapper {
+      ${antCls}-input-affix-wrapper {
         background: transparent;
         border: 0;
         box-shadow: none;
@@ -72,7 +74,7 @@ const useStyle = () => {
         border: 0;
         box-shadow: none;
 
-        .ant-row-rtl & {
+        ${antCls}-row-rtl & {
           padding-right: 20px;
           padding-left: 11px;
         }
@@ -96,6 +98,49 @@ const useStyle = () => {
         // better keybinding font display using \`Arial\`
         font-family: Arial; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
         text-align: center;
+      }
+    `,
+    narrowMode: css`
+      flex: none !important;
+      width: 30px;
+
+      &:hover {
+        ${iconCls} {
+          color: #a3b1bf;
+        }
+      }
+
+      ${iconCls} {
+        right: 0;
+        left: auto;
+
+        ${antCls}-row-rtl & {
+          right: auto;
+          left: 0;
+        }
+      }
+
+      input {
+        max-width: none;
+        padding-right: 20px;
+        padding-left: 11px;
+        cursor: pointer;
+
+        ${antCls}-row-rtl & {
+          padding-right: 11px;
+          padding-left: 20px;
+        }
+      }
+    `,
+    focused: css`
+      width: 500px;
+
+      ${iconCls} {
+        color: @search-icon-color;
+      }
+
+      input {
+        cursor: text;
       }
     `,
   };
@@ -150,6 +195,7 @@ const SearchBar = ({
       return Promise.resolve();
     }
 
+    // @ts-ignore
     return import('docsearch-react-fork/modal').then(({ DocSearchModal }) => {
       SearchModal = DocSearchModal;
     });
@@ -209,12 +255,8 @@ const SearchBar = ({
 
   return (
     <div
-      css={style.searchBox}
+      css={[style.searchBox, responsive && style.narrowMode, isInputFocus && style.focused]}
       id="search-box"
-      className={classNames({
-        'narrow-mode': responsive,
-        focused: isInputFocus,
-      })}
     >
       {/*<WrapHelmet>*/}
       {/* pre-connect to algolia server */}
