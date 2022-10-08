@@ -10,9 +10,8 @@ Array [
   >
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
-      data-menu-id="rc-menu-uuid-test-mail"
       role="menuitem"
-      style="opacity: 1; order: 0;"
+      style="opacity:1;order:0"
       tabindex="-1"
     >
       <span
@@ -43,10 +42,9 @@ Array [
     <li
       class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity: 1; order: 1;"
+      style="opacity:1;order:1"
     >
       <div
-        aria-controls="rc-menu-uuid-test-SubMenu-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
@@ -86,14 +84,12 @@ Array [
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
     >
       <div
-        aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-rc-menu-more"
         role="menuitem"
         tabindex="-1"
       >
@@ -124,7 +120,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -139,9 +135,8 @@ Array [
   >
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
-      data-menu-id="rc-menu-uuid-test-mail"
       role="menuitem"
-      style="opacity: 1; order: 0;"
+      style="opacity:1;order:0"
       tabindex="-1"
     >
       <span
@@ -173,7 +168,7 @@ Array [
       aria-disabled="true"
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
       role="menuitem"
-      style="opacity: 1; order: 1;"
+      style="opacity:1;order:1"
     >
       <span
         aria-label="appstore"
@@ -203,10 +198,9 @@ Array [
     <li
       class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity: 1; order: 2;"
+      style="opacity:1;order:2"
     >
       <div
-        aria-controls="rc-menu-uuid-test-SubMenu-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
@@ -245,7 +239,7 @@ Array [
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
       role="menuitem"
-      style="opacity: 1; order: 3;"
+      style="opacity:1;order:3"
       tabindex="-1"
     >
       <span
@@ -264,14 +258,12 @@ Array [
       aria-hidden="true"
       class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
       role="none"
-      style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
     >
       <div
-        aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-rc-menu-more"
         role="menuitem"
         tabindex="-1"
       >
@@ -302,7 +294,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -313,21 +305,19 @@ Array [
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -361,7 +351,6 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-test-subtest-popup"
       >
         <li
           class="ant-menu-item-group"
@@ -377,9 +366,8 @@ Array [
           >
             <li
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
-              style="padding-left: 48px;"
+              style="padding-left:48px"
               tabindex="-1"
             >
               <span
@@ -390,9 +378,8 @@ Array [
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-test-2"
               role="menuitem"
-              style="padding-left: 48px;"
+              style="padding-left:48px"
               tabindex="-1"
             >
               <span
@@ -417,9 +404,8 @@ Array [
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-test-3"
               role="menuitem"
-              style="padding-left: 48px;"
+              style="padding-left:48px"
               tabindex="-1"
             >
               <span
@@ -430,9 +416,8 @@ Array [
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-test-4"
               role="menuitem"
-              style="padding-left: 48px;"
+              style="padding-left:48px"
               tabindex="-1"
             >
               <span
@@ -450,13 +435,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -493,13 +476,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub4"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -534,18 +515,19 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
 
 exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 <div
-  style="width: 256px;"
+  data-reactroot=""
+  style="width:256px"
 >
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
     type="button"
   >
     <span
@@ -576,9 +558,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
-      data-menu-id="rc-menu-uuid-test-1"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -608,9 +589,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-test-2"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -640,9 +620,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-test-3"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -675,13 +654,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -715,13 +692,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-test-subtest-popup"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-5"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -732,9 +707,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-6"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -745,9 +719,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-7"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -758,9 +731,8 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-8"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -776,13 +748,11 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -817,7 +787,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   </ul>
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />
 </div>
 `;
@@ -828,7 +798,7 @@ Array [
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
@@ -836,13 +806,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -876,13 +844,11 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-test-subtest-popup"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -893,9 +859,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -906,9 +871,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -919,9 +883,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-4"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -937,13 +900,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -980,13 +941,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub4"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1021,7 +980,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -1052,16 +1011,14 @@ Array [
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
+      class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="background: rgba(255, 255, 255, 0.3);"
+      style="background:rgba(255,255,255,0.3)"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
         tabindex="-1"
       >
@@ -1097,14 +1054,12 @@ Array [
     <li
       class="ant-menu-submenu ant-menu-submenu-vertical"
       role="none"
-      style="background: rgba(255, 255, 255, 0.3);"
+      style="background:rgba(255,255,255,0.3)"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
         tabindex="-1"
       >
@@ -1139,9 +1094,8 @@ Array [
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-11"
       role="menuitem"
-      style="text-decoration: underline;"
+      style="text-decoration:underline"
       tabindex="-1"
     >
       <div
@@ -1152,9 +1106,8 @@ Array [
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-12"
       role="menuitem"
-      style="text-decoration: underline;"
+      style="text-decoration:underline"
       tabindex="-1"
     >
       <div
@@ -1166,7 +1119,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -1194,20 +1147,18 @@ Array [
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-open ant-menu-submenu-selected"
+      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-open"
       role="none"
       theme="light"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
         tabindex="-1"
       >
@@ -1242,7 +1193,6 @@ Array [
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-5"
       role="menuitem"
       tabindex="-1"
     >
@@ -1254,7 +1204,6 @@ Array [
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-6"
       role="menuitem"
       tabindex="-1"
     >
@@ -1267,7 +1216,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -1287,6 +1236,7 @@ Array [
       class="ant-switch-inner"
     />
   </button>,
+   Change Mode,
   <div
     class="ant-divider ant-divider-vertical"
     role="separator"
@@ -1304,20 +1254,20 @@ Array [
       class="ant-switch-inner"
     />
   </button>,
+   Change Style,
   <br />,
   <br />,
   <ul
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
       class="ant-menu-item ant-menu-item-selected"
-      data-menu-id="rc-menu-uuid-test-1"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -1347,9 +1297,8 @@ Array [
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-test-2"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -1382,13 +1331,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1422,13 +1369,11 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-test-subtest-popup"
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1439,9 +1384,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-4"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1455,13 +1399,11 @@ Array [
           role="none"
         >
           <div
-            aria-controls="rc-menu-uuid-test-subtest-test-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            data-menu-id="rc-menu-uuid-test-sub1-2"
             role="menuitem"
-            style="padding-left: 48px;"
+            style="padding-left:48px"
             tabindex="-1"
           >
             <span
@@ -1481,13 +1423,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1521,9 +1461,8 @@ Array [
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="rc-menu-uuid-test-link"
       role="menuitem"
-      style="padding-left: 24px;"
+      style="padding-left:24px"
       tabindex="-1"
     >
       <span
@@ -1560,7 +1499,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -1588,21 +1527,19 @@ Array [
     class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1636,13 +1573,11 @@ Array [
       <ul
         class="ant-menu ant-menu-sub ant-menu-inline"
         data-menu-list="true"
-        id="rc-menu-uuid-test-subtest-popup"
       >
         <li
           class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1653,9 +1588,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1666,9 +1600,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1679,9 +1612,8 @@ Array [
         </li>
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-4"
           role="menuitem"
-          style="padding-left: 48px;"
+          style="padding-left:48px"
           tabindex="-1"
         >
           <span
@@ -1697,13 +1629,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1740,13 +1670,11 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub4"
         role="menuitem"
-        style="padding-left: 24px;"
+        style="padding-left:24px"
         tabindex="-1"
       >
         <span
@@ -1781,7 +1709,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;
@@ -1792,7 +1720,7 @@ Array [
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
     data-menu-list="true"
     role="menu"
-    style="width: 256px;"
+    style="width:256px"
     tabindex="0"
   >
     <li
@@ -1800,11 +1728,9 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub1"
         role="menuitem"
         tabindex="-1"
       >
@@ -1842,11 +1768,9 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub2"
         role="menuitem"
         tabindex="-1"
       >
@@ -1884,11 +1808,9 @@ Array [
       role="none"
     >
       <div
-        aria-controls="rc-menu-uuid-test-subtest-popup"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="rc-menu-uuid-test-sub4"
         role="menuitem"
         tabindex="-1"
       >
@@ -1924,7 +1846,7 @@ Array [
   </ul>,
   <div
     aria-hidden="true"
-    style="display: none;"
+    style="display:none"
   />,
 ]
 `;

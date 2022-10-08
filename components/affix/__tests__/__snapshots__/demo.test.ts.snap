@@ -36,7 +36,8 @@ Array [
 
 exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
 <div
-  style="height: 10000px;"
+  data-reactroot=""
+  style="height:10000px"
 >
   <div>
     Top
@@ -46,7 +47,7 @@ exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
       class=""
     >
       <div
-        style="background: red;"
+        style="background:red"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -85,6 +86,7 @@ exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
 exports[`renders ./components/affix/demo/target.md correctly 1`] = `
 <div
   class="scrollable-container"
+  data-reactroot=""
 >
   <div
     class="background"

@@ -3,6 +3,7 @@
 exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
+  data-reactroot=""
   role="tablist"
 >
   <div
@@ -131,6 +132,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -156,7 +158,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -272,6 +274,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -297,7 +300,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -320,7 +323,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
         class="ant-collapse-content-box"
       >
         <p
-          style="padding-left: 24px;"
+          style="padding-left:24px"
         >
           A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>
@@ -413,10 +416,11 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  data-reactroot=""
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-start"
@@ -443,7 +447,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="transform: rotate(90deg);"
+                style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -529,6 +533,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
@@ -554,7 +559,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="0 0 1024 1024"
             width="1em"
           >
@@ -696,7 +701,7 @@ Array [
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="transform: rotate(90deg);"
+              style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -885,7 +890,7 @@ Array [
   </span>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="margin: 0px 8px;"
+    style="margin:0 8px"
   >
     <div
       class="ant-select-selector"
@@ -894,17 +899,16 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_test"
+          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
-          aria-controls="rc_select_test_list"
+          aria-controls="undefined_list"
           aria-haspopup="listbox"
-          aria-owns="rc_select_test_list"
+          aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity: 0;"
+          style="opacity:0"
           type="search"
           unselectable="on"
           value=""
@@ -920,7 +924,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select: none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
@@ -950,6 +954,7 @@ Array [
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -975,7 +980,7 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1091,6 +1096,7 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item"
@@ -1218,6 +1224,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
+  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1243,7 +1250,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >

@@ -3,6 +3,7 @@
 exports[`renders ./components/result/demo/403.md correctly 1`] = `
 <div
   class="ant-result ant-result-403"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon ant-result-image"
@@ -316,6 +317,7 @@ exports[`renders ./components/result/demo/403.md correctly 1`] = `
 exports[`renders ./components/result/demo/404.md correctly 1`] = `
 <div
   class="ant-result ant-result-404"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon ant-result-image"
@@ -647,6 +649,7 @@ exports[`renders ./components/result/demo/404.md correctly 1`] = `
 exports[`renders ./components/result/demo/500.md correctly 1`] = `
 <div
   class="ant-result ant-result-500"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon ant-result-image"
@@ -1025,6 +1028,7 @@ exports[`renders ./components/result/demo/500.md correctly 1`] = `
 exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
 <div
   class="ant-result ant-result-info"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon"
@@ -1072,6 +1076,7 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
 exports[`renders ./components/result/demo/error.md correctly 1`] = `
 <div
   class="ant-result ant-result-error"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon"
@@ -1137,7 +1142,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       >
         <span
           class="ant-typography"
-          style="font-size: 16px;"
+          style="font-size:16px"
         >
           <strong>
             The content you submitted has the following error:
@@ -1212,6 +1217,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
 exports[`renders ./components/result/demo/info.md correctly 1`] = `
 <div
   class="ant-result ant-result-info"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon"
@@ -1259,6 +1265,7 @@ exports[`renders ./components/result/demo/info.md correctly 1`] = `
 exports[`renders ./components/result/demo/success.md correctly 1`] = `
 <div
   class="ant-result ant-result-success"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon"
@@ -1319,6 +1326,7 @@ exports[`renders ./components/result/demo/success.md correctly 1`] = `
 exports[`renders ./components/result/demo/warning.md correctly 1`] = `
 <div
   class="ant-result ant-result-warning"
+  data-reactroot=""
 >
   <div
     class="ant-result-icon"

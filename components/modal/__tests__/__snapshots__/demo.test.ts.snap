@@ -36,11 +36,12 @@ exports[`renders ./components/modal/demo/button-props.md correctly 1`] = `
 exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  data-reactroot=""
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -53,7 +54,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -66,7 +67,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -79,7 +80,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -132,7 +133,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -145,7 +146,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -158,7 +159,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -187,11 +188,12 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
 exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  data-reactroot=""
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -204,7 +206,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -217,7 +219,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -230,7 +232,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
+    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -247,10 +249,11 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  data-reactroot=""
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"

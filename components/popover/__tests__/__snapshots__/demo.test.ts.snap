@@ -57,9 +57,10 @@ exports[`renders ./components/popover/demo/hover-with-click.md correctly 1`] = `
 exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 <div
   class="demo"
+  data-reactroot=""
 >
   <div
-    style="margin-left: 70px; white-space: nowrap;"
+    style="margin-left:70px;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -87,7 +88,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     </button>
   </div>
   <div
-    style="width: 70px; float: left;"
+    style="width:70px;float:left"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -115,7 +116,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     </button>
   </div>
   <div
-    style="width: 70px; margin-left: 304px;"
+    style="width:70px;margin-left:304px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -143,7 +144,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     </button>
   </div>
   <div
-    style="margin-left: 70px; clear: both; white-space: nowrap;"
+    style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -174,7 +175,9 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 `;
 
 exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
-<div>
+<div
+  data-reactroot=""
+>
   <button
     class="ant-btn ant-btn-default"
     type="button"

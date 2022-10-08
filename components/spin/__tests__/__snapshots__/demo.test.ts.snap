@@ -35,7 +35,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
     aria-label="loading"
     class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
-    style="font-size: 24px;"
+    style="font-size:24px"
   >
     <svg
       aria-hidden="true"
@@ -55,7 +55,9 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
-<div>
+<div
+  data-reactroot=""
+>
   <div
     class="ant-spin-nested-loading"
   >
@@ -85,7 +87,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <button
@@ -108,6 +110,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
 exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
 <div
   class="example"
+  data-reactroot=""
 >
   <div
     aria-busy="true"
@@ -135,7 +138,9 @@ exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
-<div>
+<div
+  data-reactroot=""
+>
   <div
     class="ant-spin-nested-loading"
   >
@@ -165,7 +170,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <button
@@ -188,10 +193,11 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
 exports[`renders ./components/spin/demo/size.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  data-reactroot=""
 >
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
+    style="margin-right:16px"
   >
     <div
       aria-busy="true"
@@ -218,7 +224,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
+    style="margin-right:16px"
   >
     <div
       aria-busy="true"
