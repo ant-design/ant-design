@@ -5,7 +5,6 @@ import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
-import Menu from '../../menu';
 import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
@@ -25,14 +24,21 @@ jest.mock('rc-trigger', () => {
 });
 
 describe('Dropdown', () => {
+  const items = [
+    {
+      label: 'foo',
+      key: '1',
+    },
+  ];
+
   mountTest(() => (
-    <Dropdown overlay={<Menu />}>
+    <Dropdown items={items}>
       <span />
     </Dropdown>
   ));
 
   rtlTest(() => (
-    <Dropdown overlay={<Menu />}>
+    <Dropdown items={items}>
       <span />
     </Dropdown>
   ));
@@ -57,14 +63,23 @@ describe('Dropdown', () => {
 
   it('support Menu expandIcon', async () => {
     const props: DropDownProps = {
-      overlay: (
-        <Menu expandIcon={<span id="customExpandIcon" />}>
-          <Menu.Item key="1">foo</Menu.Item>
-          <Menu.SubMenu title="SubMenu">
-            <Menu.Item key="1">foo</Menu.Item>
-          </Menu.SubMenu>
-        </Menu>
-      ),
+      items: [
+        {
+          label: 'foo',
+          key: '1',
+        },
+        {
+          label: 'SubMenu',
+          key: 'submenu',
+          children: [
+            {
+              label: 'foo',
+              key: '1',
+            },
+          ],
+        },
+      ],
+      expandIcon: <span id="customExpandIcon" />,
       open: true,
       getPopupContainer: node => node,
     };
@@ -82,10 +97,10 @@ describe('Dropdown', () => {
     const error = jest.spyOn(console, 'error');
     render(
       <div>
-        <Dropdown overlay={'123' as any} placement="bottomCenter">
+        <Dropdown items={items} placement="bottomCenter">
           <button type="button">bottomCenter</button>
         </Dropdown>
-        <Dropdown overlay={'123' as any} placement="topCenter">
+        <Dropdown items={items} placement="topCenter">
           <button type="button">topCenter</button>
         </Dropdown>
       </div>,
@@ -102,7 +117,7 @@ describe('Dropdown', () => {
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
     render(
-      <Dropdown overlay={<div>menu</div>} open>
+      <Dropdown items={items} open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -124,22 +139,18 @@ describe('Dropdown', () => {
     const { container } = render(
       <Dropdown
         trigger={['click']}
-        overlay={
-          <Menu
-            items={[
+        items={[
+          {
+            label: 'grp',
+            type: 'group',
+            children: [
               {
-                label: 'grp',
-                type: 'group',
-                children: [
-                  {
-                    label: '1',
-                    key: 1,
-                  },
-                ],
+                label: '1',
+                key: 1,
               },
-            ]}
-          />
-        }
+            ],
+          },
+        ]}
       >
         <a />
       </Dropdown>,
@@ -181,7 +192,12 @@ describe('Dropdown', () => {
         onOpenChange={onOpenChange}
         onVisibleChange={onVisibleChange}
         trigger={['click']}
-        overlay={<div className="bamboo" />}
+        items={[
+          {
+            label: <div className="bamboo" />,
+            key: 'bamboo',
+          },
+        ]}
       >
         <a className="little" />
       </Dropdown>,

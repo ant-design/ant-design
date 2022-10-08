@@ -16,7 +16,7 @@ The default is to close the menu when you click on menu items, this feature can 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Dropdown, Menu, Space } from 'antd';
+import { Dropdown, Space } from 'antd';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
@@ -32,28 +32,28 @@ const App: React.FC = () => {
     setOpen(flag);
   };
 
-  const menu = (
-    <Menu
-      onClick={handleMenuClick}
-      items={[
-        {
-          label: 'Clicking me will not close the menu.',
-          key: '1',
-        },
-        {
-          label: 'Clicking me will not close the menu also.',
-          key: '2',
-        },
-        {
-          label: 'Clicking me will close the menu.',
-          key: '3',
-        },
-      ]}
-    />
-  );
+  const items: MenuProps['items'] = [
+    {
+      label: 'Clicking me will not close the menu.',
+      key: '1',
+    },
+    {
+      label: 'Clicking me will not close the menu also.',
+      key: '2',
+    },
+    {
+      label: 'Clicking me will close the menu.',
+      key: '3',
+    },
+  ];
 
   return (
-    <Dropdown overlay={menu} onOpenChange={handleOpenChange} open={open}>
+    <Dropdown
+      items={items}
+      onMenuClick={handleMenuClick}
+      onOpenChange={handleOpenChange}
+      open={open}
+    >
       <a onClick={e => e.preventDefault()}>
         <Space>
           Hover me

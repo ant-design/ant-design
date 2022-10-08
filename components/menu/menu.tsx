@@ -92,7 +92,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // Tell dropdown that item clicked
   const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
     onClick?.(...args);
-    overrideObj.onClick?.();
+    overrideObj.onClick?.(...args);
   });
 
   // ========================== Mode ===========================

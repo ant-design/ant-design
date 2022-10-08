@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { MenuClickEventHandler } from 'rc-menu/lib/interface';
 import type { MenuProps } from './menu';
 
 // Used for Dropdown only
@@ -8,7 +9,7 @@ export interface OverrideContextProps {
   mode?: MenuProps['mode'];
   selectable?: boolean;
   validator?: (menuProps: Pick<MenuProps, 'mode'>) => void;
-  onClick?: () => void;
+  onClick?: MenuClickEventHandler;
 }
 
 /** @private Internal Usage. Only used for Dropdown component. Do not use this in your production. */

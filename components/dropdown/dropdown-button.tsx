@@ -49,8 +49,9 @@ const DropdownButton: DropdownButtonInterface = props => {
     htmlType,
     children,
     className,
-    overlay,
     trigger,
+    arrow,
+    autoFocus,
     align,
     open,
     onOpenChange,
@@ -65,6 +66,19 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
+    items,
+    selectable,
+    selectedKeys,
+    defaultSelectedKeys,
+    defaultOpenKeys,
+    openKeys,
+    multiple,
+    menuStyle,
+    menuClassName,
+    expandIcon,
+    onSelect,
+    onDeselect,
+    onMenuClick,
     ...restProps
   } = props;
 
@@ -73,8 +87,9 @@ const DropdownButton: DropdownButtonInterface = props => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const dropdownProps = {
+    arrow,
+    autoFocus,
     align,
-    overlay,
     disabled,
     trigger: disabled ? [] : trigger,
     onOpenChange,
@@ -84,6 +99,19 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
+    items,
+    selectable,
+    selectedKeys,
+    defaultSelectedKeys,
+    defaultOpenKeys,
+    openKeys,
+    multiple,
+    menuStyle,
+    menuClassName,
+    expandIcon,
+    onSelect,
+    onDeselect,
+    onMenuClick,
   } as DropdownProps;
 
   if ('open' in props) {

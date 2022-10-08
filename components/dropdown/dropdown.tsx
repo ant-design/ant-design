@@ -4,6 +4,9 @@ import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import type { MenuClickEventHandler, SelectEventHandler } from 'rc-menu/lib/interface';
+import type { ItemType } from '../menu/hooks/useItems';
+import Menu from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
 import genPurePanel from '../_util/PurePanel';
@@ -50,7 +53,7 @@ export interface DropdownProps {
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactElement | OverlayFunc;
+  overlay?: React.ReactElement | OverlayFunc;
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
   disabled?: boolean;
@@ -68,6 +71,21 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+
+  // Menu
+  items?: ItemType[];
+  selectable?: boolean;
+  multiple?: boolean;
+  defaultSelectedKeys?: string[];
+  selectedKeys?: string[];
+  defaultOpenKeys?: string[];
+  openKeys?: string[];
+  menuStyle?: React.CSSProperties;
+  menuClassName?: string;
+  expandIcon?: React.ReactNode;
+  onSelect?: SelectEventHandler;
+  onDeselect?: SelectEventHandler;
+  onMenuClick?: MenuClickEventHandler;
 
   // Deprecated
   /** @deprecated Please use `open` instead */
@@ -130,9 +148,26 @@ const Dropdown: DropdownInterface = props => {
     open,
     onOpenChange,
 
+    // Menu
+    items,
+    selectable = false,
+    multiple,
+    defaultSelectedKeys,
+    selectedKeys,
+    defaultOpenKeys,
+    openKeys,
+    menuStyle,
+    menuClassName,
+    expandIcon,
+    onSelect,
+    onDeselect,
+    onMenuClick,
+
     // Deprecated
     visible,
     onVisibleChange,
+
+    ...dropdownProps
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -191,17 +226,30 @@ const Dropdown: DropdownInterface = props => {
     autoAdjustOverflow: true,
   });
 
-  const onMenuClick = React.useCallback(() => {
-    setOpen(false);
-  }, []);
-
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
     const { overlay } = props;
 
     let overlayNode;
-    if (typeof overlay === 'function') {
+    if (items) {
+      overlayNode = (
+        <Menu
+          items={items}
+          style={menuStyle}
+          className={menuClassName}
+          selectable={selectable}
+          defaultSelectedKeys={defaultSelectedKeys}
+          selectedKeys={selectedKeys}
+          defaultOpenKeys={defaultOpenKeys}
+          openKeys={openKeys}
+          expandIcon={expandIcon}
+          multiple={multiple}
+          onSelect={onSelect}
+          onDeselect={onDeselect}
+        />
+      );
+    } else if (typeof overlay === 'function') {
       overlayNode = (overlay as OverlayFunc)();
     } else {
       overlayNode = overlay;
@@ -220,7 +268,10 @@ const Dropdown: DropdownInterface = props => {
         }
         mode="vertical"
         selectable={false}
-        onClick={onMenuClick}
+        onClick={(...args) => {
+          setOpen(false);
+          onMenuClick?.(...args);
+        }}
         validator={({ mode }) => {
           // Warning if use other mode
           warning(
@@ -239,7 +290,7 @@ const Dropdown: DropdownInterface = props => {
   return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint}
-      {...props}
+      {...dropdownProps}
       visible={mergedOpen}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
