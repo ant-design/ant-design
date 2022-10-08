@@ -14,7 +14,7 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <div>
@@ -44,7 +44,7 @@ exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
           </svg>
         </span>
         <div
-          style="margin-top: 8px;"
+          style="margin-top:8px"
         >
           Upload
         </div>
@@ -66,7 +66,7 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -214,7 +214,7 @@ exports[`renders ./components/upload/demo/crop-image.md correctly 1`] = `
       >
         <input
           accept="image/*"
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         + Upload
@@ -236,7 +236,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -286,7 +286,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -572,7 +572,7 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
       <input
         accept=""
         directory="directory"
-        style="display: none;"
+        style="display:none"
         type="file"
         webkitdirectory="webkitdirectory"
       />
@@ -624,7 +624,7 @@ exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
       <input
         accept=""
         multiple=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <div
@@ -684,7 +684,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -724,8 +724,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -808,8 +807,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -892,8 +890,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -976,8 +973,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -1060,8 +1056,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
@@ -1452,7 +1447,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1570,7 +1565,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1680,7 +1675,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1743,7 +1738,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <div>
@@ -1773,7 +1768,7 @@ exports[`renders ./components/upload/demo/file-type.md correctly 1`] = `
             </svg>
           </span>
           <div
-            style="margin-top: 8px;"
+            style="margin-top:8px"
           >
             Upload
           </div>
@@ -1797,7 +1792,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
       <input
         accept=""
         multiple=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -1917,11 +1912,11 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
 exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 24px;"
+    style="margin-bottom:24px"
   >
     <span>
       <div
@@ -1934,7 +1929,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
         >
           <input
             accept=""
-            style="display: none;"
+            style="display:none"
             type="file"
           />
           <button
@@ -1986,7 +1981,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
           <input
             accept=""
             multiple=""
-            style="display: none;"
+            style="display:none"
             type="file"
           />
           <button
@@ -2500,7 +2495,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -2563,7 +2558,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <div>
@@ -2593,7 +2588,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             </svg>
           </span>
           <div
-            style="margin-top: 8px;"
+            style="margin-top:8px"
           >
             Upload
           </div>
@@ -2617,7 +2612,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -2828,7 +2823,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -3039,7 +3034,7 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3089,7 +3084,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3139,7 +3134,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3443,7 +3438,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -3482,7 +3477,7 @@ Array [
   <button
     class="ant-btn ant-btn-primary"
     disabled=""
-    style="margin-top: 16px;"
+    style="margin-top:16px"
     type="button"
   >
     <span>
@@ -3504,7 +3499,7 @@ exports[`renders ./components/upload/demo/upload-png-only.md correctly 1`] = `
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3583,7 +3578,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
                 >
                   <input
                     accept=""
-                    style="display: none;"
+                    style="display:none"
                     type="file"
                   />
                   <button

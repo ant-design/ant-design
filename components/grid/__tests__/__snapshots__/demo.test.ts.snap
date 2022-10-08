@@ -525,13 +525,13 @@ Array [
   >
     <div
       class="ant-col"
-      style="flex: 2 2 auto;"
+      style="flex:2 2 auto"
     >
       2 / 5
     </div>
     <div
       class="ant-col"
-      style="flex: 3 3 auto;"
+      style="flex:3 3 auto"
     >
       3 / 5
     </div>
@@ -551,13 +551,13 @@ Array [
   >
     <div
       class="ant-col"
-      style="flex: 0 0 100px;"
+      style="flex:0 0 100px"
     >
       100px
     </div>
     <div
       class="ant-col"
-      style="flex-basis: auto;"
+      style="flex:auto"
     >
       Fill Rest
     </div>
@@ -577,13 +577,13 @@ Array [
   >
     <div
       class="ant-col"
-      style="flex: 1 1 200px;"
+      style="flex:1 1 200px"
     >
       1 1 200px
     </div>
     <div
       class="ant-col"
-      style="flex: 0 1 300px;"
+      style="flex:0 1 300px"
     >
       0 1 300px
     </div>
@@ -593,17 +593,17 @@ Array [
   >
     <div
       class="ant-col"
-      style="flex: 0 0 auto; min-width: 0;"
+      style="flex:none;min-width:0"
     >
       <div
-        style="padding: 0px 16px;"
+        style="padding:0 16px"
       >
         none
       </div>
     </div>
     <div
       class="ant-col"
-      style="flex-basis: auto; min-width: 0;"
+      style="flex:auto;min-width:0"
     >
       auto with no-wrap
     </div>
@@ -625,44 +625,44 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -8px; margin-right: -8px;"
+    style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 8px; padding-right: 8px;"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -680,44 +680,44 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -4px; margin-right: -4px;"
+    style="margin-left:-16px;margin-right:-16px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      style="padding-left:16px;padding-right:16px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      style="padding-left:16px;padding-right:16px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      style="padding-left:16px;padding-right:16px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left: 4px; padding-right: 4px;"
+      style="padding-left:16px;padding-right:16px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -735,84 +735,84 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -12px -8px -12px -8px;"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:-12px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
-        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+        style="background:#0092ff;padding:8px 0"
       >
         col-6
       </div>
@@ -869,7 +869,7 @@ Array [
     Horizontal Gutter (px): 
   </span>,
   <div
-    style="width: 50%;"
+    style="width:50%"
   >
     <div
       class="ant-slider ant-slider-horizontal ant-slider-with-marks"
@@ -879,34 +879,34 @@ Array [
       />
       <div
         class="ant-slider-track"
-        style="left: 0%; width: 20%;"
+        style="left:0%;width:20%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -916,7 +916,7 @@ Array [
         aria-valuenow="1"
         class="ant-slider-handle"
         role="slider"
-        style="left: 20%; transform: translateX(-50%);"
+        style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -924,37 +924,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         >
           16
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         >
           24
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         >
           32
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         >
           40
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         >
           48
         </span>
@@ -965,7 +965,7 @@ Array [
     Vertical Gutter (px): 
   </span>,
   <div
-    style="width: 50%;"
+    style="width:50%"
   >
     <div
       class="ant-slider ant-slider-horizontal ant-slider-with-marks"
@@ -975,34 +975,34 @@ Array [
       />
       <div
         class="ant-slider-track"
-        style="left: 0%; width: 20%;"
+        style="left:0%;width:20%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -1012,7 +1012,7 @@ Array [
         aria-valuenow="1"
         class="ant-slider-handle"
         role="slider"
-        style="left: 20%; transform: translateX(-50%);"
+        style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -1020,37 +1020,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         >
           16
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         >
           24
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         >
           32
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         >
           40
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         >
           48
         </span>
@@ -1061,7 +1061,7 @@ Array [
     Column Count:
   </span>,
   <div
-    style="width: 50%; margin-bottom: 48px;"
+    style="width:50%;margin-bottom:48px"
   >
     <div
       class="ant-slider ant-slider-horizontal ant-slider-with-marks"
@@ -1071,34 +1071,34 @@ Array [
       />
       <div
         class="ant-slider-track"
-        style="left: 0%; width: 40%;"
+        style="left:0%;width:40%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -1108,7 +1108,7 @@ Array [
         aria-valuenow="2"
         class="ant-slider-handle"
         role="slider"
-        style="left: 40%; transform: translateX(-50%);"
+        style="left:40%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -1116,37 +1116,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 0%; transform: translateX(-50%);"
+          style="left:0%;transform:translateX(-50%)"
         >
           2
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 20%; transform: translateX(-50%);"
+          style="left:20%;transform:translateX(-50%)"
         >
           3
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="left: 40%; transform: translateX(-50%);"
+          style="left:40%;transform:translateX(-50%)"
         >
           4
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 60%; transform: translateX(-50%);"
+          style="left:60%;transform:translateX(-50%)"
         >
           6
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 80%; transform: translateX(-50%);"
+          style="left:80%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text"
-          style="left: 100%; transform: translateX(-50%);"
+          style="left:100%;transform:translateX(-50%)"
         >
           12
         </span>
@@ -1155,11 +1155,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1167,7 +1167,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1175,7 +1175,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1183,7 +1183,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1191,7 +1191,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1199,7 +1199,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1207,7 +1207,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1215,20 +1215,21 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
       </div>
     </div>
   </div>,
+  Another Row:,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1236,7 +1237,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1244,7 +1245,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1252,7 +1253,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1348,9 +1349,9 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 `;
 
 exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `
-<span
-  class="ant-tag ant-tag-blue"
->
-  xs
-</span>
+Array [
+  Current break point:,
+  <!-- -->,
+   ,
+]
 `;
