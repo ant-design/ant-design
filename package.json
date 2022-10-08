@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.0.0-alpha.0",
+  "version": "5.0.0-alpha.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -77,7 +77,7 @@
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write **/*",
     "pretty-quick": "pretty-quick",
-    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub-alpha",
+    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub-experimental",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
