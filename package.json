@@ -218,7 +218,7 @@
     "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^3.0.0",
-    "eslint-plugin-react": "7.31.1",
+    "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-unicorn": "^44.0.0",
     "fast-glob": "^3.2.11",
