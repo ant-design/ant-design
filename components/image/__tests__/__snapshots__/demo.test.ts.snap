@@ -140,7 +140,6 @@ exports[`renders ./components/image/demo/fallback.md correctly 1`] = `
 exports[`renders ./components/image/demo/placeholder.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

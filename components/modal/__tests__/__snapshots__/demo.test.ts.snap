@@ -36,7 +36,6 @@ exports[`renders ./components/modal/demo/button-props.md correctly 1`] = `
 exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
   style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
@@ -188,7 +187,6 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
 exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
   style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
@@ -249,7 +247,6 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
 exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

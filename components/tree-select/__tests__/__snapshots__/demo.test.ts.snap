@@ -400,7 +400,6 @@ Array [
 exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="width:100%"
 >
   <div
@@ -642,7 +641,6 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

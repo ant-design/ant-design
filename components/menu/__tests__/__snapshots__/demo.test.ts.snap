@@ -522,7 +522,6 @@ Array [
 
 exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="width:256px"
 >
   <button

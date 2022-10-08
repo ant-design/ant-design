@@ -2460,9 +2460,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
 `;
 
 exports[`renders ./components/rate/demo/text.md correctly 1`] = `
-<span
-  data-reactroot=""
->
+<span>
   <ul
     class="ant-rate"
     role="radiogroup"

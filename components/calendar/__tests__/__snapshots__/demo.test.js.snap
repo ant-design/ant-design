@@ -3,7 +3,6 @@
 exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
-  data-reactroot=""
 >
   <div
     class="ant-picker-calendar-header"
@@ -946,7 +945,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
 exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 <div
   class="site-calendar-demo-card"
-  data-reactroot=""
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
@@ -1893,7 +1891,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = `
 <div
   class="site-calendar-customize-header-wrapper"
-  data-reactroot=""
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
@@ -2865,7 +2862,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
 exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
-  data-reactroot=""
 >
   <div
     class="ant-picker-calendar-header"

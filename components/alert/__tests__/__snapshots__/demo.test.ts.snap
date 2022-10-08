@@ -1376,9 +1376,7 @@ exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
 `;
 
 exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
     data-show="true"

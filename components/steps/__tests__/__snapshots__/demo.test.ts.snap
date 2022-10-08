@@ -236,7 +236,6 @@ Array [
 exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -388,7 +387,6 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
 exports[`renders ./components/steps/demo/error.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
@@ -534,7 +532,6 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
 exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
@@ -1620,7 +1617,6 @@ Array [
 exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3195,7 +3191,6 @@ Array [
 exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3329,7 +3324,6 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
 exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3823,7 +3817,6 @@ Array [
 exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3951,7 +3944,6 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
-  data-reactroot=""
 >
   <div
     class="ant-steps-item ant-steps-item-finish"

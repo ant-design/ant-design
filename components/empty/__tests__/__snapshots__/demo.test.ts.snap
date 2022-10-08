@@ -3,7 +3,6 @@
 exports[`renders ./components/empty/demo/basic.md correctly 1`] = `
 <div
   class="ant-empty"
-  data-reactroot=""
 >
   <div
     class="ant-empty-image"
@@ -77,9 +76,7 @@ exports[`renders ./components/empty/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <button
     aria-checked="false"
     class="ant-switch"
@@ -732,7 +729,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
 exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 <div
   class="ant-empty"
-  data-reactroot=""
 >
   <div
     class="ant-empty-image"
@@ -773,7 +769,6 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 exports[`renders ./components/empty/demo/description.md correctly 1`] = `
 <div
   class="ant-empty"
-  data-reactroot=""
 >
   <div
     class="ant-empty-image"
@@ -844,7 +839,6 @@ exports[`renders ./components/empty/demo/description.md correctly 1`] = `
 exports[`renders ./components/empty/demo/simple.md correctly 1`] = `
 <div
   class="ant-empty ant-empty-normal"
-  data-reactroot=""
 >
   <div
     class="ant-empty-image"

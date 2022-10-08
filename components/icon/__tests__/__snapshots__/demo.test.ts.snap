@@ -3,7 +3,6 @@
 exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -155,7 +154,6 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
 exports[`renders ./components/icon/demo/custom.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -299,7 +297,6 @@ exports[`renders ./components/icon/demo/custom.md correctly 1`] = `
 exports[`renders ./components/icon/demo/iconfont.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -372,7 +369,6 @@ exports[`renders ./components/icon/demo/iconfont.md correctly 1`] = `
 exports[`renders ./components/icon/demo/scriptUrl.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -467,7 +463,6 @@ exports[`renders ./components/icon/demo/scriptUrl.md correctly 1`] = `
 exports[`renders ./components/icon/demo/two-tone.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

@@ -903,7 +903,6 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
 >
   <input
@@ -1715,7 +1714,6 @@ Array [
 exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="width:100%"
 >
   <div
@@ -2431,7 +2429,6 @@ Array [
 exports[`renders ./components/select/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="width:100%"
 >
   <div

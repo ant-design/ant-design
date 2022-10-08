@@ -1122,7 +1122,6 @@ Array [
 
 exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="width:170px"
 >
   <div

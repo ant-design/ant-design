@@ -58,7 +58,6 @@ exports[`renders ./components/message/demo/loading.md correctly 1`] = `
 exports[`renders ./components/message/demo/other.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

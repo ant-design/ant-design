@@ -3,7 +3,6 @@
 exports[`renders ./components/space/demo/align.md correctly 1`] = `
 <div
   class="space-align-container"
-  data-reactroot=""
 >
   <div
     class="space-align-block"
@@ -155,7 +154,6 @@ exports[`renders ./components/space/demo/align.md correctly 1`] = `
 exports[`renders ./components/space/demo/base.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -332,7 +330,6 @@ Array [
 exports[`renders ./components/space/demo/debug.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -592,7 +589,6 @@ Array [
 exports[`renders ./components/space/demo/split.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -647,7 +643,6 @@ exports[`renders ./components/space/demo/split.md correctly 1`] = `
 exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="display:flex"
 >
   <div
@@ -751,7 +746,6 @@ exports[`renders ./components/space/demo/vertical.md correctly 1`] = `
 exports[`renders ./components/space/demo/wrap.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
   style="flex-wrap:wrap;margin-bottom:-16px"
 >
   <div

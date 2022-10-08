@@ -3,7 +3,6 @@
 exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
-  data-reactroot=""
   role="tablist"
 >
   <div
@@ -132,7 +131,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -274,7 +272,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -416,7 +413,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -533,7 +529,6 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
@@ -954,7 +949,6 @@ Array [
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1096,7 +1090,6 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item"
@@ -1224,7 +1217,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-position-start"
-  data-reactroot=""
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"

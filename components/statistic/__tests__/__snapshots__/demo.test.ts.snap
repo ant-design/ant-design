@@ -104,7 +104,6 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
 exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 <div
   class="site-statistic-demo-card"
-  data-reactroot=""
 >
   <div
     class="ant-row"

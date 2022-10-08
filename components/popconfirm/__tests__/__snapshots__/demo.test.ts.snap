@@ -20,9 +20,7 @@ exports[`renders ./components/popconfirm/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <a
     href="#"
   >
@@ -66,7 +64,6 @@ exports[`renders ./components/popconfirm/demo/locale.md correctly 1`] = `
 exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
 <div
   class="demo"
-  data-reactroot=""
 >
   <div
     style="margin-left:70px;white-space:nowrap"

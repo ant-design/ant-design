@@ -160,7 +160,6 @@ exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
   style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
@@ -503,7 +502,6 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -800,7 +798,6 @@ exports[`renders ./components/dropdown/demo/overlay-open.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

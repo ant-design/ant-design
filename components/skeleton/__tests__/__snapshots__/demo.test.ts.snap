@@ -3,7 +3,6 @@
 exports[`renders ./components/skeleton/demo/active.md correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-active"
-  data-reactroot=""
 >
   <div
     class="ant-skeleton-content"
@@ -28,7 +27,6 @@ exports[`renders ./components/skeleton/demo/active.md correctly 1`] = `
 exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
 <div
   class="ant-skeleton"
-  data-reactroot=""
 >
   <div
     class="ant-skeleton-content"
@@ -53,7 +51,6 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
 exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
 <div
   class="article"
-  data-reactroot=""
 >
   <div>
     <h4>
@@ -77,7 +74,6 @@ exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
 exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
-  data-reactroot=""
 >
   <div
     class="ant-skeleton-header"

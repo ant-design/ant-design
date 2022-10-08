@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <form
     class="ant-form ant-form-horizontal ant-advanced-search-form"
     id="advanced_search"
@@ -3954,9 +3952,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
 `;
 
 exports[`renders ./components/form/demo/form-in-modal.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <button
     class="ant-btn ant-btn-primary"
     type="button"

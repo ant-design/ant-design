@@ -4084,9 +4084,7 @@ Array [
 `;
 
 exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <button
     class="ant-btn ant-btn-primary"
     style="margin-bottom:16px"
@@ -11454,7 +11452,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="width:300px"
 >
   <div
@@ -14743,9 +14740,7 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div>
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -16295,9 +16290,7 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -16679,9 +16672,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
 `;
 
 exports[`renders ./components/table/demo/row-selection-and-operation.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     style="margin-bottom:16px"
   >
@@ -18335,9 +18326,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
 `;
 
 exports[`renders ./components/table/demo/size.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <h4>
     Middle size table
   </h4>

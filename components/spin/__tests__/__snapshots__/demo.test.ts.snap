@@ -55,9 +55,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-spin-nested-loading"
   >
@@ -110,7 +108,6 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
 exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
 <div
   class="example"
-  data-reactroot=""
 >
   <div
     aria-busy="true"
@@ -138,9 +135,7 @@ exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
 `;
 
 exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-spin-nested-loading"
   >
@@ -193,7 +188,6 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
 exports[`renders ./components/spin/demo/size.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

@@ -3249,7 +3249,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
 exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

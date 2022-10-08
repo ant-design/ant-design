@@ -354,9 +354,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 `;
 
 exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-descriptions ant-descriptions-bordered"
   >
@@ -516,9 +514,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
 `;
 
 exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >

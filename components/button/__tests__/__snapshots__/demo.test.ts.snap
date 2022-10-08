@@ -485,7 +485,6 @@ Array [
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
   class="site-button-ghost-wrapper"
-  data-reactroot=""
 >
   <button
     class="ant-btn ant-btn-primary ant-btn-background-ghost"

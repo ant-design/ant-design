@@ -3035,9 +3035,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tree/demo/line.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     style="margin-bottom:16px"
   >
@@ -3578,9 +3576,7 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tree/demo/search.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <span
     class="ant-input-group-wrapper ant-input-search"
     style="margin-bottom:8px"

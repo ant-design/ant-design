@@ -3,7 +3,6 @@
 exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-alternate"
-  data-reactroot=""
 >
   <li
     class="ant-timeline-item ant-timeline-item-left"
@@ -149,7 +148,6 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
 exports[`renders ./components/timeline/demo/basic.md correctly 1`] = `
 <ul
   class="ant-timeline"
-  data-reactroot=""
 >
   <li
     class="ant-timeline-item"
@@ -217,7 +215,6 @@ exports[`renders ./components/timeline/demo/basic.md correctly 1`] = `
 exports[`renders ./components/timeline/demo/color.md correctly 1`] = `
 <ul
   class="ant-timeline"
-  data-reactroot=""
 >
   <li
     class="ant-timeline-item"
@@ -385,7 +382,6 @@ exports[`renders ./components/timeline/demo/color.md correctly 1`] = `
 exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
 <ul
   class="ant-timeline"
-  data-reactroot=""
 >
   <li
     class="ant-timeline-item"
@@ -621,9 +617,7 @@ Array [
 `;
 
 exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <ul
     class="ant-timeline ant-timeline-pending"
   >
@@ -723,7 +717,6 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
 exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-right"
-  data-reactroot=""
 >
   <li
     class="ant-timeline-item ant-timeline-item-right"

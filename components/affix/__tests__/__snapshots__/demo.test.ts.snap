@@ -36,7 +36,6 @@ Array [
 
 exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="height:10000px"
 >
   <div>
@@ -86,7 +85,6 @@ exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
 exports[`renders ./components/affix/demo/target.md correctly 1`] = `
 <div
   class="scrollable-container"
-  data-reactroot=""
 >
   <div
     class="background"

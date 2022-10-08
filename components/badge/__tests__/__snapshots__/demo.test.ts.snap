@@ -607,7 +607,6 @@ Array [
 
 exports[`renders ./components/badge/demo/link.md correctly 1`] = `
 <a
-  data-reactroot=""
   href="#"
 >
   <span
@@ -827,7 +826,6 @@ Array [
 exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"
@@ -936,7 +934,6 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
 exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
 <span
   class="ant-badge"
-  data-reactroot=""
 >
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-square"
@@ -1378,7 +1375,6 @@ Array [
 exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="width:100%"
 >
   <div

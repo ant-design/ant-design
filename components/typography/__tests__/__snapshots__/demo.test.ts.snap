@@ -1674,7 +1674,6 @@ Array [
 exports[`renders ./components/typography/demo/text.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

@@ -3,7 +3,6 @@
 exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
 <ul
   class="ant-pagination"
-  data-reactroot=""
   unselectable="unselectable"
 >
   <li
@@ -262,7 +261,6 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
 exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
 <ul
   class="ant-pagination"
-  data-reactroot=""
   unselectable="unselectable"
 >
   <li
@@ -875,7 +873,6 @@ Array [
 exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 <ul
   class="ant-pagination"
-  data-reactroot=""
   unselectable="unselectable"
 >
   <li
@@ -1003,7 +1000,6 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
 <ul
   class="ant-pagination"
-  data-reactroot=""
   unselectable="unselectable"
 >
   <li
@@ -2378,7 +2374,6 @@ Array [
 exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 <ul
   class="ant-pagination"
-  data-reactroot=""
   unselectable="unselectable"
 >
   <li

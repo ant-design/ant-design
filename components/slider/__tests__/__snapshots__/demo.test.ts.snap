@@ -180,7 +180,6 @@ Array [
 exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
 <div
   class="icon-wrapper"
-  data-reactroot=""
 >
   <span
     aria-label="frown"
@@ -248,9 +247,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-row"
   >

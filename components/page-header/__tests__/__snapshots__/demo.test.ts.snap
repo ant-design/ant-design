@@ -803,7 +803,6 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 <div
   class="site-page-header-ghost-wrapper"
-  data-reactroot=""
 >
   <div
     class="ant-page-header"

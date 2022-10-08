@@ -382,7 +382,6 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
 <div
   class="card-container"
-  data-reactroot=""
 >
   <div
     class="ant-tabs ant-tabs-top ant-tabs-card"
@@ -621,9 +620,7 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     style="margin-bottom:16px"
   >
@@ -788,9 +785,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-tabs ant-tabs-top"
   >
@@ -1938,9 +1933,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
     style="width:200px"
@@ -2790,9 +2783,7 @@ Array [
 `;
 
 exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:16px"
@@ -3077,9 +3068,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
-<div
-  data-reactroot=""
->
+<div>
   <div
     class="ant-radio-group ant-radio-group-outline"
     style="margin-bottom:8px"

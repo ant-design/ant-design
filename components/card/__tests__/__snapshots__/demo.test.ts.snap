@@ -88,7 +88,6 @@ Array [
 exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 <div
   class="site-card-border-less-wrapper"
-  data-reactroot=""
 >
   <div
     class="ant-card"
@@ -231,7 +230,6 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
 exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 <div
   class="site-card-wrapper"
-  data-reactroot=""
 >
   <div
     class="ant-row"

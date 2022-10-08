@@ -17,7 +17,6 @@ Array [
 
 exports[`renders ./components/back-top/demo/custom.md correctly 1`] = `
 <div
-  data-reactroot=""
   style="height:600vh;padding:8px"
 >
   <div>

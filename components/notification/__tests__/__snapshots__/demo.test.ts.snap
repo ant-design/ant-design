@@ -426,7 +426,6 @@ exports[`renders ./components/notification/demo/with-btn.md correctly 1`] = `
 exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  data-reactroot=""
 >
   <div
     class="ant-space-item"

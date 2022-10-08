@@ -1064,7 +1064,6 @@ exports[`renders ./components/auto-complete/demo/options.md correctly 1`] = `
 exports[`renders ./components/auto-complete/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  data-reactroot=""
   style="width:100%"
 >
   <div
