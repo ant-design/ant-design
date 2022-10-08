@@ -89,9 +89,16 @@ export interface AntAnchor {
 }
 
 class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
+  static defaultProps = {
+    affix: true,
+    showInkInFixed: false,
+  };
+
   static contextType = ConfigContext;
 
-  state = { activeLink: null };
+  state = {
+    activeLink: null,
+  };
 
   context: ConfigConsumerProps;
 
@@ -167,7 +174,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
-      const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
+      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
       if (!sharpLinkMatch) {
         return;
       }
@@ -175,7 +182,10 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       if (target) {
         const top = getOffsetTop(target, container);
         if (top < offsetTop + bounds) {
-          linkSections.push({ link, top });
+          linkSections.push({
+            link,
+            top,
+          });
         }
       }
     });
@@ -273,8 +283,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       className = '',
       style,
       offsetTop,
-      affix = true,
-      showInkInFixed = false,
+      affix,
+      showInkInFixed,
       children,
       onClick,
     } = this.props;
@@ -343,6 +353,7 @@ const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
 
   const anchorProps: InternalAnchorProps = {
     ...props,
+
     anchorPrefixCls,
   };
 
