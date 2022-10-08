@@ -14,18 +14,21 @@ export interface AnchorLinkProps {
   className?: string;
 }
 
-class AnchorLink extends React.Component<AnchorLinkProps, {}, AntAnchor> {
+class AnchorLink extends React.Component<AnchorLinkProps, any, AntAnchor> {
+  static defaultProps = {
+    href: '#',
+  };
+
   static contextType = AnchorContext;
 
   context: AntAnchor;
 
   componentDidMount() {
-    const { href = '#' } = this.props;
-    this.context.registerLink(href);
+    this.context.registerLink(this.props.href);
   }
 
   componentDidUpdate({ href: prevHref }: AnchorLinkProps) {
-    const { href = '#' } = this.props;
+    const { href } = this.props;
     if (prevHref !== href) {
       this.context.unregisterLink(prevHref);
       this.context.registerLink(href);
@@ -33,26 +36,18 @@ class AnchorLink extends React.Component<AnchorLinkProps, {}, AntAnchor> {
   }
 
   componentWillUnmount() {
-    const { href = '#' } = this.props;
-    this.context.unregisterLink(href);
+    this.context.unregisterLink(this.props.href);
   }
 
   handleClick = (e: React.MouseEvent<HTMLElement>) => {
     const { scrollTo, onClick } = this.context;
-    const { href = '#', title } = this.props;
+    const { href, title } = this.props;
     onClick?.(e, { title, href });
     scrollTo(href);
   };
 
   renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      href = '#',
-      title,
-      children,
-      className,
-      target,
-    } = this.props;
+    const { prefixCls: customizePrefixCls, href, title, children, className, target } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.activeLink === href;
     const wrapperClassName = classNames(
