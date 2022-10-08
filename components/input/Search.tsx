@@ -5,7 +5,7 @@ import * as React from 'react';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import { SpaceCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import { cloneElement } from '../_util/reactNode';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -45,7 +45,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const composedRef = React.useRef<boolean>(false);
 
-  const { compactSize } = React.useContext(SpaceCompactItemContext);
+  const prefixCls = getPrefixCls('input-search', customizePrefixCls);
+  const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+  const { compactSize } = useCompactItemContext(prefixCls, direction);
 
   const size = compactSize || customizeSize || contextSize;
 
@@ -78,9 +80,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     }
     onSearch(e);
   };
-
-  const prefixCls = getPrefixCls('input-search', customizePrefixCls);
-  const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
   const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
   const btnClassName = `${prefixCls}-button`;
