@@ -118,7 +118,7 @@ export function isZhCN(pathname: string) {
 export function getLocalizedPathname(
   path: string,
   zhCN?: boolean,
-  query?: { [key: string]: any },
+  search?: string,
   hash?: {
     zhCN?: string;
     enUS?: string;
@@ -142,7 +142,7 @@ export function getLocalizedPathname(
     fullPath += `#${localHash}`;
   }
 
-  return { pathname: fullPath, query };
+  return { pathname: fullPath, search };
 }
 
 export function ping(callback: (status: string) => void) {

@@ -28,4 +28,6 @@ export default defineConfig({
   },
   plugins: [require.resolve('./.dumi/plugin.ts')],
   extraRehypePlugins: [rehypeAntd],
+  extraBabelPresets: ['@emotion/babel-preset-css-prop'],
+  mfsu: false,
 });
