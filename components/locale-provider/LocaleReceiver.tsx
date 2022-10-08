@@ -13,7 +13,7 @@ export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleCompo
     locale: NonNullable<Locale[C]>,
     localeCode: string,
     fullLocale: Locale,
-  ) => React.ReactNode;
+  ) => React.ReactElement;
 }
 
 const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
@@ -22,8 +22,8 @@ const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
   const { componentName = 'global', defaultLocale, children } = props;
   const antLocale = React.useContext<LocaleContextProps | null>(LocaleContext);
   const getLocale = (): NonNullable<Locale[C]> => {
-    const locale = (defaultLocale || defaultLocaleData[componentName]) as Locale[C];
-    const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
+    const locale = (defaultLocale || defaultLocaleData[componentName ?? 'global']) as Locale[C];
+    const localeFromContext = antLocale ? antLocale[componentName] : {};
     return {
       ...(locale instanceof Function ? locale() : locale),
       ...(localeFromContext || {}),
@@ -37,7 +37,7 @@ const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
     }
     return localeCode!;
   };
-  return <>{children(getLocale(), getLocaleCode(), antLocale!)}</>;
+  return children(getLocale(), getLocaleCode(), antLocale!);
 };
 
 export default LocaleReceiver;
