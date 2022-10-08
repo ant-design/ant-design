@@ -30,6 +30,7 @@ function ariaConvert(element: Element) {
   normalizeAria(element, 'aria-controls');
   normalizeAria(element, 'aria-labelledby');
   normalizeAria(element, 'aria-activedescendant');
+  normalizeAria(element, 'stroke');
   if (element.id) {
     element.id = normalizeAriaValue(element.id);
   }
