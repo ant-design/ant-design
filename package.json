@@ -77,7 +77,7 @@
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write **/*",
     "pretty-quick": "pretty-quick",
-    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub-experimental",
+    "pub": "npm run version && npm run collect-token-statistic && antd-tools run pub-alpha",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
