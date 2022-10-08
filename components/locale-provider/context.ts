@@ -3,6 +3,6 @@ import type { Locale } from '.';
 
 export type LocaleContextProps = Locale & { exist?: boolean };
 
-const LocaleContext = createContext<LocaleContextProps | undefined>(undefined);
+const LocaleContext = createContext<LocaleContextProps | null>(null);
 
 export default LocaleContext;
