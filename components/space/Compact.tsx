@@ -9,46 +9,41 @@ import type { SizeType } from '../config-provider/SizeContext';
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
   compactDirection?: 'horizontal' | 'vertical';
-  isItem?: boolean;
   isFirstItem?: boolean;
   isLastItem?: boolean;
 }
 
-export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType>({});
+export const SpaceCompactItemContext = React.createContext<SpaceCompactItemContextType | null>(
+  null,
+);
 
 export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
-  const { compactSize, compactDirection, isItem, isFirstItem, isLastItem } =
-    React.useContext(SpaceCompactItemContext);
+  const compactItemContext = React.useContext(SpaceCompactItemContext);
 
   const compactItemClassnames = React.useMemo(() => {
-    if (!isItem) return '';
+    if (!compactItemContext) return '';
 
+    const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
     return classNames({
-      [`${prefixCls}-compact${separator}item`]: isItem,
+      [`${prefixCls}-compact${separator}item`]: true,
       [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
     });
-  }, [prefixCls, compactDirection, direction, isItem, isFirstItem, isLastItem]);
+  }, [prefixCls, direction, compactItemContext]);
 
   return {
-    compactSize,
-    compactDirection,
+    compactSize: compactItemContext?.compactSize,
+    compactDirection: compactItemContext?.compactDirection,
     compactItemClassnames,
   };
 };
 
-export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const overrideSpaceContext = React.useMemo(() => ({}), []);
-
-  return (
-    <SpaceCompactItemContext.Provider value={overrideSpaceContext}>
-      {children}
-    </SpaceCompactItemContext.Provider>
-  );
-};
+export const NoCompactStyle: React.FC<React.PropsWithChildren<{}>> = ({ children }) => (
+  <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
+);
 
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -57,12 +52,11 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   block?: boolean;
 }
 
-const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = React.memo(
-  ({ children, ...otherProps }) => (
-    <SpaceCompactItemContext.Provider value={otherProps}>
-      {children}
-    </SpaceCompactItemContext.Provider>
-  ),
+const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = ({
+  children,
+  ...otherProps
+}) => (
+  <SpaceCompactItemContext.Provider value={otherProps}>{children}</SpaceCompactItemContext.Provider>
 );
 
 const Compact: React.FC<SpaceCompactProps> = props => {
@@ -89,7 +83,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     className,
   );
 
-  const childNodes = toArray(children, { keepEmpty: false });
+  const childNodes = toArray(children);
 
   const nodes = React.useMemo(
     () =>
@@ -101,7 +95,6 @@ const Compact: React.FC<SpaceCompactProps> = props => {
             key={key}
             compactSize={size}
             compactDirection={direction}
-            isItem
             isFirstItem={i === 0}
             isLastItem={i === childNodes.length - 1}
           >
