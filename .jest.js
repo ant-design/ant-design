@@ -1,7 +1,7 @@
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  '/node_modules/(?!array-move|react-dnd|@react-dnd|dnd-core|tween-one|@babel)',
+  '/node_modules/(?!array-move|react-dnd|@react-dnd|dnd-core|tween-one|@babel)/(?!es)/',
 ];
 
 function getTestRegex(libDir) {
