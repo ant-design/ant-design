@@ -113,11 +113,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
       },
 
-      [`${componentCls}-close-x`]: {
-        [`&::after`]: {
-          content: '×',
-        },
-      },
 
       [`${componentCls}-header`]: {
         padding: '13px 20px 14px 20px',
@@ -264,6 +259,39 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
     [`${componentCls}-placement-bottomRight ${componentCls}-arrow`]: {
       right: '15%',
+    },
+
+    [`${componentCls}-inner${componentCls}-primary`]: {
+      color: '#fff',
+      textAlign: 'left',
+      textDecoration: 'none',
+      backgroundColor: '#1890ff',
+      borderRadius: '6px',
+      textShadow: '0 -1px 0 rgb(0 0 0 / 12%)',
+      boxShadow: '0 2px #0000000b',
+      [`${componentCls}-header`]: {
+        backgroundColor: '#1890ff',
+        borderColor: `#1890ff`,
+        color: `#fff`,
+      },
+      [`${componentCls}-close`]: {
+        color: '#fff',
+        opacity: 1,
+      },
+      [`ant-btn-primary`]: {
+        borderColor: '#fff',
+      },
+
+      [`${componentCls}-sliders`]: {
+        'span': {
+          background: '#fff',
+          marginRight: '4px',
+          opacity: 0.75,
+          '&.active': {
+            background: ' #007aff',
+          },
+        },
+      },
     },
   };
 };

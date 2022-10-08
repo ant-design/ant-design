@@ -53,6 +53,20 @@ const App: React.FC = () => {
                   </Button>
                 </div>
               ),
+              nextButtonProps: {
+                children: (
+                  <button className="ant-btn ant-btn-primary">下一步</button>
+                ),
+                onClick:()=>{console.log('btn被点击!')}
+              },
+              prevButtonProps: {
+                children: (
+                  <button className="ant-btn ant-btn-primary">上一步</button>
+                ),
+              },
+              finishButtonProps: {
+                children: <button>结束引导</button>,
+              },
               target: () => updateRef.current,
             },
             {

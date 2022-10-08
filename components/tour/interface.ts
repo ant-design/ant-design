@@ -1,24 +1,18 @@
 import type React from 'react';
-import type { TourProps } from '../tour';
+import type {ReactNode} from 'react';
+import type {TourProps  as RCTour} from '../../../tour/src/index';
 
 export type TourType = 'default' | 'primary';
 
 export type TourShape = 'circle' | 'square';
 
-export type TourGroupTrigger = 'click' | 'hover';
 
-export interface TourProps {
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  icon?: React.ReactNode;
-  description?: React.ReactNode;
-  type?: TourType;
-  shape?: TourShape;
-  tour?: TourProps['title'];
-  href?: string;
-  target?: React.HTMLAttributeAnchorTarget;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+
+export interface TourProps extends RCTour{
+  type?: 'default' | 'primary'; //	default	类型，影响底色与文字颜色
+  nextButtonProps?: { children?: ReactNode; onClick?: () => void }; //	{ children: '下一步' }	下一步按钮的属性
+  prevButtonProps?: { children?: ReactNode; onClick?: () => void }; //	{ children: '上一步' }	上一步按钮的属性
+  finishButtonProps?: { children?: ReactNode; onClick?: () => void }; //	{ children: '上一步' }	上一步按钮的属性
 }
 
 export interface TourContentProps extends React.DOMAttributes<HTMLDivElement> {
@@ -26,31 +20,6 @@ export interface TourContentProps extends React.DOMAttributes<HTMLDivElement> {
   icon?: TourProps['icon'];
   description?: TourProps['description'];
   prefixCls: TourProps['prefixCls'];
-}
-
-export interface TourGroupProps extends TourProps {
-  // 包含的 Float Button
-  children: React.ReactNode;
-  // 触发方式 (有触发方式为菜单模式）
-  trigger?: TourGroupTrigger;
-  // 受控展开
-  open?: boolean;
-  // 关闭按钮自定义图标
-  closeIcon?: React.ReactNode;
-  // 展开收起的回调
-  onOpenChange?: (open: boolean) => void;
-}
-
-export interface BackTopProps extends Omit<TourProps, 'target'> {
-  visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
-  target?: () => HTMLElement | Window | Document;
-  prefixCls?: string;
-  children?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  duration?: number;
-  visible?: boolean; // Only for test. Don't use it.
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
