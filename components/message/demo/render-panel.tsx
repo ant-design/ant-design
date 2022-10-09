@@ -1,5 +1,7 @@
 /*
- * debug: true */import { message } from 'antd';
+ * debug: true */
+import React from 'react';
+import { message } from 'antd';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = message;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/slider/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -155,7 +155,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/dragableTrack.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/dragableTrack.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -240,7 +240,7 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/slider/demo/event.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/event.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -375,7 +375,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/icon-slider.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/icon-slider.tsx extend context correctly 1`] = `
 <div
   class="icon-wrapper"
 >
@@ -468,7 +468,7 @@ exports[`renders ./components/slider/demo/icon-slider.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/slider/demo/input-number.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/input-number.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-row"
@@ -747,7 +747,7 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/slider/demo/mark.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [
   <h4>
     included=true
@@ -1269,7 +1269,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/reverse.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/reverse.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1424,7 +1424,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/show-tooltip.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/show-tooltip.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
 >
@@ -1475,7 +1475,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/slider/demo/tip-formatter.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/tip-formatter.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1574,7 +1574,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/slider/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/slider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <div
     style="display: inline-block; height: 300px; margin-left: 70px;"

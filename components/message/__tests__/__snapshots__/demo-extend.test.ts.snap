@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/message/demo/custom-style.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/custom-style.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -11,7 +11,7 @@ exports[`renders ./components/message/demo/custom-style.md extend context correc
 </button>
 `;
 
-exports[`renders ./components/message/demo/duration.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/duration.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -22,7 +22,7 @@ exports[`renders ./components/message/demo/duration.md extend context correctly 
 </button>
 `;
 
-exports[`renders ./components/message/demo/hooks.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/hooks.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -33,7 +33,7 @@ exports[`renders ./components/message/demo/hooks.md extend context correctly 1`]
 </button>
 `;
 
-exports[`renders ./components/message/demo/info.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/info.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -44,7 +44,7 @@ exports[`renders ./components/message/demo/info.md extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/message/demo/loading.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/loading.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -55,7 +55,7 @@ exports[`renders ./components/message/demo/loading.md extend context correctly 1
 </button>
 `;
 
-exports[`renders ./components/message/demo/other.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/other.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -100,7 +100,7 @@ exports[`renders ./components/message/demo/other.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/message/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-message-notice ant-message-notice-pure-panel"
 >
@@ -137,7 +137,7 @@ exports[`renders ./components/message/demo/render-panel.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/message/demo/thenable.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/thenable.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -148,7 +148,7 @@ exports[`renders ./components/message/demo/thenable.md extend context correctly 
 </button>
 `;
 
-exports[`renders ./components/message/demo/update.md extend context correctly 1`] = `
+exports[`renders ./components/message/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"

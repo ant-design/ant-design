@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/alert/demo/action.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-success"
@@ -265,7 +265,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/banner.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-banner"
@@ -415,7 +415,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
@@ -433,7 +433,7 @@ exports[`renders ./components/alert/demo/basic.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/alert/demo/closable.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -523,7 +523,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/close-text.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/close-text.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-info ant-alert-no-icon"
   data-show="true"
@@ -552,7 +552,7 @@ exports[`renders ./components/alert/demo/close-text.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/alert/demo/custom-icon.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -864,7 +864,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/description.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/description.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
@@ -949,7 +949,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/error-boundary.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
@@ -960,7 +960,7 @@ exports[`renders ./components/alert/demo/error-boundary.md extend context correc
 </button>
 `;
 
-exports[`renders ./components/alert/demo/icon.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-success"
@@ -1307,60 +1307,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/alert/demo/loop-banner.md extend context correctly 1`] = `
-<div
-  class="ant-alert ant-alert-warning ant-alert-banner"
-  data-show="true"
-  role="alert"
->
-  <span
-    aria-label="exclamation-circle"
-    class="anticon anticon-exclamation-circle ant-alert-icon"
-    role="img"
-  >
-    <svg
-      aria-hidden="true"
-      data-icon="exclamation-circle"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="64 64 896 896"
-      width="1em"
-    >
-      <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-      />
-    </svg>
-  </span>
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      <div
-        class=" marquee-container"
-        style="--pause-on-hover: paused; --pause-on-click: running;"
-      >
-        <div
-          class="marquee"
-          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
-        >
-          I can be a React component, multiple React components, or just some text.
-        </div>
-        <div
-          class="marquee"
-          style="--play: running; --direction: normal; --duration: 0s; --delay: 0s; --iteration-count: infinite;"
-        >
-          I can be a React component, multiple React components, or just some text.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/alert/demo/smooth-closed.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -1408,7 +1355,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/alert/demo/style.md extend context correctly 1`] = `
+exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-success ant-alert-no-icon"

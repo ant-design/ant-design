@@ -1,5 +1,7 @@
 /*
- * version: < 4.20.0 */import { Menu } from 'antd';
+ * version: < 4.20.0 */
+import React from 'react';
+import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const App = () => (

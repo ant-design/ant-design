@@ -27,6 +27,8 @@ module.exports = {
     '/^react-dnd-test-backend$/': 'react-dnd-test-backend/dist/cjs',
     '/^react-dnd-test-utils$/': 'react-dnd-test-utils/dist/cjs',
     '/\\.(css|less)$/': 'identity-obj-proxy',
+    '^antd$': '<rootDir>/components/index',
+    '^antd/es/(.*)$': '<rootDir>/components/$1',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {

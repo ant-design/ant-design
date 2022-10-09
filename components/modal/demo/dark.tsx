@@ -1,5 +1,7 @@
+// @ts-nocheck
 /*
- * debug: true */import { useState } from 'react';
+ * debug: true */
+import React, { useState } from 'react';
 import {
   Modal,
   DatePicker,

@@ -1,5 +1,7 @@
 /*
- * debug: true */import { Button, Input, Select, Segmented } from 'antd';
+ * debug: true */
+import React from 'react';
+import { Button, Input, Select, Segmented } from 'antd';
 
 export default () => (
   <>

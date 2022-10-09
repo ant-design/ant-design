@@ -2,7 +2,8 @@ components/**/*.js
 components/**/*.jsx
 components/version/token.tsx
 !components/*/__tests__/**/*.js
-!components/*/demo/*
+!components/*/demo/*.md
+components/*/demo/*.tsx
 !.*.js
 ~*
 # Docs templates
@@ -19,6 +20,8 @@ site/theme/template/Content/EditButton.jsx
 site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
 site/theme/template/NotFound.jsx
+site/theme/template/Content/ComponentDoc.jsx
+site/**/*.tsx
 typings
 es/**/*
 lib/**/*
