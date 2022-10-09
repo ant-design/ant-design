@@ -30,16 +30,38 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function useMergePropByScreen(
   initValue: string,
+  oriProp: RowProps['align'] | RowProps['justify'],
   screen: ScreenMap,
-  cb: (prop: string, setProp: React.Dispatch<React.SetStateAction<string>>) => void,
 ) {
   const [prop, setProp] = React.useState(initValue);
 
-  React.useEffect(() => {
-    cb(prop, setProp);
-  }, [JSON.stringify(prop), screen]);
+  const clacMergeAlignOrJustify = () => {
+    if (typeof oriProp !== 'object') {
+      return;
+    }
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      // if do not match, do nothing
+      if (!screen[breakpoint]) continue;
+      // When 'align' and 'justify' sets the 'other' attribute,
+      // we need to set the value of the response attribute not explicitly set in 'align' adn 'justify' to the value of 'other'
+      const curVal = oriProp[breakpoint];
+      if (oriProp.other && !curVal) {
+        setProp(oriProp.other);
+        return;
+      }
+      if (curVal !== undefined) {
+        setProp(curVal);
+        return;
+      }
+    }
+  };
 
-  return [prop, setProp];
+  React.useEffect(() => {
+    clacMergeAlignOrJustify();
+  }, [JSON.stringify(oriProp), screen]);
+
+  return prop;
 }
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
@@ -76,46 +98,16 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   });
 
   // ================================== calc reponsive data ==================================
-  const clacMergeAlignOrJustify = (
-    prop: RowProps['align'] | RowProps['justify'],
-    updator: React.Dispatch<React.SetStateAction<string>>,
-  ) => {
-    if (typeof prop !== 'object') {
-      return;
-    }
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      // if do not match, do nothing
-      if (!curScreens[breakpoint]) continue;
-      // When 'align' and 'justify' sets the 'other' attribute,
-      // we need to set the value of the response attribute not explicitly set in 'align' adn 'justify' to the value of 'other'
-      const curVal = prop[breakpoint];
-      if (prop.other && !curVal) {
-        updator(prop.other);
-        return;
-      }
-      if (curVal !== undefined) {
-        updator(curVal);
-        return;
-      }
-    }
-  };
-
-  // re-calc responsive data
-  const [mergeAlign] = useMergePropByScreen(
+  const mergeAlign = useMergePropByScreen(
     typeof align === 'string' ? align : '',
+    align,
     curScreens,
-    (_prop, setProp) => {
-      clacMergeAlignOrJustify(align, setProp);
-    },
   );
 
-  const [mergeJustify] = useMergePropByScreen(
+  const mergeJustify = useMergePropByScreen(
     typeof justify === 'string' ? justify : '',
+    justify,
     curScreens,
-    (_prop, setProp) => {
-      clacMergeAlignOrJustify(justify, setProp);
-    },
   );
 
   const supportFlexGap = useFlexGapSupport();
