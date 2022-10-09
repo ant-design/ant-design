@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Space, Button, Typography, theme } from 'antd';
 import useLocale from '../../../locales';
-import useSiteToken from '.dumi/hooks/useSiteToken';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 const locales = {
   cn: {

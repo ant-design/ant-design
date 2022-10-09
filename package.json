@@ -340,8 +340,5 @@
       "path": "./dist/antd.min.js",
       "maxSize": "372 kB"
     }
-  ],
-  "tnpm": {
-    "mode": "npm"
-  }
+  ]
 }
