@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/skeleton/demo/active.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/active.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-active"
 >
@@ -24,7 +24,7 @@ exports[`renders ./components/skeleton/demo/active.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/skeleton/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton"
 >
@@ -48,7 +48,7 @@ exports[`renders ./components/skeleton/demo/basic.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/skeleton/demo/children.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/children.tsx extend context correctly 1`] = `
 <div
   class="article"
 >
@@ -71,7 +71,7 @@ exports[`renders ./components/skeleton/demo/children.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/skeleton/demo/complex.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/complex.tsx extend context correctly 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
 >
@@ -101,7 +101,7 @@ exports[`renders ./components/skeleton/demo/complex.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/skeleton/demo/element.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/element.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -609,7 +609,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/skeleton/demo/list.md extend context correctly 1`] = `
+exports[`renders ./components/skeleton/demo/list.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"

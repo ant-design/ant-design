@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/float-button/demo/back-top.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/back-top.tsx extend context correctly 1`] = `
 <div
   style="height: 500vh; padding: 10px;"
 >
@@ -28,7 +28,7 @@ exports[`renders ./components/float-button/demo/back-top.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/float-button/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
   type="button"
@@ -67,7 +67,7 @@ exports[`renders ./components/float-button/demo/basic.md extend context correctl
 </button>
 `;
 
-exports[`renders ./components/float-button/demo/description.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/description.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -175,7 +175,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/float-button/demo/group.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
@@ -376,7 +376,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/float-button/demo/group-menu.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
 <div
   class="ant-float-btn-group ant-float-btn-group-circle"
 >
@@ -419,7 +419,7 @@ exports[`renders ./components/float-button/demo/group-menu.md extend context cor
 </div>
 `;
 
-exports[`renders ./components/float-button/demo/shape.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/shape.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -504,7 +504,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/float-button/demo/tooltip.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/tooltip.tsx extend context correctly 1`] = `
 <div>
   <span>
     查看右下角的 FloatButton
@@ -574,7 +574,7 @@ exports[`renders ./components/float-button/demo/tooltip.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/float-button/demo/type.md extend context correctly 1`] = `
+exports[`renders ./components/float-button/demo/type.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"

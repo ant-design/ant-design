@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/badge/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"
@@ -87,7 +87,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/change.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/change.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"
@@ -242,7 +242,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/colorful.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -565,7 +565,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/dot.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/dot.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"
@@ -611,7 +611,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/link.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] = `
 <a
   href="#"
 >
@@ -646,7 +646,7 @@ exports[`renders ./components/badge/demo/link.md extend context correctly 1`] = 
 </a>
 `;
 
-exports[`renders ./components/badge/demo/mix.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge ant-badge-status"
@@ -829,7 +829,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/no-wrapper.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -944,7 +944,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/badge/demo/offset.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/offset.tsx extend context correctly 1`] = `
 <span
   class="ant-badge"
 >
@@ -976,7 +976,7 @@ exports[`renders ./components/badge/demo/offset.md extend context correctly 1`] 
 </span>
 `;
 
-exports[`renders ./components/badge/demo/overflow.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/overflow.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"
@@ -1076,7 +1076,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/ribbbon.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/ribbbon.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-ribbon-wrapper"
@@ -1385,7 +1385,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/ribbon-debug.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width: 100%;"
@@ -1548,7 +1548,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/badge/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/size.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"
@@ -1609,7 +1609,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1766,7 +1766,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/badge/demo/title.md extend context correctly 1`] = `
+exports[`renders ./components/badge/demo/title.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-badge"

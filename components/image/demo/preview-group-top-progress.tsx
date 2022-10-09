@@ -1,5 +1,7 @@
 /*
- * debug: true */import { Image } from 'antd';
+ * debug: true */
+import React from 'react';
+import { Image } from 'antd';
 
 const App = () => (
   <Image.PreviewGroup

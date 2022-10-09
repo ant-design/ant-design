@@ -1,5 +1,7 @@
 /*
- * version: 4.20.0 */import { Cascader } from 'antd';
+ * version: 4.20.0 */
+import React from 'react';
+import { Cascader } from 'antd';
 
 const { SHOW_CHILD } = Cascader;
 

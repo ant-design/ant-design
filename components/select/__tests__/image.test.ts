@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Select image', () => {
-  imageDemoTest('select', { skip: ['basic.md'] });
+  imageDemoTest('select', { skip: ['basic.tsx'] });
 });

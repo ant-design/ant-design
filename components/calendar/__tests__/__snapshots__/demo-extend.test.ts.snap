@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/calendar/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
 >
@@ -1590,7 +1590,7 @@ exports[`renders ./components/calendar/demo/basic.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/calendar/demo/card.md extend context correctly 1`] = `
+exports[`renders ./components/calendar/demo/card.tsx extend context correctly 1`] = `
 <div
   class="site-calendar-demo-card"
 >
@@ -3184,7 +3184,7 @@ exports[`renders ./components/calendar/demo/card.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/calendar/demo/customize-header.md extend context correctly 1`] = `
+exports[`renders ./components/calendar/demo/customize-header.tsx extend context correctly 1`] = `
 <div
   class="site-calendar-customize-header-wrapper"
 >
@@ -4795,7 +4795,7 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
 </div>
 `;
 
-exports[`renders ./components/calendar/demo/notice-calendar.md extend context correctly 1`] = `
+exports[`renders ./components/calendar/demo/notice-calendar.tsx extend context correctly 1`] = `
 <div
   class="ant-picker-calendar ant-picker-calendar-full"
 >
@@ -6782,7 +6782,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md extend context co
 </div>
 `;
 
-exports[`renders ./components/calendar/demo/select.md extend context correctly 1`] = `
+exports[`renders ./components/calendar/demo/select.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-alert ant-alert-info ant-alert-no-icon"

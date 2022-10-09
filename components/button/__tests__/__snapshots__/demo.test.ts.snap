@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/button/demo/basic.md correctly 1`] = `
+exports[`renders ./components/button/demo/basic.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -46,7 +46,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/block.md correctly 1`] = `
+exports[`renders ./components/button/demo/block.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-block"
@@ -83,7 +83,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/chinese-chars-loading.md correctly 1`] = `
+exports[`renders ./components/button/demo/chinese-chars-loading.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default ant-btn-loading"
@@ -273,7 +273,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/danger.md correctly 1`] = `
+exports[`renders ./components/button/demo/danger.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-dangerous"
@@ -318,7 +318,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/button/demo/disabled.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -487,7 +487,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
+exports[`renders ./components/button/demo/ghost.tsx correctly 1`] = `
 <div
   class="site-button-ghost-wrapper"
 >
@@ -526,7 +526,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/button/demo/icon.md correctly 1`] = `
+exports[`renders ./components/button/demo/icon.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
@@ -1007,7 +1007,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
+exports[`renders ./components/button/demo/legacy-group.tsx correctly 1`] = `
 Array [
   <div>
     <div
@@ -1245,7 +1245,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/loading.md correctly 1`] = `
+exports[`renders ./components/button/demo/loading.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1439,7 +1439,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
+exports[`renders ./components/button/demo/multiple.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -1496,7 +1496,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/size.md correctly 1`] = `
+exports[`renders ./components/button/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
