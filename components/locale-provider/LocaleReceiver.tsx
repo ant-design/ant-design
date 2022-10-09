@@ -20,7 +20,7 @@ const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
   props: LocaleReceiverProps<C>,
 ) => {
   const { componentName = 'global' as C, defaultLocale, children } = props;
-  const antLocale = React.useContext<LocaleContextProps | null>(LocaleContext);
+  const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
@@ -49,7 +49,7 @@ export const useLocaleReceiver = <C extends LocaleComponentName = LocaleComponen
   componentName: C,
   defaultLocale?: Locale[C] | (() => Locale[C]),
 ): [Locale[C]] => {
-  const antLocale = React.useContext<LocaleContextProps | null>(LocaleContext);
+  const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
