@@ -119,12 +119,11 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
       // we need to set the value of the response attribute not explicitly set in 'align' to the value of 'other'
       const curVal = prop[breakpoint];
       if (prop.other && !curScreens[breakpoint]) {
-        const otherVal = prop.other;
-        if (!prop[breakpoint]) {
-          updator(otherVal);
+        if (!curVal) {
+          updator(prop.other);
         }
       } else if (curScreens[breakpoint] && curVal !== undefined) {
-        updator(curVal!);
+        updator(curVal);
       }
     }
   };
