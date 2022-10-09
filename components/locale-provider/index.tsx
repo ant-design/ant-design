@@ -47,7 +47,7 @@ export interface Locale {
 }
 
 export interface LocaleProviderProps {
-  locale?: Locale;
+  locale: Locale;
   children?: React.ReactNode;
   /** @internal */
   _ANT_MARK__?: string;
@@ -56,11 +56,13 @@ export interface LocaleProviderProps {
 const LocaleProvider: React.FC<LocaleProviderProps> = props => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
-  warning(
-    _ANT_MARK__ === ANT_MARK,
-    'LocaleProvider',
-    '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      _ANT_MARK__ === ANT_MARK,
+      'LocaleProvider',
+      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
+    );
+  }
 
   React.useEffect(() => {
     changeConfirmLocale(locale && locale.Modal);
