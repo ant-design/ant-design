@@ -17,7 +17,7 @@ import Github from './Github';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import { AlgoliaConfig } from './algolia-config';
-import { useLocation } from 'dumi';
+import { useLocation, useNavigate } from 'dumi';
 import { css, ClassNames } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
@@ -56,6 +56,15 @@ const useStyle = () => {
           margin-right: 40px;
         }
       }
+
+      ${token.antCls}-row-rtl & {
+        > * {
+          &:last-child {
+            margin-right: 12px;
+            margin-left: 40px;
+          }
+        }
+      }
     `,
     headerButton: css`
       color: ${token.colorText};
@@ -72,9 +81,7 @@ const useStyle = () => {
 };
 
 export interface HeaderProps {
-  intl: { locale: string };
-  location: { pathname: string; query: any };
-  router: any;
+  intl?: { locale: string };
   themeConfig?: { docVersions: Record<string, string> };
   changeDirection: (direction: DirectionType) => void;
 }
@@ -91,7 +98,7 @@ const triggerDocSearchImport = () => {
   });
 };
 
-function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
+function initDocSearch({ isZhCN, navigate }: { isZhCN: boolean; navigate: any }) {
   if (!canUseDom()) {
     return;
   }
@@ -107,7 +114,7 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
       debug: AlgoliaConfig.debug,
       // https://docsearch.algolia.com/docs/behavior#handleselected
       handleSelected(input: any, _$1: unknown, suggestion: any) {
-        router.push(suggestion.url);
+        navigate(suggestion.url);
         setTimeout(() => {
           input.setVal('');
         });
@@ -134,7 +141,7 @@ interface HeaderState {
 }
 
 const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
-  const { intl, router, location, themeConfig, changeDirection } = props;
+  const { intl, themeConfig, changeDirection } = props;
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
@@ -143,7 +150,9 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
   });
   const { direction, isMobile } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<NodeJS.Timeout | null>(null);
-  const { pathname, search } = useLocation();
+  const location = useLocation();
+  const { pathname, search } = location;
+  const navigate = useNavigate();
 
   const style = useStyle();
 
@@ -163,12 +172,15 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
     setHeaderState(prev => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = useCallback(() => {
-    changeDirection(direction !== 'rtl' ? 'rtl' : 'ltr');
+    changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
   }, [direction]);
 
   useEffect(() => {
-    // router.listen(handleHideMenu);
-    initDocSearch({ isZhCN: intl.locale === 'zh-CN', router });
+    handleHideMenu();
+  }, [location]);
+
+  useEffect(() => {
+    initDocSearch({ isZhCN: intl.locale === 'zh-CN', navigate });
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping(status => {
@@ -279,11 +291,9 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
     <Navigation
       key="nav"
       {...sharedProps}
-      location={location}
       responsive={responsive}
       isMobile={isMobile}
       showTechUIButton={showTechUIButton}
-      pathname={pathname}
       directionText={nextDirectionText}
       onLangChange={onLangChange}
       onDirectionChange={onDirectionChange}
@@ -331,8 +341,6 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
         { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
       ];
 
-  console.log(isMobile);
-
   return (
     <header css={style.header} className={headerClassName}>
       {isMobile && (
@@ -360,7 +368,6 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
           <SearchBar
             key="search"
             {...sharedProps}
-            router={router}
             algoliaConfig={AlgoliaConfig}
             responsive={responsive}
             onTriggerFocus={onTriggerSearching}

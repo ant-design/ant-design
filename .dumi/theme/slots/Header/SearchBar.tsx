@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Link } from 'dumi';
+import { Link, useNavigate } from 'dumi';
 import classNames from 'classnames';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
@@ -72,7 +72,7 @@ const useStyle = () => {
         font-size: 14px;
         background: transparent;
         border: 0;
-        box-shadow: none;
+        box-shadow: none !important;
 
         ${antCls}-row-rtl & {
           padding-right: 20px;
@@ -92,6 +92,7 @@ const useStyle = () => {
 
       kbd {
         display: inline-block;
+        box-sizing: border-box;
         width: 20px;
         height: 20px;
         padding: 0;
@@ -150,7 +151,6 @@ export interface SearchBarProps extends SharedProps {
   onTriggerFocus?: (focus: boolean) => void;
   responsive: null | 'narrow' | 'crowded';
   algoliaConfig: IAlgoliaConfig;
-  router: any;
 }
 
 let SearchModal: React.FC<DocSearchModalProps> | null = null;
@@ -173,13 +173,7 @@ function isAppleDevice() {
  * - [@docusaurus-theme-search-algolia](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
  * - [DocSearchModal Docs](https://autocomplete-experimental.netlify.app/docs/DocSearchModal)
  */
-const SearchBar = ({
-  isZhCN,
-  responsive,
-  onTriggerFocus,
-  algoliaConfig,
-  router,
-}: SearchBarProps) => {
+const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }: SearchBarProps) => {
   const [isInputFocus, setInputFocus] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState('');
 
@@ -187,6 +181,7 @@ const SearchBar = ({
   const [searchModalQuery, setSearchModalQuery] = React.useState('');
   const searchPlaceholder = isZhCN ? '在 ant.design 中搜索' : 'Search in ant.design';
   const searchInputPlaceholder = isZhCN ? '搜索' : 'Search';
+  const navigate = useNavigate();
 
   const style = useStyle();
 
@@ -249,7 +244,7 @@ const SearchBar = ({
 
   const navigator = React.useRef({
     navigate({ itemUrl }: { itemUrl: string }) {
-      router.push(itemUrl);
+      navigate(itemUrl);
     },
   }).current;
 
@@ -258,14 +253,14 @@ const SearchBar = ({
       css={[style.searchBox, responsive && style.narrowMode, isInputFocus && style.focused]}
       id="search-box"
     >
-      {/*<WrapHelmet>*/}
-      {/* pre-connect to algolia server */}
-      <link
-        rel="preconnect"
-        href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
-        crossOrigin="anonymous"
-      />
-      {/*</WrapHelmet>*/}
+      <WrapHelmet>
+        {/* pre-connect to algolia server */}
+        <link
+          rel="preconnect"
+          href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
+          crossOrigin="anonymous"
+        />
+      </WrapHelmet>
 
       <Input
         placeholder={searchInputPlaceholder}
