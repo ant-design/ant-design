@@ -182,14 +182,64 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useRealTimers();
   });
 
-  it('should not hide confirm when onOk return Promise.resolve', async () => {
+  it('should close confirm when onOk return Promise.resolve', async () => {
     open({
       onOk: () => Promise.resolve(''),
     });
 
     await sleep();
     $$('.ant-btn-primary')[0].click();
-    expect($$('.ant-modal-confirm')).toHaveLength(1);
+
+    await sleep(100);
+    expect($$('.ant-modal-confirm')).toHaveLength(0);
+  });
+
+  it('should close confirm when onOk return Promise.reject', async () => {
+    open({
+      onOk: () => Promise.reject().catch(() => {}),
+    });
+
+    await sleep();
+    $$('.ant-btn-primary')[0].click();
+
+    await sleep(100);
+    expect($$('.ant-modal-confirm')).toHaveLength(0);
+  });
+
+  // issue: https://github.com/ant-design/ant-design/issues/37329
+  it('should not click when onOk return Promise.resolve', async () => {
+    let count = 0;
+    open({
+      onOk: () => {
+        count += 1;
+        return Promise.resolve('');
+      },
+    });
+
+    await sleep();
+    $$('.ant-btn-primary')[0].click();
+
+    await sleep();
+    $$('.ant-btn-primary')?.[0]?.click();
+    expect(count).toEqual(1);
+  });
+
+  // issue: https://github.com/ant-design/ant-design/issues/37329
+  it('should not click when onOk return Promise.reject', async () => {
+    let count = 0;
+    open({
+      onOk: () => {
+        count += 1;
+        return Promise.reject().catch(() => {});
+      },
+    });
+
+    await sleep();
+    $$('.ant-btn-primary')[0].click();
+
+    await sleep();
+    $$('.ant-btn-primary')?.[0]?.click();
+    expect(count).toEqual(1);
   });
 
   it('should emit error when onOk return Promise.reject', async () => {
