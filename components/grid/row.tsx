@@ -28,6 +28,20 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
+function useMergePropByScreen(
+  initValue: string,
+  screen: ScreenMap,
+  cb: (prop: string, setProp: React.Dispatch<React.SetStateAction<string>>) => void,
+) {
+  const [prop, setProp] = React.useState(initValue);
+
+  React.useEffect(() => {
+    cb(prop, setProp);
+  }, [JSON.stringify(prop), screen]);
+
+  return [prop, setProp];
+}
+
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -61,9 +75,44 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xxl: false,
   });
 
-  const [mergeAlign, setMergeAlign] = React.useState(typeof align === 'string' ? align : '');
-  const [mergeJustify, setMergeJustify] = React.useState(
+  // ================================== calc reponsive data ==================================
+  const clacMergeAlignOrJustify = (
+    prop: RowProps['align'] | RowProps['justify'],
+    updator: React.Dispatch<React.SetStateAction<string>>,
+  ) => {
+    if (typeof prop !== 'object') {
+      return;
+    }
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      // When 'align' sets the 'other' attribute,
+      // we need to set the value of the response attribute not explicitly set in 'align' to the value of 'other'
+      const curVal = prop[breakpoint];
+      if (prop.other && !curScreens[breakpoint]) {
+        if (!curVal) {
+          updator(prop.other);
+        }
+      } else if (curScreens[breakpoint] && curVal !== undefined) {
+        updator(curVal);
+      }
+    }
+  };
+
+  // re-calc responsive data
+  const [mergeAlign] = useMergePropByScreen(
+    typeof align === 'string' ? align : '',
+    curScreens,
+    (_prop, setProp) => {
+      clacMergeAlignOrJustify(align, setProp);
+    },
+  );
+
+  const [mergeJustify] = useMergePropByScreen(
     typeof justify === 'string' ? justify : '',
+    curScreens,
+    (_prop, setProp) => {
+      clacMergeAlignOrJustify(justify, setProp);
+    },
   );
 
   const supportFlexGap = useFlexGapSupport();
@@ -106,28 +155,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     return results;
   };
 
-  // ================================== calc reponsive data ==================================
-  const clacMergeAlignOrJustify = (propName: 'align' | 'justify') => {
-    if (typeof props[propName] !== 'object') {
-      return;
-    }
-    const prop = props[propName] as ResponsiveLike<any>;
-    const updator = propName === 'align' ? setMergeAlign : setMergeJustify;
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      // When 'align' sets the 'other' attribute,
-      // we need to set the value of the response attribute not explicitly set in 'align' to the value of 'other'
-      const curVal = prop[breakpoint];
-      if (prop.other && !curScreens[breakpoint]) {
-        if (!curVal) {
-          updator(prop.other);
-        }
-      } else if (curScreens[breakpoint] && curVal !== undefined) {
-        updator(curVal);
-      }
-    }
-  };
-
   const prefixCls = getPrefixCls('row', customizePrefixCls);
   const gutters = getGutter();
   const classes = classNames(
@@ -166,10 +193,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
     [gutterH, gutterV, wrap, supportFlexGap],
   );
-
-  // re-calc responsive data
-  React.useEffect(() => clacMergeAlignOrJustify('align'), [align, curScreens]);
-  React.useEffect(() => clacMergeAlignOrJustify('justify'), [justify, curScreens]);
 
   return (
     <RowContext.Provider value={rowContext}>
