@@ -87,8 +87,17 @@ describe('Image', () => {
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
-  it('Preview forceRender props', () => {
+  it('Preview forceRender props', async () => {
     const onLoadCb = jest.fn();
+    Object.defineProperty(Image.prototype, 'onload', {
+      get() {
+        onLoadCb();
+        return this._onload;
+      },
+      set(onload: Function) {
+        this._onload = onload;
+      },
+    });
     const PreviewImage: React.FC = () => (
       <Image
         preview={{
@@ -100,7 +109,7 @@ describe('Image', () => {
     );
     const { baseElement } = render(<PreviewImage />);
     expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
-    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('onLoad', onLoadCb);
-    expect(onLoadCb).not.toHaveBeenCalled();
+    fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
+    expect(onLoadCb).toHaveBeenCalled();
   });
 });
