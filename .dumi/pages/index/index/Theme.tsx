@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
-import useLocale from '../../../locales';
+import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { Typography } from 'antd';
 
@@ -10,7 +10,7 @@ const locales = {
     titleBorderRadius: '圆角',
     titleTheme: '主题',
   },
-  default: { titlePrimaryColor: '主色', titleBorderRadius: '圆角', titleTheme: '主题' },
+  en: { titlePrimaryColor: '主色', titleBorderRadius: '圆角', titleTheme: '主题' },
 };
 
 const useStyle = () => {
@@ -72,7 +72,7 @@ function Picker({ title }: PickerProps) {
 
 export default function Theme() {
   const style = useStyle();
-  const locale = useLocale(locales);
+  const [locale] = useLocale(locales);
 
   return (
     <div css={style.theme}>

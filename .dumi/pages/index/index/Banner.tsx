@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Space, Button, Typography, theme } from 'antd';
-import useLocale from '../../../locales';
+import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const locales = {
@@ -10,7 +10,7 @@ const locales = {
     start: '开始使用',
     designLanguage: '设计语言',
   },
-  default: {
+  en: {
     sloganIntro: '一个企业级产品设计体系',
     sloganDesc: '助力设计开发者「更灵活」的搭建出「更美」的产品，让用户「快乐工作」～',
     start: '开始使用',
@@ -19,7 +19,7 @@ const locales = {
 };
 
 export default function Banner() {
-  const locale = useLocale(locales);
+  const [locale] = useLocale(locales);
   const { token } = useSiteToken();
 
   return (
