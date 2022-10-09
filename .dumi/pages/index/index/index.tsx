@@ -6,6 +6,7 @@ import Group from './Group';
 import { useSiteData } from './util';
 import Recommends from './Recommends';
 import useSiteToken from '../../../hooks/useSiteToken';
+import Theme from './Theme';
 
 const locales = {
   cn: {
@@ -40,7 +41,9 @@ const Homepage: FC = () => {
       <Group title={locale.titleNew}>
         <Recommends recommendations={siteData?.recommendations?.[localeStr]} />
       </Group>
-      <Group title={locale.titleFlexible} />
+      <Group title={locale.titleFlexible}>
+        <Theme />
+      </Group>
       <Group title={locale.titleAssets} />
       <Group title={locale.titleFramework} />
     </section>

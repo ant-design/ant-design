@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Row, Col, Typography } from 'antd';
 import type { Recommendation } from './util';
-import { css, ClassNames } from '@emotion/react';
+import { css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {
