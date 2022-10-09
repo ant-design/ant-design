@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { theme, Space, Button } from 'antd';
+import { Space, Button, Typography, theme } from 'antd';
 import useLocale from '../../../locales';
+import useSiteToken from '.dumi/hooks/useSiteToken';
 
 const locales = {
   cn: {
@@ -18,18 +19,18 @@ const locales = {
 };
 
 export default function Banner() {
-  const token = theme.useToken();
   const locale = useLocale(locales);
+  const { token } = useSiteToken();
 
   return (
-    <div>
-      <h1>Ant Design 5.0</h1>
-      <div>
-        <p>{locale.sloganIntro}</p>
-        <p>{locale.sloganDesc}</p>
-      </div>
+    <div style={{ textAlign: 'center' }}>
+      <Typography.Title level={1}>Ant Design 5.0</Typography.Title>
+      <Typography.Paragraph style={{ fontSize: token.fontSizeLG, lineHeight: 2 }}>
+        <div>{locale.sloganIntro}</div>
+        <div>{locale.sloganDesc}</div>
+      </Typography.Paragraph>
 
-      <Space>
+      <Space size="middle" style={{ marginTop: token.gridSpaceLG * 3 }}>
         <Button shape="round" type="primary">
           {locale.start}
         </Button>
