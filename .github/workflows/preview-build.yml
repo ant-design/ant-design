@@ -71,7 +71,7 @@ jobs:
 
       - name: npm run site
         id: site
-        run: npm run site
+        run: npm run site:dumi
         env:
           SITE_ENV: development
 

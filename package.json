@@ -81,6 +81,7 @@
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
+    "site:dumi": "dumi build",
     "site-tmp": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",

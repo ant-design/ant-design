@@ -4,6 +4,7 @@ import rehypeAntd from './.dumi/rehypeAntd';
 import { version } from './package.json';
 
 export default defineConfig({
+  outputPath: '_site',
   resolve: {
     // FIXME: disable docs in temporary
     docDirs: [],
