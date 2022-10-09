@@ -3,7 +3,7 @@ import * as React from 'react';
 import useLocale from './useLocale';
 
 function clearPath(path: string) {
-  return path.replace('-cn', '');
+  return path.replace('-cn', '').replace(/\/$/, '');
 }
 
 export default function useLocation() {
