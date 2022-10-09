@@ -1,11 +1,11 @@
 import React, { type FC } from 'react';
-import { theme } from 'antd';
 import { useLocale as useDumiLocale } from 'dumi';
 import useLocale from '../../../locales';
 import Banner from './Banner';
 import Group from './Group';
 import { useSiteData } from './util';
 import Recommends from './Recommends';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 const locales = {
   cn: {
@@ -27,8 +27,7 @@ const Homepage: FC = () => {
   const { id: localeId } = useDumiLocale();
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
 
-  const { token } = theme.useToken();
-  console.log('Token', token);
+  const { token } = useSiteToken();
 
   const [siteData, loading] = useSiteData();
   // console.log('~~~>', siteData?.recommendations?.[localeStr]);

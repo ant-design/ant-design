@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { theme, Typography } from 'antd';
+import { Typography } from 'antd';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 export interface GroupProps {
   title?: React.ReactNode;
@@ -8,7 +9,7 @@ export interface GroupProps {
 
 export default function Group(props: GroupProps) {
   const { title, children } = props;
-  const { token } = theme.useToken();
+  const { token } = useSiteToken();
 
   return (
     <div style={{ marginBottom: token.gridSpaceXL * 6.25 }}>
