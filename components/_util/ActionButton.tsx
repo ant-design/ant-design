@@ -51,23 +51,12 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       (...args: any[]) => {
         onInternalClose(...args);
         clickedRef.current = false;
-        // close方法是宏任务，为了防止关闭弹窗时再次点击，100ms后，再重置loading状态
-        // https://github.com/ant-design/ant-design/issues/37329
-        setTimeout(() => {
-          setLoading(false, true);
-        }, 100);
       },
       (e: Error) => {
         // Emit error when catch promise reject
         // eslint-disable-next-line no-console
         console.error(e);
         clickedRef.current = false;
-
-        // https://github.com/ant-design/ant-design/issues/37329
-        setTimeout(() => {
-          // See: https://github.com/ant-design/ant-design/issues/6183
-          setLoading(false, true);
-        }, 100);
       },
     );
   };
