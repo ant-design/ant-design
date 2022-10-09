@@ -2,7 +2,6 @@ import memoizeOne from 'memoize-one';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import warning from '../_util/warning';
-
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { ModalLocale } from '../modal/locale';
@@ -48,51 +47,37 @@ export interface Locale {
 }
 
 export interface LocaleProviderProps {
-  locale: Locale;
+  locale?: Locale;
   children?: React.ReactNode;
   /** @internal */
   _ANT_MARK__?: string;
 }
 
-export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
-  static defaultProps = {
-    locale: {},
-  };
+const LocaleProvider: React.FC<LocaleProviderProps> = props => {
+  const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
-  constructor(props: LocaleProviderProps) {
-    super(props);
-    changeConfirmLocale(props.locale && props.locale.Modal);
+  warning(
+    _ANT_MARK__ === ANT_MARK,
+    'LocaleProvider',
+    '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
+  );
 
-    warning(
-      props._ANT_MARK__ === ANT_MARK,
-      'LocaleProvider',
-      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-    );
-  }
+  React.useEffect(() => {
+    changeConfirmLocale(locale && locale.Modal);
+    return () => {
+      changeConfirmLocale();
+    };
+  }, [locale]);
 
-  componentDidMount() {
-    changeConfirmLocale(this.props.locale && this.props.locale.Modal);
-  }
+  const getMemoizedContextValue = memoizeOne(
+    (localeValue: Locale): Locale & { exist?: boolean } => ({ ...localeValue, exist: true }),
+  );
 
-  componentDidUpdate(prevProps: LocaleProviderProps) {
-    const { locale } = this.props;
-    if (prevProps.locale !== locale) {
-      changeConfirmLocale(locale && locale.Modal);
-    }
-  }
+  return (
+    <LocaleContext.Provider value={getMemoizedContextValue(locale)}>
+      {children}
+    </LocaleContext.Provider>
+  );
+};
 
-  componentWillUnmount() {
-    changeConfirmLocale();
-  }
-
-  getMemoizedContextValue = memoizeOne((localeValue: Locale): Locale & { exist?: boolean } => ({
-    ...localeValue,
-    exist: true,
-  }));
-
-  render() {
-    const { locale, children } = this.props;
-    const contextValue = this.getMemoizedContextValue(locale);
-    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
-  }
-}
+export default LocaleProvider;

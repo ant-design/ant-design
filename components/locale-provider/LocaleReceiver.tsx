@@ -52,7 +52,7 @@ export function useLocaleReceiver<T extends LocaleComponentName = LocaleComponen
     const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
     const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
     return {
-      ...(typeof locale === 'function' ? locale() : locale),
+      ...(locale instanceof Function ? locale() : locale),
       ...(localeFromContext || {}),
     };
   }, [componentName, defaultLocale, antLocale]);
