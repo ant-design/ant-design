@@ -24,13 +24,23 @@ export default function Banner() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <Typography.Title level={1}>Ant Design 5.0</Typography.Title>
-      <Typography.Paragraph style={{ fontSize: token.fontSizeLG, lineHeight: 2 }}>
+      <img
+        style={{ marginBottom: token.paddingSM }}
+        src="https://gw.alipayobjects.com/zos/bmw-prod/d0ed9801-804c-43f1-8172-a792eb2f8f19.svg"
+      />
+      <Typography.Paragraph
+        style={{
+          fontSize: token.fontSizeLG,
+          lineHeight: 2,
+          color: '#314659',
+          marginBottom: token.marginXL,
+        }}
+      >
         <div>{locale.sloganIntro}</div>
         <div>{locale.sloganDesc}</div>
       </Typography.Paragraph>
 
-      <Space size="middle" style={{ marginTop: token.gridSpaceLG * 3 }}>
+      <Space size="middle">
         <Button shape="round" type="primary">
           {locale.start}
         </Button>

@@ -9,6 +9,9 @@ const useSiteToken = () => {
   const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
   const { token } = result;
+
+  console.log('Site Token:', token);
+
   return {
     ...result,
     token: {
