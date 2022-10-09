@@ -85,17 +85,18 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     }
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
+      // if do not match, do nothing
+      if (!curScreens[breakpoint]) continue;
       // When 'align' and 'justify' sets the 'other' attribute,
-      // we need to set the value of the response attribute not explicitly set in 'align' adn 'justify'  to the value of 'other'
+      // we need to set the value of the response attribute not explicitly set in 'align' adn 'justify' to the value of 'other'
       const curVal = prop[breakpoint];
-      if (prop.other && !curScreens[breakpoint]) {
-        if (!curVal) {
-          updator(prop.other);
-        }
+      if (prop.other && !curVal) {
+        updator(prop.other);
         return;
       }
-      if (curScreens[breakpoint] && curVal !== undefined) {
+      if (curVal !== undefined) {
         updator(curVal);
+        return;
       }
     }
   };
