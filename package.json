@@ -159,7 +159,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.3.0-alpha.4",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^15.1.2",
+    "@ant-design/tools": "^15.1.6",
     "@docsearch/css": "^3.0.0",
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/react": "^11.10.4",
