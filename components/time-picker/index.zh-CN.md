@@ -104,4 +104,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/use-custom-date-library#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#TimePicker)
