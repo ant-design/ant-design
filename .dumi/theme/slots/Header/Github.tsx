@@ -45,11 +45,9 @@ const useStyle = () => {
         }
       }
 
-      ${antCls}-row-rtl {
-        & {
-          .gh-count {
-            display: none !important;
-          }
+      ${antCls}-row-rtl & {
+        .gh-count {
+          display: none !important;
         }
       }
     `,

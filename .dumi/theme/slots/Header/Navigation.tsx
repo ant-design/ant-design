@@ -81,9 +81,7 @@ const useStyle = () => {
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  pathname: string;
   responsive: null | 'narrow' | 'crowded';
-  location: { pathname: string; query: any };
   directionText: string;
   showTechUIButton: boolean;
   onLangChange: () => void;
@@ -93,9 +91,7 @@ export interface NavigationProps extends SharedProps {
 export default ({
   isZhCN,
   isMobile,
-  // pathname,
   responsive,
-  location,
   directionText,
   showTechUIButton,
   onLangChange,
