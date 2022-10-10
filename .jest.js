@@ -30,7 +30,14 @@ module.exports = {
     '^antd$': '<rootDir>/components/index',
     '^antd/es/(.*)$': '<rootDir>/components/$1',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    'dekko',
+    'node',
+    'image.test.js',
+    'image.test.ts',
+    'components/*/demo/',
+  ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
