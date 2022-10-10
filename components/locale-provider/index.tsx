@@ -10,6 +10,7 @@ import type { PopconfirmLocale } from '../popconfirm/PurePanel';
 import type { TableLocale } from '../table/interface';
 import type { TransferLocale } from '../transfer';
 import type { UploadLocale } from '../upload/interface';
+import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';
@@ -70,7 +71,10 @@ const LocaleProvider: React.FC<LocaleProviderProps> = props => {
     };
   }, [locale]);
 
-  const getMemoizedContextValue = React.useMemo(() => ({ ...locale, exist: true }), [locale]);
+  const getMemoizedContextValue = React.useMemo<LocaleContextProps>(
+    () => ({ ...locale, exist: true }),
+    [locale],
+  );
 
   return (
     <LocaleContext.Provider value={getMemoizedContextValue}>{children}</LocaleContext.Provider>
