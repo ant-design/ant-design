@@ -3,31 +3,6 @@
 
 @space-compact-prefix-cls: ~'@{ant-prefix}-space-compact';
 
-@child-names: btn null, cascader null, input null, input-number null, picker null,
-  select select-selector;
-
-.reset-border-radius(@suffix) {
-  each(@child-names, {
-    @namespace: extract(@value, 1);
-    @cls: ~'@{ant-prefix}-@{namespace}-@{suffix}';
-
-    @special-border-item: extract(@value, 2);
-
-    // Select has an special focus-item
-    & when(not (@special-border-item = null)) {
-      .@{cls} .@{ant-prefix}-@{special-border-item} {
-        border-radius: 0;
-      }
-    }
-
-    & when(@special-border-item = null) {
-      .@{cls} {
-        border-radius: 0;
-      }
-    }
-  });
-}
-
 .@{space-compact-prefix-cls} {
   display: inline-flex;
 
@@ -38,16 +13,5 @@
 
   &-vertical {
     flex-direction: column;
-  }
-
-  // nested compact
-  & > &:not(:first-child) {
-    margin-right: -1px;
-
-    .reset-border-radius(compact-first-item);
-  }
-
-  & > &:not(:last-child) {
-    .reset-border-radius(compact-last-item);
   }
 }

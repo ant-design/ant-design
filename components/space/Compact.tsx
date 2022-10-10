@@ -69,7 +69,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     prefixCls: customizePrefixCls,
     className,
     children,
-    ...otherProps
+    ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
@@ -83,8 +83,9 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     className,
   );
 
-  const childNodes = toArray(children);
+  const compactItemContext = React.useContext(SpaceCompactItemContext);
 
+  const childNodes = toArray(children);
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {
@@ -95,14 +96,16 @@ const Compact: React.FC<SpaceCompactProps> = props => {
             key={key}
             compactSize={size}
             compactDirection={direction}
-            isFirstItem={i === 0}
-            isLastItem={i === childNodes.length - 1}
+            isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
+            isLastItem={
+              i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
+            }
           >
             {child}
           </CompactItem>
         );
       }),
-    [size, childNodes],
+    [size, childNodes, compactItemContext],
   );
 
   // =========================== Render ===========================
@@ -111,7 +114,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
   }
 
   return (
-    <div className={clx} {...otherProps}>
+    <div className={clx} {...restProps}>
       {nodes}
     </div>
   );
