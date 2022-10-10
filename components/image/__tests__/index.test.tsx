@@ -89,15 +89,6 @@ describe('Image', () => {
   });
   it('Preview forceRender props', async () => {
     const onLoadCb = jest.fn();
-    Object.defineProperty(Image.prototype, 'onload', {
-      get() {
-        onLoadCb();
-        return this._onload;
-      },
-      set(onload: Function) {
-        this._onload = onload;
-      },
-    });
     const PreviewImage: React.FC = () => (
       <Image
         preview={{
@@ -109,6 +100,7 @@ describe('Image', () => {
     );
     const { baseElement } = render(<PreviewImage />);
     expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
+    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
     fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
     expect(onLoadCb).toHaveBeenCalled();
   });
