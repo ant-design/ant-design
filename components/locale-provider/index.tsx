@@ -70,18 +70,10 @@ const LocaleProvider: React.FC<LocaleProviderProps> = props => {
     };
   }, [locale]);
 
-  const getMemoizedContextValue = React.useCallback(
-    (localeValue: Locale): Locale & { exist?: boolean } => ({
-      ...localeValue,
-      exist: true,
-    }),
-    [],
-  );
+  const getMemoizedContextValue = React.useMemo(() => ({ ...locale, exist: true }), [locale]);
 
   return (
-    <LocaleContext.Provider value={getMemoizedContextValue(locale)}>
-      {children}
-    </LocaleContext.Provider>
+    <LocaleContext.Provider value={getMemoizedContextValue}>{children}</LocaleContext.Provider>
   );
 };
 
