@@ -82,7 +82,7 @@ describe('Table', () => {
     loading.spinning = true;
     rerender(<Table loading={loading} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    await waitFakeTimer(500);
+    await waitFakeTimer();
     rerender(<Table loading />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
     jest.clearAllTimers();
@@ -93,7 +93,7 @@ describe('Table', () => {
   it('support loading tip', async () => {
     jest.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
-    await waitFakeTimer(500);
+    await waitFakeTimer();
     rerender(
       <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
     );
