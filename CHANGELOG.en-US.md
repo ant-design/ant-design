@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.23.5
+
+`2022-10-10`
+
+- 🐞 Fix Textarea with `autoSize` blink on the fist mount. [#37847](https://github.com/ant-design/ant-design/pull/37847)
+- 💄 Fix Input.Password `style={{ fontSize }}`not working. [#37898](https://github.com/ant-design/ant-design/pull/37898)
+- 💄 Fix Input.Textarea `style={{ resize: 'none' }}` is not working when `showCount` is applied. [#37855](https://github.com/ant-design/ant-design/pull/37855) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix Input.Search border style in RTL. [#37865](https://github.com/ant-design/ant-design/pull/37865) [@foryuki](https://github.com/foryuki)
+- 🇷🇺 Fix Russian translation for Transfer.selectInvert. [#37858](https://github.com/ant-design/ant-design/pull/37858) [@svtslav](https://github.com/svtslav)
+- 🇵🇹 Add missing Portuguese translations. [#37857](https://github.com/ant-design/ant-design/pull/37857) [@ernestfolch](https://github.com/ernestfolch)
+- ⚡️ Update Table and Tree for improve state performance. [#37875](https://github.com/ant-design/ant-design/pull/37875) [@sunteago](https://github.com/sunteago)
+- TypeScript
+  - 🤖 Update type definition for a part of components. [#37861](https://github.com/ant-design/ant-design/pull/37861) [@zheeeng](https://github.com/zheeeng)
+
 ## 4.23.4
 
 `2022-10-01`

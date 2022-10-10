@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.23.5
+
+`2022-10-10`
+
+- 🐞 修复 Textarea 配置 `autoSize` 在第一次渲染时闪烁的问题。[#37847](https://github.com/ant-design/ant-design/pull/37847)
+- 💄 修复 Input.Password 不支持 `style={{ fontSize }}` 的问题。[#37898](https://github.com/ant-design/ant-design/pull/37898)
+- 💄 修复 Input.Textarea 当指定 `showCount` 时 `style={{ resize: 'none' }}` 样式设定失效的问题。[#37855](https://github.com/ant-design/ant-design/pull/37855) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 修复 RTL 排版中 Input.Search 边框样式问题。[#37865](https://github.com/ant-design/ant-design/pull/37865) [@foryuki](https://github.com/foryuki)
+- 🇷🇺 修复 Transfer.selectInvert 的俄语翻译。[#37858](https://github.com/ant-design/ant-design/pull/37858) [@svtslav](https://github.com/svtslav)
+- 🇵🇹 添加缺失的葡萄牙语翻译。[#37857](https://github.com/ant-design/ant-design/pull/37857) [@ernestfolch](https://github.com/ernestfolch)
+- ⚡️ 提升 Table 及 Tree 的 State 性能。[#37875](https://github.com/ant-design/ant-design/pull/37875) [@sunteago](https://github.com/sunteago)
+- TypeScript
+  - 🤖 更新部分组件的类型声明。[#37861](https://github.com/ant-design/ant-design/pull/37861) [@zheeeng](https://github.com/zheeeng)
+
 ## 4.23.4
 
 `2022-10-01`
