@@ -31,7 +31,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const inputRef = useRef<InputRef>(null);
 
   // Remove Password value
-  const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
 
   const onVisibleChange = () => {
     const { disabled } = props;

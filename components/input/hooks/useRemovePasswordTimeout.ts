@@ -21,7 +21,7 @@ export default function useRemovePasswordTimeout(
   };
 
   useEffect(() => {
-    if (!triggerOnMount) {
+    if (triggerOnMount) {
       removePasswordTimeout();
     }
 

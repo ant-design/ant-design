@@ -172,7 +172,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   }, [inputHasPrefixSuffix]);
 
   // ===================== Remove Password value =====================
-  const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     removePasswordTimeout();
