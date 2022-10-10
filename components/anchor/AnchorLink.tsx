@@ -17,9 +17,9 @@ export interface AnchorLinkProps {
 const AnchorLink: React.FC<AnchorLinkProps> = props => {
   const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
 
-  const context = React.useContext<AntAnchor>(AnchorContext);
+  const context = React.useContext<AntAnchor | null>(AnchorContext);
 
-  const { registerLink, unregisterLink, scrollTo, onClick, activeLink } = context;
+  const { registerLink, unregisterLink, scrollTo, onClick, activeLink } = context || {};
 
   React.useEffect(() => {
     registerLink?.(href);

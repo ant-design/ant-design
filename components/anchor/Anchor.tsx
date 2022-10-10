@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import classNames from 'classnames';
-import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import * as React from 'react';
 import Affix from '../affix';
@@ -201,7 +200,7 @@ const Anchor: React.FC<InternalAnchorProps> = props => {
       const currentContainer = getContainer?.();
       if (scrollContainer.current !== currentContainer) {
         scrollContainer.current = currentContainer;
-        scrollEvent.current.remove();
+        scrollEvent.current?.remove();
         scrollEvent.current = addEventListener(scrollContainer.current, 'scroll', handleScroll);
         handleScroll();
       }
@@ -268,47 +267,37 @@ const Anchor: React.FC<InternalAnchorProps> = props => {
     </div>
   );
 
-  const getMemoizedContextValue = memoizeOne(
-    (link: AntAnchor['activeLink'], onClickFn: AnchorProps['onClick']): AntAnchor => ({
+  const memoizedContextValue = React.useMemo<AntAnchor>(
+    () => ({
       registerLink,
       unregisterLink,
       scrollTo: handleScrollTo,
-      activeLink: link,
-      onClick: onClickFn,
+      activeLink,
+      onClick,
     }),
+    [registerLink, unregisterLink, handleScrollTo, onClick, activeLink],
   );
 
-  const contextValue = getMemoizedContextValue(activeLink, onClick);
-
   return (
-    <AnchorContext.Provider value={contextValue}>
-      {!affix ? (
-        anchorContent
-      ) : (
+    <AnchorContext.Provider value={memoizedContextValue}>
+      {affix ? (
         <Affix offsetTop={offsetTop} target={getContainer}>
           {anchorContent}
         </Affix>
+      ) : (
+        anchorContent
       )}
     </AnchorContext.Provider>
   );
 };
 
-// just use in test
-export type InternalAnchorClass = typeof Anchor;
-
-const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
+const AnchorFC: React.FC<AnchorProps> = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
 
-  const anchorProps: InternalAnchorProps = {
-    ...props,
-
-    anchorPrefixCls,
-  };
-
-  return <Anchor {...anchorProps} ref={ref} />;
-});
+  return <Anchor {...props} anchorPrefixCls={anchorPrefixCls} />;
+};
 
 export default AnchorFC;
