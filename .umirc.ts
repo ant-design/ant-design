@@ -5,6 +5,7 @@ import { version } from './package.json';
 
 export default defineConfig({
   outputPath: '_site',
+  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
     // FIXME: disable docs in temporary
     docDirs: [],
