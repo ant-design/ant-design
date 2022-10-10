@@ -3,7 +3,7 @@ import type { InputRef } from '../Input';
 
 export default function useRemovePasswordTimeout(
   inputRef: React.RefObject<InputRef>,
-  triggerByIcon?: boolean,
+  triggerOnMount?: boolean,
 ) {
   const removePasswordTimeoutRef = useRef<number[]>([]);
   const removePasswordTimeout = () => {
@@ -21,7 +21,7 @@ export default function useRemovePasswordTimeout(
   };
 
   useEffect(() => {
-    if (!triggerByIcon) {
+    if (!triggerOnMount) {
       removePasswordTimeout();
     }
 
