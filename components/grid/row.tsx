@@ -28,12 +28,8 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
-function useMergePropByScreen(
-  initValue: string,
-  oriProp: RowProps['align'] | RowProps['justify'],
-  screen: ScreenMap,
-) {
-  const [prop, setProp] = React.useState(initValue);
+function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
+  const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
 
   const clacMergeAlignOrJustify = () => {
     if (typeof oriProp !== 'object') {
@@ -98,17 +94,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   });
 
   // ================================== calc reponsive data ==================================
-  const mergeAlign = useMergePropByScreen(
-    typeof align === 'string' ? align : '',
-    align,
-    curScreens,
-  );
+  const mergeAlign = useMergePropByScreen(align, curScreens);
 
-  const mergeJustify = useMergePropByScreen(
-    typeof justify === 'string' ? justify : '',
-    justify,
-    curScreens,
-  );
+  const mergeJustify = useMergePropByScreen(justify, curScreens);
 
   const supportFlexGap = useFlexGapSupport();
 
