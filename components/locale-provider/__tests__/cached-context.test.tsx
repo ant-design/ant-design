@@ -3,7 +3,8 @@ import { fireEvent, pureRender } from '../../../tests/utils';
 import LocaleProvider from '..';
 import LocaleContext from '../context';
 
-let [innerCount, outerCount] = [0, 0];
+let innerCount = 0;
+let outerCount = 0;
 
 const handleClick = () => {
   outerCount++;
