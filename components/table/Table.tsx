@@ -178,13 +178,9 @@ function InternalTable<RecordType extends object = any>(
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
   const size = React.useContext(SizeContext);
-  const {
-    locale: contextLocale = defaultLocale,
-    renderEmpty,
-    direction,
-  } = React.useContext(ConfigContext);
+  const { locale: contextLocale, renderEmpty, direction } = React.useContext(ConfigContext);
   const mergedSize = customizeSize || size;
-  const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
+  const tableLocale = { ...defaultLocale.Table, ...contextLocale?.Table } as TableLocale;
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
