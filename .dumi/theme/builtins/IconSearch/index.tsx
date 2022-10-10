@@ -18,18 +18,18 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-interface IconDisplayProps {
+interface IconSearchProps {
   intl: any;
 }
 
-interface IconDisplayState {
+interface IconSearchState {
   theme: ThemeType;
   searchKey: string;
 }
 
-const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
+const IconSearch: React.FC<IconSearchProps> = ({ intl }) => {
   const { messages } = intl;
-  const [displayState, setDisplayState] = React.useState<IconDisplayState>({
+  const [displayState, setDisplayState] = React.useState<IconSearchState>({
     theme: ThemeType.Outlined,
     searchKey: '',
   });
@@ -83,7 +83,7 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
     return categoriesResult.length === 0 ? <Empty style={{ margin: '2em 0' }} /> : categoriesResult;
   }, [displayState.searchKey, displayState.theme]);
   return (
-    <>
+    <div className="markdown">
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Radio.Group
           value={displayState.theme}
@@ -112,8 +112,8 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
         />
       </div>
       {renderCategories}
-    </>
+    </div>
   );
 };
 
-export default injectIntl(IconDisplay);
+export default injectIntl(IconSearch);
