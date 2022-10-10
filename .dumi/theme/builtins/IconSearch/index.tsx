@@ -2,7 +2,7 @@ import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Radio, Input, Empty } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio/interface';
-import { injectIntl } from 'react-intl';
+import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
@@ -18,17 +18,13 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-interface IconSearchProps {
-  intl: any;
-}
-
 interface IconSearchState {
   theme: ThemeType;
   searchKey: string;
 }
 
-const IconSearch: React.FC<IconSearchProps> = ({ intl }) => {
-  const { messages } = intl;
+const IconSearch: React.FC = () => {
+  const { messages } = useIntl() as { messages: Record<string, string> };
   const [displayState, setDisplayState] = React.useState<IconSearchState>({
     theme: ThemeType.Outlined,
     searchKey: '',
@@ -116,4 +112,4 @@ const IconSearch: React.FC<IconSearchProps> = ({ intl }) => {
   );
 };
 
-export default injectIntl(IconSearch);
+export default IconSearch;

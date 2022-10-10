@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { injectIntl } from 'react-intl';
+import { useIntl } from 'dumi';
 import * as AntdIcons from '@ant-design/icons';
 
 const allIcons: { [key: string]: any } = AntdIcons;
@@ -15,10 +15,6 @@ declare global {
   interface Window {
     antdIconClassifier: AntdIconClassifier;
   }
-}
-
-interface PicSearcherProps {
-  intl: any;
 }
 
 interface PicSearcherState {
@@ -36,8 +32,8 @@ interface iconObject {
   score: number;
 }
 
-const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
-  const { messages } = intl;
+const PicSearcher: React.FC = () => {
+  const { messages } = useIntl() as { messages: Record<string, string> };
   const [state, setState] = useState<PicSearcherState>({
     loading: false,
     modalOpen: false,
@@ -236,4 +232,4 @@ const PicSearcher: React.FC<PicSearcherProps> = ({ intl }) => {
   );
 };
 
-export default injectIntl(PicSearcher);
+export default PicSearcher;

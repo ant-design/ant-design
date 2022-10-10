@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { message } from 'antd';
-import { injectIntl } from 'react-intl';
+import { useIntl } from 'dumi';
 import CopyableIcon from './CopyableIcon';
 import type { ThemeType } from './index';
 import type { CategoriesKeys } from './fields';
@@ -10,11 +10,11 @@ interface CategoryProps {
   icons: string[];
   theme: ThemeType;
   newIcons: string[];
-  intl: any;
 }
 
 const Category: React.FC<CategoryProps> = props => {
-  const { icons, title, newIcons, theme, intl } = props;
+  const { icons, title, newIcons, theme } = props;
+  const intl = useIntl() as { messages: Record<string, string> };
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<NodeJS.Timeout | null>(null);
   const onCopied = React.useCallback((type: string, text: string) => {
@@ -55,4 +55,4 @@ const Category: React.FC<CategoryProps> = props => {
   );
 };
 
-export default injectIntl(Category);
+export default Category;
