@@ -24,7 +24,7 @@ const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
-    const localeFromContext = antLocale ? antLocale[componentName] : {};
+    const localeFromContext = antLocale?.[componentName] ?? {};
     return {
       ...(locale instanceof Function ? locale() : locale),
       ...(localeFromContext || {}),
@@ -53,9 +53,9 @@ export const useLocaleReceiver = <C extends LocaleComponentName = LocaleComponen
 
   const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
     const locale = defaultLocale || defaultLocaleData[componentName];
-    const localeFromContext = antLocale ? antLocale[componentName] : {};
+    const localeFromContext = antLocale?.[componentName] ?? {};
     return {
-      ...(locale instanceof Function ? locale() : locale),
+      ...(typeof locale === 'function' ? locale() : locale),
       ...(localeFromContext || {}),
     };
   }, [componentName, defaultLocale, antLocale]);

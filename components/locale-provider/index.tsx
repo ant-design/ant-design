@@ -1,4 +1,3 @@
-import memoizeOne from 'memoize-one';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
 import warning from '../_util/warning';
@@ -71,8 +70,12 @@ const LocaleProvider: React.FC<LocaleProviderProps> = props => {
     };
   }, [locale]);
 
-  const getMemoizedContextValue = memoizeOne(
-    (localeValue: Locale): Locale & { exist?: boolean } => ({ ...localeValue, exist: true }),
+  const getMemoizedContextValue = React.useCallback(
+    (localeValue: Locale): Locale & { exist?: boolean } => ({
+      ...localeValue,
+      exist: true,
+    }),
+    [],
   );
 
   return (
