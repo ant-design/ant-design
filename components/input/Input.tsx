@@ -2,6 +2,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
+import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
@@ -86,7 +87,9 @@ export function triggerFocus(
   element?: HTMLInputElement | HTMLTextAreaElement,
   option?: InputFocusOptions,
 ) {
-  if (!element) return;
+  if (!element) {
+    return;
+  }
 
   element.focus(option);
 
@@ -99,13 +102,12 @@ export function triggerFocus(
       case 'start':
         element.setSelectionRange(0, 0);
         break;
-
       case 'end':
         element.setSelectionRange(len, len);
         break;
-
       default:
         element.setSelectionRange(0, len);
+        break;
     }
   }
 }
@@ -136,6 +138,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonAfter,
     addonBefore,
     className,
+    onChange,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -203,6 +206,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus?.(e);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    removePasswordTimeout();
+    onChange?.(e);
+  };
+
   const suffixNode = (hasFeedback || suffix) && (
     <>
       {suffix}
@@ -211,7 +219,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   );
 
   // Allow clear
-  let mergedAllowClear;
+  let mergedAllowClear: BaseInputProps['allowClear'];
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
     mergedAllowClear = allowClear;
   } else if (allowClear) {
@@ -230,6 +238,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       suffix={suffixNode}
       allowClear={mergedAllowClear}
       className={classNames(className, compactItemClassnames)}
+      onChange={handleChange}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>

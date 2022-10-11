@@ -60,7 +60,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props));
 
-    let initExpandedKeys: any;
+    let initExpandedKeys: Key[];
 
     // Expanded keys
     if (defaultExpandAll) {
@@ -71,7 +71,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         keyEntities,
       );
     } else {
-      initExpandedKeys = props.expandedKeys || defaultExpandedKeys;
+      initExpandedKeys = (props.expandedKeys || defaultExpandedKeys)!;
     }
     return initExpandedKeys;
   };
@@ -79,7 +79,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const [selectedKeys, setSelectedKeys] = React.useState(
     props.selectedKeys || props.defaultSelectedKeys || [],
   );
-  const [expandedKeys, setExpandedKeys] = React.useState(getInitExpandedKeys());
+  const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
 
   React.useEffect(() => {
     if ('selectedKeys' in props) {
@@ -89,7 +89,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
 
   React.useEffect(() => {
     if ('expandedKeys' in props) {
-      setExpandedKeys(props.expandedKeys);
+      setExpandedKeys(props.expandedKeys!);
     }
   }, [props.expandedKeys]);
 
@@ -172,7 +172,13 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   };
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, className, ...otherProps } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    showIcon = true,
+    expandAction = 'click',
+    ...otherProps
+  } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const connectClassName = classNames(
@@ -189,6 +195,8 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       ref={treeRef}
       blockNode
       {...otherProps}
+      showIcon={showIcon}
+      expandAction={expandAction}
       prefixCls={prefixCls}
       className={connectClassName}
       expandedKeys={expandedKeys}
@@ -206,10 +214,5 @@ const ForwardDirectoryTree = React.forwardRef(
 if (process.env.NODE_ENV !== 'production') {
   ForwardDirectoryTree.displayName = 'DirectoryTree';
 }
-
-ForwardDirectoryTree.defaultProps = {
-  showIcon: true,
-  expandAction: 'click' as DirectoryTreeProps['expandAction'],
-};
 
 export default ForwardDirectoryTree;

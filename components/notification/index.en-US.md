@@ -46,6 +46,7 @@ The properties of config are as follows:
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
 | onClick | Specify a function that will be called when the notification is clicked | function | - |
 | onClose | Trigger when notification closed | function | - |
+| props | Props passed down | Object | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 

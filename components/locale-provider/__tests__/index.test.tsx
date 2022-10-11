@@ -191,7 +191,7 @@ const App: React.FC = () => (
 
 describe('Locale Provider', () => {
   mountTest(() => (
-    <LocaleProvider>
+    <LocaleProvider locale={null as unknown as Locale}>
       <div />
     </LocaleProvider>
   ));
@@ -237,7 +237,7 @@ describe('Locale Provider', () => {
 
   it('set moment locale when locale changes', () => {
     const Test: React.FC<{ locale?: Locale }> = ({ locale }) => (
-      <LocaleProvider locale={locale}>
+      <LocaleProvider locale={locale!}>
         <div>
           <DatePicker defaultValue={moment()} open />
         </div>

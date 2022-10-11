@@ -174,7 +174,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
       result.lang = {
         ...result.lang,
-        ...((locale || {}) as any).lang,
+        ...(locale || {}).lang,
       };
       return result;
     };
@@ -232,7 +232,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     return (
       <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
-        {(mergedLocale: any) => (
+        {contextLocale => (
           <div
             className={classNames(
               calendarPrefixCls,
@@ -259,7 +259,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 generateConfig={generateConfig}
                 mode={mergedMode}
                 fullscreen={fullscreen}
-                locale={mergedLocale.lang}
+                locale={contextLocale.lang}
                 validRange={validRange}
                 onChange={onInternalSelect}
                 onModeChange={triggerModeChange}
@@ -269,13 +269,13 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             <RCPickerPanel
               value={mergedValue}
               prefixCls={prefixCls}
-              locale={mergedLocale.lang}
+              locale={contextLocale.lang}
               generateConfig={generateConfig}
               dateRender={dateRender}
-              monthCellRender={date => monthRender(date, mergedLocale.lang)}
+              monthCellRender={date => monthRender(date, contextLocale.lang)}
               onSelect={onInternalSelect}
               mode={panelMode}
-              picker={panelMode as any}
+              picker={panelMode}
               disabledDate={mergedDisabledDate}
               hideHeader
             />

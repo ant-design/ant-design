@@ -156,7 +156,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -297,7 +297,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -320,7 +320,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
         class="ant-collapse-content-box"
       >
         <p
-          style="padding-left: 24px;"
+          style="padding-left:24px"
         >
           A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>
@@ -416,7 +416,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-start"
@@ -443,7 +443,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="transform: rotate(90deg);"
+                style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -477,7 +477,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-start"
@@ -504,7 +504,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="transform: rotate(90deg);"
+                style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -615,7 +615,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="0 0 1024 1024"
             width="1em"
           >
@@ -757,7 +757,7 @@ Array [
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="transform: rotate(90deg);"
+              style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -946,7 +946,7 @@ Array [
   </span>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="margin: 0px 8px;"
+    style="margin:0 8px"
   >
     <div
       class="ant-select-selector"
@@ -955,17 +955,16 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_test"
+          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
-          aria-controls="rc_select_test_list"
+          aria-controls="undefined_list"
           aria-haspopup="listbox"
-          aria-owns="rc_select_test_list"
+          aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_test"
           readonly=""
           role="combobox"
-          style="opacity: 0;"
+          style="opacity:0"
           type="search"
           unselectable="on"
           value=""
@@ -980,19 +979,19 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-        style="opacity: 0;"
+        class="ant-select-dropdown"
+        style="opacity:0"
       >
         <div>
           <div
-            id="rc_select_test_list"
+            id="undefined_list"
             role="listbox"
-            style="height: 0px; width: 0px; overflow: hidden;"
+            style="height:0;width:0;overflow:hidden"
           >
             <div
               aria-label="start"
               aria-selected="true"
-              id="rc_select_test_list_test"
+              id="undefined_list_0"
               role="option"
             >
               start
@@ -1000,7 +999,7 @@ Array [
             <div
               aria-label="end"
               aria-selected="false"
-              id="rc_select_test_list_test"
+              id="undefined_list_1"
               role="option"
             >
               end
@@ -1008,16 +1007,16 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
-            style="position: relative;"
+            style="position:relative"
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height:256px;overflow-y:auto;overflow-anchor:none"
             >
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  style="display: flex; flex-direction: column;"
+                  style="display:flex;flex-direction:column"
                 >
                   <div
                     aria-selected="true"
@@ -1032,7 +1031,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select: none;"
+                      style="user-select:none;-webkit-user-select:none"
                       unselectable="on"
                     />
                   </div>
@@ -1049,7 +1048,7 @@ Array [
                     <span
                       aria-hidden="true"
                       class="ant-select-item-option-state"
-                      style="user-select: none;"
+                      style="user-select:none;-webkit-user-select:none"
                       unselectable="on"
                     />
                   </div>
@@ -1063,7 +1062,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select: none;"
+      style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
@@ -1118,7 +1117,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1386,7 +1385,7 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="transform: rotate(90deg);"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >

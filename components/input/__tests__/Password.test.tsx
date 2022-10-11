@@ -71,10 +71,12 @@ describe('Input.Password', () => {
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('should not show value attribute in input element', async () => {
+    jest.useFakeTimers();
     const { container } = render(<Input.Password />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
-    await sleep();
+    jest.runAllTimers();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/24526
