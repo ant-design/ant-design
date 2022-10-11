@@ -3,7 +3,8 @@
     "baseUrl": "./",
     "paths": {
       "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"]
+      "antd/es/*": ["components/*"],
+      "antd/lib/*": ["components/*"]
     },
     "strictNullChecks": true,
     "module": "esnext",
