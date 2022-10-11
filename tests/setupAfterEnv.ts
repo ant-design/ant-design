@@ -55,7 +55,7 @@ expect.addSnapshotSerializer({
 
     // Clean up `data-reactroot` since React 18 do not have this
     children.forEach((ele: HTMLElement) => {
-      if (ele && typeof ele === 'object' && ele.removeAttribute !== undefined) {
+      if (typeof ele.removeAttribute === 'function') {
         ele.removeAttribute('data-reactroot');
       }
     });
