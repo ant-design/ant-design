@@ -85,7 +85,14 @@ const Sidebar: FC = () => {
               label: group.title,
               key: group.title,
               children: group.children?.map(item => ({
-                label: <Link to={item.link}>{item.title}</Link>,
+                label: (
+                  <Link to={item.link}>
+                    <span key="english">{item.title}</span>
+                    <span className="chinese" key="chinese">
+                      {(item.frontmatter as any).subtitle}
+                    </span>
+                  </Link>
+                ),
                 key: item.link.replace(/(-cn$)/g, ''),
               })),
             });
