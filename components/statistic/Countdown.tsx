@@ -38,10 +38,6 @@ const Countdown: React.FC<CountdownProps> = props => {
   const syncTimer = React.useCallback(() => {
     const timestamp = getTime(value);
     if (timestamp >= Date.now()) {
-      /* istanbul ignore next */
-      if (countdown.current) {
-        return;
-      }
       countdown.current = setInterval(() => {
         forceUpdate();
         onChange?.(timestamp - Date.now());
@@ -71,4 +67,4 @@ const Countdown: React.FC<CountdownProps> = props => {
   return <Statistic {...props} valueRender={valueRender} formatter={formatter} />;
 };
 
-export default Countdown;
+export default React.memo(Countdown);
