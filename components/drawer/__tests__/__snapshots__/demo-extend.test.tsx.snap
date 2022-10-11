@@ -2971,12 +2971,11 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
 
 exports[`renders ./components/drawer/demo/render-panel.md extend context correctly 1`] = `
 <div
-  class="ant-drawer ant-drawer-pure"
-  style="height:300px;box-shadow:0 0 5px red"
+  style="padding:32px;background:#e6e6e6"
 >
   <div
     class="ant-drawer ant-drawer-pure ant-drawer-right"
-    style="height: 300px;"
+    style="height:300px"
   >
     <div
       class="ant-drawer-wrapper-body"
