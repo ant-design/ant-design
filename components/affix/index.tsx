@@ -79,7 +79,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       return target;
     }
 
-    return getTargetContainer || getDefaultTarget;
+    return getTargetContainer ?? getDefaultTarget;
   }
 
   // Event handler

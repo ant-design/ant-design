@@ -5,6 +5,6 @@
  */
 import React from 'react';
 
-const AppShell = () => <div />;
+const AppShell: React.FC = () => <div />;
 
 export default AppShell;

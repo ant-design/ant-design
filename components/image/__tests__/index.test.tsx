@@ -87,4 +87,21 @@ describe('Image', () => {
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
+  it('Preview forceRender props', async () => {
+    const onLoadCb = jest.fn();
+    const PreviewImage: React.FC = () => (
+      <Image
+        preview={{
+          visible: false,
+          src,
+          forceRender: true,
+        }}
+      />
+    );
+    const { baseElement } = render(<PreviewImage />);
+    expect(baseElement.querySelector('.ant-image-preview-root')).not.toBe(null);
+    baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
+    fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
+    expect(onLoadCb).toHaveBeenCalled();
+  });
 });

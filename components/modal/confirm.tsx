@@ -26,6 +26,7 @@ export default function confirm(config: ModalFuncProps) {
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, open: true } as any;
+  let timeoutId: NodeJS.Timeout;
 
   function destroy(...args: any[]) {
     const triggerCancel = args.some(param => param && param.triggerCancel);
@@ -45,12 +46,14 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
+    clearTimeout(timeoutId);
+
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
      * Sync render blocks React event. Let's make this async.
      */
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
       const { getPrefixCls, getIconPrefixCls } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components

@@ -113,7 +113,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </h4>
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-select-selector"
@@ -122,17 +122,16 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_test"
+            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity: 0;"
+            style="opacity:0"
             type="search"
             unselectable="on"
             value=""
@@ -145,7 +144,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select: none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
         <span
@@ -174,7 +173,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </h4>
     <div
       class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-select-selector"
@@ -184,15 +183,14 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_test"
             readonly=""
             role="combobox"
-            style="opacity: 0;"
+            style="opacity:0"
             type="search"
             unselectable="on"
             value=""
@@ -205,7 +203,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select: none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
         <span
@@ -234,7 +232,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </h4>
     <div
       class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-select-selector"
@@ -244,12 +242,11 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_test"
             role="combobox"
             type="search"
             value=""
@@ -262,7 +259,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select: none;"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
         <span
@@ -307,7 +304,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -337,6 +333,8 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             class="ant-transfer-list-header-selected"
           >
             0
+            <!-- -->
+            <!-- -->
             item
           </span>
           <span
@@ -466,7 +464,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-                value=""
               />
               <span
                 class="ant-checkbox-inner"
@@ -496,6 +493,8 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             class="ant-transfer-list-header-selected"
           >
             0
+            <!-- -->
+            <!-- -->
             item
           </span>
           <span
@@ -562,7 +561,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </h4>
     <div
       class="ant-table-wrapper"
-      style="margin-top: 8px;"
+      style="margin-top:8px"
     >
       <div
         class="ant-spin-nested-loading"
@@ -580,7 +579,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                 class="ant-table-content"
               >
                 <table
-                  style="table-layout: auto;"
+                  style="table-layout:auto"
                 >
                   <colgroup />
                   <thead
@@ -738,7 +737,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
 >
   <div
     class="ant-empty-image"
-    style="height: 60px;"
+    style="height:60px"
   >
     <img
       alt="empty"
@@ -749,7 +748,7 @@ exports[`renders ./components/empty/demo/customize.md correctly 1`] = `
     class="ant-empty-description"
   >
     <span>
-      Customize 
+      Customize
       <a
         href="#API"
       >

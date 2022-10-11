@@ -258,7 +258,7 @@ const App: React.FC = () => (
 
 describe('Locale Provider', () => {
   mountTest(() => (
-    <LocaleProvider>
+    <LocaleProvider locale={null as unknown as Locale}>
       <div />
     </LocaleProvider>
   ));
@@ -304,7 +304,7 @@ describe('Locale Provider', () => {
 
   it('set dayjs locale when locale changes', () => {
     const Test: React.FC<{ locale?: Locale }> = ({ locale }) => (
-      <LocaleProvider locale={locale}>
+      <LocaleProvider locale={locale!}>
         <div>
           <DatePicker defaultValue={dayjs()} open />
         </div>

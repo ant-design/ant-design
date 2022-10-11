@@ -16,6 +16,7 @@ module.exports = {
     'app.header.menu.pro.components': 'Ant Design Pro Components',
     'app.header.menu.charts': 'Ant Design Charts',
     'app.header.menu.ecosystem': 'Ecosystem',
+    'app.header.menu.article.trigger': 'TOC',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',

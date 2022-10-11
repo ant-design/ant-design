@@ -7,23 +7,25 @@ import type { DropdownProps } from '../dropdown';
 import { render } from '../../../tests/utils';
 
 let dropdownProps: DropdownProps;
+
 jest.mock('../dropdown', () => {
   const ActualDropdown = jest.requireActual('../dropdown');
   const ActualDropdownComponent = ActualDropdown.default;
   const h: typeof React = jest.requireActual('react');
 
-  const mockedDropdown = (props: DropdownProps) => {
+  const MockedDropdown: React.FC<DropdownProps> & {
+    Button: typeof ActualDropdownComponent.Button;
+  } = props => {
     dropdownProps = props;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
-  mockedDropdown.defaultProps = ActualDropdownComponent.defaultProps;
-  mockedDropdown.Button = ActualDropdownComponent.Button;
+  MockedDropdown.Button = ActualDropdownComponent.Button;
 
   return {
     ...ActualDropdown,
     __esModule: true,
-    default: mockedDropdown,
+    default: MockedDropdown,
   };
 });
 

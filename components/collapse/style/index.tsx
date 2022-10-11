@@ -109,6 +109,14 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           },
         },
 
+        [`${componentCls}-icon-collapsible-only`]: {
+          cursor: 'default',
+
+          [`${componentCls}-expand-icon`]: {
+            cursor: 'pointer',
+          },
+        },
+
         [`&${componentCls}-no-arrow`]: {
           [`> ${componentCls}-header`]: {
             paddingInlineStart: paddingSM,

@@ -54,10 +54,11 @@ return <Tabs items={items} />;
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
+| items | Configure tab content | [TabItem](#TabItem) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
-| size | Preset tab bar size | `large` \| `default` \| `small` | `default` |  |
+| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
@@ -68,10 +69,11 @@ return <Tabs items={items} />;
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
 | onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
 | onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
+| items | TabItem content | [TabItemType](#TabItemType) | [] | 4.23.0 |
 
-More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
+More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
-### Tabs.TabPane
+### TabItemType
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -79,6 +81,5 @@ More option at [rc-tabs option](https://github.com/react-component/tabs#tabs)
 | disabled | Set TabPane disabled | boolean | false |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
 | key | TabPane's key | string | - |
-| tab | Show text in TabPane's head | ReactNode | - |
-
-More option at [rc-tabs option](https://github.com/react-component/tabs#tabpane)
+| label | TabPane's head display text | ReactNode | - |
+| children | TabPane's head display content | ReactNode | - |

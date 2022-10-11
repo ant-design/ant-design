@@ -37,6 +37,7 @@ class Demo extends React.Component {
     codeExpand: false,
     copied: false,
     copyTooltipOpen: false,
+    codeType: 'tsx',
   };
 
   componentDidMount() {
@@ -60,9 +61,10 @@ class Demo extends React.Component {
 
   getSourceCode() {
     const { highlightedCodes } = this.props;
+    const { codeType } = this.state;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
-      div.innerHTML = highlightedCodes.jsx;
+      div.innerHTML = highlightedCodes[codeType] || highlightedCodes.jsx;
       return div.textContent;
     }
     return '';
@@ -460,7 +462,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </div>
         </section>
         <section className={highlightClass} key="code">
-          <CodePreview toReactComponent={props.utils.toReactComponent} codes={highlightedCodes} />
+          <CodePreview
+            toReactComponent={props.utils.toReactComponent}
+            codes={highlightedCodes}
+            onCodeTypeChange={type => this.setState({ codeType: type })}
+          />
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>

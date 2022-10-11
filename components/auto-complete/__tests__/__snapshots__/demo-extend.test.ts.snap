@@ -4,7 +4,7 @@ exports[`renders ./components/auto-complete/demo/basic.md extend context correct
 Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-    style="width: 200px;"
+    style="width:200px"
   >
     <div
       class="ant-select-selector"
@@ -13,14 +13,13 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_-test"
+          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
-          aria-controls="rc_select_test_list"
+          aria-controls="undefined_list"
           aria-haspopup="listbox"
-          aria-owns="rc_select_test_list"
+          aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_test"
           role="combobox"
           type="search"
           value=""
@@ -34,13 +33,13 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-        style="opacity: 0;"
+        class="ant-select-dropdown ant-select-dropdown-empty"
+        style="opacity:0"
       >
         <div>
           <div
             class="ant-select-item-empty"
-            id="rc_select_test_list"
+            id="undefined_list"
             role="listbox"
           />
         </div>
@@ -51,7 +50,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-    style="width: 200px;"
+    style="width:200px"
   >
     <div
       class="ant-select-selector"
@@ -60,14 +59,13 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_test_list_-test"
+          aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
-          aria-controls="rc_select_test_list"
+          aria-controls="undefined_list"
           aria-haspopup="listbox"
-          aria-owns="rc_select_test_list"
+          aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_test"
           role="combobox"
           type="search"
           value=""
@@ -81,13 +79,13 @@ Array [
     </div>
     <div>
       <div
-        class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-        style="opacity: 0;"
+        class="ant-select-dropdown ant-select-dropdown-empty"
+        style="opacity:0"
       >
         <div>
           <div
             class="ant-select-item-empty"
-            id="rc_select_test_list"
+            id="undefined_list"
             role="listbox"
           />
         </div>
@@ -100,7 +98,7 @@ Array [
 exports[`renders ./components/auto-complete/demo/certain-category.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 250px;"
+  style="width:250px"
 >
   <div
     class="ant-select-selector"
@@ -115,14 +113,13 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="rc_select_test_list_-test"
+            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-input ant-input-lg"
-            id="rc_select_test"
             placeholder="input here"
             role="combobox"
             type="search"
@@ -165,33 +162,47 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
   </div>
   <div>
     <div
-      class="ant-select-dropdown certain-category-search-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; width: 500px;"
+      class="ant-select-dropdown certain-category-search-dropdown"
+      style="opacity:0;width:500px"
     >
       <div>
         <div
-          id="rc_select_test_list"
+          id="undefined_list"
           role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
-            id="rc_select_test_list_test"
+            id="undefined_list_0"
             role="presentation"
           />
+          <div
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
+          >
+            AntDesign
+          </div>
+          <div
+            aria-selected="false"
+            id="undefined_list_2"
+            role="option"
+          >
+            AntDesign UI
+          </div>
         </div>
         <div
           class="rc-virtual-list"
-          style="position: relative;"
+          style="position:relative"
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
           >
             <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                style="display:flex;flex-direction:column"
               >
                 <div
                   class="ant-select-item ant-select-item-group"
@@ -201,7 +212,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     <a
                       href="https://www.google.com/search?q=antd"
                       rel="noopener noreferrer"
-                      style="float: right;"
+                      style="float:right"
                       target="_blank"
                     >
                       more
@@ -210,13 +221,13 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                 </div>
                 <div
                   aria-selected="false"
-                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
                     <div
-                      style="display: flex; justify-content: space-between;"
+                      style="display:flex;justify-content:space-between"
                     >
                       AntDesign
                       <span>
@@ -239,6 +250,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                             />
                           </svg>
                         </span>
+                        <!-- -->
                         10000
                       </span>
                     </div>
@@ -246,7 +258,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -258,7 +270,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     class="ant-select-item-option-content"
                   >
                     <div
-                      style="display: flex; justify-content: space-between;"
+                      style="display:flex;justify-content:space-between"
                     >
                       AntDesign UI
                       <span>
@@ -281,6 +293,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                             />
                           </svg>
                         </span>
+                        <!-- -->
                         10600
                       </span>
                     </div>
@@ -288,7 +301,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -300,7 +313,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     <a
                       href="https://www.google.com/search?q=antd"
                       rel="noopener noreferrer"
-                      style="float: right;"
+                      style="float:right"
                       target="_blank"
                     >
                       more
@@ -315,7 +328,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     class="ant-select-item-option-content"
                   >
                     <div
-                      style="display: flex; justify-content: space-between;"
+                      style="display:flex;justify-content:space-between"
                     >
                       AntDesign UI FAQ
                       <span>
@@ -338,6 +351,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                             />
                           </svg>
                         </span>
+                        <!-- -->
                         60100
                       </span>
                     </div>
@@ -345,7 +359,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -357,7 +371,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     class="ant-select-item-option-content"
                   >
                     <div
-                      style="display: flex; justify-content: space-between;"
+                      style="display:flex;justify-content:space-between"
                     >
                       AntDesign FAQ
                       <span>
@@ -380,6 +394,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                             />
                           </svg>
                         </span>
+                        <!-- -->
                         30010
                       </span>
                     </div>
@@ -387,7 +402,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -399,7 +414,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     <a
                       href="https://www.google.com/search?q=antd"
                       rel="noopener noreferrer"
-                      style="float: right;"
+                      style="float:right"
                       target="_blank"
                     >
                       more
@@ -414,7 +429,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                     class="ant-select-item-option-content"
                   >
                     <div
-                      style="display: flex; justify-content: space-between;"
+                      style="display:flex;justify-content:space-between"
                     >
                       AntDesign design language
                       <span>
@@ -437,6 +452,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                             />
                           </svg>
                         </span>
+                        <!-- -->
                         100000
                       </span>
                     </div>
@@ -444,7 +460,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -461,7 +477,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
 exports[`renders ./components/auto-complete/demo/custom.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 200px;"
+  style="width:200px"
 >
   <div
     class="ant-select-selector"
@@ -470,17 +486,16 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
       class="ant-select-selection-search"
     >
       <textarea
-        aria-activedescendant="rc_select_test_list_-test"
+        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
-        aria-controls="rc_select_test_list"
+        aria-controls="undefined_list"
         aria-haspopup="listbox"
-        aria-owns="rc_select_test_list"
+        aria-owns="undefined_list"
         autocomplete="off"
         class="ant-input ant-select-selection-search-input custom"
-        id="rc_select_test"
         placeholder="input here"
         role="combobox"
-        style="height: 50px;"
+        style="height:50px"
         type="search"
       />
     </span>
@@ -490,13 +505,13 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0;"
+      class="ant-select-dropdown ant-select-dropdown-empty"
+      style="opacity:0"
     >
       <div>
         <div
           class="ant-select-item-empty"
-          id="rc_select_test_list"
+          id="undefined_list"
           role="listbox"
         />
       </div>
@@ -508,7 +523,7 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
 exports[`renders ./components/auto-complete/demo/form-debug.md extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
-  style="margin: 0px auto;"
+  style="margin:0 auto"
 >
   <div
     class="ant-form-item"
@@ -545,14 +560,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_-test"
+                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
-                    aria-controls="rc_select_test_list"
+                    aria-controls="undefined_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_test_list"
+                    aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_test"
                     role="combobox"
                     type="search"
                     value=""
@@ -564,13 +578,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               </div>
               <div>
                 <div
-                  class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                  style="opacity: 0;"
+                  class="ant-select-dropdown ant-select-dropdown-empty"
+                  style="opacity:0"
                 >
                   <div>
                     <div
                       class="ant-select-item-empty"
-                      id="rc_select_test_list"
+                      id="undefined_list"
                       role="listbox"
                     />
                   </div>
@@ -618,15 +632,14 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_test_list"
+                    aria-controls="undefined_list"
                     aria-haspopup="listbox"
-                    aria-owns="rc_select_test_list"
+                    aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_test"
                     readonly=""
                     role="combobox"
-                    style="opacity: 0;"
+                    style="opacity:0"
                     type="search"
                     unselectable="on"
                     value=""
@@ -638,8 +651,8 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               </div>
               <div>
                 <div
-                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                  style="opacity: 0;"
+                  class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+                  style="opacity:0"
                 >
                   <div>
                     <div
@@ -698,7 +711,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               <span
                 aria-hidden="true"
                 class="ant-select-arrow"
-                style="user-select: none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
                 <span
@@ -757,7 +770,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
             >
               <div
                 class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-                style="width: 30%;"
+                style="width:30%"
               >
                 <div
                   class="ant-select-selector"
@@ -767,15 +780,14 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_test"
                       readonly=""
                       role="combobox"
-                      style="opacity: 0;"
+                      style="opacity:0"
                       type="search"
                       unselectable="on"
                       value=""
@@ -787,8 +799,8 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
@@ -847,7 +859,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <span
                   aria-hidden="true"
                   class="ant-select-arrow"
-                  style="user-select: none;"
+                  style="user-select:none;-webkit-user-select:none"
                   unselectable="on"
                 >
                   <span
@@ -881,14 +893,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_-test"
+                      aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_test"
                       role="combobox"
                       type="search"
                       value=""
@@ -900,13 +911,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
                         class="ant-select-item-empty"
-                        id="rc_select_test_list"
+                        id="undefined_list"
                         role="listbox"
                       />
                     </div>
@@ -957,14 +968,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                     class="ant-input-affix-wrapper ant-select-selection-search-input"
                   >
                     <input
-                      aria-activedescendant="rc_select_test_list_-test"
+                      aria-activedescendant="undefined_list_0"
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-input"
-                      id="rc_select_test"
                       role="combobox"
                       type="search"
                       value=""
@@ -1000,13 +1010,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
               </div>
               <div>
                 <div
-                  class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                  style="opacity: 0;"
+                  class="ant-select-dropdown ant-select-dropdown-empty"
+                  style="opacity:0"
                 >
                   <div>
                     <div
                       class="ant-select-item-empty"
-                      id="rc_select_test_list"
+                      id="undefined_list"
                       role="listbox"
                     />
                   </div>
@@ -1048,7 +1058,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
             >
               <div
                 class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-                style="width: 30%;"
+                style="width:30%"
               >
                 <div
                   class="ant-select-selector"
@@ -1058,15 +1068,14 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_test"
                       readonly=""
                       role="combobox"
-                      style="opacity: 0;"
+                      style="opacity:0"
                       type="search"
                       unselectable="on"
                       value=""
@@ -1078,8 +1087,8 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
@@ -1138,7 +1147,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <span
                   aria-hidden="true"
                   class="ant-select-arrow"
-                  style="user-select: none;"
+                  style="user-select:none;-webkit-user-select:none"
                   unselectable="on"
                 >
                   <span
@@ -1175,14 +1184,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                       class="ant-input-affix-wrapper ant-select-selection-search-input"
                     >
                       <input
-                        aria-activedescendant="rc_select_test_list_-test"
+                        aria-activedescendant="undefined_list_0"
                         aria-autocomplete="list"
-                        aria-controls="rc_select_test_list"
+                        aria-controls="undefined_list"
                         aria-haspopup="listbox"
-                        aria-owns="rc_select_test_list"
+                        aria-owns="undefined_list"
                         autocomplete="off"
                         class="ant-input"
-                        id="rc_select_test"
                         role="combobox"
                         type="search"
                         value=""
@@ -1218,13 +1226,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
                         class="ant-select-item-empty"
-                        id="rc_select_test_list"
+                        id="undefined_list"
                         role="listbox"
                       />
                     </div>
@@ -1267,7 +1275,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
             >
               <div
                 class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-                style="width: 30%;"
+                style="width:30%"
               >
                 <div
                   class="ant-select-selector"
@@ -1277,15 +1285,14 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_test"
                       readonly=""
                       role="combobox"
-                      style="opacity: 0;"
+                      style="opacity:0"
                       type="search"
                       unselectable="on"
                       value=""
@@ -1297,8 +1304,8 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
@@ -1357,7 +1364,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <span
                   aria-hidden="true"
                   class="ant-select-arrow"
-                  style="user-select: none;"
+                  style="user-select:none;-webkit-user-select:none"
                   unselectable="on"
                 >
                   <span
@@ -1397,14 +1404,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="rc_select_test_list_-test"
+                          aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
-                          aria-controls="rc_select_test_list"
+                          aria-controls="undefined_list"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_test_list"
+                          aria-owns="undefined_list"
                           autocomplete="off"
                           class="ant-input"
-                          id="rc_select_test"
                           role="combobox"
                           type="search"
                           value=""
@@ -1446,13 +1452,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
                         class="ant-select-item-empty"
-                        id="rc_select_test_list"
+                        id="undefined_list"
                         role="listbox"
                       />
                     </div>
@@ -1495,7 +1501,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
             >
               <div
                 class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-                style="width: 20%;"
+                style="width:20%"
               >
                 <div
                   class="ant-select-selector"
@@ -1505,15 +1511,14 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_test_list"
+                      aria-controls="undefined_list"
                       aria-haspopup="listbox"
-                      aria-owns="rc_select_test_list"
+                      aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_test"
                       readonly=""
                       role="combobox"
-                      style="opacity: 0;"
+                      style="opacity:0"
                       type="search"
                       unselectable="on"
                       value=""
@@ -1525,8 +1530,8 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
@@ -1585,7 +1590,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 <span
                   aria-hidden="true"
                   class="ant-select-arrow"
-                  style="user-select: none;"
+                  style="user-select:none;-webkit-user-select:none"
                   unselectable="on"
                 >
                   <span
@@ -1625,14 +1630,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                         class="ant-input-wrapper ant-input-group"
                       >
                         <input
-                          aria-activedescendant="rc_select_test_list_-test"
+                          aria-activedescendant="undefined_list_0"
                           aria-autocomplete="list"
-                          aria-controls="rc_select_test_list"
+                          aria-controls="undefined_list"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_test_list"
+                          aria-owns="undefined_list"
                           autocomplete="off"
                           class="ant-input"
-                          id="rc_select_test"
                           role="combobox"
                           type="search"
                           value=""
@@ -1674,13 +1678,13 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                 </div>
                 <div>
                   <div
-                    class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                    style="opacity: 0;"
+                    class="ant-select-dropdown ant-select-dropdown-empty"
+                    style="opacity:0"
                   >
                     <div>
                       <div
                         class="ant-select-item-empty"
-                        id="rc_select_test_list"
+                        id="undefined_list"
                         role="listbox"
                       />
                     </div>
@@ -1726,7 +1730,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
 exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-  style="width: 200px;"
+  style="width:200px"
 >
   <div
     class="ant-select-selector"
@@ -1735,14 +1739,13 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_-test"
+        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
-        aria-controls="rc_select_test_list"
+        aria-controls="undefined_list"
         aria-haspopup="listbox"
-        aria-owns="rc_select_test_list"
+        aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
-        id="rc_select_test"
         role="combobox"
         type="search"
         value=""
@@ -1756,39 +1759,46 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0;"
+      class="ant-select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div
-          id="rc_select_test_list"
+          id="undefined_list"
           role="listbox"
-          style="height: 0px; width: 0px; overflow: hidden;"
+          style="height:0;width:0;overflow:hidden"
         >
           <div
             aria-selected="false"
-            id="rc_select_test_list_test"
+            id="undefined_list_0"
             role="option"
           >
             Burns Bay Road
           </div>
+          <div
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
+          >
+            Downing Street
+          </div>
         </div>
         <div
           class="rc-virtual-list"
-          style="position: relative;"
+          style="position:relative"
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height:256px;overflow-y:auto;overflow-anchor:none"
           >
             <div>
               <div
                 class="rc-virtual-list-holder-inner"
-                style="display: flex; flex-direction: column;"
+                style="display:flex;flex-direction:column"
               >
                 <div
                   aria-selected="false"
-                  class="ant-select-item ant-select-item-option"
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Burns Bay Road"
                 >
                   <div
@@ -1799,7 +1809,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -1816,7 +1826,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -1833,7 +1843,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
                   <span
                     aria-hidden="true"
                     class="ant-select-item-option-state"
-                    style="user-select: none;"
+                    style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   />
                 </div>
@@ -1850,7 +1860,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
 exports[`renders ./components/auto-complete/demo/options.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
-  style="width: 200px;"
+  style="width:200px"
 >
   <div
     class="ant-select-selector"
@@ -1859,14 +1869,13 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="rc_select_test_list_-test"
+        aria-activedescendant="undefined_list_0"
         aria-autocomplete="list"
-        aria-controls="rc_select_test_list"
+        aria-controls="undefined_list"
         aria-haspopup="listbox"
-        aria-owns="rc_select_test_list"
+        aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
-        id="rc_select_test"
         role="combobox"
         type="search"
         value=""
@@ -1880,13 +1889,13 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0;"
+      class="ant-select-dropdown ant-select-dropdown-empty"
+      style="opacity:0"
     >
       <div>
         <div
           class="ant-select-item-empty"
-          id="rc_select_test_list"
+          id="undefined_list"
           role="listbox"
         />
       </div>
@@ -2077,15 +2086,15 @@ exports[`renders ./components/auto-complete/demo/render-panel.md extend context 
 exports[`renders ./components/auto-complete/demo/status.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-select ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-select-selector"
@@ -2094,14 +2103,13 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_-test"
+            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_test"
             role="combobox"
             type="search"
             value=""
@@ -2113,13 +2121,13 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-          style="opacity: 0;"
+          class="ant-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0"
         >
           <div>
             <div
               class="ant-select-item-empty"
-              id="rc_select_test_list"
+              id="undefined_list"
               role="listbox"
             />
           </div>
@@ -2132,7 +2140,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
   >
     <div
       class="ant-select ant-select-status-warning ant-select-auto-complete ant-select-single ant-select-show-search"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-select-selector"
@@ -2141,14 +2149,13 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_test_list_-test"
+            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_test"
             role="combobox"
             type="search"
             value=""
@@ -2160,13 +2167,13 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
       </div>
       <div>
         <div
-          class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-          style="opacity: 0;"
+          class="ant-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0"
         >
           <div>
             <div
               class="ant-select-item-empty"
-              id="rc_select_test_list"
+              id="undefined_list"
               role="listbox"
             />
           </div>
@@ -2180,7 +2187,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
 exports[`renders ./components/auto-complete/demo/uncertain-category.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
-  style="width: 300px;"
+  style="width:300px"
 >
   <div
     class="ant-select-selector"
@@ -2195,14 +2202,13 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md extend co
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            aria-activedescendant="rc_select_test_list_-test"
+            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_test_list"
+            aria-controls="undefined_list"
             aria-haspopup="listbox"
-            aria-owns="rc_select_test_list"
+            aria-owns="undefined_list"
             autocomplete="off"
             class="ant-input ant-input-lg"
-            id="rc_select_test"
             placeholder="input here"
             role="combobox"
             type="search"
@@ -2245,13 +2251,13 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md extend co
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; width: 252px;"
+      class="ant-select-dropdown ant-select-dropdown-empty"
+      style="opacity:0;width:252px"
     >
       <div>
         <div
           class="ant-select-item-empty"
-          id="rc_select_test_list"
+          id="undefined_list"
           role="listbox"
         />
       </div>
