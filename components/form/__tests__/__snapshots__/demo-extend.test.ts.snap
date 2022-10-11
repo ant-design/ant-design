@@ -5061,12 +5061,11 @@ Array [
                   class="ant-upload-list ant-upload-list-picture-card"
                 >
                   <div
-                    class="ant-upload ant-upload-select ant-upload-select-picture-card"
+                    class="ant-upload ant-upload-select ant-upload-select-picture-card ant-upload-disabled"
                   >
                     <span
-                      class="ant-upload"
+                      class="ant-upload ant-upload-disabled"
                       role="button"
-                      tabindex="0"
                     >
                       <input
                         accept=""
