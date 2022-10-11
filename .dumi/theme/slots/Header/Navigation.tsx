@@ -103,11 +103,15 @@ export default ({
 
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
-  const module = pathname.split('/').slice(0, -1).join('/');
+  const module = pathname
+    .split('/')
+    .filter(path => path)
+    .slice(0, -1)
+    .join('/');
   let activeMenuItem = module || 'home';
-  if (pathname === 'changelog' || pathname === 'changelog-cn') {
+  if (pathname.startsWith('/changelog')) {
     activeMenuItem = 'docs/react';
-  } else if (pathname === 'docs/resources' || pathname === 'docs/resources-cn') {
+  } else if (pathname.startsWith('/docs/resources')) {
     activeMenuItem = 'docs/resources';
   }
 
@@ -182,7 +186,7 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       ),
-      key: 'docs/resources',
+      key: '/docs/resources',
     },
     showTechUIButton
       ? {
