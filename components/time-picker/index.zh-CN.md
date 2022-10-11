@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间选择框
-type: 数据录入
+group: 数据录入
 title: TimePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 demo:

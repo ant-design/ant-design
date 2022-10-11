@@ -6,8 +6,7 @@ import { version } from './package.json';
 export default defineConfig({
   outputPath: '_site',
   resolve: {
-    // FIXME: disable docs in temporary
-    docDirs: [],
+    docDirs: [{ type: 'doc', dir: 'docs' }],
     entityDirs: [{ type: 'component', dir: 'components' }],
     codeBlockMode: 'passive',
   },

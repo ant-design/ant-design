@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tree
 cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 demo:

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Progress
 cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 demo:

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 栅格
-type: 布局
+group: 布局
 title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 ---

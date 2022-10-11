@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Slider
 cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 demo:

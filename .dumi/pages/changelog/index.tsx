@@ -1,3 +1,7 @@
+/**
+ * title: Changelog
+ */
+
 import React, { type FC } from 'react';
 
 const Changelog: FC = () => {

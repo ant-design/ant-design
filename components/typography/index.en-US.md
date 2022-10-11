@@ -1,6 +1,6 @@
 ---
 category: Components
-type: General
+group: General
 title: Typography
 cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 ---

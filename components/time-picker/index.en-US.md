@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: TimePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 demo:

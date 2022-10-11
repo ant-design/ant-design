@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Other
+group: Other
 title: ConfigProvider
 cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 ---

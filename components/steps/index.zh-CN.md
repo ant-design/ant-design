@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 步骤条
-type: 导航
+group: 导航
 title: Steps
 cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 ---

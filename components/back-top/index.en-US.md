@@ -1,10 +1,11 @@
 ---
 category: Components
-type: Other
 title: BackTop
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 demo:
   cols: 2
+group: Other
+order: 1
 ---
 
 `BackTop` makes it easy to go back to the top of the page.

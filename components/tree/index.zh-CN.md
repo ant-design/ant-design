@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Tree
 subtitle: 树形控件
 cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
@@ -117,8 +117,8 @@ demo:
 
 ### Tree 方法
 
-| 名称 | 说明 |
-| --- | --- |
+| 名称                                                                                      | 说明                            |
+| ----------------------------------------------------------------------------------------- | ------------------------------- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
 ## FAQ

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Rate
 cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
 demo:

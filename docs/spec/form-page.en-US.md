@@ -1,15 +1,9 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 模板文档
-  en-US: Template Document
+group: Design Patterns
+type: Template Document
 order: 1
 skip: true
-title:
-  zh-CN: 表单页
-  en-US: Form Page
+title: Form Page
 ---
 
 表单页是一种用于信息添加、录入的页面类型。用来确保用户按照要求录入信息提交给系统使用或引导用户进行应用设置。

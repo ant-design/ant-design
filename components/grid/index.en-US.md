@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Layout
+group: Layout
 title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 ---

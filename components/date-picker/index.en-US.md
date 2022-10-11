@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: DatePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
 demo:

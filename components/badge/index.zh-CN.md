@@ -1,11 +1,11 @@
 ---
 category: Components
 subtitle: 徽标数
-type: 数据展示
 title: Badge
 cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
 demo:
   cols: 2
+group: 数据展示
 ---
 
 图标右上角的圆形徽标数字。

@@ -1,5 +1,5 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer

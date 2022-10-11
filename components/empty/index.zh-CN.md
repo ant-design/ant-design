@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 空状态
-type: 数据展示
+group: 数据展示
 title: Empty
 cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
 ---

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Card
 cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
 ---

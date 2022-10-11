@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 布局
+group: 布局
 subtitle: 间距
 title: Space
 cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg

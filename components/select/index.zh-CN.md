@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 选择器
-type: 数据录入
+group: 数据录入
 title: Select
 cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 demo:

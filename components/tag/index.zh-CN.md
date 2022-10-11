@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签
-type: 数据展示
+group: 数据展示
 title: Tag
 cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 demo:

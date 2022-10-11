@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 图片
-type: 数据展示
+group: 数据展示
 title: Image
 cols: 2
 cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg

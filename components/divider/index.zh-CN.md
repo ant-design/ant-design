@@ -1,11 +1,13 @@
 ---
 category: Components
-type: 布局
 title: Divider
 subtitle: 分割线
 cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
 demo:
   cols: 2
+group:
+  title: 布局
+  order: 2
 ---
 
 区隔内容的分割线。

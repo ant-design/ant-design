@@ -1,11 +1,11 @@
 ---
 category: Components
-type: 其他
 subtitle: 回到顶部
 title: BackTop
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
 demo:
   cols: 2
+group: 其他
 ---
 
 返回页面顶部的操作按钮。

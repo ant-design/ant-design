@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: List
 subtitle: 列表
 cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 描述列表
-type: 数据展示
+group: 数据展示
 title: Descriptions
 cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 ---

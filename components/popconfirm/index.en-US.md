@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Popconfirm
 cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
 demo:

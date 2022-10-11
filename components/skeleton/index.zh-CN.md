@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 骨架屏
-type: 反馈
+group: 反馈
 title: Skeleton
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---

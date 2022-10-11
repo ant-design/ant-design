@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 反馈
+group: 反馈
 title: Spin
 subtitle: 加载中
 cover: https://gw.alipayobjects.com/zos/alicdn/LBcJqCPRv/Spin.svg

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Menu
 cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 表单
-type: 数据录入
+group: 数据录入
 title: Form
 cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 ---

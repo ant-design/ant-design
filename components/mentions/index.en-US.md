@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Mentions
 cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
 demo:

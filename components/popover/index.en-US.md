@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Popover
 cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 demo:

@@ -1,10 +1,10 @@
 ---
 category: Components
-type: Data Display
 title: Badge
 cover: https://gw.alipayobjects.com/zos/antfincdn/6%26GF9WHwvY/Badge.svg
 demo:
   cols: 2
+group: Data Display
 ---
 
 Small numerical value or status descriptor for UI elements.

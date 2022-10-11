@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Collapse
 subtitle: 折叠面板
 cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg

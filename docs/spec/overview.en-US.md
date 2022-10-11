@@ -1,5 +1,7 @@
 ---
-category: Design Patterns
+group:
+  title: Design Patterns
+  order: 2
 order: 0
 title: Overview
 ---
