@@ -30,7 +30,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onChange,
     onDrop,
     previewFile,
-    disabled: customDisabled = false,
+    disabled: customDisabled,
     locale: propLocale,
     iconRender,
     isImageUrl,
