@@ -56,7 +56,7 @@ const Countdown: React.FC<CountdownProps> = props => {
         countdown.current = null;
       }
     };
-  }, [value, onFinish]);
+  }, [value]);
 
   const formatter = (value: countdownValueType, config: FormatConfig) =>
     formatCountdown(value, { ...config, format });
