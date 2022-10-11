@@ -3,7 +3,7 @@
 exports[`renders ./components/image/demo/basic.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px;"
+  style="width:200px"
 >
   <img
     class="ant-image-img"
@@ -45,6 +45,7 @@ exports[`renders ./components/image/demo/controlled-preview.md extend context co
 Array [
   <div>
     scaleStep:
+    <!-- -->
     <div
       class="ant-input-number"
     >
@@ -133,17 +134,17 @@ Array [
   </button>,
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-      style="display: none;"
+      style="display:none"
       width="200"
     />
     <div
       class="ant-image-mask"
-      style="display: none;"
+      style="display:none"
     >
       <div
         class="ant-image-mask-info"
@@ -177,13 +178,13 @@ Array [
 exports[`renders ./components/image/demo/fallback.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px; height: 200px;"
+  style="width:200px;height:200px"
 >
   <img
     class="ant-image-img"
     height="200"
     src="error"
-    style="height: 200px;"
+    style="height:200px"
     width="200"
   />
   <div
@@ -223,11 +224,11 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-right: 12px;"
+    style="margin-right:12px"
   >
     <div
       class="ant-image"
-      style="width: 200px;"
+      style="width:200px"
     >
       <img
         class="ant-image-img"
@@ -240,7 +241,7 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
       >
         <div
           class="ant-image"
-          style="width: 200px;"
+          style="width:200px"
         >
           <img
             class="ant-image-img"
@@ -298,7 +299,7 @@ exports[`renders ./components/image/demo/preview-group.md extend context correct
 Array [
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -336,7 +337,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -379,7 +380,7 @@ exports[`renders ./components/image/demo/preview-group-top-progress.md extend co
 Array [
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -417,7 +418,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -455,7 +456,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -498,7 +499,7 @@ exports[`renders ./components/image/demo/preview-group-visible.md extend context
 Array [
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -535,7 +536,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display: none;"
+    style="display:none"
   >
     <div
       class="ant-image"
@@ -652,7 +653,7 @@ Array [
 exports[`renders ./components/image/demo/preview-mask.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 96px;"
+  style="width:96px"
 >
   <img
     class="ant-image-img"
@@ -667,7 +668,7 @@ exports[`renders ./components/image/demo/preview-mask.md extend context correctl
     >
       <div
         class="ant-space-item"
-        style="margin-bottom: 8px;"
+        style="margin-bottom:8px"
       >
         <span
           aria-label="zoom-in"
@@ -702,7 +703,7 @@ exports[`renders ./components/image/demo/preview-mask.md extend context correctl
 exports[`renders ./components/image/demo/previewSrc.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px;"
+  style="width:200px"
 >
   <img
     class="ant-image-img"

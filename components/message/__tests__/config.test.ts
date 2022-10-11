@@ -168,7 +168,7 @@ describe('message.config', () => {
   });
 
   it('should be able to config getContainer, although messageInstance already exists', () => {
-    function createContainer() {
+    function createContainer(): [HTMLElement, () => void] {
       const container = document.createElement('div');
       document.body.appendChild(container);
       return [

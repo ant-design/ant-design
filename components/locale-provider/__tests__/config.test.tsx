@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { act } from 'react-dom/test-utils';
 import { Modal } from '../..';
 import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
-class Demo extends React.Component<{ type: string }> {
-  static defaultProps = {};
-
-  componentDidMount() {
-    if (this.props.type === 'dashboard') {
+const Demo: React.FC<{ type: string }> = ({ type }) => {
+  useEffect(() => {
+    if (type === 'dashboard') {
       Modal.confirm({ title: 'Hello World!' });
     }
-  }
-
-  render() {
-    return <div>{this.props.type}</div>;
-  }
-}
+  }, []);
+  return null;
+};
 
 describe('Locale Provider demo', () => {
   it('change type', async () => {

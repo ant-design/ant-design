@@ -52,7 +52,7 @@ const localeValues: Locale = {
     remove: 'Удалить',
     selectAll: 'Выбрать все данные',
     selectCurrent: 'Выбрать текущую страницу',
-    selectInvert: 'Показать в обратном порядке',
+    selectInvert: 'Инвертировать выбор',
     removeAll: 'Удалить все данные',
     removeCurrent: 'Удалить текущую страницу',
   },

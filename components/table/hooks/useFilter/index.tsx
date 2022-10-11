@@ -205,7 +205,7 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
-  const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
+  const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
     collectFilterStates(mergedColumns, true),
   );
 
