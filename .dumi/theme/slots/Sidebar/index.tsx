@@ -16,11 +16,9 @@ const Sidebar: FC = () => {
   const { isMobile } = useContext(SiteContext);
   const { pathname } = useLocation();
 
-  const menuItems = useMemo<MenuProps['items']>(() => {
-    const items: MenuProps['items'] = [];
-    for (const group of sidebarData) {
+  const menuItems = useMemo<MenuProps['items']>(() => sidebarData?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
       if (group.title) {
-        items.push({
+        result.push({
           type: 'group',
           label: group.title,
           key: group.title,
@@ -30,16 +28,13 @@ const Sidebar: FC = () => {
           })),
         });
       } else {
-        items.push(
-          ...group.children?.map(item => ({
-            label: <Link to={item.link}>{item.title}</Link>,
-            key: item.link.replace(/(-cn$)/g, ''),
-          })),
-        );
+        result.push(...group.children?.map(item => ({
+          label: <Link to={item.link}>{item.title}</Link>,
+          key: item.link.replace(/(-cn$)/g, ''),
+        })));
       }
-    }
-    return items;
-  }, [sidebarData]);
+      return result;
+    }, []) ?? [], [sidebarData]);
 
   const selectedKeys = useMemo(() => [pathname], [pathname]);
 
@@ -47,7 +42,7 @@ const Sidebar: FC = () => {
     <Menu
       items={menuItems}
       inlineIndent={30}
-      className="aside-container"
+      className="aside-container menu-site"
       mode="inline"
       // openKeys={openKeys}
       selectedKeys={selectedKeys}
@@ -62,7 +57,7 @@ const Sidebar: FC = () => {
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
       <Affix>
-        <section style={{ width: '100%' }}>{menuChild}</section>
+        <section style={{ width: '100%' }} className="main-menu-inner">{menuChild}</section>
       </Affix>
     </Col>
   );

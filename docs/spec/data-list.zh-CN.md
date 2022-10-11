@@ -7,9 +7,7 @@ type:
   en-US: Global Rules
 order: 7
 skip: true
-title:
-  zh-CN: 数据列表
-  en-US: Data List
+title: 数据列表
 ---
 
 ## 设计目标
