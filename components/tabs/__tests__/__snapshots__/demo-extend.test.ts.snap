@@ -21,16 +21,7 @@ Array [
         <span
           class="ant-switch-inner"
         >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            inkBar
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            inkBar
-          </span>
+          inkBar
         </span>
       </button>
     </div>
@@ -49,16 +40,7 @@ Array [
         <span
           class="ant-switch-inner"
         >
-          <span
-            class="ant-switch-inner-checked"
-          >
-            tabPane
-          </span>
-          <span
-            class="ant-switch-inner-unchecked"
-          >
-            tabPane
-          </span>
+          tabPane
         </span>
       </button>
     </div>

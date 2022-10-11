@@ -921,16 +921,7 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      <span
-        class="ant-switch-inner-checked"
-      >
-        Border
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      >
-        No Border
-      </span>
+      Border
     </span>
   </button>,
   <div

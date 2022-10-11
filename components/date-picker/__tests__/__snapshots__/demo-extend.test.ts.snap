@@ -39410,11 +39410,11 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
 
 exports[`renders ./components/date-picker/demo/render-panel.md extend context correctly 1`] = `
 <div
-  style="padding-bottom: 0px; position: relative; min-width: 0;"
+  style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
   <div
     class="ant-picker"
-    style="margin: 0px;"
+    style="margin:0"
   >
     <div
       class="ant-picker-input"
@@ -39454,8 +39454,8 @@ exports[`renders ./components/date-picker/demo/render-panel.md extend context co
   </div>
   <div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0;"
+      class="ant-picker-dropdown"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -40006,9 +40006,6 @@ exports[`renders ./components/date-picker/demo/render-panel.md extend context co
       </div>
     </div>
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </div>
 `;
 

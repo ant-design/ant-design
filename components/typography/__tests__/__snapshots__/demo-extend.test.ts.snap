@@ -229,14 +229,7 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
+    />
   </button>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -352,14 +345,7 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      <span
-        class="ant-switch-inner-checked"
-      >
-        Long Text
-      </span>
-      <span
-        class="ant-switch-inner-unchecked"
-      />
+      Long Text
     </span>
   </button>,
   <button
@@ -373,14 +359,7 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
+    />
   </button>,
   <button
     aria-checked="false"
@@ -393,14 +372,7 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
+    />
   </button>,
   <button
     aria-checked="false"
@@ -413,14 +385,7 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
+    />
   </button>,
   <div
     class="ant-slider ant-slider-horizontal"

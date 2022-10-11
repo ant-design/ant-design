@@ -163,8 +163,7 @@ const Modal: React.FC<ModalProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    footer,
-    open = false,
+    open,
     wrapClassName,
     centered,
     getContainer,

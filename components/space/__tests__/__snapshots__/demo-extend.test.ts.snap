@@ -178,9 +178,11 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
     class="ant-space-item"
     style="margin-right:8px"
   >
-    <span>
+    <span
+      class="ant-upload-wrapper"
+    >
       <div
-        class="ant-upload ant-upload-select ant-upload-select-text"
+        class="ant-upload ant-upload-select"
       >
         <span
           class="ant-upload"
@@ -257,13 +259,13 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
-                  class="ant-popover-message-icon"
+                  class="ant-popconfirm-message-icon"
                 >
                   <span
                     aria-label="exclamation-circle"
@@ -286,13 +288,13 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
                   </span>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -491,13 +493,13 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
-                  class="ant-popover-message-icon"
+                  class="ant-popconfirm-message-icon"
                 >
                   <span
                     aria-label="exclamation-circle"
@@ -520,13 +522,13 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
                   </span>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -590,13 +592,13 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
-                  class="ant-popover-message-icon"
+                  class="ant-popconfirm-message-icon"
                 >
                   <span
                     aria-label="exclamation-circle"
@@ -619,13 +621,13 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
                   </span>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"

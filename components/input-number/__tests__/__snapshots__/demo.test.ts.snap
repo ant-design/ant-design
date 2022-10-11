@@ -825,7 +825,7 @@ exports[`renders ./components/input-number/demo/debug-token.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1824,11 +1824,11 @@ Array [
 
 exports[`renders ./components/input-number/demo/render-panel.md correctly 1`] = `
 <div
-  style="display: flex; flex-direction: column; row-gap: 16px;"
+  style="display:flex;flex-direction:column;row-gap:16px"
 >
   <div
     class="ant-input-number"
-    style="width: 100%;"
+    style="width:100%"
   >
     <div
       class="ant-input-number-handler-wrap"

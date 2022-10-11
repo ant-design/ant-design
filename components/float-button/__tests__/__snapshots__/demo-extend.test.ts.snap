@@ -2,7 +2,7 @@
 
 exports[`renders ./components/float-button/demo/back-top.md extend context correctly 1`] = `
 <div
-  style="height: 500vh; padding: 10px;"
+  style="height:500vh;padding:10px"
 >
   <div>
     Scroll to bottom
@@ -71,7 +71,7 @@ exports[`renders ./components/float-button/demo/description.md extend context co
 Array [
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 24px;"
+    style="right:24px"
     type="button"
   >
     <div
@@ -113,7 +113,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 94px;"
+    style="right:94px"
     type="button"
   >
     <div
@@ -132,7 +132,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-square"
-    style="right: 164px;"
+    style="right:164px"
     type="button"
   >
     <div
@@ -179,7 +179,7 @@ exports[`renders ./components/float-button/demo/group.md extend context correctl
 Array [
   <div
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
-    style="right: 24px;"
+    style="right:24px"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
@@ -259,7 +259,7 @@ Array [
   </div>,
   <div
     class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
-    style="right: 94px;"
+    style="right:94px"
   >
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-square"
@@ -423,7 +423,7 @@ exports[`renders ./components/float-button/demo/shape.md extend context correctl
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin: 20px;"
+    style="margin:20px"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -546,8 +546,8 @@ exports[`renders ./components/float-button/demo/tooltip.md extend context correc
     </div>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -578,7 +578,7 @@ exports[`renders ./components/float-button/demo/type.md extend context correctly
 Array [
   <button
     class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
-    style="right: 24px;"
+    style="right:24px"
     type="button"
   >
     <div
@@ -618,7 +618,7 @@ Array [
   </button>,
   <button
     class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-    style="right: 94px;"
+    style="right:94px"
     type="button"
   >
     <div

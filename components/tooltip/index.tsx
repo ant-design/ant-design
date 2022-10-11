@@ -349,4 +349,6 @@ if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';
 }
 
+Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
 export default Tooltip;

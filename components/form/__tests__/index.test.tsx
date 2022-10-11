@@ -1407,12 +1407,12 @@ describe('Form', () => {
     const Demo: React.FC = () => (
       <Form>
         <Form.Item labelCol={4 as ColProps} validateStatus="error">
-          <Modal visible>
+          <Modal open>
             <Select className="modal-select" />
           </Modal>
         </Form.Item>
         <Form.Item validateStatus="error">
-          <Drawer visible>
+          <Drawer open>
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
