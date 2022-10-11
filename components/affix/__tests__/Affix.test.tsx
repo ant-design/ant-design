@@ -1,5 +1,5 @@
 import React from 'react';
-import type { InternalAffixClass } from '..';
+import type { AffixProps, InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -117,6 +117,12 @@ describe('Affix Render', () => {
 
     await movePlaceholder(0);
     expect(container.querySelector('.ant-affix')).toBeFalsy();
+  });
+
+  it('Anchor correct render when target is null', async () => {
+    expect(() => {
+      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
+    }).not.toThrow();
   });
 
   it('support offsetBottom', async () => {
