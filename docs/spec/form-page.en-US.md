@@ -1,10 +1,6 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 模板文档
-  en-US: Template Document
+group: Design Patterns
+type: Template Document
 order: 1
 skip: true
 title: Form Page

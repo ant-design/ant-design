@@ -6,6 +6,7 @@ import { version } from './package.json';
 export default defineConfig({
   outputPath: '_site',
   resolve: {
+    docDirs: [{ type: 'doc', dir: 'docs' }],
     entityDirs: [{ type: 'component', dir: 'components' }],
     codeBlockMode: 'passive',
   },

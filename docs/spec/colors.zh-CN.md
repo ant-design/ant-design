@@ -1,5 +1,7 @@
 ---
-category: 全局样式
+group:
+  title: 全局样式
+  order: 1
 order: 0
 title: 色彩
 ---

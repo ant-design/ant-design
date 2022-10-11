@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Principles
 order: 2
 title: Alignment

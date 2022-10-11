@@ -1,10 +1,6 @@
 ---
-category:
-  zh-CN: 设计模式
-  en-US: Design Patterns
-type:
-  zh-CN: 全局规则
-  en-US: Global Rules
+group: Design Patterns
+type: Global Rules
 order: 7
 skip: true
 title: Data List

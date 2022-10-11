@@ -1,5 +1,7 @@
 ---
-category: 设计模式
+group:
+  title: 设计模式
+  order: 2
 order: 0
 title: 概览
 ---
