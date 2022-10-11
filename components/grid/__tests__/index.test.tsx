@@ -162,10 +162,6 @@ describe('Grid', () => {
     expect(container2.innerHTML).toContain('ant-row-middle');
     const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
     expect(container3.innerHTML).not.toContain('ant-row-middle');
-    const { container: container4 } = render(<Row align={{ lg: 'middle', other: 'bottom' }} />);
-    expect(container4.innerHTML).toContain('ant-row-bottom');
-    const { container: container5 } = render(<Row align={{ xs: 'middle', other: 'bottom' }} />);
-    expect(container5.innerHTML).toContain('ant-row-middle');
   });
 
   it('should justify by responsive justify prop', () => {
@@ -186,9 +182,5 @@ describe('Grid', () => {
     expect(container2.innerHTML).toContain('ant-row-center');
     const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
     expect(container3.innerHTML).not.toContain('ant-row-center');
-    const { container: container4 } = render(<Row justify={{ lg: 'center', other: 'end' }} />);
-    expect(container4.innerHTML).toContain('ant-row-end');
-    const { container: container5 } = render(<Row justify={{ xs: 'center', other: 'end' }} />);
-    expect(container5.innerHTML).toContain('ant-row-center');
   });
 });

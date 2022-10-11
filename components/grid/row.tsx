@@ -10,7 +10,7 @@ import RowContext from './RowContext';
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
-type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'other';
+type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
@@ -39,13 +39,7 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
       if (!screen[breakpoint]) continue;
-      // When 'align' and 'justify' sets the 'other' attribute,
-      // we need to set the value of the response attribute not explicitly set in 'align' adn 'justify' to the value of 'other'
       const curVal = oriProp[breakpoint];
-      if (oriProp.other && !curVal) {
-        setProp(oriProp.other);
-        return;
-      }
       if (curVal !== undefined) {
         setProp(curVal);
         return;
