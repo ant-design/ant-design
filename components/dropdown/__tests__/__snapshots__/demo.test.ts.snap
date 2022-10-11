@@ -157,7 +157,7 @@ exports[`renders ./components/dropdown/demo/basic-close-on-click.md correctly 1`
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       Hover me
     </div>
