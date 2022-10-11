@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import * as React from 'react';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
@@ -58,8 +57,8 @@ const Countdown: React.FC<CountdownProps> = props => {
     };
   }, [value]);
 
-  const formatter = (value: countdownValueType, config: FormatConfig) =>
-    formatCountdown(value, { ...config, format });
+  const formatter = (formatValue: countdownValueType, config: FormatConfig) =>
+    formatCountdown(formatValue, { ...config, format });
 
   const valueRender = (node: React.ReactElement<HTMLDivElement>) =>
     cloneElement(node, { title: undefined });
