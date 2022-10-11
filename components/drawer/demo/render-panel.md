@@ -23,7 +23,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalDrawer } = Drawer;
 
 export default () => (
   <div style={{ padding: 32, background: '#e6e6e6' }}>
-    <InternalDrawer title="Hello Title" style={{ height: 300 }} footer="Footer!" placement="right">
+    <InternalDrawer title="Hello Title" style={{ height: 300 }} footer="Footer!">
       Hello Content
     </InternalDrawer>
   </div>
