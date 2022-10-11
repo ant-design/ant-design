@@ -38,7 +38,7 @@ Array [
       >
         <span
           class="ant-scroll-number-only"
-          style="transition: none;"
+          style="transition:none"
         >
           <span
             class="ant-scroll-number-only-unit current"
@@ -90,7 +90,7 @@ Array [
   <div>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
+      style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <span
         aria-label="user"
@@ -185,7 +185,7 @@ Array [
   <div>
     <span
       class="ant-avatar ant-avatar-square ant-avatar-icon"
-      style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
+      style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <span
         aria-label="user"
@@ -284,18 +284,18 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
 Array [
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
-    style="background-color: rgb(245, 106, 0); vertical-align: middle;"
+    style="background-color:#f56a00;vertical-align:middle"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="opacity:0"
     >
       U
     </span>
   </span>,
   <button
     class="ant-btn ant-btn-default ant-btn-sm"
-    style="margin: 0px 16px; vertical-align: middle;"
+    style="margin:0 16px;vertical-align:middle"
     type="button"
   >
     <span>
@@ -304,7 +304,7 @@ Array [
   </button>,
   <button
     class="ant-btn ant-btn-default ant-btn-sm"
-    style="vertical-align: middle;"
+    style="vertical-align:middle"
     type="button"
   >
     <span>
@@ -347,18 +347,18 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-circle"
-      style="background-color: rgb(245, 106, 0);"
+      style="background-color:#f56a00"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color: rgb(135, 208, 104);"
+      style="background-color:#87d068"
     >
       <span
         aria-label="user"
@@ -382,7 +382,7 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-      style="background-color: rgb(24, 144, 255);"
+      style="background-color:#1890ff"
     >
       <span
         aria-label="ant-design"
@@ -421,22 +421,22 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-circle"
-      style="background-color: rgb(245, 106, 0);"
+      style="background-color:#f56a00"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-circle"
-      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
+      style="color:#f56a00;background-color:#fde3cf"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         +2
       </span>
@@ -458,22 +458,22 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background-color: rgb(245, 106, 0);"
+      style="background-color:#f56a00"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
+      style="color:#f56a00;background-color:#fde3cf"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         +2
       </span>
@@ -495,22 +495,22 @@ Array [
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background-color: rgb(245, 106, 0);"
+      style="background-color:#f56a00"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         K
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207); cursor: pointer;"
+      style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         +2
       </span>
@@ -522,7 +522,6 @@ Array [
 exports[`renders ./components/avatar/demo/responsive.md correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
-  style="width: 24px; height: 24px; line-height: 24px; font-size: 12px;"
 >
   <span
     aria-label="ant-design"
@@ -575,44 +574,44 @@ Array [
   <br />,
   <br />,
   <div
-    style="text-align: center; transform: scale(1); margin-top: 24px;"
+    style="text-align:center;transform:scale(1);margin-top:24px"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
-      style="background: rgb(114, 101, 230); display: none;"
+      style="background:#7265e6;display:none"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       >
         Avatar
       </span>
     </span>
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
-      style="background: rgb(0, 162, 174); display: none;"
+      style="background:#00a2ae;display:none"
     >
       <img
         src="invalid"
       />
     </span>
     <div
-      style="display: none;"
+      style="display:none"
     >
       <span
         class="ant-avatar ant-avatar-lg ant-avatar-circle"
-        style="background: rgb(114, 101, 230);"
+        style="background:#7265e6"
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="opacity:0"
         >
           Avatar
         </span>
       </span>
       <span
         class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
-        style="background: rgb(0, 162, 174);"
+        style="background:#00a2ae"
       >
         <img
           src="invalid"
@@ -653,18 +652,18 @@ Array [
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="opacity:0"
     >
       U
     </span>
   </span>,
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 40px; height: 40px; line-height: 40px; font-size: 18px;"
+    style="width:40px;height:40px;line-height:40px;font-size:18px"
   >
     <span
       class="ant-avatar-string"
-      style="line-height: 40px; transform: scale(1) translateX(-50%);"
+      style="opacity:0"
     >
       USER
     </span>
@@ -685,7 +684,7 @@ Array [
       <img
         class="ant-image-img"
         src="https://joeschmoe.io/api/v1/random"
-        style="width: 32px;"
+        style="width:32px"
       />
       <div
         class="ant-image-mask"
@@ -719,18 +718,18 @@ Array [
   </span>,
   <span
     class="ant-avatar ant-avatar-circle"
-    style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
+    style="color:#f56a00;background-color:#fde3cf"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="opacity:0"
     >
       U
     </span>
   </span>,
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-icon"
-    style="background-color: rgb(135, 208, 104);"
+    style="background-color:#87d068"
   >
     <span
       aria-label="user"

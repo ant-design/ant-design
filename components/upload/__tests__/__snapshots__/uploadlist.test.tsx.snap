@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Upload List handle error 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -167,9 +165,7 @@ exports[`Upload List itemRender 1`] = `
 `;
 
 exports[`Upload List should be uploading when upload a file 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
   >
@@ -274,9 +270,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
 `;
 
 exports[`Upload List should non-image format file preview 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -1032,9 +1026,7 @@ exports[`Upload List should non-image format file preview 1`] = `
 `;
 
 exports[`Upload List should support removeIcon and downloadIcon 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -1183,9 +1175,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
 `;
 
 exports[`Upload List should support removeIcon and downloadIcon 2`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >
@@ -1334,9 +1324,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
 `;
 
 exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture"
   >

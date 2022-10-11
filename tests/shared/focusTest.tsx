@@ -57,7 +57,6 @@ export default function focusTest(
       return;
     }
 
-    // ======================== Enzyme ========================
     let containerHtml: HTMLElement;
     beforeEach(() => {
       containerHtml = document.createElement('div');

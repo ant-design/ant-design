@@ -38,17 +38,19 @@ export interface AvatarProps {
   onError?: () => boolean;
 }
 
-const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (props, ref) => {
+const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProps> = (
+  props,
+  ref,
+) => {
   const groupSize = React.useContext(SizeContext);
 
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
 
-  const avatarNodeRef = React.useRef<HTMLElement>();
-  const avatarChildrenRef = React.useRef<HTMLElement>();
-
-  const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
+  const avatarNodeRef = React.useRef<HTMLSpanElement>(null);
+  const avatarChildrenRef = React.useRef<HTMLSpanElement>(null);
+  const avatarNodeMergeRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
 
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -90,8 +92,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const {
     prefixCls: customizePrefixCls,
-    shape,
-    size: customSize,
+    shape = 'circle',
+    size: customSize = 'default',
     src,
     srcSet,
     icon,
@@ -163,7 +165,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
         }
       : {};
 
-  let childrenToRender;
+  let childrenToRender: React.ReactNode;
   if (typeof src === 'string' && isImgExist) {
     childrenToRender = (
       <img
@@ -198,9 +200,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       <ResizeObserver onResize={setScaleParam}>
         <span
           className={`${prefixCls}-string`}
-          ref={(node: HTMLElement) => {
-            avatarChildrenRef.current = node;
-          }}
+          ref={avatarChildrenRef}
           style={{ ...sizeChildrenStyle, ...childrenStyle }}
         >
           {children}
@@ -209,13 +209,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     );
   } else {
     childrenToRender = (
-      <span
-        className={`${prefixCls}-string`}
-        style={{ opacity: 0 }}
-        ref={(node: HTMLElement) => {
-          avatarChildrenRef.current = node;
-        }}
-      >
+      <span className={`${prefixCls}-string`} style={{ opacity: 0 }} ref={avatarChildrenRef}>
         {children}
       </span>
     );
@@ -231,21 +225,17 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       {...others}
       style={{ ...sizeStyle, ...responsiveSizeStyle, ...others.style }}
       className={classString}
-      ref={avatarNodeMergeRef as any}
+      ref={avatarNodeMergeRef}
     >
       {childrenToRender}
     </span>
   );
 };
 
-const Avatar = React.forwardRef<unknown, AvatarProps>(InternalAvatar);
+const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(InternalAvatar);
+
 if (process.env.NODE_ENV !== 'production') {
   Avatar.displayName = 'Avatar';
 }
-
-Avatar.defaultProps = {
-  shape: 'circle' as AvatarProps['shape'],
-  size: 'default' as AvatarProps['size'],
-};
 
 export default Avatar;

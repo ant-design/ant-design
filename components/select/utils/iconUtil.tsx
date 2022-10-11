@@ -33,10 +33,7 @@ export default function getIcons({
   showArrow?: boolean;
 }) {
   // Clear Icon
-  let mergedClearIcon = clearIcon;
-  if (!clearIcon) {
-    mergedClearIcon = <CloseCircleFilled />;
-  }
+  const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
 
   // Validation Feedback Icon
   const getSuffixIconNode = (arrowIcon?: ReactNode) => (

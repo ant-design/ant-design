@@ -167,18 +167,26 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    showIcon,
+    showIcon = false,
     showLine,
     switcherIcon,
-    blockNode,
+    blockNode = false,
     children,
-    checkable,
-    selectable,
+    checkable = false,
+    selectable = true,
     draggable,
+    motion = { ...collapseMotion, motionAppear: false },
   } = props;
+
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+
   const newProps = {
     ...props,
+    checkable,
+    selectable,
+    showIcon,
+    motion,
+    blockNode,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -193,12 +201,11 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       case 'function':
         mergedDraggable.nodeDraggable = draggable;
         break;
-
       case 'object':
         mergedDraggable = { ...draggable };
         break;
-
       default:
+        break;
       // Do nothing
     }
 
@@ -231,7 +238,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
         renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
       }
-      draggable={draggableConfig as any}
+      draggable={draggableConfig}
     >
       {children}
     </RcTree>
@@ -241,16 +248,5 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 Tree.TreeNode = TreeNode;
 
 Tree.DirectoryTree = DirectoryTree;
-
-Tree.defaultProps = {
-  checkable: false,
-  selectable: true,
-  showIcon: false,
-  motion: {
-    ...collapseMotion,
-    motionAppear: false,
-  },
-  blockNode: false,
-};
 
 export default Tree;

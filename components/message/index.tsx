@@ -271,7 +271,7 @@ export interface MessageApi extends MessageInstance {
   useMessage(): [MessageInstance, React.ReactElement];
 }
 
-/** @private test Only function. Not work on production */
+/** @internal test Only function. Not work on production */
 export const getInstance = () => (process.env.NODE_ENV === 'test' ? messageInstance : null);
 
 export default api as MessageApi;

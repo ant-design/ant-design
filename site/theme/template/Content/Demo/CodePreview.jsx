@@ -8,7 +8,7 @@ const LANGS = {
   jsx: 'JavaScript',
 };
 
-const CodePreview = ({ toReactComponent, codes }) => {
+const CodePreview = ({ toReactComponent, codes, onCodeTypeChange }) => {
   const langList = Object.keys(codes).sort().reverse();
 
   let content;
@@ -23,7 +23,7 @@ const CodePreview = ({ toReactComponent, codes }) => {
     ]);
   } else {
     content = (
-      <Tabs>
+      <Tabs centered onChange={onCodeTypeChange}>
         {langList.map(lang => (
           <TabPane tab={LANGS[lang]} key={lang}>
             {toReactComponent([
