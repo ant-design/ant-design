@@ -176,7 +176,7 @@ describe('message.config', () => {
         () => {
           document.body.removeChild(container);
         },
-      ] as const;
+      ];
     }
     const [container1, removeContainer1] = createContainer();
     const [container2, removeContainer2] = createContainer();
