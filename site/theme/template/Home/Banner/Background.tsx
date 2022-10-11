@@ -135,10 +135,10 @@ Diamond1.width = (DiamondSize1 + ShadowSize) * 2;
 Diamond1.height = (DiamondSize1 + ShadowSize) * 2;
 
 export default function Background() {
-  const [circleFrames, setCircleFrames] = React.useState<any[]>(randomFrames(550, 200));
-  const [circle2Frames, setCircle2Frames] = React.useState<any[]>(randomFrames(0, 448));
-  const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 300));
-  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -230));
+  const [circleFrames, setCircleFrames] = React.useState<any[]>(() => randomFrames(550, 200));
+  const [circle2Frames, setCircle2Frames] = React.useState<any[]>(() => randomFrames(0, 448));
+  const [reactFrames, setReactFrames] = React.useState<any[]>(() => randomFrames(1400, 300));
+  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(() => randomFrames(1100, -230));
 
   return (
     <div className="home-banner-background">

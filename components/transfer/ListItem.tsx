@@ -1,7 +1,7 @@
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
-import type { KeyWiseTransferItem, TransferLocale } from '.';
+import type { KeyWiseTransferItem } from '.';
 import Checkbox from '../checkbox';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
@@ -45,7 +45,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   return (
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {(transferLocale: TransferLocale) => {
+      {contextLocale => {
         const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
         const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
 
@@ -57,7 +57,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
               <TransButton
                 disabled={disabled || item.disabled}
                 className={`${prefixCls}-content-item-remove`}
-                aria-label={transferLocale.remove}
+                aria-label={contextLocale.remove}
                 onClick={() => {
                   onRemove?.(item);
                 }}

@@ -35,7 +35,7 @@ describe('Menu', () => {
   }
 
   const expectSubMenuBehavior = (
-    defaultProps: MenuProps,
+    defaultTestProps: MenuProps,
     instance: ReturnType<typeof render>,
     enter = noop,
     leave = noop,
@@ -48,7 +48,7 @@ describe('Menu', () => {
       inline: 'ant-motion-collapse-leave',
       vertical: 'ant-zoom-big-leave',
     };
-    const mode = defaultProps.mode || 'horizontal';
+    const mode = defaultTestProps.mode || 'horizontal';
 
     act(() => {
       enter();
@@ -282,10 +282,10 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode horizontal', async () => {
-    const defaultProps: MenuProps = { mode: 'horizontal' };
+    const defaultTestProps: MenuProps = { mode: 'horizontal' };
 
     const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -297,7 +297,7 @@ describe('Menu', () => {
     const instance = render(<Demo />);
 
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -307,9 +307,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode inline', () => {
-    const defaultProps: MenuProps = { mode: 'inline' };
+    const defaultTestProps: MenuProps = { mode: 'inline' };
     const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -319,7 +319,7 @@ describe('Menu', () => {
     );
     const instance = render(<Demo />);
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -327,9 +327,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode vertical', () => {
-    const defaultProps: MenuProps = { mode: 'vertical' };
+    const defaultTestProps: MenuProps = { mode: 'vertical' };
     const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -340,7 +340,7 @@ describe('Menu', () => {
 
     const instance = render(<Demo />);
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -539,9 +539,9 @@ describe('Menu', () => {
     };
 
     it('inline', () => {
-      const defaultProps: MenuProps = { mode: 'inline' };
+      const defaultTestProps: MenuProps = { mode: 'inline' };
       const Demo: React.FC<MenuProps> = props => (
-        <Menu {...defaultProps} {...props}>
+        <Menu {...defaultTestProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -553,7 +553,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),
@@ -588,9 +588,9 @@ describe('Menu', () => {
     });
 
     it('vertical with hover(default)', () => {
-      const defaultProps: MenuProps = { mode: 'vertical' };
+      const defaultTestProps: MenuProps = { mode: 'vertical' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -602,7 +602,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'mouseEnter'),
         () => toggleMenu(instance, 0, 'mouseLeave'),
@@ -610,9 +610,9 @@ describe('Menu', () => {
     });
 
     it('vertical with click', () => {
-      const defaultProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
+      const defaultTestProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -624,7 +624,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),
@@ -632,9 +632,9 @@ describe('Menu', () => {
     });
 
     it('horizontal with hover(default)', () => {
-      const defaultProps: MenuProps = { mode: 'horizontal' };
+      const defaultTestProps: MenuProps = { mode: 'horizontal' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -646,7 +646,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'mouseEnter'),
         () => toggleMenu(instance, 0, 'mouseLeave'),
@@ -654,9 +654,9 @@ describe('Menu', () => {
     });
 
     it('horizontal with click', () => {
-      const defaultProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
+      const defaultTestProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -668,7 +668,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),

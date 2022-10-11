@@ -5,17 +5,19 @@ Array [
   <div
     class="ant-back-top"
   />,
+  Scroll down to see the bottom-right,
   <strong
     class="site-back-top-basic"
   >
      gray
   </strong>,
+  button.,
 ]
 `;
 
 exports[`renders ./components/back-top/demo/custom.md extend context correctly 1`] = `
 <div
-  style="height: 600vh; padding: 8px;"
+  style="height:600vh;padding:8px"
 >
   <div>
     Scroll to bottom

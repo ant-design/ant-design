@@ -9,7 +9,7 @@ export interface MenuContextProps {
   antdMenuTheme?: MenuTheme;
   direction?: DirectionType;
   firstLevel: boolean;
-  /** @private Internal Usage. Safe to remove */
+  /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
 }
 

@@ -91,11 +91,10 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -123,11 +122,10 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -153,11 +151,10 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -185,11 +182,10 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -244,11 +240,10 @@ Array [
   >
     <span
       class="ant-btn-loading-icon"
-      style="width: 0px; opacity: 0; transform: scale(0);"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+        class="anticon anticon-loading anticon-spin"
         role="img"
       >
         <svg
@@ -554,8 +549,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -637,8 +632,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -713,8 +708,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -788,8 +783,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -889,8 +884,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -972,8 +967,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1048,8 +1043,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1123,8 +1118,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1223,12 +1218,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
+        style="display:inline-block;cursor:not-allowed"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
           disabled=""
-          style="pointer-events: none;"
+          style="pointer-events:none"
           type="button"
         >
           <span
@@ -1254,8 +1249,8 @@ Array [
       </span>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1302,8 +1297,8 @@ Array [
       </button>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1349,12 +1344,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
+        style="display:inline-block;cursor:not-allowed"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-icon-only"
           disabled=""
-          style="pointer-events: none;"
+          style="pointer-events:none"
           type="button"
         >
           <span
@@ -1380,8 +1375,8 @@ Array [
       </span>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1428,8 +1423,8 @@ Array [
       </button>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1475,12 +1470,12 @@ Array [
       </button>
       <span
         class="ant-tooltip-disabled-compatible-wrapper"
-        style="display: inline-block; cursor: not-allowed;"
+        style="display:inline-block;cursor:not-allowed"
       >
         <button
           class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
           disabled=""
-          style="pointer-events: none;"
+          style="pointer-events:none"
           type="button"
         >
           <span
@@ -1506,8 +1501,8 @@ Array [
       </span>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1554,8 +1549,8 @@ Array [
       </button>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1585,11 +1580,11 @@ exports[`renders ./components/button/demo/loading.md extend context correctly 1`
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="width: 100%;"
+    style="width:100%"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary ant-btn-loading"
@@ -1597,11 +1592,10 @@ Array [
       >
         <span
           class="ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -1626,7 +1620,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
@@ -1634,11 +1628,10 @@ Array [
       >
         <span
           class="ant-btn-loading-icon"
-          style="width: 0px; opacity: 0; transform: scale(0);"
         >
           <span
             aria-label="loading"
-            class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-start ant-btn-loading-icon-motion"
+            class="anticon anticon-loading anticon-spin"
             role="img"
           >
             <svg
@@ -1696,11 +1689,11 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="width: 100%;"
+    style="width:100%"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -1713,7 +1706,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -1830,8 +1823,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-        style="opacity: 0;"
+        class="ant-dropdown"
+        style="opacity:0"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1841,7 +1834,6 @@ Array [
         >
           <li
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-test-1"
             role="menuitem"
             tabindex="-1"
           >
@@ -1853,8 +1845,8 @@ Array [
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1875,7 +1867,6 @@ Array [
           </div>
           <li
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-test-2"
             role="menuitem"
             tabindex="-1"
           >
@@ -1887,8 +1878,8 @@ Array [
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1909,7 +1900,6 @@ Array [
           </div>
           <li
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-            data-menu-id="rc-menu-uuid-test-3"
             role="menuitem"
             tabindex="-1"
           >
@@ -1921,8 +1911,8 @@ Array [
           </li>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1944,12 +1934,12 @@ Array [
         </ul>
         <div
           aria-hidden="true"
-          style="display: none;"
+          style="display:none"
         >
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1970,8 +1960,8 @@ Array [
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1992,8 +1982,8 @@ Array [
           </div>
           <div>
             <div
-              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-              style="opacity: 0;"
+              class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"

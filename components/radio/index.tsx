@@ -18,6 +18,7 @@ interface CompoundedComponent
   extends React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
   Button: typeof Button;
+  /** @internal */
   __ANT_RADIO: boolean;
 }
 
