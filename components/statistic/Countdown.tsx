@@ -27,45 +27,37 @@ const Countdown: React.FC<CountdownProps> = props => {
 
   const countdown = React.useRef<NodeJS.Timer | null>(null);
 
-  const startTimer = () => {
-    if (countdown.current) {
-      return;
-    }
-    const timestamp = getTime(value);
-
-    countdown.current = setInterval(() => {
-      forceUpdate();
-      if (timestamp > Date.now()) {
-        onChange?.(timestamp - Date.now());
-      }
-    }, REFRESH_INTERVAL);
-  };
-
   const stopTimer = () => {
+    onFinish?.();
     if (countdown.current) {
       clearInterval(countdown.current);
       countdown.current = null;
-      const timestamp = getTime(value);
-
-      if (timestamp < Date.now()) {
-        onFinish?.();
-      }
     }
   };
 
-  const syncTimer = () => {
+  const syncTimer = React.useCallback(() => {
     const timestamp = getTime(value);
     if (timestamp >= Date.now()) {
-      startTimer();
-    } else {
-      stopTimer();
+      if (countdown.current) {
+        return;
+      }
+      countdown.current = setInterval(() => {
+        forceUpdate();
+        onChange?.(timestamp - Date.now());
+        if (timestamp < Date.now()) {
+          stopTimer();
+        }
+      }, REFRESH_INTERVAL);
     }
-  };
+  }, [value]);
 
   React.useEffect(() => {
     syncTimer();
     return () => {
-      stopTimer();
+      if (countdown.current) {
+        clearInterval(countdown.current);
+        countdown.current = null;
+      }
     };
   }, [props]);
 
