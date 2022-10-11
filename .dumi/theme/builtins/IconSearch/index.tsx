@@ -24,7 +24,7 @@ interface IconSearchState {
 }
 
 const IconSearch: React.FC = () => {
-  const { messages } = useIntl() as { messages: Record<string, string> };
+  const intl = useIntl();
   const [displayState, setDisplayState] = React.useState<IconSearchState>({
     theme: ThemeType.Outlined,
     searchKey: '',
@@ -88,17 +88,20 @@ const IconSearch: React.FC = () => {
           buttonStyle="solid"
         >
           <Radio.Button value={ThemeType.Outlined}>
-            <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
+            <Icon component={OutlinedIcon} />{' '}
+            {intl.formatMessage({ id: 'app.docs.components.icon.outlined' })}
           </Radio.Button>
           <Radio.Button value={ThemeType.Filled}>
-            <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
+            <Icon component={FilledIcon} />{' '}
+            {intl.formatMessage({ id: 'app.docs.components.icon.filled' })}
           </Radio.Button>
           <Radio.Button value={ThemeType.TwoTone}>
-            <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
+            <Icon component={TwoToneIcon} />{' '}
+            {intl.formatMessage({ id: 'app.docs.components.icon.two-tone' })}
           </Radio.Button>
         </Radio.Group>
         <Input.Search
-          placeholder={messages['app.docs.components.icon.search.placeholder']}
+          placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
           style={{ margin: '0 10px', flex: 1 }}
           allowClear
           onChange={e => handleSearchIcon(e.currentTarget.value)}

@@ -33,7 +33,7 @@ interface iconObject {
 }
 
 const PicSearcher: React.FC = () => {
-  const { messages } = useIntl() as { messages: Record<string, string> };
+  const intl = useIntl();
   const [state, setState] = useState<PicSearcherState>({
     loading: false,
     modalOpen: false,
@@ -135,13 +135,13 @@ const PicSearcher: React.FC = () => {
   return (
     <div className="icon-pic-searcher">
       <Popover
-        content={messages[`app.docs.components.icon.pic-searcher.intro`]}
+        content={intl.formatMessage({ id: `app.docs.components.icon.pic-searcher.intro` })}
         open={state.popoverVisible}
       >
         <AntdIcons.CameraOutlined className="icon-pic-btn" onClick={toggleModal} />
       </Popover>
       <Modal
-        title={messages[`app.docs.components.icon.pic-searcher.title`]}
+        title={intl.formatMessage({ id: `app.docs.components.icon.pic-searcher.title` })}
         open={state.modalOpen}
         onCancel={toggleModal}
         footer={null}
@@ -149,7 +149,7 @@ const PicSearcher: React.FC = () => {
         {state.modelLoaded || (
           <Spin
             spinning={!state.modelLoaded}
-            tip={messages['app.docs.components.icon.pic-searcher.modelloading']}
+            tip={intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.modelloading' })}
           >
             <div style={{ height: 100 }} />
           </Spin>
@@ -166,21 +166,21 @@ const PicSearcher: React.FC = () => {
               <AntdIcons.InboxOutlined />
             </p>
             <p className="ant-upload-text">
-              {messages['app.docs.components.icon.pic-searcher.upload-text']}
+              {intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.upload-text' })}
             </p>
             <p className="ant-upload-hint">
-              {messages['app.docs.components.icon.pic-searcher.upload-hint']}
+              {intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.upload-hint' })}
             </p>
           </Dragger>
         )}
         <Spin
           spinning={state.loading}
-          tip={messages['app.docs.components.icon.pic-searcher.matching']}
+          tip={intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.matching' })}
         >
           <div className="icon-pic-search-result">
             {state.icons.length > 0 && (
               <div className="result-tip">
-                {messages['app.docs.components.icon.pic-searcher.result-tip']}
+                {intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.result-tip' })}
               </div>
             )}
             <table>
@@ -188,9 +188,11 @@ const PicSearcher: React.FC = () => {
                 <thead>
                   <tr>
                     <th className="col-icon">
-                      {messages['app.docs.components.icon.pic-searcher.th-icon']}
+                      {intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.th-icon' })}
                     </th>
-                    <th>{messages['app.docs.components.icon.pic-searcher.th-score']}</th>
+                    <th>
+                      {intl.formatMessage({ id: 'app.docs.components.icon.pic-searcher.th-score' })}
+                    </th>
                   </tr>
                 </thead>
               )}
@@ -222,7 +224,9 @@ const PicSearcher: React.FC = () => {
               <Result
                 status="500"
                 title="503"
-                subTitle={messages['app.docs.components.icon.pic-searcher.server-error']}
+                subTitle={intl.formatMessage({
+                  id: 'app.docs.components.icon.pic-searcher.server-error',
+                })}
               />
             )}
           </div>

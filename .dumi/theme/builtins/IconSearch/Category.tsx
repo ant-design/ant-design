@@ -14,7 +14,7 @@ interface CategoryProps {
 
 const Category: React.FC<CategoryProps> = props => {
   const { icons, title, newIcons, theme } = props;
-  const intl = useIntl() as { messages: Record<string, string> };
+  const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<NodeJS.Timeout | null>(null);
   const onCopied = React.useCallback((type: string, text: string) => {
@@ -38,7 +38,7 @@ const Category: React.FC<CategoryProps> = props => {
   );
   return (
     <div>
-      <h3>{intl.messages[`app.docs.components.icon.category.${title}`]}</h3>
+      <h3>{intl.formatMessage({ id: `app.docs.components.icon.category.${title}` })}</h3>
       <ul className="anticons-list">
         {icons.map(name => (
           <CopyableIcon
