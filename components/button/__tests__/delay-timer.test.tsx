@@ -1,3 +1,4 @@
+/// <reference lib="dom" />
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { fireEvent, render } from '../../../tests/utils';
@@ -29,25 +30,26 @@ const Content = () => {
 };
 
 it('Delay loading timer in Button component', () => {
-  const otherTimer: any = 9528;
-  jest.spyOn(window, 'setTimeout').mockReturnValue(otherTimer);
+  const otherTimer = 9528;
+  const setTimeout = jest
+    .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
+    .mockReturnValue(otherTimer);
+  const clearTimeout = jest.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
   jest.restoreAllMocks();
 
   const wrapper = render(<Content />);
 
-  const btnTimer: any = 9527;
-  jest.spyOn(window, 'setTimeout').mockReturnValue(btnTimer);
-  jest.spyOn(window, 'clearTimeout');
-  const setTimeoutMock = window.setTimeout as any as jest.Mock;
-  const clearTimeoutMock = window.clearTimeout as any as jest.Mock;
+  const btnTimer = 9527;
+  setTimeout.mockReturnValue(btnTimer);
+  jest.spyOn(global, 'clearTimeout');
 
   // other component may call setTimeout or clearTimeout
   const setTimeoutCount = () => {
-    const items = setTimeoutMock.mock.calls.filter(item => item[1] === specialDelay);
+    const items = setTimeout.mock.calls.filter(item => item[1] === specialDelay);
     return items.length;
   };
   const clearTimeoutCount = () => {
-    const items = clearTimeoutMock.mock.calls.filter(item => item[0] === btnTimer);
+    const items = clearTimeout.mock.calls.filter(item => item[0] === btnTimer);
     return items.length;
   };
 
@@ -58,7 +60,10 @@ it('Delay loading timer in Button component', () => {
 
   // trigger timer handler
   act(() => {
-    setTimeoutMock.mock.calls[0][0]();
+    const timeHandler = setTimeout.mock.calls[0][0];
+    if (typeof timeHandler === 'function') {
+      timeHandler();
+    }
   });
   expect(setTimeoutCount()).toBe(1);
   expect(clearTimeoutCount()).toBe(0);

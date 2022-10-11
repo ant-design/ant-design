@@ -2,13 +2,10 @@ import { sleep } from '../../../tests/utils';
 import scrollTo from '../scrollTo';
 
 describe('Test ScrollTo function', () => {
-  let dateNowMock: jest.SpyInstance;
+  const dateNowMock = jest.spyOn(Date, 'now');
 
   beforeEach(() => {
-    dateNowMock = jest
-      .spyOn(Date, 'now')
-      .mockImplementationOnce(() => 0)
-      .mockImplementationOnce(() => 1000);
+    dateNowMock.mockImplementationOnce(() => 0).mockImplementationOnce(() => 1000);
   });
 
   afterEach(() => {
