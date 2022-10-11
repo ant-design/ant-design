@@ -37,6 +37,7 @@ export interface SwitchProps {
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLElement>> {
+  /** @internal */
   __ANT_SWITCH: boolean;
 }
 

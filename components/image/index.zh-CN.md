@@ -41,6 +41,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
   current?: number; // v4.12.0 仅支持 PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
   scaleStep?: number;
+  forceRender?: boolean;
 }
 ```
 

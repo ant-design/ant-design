@@ -13,7 +13,7 @@ interface FormItemInputMiscProps {
   warnings: React.ReactNode[];
   marginBottom?: number | null;
   onErrorVisibleChanged?: (visible: boolean) => void;
-  /** @private Internal Usage, do not use in any of your production. */
+  /** @internal do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
     render: (

@@ -9,7 +9,7 @@ exports[`renders ./components/skeleton/demo/active.md extend context correctly 1
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 38%;"
+      style="width:38%"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -17,7 +17,7 @@ exports[`renders ./components/skeleton/demo/active.md extend context correctly 1
       <li />
       <li />
       <li
-        style="width: 61%;"
+        style="width:61%"
       />
     </ul>
   </div>
@@ -33,7 +33,7 @@ exports[`renders ./components/skeleton/demo/basic.md extend context correctly 1`
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 38%;"
+      style="width:38%"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -41,7 +41,7 @@ exports[`renders ./components/skeleton/demo/basic.md extend context correctly 1`
       <li />
       <li />
       <li
-        style="width: 61%;"
+        style="width:61%"
       />
     </ul>
   </div>
@@ -87,7 +87,7 @@ exports[`renders ./components/skeleton/demo/complex.md extend context correctly 
   >
     <h3
       class="ant-skeleton-title"
-      style="width: 50%;"
+      style="width:50%"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -108,7 +108,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -120,7 +120,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -167,7 +167,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -201,7 +201,7 @@ Array [
             aria-label="dot-chart"
             class="anticon anticon-dot-chart"
             role="img"
-            style="font-size: 40px; color: rgb(191, 191, 191);"
+            style="font-size:40px;color:#bfbfbf"
           >
             <svg
               aria-hidden="true"
@@ -227,7 +227,7 @@ Array [
   />,
   <form
     class="ant-form ant-form-inline"
-    style="margin: 16px 0px;"
+    style="margin:16px 0"
   >
     <div
       class="ant-form-item"
@@ -640,7 +640,7 @@ Array [
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width: 50%;"
+                  style="width:50%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"
@@ -669,7 +669,7 @@ Array [
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width: 50%;"
+                  style="width:50%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"
@@ -698,7 +698,7 @@ Array [
               >
                 <h3
                   class="ant-skeleton-title"
-                  style="width: 50%;"
+                  style="width:50%"
                 />
                 <ul
                   class="ant-skeleton-paragraph"

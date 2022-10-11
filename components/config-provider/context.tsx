@@ -65,12 +65,6 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
 export const ConfigConsumer = ConfigContext.Consumer;
 
 // =========================== withConfigConsumer ===========================
-// We need define many types here. So let's put in the block region
-type IReactComponent<P = any> =
-  | React.FC<P>
-  | React.ComponentClass<P>
-  | React.ClassicComponentClass<P>;
-
 interface BasicExportProps {
   prefixCls?: string;
 }
@@ -86,7 +80,7 @@ interface ConstructorProps {
 /** @deprecated Use hooks instead. This is a legacy function */
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
   return function withConfigConsumerFunc<ComponentDef>(
-    Component: IReactComponent,
+    Component: React.ComponentType<ExportProps>,
   ): React.FC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
     const SFC = ((props: ExportProps) => (
