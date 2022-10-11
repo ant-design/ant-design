@@ -1,13 +1,12 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import type { WrappedComponentProps } from 'react-intl';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Button, Col, Modal, Popover, Row, Select } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import type { DirectionType } from 'antd/es/config-provider';
 import * as utils from '../../utils';
-import { ping } from '../../utils';
+import { getThemeConfig, ping } from '../../utils';
 import packageJson from '../../../../package.json';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
@@ -18,8 +17,9 @@ import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import { AlgoliaConfig } from './algolia-config';
 import { useLocation, useNavigate } from 'dumi';
-import { css, ClassNames } from '@emotion/react';
+import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
+import useLocale from '../../../hooks/useLocale';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -81,8 +81,6 @@ const useStyle = () => {
 };
 
 export interface HeaderProps {
-  intl?: { locale: string };
-  themeConfig?: { docVersions: Record<string, string> };
   changeDirection: (direction: DirectionType) => void;
 }
 
@@ -140,8 +138,11 @@ interface HeaderState {
   showTechUIButton: boolean;
 }
 
-const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
-  const { intl, themeConfig, changeDirection } = props;
+const Header: React.FC<HeaderProps> = props => {
+  const { changeDirection } = props;
+  const [, lang] = useLocale();
+
+  const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
@@ -180,7 +181,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
   }, [location]);
 
   useEffect(() => {
-    initDocSearch({ isZhCN: intl.locale === 'zh-CN', navigate });
+    initDocSearch({ isZhCN: lang === 'cn', navigate });
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping(status => {
@@ -268,7 +269,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
-  const isZhCN = intl.locale === 'zh-CN';
+  const isZhCN = lang === 'cn';
   const isRTL = direction === 'rtl';
   let responsive: null | 'narrow' | 'crowded' = null;
   if (windowWidth < RESPONSIVE_XS) {
@@ -379,4 +380,4 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
   );
 };
 
-export default injectIntl(Header);
+export default Header;

@@ -1,24 +1,25 @@
-import React, { type FC } from 'react';
+import React from 'react';
 import RcFooter from 'rc-footer';
 import { Link } from 'dumi';
 import type { FooterColumn } from 'rc-footer/lib/column';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import {
   AntDesignOutlined,
-  MediumOutlined,
-  TwitterOutlined,
-  ZhihuOutlined,
-  UsergroupAddOutlined,
+  BgColorsOutlined,
+  BugOutlined,
   GithubOutlined,
   HistoryOutlined,
-  ProfileOutlined,
-  BugOutlined,
   IssuesCloseOutlined,
+  MediumOutlined,
+  ProfileOutlined,
   QuestionCircleOutlined,
-  BgColorsOutlined,
+  TwitterOutlined,
+  UsergroupAddOutlined,
+  ZhihuOutlined,
 } from '@ant-design/icons';
 import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
+import useLocale from '../../../hooks/useLocale';
 
 const style = {
   footer: css`
@@ -28,15 +29,14 @@ const style = {
   `,
 };
 
-const Footer = ({ intl }: any) => {
-  // TODO: implement footer
-  // from: https://github.com/ant-design/ant-design/blob/c9ea74299a54009b978b72212fe272f10ff640c2/site/theme/template/Layout/Footer.tsx
-
+const Footer = () => {
   const location = useLocation();
+  const [, lang] = useLocale();
+
   const { getLink } = location;
 
   const getColumns = React.useMemo<FooterColumn[]>(() => {
-    const isZhCN = intl.locale === 'zh-CN';
+    const isZhCN = lang === 'cn';
 
     const col1 = {
       title: <FormattedMessage id="app.footer.resources" />,
@@ -304,7 +304,7 @@ const Footer = ({ intl }: any) => {
       ],
     };
     return [col1, col2, col3, col4];
-  }, [intl.locale, location.search]);
+  }, [lang, location.search]);
 
   return (
     <RcFooter
@@ -323,4 +323,4 @@ const Footer = ({ intl }: any) => {
   );
 };
 
-export default injectIntl(Footer);
+export default Footer;

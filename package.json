@@ -85,7 +85,7 @@
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start:bisheng": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"bisheng start -c ./site/bisheng.config.js\"",
-    "start": "npm run version && dumi dev",
+    "start": "dumi dev",
     "test": "jest --config .jest.js --cache=false",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
