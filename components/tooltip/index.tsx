@@ -216,6 +216,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       getPlacements({
         arrowPointAtCenter,
         autoAdjustOverflow,
+        arrowWidth: 11,
+        horizontalArrowShift: 13,
+        verticalArrowShift: 8,
       })
     );
   };
