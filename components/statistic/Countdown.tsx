@@ -38,6 +38,7 @@ const Countdown: React.FC<CountdownProps> = props => {
   const syncTimer = React.useCallback(() => {
     const timestamp = getTime(value);
     if (timestamp >= Date.now()) {
+      /* istanbul ignore next */
       if (countdown.current) {
         return;
       }
