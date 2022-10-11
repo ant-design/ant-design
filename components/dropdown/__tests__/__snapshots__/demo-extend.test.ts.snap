@@ -2896,7 +2896,7 @@ Array [
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
+        style="margin-right:8px"
       >
         Hover me
       </div>
@@ -2927,8 +2927,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0;"
+      class="ant-dropdown"
+      style="opacity:0"
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2938,7 +2938,6 @@ Array [
       >
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
           tabindex="-1"
           title="menu item 1"
@@ -2951,8 +2950,8 @@ Array [
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -2973,7 +2972,6 @@ Array [
         </div>
         <li
           class="ant-dropdown-menu-item"
-          data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
           tabindex="-1"
           title="menu item 2"
@@ -3005,8 +3003,8 @@ Array [
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3027,7 +3025,6 @@ Array [
         </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
           tabindex="-1"
           title="menu item 3"
@@ -3040,8 +3037,8 @@ Array [
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3062,7 +3059,6 @@ Array [
         </div>
         <li
           class="ant-dropdown-menu-item ant-dropdown-menu-item-danger ant-dropdown-menu-item-only-child"
-          data-menu-id="rc-menu-uuid-test-close"
           role="menuitem"
           tabindex="-1"
           title="close"
@@ -3075,8 +3071,8 @@ Array [
         </li>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3098,12 +3094,12 @@ Array [
       </ul>
       <div
         aria-hidden="true"
-        style="display: none;"
+        style="display:none"
       >
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3124,8 +3120,8 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3146,8 +3142,8 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3168,8 +3164,8 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
