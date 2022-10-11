@@ -5,11 +5,11 @@ describe('Test ScrollTo function', () => {
   const dateNowMock = jest.spyOn(Date, 'now');
 
   beforeEach(() => {
-    dateNowMock.mockImplementationOnce(() => 0).mockImplementationOnce(() => 1000);
+    dateNowMock.mockReturnValueOnce(0).mockReturnValueOnce(1000);
   });
 
   afterEach(() => {
-    dateNowMock.mockRestore();
+    dateNowMock.mockClear();
   });
 
   it('test scrollTo', async () => {

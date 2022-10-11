@@ -245,7 +245,7 @@ describe('CheckboxGroup', () => {
       const [v, setV] = useState('');
 
       React.useEffect(() => {
-        setTimeout(() => setV('1'), 1000);
+        setV('1');
       }, []);
 
       return (
