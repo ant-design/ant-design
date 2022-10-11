@@ -46,7 +46,7 @@ const Countdown: React.FC<CountdownProps> = props => {
         }
       }, REFRESH_INTERVAL);
     }
-  }, [value, onChange]);
+  }, [value]);
 
   React.useEffect(() => {
     syncTimer();
@@ -56,7 +56,7 @@ const Countdown: React.FC<CountdownProps> = props => {
         countdown.current = null;
       }
     };
-  }, [value, onChange, onFinish]);
+  }, [value, onFinish]);
 
   const formatter = (value: countdownValueType, config: FormatConfig) =>
     formatCountdown(value, { ...config, format });
