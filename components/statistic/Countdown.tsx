@@ -21,19 +21,19 @@ function getTime(value?: countdownValueType) {
 }
 
 const Countdown: React.FC<CountdownProps> = props => {
-  const { value, format = 'HH:mm:ss', onFinish, onChange } = props;
+  const { value, format = 'HH:mm:ss', onChange, onFinish } = props;
 
   const forceUpdate = useForceUpdate();
 
   const countdown = React.useRef<NodeJS.Timer | null>(null);
 
-  const stopTimer = () => {
+  const stopTimer = React.useCallback(() => {
     onFinish?.();
     if (countdown.current) {
       clearInterval(countdown.current);
       countdown.current = null;
     }
-  };
+  }, [onFinish]);
 
   const syncTimer = React.useCallback(() => {
     const timestamp = getTime(value);
@@ -46,7 +46,7 @@ const Countdown: React.FC<CountdownProps> = props => {
         }
       }, REFRESH_INTERVAL);
     }
-  }, [value]);
+  }, [value, onChange]);
 
   React.useEffect(() => {
     syncTimer();
@@ -56,7 +56,7 @@ const Countdown: React.FC<CountdownProps> = props => {
         countdown.current = null;
       }
     };
-  }, [props]);
+  }, [value, onChange, onFinish]);
 
   const formatter = (value: countdownValueType, config: FormatConfig) =>
     formatCountdown(value, { ...config, format });
