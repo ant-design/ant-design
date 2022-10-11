@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 提及
-type: 数据录入
+group: 数据录入
 title: Mentions
 cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 demo:

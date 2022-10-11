@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 布局
-type: 布局
+group: 布局
 title: Layout
 cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 ---

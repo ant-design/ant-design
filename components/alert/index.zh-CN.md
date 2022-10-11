@@ -1,11 +1,13 @@
 ---
 category: Components
 subtitle: 警告提示
-type: 反馈
 title: Alert
 cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 demo:
   cols: 2
+group:
+  title: 反馈
+  order: 6
 ---
 
 警告提示，展现需要关注的信息。

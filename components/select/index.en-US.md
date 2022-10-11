@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Select
 cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 demo:

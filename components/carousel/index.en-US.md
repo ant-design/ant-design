@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Carousel
 cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
 demo:

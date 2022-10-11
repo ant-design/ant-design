@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Switch
 cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 demo:

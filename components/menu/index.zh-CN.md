@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 导航
+group: 导航
 title: Menu
 subtitle: 导航菜单
 cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg

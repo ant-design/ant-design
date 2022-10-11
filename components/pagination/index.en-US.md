@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Pagination
 cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 ---

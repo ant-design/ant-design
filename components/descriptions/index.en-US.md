@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Descriptions
 cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 ---

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 下拉菜单
-type: 导航
+group: 导航
 title: Dropdown
 cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 demo:

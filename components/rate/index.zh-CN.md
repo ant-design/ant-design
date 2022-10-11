@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 评分
-type: 数据录入
+group: 数据录入
 title: Rate
 cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
 demo:

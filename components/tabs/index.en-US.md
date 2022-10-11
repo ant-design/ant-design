@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tabs
 cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 ---

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Form
 cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
 ---

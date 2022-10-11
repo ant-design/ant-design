@@ -1,6 +1,6 @@
 ---
 category: Components
-type: General
+group: General
 title: Icon
 toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg

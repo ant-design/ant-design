@@ -1,10 +1,12 @@
 ---
 category: Components
-type: Layout
 title: Divider
 cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
 demo:
   cols: 2
+group:
+  title: Layout
+  order: 2
 ---
 
 A divider line separates different content.

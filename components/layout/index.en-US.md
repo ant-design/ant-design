@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Layout
+group: Layout
 title: Layout
 cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 ---

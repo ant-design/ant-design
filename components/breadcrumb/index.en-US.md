@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 demo:

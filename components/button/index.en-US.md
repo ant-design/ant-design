@@ -1,10 +1,12 @@
 ---
 category: Components
-type: General
 title: Button
 cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 demo:
   cols: 2
+group:
+  title: General
+  order: 1
 ---
 
 To trigger an operation.

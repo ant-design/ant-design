@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 数字输入框
-type: 数据录入
+group: 数据录入
 title: InputNumber
 cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 demo:

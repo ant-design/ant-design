@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 穿梭框
-type: 数据录入
+group: 数据录入
 title: Transfer
 cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 ---

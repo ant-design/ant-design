@@ -1,5 +1,5 @@
 ---
-type: Feedback
+group: Feedback
 category: Components
 title: Result
 cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg

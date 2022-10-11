@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Skeleton
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---

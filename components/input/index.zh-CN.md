@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 输入框
-type: 数据录入
+group: 数据录入
 title: Input
 cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 demo:

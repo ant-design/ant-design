@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 气泡卡片
-type: 数据展示
+group: 数据展示
 title: Popover
 cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 demo:

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Collapse
 cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 ---

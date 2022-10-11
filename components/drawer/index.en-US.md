@@ -1,5 +1,5 @@
 ---
-type: Feedback
+group: Feedback
 category: Components
 subtitle:
 title: Drawer

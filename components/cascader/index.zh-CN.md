@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 数据录入
+group: 数据录入
 title: Cascader
 subtitle: 级联选择
 cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg

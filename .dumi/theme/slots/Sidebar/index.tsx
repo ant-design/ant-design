@@ -1,5 +1,9 @@
-import React, { type FC } from 'react';
-import { useSidebarData } from 'dumi';
+import React, { type FC, useContext, useMemo } from 'react';
+import { useSidebarData, Link } from 'dumi';
+import { Affix, Col, Menu, MenuProps } from 'antd';
+import MobileMenu from 'rc-drawer';
+import SiteContext from '../SiteContext';
+import useLocation from '../../../hooks/useLocation';
 
 const Sidebar: FC = () => {
   // TODO: implement sidebar
@@ -8,11 +12,59 @@ const Sidebar: FC = () => {
   //  2. Menu Group & Menu Item
   //  3. Collapsible (only for design doc: https://ant.design/docs/spec/introduce-cn)
   console.log('conventional sidebar data', useSidebarData());
+  const sidebarData = useSidebarData();
+  const { isMobile } = useContext(SiteContext);
+  const { pathname } = useLocation();
 
-  return (
-    <section style={{ width: 240, padding: 22, borderRight: '1px solid #eee' }}>
-      Sidebar Area
-    </section>
+  const menuItems = useMemo<MenuProps['items']>(() => {
+    const items: MenuProps['items'] = [];
+    for (const group of sidebarData) {
+      if (group.title) {
+        items.push({
+          type: 'group',
+          label: group.title,
+          key: group.title,
+          children: group.children?.map(item => ({
+            label: <Link to={item.link}>{item.title}</Link>,
+            key: item.link.replace(/(-cn$)/g, ''),
+          })),
+        });
+      } else {
+        items.push(
+          ...group.children?.map(item => ({
+            label: <Link to={item.link}>{item.title}</Link>,
+            key: item.link.replace(/(-cn$)/g, ''),
+          })),
+        );
+      }
+    }
+    return items;
+  }, [sidebarData]);
+
+  const selectedKeys = useMemo(() => [pathname], [pathname]);
+
+  const menuChild = (
+    <Menu
+      items={menuItems}
+      inlineIndent={30}
+      className="aside-container"
+      mode="inline"
+      // openKeys={openKeys}
+      selectedKeys={selectedKeys}
+      // onOpenChange={this.handleMenuOpenChange}
+    />
+  );
+
+  return isMobile ? (
+    <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+      {menuChild}
+    </MobileMenu>
+  ) : (
+    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+      <Affix>
+        <section style={{ width: '100%' }}>{menuChild}</section>
+      </Affix>
+    </Col>
   );
 };
 

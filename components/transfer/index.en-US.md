@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Transfer
 cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 ---

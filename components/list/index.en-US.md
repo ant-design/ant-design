@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: List
 cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 ---

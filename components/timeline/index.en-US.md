@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Timeline
 cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 demo:

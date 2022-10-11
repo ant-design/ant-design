@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Radio
 cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
 demo:

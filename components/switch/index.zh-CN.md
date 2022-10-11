@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 开关
-type: 数据录入
+group: 数据录入
 title: Switch
 cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
 demo:

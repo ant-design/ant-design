@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 noinstant: true
 title: Message
 cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg

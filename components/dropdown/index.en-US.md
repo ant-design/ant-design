@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Dropdown
 cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 demo:

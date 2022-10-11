@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 排版
-type: 通用
+group: 通用
 title: Typography
 cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 ---

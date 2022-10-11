@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 分页
-type: 导航
+group: 导航
 title: Pagination
 cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
 ---

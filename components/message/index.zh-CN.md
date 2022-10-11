@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 全局提示
-type: 反馈
+group: 反馈
 noinstant: true
 title: Message
 cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg

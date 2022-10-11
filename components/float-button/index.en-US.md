@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Other
+group: Other
 title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
 demo:

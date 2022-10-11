@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 subtitle: 日历
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg

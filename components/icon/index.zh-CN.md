@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 图标
-type: 通用
+group: 通用
 title: Icon
 toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg

@@ -1,5 +1,5 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 subtitle: 对话框
 title: Modal

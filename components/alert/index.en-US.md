@@ -1,10 +1,12 @@
 ---
 category: Components
-type: Feedback
 title: Alert
 cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 demo:
   cols: 2
+group:
+  title: Feedback
+  order: 6
 ---
 
 Alert component for feedback.

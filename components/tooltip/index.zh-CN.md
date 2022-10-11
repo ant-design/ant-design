@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 文字提示
-type: 数据展示
+group: 数据展示
 title: Tooltip
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 demo:

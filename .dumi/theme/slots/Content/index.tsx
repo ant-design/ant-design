@@ -13,8 +13,8 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   console.log('route meta', useRouteMeta());
 
   return (
-    <section style={{ flex: '1', padding: 24 }}>
-      {children}
+    <section style={{ flex: '1' }}>
+      <div style={{ padding: 24 }}>{children}</div>
       <Footer />
     </section>
   );
