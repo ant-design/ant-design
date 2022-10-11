@@ -13,7 +13,7 @@ const Sidebar: FC = () => {
   const fullData = useFullSidebarData();
 
   const menuItems = useMemo<MenuProps['items']>(() => {
-    const sidebarItems = [...sidebarData];
+    const sidebarItems = [...(sidebarData ?? [])];
 
     // 将设计文档未分类的放在最后
     if (pathname.startsWith('/docs/spec')) {
