@@ -47,6 +47,20 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 
       '&-pure': {
         position: 'relative',
+        background: colorBgElevated,
+
+        [`&${componentCls}-left`]: {
+          boxShadow: token.boxShadowDrawerLeft,
+        },
+        [`&${componentCls}-right`]: {
+          boxShadow: token.boxShadowDrawerRight,
+        },
+        [`&${componentCls}-top`]: {
+          boxShadow: token.boxShadowDrawerUp,
+        },
+        [`&${componentCls}-bottom`]: {
+          boxShadow: token.boxShadowDrawerDown,
+        },
       },
 
       '&-inline': {
