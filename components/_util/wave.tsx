@@ -1,7 +1,6 @@
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { composeRef, supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { forwardRef } from 'react';
 import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
 import { ConfigConsumer, ConfigContext } from '../config-provider';
 import raf from './raf';
