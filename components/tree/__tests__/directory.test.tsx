@@ -162,6 +162,17 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should not expand when defaultExpandParent and defaultExpandAll is false', () => {
+    const wrapper = render(
+      createTree({
+        defaultExpandAll: false,
+        defaultExpandParent: false,
+        expandedKeys: ['0-0', '0-1'],
+      }),
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('expandedKeys update', () => {
     const { rerender, asFragment } = render(createTree());
     rerender(createTree({ expandedKeys: ['0-1'] }));
