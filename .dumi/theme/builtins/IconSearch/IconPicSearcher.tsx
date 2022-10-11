@@ -59,7 +59,7 @@ const PicSearcher: React.FC = () => {
     }
   };
   // eslint-disable-next-line class-methods-use-this
-  const toImage = (url: string) =>
+  const toImage = (url: string): Promise<HTMLImageElement> =>
     new Promise(resolve => {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');

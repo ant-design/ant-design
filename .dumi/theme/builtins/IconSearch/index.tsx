@@ -47,8 +47,8 @@ const IconSearch: React.FC = () => {
     const { searchKey = '', theme } = displayState;
 
     const categoriesResult = Object.keys(categories)
-      .map((key: CategoriesKeys) => {
-        let iconList = categories[key];
+      .map(key => {
+        let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
             // eslint-disable-next-line prefer-regex-literals
