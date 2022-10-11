@@ -33,7 +33,7 @@ const Countdown: React.FC<CountdownProps> = props => {
       clearInterval(countdown.current);
       countdown.current = null;
     }
-  }, [onFinish]);
+  }, []);
 
   const syncTimer = React.useCallback(() => {
     const timestamp = getTime(value);
