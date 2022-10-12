@@ -17,7 +17,7 @@ export interface AnchorLinkProps {
 const AnchorLink: React.FC<AnchorLinkProps> = props => {
   const { href = '#', title, prefixCls: customizePrefixCls, children, className, target } = props;
 
-  const context = React.useContext<AntAnchor | null>(AnchorContext);
+  const context = React.useContext<AntAnchor | undefined>(AnchorContext);
 
   const { registerLink, unregisterLink, scrollTo, onClick, activeLink } = context || {};
 
@@ -32,31 +32,35 @@ const AnchorLink: React.FC<AnchorLinkProps> = props => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
   };
-  const renderAnchorLink = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const prefixCls = getPrefixCls('anchor', customizePrefixCls);
-    const active = activeLink === href;
-    const wrapperClassName = classNames(`${prefixCls}-link`, className, {
-      [`${prefixCls}-link-active`]: active,
-    });
-    const titleClassName = classNames(`${prefixCls}-link-title`, {
-      [`${prefixCls}-link-title-active`]: active,
-    });
-    return (
-      <div className={wrapperClassName}>
-        <a
-          className={titleClassName}
-          href={href}
-          title={typeof title === 'string' ? title : ''}
-          target={target}
-          onClick={handleClick}
-        >
-          {title}
-        </a>
-        {children}
-      </div>
-    );
-  };
-  return <ConfigConsumer>{renderAnchorLink}</ConfigConsumer>;
+
+  return (
+    <ConfigConsumer>
+      {({ getPrefixCls }: ConfigConsumerProps) => {
+        const prefixCls = getPrefixCls('anchor', customizePrefixCls);
+        const active = activeLink === href;
+        const wrapperClassName = classNames(`${prefixCls}-link`, className, {
+          [`${prefixCls}-link-active`]: active,
+        });
+        const titleClassName = classNames(`${prefixCls}-link-title`, {
+          [`${prefixCls}-link-title-active`]: active,
+        });
+        return (
+          <div className={wrapperClassName}>
+            <a
+              className={titleClassName}
+              href={href}
+              title={typeof title === 'string' ? title : ''}
+              target={target}
+              onClick={handleClick}
+            >
+              {title}
+            </a>
+            {children}
+          </div>
+        );
+      }}
+    </ConfigConsumer>
+  );
 };
 
 export default AnchorLink;
