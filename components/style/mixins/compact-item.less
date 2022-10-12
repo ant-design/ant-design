@@ -6,36 +6,44 @@
     }
 
     &-item.@{prefix-cls}&-first-item:not(&-item-rtl) {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
 
       .@{prefix-cls}-sm & {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
     &-item.@{prefix-cls}&-last-item:not(&-item-rtl) {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
 
       .@{prefix-cls}-sm & {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
 
     // ----------rtl for first item----------
     &-item.@{prefix-cls}&-item-rtl&-first-item {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
 
       .@{prefix-cls}-sm & {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
 
     // ----------rtl for last item----------
     &-item.@{prefix-cls}&-item-rtl&-last-item {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
 
       .@{prefix-cls}-sm & {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
   }
@@ -47,36 +55,41 @@
     }
 
     &-item&-first-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
 
       .@{prefix-cls}-sm & {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
     &-item&-last-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
-
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
       .@{prefix-cls}-sm & {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
 
     // ----------rtl for first item----------
     &-item.@{prefix-cls}&-first-item&-item-rtl > .@{bordered-item-cls} {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
-
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
       .@{prefix-cls}-sm & {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
 
     // ----------rtl for last item----------
     &-item.@{prefix-cls}&-last-item&-item-rtl > .@{bordered-item-cls} {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
-
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
       .@{prefix-cls}-sm & {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
   }

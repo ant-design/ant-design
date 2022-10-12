@@ -4,18 +4,22 @@
   }
 
   &-item&-first-item {
-    border-radius: @btn-border-radius-base @btn-border-radius-base 0 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
     .@{prefix-cls}-sm & {
-      border-radius: @btn-border-radius-sm @btn-border-radius-sm 0 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
   &-item&-last-item {
-    border-radius: 0 0 @btn-border-radius-base @btn-border-radius-base;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
     .@{prefix-cls}-sm & {
-      border-radius: 0 0 @btn-border-radius-sm @btn-border-radius-sm;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 }
