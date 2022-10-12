@@ -1,39 +1,25 @@
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import type {ReactNode} from 'react';
-import RCTour from '../../../tour/src/index';
+import type { ReactNode } from 'react';
+import RCTour, { TourContext } from '../../../tour/src/index';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import type { CompoundedComponent,TourProps } from './interface';
-import Button from '../button';
+import type { CompoundedComponent, TourProps, TourStepProps } from './interface';
 
 export const tourPrefixCls = 'tour';
 
-const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement, TourProps> = (
-  props,
-) => {
+const Tour: React.ForwardRefRenderFunction<
+  HTMLAnchorElement | HTMLButtonElement,
+  TourProps
+> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
     steps,
-    description,
     current,
-    onClose,
-    onFinish,
-    nextButtonProps = {
-      children: <button type='button'>下一步</button>,
-      onClick: () => {},
-    },
-    prevButtonProps = {
-      children: <button type='button'>上一步</button>,
-      onClick: () => {},
-    },
-    finishButtonProps = {
-      children: <button type='button'>跳过</button>,
-      onClick: () => {},
-    },
-    renderStep,
+    style,
+    type,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -50,26 +36,27 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     hashId,
   );
 
-  const {
-    target,
-    placement: stepPlacement = 'bottom',
-    style: stepStyle,
-    arrow: stepArrow,
-    className: stepClassName,
-    mask: stepMask,
-  } = steps[currentStep] || {};
-
-  const mergedSteps = steps.map(item => ({
-    ...item,
-    nextButtonProps: item.nextButtonProps || <Button type="primary">下一步</Button>,
-    prevButtonProps: item.prevButtonProps || <Button type="primary">上一步</Button>,
-    finishButtonProps: item.finishButtonProps || <Button type="primary">结束引导</Button>,
-  }));
-
-  const renderPanel=()=>{
+  const renderPanel = (item: TourStepProps, currentStep: number) => {
+    const {
+      title,
+      cover,
+      description,
+      nextButtonProps = {
+        children: <button type="button">下一步</button>,
+        onClick: () => {},
+      },
+      prevButtonProps = {
+        children: <button type="button">上一步</button>,
+        onClick: () => {},
+      },
+      finishButtonProps = {
+        children: <button type="button">跳过</button>,
+        onClick: () => {},
+      },
+      renderStep,
+    } = item;
 
     const prevBtnClick = () => {
-      setCurrentStep(currentStep - 1);
       if (typeof prevButtonProps.onClick === 'function') {
         prevButtonProps.onClick();
       }
@@ -77,13 +64,16 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     const prevButtonNode: ReactNode = (
       <div className={`${prefixCls}-prevButton`} onClick={prevBtnClick}>
         {prevButtonProps?.children || (
-          <button className="ant-btn ant-btn-primary">上一步</button>
+          <button className="ant-btn ant-btn-primary" type="button">
+            上一步
+          </button>
         )}
       </div>
     );
 
     const nextBtnClick = () => {
-      setCurrentStep(currentStep + 1);
+      console.log('currentStep', currentStep);
+      console.log('item', item);
       if (typeof nextButtonProps.onClick === 'function') {
         nextButtonProps.onClick();
       }
@@ -92,13 +82,14 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     const nextButtonNode: ReactNode = (
       <div className={`${prefixCls}-nextButton`} onClick={nextBtnClick}>
         {nextButtonProps?.children || (
-          <button className="ant-btn ant-btn-primary">下一步</button>
+          <button className="ant-btn ant-btn-primary" type="button">
+            下一步
+          </button>
         )}
       </div>
     );
 
     const finishBtnClick = () => {
-      closeContent('finish');
       if (typeof finishButtonProps.onClick === 'function') {
         finishButtonProps.onClick();
       }
@@ -107,7 +98,9 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     const finishButtonNode: ReactNode = (
       <div className={`${prefixCls}-prevButton`} onClick={finishBtnClick}>
         {finishButtonProps?.children || (
-          <button className="ant-btn ant-btn-primary">结束引导</button>
+          <button className="ant-btn ant-btn-primary" type="button">
+            结束引导
+          </button>
         )}
       </div>
     );
@@ -123,9 +116,7 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
 
     let descriptionNode: ReactNode;
     if (description) {
-      descriptionNode = (
-        <div className={`${prefixCls}-description`}>{description}</div>
-      );
+      descriptionNode = <div className={`${prefixCls}-description`}>{description}</div>;
     }
 
     let coverNode: ReactNode;
@@ -134,18 +125,9 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
     }
 
     const closer: ReactNode = (
-      <button
-        type="button"
-        onClick={() => closeContent('close')}
-        aria-label="Close"
-        className={`${prefixCls}-close`}
-      >
+      <button type="button" aria-label="Close" className={`${prefixCls}-close`}>
         <span className={`${prefixCls}-close-x`} />
-        <span
-          role="img"
-          aria-label="close"
-          className="anticon anticon-close ant-modal-close-icon"
-        >
+        <span role="img" aria-label="close" className="anticon anticon-close ant-modal-close-icon">
           <svg
             viewBox="64 64 896 896"
             focusable="false"
@@ -163,12 +145,10 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
 
     const mergedSlickNode =
       (typeof renderStep === 'function' && renderStep(currentStep)) ||
-      [...Array.from({ length: stepsLength }).keys()].map((item, index) => {
-        return (
-          <span key={item} className={index === currentStep ? 'active' : ''} />
-        );
-      });
-    const slickNode: ReactNode = stepsLength > 1 ? mergedSlickNode : null;
+      [...Array.from({ length: steps.length }).keys()].map((stepItem, index) => (
+        <span key={stepItem} className={index === currentStep ? 'active' : ''} />
+      ));
+    const slickNode: ReactNode = steps.length > 1 ? mergedSlickNode : null;
 
     const mergedClassName = classNames(`${prefixCls}-inner`, className);
 
@@ -182,21 +162,21 @@ const Tour: React.ForwardRefRenderFunction<HTMLAnchorElement | HTMLButtonElement
           <div className={`${prefixCls}-sliders`}>{slickNode}</div>
           <div className={`${prefixCls}-buttons`}>
             {currentStep !== 0 ? prevButtonNode : null}
-            {currentStep === stepsLength - 1 ? finishButtonNode : nextButtonNode}
+            {currentStep === steps.length - 1 ? finishButtonNode : nextButtonNode}
           </div>
         </div>
       </div>
     );
-  }
+  };
 
   return wrapSSR(
     <RCTour
-      className={classNames(`${prefixCls}`, `${hashId}`)}
       prefixCls={prefixCls}
-      steps={mergedSteps}
+      steps={steps}
       current={current}
-      rootClassName={hashId}
+      rootClassName={customClassName}
       renderPanel={renderPanel}
+      {...restProps}
     />,
   );
 };

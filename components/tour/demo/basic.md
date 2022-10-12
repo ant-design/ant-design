@@ -40,6 +40,18 @@ const App: React.FC = () => {
               title: '创建',
               description: '创建一条数据',
               target: () => createRef.current,
+              nextButtonProps: {
+                children: <button className="ant-btn ant-btn-primary">下一步</button>,
+                onClick: () => {
+                  console.log('下一步被点击!');
+                },
+              },
+              prevButtonProps: {
+                children: <button className="ant-btn ant-btn-primary">上一步</button>,
+                onClick: () => {
+                  console.log('上一步被点击!');
+                },
+              },
             },
             {
               title: '更新',
@@ -54,15 +66,16 @@ const App: React.FC = () => {
                 </div>
               ),
               nextButtonProps: {
-                children: (
-                  <button className="ant-btn ant-btn-primary">下一步</button>
-                ),
-                onClick:()=>{console.log('btn被点击!')}
+                children: <button className="ant-btn ant-btn-primary">下一步</button>,
+                onClick: () => {
+                  console.log('下一步被点击!');
+                },
               },
               prevButtonProps: {
-                children: (
-                  <button className="ant-btn ant-btn-primary">上一步</button>
-                ),
+                children: <button className="ant-btn ant-btn-primary">上一步</button>,
+                onClick: () => {
+                  console.log('上一步被点击!');
+                },
               },
               finishButtonProps: {
                 children: <button>结束引导</button>,
