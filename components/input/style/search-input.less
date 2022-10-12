@@ -71,11 +71,13 @@
 
   // ===================== Compact Item Customized Styles =====================
   &.@{input-prefix-cls}-compact-item {
-    &:not(.@{input-prefix-cls}-compact-last-item) {
-      .@{input-prefix-cls}-group-addon {
-        .@{input-prefix-cls}-search-button {
-          margin-right: -1px;
-          border-radius: 0;
+    &:not(.@{input-prefix-cls}-compact-item-rtl) {
+      &:not(.@{input-prefix-cls}-compact-last-item) {
+        .@{input-prefix-cls}-group-addon {
+          .@{input-prefix-cls}-search-button {
+            margin-right: -@border-width-base;
+            border-radius: 0;
+          }
         }
       }
     }
@@ -99,6 +101,17 @@
 
     > .@{input-prefix-cls}-affix-wrapper-focused {
       z-index: 2;
+    }
+  }
+  // ===================== For RTL Compact Item Customized Styles =====================
+  &.@{input-prefix-cls}-compact-item-rtl {
+    &:not(.@{input-prefix-cls}-compact-last-item) {
+      .@{input-prefix-cls}-group-addon:last-child {
+        .@{input-prefix-cls}-search-button {
+          margin-left: -@border-width-base;
+          border-radius: 0;
+        }
+      }
     }
   }
 }
