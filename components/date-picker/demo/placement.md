@@ -2,7 +2,7 @@
 order: 28
 title:
   zh-CN: 弹出位置
-  en-US: Basic
+  en-US: Placement
 ---
 
 ## zh-CN
