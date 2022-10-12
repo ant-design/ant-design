@@ -52,9 +52,4 @@ describe('Spin', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
   });
-  it('correct displayName', () => {
-    if (process.env.NODE_ENV !== 'production') {
-      expect(Spin.displayName).toBe('Spin');
-    }
-  });
 });
