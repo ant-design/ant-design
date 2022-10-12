@@ -108,8 +108,16 @@ export const genCommonStyle = (token: DerivativeToken, rootPrefixCls: string): C
       fontSize,
       boxSizing: 'border-box',
 
+      '&::before, &::after': {
+        boxSizing: 'border-box',
+      },
+
       [rootPrefixSelector]: {
         boxSizing: 'border-box',
+
+        '&::before, &::after': {
+          boxSizing: 'border-box',
+        },
       },
     },
   };

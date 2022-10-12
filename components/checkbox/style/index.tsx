@@ -183,6 +183,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         [`${checkboxCls}-inner`]: {
           backgroundColor: token.colorPrimary,
           borderColor: token.colorPrimary,
+          zIndex: 2,
 
           '&:after': {
             opacity: 1,
@@ -194,6 +195,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         // Checked Effect
         '&:after': {
           position: 'absolute',
+          zIndex: 1,
           top: 0,
           insetInlineStart: 0,
           width: '100%',
