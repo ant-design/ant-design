@@ -5092,13 +5092,13 @@ exports[`renders ./components/input/demo/debug-addon.md extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     Input addon Button:
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -5128,7 +5128,7 @@ exports[`renders ./components/input/demo/debug-addon.md extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -5158,19 +5158,19 @@ exports[`renders ./components/input/demo/debug-addon.md extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     Input addon Button icon:
   </div>
