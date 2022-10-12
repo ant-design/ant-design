@@ -52,7 +52,7 @@ function getAction(actions: React.ReactNode[]) {
   return actionList;
 }
 
-const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>) => {
+const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 

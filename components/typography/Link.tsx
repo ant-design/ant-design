@@ -9,10 +9,7 @@ export interface LinkProps
   ellipsis?: boolean;
 }
 
-const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
-  { ellipsis, rel, ...restProps },
-  ref,
-) => {
+const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restProps }, ref) => {
   warning(
     typeof ellipsis !== 'object',
     'Typography.Link',
@@ -33,6 +30,6 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
   delete mergedProps.navigate;
 
   return <Base {...mergedProps} ref={baseRef} ellipsis={!!ellipsis} component="a" />;
-};
+});
 
-export default React.forwardRef(Link);
+export default Link;

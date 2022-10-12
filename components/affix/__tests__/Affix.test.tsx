@@ -121,7 +121,8 @@ describe('Affix Render', () => {
 
   it('Anchor correct render when target is null', async () => {
     expect(() => {
-      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
+      // @ts-expect-error: Type 'null' is not assignable to type '(() => HTMLElement | Window | null) | undefined'.ts(2322)
+      render(<Affix target={null}>test</Affix>);
     }).not.toThrow();
   });
 

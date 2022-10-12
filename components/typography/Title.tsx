@@ -14,7 +14,7 @@ export type TitleProps = Omit<
   'strong'
 >;
 
-const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (props, ref) => {
+const Title = React.forwardRef<HTMLHeadingElement, TitleProps>((props, ref) => {
   const { level = 1, ...restProps } = props;
   let component: string;
 
@@ -30,6 +30,6 @@ const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (p
   }
 
   return <Base ref={ref} {...restProps} component={component} />;
-};
+});
 
-export default React.forwardRef(Title);
+export default Title;

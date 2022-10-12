@@ -36,7 +36,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   hideRequiredMark?: boolean;
 }
 
-const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
+const Form = React.forwardRef<FormInstance, FormProps>((props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
@@ -143,9 +143,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       </SizeContextProvider>
     </DisabledContextProvider>
   );
-};
-
-const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values = any>(
+}) as <Values = any>(
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 

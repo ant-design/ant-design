@@ -15,10 +15,7 @@ export interface HookModalRef {
   update: (config: ModalFuncProps) => void;
 }
 
-const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose, config },
-  ref,
-) => {
+const HookModal = React.forwardRef<HookModalRef, HookModalProps>(({ afterClose, config }, ref) => {
   const [open, setOpen] = React.useState(true);
   const [innerConfig, setInnerConfig] = React.useState(config);
   const { direction, getPrefixCls } = React.useContext(ConfigContext);
@@ -64,6 +61,6 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
       )}
     </LocaleReceiver>
   );
-};
+});
 
-export default React.forwardRef(HookModal);
+export default HookModal;

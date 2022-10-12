@@ -131,16 +131,9 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLElement>> {
-  Group: typeof Group;
-  /** @internal */
-  __ANT_BUTTON: boolean;
-}
-
 type Loading = number | boolean;
 
-const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+const InternalButton = React.forwardRef<unknown, ButtonProps>((props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -169,7 +162,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
-  const buttonRef = (ref as any) || React.createRef<HTMLElement>();
+  const buttonRef = (ref as any) || React.createRef<HTMLAnchorElement>();
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
@@ -307,14 +300,16 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   }
 
   return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
-};
+});
 
-const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
+const Button = Object.assign(InternalButton, {
+  Group,
+  /** @internal */
+  __ANT_BUTTON: true,
+});
+
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }
-
-Button.Group = Group;
-Button.__ANT_BUTTON = true;
 
 export default Button;

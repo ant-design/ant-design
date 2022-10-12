@@ -1,7 +1,7 @@
 import type { Moment } from 'moment';
 import * as React from 'react';
 import DatePicker from '..';
-import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
+import type { DatePickRef } from '../generatePicker/interface';
 
 describe('DatePicker.typescript', () => {
   it('DatePicker ref methods', () => {
@@ -45,11 +45,8 @@ describe('DatePicker.typescript', () => {
   });
 
   it('RangePicker ref methods with forwardRef', () => {
-    const MyRangePicker = React.forwardRef((props, ref: RangePickerRef<Moment>) => (
-      <DatePicker.RangePicker {...props} ref={ref} />
-    ));
     const datePicker = (
-      <MyRangePicker
+      <DatePicker.RangePicker
         ref={picker => {
           picker?.focus();
           picker?.blur();

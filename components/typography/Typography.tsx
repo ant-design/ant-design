@@ -19,48 +19,51 @@ interface InternalTypographyProps extends TypographyProps {
   setContentRef?: (node: HTMLElement) => void;
 }
 
-const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = (
-  {
-    prefixCls: customizePrefixCls,
-    component = 'article',
-    className,
-    'aria-label': ariaLabel,
-    setContentRef,
-    children,
-    ...restProps
-  },
-  ref,
-) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
-  let mergedRef = ref;
-  if (setContentRef) {
-    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
-    mergedRef = composeRef(ref, setContentRef);
-  }
-
-  const Component = component as any;
-  const prefixCls = getPrefixCls('typography', customizePrefixCls);
-  const componentClassName = classNames(
-    prefixCls,
+const Typography = React.forwardRef<{}, InternalTypographyProps>(
+  (
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      prefixCls: customizePrefixCls,
+      component = 'article',
+      className,
+      'aria-label': ariaLabel,
+      setContentRef,
+      children,
+      ...restProps
     },
-    className,
-  );
-  return (
-    <Component className={componentClassName} aria-label={ariaLabel} ref={mergedRef} {...restProps}>
-      {children}
-    </Component>
-  );
-};
+    ref,
+  ) => {
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-const RefTypography = React.forwardRef(Typography);
+    let mergedRef = ref;
+    if (setContentRef) {
+      warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
+      mergedRef = composeRef(ref, setContentRef);
+    }
+
+    const Component = component as any;
+    const prefixCls = getPrefixCls('typography', customizePrefixCls);
+    const componentClassName = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
+    return (
+      <Component
+        className={componentClassName}
+        aria-label={ariaLabel}
+        ref={mergedRef}
+        {...restProps}
+      >
+        {children}
+      </Component>
+    );
+  },
+);
+
 if (process.env.NODE_ENV !== 'production') {
-  RefTypography.displayName = 'Typography';
+  Typography.displayName = 'Typography';
 }
 
-// es default export should use const instead of let
-const ExportTypography = RefTypography as unknown as React.FC<TypographyProps>;
-
-export default ExportTypography;
+export default Typography;

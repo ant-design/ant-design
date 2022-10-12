@@ -120,7 +120,7 @@ export interface CascaderRef {
   blur: () => void;
 }
 
-const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<CascaderRef>) => {
+const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -144,7 +144,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     ...rest
   } = props;
 
-  const restProps = omit(rest, ['suffixIcon' as any]);
+  const restProps = omit(rest, ['suffixIcon']);
 
   const {
     getPopupContainer: getContextPopupContainer,

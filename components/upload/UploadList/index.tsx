@@ -24,10 +24,7 @@ delete listItemMotion.onAppearEnd;
 delete listItemMotion.onEnterEnd;
 delete listItemMotion.onLeaveEnd;
 
-const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProps> = (
-  props,
-  ref,
-) => {
+const UploadList = React.forwardRef<unknown, UploadListProps>((props, ref) => {
   const {
     listType = 'text',
     previewFile = previewImage,
@@ -245,9 +242,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       )}
     </div>
   );
-};
-
-const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);
+});
 
 if (process.env.NODE_ENV !== 'production') {
   UploadList.displayName = 'UploadList';
