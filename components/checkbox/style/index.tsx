@@ -195,7 +195,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         // Checked Effect
         '&:after': {
           position: 'absolute',
-          boxSizing: 'border-box',
           zIndex: 1,
           top: 0,
           insetInlineStart: 0,
