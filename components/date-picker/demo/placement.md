@@ -1,8 +1,8 @@
 ---
 order: 28
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 弹出位置
+  en-US: Placement
 ---
 
 ## zh-CN
