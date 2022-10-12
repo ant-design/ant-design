@@ -19,8 +19,13 @@ import {
   DownloadOutlined,
   EllipsisOutlined,
   HeartOutlined,
+  LikeOutlined,
+  CommentOutlined,
   StarOutlined,
-  EnvironmentOutlined,
+  ShareAltOutlined,
+  WarningOutlined,
+  MailOutlined,
+  MobileOutlined,
 } from '@ant-design/icons';
 import { Button, Menu, Dropdown, Space, Tooltip } from 'antd';
 import React from 'react';
@@ -28,11 +33,11 @@ import React from 'react';
 const App: React.FC = () => (
   <div>
     <Space.Compact block>
-      <Tooltip title="Download">
-        <Button icon={<DownloadOutlined />} />
+      <Tooltip title="Like">
+        <Button icon={<LikeOutlined />} />
       </Tooltip>
-      <Tooltip title="Environment">
-        <Button icon={<EnvironmentOutlined />} />
+      <Tooltip title="Comment">
+        <Button icon={<CommentOutlined />} />
       </Tooltip>
       <Tooltip title="Star">
         <Button icon={<StarOutlined />} />
@@ -40,6 +45,39 @@ const App: React.FC = () => (
       <Tooltip title="Heart">
         <Button icon={<HeartOutlined />} />
       </Tooltip>
+      <Tooltip title="Share">
+        <Button icon={<ShareAltOutlined />} />
+      </Tooltip>
+      <Tooltip title="Download">
+        <Button icon={<DownloadOutlined />} />
+      </Tooltip>
+      <Dropdown
+        placement="bottomRight"
+        overlay={
+          <Menu
+            items={[
+              {
+                key: '1',
+                label: 'Report',
+                icon: <WarningOutlined />,
+              },
+              {
+                key: '2',
+                label: 'Mail',
+                icon: <MailOutlined />,
+              },
+              {
+                key: '3',
+                label: 'Mobile',
+                icon: <MobileOutlined />,
+              },
+            ]}
+          />
+        }
+        trigger={['click']}
+      >
+        <Button icon={<EllipsisOutlined />} />
+      </Dropdown>
     </Space.Compact>
     <br />
     <Space.Compact block>
@@ -63,10 +101,7 @@ const App: React.FC = () => (
       <Tooltip title="Tooltip">
         <Button icon={<DownloadOutlined />} />
       </Tooltip>
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <Button type="primary">Button 1</Button>
+      <Button type="primary">Button 4</Button>
       <Dropdown
         placement="bottomRight"
         overlay={
