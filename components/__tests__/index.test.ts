@@ -1,6 +1,5 @@
 const OLD_NODE_ENV = process.env.NODE_ENV;
 process.env.NODE_ENV = 'development';
-const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 const antd = require('..');
 
 describe('antd', () => {
