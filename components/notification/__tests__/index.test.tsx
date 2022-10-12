@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { getInstance, type NotificationInstance } from '..';
-import { sleep, act } from '../../../tests/utils';
+import { waitFakeTimer, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
@@ -39,7 +39,7 @@ describe('notification', () => {
       });
     }
 
-    await sleep();
+    await waitFakeTimer();
 
     const count = document.querySelectorAll('.additional-holder').length;
     expect(count).toEqual(1);
