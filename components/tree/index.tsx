@@ -1,6 +1,6 @@
 import Tree from './Tree';
 
-export { DataNode, EventDataNode } from 'rc-tree/lib/interface';
+export { BasicDataNode, DataNode, EventDataNode } from 'rc-tree/lib/interface';
 export { DirectoryTreeProps, ExpandAction as DirectoryTreeExpandAction } from './DirectoryTree';
 export {
   AntdTreeNodeAttribute,
