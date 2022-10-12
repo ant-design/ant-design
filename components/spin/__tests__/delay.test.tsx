@@ -31,7 +31,7 @@ describe('delay spinning', () => {
     jest.useRealTimers();
   });
 
-  it('should cancel debounce function when unmount', async () => {
+  it('should cancel debounce function when unmount', () => {
     const debouncedFn = jest.fn();
     const cancel = jest.fn();
     (debouncedFn as any).cancel = cancel;
