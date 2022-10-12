@@ -15,10 +15,8 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect((container.querySelector('.ant-spin-nested-loading')! as HTMLElement).style.length).toBe(
-      0,
-    );
-    expect((container.querySelector('.ant-spin')! as HTMLElement).style.background).toBe('red');
+    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
+    expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
   });
 
   it("should render custom indicator when it's set", () => {
