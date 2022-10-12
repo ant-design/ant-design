@@ -157,7 +157,6 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
 type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },
 ) => React.ReactElement) & {
-  defaultProps: Partial<React.PropsWithChildren<TreeProps<any>>>;
   TreeNode: typeof TreeNode;
   DirectoryTree: typeof DirectoryTree;
 };
