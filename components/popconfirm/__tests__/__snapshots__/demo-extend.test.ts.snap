@@ -12,8 +12,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -36,23 +36,27 @@ Array [
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -97,8 +101,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -121,23 +125,27 @@ Array [
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -182,8 +190,8 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
   </a>
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -206,23 +214,27 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -269,14 +281,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
     />
     <span
       class="ant-switch-inner"
-    >
-      <span
-        class="ant-switch-inner-checked"
-      />
-      <span
-        class="ant-switch-inner-unchecked"
-      />
-    </span>
+    />
   </button>
 </div>
 `;
@@ -290,8 +295,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -314,27 +319,31 @@ Array [
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="question-circle"
-                class="anticon anticon-question-circle"
-                role="img"
-                style="color: red;"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="question-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="question-circle"
+                  class="anticon anticon-question-circle"
+                  role="img"
+                  style="color:red"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                  />
-                  <path
-                    d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="question-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                    <path
+                      d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -379,8 +388,8 @@ Array [
   </a>,
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -403,23 +412,27 @@ Array [
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -460,7 +473,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
   class="demo"
 >
   <div
-    style="margin-left: 70px; white-space: nowrap;"
+    style="margin-left:70px;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -472,8 +485,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -496,23 +509,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -555,8 +572,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -579,23 +596,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -638,8 +659,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -662,23 +683,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -713,7 +738,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="width: 70px; float: left;"
+    style="width:70px;float:left"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -725,8 +750,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -749,23 +774,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -808,8 +837,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -832,23 +861,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -891,8 +924,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -915,23 +948,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -966,7 +1003,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="width: 70px; margin-left: 304px;"
+    style="width:70px;margin-left:304px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -978,8 +1015,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1002,23 +1039,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1061,8 +1102,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1085,23 +1126,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1144,8 +1189,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1168,23 +1213,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1219,7 +1268,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </div>
   </div>
   <div
-    style="margin-left: 70px; clear: both; white-space: nowrap;"
+    style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1231,8 +1280,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1255,23 +1304,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1314,8 +1367,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1338,23 +1391,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1397,8 +1454,8 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     </button>
     <div>
       <div
-        class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-        style="opacity: 0;"
+        class="ant-popover ant-popconfirm"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1421,23 +1478,27 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popconfirm-message"
               >
                 <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
+                  class="ant-popconfirm-message-icon"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
                 </span>
                 <div
                   class="ant-popconfirm-message-title"
@@ -1486,8 +1547,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover ant-popconfirm ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0;"
+      class="ant-popover ant-popconfirm"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -1510,23 +1571,27 @@ Array [
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -1584,23 +1649,27 @@ Array [
             class="ant-popconfirm-message"
           >
             <span
-              aria-label="exclamation-circle"
-              class="anticon anticon-exclamation-circle"
-              role="img"
+              class="ant-popconfirm-message-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="exclamation-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
             </span>
             <div
               class="ant-popconfirm-message-title"
@@ -1637,7 +1706,7 @@ Array [
   >
     <div
       class="ant-popover-content"
-      style="width: 250px;"
+      style="width:250px"
     >
       <div
         class="ant-popover-arrow"
@@ -1653,23 +1722,27 @@ Array [
             class="ant-popconfirm-message"
           >
             <span
-              aria-label="exclamation-circle"
-              class="anticon anticon-exclamation-circle"
-              role="img"
+              class="ant-popconfirm-message-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="exclamation-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
             </span>
             <div
               class="ant-popconfirm-message-title"

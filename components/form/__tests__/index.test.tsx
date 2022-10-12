@@ -1407,12 +1407,12 @@ describe('Form', () => {
     const Demo: React.FC = () => (
       <Form>
         <Form.Item labelCol={4 as ColProps} validateStatus="error">
-          <Modal visible>
+          <Modal open>
             <Select className="modal-select" />
           </Modal>
         </Form.Item>
         <Form.Item validateStatus="error">
-          <Drawer visible>
+          <Drawer open>
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
@@ -1510,5 +1510,72 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
       marginBottom: -24,
     });
+  });
+  it('form child components should be given priority to own disabled props when it in a disabled form', () => {
+    const props = {
+      name: 'file',
+      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      headers: {
+        authorization: 'authorization-text',
+      },
+      capture: true,
+    };
+    const renderComps = (disabled?: boolean) => [
+      <Button key="Button" disabled={disabled} type="primary" htmlType="submit">
+        test
+      </Button>,
+      <Cascader key="Cascader" disabled={disabled} options={[]} />,
+      <Checkbox key="Checkbox" disabled={disabled} />,
+      <Checkbox.Group
+        key="CheckboxGroup"
+        disabled={disabled}
+        options={[
+          { label: 'male', value: 0 },
+          { label: 'female', value: 1 },
+        ]}
+      />,
+      <InputNumber key="InputNumber" disabled={disabled} />,
+      <Input key="Input" disabled={disabled} />,
+      <Select key="Select" disabled={disabled} />,
+      <Switch key="Switch" disabled={disabled} />,
+      <TreeSelect key="TreeSelect" disabled={disabled} />,
+      <Upload key="Upload" {...props} disabled={disabled}>
+        <Button disabled={disabled}>Click to Upload</Button>
+      </Upload>,
+      <DatePicker key="DatePicker" disabled={disabled} />,
+      <DatePicker.RangePicker key="DatePicker.RangePicker" disabled={disabled} />,
+      <DatePicker.MonthPicker key="DatePicker.MonthPicker" disabled={disabled} />,
+      <DatePicker.QuarterPicker key="DatePicker.QuarterPicker" disabled={disabled} />,
+      <DatePicker.WeekPicker key="DatePicker.WeekPicker" disabled={disabled} />,
+      <DatePicker.YearPicker key="DatePicker.YearPicker" disabled={disabled} />,
+      <DatePicker.TimePicker key="DatePicker.TimePicker" disabled={disabled} />,
+    ];
+    const App = () => <Form disabled>{renderComps(false)}</Form>;
+
+    const wrapper = render(<App />);
+    expect(wrapper.container.querySelectorAll('[disabled]').length).toBe(0);
+    const App2 = () => <Form disabled>{renderComps()}</Form>;
+
+    const wrapper2 = render(<App2 />);
+    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
+
+    const App3 = () => <Form disabled>{renderComps(true)}</Form>;
+
+    const wrapper3 = render(<App3 />);
+
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
+
+    const App4 = () => <Form>{renderComps(true)}</Form>;
+
+    const wrapper4 = render(<App4 />);
+
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
+
+    const App5 = () => <Form>{renderComps()}</Form>;
+
+    const wrapper5 = render(<App5 />);
+
+    expect(wrapper5.container.querySelectorAll('[disabled]').length).toBe(0);
   });
 });

@@ -29,6 +29,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
 }
 
 interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+  /** @internal */
   __ANT_BUTTON: boolean;
 }
 
@@ -72,7 +73,7 @@ const DropdownButton: DropdownButtonInterface = props => {
   const buttonPrefixCls = `${prefixCls}-button`;
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const dropdownProps = {
+  const dropdownProps: DropdownProps = {
     align,
     overlay,
     disabled,
@@ -84,7 +85,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-  } as DropdownProps;
+  };
 
   if ('open' in props) {
     dropdownProps.open = open;
@@ -113,7 +114,7 @@ const DropdownButton: DropdownButtonInterface = props => {
 
   const rightButton = <Button type={type} danger={danger} icon={icon} />;
 
-  const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
+  const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 
   return wrapSSR(
     <ButtonGroup {...restProps} className={classNames(buttonPrefixCls, className, hashId)}>

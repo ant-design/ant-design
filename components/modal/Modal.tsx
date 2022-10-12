@@ -154,6 +154,12 @@ const Modal: React.FC<ModalProps> = props => {
     onOk?.(e);
   };
 
+  warning(
+    !('visible' in props),
+    'Modal',
+    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
+  );
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -167,6 +173,7 @@ const Modal: React.FC<ModalProps> = props => {
     // Deprecated
     visible,
 
+    width = 520,
     ...restProps
   } = props;
 
@@ -187,6 +194,7 @@ const Modal: React.FC<ModalProps> = props => {
   return wrapSSR(
     <NoFormStyle status override>
       <Dialog
+        width={width}
         {...restProps}
         getContainer={
           getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
@@ -210,11 +218,6 @@ const Modal: React.FC<ModalProps> = props => {
       />
     </NoFormStyle>,
   );
-};
-
-Modal.defaultProps = {
-  width: 520,
-  confirmLoading: false,
 };
 
 export default Modal;

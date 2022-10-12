@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
 import ConfigProvider from '..';
 import Button from '../../button';
 import Divider from '../../divider';
+import { render } from '../../../tests/utils';
 
 describe('ConfigProvider.DynamicTheme', () => {
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('ConfigProvider.DynamicTheme', () => {
   });
 
   it('customize primary color', () => {
-    mount(
+    render(
       <ConfigProvider
         theme={{
           token: {
@@ -38,7 +38,7 @@ describe('ConfigProvider.DynamicTheme', () => {
 
   it('not crash on null token', () => {
     expect(() => {
-      mount(
+      render(
         <ConfigProvider
           theme={{
             token: null as any,
@@ -49,7 +49,7 @@ describe('ConfigProvider.DynamicTheme', () => {
   });
 
   it('should support overriding aliasToken', () => {
-    mount(
+    render(
       <ConfigProvider
         theme={{
           token: {

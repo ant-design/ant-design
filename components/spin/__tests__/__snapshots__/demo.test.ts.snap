@@ -35,7 +35,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
     aria-label="loading"
     class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
-    style="font-size: 24px;"
+    style="font-size:24px"
   >
     <svg
       aria-hidden="true"
@@ -85,7 +85,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <button
@@ -99,14 +99,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        />
-        <span
-          class="ant-switch-inner-unchecked"
-        />
-      </span>
+      />
     </button>
   </div>
 </div>
@@ -172,7 +165,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     Loading state：
     <button
@@ -186,14 +179,7 @@ exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        />
-        <span
-          class="ant-switch-inner-unchecked"
-        />
-      </span>
+      />
     </button>
   </div>
 </div>
@@ -205,7 +191,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
+    style="margin-right:16px"
   >
     <div
       aria-busy="true"
@@ -232,7 +218,7 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
+    style="margin-right:16px"
   >
     <div
       aria-busy="true"

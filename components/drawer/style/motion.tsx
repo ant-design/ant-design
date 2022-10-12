@@ -48,7 +48,9 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           sharedPanelMotion,
           {
             '&-enter, &-appear': {
-              transform: 'translateX(-100%)',
+              '&-start': {
+                transform: 'translateX(-100%) !important',
+              },
               '&-active': {
                 transform: 'translateX(0)',
               },
@@ -67,7 +69,9 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           sharedPanelMotion,
           {
             '&-enter, &-appear': {
-              transform: 'translateX(100%)',
+              '&-start': {
+                transform: 'translateX(100%) !important',
+              },
               '&-active': {
                 transform: 'translateX(0)',
               },
@@ -86,7 +90,9 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           sharedPanelMotion,
           {
             '&-enter, &-appear': {
-              transform: 'translateY(-100%)',
+              '&-start': {
+                transform: 'translateY(-100%) !important',
+              },
               '&-active': {
                 transform: 'translateY(0)',
               },
@@ -105,7 +111,9 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
           sharedPanelMotion,
           {
             '&-enter, &-appear': {
-              transform: 'translateY(100%)',
+              '&-start': {
+                transform: 'translateY(100%) !important',
+              },
               '&-active': {
                 transform: 'translateY(0)',
               },

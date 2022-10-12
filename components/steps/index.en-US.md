@@ -15,11 +15,16 @@ When a given task is complicated or has a certain sequence in the series of subt
 ## API
 
 ```jsx
+// works when >=4.24.0, recommended ✅
+const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
+return <Tabs items={items} />;
+
+// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
 <Steps>
   <Step title="first step" />
   <Step title="second step" />
   <Step title="third step" />
-</Steps>
+</Steps>;
 ```
 
 ### Steps
@@ -40,8 +45,9 @@ The whole of the step bar.
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | type | Type of steps, can be set to one of the following values: `default`, `navigation` | string | `default` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
+| items | StepItem content | [StepItem](#StepItem) | [] | 4.24.0 |
 
-### Steps.Step
+### StepItem
 
 A single step in the step bar.
 

@@ -16000,7 +16000,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     class="config-input-affix-wrapper config-input-password"
   >
     <input
-      action="click"
       class="config-input"
       type="password"
       value=""
@@ -16098,7 +16097,6 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password"
   >
     <input
-      action="click"
       class="config-input config-input-disabled"
       disabled=""
       type="password"
@@ -16195,7 +16193,6 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
-      action="click"
       class="config-input config-input-lg"
       type="password"
       value=""
@@ -16290,7 +16287,6 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     class="config-input-affix-wrapper config-input-password"
   >
     <input
-      action="click"
       class="config-input"
       type="password"
       value=""
@@ -16385,7 +16381,6 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
     class="ant-input-affix-wrapper ant-input-password"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""
@@ -16480,7 +16475,6 @@ exports[`ConfigProvider components Input normal 1`] = `
     class="ant-input-affix-wrapper ant-input-password"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""
@@ -16575,7 +16569,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     class="ant-input-affix-wrapper prefix-Input"
   >
     <input
-      action="click"
       class="ant-input"
       type="password"
       value=""
@@ -20994,23 +20987,27 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               class="config-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popconfirm-message-title"
@@ -21077,23 +21074,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
               class="config-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popconfirm-message-title"
@@ -21162,23 +21163,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               class="config-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popconfirm-message-title"
@@ -21245,23 +21250,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               class="config-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popconfirm-message-title"
@@ -21328,23 +21337,27 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -21411,23 +21424,27 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               class="ant-popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popconfirm-message-title"
@@ -21494,23 +21511,27 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               class="prefix-Popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="prefix-Popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="prefix-Popconfirm-message-title"
@@ -26412,14 +26433,7 @@ exports[`ConfigProvider components Switch configProvider 1`] = `
   />
   <span
     class="config-switch-inner"
-  >
-    <span
-      class="config-switch-inner-checked"
-    />
-    <span
-      class="config-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26436,14 +26450,7 @@ exports[`ConfigProvider components Switch configProvider componentDisabled 1`] =
   />
   <span
     class="config-switch-inner"
-  >
-    <span
-      class="config-switch-inner-checked"
-    />
-    <span
-      class="config-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26459,14 +26466,7 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
   />
   <span
     class="config-switch-inner"
-  >
-    <span
-      class="config-switch-inner-checked"
-    />
-    <span
-      class="config-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26482,14 +26482,7 @@ exports[`ConfigProvider components Switch configProvider componentSize middle 1`
   />
   <span
     class="config-switch-inner"
-  >
-    <span
-      class="config-switch-inner-checked"
-    />
-    <span
-      class="config-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26505,14 +26498,7 @@ exports[`ConfigProvider components Switch configProvider virtual and dropdownMat
   />
   <span
     class="ant-switch-inner"
-  >
-    <span
-      class="ant-switch-inner-checked"
-    />
-    <span
-      class="ant-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26528,14 +26514,7 @@ exports[`ConfigProvider components Switch normal 1`] = `
   />
   <span
     class="ant-switch-inner"
-  >
-    <span
-      class="ant-switch-inner-checked"
-    />
-    <span
-      class="ant-switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 
@@ -26551,14 +26530,7 @@ exports[`ConfigProvider components Switch prefixCls 1`] = `
   />
   <span
     class="prefix-Switch-inner"
-  >
-    <span
-      class="prefix-Switch-inner-checked"
-    />
-    <span
-      class="prefix-Switch-inner-unchecked"
-    />
-  </span>
+  />
 </button>
 `;
 

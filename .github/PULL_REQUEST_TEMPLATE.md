@@ -58,7 +58,7 @@ Describe changes from the user side, and list all potential break changes or oth
 
 ### ☑️ Self-Check before Merge
 
-⚠️ Please check all items below before review. ⚠️
+⚠️ Please check all items below before requesting a reviewing. ⚠️
 
 - [ ] Doc is updated/provided or not needed
 - [ ] Demo is updated/provided or not needed

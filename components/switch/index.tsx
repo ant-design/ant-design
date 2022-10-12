@@ -39,6 +39,7 @@ export interface SwitchProps {
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLElement>> {
+  /** @internal */
   __ANT_SWITCH: boolean;
 }
 
@@ -65,7 +66,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled || loading;
+    const mergedDisabled = (customDisabled ?? disabled) || loading;
 
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (

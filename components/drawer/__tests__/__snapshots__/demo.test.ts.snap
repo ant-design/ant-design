@@ -32,7 +32,7 @@ exports[`renders ./components/drawer/demo/extra.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -195,7 +195,7 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -300,7 +300,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
 >
   Render in this
   <div
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -311,33 +311,16 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
       </span>
     </button>
   </div>
-  <div
-    class="ant-drawer ant-drawer-right ant-drawer-inline"
-    tabindex="-1"
-  >
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-  </div>
 </div>
 `;
 
 exports[`renders ./components/drawer/demo/render-panel.md correctly 1`] = `
 <div
-  style="padding: 32px; background: rgb(230, 230, 230);"
+  style="padding:32px;background:#e6e6e6"
 >
   <div
     class="ant-drawer ant-drawer-pure ant-drawer-right"
-    style="height: 300px;"
+    style="height:300px"
   >
     <div
       class="ant-drawer-wrapper-body"
@@ -395,13 +378,103 @@ exports[`renders ./components/drawer/demo/render-panel.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/drawer/demo/scroll-debug.md correctly 1`] = `
+<div
+  style="position:relative;z-index:999999"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Drawer
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Drawer2
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Modal2
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/drawer/demo/size.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"
