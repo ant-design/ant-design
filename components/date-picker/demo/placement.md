@@ -1,7 +1,7 @@
 ---
 order: 28
 title:
-  zh-CN: 基本
+  zh-CN: 弹出位置
   en-US: Basic
 ---
 
