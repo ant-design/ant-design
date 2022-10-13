@@ -121,7 +121,22 @@ describe('Affix Render', () => {
 
   it('Anchor correct render when target is null', async () => {
     expect(() => {
-      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
+      let offsetTop = 0;
+      render(
+        <Affix offsetTop={offsetTop} target={null as unknown as AffixProps['target']}>
+          test
+        </Affix>,
+      );
+      offsetTop = 10;
+    }).not.toThrow();
+    expect(() => {
+      let offsetTop = 0;
+      render(
+        <Affix offsetTop={offsetTop} target={() => null}>
+          test
+        </Affix>,
+      );
+      offsetTop = 20;
     }).not.toThrow();
   });
 
@@ -247,6 +262,21 @@ describe('Affix Render', () => {
 
         expect(updateCalled).toHaveBeenCalled();
       });
+    });
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
     });
   });
 });
