@@ -323,3 +323,20 @@ exports[`Breadcrumb should support custom attribute 1`] = `
   </ol>
 </nav>
 `;
+
+exports[`Breadcrumb should support number children in BreadcrumbItem 1`] = `
+<span>
+  <li>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      0
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </li>
+</span>
+`;

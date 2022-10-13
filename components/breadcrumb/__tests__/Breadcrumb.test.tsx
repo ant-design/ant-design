@@ -157,4 +157,16 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
+  // https://github.com/ant-design/ant-design/issues/38004
+  it('should support children of numeric types in BreakcrumbItem', () => {
+    const App: React.FC = () => (
+      <span>
+        <Breadcrumb.Item>{0}</Breadcrumb.Item>
+      </span>
+    );
+    const { asFragment, container } = render(<App />);
+
+    expect(container.querySelector('.ant-breadcrumb-link')?.textContent).toBe('0');
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
 });

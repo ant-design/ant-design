@@ -60,7 +60,8 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 
   // wrap to dropDown
   link = renderBreadcrumbNode(link);
-  if (children) {
+  // fix: #38004
+  if (children !== undefined) {
     return (
       <li>
         {link}
