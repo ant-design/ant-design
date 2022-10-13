@@ -69,7 +69,7 @@ class Demo extends React.Component {
       divJSX.innerHTML = highlightedCodes.jsx;
       return [divJSX.textContent, div.textContent];
     }
-    return '';
+    return ['', ''];
   }
 
   handleCodeExpand = demo => {
