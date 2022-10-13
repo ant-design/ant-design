@@ -11,6 +11,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     componentCls,
     colorItemText,
     colorItemTextSelected,
+    colorItemTextSelectedHorizontal,
     colorGroupTitle,
     colorItemBg,
     colorSubItemBg,
@@ -24,10 +25,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     motionEaseInOut,
     motionEaseOut,
     menuItemPaddingInline,
+    menuItemMarginInline,
     motionDurationFast,
     colorItemTextHover,
     lineType,
     colorSplit,
+    colorFillContent,
 
     // Disabled
     colorItemTextDisabled,
@@ -38,6 +41,10 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     colorDangerItemTextSelected,
     colorDangerItemBgActive,
     colorDangerItemBgSelected,
+
+    radiusItem,
+
+    colorBgTextHover,
   } = token;
 
   return {
@@ -72,9 +79,54 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
-      // Active
-      [`${componentCls}-item:active, ${componentCls}-submenu-title:active`]: {
-        background: colorItemBgActive,
+      [`&:not(${componentCls}-horizontal)`]: {
+        [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
+          '&:hover': {
+            backgroundColor: colorBgTextHover,
+          },
+
+          '&:active::before': {
+            content: '""',
+            position: 'absolute',
+            insetInlineStart: 0,
+            top: 0,
+            width: `100%`,
+            height: '100%',
+            flex: 1,
+            borderRadius: radiusItem,
+            backgroundColor: colorFillContent,
+            transition: `background-color ${motionDurationFast}`,
+          },
+        },
+        [`${componentCls}-submenu-title`]: {
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            insetInlineStart: menuItemMarginInline,
+            top: 0,
+            width: `calc(100% - ${menuItemMarginInline * 2}px)`,
+            height: '100%',
+            borderRadius: radiusItem,
+            backgroundColor: 'transparent',
+            transition: `background-color ${motionDurationFast}`,
+          },
+
+          '&:hover::before': {
+            backgroundColor: colorBgTextHover,
+          },
+
+          '&:active::after': {
+            content: '""',
+            position: 'absolute',
+            insetInlineStart: menuItemMarginInline,
+            top: 0,
+            width: `calc(100% - ${menuItemMarginInline * 2}px)`,
+            height: '100%',
+            borderRadius: radiusItem,
+            backgroundColor: colorFillContent,
+            transition: `background-color ${motionDurationFast}`,
+          },
+        },
       },
 
       // Danger - only Item has
@@ -152,18 +204,18 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           [`&:hover, &-active, &-open`]: {
-            color: colorItemTextSelected,
+            color: colorItemTextSelectedHorizontal,
             '&::after': {
               borderWidth: `${colorActiveBarHeight}px`,
-              borderBottomColor: colorItemTextSelected,
+              borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },
           [`&-selected`]: {
-            color: colorItemTextSelected,
+            color: colorItemTextSelectedHorizontal,
             backgroundColor: colorItemBgSelectedHorizontal,
             '&::after': {
               borderWidth: `${colorActiveBarHeight}px`,
-              borderBottomColor: colorItemTextSelected,
+              borderBottomColor: colorItemTextSelectedHorizontal,
             },
           },
         },
@@ -185,11 +237,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
 
         // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: colorActiveBarBorderSize
-          ? {
-              width: `calc(100% + ${colorActiveBarBorderSize}px)`,
-            }
-          : {},
+        [`${componentCls}-item, ${componentCls}-submenu-title`]:
+          colorActiveBarBorderSize && colorActiveBarWidth
+            ? {
+                width: `calc(100% + ${colorActiveBarBorderSize}px)`,
+              }
+            : {},
 
         [`${componentCls}-item`]: {
           position: 'relative',

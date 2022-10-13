@@ -23,7 +23,9 @@ export interface ComponentToken {
   // > Default
   colorItemText: string;
   colorItemTextHover: string;
+  colorItemTextHoverHorizontal: string;
   colorItemTextSelected: string;
+  colorItemTextSelectedHorizontal: string;
 
   // > Disabled
   colorItemTextDisabled: string;
@@ -78,6 +80,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     iconCls,
     zIndexPopup,
     radiusBase,
+    radiusLG,
+    radiusSM,
     menuArrowSize,
     controlHeightSM,
     menuArrowOffset,
@@ -132,7 +136,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             flex: 'none',
           },
         },
-        [`${componentCls}-item,${componentCls}-submenu,`]: {
+        [`${componentCls}-item, ${componentCls}-submenu`]: {
           borderRadius: token.radiusItem,
         },
 
@@ -279,7 +283,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             position: 'absolute',
             zIndex: zIndexPopup,
             background: 'transparent',
-            borderRadius: radiusBase,
+            borderRadius: radiusLG,
             boxShadow: 'none',
             transformOrigin: '0 0',
 
@@ -302,7 +306,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           },
 
           [`> ${componentCls}`]: {
-            borderRadius: radiusBase,
+            borderRadius: radiusLG,
+
+            [`> ${componentCls}-item`]: {
+              borderRadius: radiusSM,
+            },
 
             [`${componentCls}-submenu-title::after`]: {
               transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
@@ -483,22 +491,25 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         controlItemBgActive,
         lineWidth,
         lineWidthBold,
+        controlItemBgActiveHover,
       } = token;
 
       return {
         dropdownWidth: 160,
         zIndexPopup: token.zIndexPopupBase + 50,
-        radiusItem: 0,
+        radiusItem: token.radiusLG,
         colorItemText: colorText,
-        colorItemTextHover: colorPrimary,
+        colorItemTextHover: colorText,
+        colorItemTextHoverHorizontal: colorPrimary,
         colorGroupTitle: colorTextDescription,
-        colorItemTextSelected: colorPrimary,
+        colorItemTextSelected: colorText,
+        colorItemTextSelectedHorizontal: colorPrimary,
         colorItemBg: colorBgContainer,
         colorSubItemBg: colorFillAlter,
         colorItemBgActive: controlItemBgActive,
-        colorItemBgSelected: controlItemBgActive,
+        colorItemBgSelected: controlItemBgActiveHover,
         colorItemBgSelectedHorizontal: 'transparent',
-        colorActiveBarWidth: lineWidthBold + lineWidth,
+        colorActiveBarWidth: 0,
         colorActiveBarHeight: lineWidthBold,
         colorActiveBarBorderSize: lineWidth,
 
