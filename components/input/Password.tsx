@@ -2,10 +2,12 @@ import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
+import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
@@ -26,11 +28,18 @@ const ActionMap: Record<string, string> = {
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const [visible, setVisible] = useState(false);
+  const inputRef = useRef<InputRef>(null);
+
+  // Remove Password value
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
 
   const onVisibleChange = () => {
     const { disabled } = props;
     if (disabled) {
       return;
+    }
+    if (visible) {
+      removePasswordTimeout();
     }
     setVisible(prevState => !prevState);
   };
@@ -87,7 +96,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       omittedProps.size = size;
     }
 
-    return <Input ref={ref} {...omittedProps} />;
+    return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
   };
 
   return <ConfigConsumer>{renderPassword}</ConfigConsumer>;
