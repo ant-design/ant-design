@@ -164,10 +164,13 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item>{0}</Breadcrumb.Item>
         <Breadcrumb.Item>{false}</Breadcrumb.Item>
         <Breadcrumb.Item>{null}</Breadcrumb.Item>
+        <Breadcrumb.Item>{undefined}</Breadcrumb.Item>
+        <Breadcrumb.Item>{}</Breadcrumb.Item>
       </span>
     );
     const { asFragment, container } = render(<App />);
 
+    expect(container.querySelectorAll('.ant-breadcrumb-link').length).toBe(3);
     expect(container.querySelectorAll('.ant-breadcrumb-link')[0]?.textContent).toBe('0');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1]?.textContent).toBe('false');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[2]?.textContent).toBe('null');
