@@ -157,7 +157,7 @@ describe('Breadcrumb', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
-  it('should support string `0` and number `0` ', () => {
+  it('should support string `0` and number `0`', () => {
     const { container } = render(
       <Breadcrumb>
         <Breadcrumb.Item>{0}</Breadcrumb.Item>
