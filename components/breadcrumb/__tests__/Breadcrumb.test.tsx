@@ -166,6 +166,7 @@ describe('Breadcrumb', () => {
     );
     expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
+
     expect(container.firstChild).toMatchSnapshot();
   });
 });
