@@ -229,7 +229,7 @@ describe('Table', () => {
 
   // https://github.com/ant-design/ant-design/issues/37977
   it('should render title when enable ellipsis, sorter and filters', () => {
-    const data = [];
+    const data = [] as any;
     const columns = [
       { title: 'id', dataKey: 'id', ellipsis: true, sorter: true, filters: [] },
       { title: 'age', dataKey: 'age', ellipsis: true, sorter: true },
