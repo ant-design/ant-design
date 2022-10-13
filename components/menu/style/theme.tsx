@@ -15,7 +15,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     colorGroupTitle,
     colorItemBg,
     colorSubItemBg,
-    colorItemBgActive,
     colorItemBgSelectedHorizontal,
     colorItemBgSelected,
     colorActiveBarHeight,
