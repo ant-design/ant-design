@@ -43,17 +43,19 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return breadcrumbItem;
   };
 
+  const renderChildren = () =>
+    typeof children === 'boolean' || children === null ? `${children}` : children;
   let link;
   if ('href' in restProps) {
     link = (
       <a className={`${prefixCls}-link`} {...restProps}>
-        {children}
+        {renderChildren()}
       </a>
     );
   } else {
     link = (
       <span className={`${prefixCls}-link`} {...restProps}>
-        {children}
+        {renderChildren()}
       </span>
     );
   }

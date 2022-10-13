@@ -158,15 +158,19 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
   // https://github.com/ant-design/ant-design/issues/38004
-  it('should support children of numeric types in BreakcrumbItem', () => {
+  it('The children in BreadcrumbItem should supports properties other than undefined', () => {
     const App: React.FC = () => (
       <span>
         <Breadcrumb.Item>{0}</Breadcrumb.Item>
+        <Breadcrumb.Item>{false}</Breadcrumb.Item>
+        <Breadcrumb.Item>{null}</Breadcrumb.Item>
       </span>
     );
     const { asFragment, container } = render(<App />);
 
-    expect(container.querySelector('.ant-breadcrumb-link')?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[0]?.textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[1]?.textContent).toBe('false');
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[2]?.textContent).toBe('null');
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

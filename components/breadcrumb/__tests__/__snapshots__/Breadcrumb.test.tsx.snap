@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Breadcrumb The children in BreadcrumbItem should supports properties other than undefined 1`] = `
+<span>
+  <li>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      0
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </li>
+  <li>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      false
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </li>
+  <li>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      null
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </li>
+</span>
+`;
+
 exports[`Breadcrumb filter React.Fragment 1`] = `
 <nav
   class="ant-breadcrumb"
@@ -322,21 +363,4 @@ exports[`Breadcrumb should support custom attribute 1`] = `
     </li>
   </ol>
 </nav>
-`;
-
-exports[`Breadcrumb should support number children in BreadcrumbItem 1`] = `
-<span>
-  <li>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      0
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </li>
-</span>
 `;
