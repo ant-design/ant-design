@@ -323,3 +323,36 @@ exports[`Breadcrumb should support custom attribute 1`] = `
   </ol>
 </nav>
 `;
+
+exports[`Breadcrumb should support string \`0\` and number \`0\` 1`] = `
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        0
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        0
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
+`;
