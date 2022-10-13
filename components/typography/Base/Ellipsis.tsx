@@ -95,11 +95,13 @@ const Ellipsis = ({
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
 
   const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
+    if (!enabledMeasure || walkingState === DONE_WITHOUT_ELLIPSIS) {
       return children(nodeList, false);
     }
-
-    return children(sliceNodes(nodeList, midLen), midLen < totalLen);
+    if (walkingState === DONE_WITH_ELLIPSIS) {
+      return children(sliceNodes(nodeList, midLen), midLen < totalLen);
+    }
+    return null; 
   }, [enabledMeasure, walkingState, children, nodeList, midLen, totalLen]);
 
   // ======================== Walk ========================
