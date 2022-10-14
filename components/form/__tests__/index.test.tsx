@@ -166,14 +166,14 @@ describe('Form', () => {
     });
   });
 
-  it('`shouldUpdate` should work with render props', () => {
+  it('render functions require either `shouldUpdate` or `dependencies`', () => {
     render(
       <Form>
         <Form.Item>{() => null}</Form.Item>
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
+      'Warning: [antd: Form.Item] `children` of render props only works with `shouldUpdate` or `dependencies`.',
     );
   });
   it("`shouldUpdate` shouldn't work with `dependencies`", () => {
@@ -198,11 +198,11 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
+      "Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.",
     );
   });
 
-  it('children is array has name props', () => {
+  it('multiple children with a name prop', () => {
     render(
       <Form>
         <Form.Item name="test">
