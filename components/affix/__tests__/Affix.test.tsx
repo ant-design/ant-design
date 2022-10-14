@@ -5,7 +5,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import { addObserveTarget, getObserverEntities } from '../utils';
+import { getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -278,10 +278,5 @@ describe('Affix Render', () => {
       await movePlaceholder(1000);
       expect(container.querySelector('.ant-affix')).toBeTruthy();
     });
-  });
-  it('not Throw Error when target is null', () => {
-    expect(() => {
-      addObserveTarget(null, null);
-    }).not.toThrow();
   });
 });

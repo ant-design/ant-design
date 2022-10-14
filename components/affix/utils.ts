@@ -52,9 +52,7 @@ export function getObserverEntities() {
 }
 
 export function addObserveTarget<T>(target: HTMLElement | Window | null, affix: T): void {
-  if (!target) {
-    return;
-  }
+  if (!target) return;
 
   let entity: ObserverEntity | undefined = observerEntities.find(item => item.target === target);
 
