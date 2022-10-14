@@ -20328,6 +20328,7 @@ Array [
                       aria-label="Name sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Name"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -20634,6 +20635,7 @@ Array [
                       aria-label="Age sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Age"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -20719,6 +20721,7 @@ Array [
                       aria-label="Address sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Address"
                     >
                       <div
                         class="ant-table-filter-column"
