@@ -173,7 +173,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` of render props only works with `shouldUpdate` or `dependencies`.',
+      'Warning: [antd: Form.Item] A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
     );
   });
   it("`shouldUpdate` shouldn't work with `dependencies`", () => {
@@ -610,7 +610,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] Must set `name` or use render props when `dependencies` is set.',
+      'Warning: [antd: Form.Item] Must set `name` or use a render function when `dependencies` is set.',
     );
   });
 
