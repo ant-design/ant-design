@@ -2083,7 +2083,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      one way
+      <span
+        class="ant-switch-inner-checked"
+      >
+        one way
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        one way
+      </span>
     </span>
   </button>,
 ]
@@ -2827,7 +2836,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      disabled
+      <span
+        class="ant-switch-inner-checked"
+      >
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
     </span>
   </button>,
 ]
@@ -5052,7 +5070,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      disabled
+      <span
+        class="ant-switch-inner-checked"
+      >
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
     </span>
   </button>,
   <button
@@ -5068,7 +5095,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      showSearch
+      <span
+        class="ant-switch-inner-checked"
+      >
+        showSearch
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        showSearch
+      </span>
     </span>
   </button>,
 ]

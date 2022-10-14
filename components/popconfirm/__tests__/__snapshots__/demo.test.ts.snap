@@ -40,7 +40,14 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md correctly 1`] =
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>
 </div>
 `;

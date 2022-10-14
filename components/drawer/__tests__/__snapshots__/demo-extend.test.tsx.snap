@@ -3056,7 +3056,16 @@ exports[`renders ./components/drawer/demo/scroll-debug.md extend context correct
         <span
           class="ant-switch-inner"
         >
-          Drawer
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Drawer
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Drawer
+          </span>
         </span>
       </button>
     </div>
@@ -3076,7 +3085,16 @@ exports[`renders ./components/drawer/demo/scroll-debug.md extend context correct
         <span
           class="ant-switch-inner"
         >
-          Drawer2
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Drawer2
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Drawer2
+          </span>
         </span>
       </button>
     </div>
@@ -3096,7 +3114,16 @@ exports[`renders ./components/drawer/demo/scroll-debug.md extend context correct
         <span
           class="ant-switch-inner"
         >
-          Modal
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Modal
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Modal
+          </span>
         </span>
       </button>
     </div>
@@ -3115,7 +3142,16 @@ exports[`renders ./components/drawer/demo/scroll-debug.md extend context correct
         <span
           class="ant-switch-inner"
         >
-          Modal2
+          <span
+            class="ant-switch-inner-checked"
+          >
+            Modal2
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            Modal2
+          </span>
         </span>
       </button>
     </div>

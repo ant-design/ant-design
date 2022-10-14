@@ -2505,7 +2505,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -7066,7 +7073,14 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               />
               <span
                 class="ant-switch-inner"
-              />
+              >
+                <span
+                  class="ant-switch-inner-checked"
+                />
+                <span
+                  class="ant-switch-inner-unchecked"
+                />
+              </span>
             </button>
           </div>
         </div>
@@ -8192,7 +8206,14 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               />
               <span
                 class="ant-switch-inner"
-              />
+              >
+                <span
+                  class="ant-switch-inner-checked"
+                />
+                <span
+                  class="ant-switch-inner-unchecked"
+                />
+              </span>
             </button>
           </div>
         </div>
