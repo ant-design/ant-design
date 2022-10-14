@@ -52,4 +52,10 @@ describe('Spin', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
   });
+
+  it('child.ref should work', () => {
+    const mockRef = jest.fn();
+    render(<Spin ref={mockRef} />);
+    expect(mockRef).toHaveBeenCalled();
+  });
 });

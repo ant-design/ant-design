@@ -28,9 +28,10 @@ export interface SpinClassProps extends SpinProps {
   spinPrefixCls: string;
 }
 
-export type SpinFCType = React.FC<SpinProps> & {
-  setDefaultIndicator: (indicator: React.ReactNode) => void;
-};
+export type SpinFCType = React.FC<SpinProps> &
+  React.ForwardRefExoticComponent<SpinProps & React.RefAttributes<HTMLDivElement>> & {
+    setDefaultIndicator: (indicator: React.ReactNode) => void;
+  };
 
 // Render indicator
 let defaultIndicator: React.ReactNode = null;
@@ -147,7 +148,7 @@ const Spin: React.FC<SpinClassProps> = props => {
   return <ConfigConsumer>{renderSpin}</ConfigConsumer>;
 };
 
-const SpinFC: SpinFCType = props => {
+const SpinFC = React.forwardRef<Spin, SpinProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -157,8 +158,8 @@ const SpinFC: SpinFCType = props => {
     ...props,
     spinPrefixCls,
   };
-  return <Spin {...spinClassProps} />;
-};
+  return <Spin {...spinClassProps} ref={ref} />;
+}) as SpinFCType;
 
 SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;
