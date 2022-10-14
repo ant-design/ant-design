@@ -29,10 +29,12 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, inputNumber } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
   const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
+
+  const mergedSpellCheck = props.spellCheck ?? inputNumber?.spellCheck;
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
@@ -107,6 +109,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       readOnly={readOnly}
       controls={controlsTemp}
       {...others}
+      spellCheck={mergedSpellCheck}
     />
   );
 

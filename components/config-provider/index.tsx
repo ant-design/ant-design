@@ -52,6 +52,9 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'renderEmpty',
   'pageHeader',
   'input',
+  'textarea',
+  'search',
+  'inputNumber',
   'pagination',
   'form',
 ];
@@ -72,6 +75,16 @@ export interface ConfigProviderProps {
   };
   input?: {
     autoComplete?: string;
+    spellCheck?: boolean;
+  };
+  inputNumber?: {
+    spellCheck?: boolean;
+  };
+  textarea?: {
+    spellCheck?: boolean;
+  };
+  search?: {
+    spellCheck?: boolean;
   };
   pagination?: {
     showSizeChanger?: boolean;

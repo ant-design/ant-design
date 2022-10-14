@@ -30,6 +30,16 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   input?: {
     autoComplete?: string;
+    spellCheck?: boolean;
+  };
+  inputNumber?: {
+    spellCheck?: boolean;
+  };
+  textarea?: {
+    spellCheck?: boolean;
+  };
+  search?: {
+    spellCheck?: boolean;
   };
   pagination?: {
     showSizeChanger?: boolean;

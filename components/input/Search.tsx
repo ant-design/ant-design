@@ -40,9 +40,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, search } = React.useContext(ConfigContext);
   const contextSize = React.useContext(SizeContext);
   const composedRef = React.useRef<boolean>(false);
+
+  // ===================== spellCheck =====================
+  const mergedSpellCheck = restProps.spellCheck ?? search?.spellCheck;
 
   const size = customizeSize || contextSize;
 
@@ -154,6 +157,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       onPressEnter={onPressEnter}
       {...restProps}
       size={size}
+      spellCheck={mergedSpellCheck}
       onCompositionStart={handleOnCompositionStart}
       onCompositionEnd={handleOnCompositionEnd}
       prefixCls={inputPrefixCls}
