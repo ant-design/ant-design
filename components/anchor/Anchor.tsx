@@ -35,10 +35,10 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
 const sharpMatcherRegx = /#([\S ]+)$/;
 
-type Section = {
+interface Section {
   link: string;
   top: number;
-};
+}
 
 export interface AnchorProps {
   prefixCls?: string;
@@ -89,11 +89,6 @@ export interface AntAnchor {
 }
 
 class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
-  static defaultProps = {
-    affix: true,
-    showInkInFixed: false,
-  };
-
   static contextType = ConfigContext;
 
   state = {
@@ -111,7 +106,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
 
   private links: string[] = [];
 
-  private scrollEvent: any;
+  private scrollEvent: ReturnType<typeof addEventListener>;
 
   private animating: boolean;
 
@@ -174,7 +169,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
-      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
+      const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
       }
@@ -259,10 +254,10 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
   updateInk = () => {
     const { prefixCls, wrapperRef } = this;
     const anchorNode = wrapperRef.current;
-    const linkNode = anchorNode?.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
+    const linkNode = anchorNode?.querySelector<HTMLElement>(`.${prefixCls}-link-title-active`);
 
     if (linkNode) {
-      this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      this.inkNode.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
   };
 
@@ -283,8 +278,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       className = '',
       style,
       offsetTop,
-      affix,
-      showInkInFixed,
+      affix = true,
+      showInkInFixed = false,
       children,
       onClick,
     } = this.props;

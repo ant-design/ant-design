@@ -761,5 +761,15 @@ describe('Anchor Render', () => {
       rerender(<Demo current={hash2} />);
       expect(container.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2);
     });
+    it('should correct render when href is null', () => {
+      expect(() => {
+        render(
+          <Anchor>
+            <Link href={null as unknown as string} title="test" />
+          </Anchor>,
+        );
+        fireEvent.scroll(window || document);
+      }).not.toThrow();
+    });
   });
 });
