@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 const { Text, Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [rows, setRows] = useState(1);
   const [longText, setLongText] = useState(true);
   const [copyable, setCopyable] = useState(false);

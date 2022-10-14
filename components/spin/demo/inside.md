@@ -17,7 +17,7 @@ Spin in a container.
 import { Spin } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <div className="example">
     <Spin />
   </div>

@@ -18,7 +18,7 @@ Use `<Typography.Text ellipsis>` in label should show `...`.
 import { Form, Input, Typography } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Form name="label-ellipsis" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
     <Form.Item
       label={

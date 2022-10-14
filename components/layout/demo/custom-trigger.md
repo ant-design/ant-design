@@ -26,7 +26,7 @@ import React, { useState } from 'react';
 
 const { Header, Sider, Content } = Layout;
 
-const App: React.FC = () => {
+const App = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (

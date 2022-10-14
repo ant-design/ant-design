@@ -17,7 +17,7 @@ A relevant icon will make information clearer and more friendly.
 import { Alert } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Alert message="Success Tips" type="success" showIcon />
     <Alert message="Informational Notes" type="info" showIcon />

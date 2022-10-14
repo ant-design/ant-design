@@ -1,5 +1,4 @@
 import React from 'react';
-import type { OptionFC } from 'rc-select/lib/Option';
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -55,10 +54,9 @@ describe('Pagination', () => {
   });
 
   it('should support custom selectComponentClass', () => {
-    const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
-      className,
-      ...props
-    }) => <Select className={`${className} custom-select`} {...props} />;
+    const CustomSelect = ({ className, ...props }: { className?: string }) => (
+      <Select className={`${className} custom-select`} {...props} />
+    );
 
     CustomSelect.Option = Select.Option;
 

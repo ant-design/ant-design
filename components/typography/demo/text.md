@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Text, Link } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>

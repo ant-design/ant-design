@@ -18,7 +18,7 @@ Add status to TreeSelect with `status`, which could be `error` or `warning`.
 import { Space, TreeSelect } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <TreeSelect status="error" style={{ width: '100%' }} placeholder="Error" />
     <TreeSelect

@@ -17,7 +17,7 @@ You can make preview controlled.
 import { Button, Image } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [visible, setVisible] = useState(false);
 
   return (

@@ -17,7 +17,7 @@ We preset a series of colorful tag styles for use in different situations. You c
 import { Divider, Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>

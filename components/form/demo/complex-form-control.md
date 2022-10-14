@@ -59,7 +59,7 @@ import React from 'react';
 
 const { Option } = Select;
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };

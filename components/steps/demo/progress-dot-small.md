@@ -20,7 +20,7 @@ import React from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Steps progressDot current={1} size="small">
       <Step title="Finished" description="This is a description." />

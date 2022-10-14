@@ -70,7 +70,7 @@ describe('ConfigProvider', () => {
   });
 
   it('dynamic prefixCls', () => {
-    const DynamicPrefixCls: React.FC = () => {
+    const DynamicPrefixCls = () => {
       const [prefixCls, setPrefixCls] = useState('bamboo');
       return (
         <div>
@@ -117,7 +117,7 @@ describe('ConfigProvider', () => {
     let rendered = false;
     let cacheRenderEmpty;
 
-    const App: React.FC = () => {
+    const App = () => {
       const { renderEmpty } = React.useContext<ConfigConsumerProps>(ConfigContext);
       rendered = true;
       cacheRenderEmpty = renderEmpty;

@@ -17,7 +17,7 @@ Col provides `flex` prop to support fill rest.
 import { Col, Divider, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Percentage columns</Divider>
     <Row>

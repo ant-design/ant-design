@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Option } = Select;
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     showSearch
     style={{ width: 200 }}

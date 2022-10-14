@@ -25,7 +25,7 @@ const IconFont = createFromIconfontCN({
   ],
 });
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <IconFont type="icon-javascript" />
     <IconFont type="icon-java" />

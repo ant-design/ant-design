@@ -17,7 +17,7 @@ Controlled Segmented.
 import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [value, setValue] = useState<string | number>('Map');
 
   return <Segmented options={['Map', 'Transit', 'Satellite']} value={value} onChange={setValue} />;

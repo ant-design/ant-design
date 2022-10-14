@@ -18,7 +18,7 @@ Animated of Tab Pane.
 import { Tabs, Switch, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [inkBar, setInkBar] = React.useState(true);
   const [tabPane, setTabPane] = React.useState(true);
 

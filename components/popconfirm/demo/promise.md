@@ -18,7 +18,7 @@ Asynchronously close a popconfirm when the OK button is pressed. For example, yo
 import { Button, Popconfirm } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const confirm = () =>
     new Promise(resolve => {
       setTimeout(() => resolve(null), 3000);

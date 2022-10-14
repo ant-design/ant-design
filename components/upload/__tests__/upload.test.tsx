@@ -243,7 +243,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14298
   it('should not have id if upload children is null, avoid being triggered by label', () => {
-    const Demo: React.FC<{ children?: UploadProps['children'] }> = ({ children }) => (
+    const Demo = ({ children }: { children?: UploadProps['children'] }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload>{children}</Upload>
@@ -264,7 +264,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/16478
   it('should not have id if Upload is disabled, avoid being triggered by label', () => {
-    const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
+    const Demo = ({ disabled }: { disabled?: UploadProps['disabled'] }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
@@ -282,7 +282,7 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/24197
   it('should not have id if upload.Dragger is disabled, avoid being triggered by label', () => {
-    const Demo: React.FC<{ disabled?: UploadProps['disabled'] }> = ({ disabled }) => (
+    const Demo = ({ disabled }: { disabled?: UploadProps['disabled'] }) => (
       <Form>
         <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload.Dragger disabled={disabled}>
@@ -672,7 +672,7 @@ describe('Upload', () => {
       options.onSuccess({}, { ...options.file, url });
     });
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [fileList, setFileList] = React.useState<UploadFile[]>([]);
 
       const onChange: UploadProps['onChange'] = async e => {

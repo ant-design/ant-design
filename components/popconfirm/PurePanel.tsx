@@ -31,7 +31,7 @@ export interface OverlayProps
   onCancel?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Overlay: React.FC<OverlayProps> = props => {
+export const Overlay = (props: OverlayProps) => {
   const {
     prefixCls,
     okButtonProps,

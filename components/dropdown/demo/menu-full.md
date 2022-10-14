@@ -71,7 +71,7 @@ const items: MenuItem[] = [
 
 const menu = <Menu selectedKeys={['1']} openKeys={['sub1']} items={items} />;
 
-const App: React.FC = () => (
+const App = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>

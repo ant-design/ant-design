@@ -17,7 +17,7 @@ Basic Form data control. Includes layout, initial values, validation and submit.
 import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };

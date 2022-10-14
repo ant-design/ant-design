@@ -18,7 +18,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Image } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Avatar icon={<UserOutlined />} />
     <Avatar>U</Avatar>

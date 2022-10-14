@@ -17,7 +17,7 @@ A basic card containing a title, content and an extra corner content. Supports t
 import { Card } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
       <p>Card content</p>

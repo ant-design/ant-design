@@ -102,7 +102,7 @@ const AdvancedSearchForm = () => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <AdvancedSearchForm />
     <div className="search-result-list">Search Result List</div>

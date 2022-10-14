@@ -85,7 +85,7 @@ const showPropsConfirm = () => {
   });
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showPromiseConfirm}>With promise</Button>

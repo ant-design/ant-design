@@ -17,7 +17,7 @@ Additional description for alert message.
 import { Alert } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Alert
       message="Success Text"

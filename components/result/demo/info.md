@@ -17,7 +17,7 @@ Show processing results.
 import { Button, Result } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     title="Your operation has been executed"
     extra={

@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
-const App: React.FC = () => {
+const App = () => {
   const [tabPosition, setTabPosition] = useState<TabPosition>('left');
 
   const changeTabPosition = (e: RadioChangeEvent) => {

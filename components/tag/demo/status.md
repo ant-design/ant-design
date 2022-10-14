@@ -25,7 +25,7 @@ import {
 import { Divider, Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
     <div>

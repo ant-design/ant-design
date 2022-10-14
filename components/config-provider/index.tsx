@@ -152,7 +152,7 @@ export const globalConfig = () => ({
   },
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+const ProviderChildren = (props: ProviderChildrenProps) => {
   const {
     children,
     csp,
@@ -266,11 +266,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
-const ConfigProvider: React.FC<ConfigProviderProps> & {
-  ConfigContext: typeof ConfigContext;
-  SizeContext: typeof SizeContext;
-  config: typeof setGlobalConfig;
-} = props => {
+const ConfigProvider = (props: ConfigProviderProps) => {
   React.useEffect(() => {
     if (props.direction) {
       message.config({

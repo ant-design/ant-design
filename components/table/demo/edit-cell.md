@@ -32,7 +32,7 @@ interface EditableRowProps {
   index: number;
 }
 
-const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
+const EditableRow = ({ index, ...props }: EditableRowProps) => {
   const [form] = Form.useForm();
   return (
     <Form form={form} component={false}>
@@ -52,7 +52,7 @@ interface EditableCellProps {
   handleSave: (record: Item) => void;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell = ({
   title,
   editable,
   children,
@@ -60,7 +60,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   record,
   handleSave,
   ...restProps
-}) => {
+}: EditableCellProps) => {
   const [editing, setEditing] = useState(false);
   const inputRef = useRef<InputRef>(null);
   const form = useContext(EditableContext)!;
@@ -124,7 +124,7 @@ interface DataType {
 
 type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
 
-const App: React.FC = () => {
+const App = () => {
   const [dataSource, setDataSource] = useState<DataType[]>([
     {
       key: '0',

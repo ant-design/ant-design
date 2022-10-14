@@ -22,7 +22,7 @@ describe('Breadcrumb', () => {
   });
 
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
-    const MyCom: React.FC = () => <div>foo</div>;
+    const MyCom = () => <div>foo</div>;
     render(
       <Breadcrumb>
         <MyCom />
@@ -143,7 +143,7 @@ describe('Breadcrumb', () => {
 
   // https://github.com/ant-design/ant-design/issues/25975
   it('should support Breadcrumb.Item default separator', () => {
-    const MockComponent: React.FC = () => (
+    const MockComponent = () => (
       <span>
         <Breadcrumb.Item>Mock Node</Breadcrumb.Item>
       </span>

@@ -18,7 +18,7 @@ import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-d
 import { Avatar, Comment, Tooltip } from 'antd';
 import React, { createElement, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState<string | null>(null);

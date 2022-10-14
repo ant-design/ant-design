@@ -52,7 +52,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown

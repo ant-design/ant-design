@@ -17,7 +17,7 @@ Show all configured prop.
 import { Pagination } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Pagination
     total={85}
     showSizeChanger

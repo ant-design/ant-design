@@ -77,7 +77,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (

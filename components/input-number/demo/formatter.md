@@ -25,7 +25,7 @@ const onChange = (value: number | string) => {
   console.log('changed', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <InputNumber
       defaultValue={1000}

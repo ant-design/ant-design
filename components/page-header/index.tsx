@@ -129,7 +129,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => (
   <div className={`${prefixCls}-content`}>{children}</div>
 );
 
-const PageHeader: React.FC<PageHeaderProps> = props => {
+const PageHeader = (props: PageHeaderProps) => {
   const [compact, updateCompact] = useState(false);
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768, true);

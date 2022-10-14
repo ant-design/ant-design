@@ -33,7 +33,7 @@ const colors = [
   'lime',
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <Space direction="vertical">

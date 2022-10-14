@@ -65,12 +65,7 @@ const addChildPath = (paths: string[], childPath: string, params: any) => {
   return originalPaths;
 };
 
-interface BreadcrumbInterface extends React.FC<BreadcrumbProps> {
-  Item: typeof BreadcrumbItem;
-  Separator: typeof BreadcrumbSeparator;
-}
-
-const Breadcrumb: BreadcrumbInterface = ({
+const Breadcrumb = ({
   prefixCls: customizePrefixCls,
   separator = '/',
   style,
@@ -80,7 +75,7 @@ const Breadcrumb: BreadcrumbInterface = ({
   itemRender = defaultItemRender,
   params = {},
   ...restProps
-}) => {
+}: BreadcrumbProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   let crumbs: React.ReactNode;

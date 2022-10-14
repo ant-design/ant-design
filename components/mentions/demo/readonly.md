@@ -26,7 +26,7 @@ const getOptions = () =>
     </Option>
   ));
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <div style={{ marginBottom: 10 }}>
       <Mentions style={{ width: '100%' }} placeholder="this is disabled Mentions" disabled>

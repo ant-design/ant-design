@@ -25,7 +25,7 @@ function getStrokeColor({
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
 }
 
-const Circle: React.FC<CircleProps> = props => {
+const Circle = (props: CircleProps) => {
   const {
     prefixCls,
     width,

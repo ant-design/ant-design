@@ -22,7 +22,7 @@ const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <TimePicker use12Hours onChange={onChange} />
     <TimePicker use12Hours format="h:mm:ss A" onChange={onChange} style={{ width: 140 }} />

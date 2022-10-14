@@ -1139,7 +1139,7 @@ describe('Table.filter', () => {
   it('not crash when dynamic change filter', () => {
     const onChange = jest.fn();
 
-    const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
+    const Test = ({ filters }: { filters: ColumnFilterItem[] }) => (
       <Table
         onChange={onChange}
         rowKey="name"
@@ -1254,7 +1254,7 @@ describe('Table.filter', () => {
     const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
     const filterDropdown = (...args: any[]) => filterDropdownMock(...args);
 
-    const Test: React.FC = () => (
+    const Test = () => (
       <Table
         rowKey="name"
         columns={[{ title: 'Name', dataIndex: 'name', filterDropdown }]}
@@ -1554,7 +1554,7 @@ describe('Table.filter', () => {
 
   it('should not trigger onChange when filters is empty', () => {
     const onChange = jest.fn();
-    const Test: React.FC<{ filters?: ColumnFilterItem[] }> = ({ filters }) => (
+    const Test = ({ filters }: { filters: ColumnFilterItem[] }) => (
       <Table
         onChange={onChange}
         rowKey="name"

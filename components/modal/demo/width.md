@@ -17,7 +17,7 @@ Use `width` to set the width of the modal dialog.
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   return (

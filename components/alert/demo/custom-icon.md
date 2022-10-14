@@ -21,7 +21,7 @@ import React from 'react';
 
 const icon = <SmileOutlined />;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Alert icon={icon} message="showIcon = false" type="success" />
     <Alert icon={icon} message="Success Tips" type="success" showIcon />

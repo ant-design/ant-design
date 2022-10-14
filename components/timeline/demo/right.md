@@ -18,7 +18,7 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import { Timeline } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Timeline mode="right">
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>

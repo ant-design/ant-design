@@ -45,7 +45,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => {
+const App = () => {
   const expandedRowRender = () => {
     const columns: TableColumnsType<ExpandedDataType> = [
       { title: 'Date', dataIndex: 'date', key: 'date' },

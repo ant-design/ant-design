@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { Option } = AutoComplete;
 
-const App: React.FC = () => {
+const App = () => {
   const [result, setResult] = useState<string[]>([]);
 
   const handleSearch = (value: string) => {

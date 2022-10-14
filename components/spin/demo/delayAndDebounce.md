@@ -17,7 +17,7 @@ Specifies a delay for loading state. If `spinning` ends during delay, loading st
 import { Alert, Spin, Switch } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
 
   const toggle = (checked: boolean) => {

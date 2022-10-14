@@ -17,7 +17,7 @@ Open a new drawer on top of an existing drawer to handle multi branch tasks.
 import { Button, Drawer } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
   const [childrenDrawer, setChildrenDrawer] = useState(false);
 

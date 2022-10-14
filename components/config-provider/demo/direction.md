@@ -106,7 +106,7 @@ const cascaderOptions = [
 ];
 type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
-const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
+const Page = ({ popupPlacement }: { popupPlacement: Placement }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [badgeCount, setBadgeCount] = useState(5);
@@ -498,7 +498,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [direction, setDirection] = useState<DirectionType>('ltr');
   const [popupPlacement, setPopupPlacement] = useState<Placement>('bottomLeft');
 

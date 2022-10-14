@@ -17,7 +17,7 @@ Render addon contents to time picker panel's bottom.
 import { Button, TimePicker } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   return (

@@ -17,7 +17,7 @@ To change the element sort by `order`.
 import { Col, Divider, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Normal</Divider>
     <Row>

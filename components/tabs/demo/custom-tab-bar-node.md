@@ -60,7 +60,7 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   );
 };
 
-const DraggableTabs: React.FC<TabsProps> = props => {
+const DraggableTabs = (props: TabsProps) => {
   const { items = [] } = props;
   const [order, setOrder] = useState<React.Key[]>([]);
 
@@ -119,7 +119,7 @@ const DraggableTabs: React.FC<TabsProps> = props => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <DraggableTabs
     items={new Array(3).fill(null).map((_, i) => {
       const id = String(i + 1);

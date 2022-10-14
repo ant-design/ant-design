@@ -17,7 +17,7 @@ A small `Spin` is used for loading text, default sized `Spin` for loading a card
 import { Space, Spin } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space size="middle">
     <Spin size="small" />
     <Spin />

@@ -72,7 +72,7 @@ const ControlledRangePicker = () => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />

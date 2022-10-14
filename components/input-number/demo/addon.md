@@ -35,7 +35,7 @@ const selectAfter = (
   </Select>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
     <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />

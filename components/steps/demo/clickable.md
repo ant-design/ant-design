@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => {
+const App = () => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {

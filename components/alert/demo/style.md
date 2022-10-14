@@ -17,7 +17,7 @@ There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 import { Alert } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Alert message="Success Text" type="success" />
     <Alert message="Info Text" type="info" />

@@ -19,7 +19,7 @@ import type { InputRef } from 'antd';
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const ref = React.useRef<InputRef>(null);
 

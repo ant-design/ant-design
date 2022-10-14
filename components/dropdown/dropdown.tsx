@@ -78,11 +78,7 @@ export interface DropdownProps {
   children?: React.ReactNode;
 }
 
-interface DropdownInterface extends React.FC<DropdownProps> {
-  Button: typeof DropdownButton;
-}
-
-const Dropdown: DropdownInterface = props => {
+const Dropdown = (props: DropdownProps) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

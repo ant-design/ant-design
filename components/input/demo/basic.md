@@ -17,7 +17,7 @@ Basic usage example.
 import { Input } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Input placeholder="Basic usage" />;
+const App = () => <Input placeholder="Basic usage" />;
 
 export default App;
 ```

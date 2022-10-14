@@ -4,7 +4,7 @@ import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'rea
 import Breadcrumb from '../index';
 import { render, fireEvent } from '../../../tests/utils';
 
-const Apps: React.FC = () => (
+const Apps = () => (
   <ul className="app-list">
     <li>
       <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
@@ -33,7 +33,7 @@ describe('react router', () => {
   });
 
   it('react router 6', () => {
-    const Home: React.FC = () => {
+    const Home = () => {
       const location = useLocation();
       const navigate = useNavigate();
       const pathSnippets = location.pathname.split('/').filter(i => i);

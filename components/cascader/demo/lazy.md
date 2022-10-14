@@ -42,7 +42,7 @@ const optionLists: Option[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
   const onChange = (value: string[], selectedOptions: Option[]) => {

@@ -48,7 +48,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Space wrap>
       <Dropdown overlay={menu} placement="bottomLeft">

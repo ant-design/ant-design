@@ -21,11 +21,11 @@ export const icons = {
   right: <RightOutlined />,
 };
 
-const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
+const InternalPreviewGroup = ({
   previewPrefixCls: customizePrefixCls,
   preview,
   ...props
-}) => {
+}: GroupConsumerProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();

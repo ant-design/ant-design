@@ -38,7 +38,7 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <List
     grid={{
       gutter: 16,

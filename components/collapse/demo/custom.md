@@ -26,7 +26,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App: React.FC = () => (
+const App = () => (
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}

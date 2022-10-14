@@ -22,7 +22,7 @@ describe('Form.typescript', () => {
 
   describe('generic', () => {
     it('hooks', () => {
-      const Demo: React.FC = () => {
+      const Demo = () => {
         const [form] = Form.useForm<FormValues>();
 
         form.setFieldsValue({ path1: { path2: 2333 } });
@@ -69,7 +69,7 @@ describe('Form.typescript', () => {
   });
 
   it('FormItem renderProps support generic', () => {
-    const Demo: React.FC = () => (
+    const Demo = () => (
       <Form<FormValues>>
         <Form.Item<FormValues>>
           {({ getFieldsValue }) => {
@@ -88,7 +88,7 @@ describe('Form.typescript', () => {
 
   // TODO: @crazyair fix for value types
   it('useWatch', () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [form] = Form.useForm<FormValues>();
       const value = Form.useWatch('username', form);
 

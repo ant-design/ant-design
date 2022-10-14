@@ -17,7 +17,7 @@ Set size of numeral Badge.
 import { Avatar, Badge } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Badge size="default" count={5}>
       <Avatar shape="square" size="large" />

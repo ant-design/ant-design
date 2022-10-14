@@ -24,7 +24,7 @@ const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div
     style={{
       width: 500,

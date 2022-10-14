@@ -26,7 +26,7 @@ import React from 'react';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App: React.FC = () => {
+const App = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {

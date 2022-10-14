@@ -13,9 +13,7 @@ jest.mock('../dropdown', () => {
   const ActualDropdownComponent = ActualDropdown.default;
   const h: typeof React = jest.requireActual('react');
 
-  const MockedDropdown: React.FC<DropdownProps> & {
-    Button: typeof ActualDropdownComponent.Button;
-  } = props => {
+  const MockedDropdown = (props: DropdownProps) => {
     dropdownProps = props;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);

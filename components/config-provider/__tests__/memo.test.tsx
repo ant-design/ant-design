@@ -9,12 +9,12 @@ interface Props {
 
 // https://github.com/ant-design/ant-design/issues/27617
 describe('ConfigProvider', () => {
-  const Child: React.FC<Props> = ({ spy }) => {
+  const Child = ({ spy }: Props) => {
     React.useEffect(() => spy());
     return <div />;
   };
 
-  const Sibling: React.FC<Props> = ({ spy }) => (
+  const Sibling = ({ spy }: Props) => (
     <Tooltip>
       <Child spy={spy} />
     </Tooltip>
@@ -23,7 +23,7 @@ describe('ConfigProvider', () => {
   it('should not generate new context config when render', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
-    const App: React.FC = () => {
+    const App = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer(v => v + 1, 1);
 
@@ -56,7 +56,7 @@ describe('ConfigProvider', () => {
   it('should not generate new context config in nested ConfigProvider when render', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
-    const App: React.FC = () => {
+    const App = () => {
       const [pageHeader, setPageHeader] = useState({ ghost: true });
       const [, forceRender] = React.useReducer(v => v + 1, 1);
 

@@ -15,17 +15,15 @@ export interface BreadcrumbItemProps {
   className?: string;
   children?: React.ReactNode;
 }
-interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
-  __ANT_BREADCRUMB_ITEM: boolean;
-}
-const BreadcrumbItem: BreadcrumbItemInterface = ({
+
+const BreadcrumbItem = ({
   prefixCls: customizePrefixCls,
   separator = '/',
   children,
   overlay,
   dropdownProps,
   ...restProps
-}) => {
+}: BreadcrumbItemProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
   /** If overlay is have Wrap a Dropdown */

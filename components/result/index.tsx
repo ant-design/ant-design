@@ -56,7 +56,7 @@ interface IconProps {
   status: ResultStatusType;
 }
 
-const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
+const Icon = ({ prefixCls, icon, status }: IconProps) => {
   const className = classNames(`${prefixCls}-icon`);
 
   warning(
@@ -85,20 +85,14 @@ interface ExtraProps {
   extra: React.ReactNode;
 }
 
-const Extra: React.FC<ExtraProps> = ({ prefixCls, extra }) => {
+const Extra = ({ prefixCls, extra }: ExtraProps) => {
   if (!extra) {
     return null;
   }
   return <div className={`${prefixCls}-extra`}>{extra}</div>;
 };
 
-export interface ResultType extends React.FC<ResultProps> {
-  PRESENTED_IMAGE_404: React.FC;
-  PRESENTED_IMAGE_403: React.FC;
-  PRESENTED_IMAGE_500: React.FC;
-}
-
-const Result: ResultType = ({
+const Result = ({
   prefixCls: customizePrefixCls,
   className: customizeClassName,
   subTitle,
@@ -108,7 +102,7 @@ const Result: ResultType = ({
   status = 'info',
   icon,
   extra,
-}) => {
+}: ResultProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);

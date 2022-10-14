@@ -18,7 +18,7 @@ import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Progress } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [percent, setPercent] = useState(0);
 
   const increase = () => {

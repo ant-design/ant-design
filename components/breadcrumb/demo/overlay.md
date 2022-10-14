@@ -48,7 +48,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>

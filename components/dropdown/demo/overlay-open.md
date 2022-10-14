@@ -19,7 +19,7 @@ import type { MenuProps } from 'antd';
 import { Dropdown, Menu, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const handleMenuClick: MenuProps['onClick'] = e => {

@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 const { Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [clickTriggerStr, setClickTriggerStr] = useState(

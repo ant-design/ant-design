@@ -19,7 +19,7 @@ import { ZoomInOutlined } from '@ant-design/icons';
 import { Image, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Image
     width={96}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"

@@ -18,7 +18,7 @@ title:
 import { Button, Form, Input, message, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
 
   const onFinish = () => {

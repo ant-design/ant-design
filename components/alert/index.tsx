@@ -69,7 +69,7 @@ interface IconNodeProps {
   description: AlertProps['description'];
 }
 
-const IconNode: React.FC<IconNodeProps> = props => {
+const IconNode = (props: IconNodeProps) => {
   const { description, icon, prefixCls, type } = props;
   const iconType = (description ? iconMapOutlined : iconMapFilled)[type!] || null;
   if (icon) {
@@ -90,7 +90,7 @@ interface CloseIconProps {
   handleClose: AlertProps['onClose'];
 }
 
-const CloseIcon: React.FC<CloseIconProps> = props => {
+const CloseIcon = (props: CloseIconProps) => {
   const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
   return isClosable ? (
     <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
@@ -99,11 +99,7 @@ const CloseIcon: React.FC<CloseIconProps> = props => {
   ) : null;
 };
 
-interface AlertInterface extends React.FC<AlertProps> {
-  ErrorBoundary: typeof ErrorBoundary;
-}
-
-const Alert: AlertInterface = ({
+const Alert = ({
   description,
   prefixCls: customizePrefixCls,
   message,
@@ -120,7 +116,7 @@ const Alert: AlertInterface = ({
   closeIcon = <CloseOutlined />,
   action,
   ...props
-}) => {
+}: AlertProps) => {
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();

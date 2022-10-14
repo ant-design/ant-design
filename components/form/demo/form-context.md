@@ -52,7 +52,7 @@ const useResetFormOnCloseModal = ({ form, open }: { form: FormInstance; open: bo
   }, [form, prevOpen, open]);
 };
 
-const ModalForm: React.FC<ModalFormProps> = ({ open, onCancel }) => {
+const ModalForm = ({ open, onCancel }: ModalFormProps) => {
   const [form] = Form.useForm();
 
   useResetFormOnCloseModal({
@@ -78,7 +78,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ open, onCancel }) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const showUserModal = () => {

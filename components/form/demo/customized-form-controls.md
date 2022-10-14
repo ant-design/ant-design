@@ -37,7 +37,7 @@ interface PriceInputProps {
   onChange?: (value: PriceValue) => void;
 }
 
-const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
+const PriceInput = ({ value = {}, onChange }: PriceInputProps) => {
   const [number, setNumber] = useState(0);
   const [currency, setCurrency] = useState<Currency>('rmb');
 
@@ -83,7 +83,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log('Received values from form: ', values);
   };

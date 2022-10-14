@@ -107,9 +107,12 @@ const content = (
   </>
 );
 
-const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNode }> = ({
+const Content = ({
   children,
   extraContent,
+}: {
+  children: React.ReactNode;
+  extraContent: React.ReactNode;
 }) => (
   <Row>
     <div style={{ flex: 1 }}>{children}</div>
@@ -117,7 +120,7 @@ const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNo
   </Row>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <PageHeader
     title="Title"
     className="site-page-header"

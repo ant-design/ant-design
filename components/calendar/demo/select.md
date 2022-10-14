@@ -19,7 +19,7 @@ import type { Moment } from 'moment';
 import moment from 'moment';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState(() => moment('2017-01-25'));
   const [selectedValue, setSelectedValue] = useState(() => moment('2017-01-25'));
 

@@ -18,7 +18,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
     <br />

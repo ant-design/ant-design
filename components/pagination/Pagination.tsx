@@ -28,7 +28,7 @@ export interface PaginationConfig extends PaginationProps {
 
 export { PaginationLocale };
 
-const Pagination: React.FC<PaginationProps> = ({
+const Pagination = ({
   prefixCls: customizePrefixCls,
   selectPrefixCls: customizeSelectPrefixCls,
   className,
@@ -38,7 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({
   responsive,
   showSizeChanger,
   ...restProps
-}) => {
+}: PaginationProps) => {
   const { xs } = useBreakpoint(responsive);
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);

@@ -17,7 +17,7 @@ Radio unavailable.
 import { Button, Radio } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [disabled, setDisabled] = useState(true);
 
   const toggleDisabled = () => {

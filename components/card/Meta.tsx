@@ -12,7 +12,7 @@ export interface CardMetaProps {
   description?: React.ReactNode;
 }
 
-const Meta: React.FC<CardMetaProps> = props => (
+const Meta = (props: CardMetaProps) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {

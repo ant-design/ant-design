@@ -27,7 +27,7 @@ const cancel = (e: React.MouseEvent<HTMLElement>) => {
   message.error('Click on No');
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Popconfirm
     title="Are you sure to delete this task?"
     onConfirm={confirm}

@@ -17,7 +17,7 @@ import React from 'react';
 
 const { useBreakpoint } = Grid;
 
-const App: React.FC = () => {
+const App = () => {
   const screens = useBreakpoint();
 
   return (

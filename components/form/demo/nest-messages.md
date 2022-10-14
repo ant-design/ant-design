@@ -35,7 +35,7 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log(values);
   };

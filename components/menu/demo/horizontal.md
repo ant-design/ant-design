@@ -76,7 +76,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [current, setCurrent] = useState('mail');
 
   const onClick: MenuProps['onClick'] = e => {

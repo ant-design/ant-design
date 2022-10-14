@@ -14,7 +14,7 @@ const getRealWidth = (node: HTMLElement) => ({
   transform: 'scale(1)',
 });
 
-const LoadingIcon: React.FC<LoadingIconProps> = ({ prefixCls, loading, existIcon }) => {
+const LoadingIcon = ({ prefixCls, loading, existIcon }: LoadingIconProps) => {
   const visible = !!loading;
 
   if (existIcon) {

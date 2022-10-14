@@ -18,7 +18,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Badge } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <span className="avatar-item">
       <Badge count={1}>

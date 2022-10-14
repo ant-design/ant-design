@@ -45,7 +45,7 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 
-const EditableCell: React.FC<EditableCellProps> = ({
+const EditableCell = ({
   editing,
   dataIndex,
   title,
@@ -54,7 +54,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   index,
   children,
   ...restProps
-}) => {
+}: EditableCellProps) => {
   const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
 
   return (
@@ -79,7 +79,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');

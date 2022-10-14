@@ -19,7 +19,7 @@ import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />

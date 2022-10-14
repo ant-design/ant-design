@@ -24,7 +24,7 @@ import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const App: React.FC = () => (
+const App = () => (
   <Layout>
     <Sider
       breakpoint="lg"

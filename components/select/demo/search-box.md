@@ -53,7 +53,7 @@ const fetch = (value: string, callback: (data: { value: string; text: string }[]
   timeout = setTimeout(fake, 300);
 };
 
-const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = props => {
+const SearchInput = (props: { placeholder: string; style: React.CSSProperties }) => {
   const [data, setData] = useState<any[]>([]);
   const [value, setValue] = useState<string>();
 
@@ -89,7 +89,7 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
   );
 };
 
-const App: React.FC = () => <SearchInput placeholder="input search text" style={{ width: 200 }} />;
+const App = () => <SearchInput placeholder="input search text" style={{ width: 200 }} />;
 
 export default App;
 ```

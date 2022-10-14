@@ -46,7 +46,7 @@ const options: Option[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [text, setText] = useState('Unselect');
 
   const onChange = (_: string[], selectedOptions: Option[]) => {

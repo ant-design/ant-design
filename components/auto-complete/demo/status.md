@@ -22,7 +22,7 @@ const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
 });
 
-const App: React.FC = () => {
+const App = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
 
   const onSearch = (searchText: string) => {

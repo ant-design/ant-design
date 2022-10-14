@@ -5,7 +5,7 @@ import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
-const Demo: React.FC<{ type: string }> = ({ type }) => {
+const Demo = ({ type }: { type: string }) => {
   useEffect(() => {
     if (type === 'dashboard') {
       Modal.confirm({ title: 'Hello World!' });
@@ -18,7 +18,7 @@ describe('Locale Provider demo', () => {
   it('change type', async () => {
     jest.useFakeTimers();
 
-    const BasicExample: React.FC = () => {
+    const BasicExample = () => {
       const [type, setType] = React.useState<string>('');
       return (
         <div>

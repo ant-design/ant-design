@@ -17,7 +17,7 @@ Read only, can't use mouse to interact.
 import { Rate } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Rate disabled defaultValue={2} />;
+const App = () => <Rate disabled defaultValue={2} />;
 
 export default App;
 ```

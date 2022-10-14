@@ -29,7 +29,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => {
+const App = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {

@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 
-const App: React.FC = () => {
+const App = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));

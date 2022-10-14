@@ -17,7 +17,7 @@ Skeleton contains sub component.
 import { Button, Skeleton } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
 
   const showSkeleton = () => {

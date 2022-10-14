@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { Paragraph, Text } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [ellipsis, setEllipsis] = useState(true);
 
   return (

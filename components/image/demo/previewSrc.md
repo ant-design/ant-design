@@ -17,7 +17,7 @@ You can set different preview image.
 import { Image } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Image
     width={200}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"

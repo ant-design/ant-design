@@ -17,7 +17,7 @@ Custom spacing size.
 import { Button, Slider, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState(8);
 
   return (

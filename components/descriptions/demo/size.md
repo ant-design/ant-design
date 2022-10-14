@@ -18,7 +18,7 @@ import type { RadioChangeEvent } from 'antd';
 import { Button, Descriptions, Radio } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
 
   const onChange = (e: RadioChangeEvent) => {

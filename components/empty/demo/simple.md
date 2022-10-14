@@ -16,7 +16,7 @@ You can choose another style of `image` by setting image to `Empty.PRESENTED_IMA
 ```tsx
 import { Empty } from 'antd';
 
-const App: React.FC = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+const App = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
 
 export default App;
 ```

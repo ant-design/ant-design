@@ -25,7 +25,7 @@ import React from 'react';
 
 const { Header, Content, Footer } = Layout;
 
-const App: React.FC = () => (
+const App = () => (
   <Layout className="layout">
     <Header>
       <div className="logo" />

@@ -17,7 +17,7 @@ Descriptions with border and background color.
 import { Badge, Descriptions } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Descriptions title="User Info" layout="vertical" bordered>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>

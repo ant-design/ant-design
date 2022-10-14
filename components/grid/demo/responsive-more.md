@@ -19,7 +19,7 @@ title:
 import { Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
       Col

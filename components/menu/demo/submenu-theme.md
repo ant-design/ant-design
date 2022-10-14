@@ -37,7 +37,7 @@ function getItem(
   } as MenuItem;
 }
 
-const App: React.FC = () => {
+const App = () => {
   const [theme, setTheme] = useState<MenuTheme>('light');
   const [current, setCurrent] = useState('1');
 

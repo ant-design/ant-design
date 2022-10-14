@@ -32,7 +32,7 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
+const App = () => (
   <div className="card-container">
     <Tabs type="card" items={items} />
   </div>

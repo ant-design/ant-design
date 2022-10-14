@@ -17,7 +17,7 @@ There are `primary` button, `default` button, `dashed` button, `text` button and
 import { Button } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>

@@ -25,7 +25,7 @@ const wrapStyles: React.CSSProperties = {
   border: '1px solid #e9e9e9',
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div style={wrapStyles}>
     <Tooltip
       placement="left"

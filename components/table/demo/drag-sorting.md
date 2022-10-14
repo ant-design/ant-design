@@ -96,7 +96,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [data, setData] = useState([
     {
       key: '1',

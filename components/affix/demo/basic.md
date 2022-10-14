@@ -17,7 +17,7 @@ The simplest usage.
 import { Affix, Button } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [top, setTop] = useState(10);
   const [bottom, setBottom] = useState(10);
 

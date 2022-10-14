@@ -60,7 +60,7 @@ import {
 import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 
-const SplitSpace: React.FC<SpaceProps> = props => (
+const SplitSpace = (props: SpaceProps) => (
   <Space split={<Divider type="vertical" />} size={4} {...props} />
 );
 
@@ -161,7 +161,7 @@ const MyTransfer = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',

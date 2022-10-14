@@ -17,7 +17,7 @@ A standard progress bar.
 import { Progress } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress percent={30} />
     <Progress percent={50} status="active" />

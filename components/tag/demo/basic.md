@@ -26,7 +26,7 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
   console.log('Clicked! But prevent default.');
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Tag>Tag 1</Tag>
     <Tag>

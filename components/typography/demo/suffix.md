@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { Paragraph } = Typography;
 
-const App: React.FC = () => {
+const App = () => {
   const [rows, setRows] = useState(1);
 
   const article =

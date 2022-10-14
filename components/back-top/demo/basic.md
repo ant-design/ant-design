@@ -17,7 +17,7 @@ The most basic usage.
 import { BackTop } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right

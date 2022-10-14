@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<StepsProps['size']>('default');
 
   const horizontalSteps = (

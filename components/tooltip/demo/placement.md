@@ -21,7 +21,7 @@ const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
-const App: React.FC = () => (
+const App = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>

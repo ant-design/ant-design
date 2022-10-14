@@ -20,7 +20,7 @@ import React from 'react';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
-const App: React.FC = () => <Spin indicator={antIcon} />;
+const App = () => <Spin indicator={antIcon} />;
 
 export default App;
 ```

@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Steps current={1} labelPlacement="vertical">
       <Step title="Finished" description="This is a description." />

@@ -37,7 +37,7 @@ const items = new Array(3).fill(null).map((_, i) => {
   };
 });
 
-const App: React.FC = () => (
+const App = () => (
   <StickyContainer>
     <Tabs defaultActiveKey="1" renderTabBar={renderTabBar} items={items} />
   </StickyContainer>

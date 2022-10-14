@@ -19,7 +19,7 @@ import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import type { Moment } from 'moment';
 import React from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const onPanelChange = (value: Moment, mode: CalendarMode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };

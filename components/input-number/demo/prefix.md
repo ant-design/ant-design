@@ -18,7 +18,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <InputNumber prefix="￥" style={{ width: '100%' }} />
     <br />

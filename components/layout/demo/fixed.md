@@ -20,7 +20,7 @@ import React from 'react';
 
 const { Header, Content, Footer } = Layout;
 
-const App: React.FC = () => (
+const App = () => (
   <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />

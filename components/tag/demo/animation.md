@@ -20,7 +20,7 @@ import { Input, Tag } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 import React, { useEffect, useRef, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState('');

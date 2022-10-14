@@ -18,7 +18,7 @@ export interface GroupProps {
   compact?: boolean;
 }
 
-const Group: React.FC<GroupProps> = props => {
+const Group = (props: GroupProps) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);

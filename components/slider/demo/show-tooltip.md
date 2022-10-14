@@ -17,7 +17,7 @@ When `tooltip.open` is `true`, ToolTip will always show, or ToolTip will not sho
 import { Slider } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Slider defaultValue={30} tooltip={{ open: true }} />;
+const App = () => <Slider defaultValue={30} tooltip={{ open: true }} />;
 
 export default App;
 ```

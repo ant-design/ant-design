@@ -46,7 +46,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Layout>
     <Header className="header">
       <div className="logo" />

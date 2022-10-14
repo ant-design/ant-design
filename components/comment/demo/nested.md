@@ -17,7 +17,7 @@ Comments can be nested.
 import { Avatar, Comment } from 'antd';
 import React from 'react';
 
-const ExampleComment: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+const ExampleComment = ({ children }: { children?: React.ReactNode }) => (
   <Comment
     actions={[<span key="comment-nested-reply-to">Reply to</span>]}
     author={<a>Han Solo</a>}
@@ -33,7 +33,7 @@ const ExampleComment: React.FC<{ children?: React.ReactNode }> = ({ children }) 
   </Comment>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <ExampleComment>
     <ExampleComment>
       <ExampleComment />

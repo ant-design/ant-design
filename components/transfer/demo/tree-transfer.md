@@ -93,7 +93,7 @@ const treeData: DataNode[] = [
   { key: '0-2', title: '0-3' },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [targetKeys, setTargetKeys] = useState<string[]>([]);
   const onChange = (keys: string[]) => {
     setTargetKeys(keys);

@@ -17,7 +17,7 @@ By setting `strokeLinecap="butt"`, you can change the linecaps from `round` to `
 import { Progress } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress strokeLinecap="butt" percent={75} />
     <Progress strokeLinecap="butt" type="circle" percent={75} />

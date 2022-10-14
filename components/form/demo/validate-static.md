@@ -49,7 +49,7 @@ const formItemLayout = {
   },
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"

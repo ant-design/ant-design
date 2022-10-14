@@ -17,7 +17,7 @@ A simple loading status.
 import { Spin } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Spin />;
+const App = () => <Spin />;
 
 export default App;
 ```

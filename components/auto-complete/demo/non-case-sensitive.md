@@ -23,7 +23,7 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <AutoComplete
     style={{ width: 200 }}
     options={options}

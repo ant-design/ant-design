@@ -18,7 +18,7 @@ Add status to Cascader with `status`, which could be `error` or `warning`.
 import { Cascader, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Cascader status="error" placeholder="Error" />
     <Cascader status="warning" multiple placeholder="Warning multiple" />

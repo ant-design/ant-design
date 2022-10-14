@@ -17,7 +17,7 @@ A standard progress bar. Doesn't support trail color when `type="circle|dashboar
 import { Progress, Tooltip } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Tooltip title="3 done / 3 in progress / 4 to do">
       <Progress percent={60} success={{ percent: 30 }} />

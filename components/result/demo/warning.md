@@ -17,7 +17,7 @@ The result of the warning.
 import { Button, Result } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     status="warning"
     title="There are some problems with your operation."

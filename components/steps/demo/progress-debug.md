@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => {
+const App = () => {
   const [percent, setPercentage] = useState(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');

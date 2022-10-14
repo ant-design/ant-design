@@ -32,7 +32,7 @@ const routes = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <PageHeader
     className="site-page-header"
     title="Title"

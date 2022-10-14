@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<SizeType>('middle');
 
   const handleSizeChange = (e: RadioChangeEvent) => {

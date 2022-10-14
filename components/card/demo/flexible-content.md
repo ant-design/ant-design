@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Meta } = Card;
 
-const App: React.FC = () => (
+const App = () => (
   <Card
     hoverable
     style={{ width: 240 }}

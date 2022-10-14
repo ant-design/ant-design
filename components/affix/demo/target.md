@@ -17,7 +17,7 @@ Set a `target` for 'Affix', which is listen to scroll event of target element (d
 import { Affix, Button } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
   return (

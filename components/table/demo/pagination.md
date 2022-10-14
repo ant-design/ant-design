@@ -121,7 +121,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [top, setTop] = useState<TablePaginationPosition>('topLeft');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
 

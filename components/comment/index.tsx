@@ -23,7 +23,7 @@ export interface CommentProps {
   datetime?: React.ReactNode;
 }
 
-const Comment: React.FC<CommentProps> = ({
+const Comment = ({
   actions,
   author,
   avatar,
@@ -33,7 +33,7 @@ const Comment: React.FC<CommentProps> = ({
   prefixCls: customizePrefixCls,
   datetime,
   ...otherProps
-}) => {
+}: CommentProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const renderNested = (prefixCls: string, nestedChildren: any) => (

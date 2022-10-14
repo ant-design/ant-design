@@ -19,7 +19,7 @@ Child elements depending on the value of the `start`, `center`, `end`, `space-be
 import { Col, Divider, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">

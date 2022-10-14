@@ -64,7 +64,7 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Cascader
       suffixIcon={<SmileOutlined />}

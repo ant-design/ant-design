@@ -35,7 +35,7 @@ const formItemLayoutWithOutLabel = {
   },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };

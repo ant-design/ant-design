@@ -17,7 +17,7 @@ Appropriate for a narrow area.
 import { Progress } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <div style={{ width: 170 }}>
     <Progress percent={30} size="small" />
     <Progress percent={50} size="small" status="active" />

@@ -20,7 +20,7 @@ import React from 'react';
 
 const { TextArea } = Input;
 
-const App: React.FC = () => (
+const App = () => (
   <div style={{ backgroundColor: 'rgba(0, 0, 128, .2)' }}>
     <Input placeholder="Unbordered" bordered={false} />
     <Input placeholder="Unbordered" bordered={false} size="large" />

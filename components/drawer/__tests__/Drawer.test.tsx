@@ -7,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
-const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
+const DrawerTest = ({ getContainer }: DrawerProps) => (
   <div>
     <Drawer open width={400} getContainer={getContainer}>
       Here is content of Drawer

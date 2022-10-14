@@ -18,7 +18,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import React, { useEffect, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 

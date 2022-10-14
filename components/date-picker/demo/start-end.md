@@ -25,7 +25,7 @@ import { DatePicker, Space } from 'antd';
 import type { Moment } from 'moment';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [startValue, setStartValue] = useState<Moment | null>(null);
   const [endValue, setEndValue] = useState<Moment | null>(null);
   const [endOpen, setEndOpen] = useState(false);

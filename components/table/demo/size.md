@@ -61,7 +61,7 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <h4>Middle size table</h4>
     <Table columns={columns} dataSource={data} size="middle" />

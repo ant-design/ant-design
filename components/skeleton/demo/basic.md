@@ -17,7 +17,7 @@ Simplest Skeleton usage.
 import { Skeleton } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => <Skeleton />;
+const App = () => <Skeleton />;
 
 export default App;
 ```

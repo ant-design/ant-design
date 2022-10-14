@@ -17,7 +17,7 @@ Use ribbon badge.
 import { Badge, Card } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">

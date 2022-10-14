@@ -28,7 +28,7 @@ const onSelect = (option: OptionProps) => {
   console.log('select', option);
 };
 
-const App: React.FC = () => {
+const App = () => {
   const options = (
     <>
       <Option value="afc163">afc163</Option>

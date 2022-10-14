@@ -19,7 +19,7 @@ import React, { useEffect, useState } from 'react';
 
 const { Link } = Anchor;
 
-const App: React.FC = () => {
+const App = () => {
   const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
 
   useEffect(() => {

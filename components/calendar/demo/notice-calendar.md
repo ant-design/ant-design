@@ -56,7 +56,7 @@ const getMonthData = (value: Moment) => {
   }
 };
 
-const App: React.FC = () => {
+const App = () => {
   const monthCellRender = (value: Moment) => {
     const num = getMonthData(value);
     return num ? (

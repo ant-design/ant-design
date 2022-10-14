@@ -52,7 +52,7 @@ const items: MenuItem[] = [
   getItem('Option 12', '12'),
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [theme, setTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
 

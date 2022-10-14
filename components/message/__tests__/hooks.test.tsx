@@ -21,7 +21,7 @@ describe('message.hooks', () => {
   it('should work', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -57,7 +57,7 @@ describe('message.hooks', () => {
   it('should work with success', () => {
     const Context = React.createContext('light');
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
 
       return (
@@ -94,7 +94,7 @@ describe('message.hooks', () => {
   it('should work with onClose', done => {
     // if not use real timer, done won't be called
     jest.useRealTimers();
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <>
@@ -118,7 +118,7 @@ describe('message.hooks', () => {
   it('should work with close promise', done => {
     // if not use real timer, done won't be called
     jest.useRealTimers();
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <>
@@ -144,7 +144,7 @@ describe('message.hooks', () => {
 
   it('should work with hide', () => {
     let hide: MessageType;
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <ConfigProvider prefixCls="my-test">
@@ -179,7 +179,7 @@ describe('message.hooks', () => {
   it('should be same hook', () => {
     let count = 0;
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = message.useMessage();
       React.useEffect(() => {
@@ -202,7 +202,7 @@ describe('message.hooks', () => {
       document.body.appendChild(div);
       return div;
     };
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <ConfigProvider getPopupContainer={getPopupContainer} prefixCls="my-test">

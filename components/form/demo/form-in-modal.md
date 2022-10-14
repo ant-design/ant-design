@@ -31,11 +31,7 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
-  open,
-  onCreate,
-  onCancel,
-}) => {
+const CollectionCreateForm = ({ open, onCreate, onCancel }: CollectionCreateFormProps) => {
   const [form] = Form.useForm();
   return (
     <Modal
@@ -83,7 +79,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const onCreate = (values: any) => {

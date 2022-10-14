@@ -17,7 +17,7 @@ Control keyboard behavior by `keyboard`.
 import { Checkbox, InputNumber, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [keyboard, setKeyboard] = useState(true);
 
   return (

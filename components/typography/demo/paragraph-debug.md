@@ -20,7 +20,7 @@ import React from 'react';
 
 const { Title, Paragraph, Text } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Title>Introduction</Title>
     <Paragraph>

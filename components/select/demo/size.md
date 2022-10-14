@@ -30,7 +30,7 @@ const handleChange = (value: string | string[]) => {
   console.log(`Selected: ${value}`);
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<SizeType>('middle');
 
   const handleSizeChange = (e: RadioChangeEvent) => {

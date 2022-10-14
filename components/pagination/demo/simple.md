@@ -17,7 +17,7 @@ Simple mode.
 import { Pagination } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Pagination simple defaultCurrent={2} total={50} />
     <br />

@@ -42,7 +42,7 @@ const formItemLayout = {
   wrapperCol: { span: 12 },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;

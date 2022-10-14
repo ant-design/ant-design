@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 const ButtonGroup = Button.Group;
 
-const App: React.FC = () => {
+const App = () => {
   const [count, setCount] = useState(5);
   const [show, setShow] = useState(true);
 

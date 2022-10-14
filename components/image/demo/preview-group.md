@@ -17,7 +17,7 @@ Click the left and right switch buttons to preview multiple images.
 import { Image } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Image.PreviewGroup>
     <Image width={200} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
     <Image

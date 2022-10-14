@@ -66,9 +66,9 @@ describe('Radio Group', () => {
     const onChange = jest.fn();
     const onChangeRadioGroup = jest.fn();
 
-    const RadioGroup: React.FC<
-      RadioGroupProps & { onChangeRadioGroup: RadioGroupProps['onChange'] }
-    > = props => (
+    const RadioGroup = (
+      props: RadioGroupProps & { onChangeRadioGroup: RadioGroupProps['onChange'] },
+    ) => (
       <Radio.Group onChange={props.onChangeRadioGroup}>
         <Radio value="A" onChange={props.onChange}>
           A
@@ -97,7 +97,7 @@ describe('Radio Group', () => {
   it('Trigger onChange when both of radioButton and radioGroup exists', () => {
     const onChange = jest.fn();
 
-    const RadioGroup: React.FC<RadioGroupProps> = props => (
+    const RadioGroup = (props: RadioGroupProps) => (
       <Radio.Group {...props}>
         <Radio.Button value="A">A</Radio.Button>
         <Radio.Button value="B">B</Radio.Button>

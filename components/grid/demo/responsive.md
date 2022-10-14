@@ -17,7 +17,7 @@ Referring to the Bootstrap [responsive design](http://getbootstrap.com/css/#grid
 import { Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col xs={2} sm={4} md={6} lg={8} xl={10}>
       Col

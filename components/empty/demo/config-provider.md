@@ -37,7 +37,7 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-const App: React.FC = () => {
+const App = () => {
   const [customize, setCustomize] = useState(false);
 
   return (

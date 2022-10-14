@@ -17,7 +17,7 @@ Centered tabs.
 import { Tabs } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs
     defaultActiveKey="1"
     centered

@@ -17,7 +17,7 @@ A package of `linear-gradient`. It is recommended to only pass two colors.
 import { Progress } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Progress
       strokeColor={{

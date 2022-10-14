@@ -88,7 +88,7 @@ const tailFormItemLayout = {
   },
 };
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {

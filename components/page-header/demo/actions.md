@@ -17,7 +17,7 @@ Use the operating area and customize the sub-nodes, suitable for use in the need
 import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <PageHeader
       className="site-page-header"

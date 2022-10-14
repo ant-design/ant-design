@@ -18,7 +18,7 @@ Add status to Transfer with `status`, which could be `error` or `warning`.
 import { Space, Transfer } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical">
     <Transfer status="error" />
     <Transfer status="warning" showSearch />

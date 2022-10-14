@@ -50,7 +50,7 @@ const warning = () => {
   });
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space wrap>
     <Button onClick={info}>Info</Button>
     <Button onClick={success}>Success</Button>

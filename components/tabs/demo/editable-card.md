@@ -28,7 +28,7 @@ const initialItems = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [activeKey, setActiveKey] = useState(initialItems[0].key);
   const [items, setItems] = useState(initialItems);
   const newTabIndex = useRef(0);

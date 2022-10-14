@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { TreeNode } = TreeSelect;
 
-const App: React.FC = () => {
+const App = () => {
   const [treeLine, setTreeLine] = useState(true);
   const [showLeafIcon, setShowLeafIcon] = useState(false);
 

@@ -19,7 +19,7 @@ import React from 'react';
 
 const { TextArea } = Input;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <TextArea rows={4} />
     <br />

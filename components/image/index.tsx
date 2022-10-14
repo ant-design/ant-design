@@ -7,15 +7,7 @@ import defaultLocale from '../locale/en_US';
 import { getTransitionName } from '../_util/motion';
 import PreviewGroup, { icons } from './PreviewGroup';
 
-export interface CompositionImage<P> extends React.FC<P> {
-  PreviewGroup: typeof PreviewGroup;
-}
-
-const Image: CompositionImage<ImageProps> = ({
-  prefixCls: customizePrefixCls,
-  preview,
-  ...otherProps
-}) => {
+const Image = ({ prefixCls: customizePrefixCls, preview, ...otherProps }: ImageProps) => {
   const {
     getPrefixCls,
     locale: contextLocale = defaultLocale,

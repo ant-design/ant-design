@@ -17,7 +17,7 @@ title:
 import { Button } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Button type="primary" block>
       Primary

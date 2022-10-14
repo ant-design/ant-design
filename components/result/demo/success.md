@@ -17,7 +17,7 @@ Show successful results.
 import { Button, Result } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     status="success"
     title="Successfully Purchased Cloud Server ECS!"

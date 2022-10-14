@@ -19,7 +19,7 @@ By using `push` and `pull` class you can easily change column order.
 import { Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Row>
     <Col span={18} push={6}>
       col-18 col-push-6

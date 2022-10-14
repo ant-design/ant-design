@@ -113,7 +113,7 @@ describe('Form', () => {
 
     it('should clean up', async () => {
       jest.useFakeTimers();
-      const Demo: React.FC = () => {
+      const Demo = () => {
         const [form] = Form.useForm();
         return (
           <Form form={form} initialValues={{ aaa: '2' }}>
@@ -352,7 +352,7 @@ describe('Form', () => {
       it(name, () => {
         let callGetForm: any;
 
-        const Demo: React.FC = () => {
+        const Demo = () => {
           const { props, getForm } = genForm();
           callGetForm = getForm;
 
@@ -580,7 +580,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
-    const App: React.FC = () => {
+    const App = () => {
       const [message, updateMessage] = React.useState('');
       return (
         <Form>
@@ -619,13 +619,13 @@ describe('Form', () => {
     jest.useFakeTimers();
 
     const shouldNotRender = jest.fn();
-    const StaticInput: React.FC = () => {
+    const StaticInput = () => {
       shouldNotRender();
       return <Input />;
     };
 
     const shouldRender = jest.fn();
-    const DynamicInput: React.FC = () => {
+    const DynamicInput = () => {
       shouldRender();
       return <Input />;
     };
@@ -747,7 +747,7 @@ describe('Form', () => {
 
   // https://github.com/ant-design/ant-design/issues/21415
   it('should not throw error when Component.props.onChange is null', () => {
-    const CustomComponent: React.FC = () => (
+    const CustomComponent = () => (
       <input onChange={null as unknown as ChangeEventHandler<HTMLInputElement>} />
     );
     render(
@@ -764,7 +764,7 @@ describe('Form', () => {
   });
 
   it('change `help` should not warning', async () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [error, setError] = React.useState(false);
       return (
         <Form>
@@ -890,7 +890,7 @@ describe('Form', () => {
   it('return same form instance', async () => {
     const instances = new Set();
 
-    const App: React.FC = () => {
+    const App = () => {
       const [form] = Form.useForm();
       instances.add(form);
       const [, forceUpdate] = React.useState({});
@@ -919,12 +919,12 @@ describe('Form', () => {
   it('should avoid re-render', async () => {
     let renderTimes = 0;
 
-    const MyInput: React.FC<{ value?: string }> = ({ value = '', ...props }) => {
+    const MyInput = ({ value = '', ...props }: { value?: string }) => {
       renderTimes += 1;
       return <input value={value} {...props} />;
     };
 
-    const Demo: React.FC = () => (
+    const Demo = () => (
       <Form>
         <Form.Item name="username" label="username" rules={[{ required: true }]}>
           <MyInput />
@@ -954,7 +954,7 @@ describe('Form', () => {
   });
 
   it('should remove Field and also reset error', async () => {
-    const Demo: React.FC<{ showA?: boolean }> = ({ showA }) => (
+    const Demo = ({ showA }: { showA?: boolean }) => (
       <Form>
         {showA ? (
           <Form.Item name="a" help="error">
@@ -1057,7 +1057,7 @@ describe('Form', () => {
   });
 
   it('form should support disabled', () => {
-    const App: React.FC = () => (
+    const App = () => (
       <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
         <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
           <Checkbox>disabled</Checkbox>
@@ -1157,7 +1157,7 @@ describe('Form', () => {
     // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
     mockFn.mockImplementation(() => itemName);
     const { Option } = Select;
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [open, setOpen] = useState(false);
       return (
         <>
@@ -1354,7 +1354,7 @@ describe('Form', () => {
       return null;
     };
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [form] = Form.useForm();
       formInstance = form;
 
@@ -1370,7 +1370,7 @@ describe('Form', () => {
   });
 
   it('noStyle should not affect status', () => {
-    const Demo: React.FC = () => (
+    const Demo = () => (
       <Form>
         <Form.Item validateStatus="error" noStyle>
           <Select className="custom-select" />
@@ -1404,7 +1404,7 @@ describe('Form', () => {
   });
 
   it('should not affect Popup children style', () => {
-    const Demo: React.FC = () => (
+    const Demo = () => (
       <Form>
         <Form.Item labelCol={4 as ColProps} validateStatus="error">
           <Modal visible>
@@ -1432,15 +1432,12 @@ describe('Form', () => {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput: React.FC<{ className?: string; value?: React.ReactNode }> = ({
-      className,
-      value,
-    }) => {
+    const CustomInput = ({ className, value }: { className?: string; value?: React.ReactNode }) => {
       const { status } = useStatus();
       return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
     };
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [form] = Form.useForm();
 
       return (

@@ -20,7 +20,7 @@ import React from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => (
+const App = () => (
   <Steps>
     <Step status="finish" title="Login" icon={<UserOutlined />} />
     <Step status="finish" title="Verification" icon={<SolutionOutlined />} />

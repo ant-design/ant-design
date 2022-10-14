@@ -22,7 +22,7 @@ const formItemLayout = {
   },
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
     <Form.Item label="单独 AutoComplete">
       <AutoComplete />

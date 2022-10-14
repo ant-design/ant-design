@@ -48,7 +48,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
   };

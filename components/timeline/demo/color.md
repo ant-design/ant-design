@@ -18,7 +18,7 @@ import { SmileOutlined } from '@ant-design/icons';
 import { Timeline } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Timeline>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>

@@ -17,7 +17,7 @@ It can be placed inside the ordinary card to display the information of the mult
 import { Card } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Card title="Card title">
     <Card type="inner" title="Inner Card title" extra={<a href="#">More</a>}>
       Inner Card content

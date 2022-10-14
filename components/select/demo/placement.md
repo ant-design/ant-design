@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 
 const { Option } = Select;
 
-const App: React.FC = () => {
+const App = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {

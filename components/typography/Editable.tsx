@@ -23,7 +23,7 @@ interface EditableProps {
   component?: string;
 }
 
-const Editable: React.FC<EditableProps> = ({
+const Editable = ({
   prefixCls,
   'aria-label': ariaLabel,
   className,
@@ -37,7 +37,7 @@ const Editable: React.FC<EditableProps> = ({
   onEnd,
   component,
   enterIcon = <EnterOutlined />,
-}) => {
+}: EditableProps) => {
   const ref = React.useRef<any>();
 
   const inComposition = React.useRef(false);

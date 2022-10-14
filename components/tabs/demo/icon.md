@@ -18,7 +18,7 @@ import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs
     defaultActiveKey="2"
     items={[AppleOutlined, AndroidOutlined].map((Icon, i) => {

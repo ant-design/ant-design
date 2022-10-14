@@ -21,7 +21,7 @@ const info = () => {
   message.info('This is a normal message');
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Button type="primary" onClick={info}>
     Display normal message
   </Button>

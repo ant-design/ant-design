@@ -86,7 +86,7 @@ const SortableBody = SortableContainer((props: React.HTMLAttributes<HTMLTableSec
   <tbody {...props} />
 ));
 
-const App: React.FC = () => {
+const App = () => {
   const [dataSource, setDataSource] = useState(data);
 
   const onSortEnd = ({ oldIndex, newIndex }: SortEnd) => {
@@ -109,7 +109,7 @@ const App: React.FC = () => {
     />
   );
 
-  const DraggableBodyRow: React.FC<any> = ({ className, style, ...restProps }) => {
+  const DraggableBodyRow = ({ className, style, ...restProps }) => {
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;

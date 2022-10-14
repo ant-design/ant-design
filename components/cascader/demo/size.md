@@ -62,7 +62,7 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Cascader size="large" options={options} onChange={onChange} />
     <br />

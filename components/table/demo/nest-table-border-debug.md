@@ -46,7 +46,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => {
+const App = () => {
   const createExpandedRowRender = (bordered: boolean) => () => {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },

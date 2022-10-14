@@ -17,7 +17,7 @@ Passing the `name` property to all `input[type="radio"]` that are in the same Ra
 import { Radio } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Radio.Group name="radiogroup" defaultValue={1}>
     <Radio value={1}>A</Radio>
     <Radio value={2}>B</Radio>

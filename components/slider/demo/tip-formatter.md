@@ -19,7 +19,7 @@ import React from 'react';
 
 const formatter = (value: number) => `${value}%`;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Slider tooltip={{ formatter }} />
     <Slider tooltip={{ formatter: null }} />

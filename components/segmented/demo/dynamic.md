@@ -19,7 +19,7 @@ import { Segmented, Button } from 'antd';
 
 const defaultOptions = ['Daily', 'Weekly', 'Monthly'];
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [options, setOptions] = useState(defaultOptions);
   const [moreLoaded, setMoreLoaded] = useState(false);
 

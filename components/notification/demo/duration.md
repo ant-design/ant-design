@@ -27,7 +27,7 @@ const openNotification = () => {
   notification.open(args);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Button type="primary" onClick={openNotification}>
     Open the notification box
   </Button>

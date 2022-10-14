@@ -18,7 +18,7 @@ Default activate first tab.
 import { Tabs } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs defaultActiveKey="1">
     <Tabs.TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1

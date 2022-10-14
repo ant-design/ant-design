@@ -34,7 +34,7 @@ const steps = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [current, setCurrent] = useState(0);
 
   const next = () => {

@@ -17,7 +17,7 @@ A simple card only containing a content area.
 import { Card } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Card style={{ width: 300 }}>
     <p>Card content</p>
     <p>Card content</p>

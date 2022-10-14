@@ -40,7 +40,7 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App: React.FC = () => {
+const App = () => {
   const rowSelection: TableRowSelection<DataType> = {
     renderCell: (checked, _record, index, node) => ({
       props: { rowSpan: index % 2 === 0 ? 2 : 0 },

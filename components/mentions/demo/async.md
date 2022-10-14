@@ -19,7 +19,7 @@ import debounce from 'lodash/debounce';
 import React, { useCallback, useRef, useState } from 'react';
 
 const { Option } = Mentions;
-const App: React.FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
   const ref = useRef<string>();

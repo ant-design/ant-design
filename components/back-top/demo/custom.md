@@ -33,7 +33,7 @@ const style: React.CSSProperties = {
   fontSize: 14,
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div style={{ height: '600vh', padding: 8 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>

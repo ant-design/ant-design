@@ -19,7 +19,7 @@ import React from 'react';
 
 const { RangePicker } = TimePicker;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <TimePicker bordered={false} />
     <RangePicker bordered={false} />

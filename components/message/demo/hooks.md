@@ -19,7 +19,7 @@ import React from 'react';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App: React.FC = () => {
+const App = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const info = () => {

@@ -17,7 +17,7 @@ Basic slider. When `range` is `true`, display as dual thumb mode. When `disable`
 import { Slider, Switch } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [disabled, setDisabled] = useState(false);
 
   const onChange = (checked: boolean) => {

@@ -21,7 +21,7 @@ You can create a basic grid system by using a single set of `Row` and `Col` grid
 import { Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Row>
       <Col span={24}>col</Col>

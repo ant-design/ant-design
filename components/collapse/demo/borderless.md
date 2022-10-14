@@ -26,7 +26,7 @@ const text = (
   </p>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Collapse bordered={false} defaultActiveKey={['1']}>
     <Panel header="This is panel header 1" key="1">
       {text}

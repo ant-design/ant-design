@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 const { TextArea } = Input;
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState('');
 
   return (

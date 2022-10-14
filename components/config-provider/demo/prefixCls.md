@@ -23,7 +23,7 @@ import React, { useState } from 'react';
 // but do not replace related lib `lib` with `es`
 // which do not show correct in site.
 // We may need do convert in site also.
-const App: React.FC = () => {
+const App = () => {
   const [prefixCls, setPrefixCls] = useState('light');
 
   return (

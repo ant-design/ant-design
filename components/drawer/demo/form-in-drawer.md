@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 const { Option } = Select;
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {

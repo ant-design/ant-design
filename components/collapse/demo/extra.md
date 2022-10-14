@@ -29,7 +29,7 @@ const text = `
 
 type ExpandIconPosition = 'start' | 'end';
 
-const App: React.FC = () => {
+const App = () => {
   const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('start');
 
   const onPositionChange = (newExpandIconPosition: ExpandIconPosition) => {

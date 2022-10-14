@@ -23,7 +23,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Select
     mode="multiple"
     style={{ width: '100%' }}

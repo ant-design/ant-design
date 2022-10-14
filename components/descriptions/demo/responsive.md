@@ -17,7 +17,7 @@ Responsive configuration enables perfect presentation on small screen devices.
 import { Descriptions } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <Descriptions
       title="Responsive Descriptions"

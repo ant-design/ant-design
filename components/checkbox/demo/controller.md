@@ -18,7 +18,7 @@ import { Button, Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [checked, setChecked] = useState(true);
   const [disabled, setDisabled] = useState(false);
 

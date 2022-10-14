@@ -17,7 +17,7 @@ Click the image to zoom in.
 import { Image } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Image
     width={200}
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"

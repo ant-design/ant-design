@@ -17,7 +17,7 @@ Custom action.
 import { Alert, Button, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Alert
       message="Success Tips"

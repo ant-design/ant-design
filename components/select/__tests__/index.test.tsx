@@ -64,7 +64,7 @@ describe('Select', () => {
 
   it('should be controlled by open prop', () => {
     const onDropdownVisibleChange = jest.fn();
-    const TestComponent: React.FC = () => {
+    const TestComponent = () => {
       const [open, setOpen] = React.useState(false);
       const handleChange: SelectProps['onDropdownVisibleChange'] = value => {
         onDropdownVisibleChange(value);

@@ -17,7 +17,7 @@ Progressive when large image loading.
 import { Button, Image, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [random, setRandom] = useState<number>();
 
   return (

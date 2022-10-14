@@ -20,7 +20,7 @@ import React from 'react';
 
 const { Paragraph, Text } = Typography;
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     status="error"
     title="Submission Failed"

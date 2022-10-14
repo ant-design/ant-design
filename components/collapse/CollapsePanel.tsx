@@ -22,7 +22,7 @@ export interface CollapsePanelProps {
   children?: React.ReactNode;
 }
 
-const CollapsePanel: React.FC<CollapsePanelProps> = props => {
+const CollapsePanel = (props: CollapsePanelProps) => {
   warning(
     !('disabled' in props),
     'Collapse.Panel',

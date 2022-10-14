@@ -18,7 +18,7 @@ config by ConfigProvider.
 import { Button, ConfigProvider, Drawer } from 'antd';
 import React, { useRef, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const domRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
 

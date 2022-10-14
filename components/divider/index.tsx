@@ -15,7 +15,7 @@ export interface DividerProps {
   plain?: boolean;
 }
 
-const Divider: React.FC<DividerProps> = props => {
+const Divider = (props: DividerProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const {

@@ -16,7 +16,7 @@ Simplest Usage.
 ```tsx
 import { Empty } from 'antd';
 
-const App: React.FC = () => <Empty />;
+const App = () => <Empty />;
 
 export default App;
 ```

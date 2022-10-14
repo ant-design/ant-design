@@ -39,7 +39,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
     console.log('Trigger Select', keys, info);
   };

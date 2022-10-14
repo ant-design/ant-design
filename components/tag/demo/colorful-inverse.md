@@ -18,7 +18,7 @@ Internal inverse color tag
 import { Divider, Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Presets Inverse</Divider>
     <div>

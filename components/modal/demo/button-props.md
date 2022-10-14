@@ -17,7 +17,7 @@ Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const showModal = () => {

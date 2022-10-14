@@ -40,7 +40,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <Dropdown overlay={menu} trigger={['click']}>
     <a onClick={e => e.preventDefault()}>
       <Space>

@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-const App: React.FC = () => {
+const App = () => {
   const [placement, SetPlacement] = useState<DatePickerProps['placement']>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {

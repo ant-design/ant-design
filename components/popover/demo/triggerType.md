@@ -24,7 +24,7 @@ const content = (
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>

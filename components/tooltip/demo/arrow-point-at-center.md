@@ -17,7 +17,7 @@ By specifying `arrowPointAtCenter` prop, the arrow will point to the center of t
 import { Button, Tooltip } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Tooltip placement="topLeft" title="Prompt Text">
       <Button>Align edge / 边缘对齐</Button>

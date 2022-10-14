@@ -25,7 +25,7 @@ const { CheckableTag } = Tag;
 
 const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
-const App: React.FC = () => {
+const App = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
   const handleChange = (tag: string, checked: boolean) => {

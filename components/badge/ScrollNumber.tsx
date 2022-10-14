@@ -21,7 +21,7 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-const ScrollNumber: React.FC<ScrollNumberProps> = ({
+const ScrollNumber = ({
   prefixCls: customizePrefixCls,
   count,
   className,
@@ -32,7 +32,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   component = 'sup',
   children,
   ...restProps
-}) => {
+}: ScrollNumberProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 

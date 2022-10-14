@@ -18,7 +18,7 @@ Turn on `labelWrap` to wrap label if text is long.
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Form
     name="wrap"
     labelCol={{ flex: '110px' }}

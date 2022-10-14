@@ -27,7 +27,7 @@ const content = (
 
 const buttonWidth = 70;
 
-const App: React.FC = () => (
+const App = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">

@@ -17,7 +17,7 @@ Show warning style when `value` is out of range by control.
 import { Button, InputNumber, Space } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [value, setValue] = useState<string | number | null>('99');
 
   return (

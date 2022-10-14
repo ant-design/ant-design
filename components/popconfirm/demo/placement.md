@@ -23,7 +23,7 @@ const confirm = () => {
   message.info('Clicked on Yes.');
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div className="demo">
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">

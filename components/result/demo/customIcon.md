@@ -18,7 +18,7 @@ import { SmileOutlined } from '@ant-design/icons';
 import { Button, Result } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Result
     icon={<SmileOutlined />}
     title="Great, we have done all the operations!"

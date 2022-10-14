@@ -17,7 +17,7 @@ Load failed to display image placeholder.
 import { Image } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Image
     width={200}
     height={200}

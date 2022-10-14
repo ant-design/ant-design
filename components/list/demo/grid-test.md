@@ -45,7 +45,7 @@ const ListItem = () => (
   </List.Item>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <List
       grid={{ gutter: 16, column: 4 }}

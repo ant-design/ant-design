@@ -24,7 +24,7 @@ export interface GroupProps {
   size?: AvatarSize;
 }
 
-const Group: React.FC<GroupProps> = props => {
+const Group = (props: GroupProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
 

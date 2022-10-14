@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
-import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 
 export interface TimelineProps {
@@ -19,11 +18,7 @@ export interface TimelineProps {
   children?: React.ReactNode;
 }
 
-interface TimelineType extends React.FC<TimelineProps> {
-  Item: React.FC<TimelineItemProps>;
-}
-
-const Timeline: TimelineType = props => {
+const Timeline = (props: TimelineProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,

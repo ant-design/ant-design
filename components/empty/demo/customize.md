@@ -17,7 +17,7 @@ Customize image source, image size, description and extra content.
 import { Button, Empty } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     imageStyle={{

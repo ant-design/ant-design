@@ -17,7 +17,7 @@ Standalone badge with status.
 import { Badge, Space } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space>
       <Badge status="success" />

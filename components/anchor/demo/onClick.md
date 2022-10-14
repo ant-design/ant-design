@@ -30,7 +30,7 @@ const handleClick = (
   console.log(link);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Anchor affix={false} onClick={handleClick}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />

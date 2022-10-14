@@ -61,9 +61,7 @@ const onClick: MenuProps['onClick'] = e => {
   console.log('click', e);
 };
 
-const App: React.FC = () => (
-  <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />
-);
+const App = () => <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />;
 
 export default App;
 ```

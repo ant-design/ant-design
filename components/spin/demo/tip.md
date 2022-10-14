@@ -17,7 +17,7 @@ Customized description content.
 import { Alert, Spin } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Spin tip="Loading...">
     <Alert
       message="Alert message title"

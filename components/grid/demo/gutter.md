@@ -31,7 +31,7 @@ import React from 'react';
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>

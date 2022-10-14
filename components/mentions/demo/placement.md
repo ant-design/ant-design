@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Option } = Mentions;
 
-const App: React.FC = () => (
+const App = () => (
   <Mentions style={{ width: '100%' }} placement="top">
     <Option value="afc163">afc163</Option>
     <Option value="zombieJ">zombieJ</Option>

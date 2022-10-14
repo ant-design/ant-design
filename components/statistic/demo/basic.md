@@ -17,7 +17,7 @@ Simplest Usage.
 import { Button, Col, Row, Statistic } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Active Users" value={112893} />

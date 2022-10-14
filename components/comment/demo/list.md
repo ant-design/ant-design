@@ -54,7 +54,7 @@ const data = [
   },
 ];
 
-const App: React.FC = () => (
+const App = () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}

@@ -17,7 +17,7 @@ Using `reverse` to render slider reversely.
 import { Slider, Switch } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [reverse, setReverse] = useState(true);
 
   return (

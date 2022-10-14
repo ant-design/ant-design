@@ -53,17 +53,14 @@ const extraContent = (
   </div>
 );
 
-const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
-  children,
-  extra,
-}) => (
+const Content = ({ children, extra }: { children: React.ReactNode; extra: React.ReactNode }) => (
   <div className="content">
     <div className="main">{children}</div>
     <div className="extra">{extra}</div>
   </div>
 );
 
-const App: React.FC = () => (
+const App = () => (
   <PageHeader
     className="site-page-header-responsive"
     onBack={() => window.history.back()}

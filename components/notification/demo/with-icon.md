@@ -27,7 +27,7 @@ const openNotificationWithIcon = (type: NotificationType) => {
   });
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
     <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>

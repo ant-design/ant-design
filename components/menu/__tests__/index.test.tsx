@@ -126,7 +126,7 @@ describe('Menu', () => {
     </Menu>
   ));
 
-  const RtlDemo: React.FC = () => (
+  const RtlDemo = () => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />
@@ -284,7 +284,7 @@ describe('Menu', () => {
   it('test submenu in mode horizontal', async () => {
     const defaultTestProps: MenuProps = { mode: 'horizontal' };
 
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -308,7 +308,7 @@ describe('Menu', () => {
 
   it('test submenu in mode inline', () => {
     const defaultTestProps: MenuProps = { mode: 'inline' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -328,7 +328,7 @@ describe('Menu', () => {
 
   it('test submenu in mode vertical', () => {
     const defaultTestProps: MenuProps = { mode: 'vertical' };
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -391,7 +391,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu openKeys={['1']} mode="inline" {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -412,7 +412,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -452,7 +452,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo = (props: MenuProps) => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -540,7 +540,7 @@ describe('Menu', () => {
 
     it('inline', () => {
       const defaultTestProps: MenuProps = { mode: 'inline' };
-      const Demo: React.FC<MenuProps> = props => (
+      const Demo = (props: MenuProps) => (
         <Menu {...defaultTestProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -589,7 +589,7 @@ describe('Menu', () => {
 
     it('vertical with hover(default)', () => {
       const defaultTestProps: MenuProps = { mode: 'vertical' };
-      const Demo: React.FC = () => (
+      const Demo = () => (
         <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -611,7 +611,7 @@ describe('Menu', () => {
 
     it('vertical with click', () => {
       const defaultTestProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
-      const Demo: React.FC = () => (
+      const Demo = () => (
         <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -633,7 +633,7 @@ describe('Menu', () => {
 
     it('horizontal with hover(default)', () => {
       const defaultTestProps: MenuProps = { mode: 'horizontal' };
-      const Demo: React.FC = () => (
+      const Demo = () => (
         <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -655,7 +655,7 @@ describe('Menu', () => {
 
     it('horizontal with click', () => {
       const defaultTestProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
-      const Demo: React.FC = () => (
+      const Demo = () => (
         <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -695,7 +695,7 @@ describe('Menu', () => {
   });
 
   it('render correctly when using with Layout.Sider', () => {
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [collapsed, setCollapsed] = useState<boolean>(false);
       return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -824,7 +824,7 @@ describe('Menu', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onOpen = jest.fn();
     const onClose = jest.fn();
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
       return (
         <Menu
@@ -859,7 +859,7 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const Demo: React.FC<MenuProps> = props => {
+    const Demo = (props: MenuProps) => {
       const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
       return (
         <Menu

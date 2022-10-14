@@ -747,7 +747,7 @@ describe('Anchor Render', () => {
     it('should update anchorLink when component is rerender', async () => {
       const hash1 = getHashUrl();
       const hash2 = getHashUrl();
-      const Demo: React.FC<{ current: string }> = ({ current }) => (
+      const Demo = ({ current }: { current: string }) => (
         <Anchor getCurrentAnchor={() => `#${current}`}>
           <Link href={`#${hash1}`} title={hash1} />
           <Link href={`#${hash2}`} title={hash2} />

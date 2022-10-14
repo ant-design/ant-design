@@ -25,7 +25,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Carousel effect="fade">
     <div>
       <h3 style={contentStyle}>1</h3>

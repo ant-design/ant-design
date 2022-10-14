@@ -27,7 +27,7 @@ import {
 import { Tag } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter

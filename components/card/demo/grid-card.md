@@ -22,7 +22,7 @@ const gridStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Card title="Card Title">
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid hoverable={false} style={gridStyle}>

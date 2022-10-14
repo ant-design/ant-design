@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Option, getMentions } = Mentions;
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
 
   const onReset = () => {

@@ -17,7 +17,7 @@ Use `open` prop to control the display of the card.
 import { Button, Popover } from 'antd';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [open, setOpen] = useState(false);
 
   const hide = () => {

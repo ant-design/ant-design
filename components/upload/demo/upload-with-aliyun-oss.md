@@ -115,7 +115,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Form labelCol={{ span: 4 }}>
     <Form.Item label="Photos" name="photos">
       <AliyunOSSUpload />

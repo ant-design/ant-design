@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Search } = Input;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Search placeholder="input search loading default" loading />
     <br />

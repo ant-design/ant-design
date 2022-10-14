@@ -42,7 +42,7 @@ const menu = (
   />
 );
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>

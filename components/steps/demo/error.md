@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Step } = Steps;
 
-const App: React.FC = () => (
+const App = () => (
   <Steps current={1} status="error">
     <Step title="Finished" description="This is a description" />
     <Step title="In Process" description="This is a description" />

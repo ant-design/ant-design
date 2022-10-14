@@ -64,7 +64,7 @@ const items: MenuItem[] = [
   ),
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
   const [theme, setTheme] = useState<MenuTheme>('light');
 

@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Layout>
       <Header>Header</Header>

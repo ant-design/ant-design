@@ -62,7 +62,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App: React.FC = () => {
+const App = () => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(['0-0-0', '0-0-1']);
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(['0-0-0']);
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);

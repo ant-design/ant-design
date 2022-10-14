@@ -21,7 +21,7 @@ const onChange = (value: number) => {
   console.log('changed', value);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
     <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />

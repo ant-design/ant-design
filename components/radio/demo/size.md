@@ -17,7 +17,7 @@ There are three sizes available: large, medium, and small. It can coordinate wit
 import { Radio } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Radio.Group defaultValue="a" size="large">
       <Radio.Button value="a">Hangzhou</Radio.Button>

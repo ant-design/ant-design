@@ -19,7 +19,7 @@ import type { InputRef } from 'antd';
 import { Input, Tag, Tooltip } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');

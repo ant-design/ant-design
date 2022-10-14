@@ -19,7 +19,7 @@ title:
 import { Col, Row } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Row>
       <Col span={8}>col-8</Col>

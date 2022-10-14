@@ -20,7 +20,7 @@ import React from 'react';
 
 let acc = 0;
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   return (
     <Form

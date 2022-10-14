@@ -48,7 +48,7 @@ const updateTreeData = (list: DataNode[], key: React.Key, children: DataNode[]):
     return node;
   });
 
-const App: React.FC = () => {
+const App = () => {
   const [treeData, setTreeData] = useState(initTreeData);
 
   const onLoadData = ({ key, children }: any) =>

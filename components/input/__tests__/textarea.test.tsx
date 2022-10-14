@@ -3,7 +3,14 @@ import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, waitFakeTimer, render, sleep, triggerResize, pureRender } from '../../../tests/utils';
+import {
+  fireEvent,
+  waitFakeTimer,
+  render,
+  sleep,
+  triggerResize,
+  pureRender,
+} from '../../../tests/utils';
 import type { RenderOptions } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
@@ -556,7 +563,7 @@ describe('TextArea allowClear', () => {
       focus: handleFocus,
     });
 
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [value, setValue] = React.useState('');
       return <Input.TextArea allowClear value={value} onChange={e => setValue(e.target.value)} />;
     };

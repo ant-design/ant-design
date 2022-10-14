@@ -19,7 +19,7 @@ export interface CellProps {
   colon?: boolean;
 }
 
-const Cell: React.FC<CellProps> = ({
+const Cell = ({
   itemPrefixCls,
   component,
   span,
@@ -31,7 +31,7 @@ const Cell: React.FC<CellProps> = ({
   label,
   content,
   colon,
-}) => {
+}: CellProps) => {
   const Component = component as any;
 
   if (bordered) {

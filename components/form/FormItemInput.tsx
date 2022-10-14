@@ -35,7 +35,7 @@ export interface FormItemInputProps {
   fieldId?: string;
 }
 
-const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
+const FormItemInput = (props: FormItemInputProps & FormItemInputMiscProps) => {
   const {
     prefixCls,
     status,

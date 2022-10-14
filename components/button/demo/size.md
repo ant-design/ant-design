@@ -23,7 +23,7 @@ import { Button, Radio } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import React, { useState } from 'react';
 
-const App: React.FC = () => {
+const App = () => {
   const [size, setSize] = useState<SizeType>('large');
 
   return (

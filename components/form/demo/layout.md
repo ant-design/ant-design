@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 
 type LayoutType = Parameters<typeof Form>[0]['layout'];
 
-const App: React.FC = () => {
+const App = () => {
   const [form] = Form.useForm();
   const [formLayout, setFormLayout] = useState<LayoutType>('horizontal');
 

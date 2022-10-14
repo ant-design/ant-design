@@ -18,7 +18,7 @@ import { ClockCircleOutlined } from '@ant-design/icons';
 import { Avatar, Badge } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Badge count={5}>
       <Avatar shape="square" size="large" />

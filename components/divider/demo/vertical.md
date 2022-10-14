@@ -17,7 +17,7 @@ Use `type="vertical"` make it vertical.
 import { Divider } from 'antd';
 import React from 'react';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     Text
     <Divider type="vertical" />

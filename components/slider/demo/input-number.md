@@ -83,7 +83,7 @@ const DecimalStep = () => {
   );
 };
 
-const App: React.FC = () => (
+const App = () => (
   <div>
     <IntegerStep />
     <DecimalStep />

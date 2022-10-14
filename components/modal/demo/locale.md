@@ -60,7 +60,7 @@ const confirm = () => {
   });
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space>
     <LocalizedModal />
     <Button onClick={confirm}>Confirm</Button>

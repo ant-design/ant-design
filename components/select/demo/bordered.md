@@ -19,7 +19,7 @@ import React from 'react';
 
 const { Option } = Select;
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} bordered={false}>
       <Option value="jack">Jack</Option>

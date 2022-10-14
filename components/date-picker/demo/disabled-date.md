@@ -56,7 +56,7 @@ const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
   };
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"

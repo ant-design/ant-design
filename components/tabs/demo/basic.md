@@ -21,7 +21,7 @@ const onChange = (key: string) => {
   console.log(key);
 };
 
-const App: React.FC = () => (
+const App = () => (
   <Tabs
     defaultActiveKey="1"
     onChange={onChange}

@@ -35,7 +35,7 @@ const openNotification = (placement: NotificationPlacement) => {
   });
 };
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Space>
       <Button type="primary" onClick={() => openNotification('top')} icon={<BorderTopOutlined />}>
