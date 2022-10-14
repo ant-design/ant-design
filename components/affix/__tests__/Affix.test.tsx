@@ -121,22 +121,8 @@ describe('Affix Render', () => {
 
   it('Anchor correct render when target is null', async () => {
     expect(() => {
-      let offsetTop = 0;
-      render(
-        <Affix offsetTop={offsetTop} target={null as unknown as AffixProps['target']}>
-          test
-        </Affix>,
-      );
-      offsetTop = 10;
-    }).not.toThrow();
-    expect(() => {
-      let offsetTop = 0;
-      render(
-        <Affix offsetTop={offsetTop} target={() => null}>
-          test
-        </Affix>,
-      );
-      offsetTop = 20;
+      const { rerender } = render(<Affix>test</Affix>);
+      rerender(<Affix target={() => null}>test</Affix>);
     }).not.toThrow();
   });
 
