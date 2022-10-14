@@ -263,20 +263,5 @@ describe('Affix Render', () => {
         expect(updateCalled).toHaveBeenCalled();
       });
     });
-    it('check position change before measure', async () => {
-      const { container } = render(
-        <>
-          <Affix offsetTop={10}>
-            <Button>top</Button>
-          </Affix>
-          <Affix offsetBottom={10}>
-            <Button>bottom</Button>
-          </Affix>
-        </>,
-      );
-      await waitFakeTimer();
-      await movePlaceholder(1000);
-      expect(container.querySelector('.ant-affix')).toBeTruthy();
-    });
   });
 });
