@@ -46,7 +46,7 @@ const App: React.FC = () => {
           <Input.TextArea allowClear defaultValue="sdf hello wwwdag" />
         </div>
         <div className="example">
-          <InputNumber allowClear defaultValue="sdf hello" />
+          <InputNumber defaultValue="sdf hello" />
         </div>
       </ConfigProvider>
     </div>
