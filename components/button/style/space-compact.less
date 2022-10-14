@@ -20,21 +20,19 @@
   }
 
   // Special styles for Primary Button
-  &-compact-item&:not(&-compact-item-rtl) {
-    &.@{btn-prefix-cls}-primary {
+  &-compact-item.@{btn-prefix-cls}-primary {
+    &:not([disabled]) + &:not([disabled]) {
+      position: relative;
 
-      &:not(:first-child):not(:last-child):not([disabled]) {
-        border-right-color: @btn-group-border;
-        border-left-color: @btn-group-border;
-      }
-
-      &:first-child:not(:last-child):not(&[disabled]) {
-        border-right-color: @btn-group-border;
-      }
-
-      &:last-child:not(:first-child):not([disabled]),
-      & + &:not([disabled]) {
-        border-left-color: @btn-group-border;
+      &::after {
+        position: absolute;
+        top: -@border-width-base;
+        left: -@border-width-base;
+        display: inline-block;
+        width: @border-width-base;
+        height: calc(100% + @border-width-base * 2);
+        background-color: @btn-group-border;
+        content: ' ';
       }
     }
   }
@@ -64,32 +62,11 @@
     }
 
     // ----------RTL Special styles for Primary Button----------
-    &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
-      border-right-color: transparent;
-    }
-
-    &.@{btn-prefix-cls}-primary:not(:first-child):not(:last-child) {
-      border-right-color: @btn-group-border;
-      border-left-color: @btn-group-border;
-
-      &:disabled {
-        border-color: @btn-default-border;
-      }
-    }
-
-    &.@{btn-prefix-cls}-primary:first-child:not(:last-child) {
-      border-left-color: @btn-group-border;
-
-      &[disabled] {
-        border-left-color: @btn-default-border;
-      }
-    }
-
-    &.@{btn-prefix-cls}-primary:last-child:not(:first-child) {
-      border-right-color: @btn-group-border;
-
-      &[disabled] {
-        border-right-color: @btn-default-border;
+    &.@{btn-prefix-cls}-primary {
+      &:not([disabled]) + &:not([disabled]) {
+        &::after {
+          right: -@border-width-base;
+        }
       }
     }
   }
@@ -99,32 +76,20 @@
 
   // Special styles for Primary Button
   &-compact-vertical-item {
-    &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
-      border-top-color: transparent;
-    }
+    &.@{btn-prefix-cls}-primary {
+      &:not([disabled]) + &:not([disabled]) {
+        position: relative;
 
-    &.@{btn-prefix-cls}-primary:not(:first-child):not(:last-child) {
-      border-top-color: @btn-group-border;
-      border-bottom-color: @btn-group-border;
-
-      &:disabled {
-        border-color: @btn-default-border;
-      }
-    }
-
-    &.@{btn-prefix-cls}-primary:first-child:not(:last-child) {
-      border-bottom-color: @btn-group-border;
-
-      &[disabled] {
-        border-bottom-color: @btn-default-border;
-      }
-    }
-
-    &.@{btn-prefix-cls}-primary:last-child:not(:first-child) {
-      border-top-color: @btn-group-border;
-
-      &[disabled] {
-        border-top-color: @btn-default-border;
+        &::after {
+          position: absolute;
+          top: -@border-width-base;
+          left: -@border-width-base;
+          display: inline-block;
+          width: calc(100% + @border-width-base * 2);
+          height: @border-width-base;
+          background-color: @btn-group-border;
+          content: ' ';
+        }
       }
     }
   }
