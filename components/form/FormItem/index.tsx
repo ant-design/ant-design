@@ -279,13 +279,17 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
         );
         if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          warning(
+            false,
+            'Form.Item',
+            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://ant.design/components/form/#components-form-demo-complex-form-control.'
+          );
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
-            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
+            '`children` of render props only works with `shouldUpdate` or `dependencies`.',
           );
           warning(
             !hasName,
