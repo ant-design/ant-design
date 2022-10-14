@@ -5,7 +5,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import { getObserverEntities } from '../utils';
+import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -247,6 +247,12 @@ describe('Affix Render', () => {
 
         expect(updateCalled).toHaveBeenCalled();
       });
+    });
+
+    it('addObserveTarget should not Throw Error when target is null', () => {
+      expect(() => {
+        addObserveTarget(null);
+      }).not.toThrow();
     });
   });
 });
