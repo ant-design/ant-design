@@ -28,10 +28,6 @@ export interface SpinClassProps extends SpinProps {
   spinPrefixCls: string;
 }
 
-export type SpinFCType = React.FC<SpinProps> & {
-  setDefaultIndicator: (indicator: React.ReactNode) => void;
-};
-
 export interface SpinState {
   spinning?: boolean;
   notCssAnimationSupported?: boolean;
@@ -196,7 +192,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
   }
 }
 
-const SpinFC: SpinFCType = props => {
+const SpinFC = (props: SpinProps) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

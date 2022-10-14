@@ -39,11 +39,7 @@ export interface StepProps {
   style?: React.CSSProperties;
 }
 
-interface StepsType extends React.FC<StepsProps> {
-  Step: typeof RcSteps.Step;
-}
-
-const Steps: StepsType = props => {
+const Steps = (props: StepsProps) => {
   const {
     percent,
     size,
