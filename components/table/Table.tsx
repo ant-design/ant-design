@@ -35,6 +35,7 @@ import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
 import type {
+  ColumnTitleProps,
   ColumnType,
   ExpandableConfig,
   ExpandType,
@@ -119,7 +120,7 @@ function InternalTable<RecordType extends object = any>(
     dataSource,
     pagination,
     rowSelection,
-    rowKey,
+    rowKey = 'key',
     rowClassName,
     columns,
     children,
@@ -197,7 +198,7 @@ function InternalTable<RecordType extends object = any>(
   };
   const { childrenColumnName = 'children' } = mergedExpandable;
 
-  const expandType: ExpandType = React.useMemo<ExpandType>(() => {
+  const expandType = React.useMemo<ExpandType>(() => {
     if (rawData.some(item => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
@@ -332,7 +333,7 @@ function InternalTable<RecordType extends object = any>(
   changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
-  const columnTitleProps = React.useMemo(() => {
+  const columnTitleProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
     const mergedFilters: Record<string, FilterValue> = {};
     Object.keys(filters).forEach(filterKey => {
       if (filters[filterKey] !== null) {
@@ -413,7 +414,7 @@ function InternalTable<RecordType extends object = any>(
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    let mergedRowClassName;
+    let mergedRowClassName: string;
     if (typeof rowClassName === 'function') {
       mergedRowClassName = classNames(rowClassName(record, index, indent));
     } else {
@@ -556,7 +557,6 @@ const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends obje
 type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
-  defaultProps?: Partial<TableProps<any>>;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
@@ -568,10 +568,6 @@ interface TableInterface extends InternalTableType {
 }
 
 const Table = ForwardTable as TableInterface;
-
-Table.defaultProps = {
-  rowKey: 'key',
-};
 
 Table.SELECTION_COLUMN = SELECTION_COLUMN;
 Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;

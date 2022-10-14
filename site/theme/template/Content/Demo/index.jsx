@@ -37,6 +37,7 @@ class Demo extends React.Component {
     codeExpand: false,
     copied: false,
     copyTooltipOpen: false,
+    codeType: 'tsx',
   };
 
   componentDidMount() {
@@ -60,12 +61,15 @@ class Demo extends React.Component {
 
   getSourceCode() {
     const { highlightedCodes } = this.props;
+    const { codeType } = this.state;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
-      div.innerHTML = highlightedCodes.jsx;
-      return div.textContent;
+      const divJSX = document.createElement('div');
+      div.innerHTML = highlightedCodes[codeType] || highlightedCodes.jsx;
+      divJSX.innerHTML = highlightedCodes.jsx;
+      return [divJSX.textContent, div.textContent];
     }
-    return '';
+    return ['', ''];
   }
 
   handleCodeExpand = demo => {
@@ -184,7 +188,7 @@ class Demo extends React.Component {
   </body>
 </html>`;
 
-    const sourceCode = this.getSourceCode();
+    const [sourceCode, sourceCodeTyped] = this.getSourceCode();
 
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
@@ -428,7 +432,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <ThunderboltOutlined className="code-box-stackblitz" />
               </span>
             </Tooltip>
-            <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
+            <CopyToClipboard text={sourceCodeTyped} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 open={copyTooltipOpen}
                 onOpenChange={this.onCopyTooltipOpenChange}
@@ -468,7 +472,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </div>
         </section>
         <section className={highlightClass} key="code">
-          <CodePreview toReactComponent={props.utils.toReactComponent} codes={highlightedCodes} />
+          <CodePreview
+            toReactComponent={props.utils.toReactComponent}
+            codes={highlightedCodes}
+            onCodeTypeChange={type => this.setState({ codeType: type })}
+          />
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>

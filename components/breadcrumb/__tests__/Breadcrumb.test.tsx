@@ -21,7 +21,6 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
-  // https://github.com/airbnb/enzyme/issues/875
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom: React.FC = () => <div>foo</div>;
     render(

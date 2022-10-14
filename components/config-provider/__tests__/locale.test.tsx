@@ -12,8 +12,8 @@ import TimePicker from '../../time-picker';
 import { act, render, fireEvent } from '../../../tests/utils';
 
 describe('ConfigProvider.Locale', () => {
-  function $$(className: string): NodeListOf<Element> {
-    return document.body.querySelectorAll(className);
+  function $$(selector: string): NodeListOf<Element> {
+    return document.body.querySelectorAll(selector);
   }
 
   it('not throw', () => {

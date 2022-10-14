@@ -6,6 +6,7 @@ export interface EllipsisProps {
   enabledMeasure?: boolean;
   text?: React.ReactNode;
   width: number;
+  fontSize: number;
   rows: number;
   children: (cutChildren: React.ReactNode[], needEllipsis: boolean) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
@@ -70,7 +71,15 @@ const WalkingStates = {
 
 type WalkingState = typeof WalkingStates[keyof typeof WalkingStates];
 
-const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: EllipsisProps) => {
+const Ellipsis = ({
+  enabledMeasure,
+  children,
+  text,
+  width,
+  fontSize,
+  rows,
+  onEllipsis,
+}: EllipsisProps) => {
   const [[startLen, midLen, endLen], setCutLength] = React.useState<
     [startLen: number, midLen: number, endLen: number]
   >([0, 0, 0]);
@@ -94,11 +103,11 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
 
   // ======================== Walk ========================
   useIsomorphicLayoutEffect(() => {
-    if (enabledMeasure && width && totalLen) {
+    if (enabledMeasure && width && fontSize && totalLen) {
       setWalkingState(WalkingStates.PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
-  }, [enabledMeasure, width, text, totalLen, rows]);
+  }, [enabledMeasure, width, fontSize, text, totalLen, rows]);
 
   useIsomorphicLayoutEffect(() => {
     if (walkingState === WalkingStates.PREPARE) {
@@ -171,7 +180,7 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
-        fontSize: 14,
+        fontSize: Math.floor(fontSize / 2) * 2,
         ...style,
       }}
     >

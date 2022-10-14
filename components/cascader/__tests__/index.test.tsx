@@ -251,7 +251,7 @@ describe('Cascader', () => {
   });
 
   it('can use fieldNames', () => {
-    const customerOptions = [
+    const customOptions = [
       {
         code: 'zhejiang',
         name: 'Zhejiang',
@@ -290,7 +290,7 @@ describe('Cascader', () => {
 
     const { container } = render(
       <Cascader
-        options={customerOptions}
+        options={customOptions}
         onChange={onChange}
         fieldNames={{
           children: 'items',
@@ -311,8 +311,7 @@ describe('Cascader', () => {
   });
 
   it('should show not found content when options.length is 0', () => {
-    const customerOptions: any[] = [];
-    const { container } = render(<Cascader options={customerOptions} />);
+    const { container } = render(<Cascader options={[]} />);
     toggleOpen(container);
     expect(getDropdown(container)).toMatchSnapshot();
   });
@@ -398,7 +397,7 @@ describe('Cascader', () => {
   });
 
   it('placement work correctly', async () => {
-    const customerOptions = [
+    const customOptions = [
       {
         value: 'zhejiang',
         label: 'Zhejiang',
@@ -410,7 +409,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const { container } = render(<Cascader options={customerOptions} placement="topRight" />);
+    const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js

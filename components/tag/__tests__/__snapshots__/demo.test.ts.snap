@@ -3,11 +3,11 @@
 exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
 Array [
   <div
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div>
       <span
-        style="display: inline-block;"
+        style="display:inline-block"
       >
         <span
           class="ant-tag"
@@ -36,7 +36,7 @@ Array [
         </span>
       </span>
       <span
-        style="display: inline-block;"
+        style="display:inline-block"
       >
         <span
           class="ant-tag"
@@ -65,7 +65,7 @@ Array [
         </span>
       </span>
       <span
-        style="display: inline-block;"
+        style="display:inline-block"
       >
         <span
           class="ant-tag"
@@ -200,7 +200,7 @@ Array [
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 Array [
   <span
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     Categories:
   </span>,
@@ -309,25 +309,25 @@ Array [
   <div>
     <span
       class="ant-tag ant-tag-has-color"
-      style="background-color: rgb(255, 85, 0);"
+      style="background-color:#f50"
     >
       #f50
     </span>
     <span
       class="ant-tag ant-tag-has-color"
-      style="background-color: rgb(45, 183, 245);"
+      style="background-color:#2db7f5"
     >
       #2db7f5
     </span>
     <span
       class="ant-tag ant-tag-has-color"
-      style="background-color: rgb(135, 208, 104);"
+      style="background-color:#87d068"
     >
       #87d068
     </span>
     <span
       class="ant-tag ant-tag-has-color"
-      style="background-color: rgb(16, 142, 233);"
+      style="background-color:#108ee9"
     >
       #108ee9
     </span>
@@ -592,7 +592,7 @@ exports[`renders ./components/tag/demo/icon.md correctly 1`] = `
 Array [
   <span
     class="ant-tag ant-tag-has-color"
-    style="background-color: rgb(85, 172, 238);"
+    style="background-color:#55acee"
   >
     <span
       aria-label="twitter"
@@ -619,7 +619,7 @@ Array [
   </span>,
   <span
     class="ant-tag ant-tag-has-color"
-    style="background-color: rgb(205, 32, 31);"
+    style="background-color:#cd201f"
   >
     <span
       aria-label="youtube"
@@ -646,7 +646,7 @@ Array [
   </span>,
   <span
     class="ant-tag ant-tag-has-color"
-    style="background-color: rgb(59, 89, 153);"
+    style="background-color:#3b5999"
   >
     <span
       aria-label="facebook"
@@ -673,7 +673,7 @@ Array [
   </span>,
   <span
     class="ant-tag ant-tag-has-color"
-    style="background-color: rgb(85, 172, 238);"
+    style="background-color:#55acee"
   >
     <span
       aria-label="linkedin"
