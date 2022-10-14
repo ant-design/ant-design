@@ -1,9 +1,9 @@
 import React from 'react';
-import type { InternalAffixClass } from '..';
+import type { AffixProps, InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import { getObserverEntities } from '../utils';
 
@@ -66,6 +66,7 @@ describe('Affix Render', () => {
   };
 
   beforeEach(() => {
+    jest.useFakeTimers();
     const entities = getObserverEntities();
     entities.splice(0, entities.length);
   });
@@ -79,6 +80,11 @@ describe('Affix Render', () => {
         }
       );
     });
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+    jest.clearAllTimers();
   });
 
   afterAll(() => {
@@ -96,12 +102,12 @@ describe('Affix Render', () => {
     events.scroll({
       type: 'scroll',
     });
-    await sleep(20);
+    await waitFakeTimer();
   };
 
   it('Anchor render perfectly', async () => {
     const { container } = render(<AffixMounter />);
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(0);
     expect(container.querySelector('.ant-affix')).toBeFalsy();
@@ -113,10 +119,16 @@ describe('Affix Render', () => {
     expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
+  it('Anchor correct render when target is null', async () => {
+    expect(() => {
+      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
+    }).not.toThrow();
+  });
+
   it('support offsetBottom', async () => {
     const { container } = render(<AffixMounter offsetBottom={0} />);
 
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(300);
     expect(container.querySelector('.ant-affix')).toBeTruthy();
@@ -132,14 +144,14 @@ describe('Affix Render', () => {
     const onChange = jest.fn();
 
     const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
-    await sleep(20);
+    await waitFakeTimer();
 
     await movePlaceholder(-100);
     expect(onChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: 0 });
 
     rerender(<AffixMounter offsetTop={10} onChange={onChange} />);
-    await sleep(20);
+    await waitFakeTimer();
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: `10px` });
   });
 
@@ -172,7 +184,6 @@ describe('Affix Render', () => {
       expect(affixInstance!.state.status).toBe(0);
       expect(affixInstance!.state.affixStyle).toBe(undefined);
       expect(affixInstance!.state.placeholderStyle).toBe(undefined);
-      await sleep(100);
     });
 
     it('instance change', async () => {
@@ -182,7 +193,7 @@ describe('Affix Render', () => {
 
       const getTarget = () => target;
       const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
-      await sleep(100);
+      await waitFakeTimer();
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(container);
 
@@ -210,7 +221,7 @@ describe('Affix Render', () => {
         },
       );
 
-      await sleep(20);
+      await waitFakeTimer();
       await movePlaceholder(300);
       expect(affixInstance!.state.affixStyle).toBeTruthy();
     });
@@ -221,8 +232,6 @@ describe('Affix Render', () => {
       '.fixed', // outer
     ].forEach(selector => {
       it(`trigger listener when size change: ${selector}`, async () => {
-        jest.useFakeTimers();
-
         const updateCalled = jest.fn();
         const { container } = render(
           <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
@@ -237,9 +246,6 @@ describe('Affix Render', () => {
         await waitFakeTimer();
 
         expect(updateCalled).toHaveBeenCalled();
-
-        jest.clearAllTimers();
-        jest.useRealTimers();
       });
     });
   });
