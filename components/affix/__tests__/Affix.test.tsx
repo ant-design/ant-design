@@ -119,11 +119,9 @@ describe('Affix Render', () => {
     expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
-  it('Anchor correct render when target is null', () => {
-    expect(() => {
-      const { rerender } = render(<Affix>test</Affix>);
-      rerender(<Affix target={() => null}>test</Affix>);
-    }).not.toThrow();
+  it('Anchor correct render when target is null', async () => {
+    render(<Affix target={() => null}>test</Affix>);
+    await waitFakeTimer();
   });
 
   it('support offsetBottom', async () => {
