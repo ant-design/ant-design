@@ -725,7 +725,16 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
       <span
         class="ant-switch-inner"
       >
-        treeLine
+        <span
+          class="ant-switch-inner-checked"
+        >
+          treeLine
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          treeLine
+        </span>
       </span>
     </button>
   </div>
@@ -745,7 +754,16 @@ exports[`renders ./components/tree-select/demo/treeLine.md correctly 1`] = `
       <span
         class="ant-switch-inner"
       >
-        showLeafIcon
+        <span
+          class="ant-switch-inner-checked"
+        >
+          showLeafIcon
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          showLeafIcon
+        </span>
       </span>
     </button>
   </div>

@@ -108,4 +108,17 @@ describe('Input.Password', () => {
     await sleep();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
+
+  it('should not show value attribute in input element after toggle visibility', async () => {
+    const { container } = render(<Input.Password />);
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+  });
 });

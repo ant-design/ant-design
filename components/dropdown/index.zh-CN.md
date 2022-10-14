@@ -50,7 +50,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 | disabled | 菜单是否禁用 | boolean | - |  |
 | icon | 右侧的 icon | ReactNode | - |  |
 | overlay | 菜单 | [Menu](/components/menu/) | - |  |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
+| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomRight` |  |
 | size | 按钮大小，和 [Button](/components/button/#API) 一致 | string | `default` |  |
 | trigger | 触发下拉的行为 | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | 按钮类型，和 [Button](/components/button/#API) 一致 | string | `default` |  |

@@ -204,7 +204,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
   }
 }
 
-const SpinFC: SpinFCType = (props: SpinProps) => {
+const SpinFC: SpinFCType = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 

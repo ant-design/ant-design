@@ -13,6 +13,7 @@ import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import { hasPrefixSuffix } from './utils';
 
 // CSSINJS
@@ -177,25 +178,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   }, [inputHasPrefixSuffix]);
 
   // ===================== Remove Password value =====================
-  const removePasswordTimeoutRef = useRef<number[]>([]);
-  const removePasswordTimeout = () => {
-    removePasswordTimeoutRef.current.push(
-      window.setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
-        }
-      }),
-    );
-  };
-
-  useEffect(() => {
-    removePasswordTimeout();
-    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
-  }, []);
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     removePasswordTimeout();

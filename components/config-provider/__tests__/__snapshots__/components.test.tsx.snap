@@ -26433,7 +26433,14 @@ exports[`ConfigProvider components Switch configProvider 1`] = `
   />
   <span
     class="config-switch-inner"
-  />
+  >
+    <span
+      class="config-switch-inner-checked"
+    />
+    <span
+      class="config-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26450,7 +26457,14 @@ exports[`ConfigProvider components Switch configProvider componentDisabled 1`] =
   />
   <span
     class="config-switch-inner"
-  />
+  >
+    <span
+      class="config-switch-inner-checked"
+    />
+    <span
+      class="config-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26466,7 +26480,14 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
   />
   <span
     class="config-switch-inner"
-  />
+  >
+    <span
+      class="config-switch-inner-checked"
+    />
+    <span
+      class="config-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26482,7 +26503,14 @@ exports[`ConfigProvider components Switch configProvider componentSize middle 1`
   />
   <span
     class="config-switch-inner"
-  />
+  >
+    <span
+      class="config-switch-inner-checked"
+    />
+    <span
+      class="config-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26498,7 +26526,14 @@ exports[`ConfigProvider components Switch configProvider virtual and dropdownMat
   />
   <span
     class="ant-switch-inner"
-  />
+  >
+    <span
+      class="ant-switch-inner-checked"
+    />
+    <span
+      class="ant-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26514,7 +26549,14 @@ exports[`ConfigProvider components Switch normal 1`] = `
   />
   <span
     class="ant-switch-inner"
-  />
+  >
+    <span
+      class="ant-switch-inner-checked"
+    />
+    <span
+      class="ant-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 
@@ -26530,7 +26572,14 @@ exports[`ConfigProvider components Switch prefixCls 1`] = `
   />
   <span
     class="prefix-Switch-inner"
-  />
+  >
+    <span
+      class="prefix-Switch-inner-checked"
+    />
+    <span
+      class="prefix-Switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;
 

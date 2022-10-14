@@ -144,7 +144,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
 ]
 `;
@@ -1407,7 +1414,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
 ]
 `;
