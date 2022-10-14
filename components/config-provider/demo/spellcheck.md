@@ -25,7 +25,7 @@ const App: React.FC = () => {
       <Switch
         checkedChildren="开启"
         unCheckedChildren="关闭"
-        value={isSpellCheck}
+        checked={isSpellCheck}
         onChange={checked => setIsSpellCheck(checked)}
       />
       <Divider />
