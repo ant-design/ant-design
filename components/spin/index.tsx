@@ -88,11 +88,10 @@ const Spin: React.FC<SpinClassProps> = props => {
     () => customSpinning && !shouldDelay(customSpinning, delay),
   );
 
-  const updateSpinning = debounce<() => void>(() => {
-    setSpinning(customSpinning);
-  }, delay);
-
   React.useEffect(() => {
+    const updateSpinning = debounce<() => void>(() => {
+      setSpinning(customSpinning);
+    }, delay);
     updateSpinning();
     return () => {
       updateSpinning?.cancel?.();
