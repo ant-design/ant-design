@@ -1,5 +1,5 @@
 import React from 'react';
-import type { AffixProps, InternalAffixClass } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
