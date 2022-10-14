@@ -212,7 +212,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+      'Warning: [antd: Form.Item] A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://ant.design/components/form/#components-form-demo-complex-form-control.',
     );
   });
 
