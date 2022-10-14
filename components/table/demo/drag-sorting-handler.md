@@ -109,7 +109,7 @@ const App = () => {
     />
   );
 
-  const DraggableBodyRow = ({ className, style, ...restProps }) => {
+  const DraggableBodyRow = ({ className, style, ...restProps }: any) => {
     // function findIndex base on Table rowKey props and should always be a right array index
     const index = dataSource.findIndex(x => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
