@@ -41,11 +41,17 @@ describe('Anchor Render', () => {
     getClientRectsMock.mockReturnValue({ length: 1 } as DOMRectList);
   });
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
   afterEach(() => {
     jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   afterAll(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
     getBoundingClientRectMock.mockRestore();
     getClientRectsMock.mockRestore();
@@ -69,7 +75,7 @@ describe('Anchor Render', () => {
     expect(anchorInstance!.state).not.toBe(null);
   });
 
-  it('Anchor render perfectly for complete href - click', () => {
+  it('Anchor render perfectly for complete href - click', async () => {
     const hash = getHashUrl();
     let anchorInstance: InternalAnchorClass;
     const { container } = render(
@@ -82,6 +88,7 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     fireEvent.click(container.querySelector(`a[href="http://www.example.com/#${hash}"]`)!);
+    await waitFakeTimer();
     expect(anchorInstance!.state!.activeLink).toBe(`http://www.example.com/#${hash}`);
   });
 
@@ -106,7 +113,7 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
-  it('Anchor render perfectly for complete href - scroll', () => {
+  it('Anchor render perfectly for complete href - scroll', async () => {
     const hash = getHashUrl();
     const root = createDiv();
     render(<div id={hash}>Hello</div>, { container: root });
@@ -121,6 +128,7 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     anchorInstance!.handleScroll();
+    await waitFakeTimer();
     expect(anchorInstance!.state!.activeLink).toBe(`http://www.example.com/#${hash}`);
   });
 
