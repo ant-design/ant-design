@@ -83,6 +83,8 @@ const App: React.FC = () => (
     <Space.Compact block>
       <Button type="primary">Button 1</Button>
       <Button type="primary">Button 2</Button>
+      <Button type="primary">Button 3</Button>
+      <Button type="primary">Button 4</Button>
       <Tooltip title="Tooltip">
         <Button type="primary" icon={<DownloadOutlined />} disabled />
       </Tooltip>

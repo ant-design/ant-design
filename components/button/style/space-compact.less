@@ -21,32 +21,20 @@
 
   // Special styles for Primary Button
   &-compact-item&:not(&-compact-item-rtl) {
-    &.@{btn-prefix-cls}-primary + &:not(.@{btn-prefix-cls}-primary):not([disabled]) {
-      border-left-color: transparent;
-    }
+    &.@{btn-prefix-cls}-primary {
 
-    &.@{btn-prefix-cls}-primary:not(:first-child):not(:last-child) {
-      border-right-color: @btn-group-border;
-      border-left-color: @btn-group-border;
-
-      &:disabled {
-        border-color: @btn-default-border;
+      &:not(:first-child):not(:last-child):not([disabled]) {
+        border-right-color: @btn-group-border;
+        border-left-color: @btn-group-border;
       }
-    }
 
-    &.@{btn-prefix-cls}-primary:first-child:not(:last-child) {
-      border-right-color: @btn-group-border;
-
-      &[disabled] {
-        border-right-color: @btn-default-border;
+      &:first-child:not(:last-child):not(&[disabled]) {
+        border-right-color: @btn-group-border;
       }
-    }
 
-    &.@{btn-prefix-cls}-primary:last-child:not(:first-child) {
-      border-left-color: @btn-group-border;
-
-      &[disabled] {
-        border-left-color: @btn-default-border;
+      &:last-child:not(:first-child):not([disabled]),
+      & + &:not([disabled]) {
+        border-left-color: @btn-group-border;
       }
     }
   }
@@ -54,20 +42,24 @@
   // ----------RTL----------
   &-compact-item-rtl {
     &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
-      border-radius: 0 @btn-border-radius-base @btn-border-radius-base 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
-      border-radius: @btn-border-radius-base 0 0 @btn-border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     &.@{ant-prefix}-btn-sm {
       &.@{ant-prefix}-btn-compact-first-item&:not(.@{ant-prefix}-btn-compact-last-item) {
-        border-radius: 0 @btn-border-radius-sm @btn-border-radius-sm 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
 
       &.@{ant-prefix}-btn-compact-last-item&:not(.@{ant-prefix}-btn-compact-first-item) {
-        border-radius: @btn-border-radius-sm 0 0 @btn-border-radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
