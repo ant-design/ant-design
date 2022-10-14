@@ -74,6 +74,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     const { target } = this.props;
 
     if (target !== undefined) {
+      console.log('hit');
       return target;
     }
 
