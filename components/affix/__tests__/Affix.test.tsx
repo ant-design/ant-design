@@ -1,5 +1,5 @@
 import React from 'react';
-import type { AffixProps, InternalAffixClass } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -120,9 +120,8 @@ describe('Affix Render', () => {
   });
 
   it('Anchor correct render when target is null', async () => {
-    expect(() => {
-      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
-    }).not.toThrow();
+    render(<Affix target={() => null}>test</Affix>);
+    await waitFakeTimer();
   });
 
   it('support offsetBottom', async () => {
@@ -201,6 +200,21 @@ describe('Affix Render', () => {
       rerender(<Affix>{null}</Affix>);
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(window);
+    });
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
     });
   });
 
