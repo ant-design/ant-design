@@ -217,6 +217,21 @@ describe('Affix Render', () => {
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(window);
     });
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
+    });
   });
 
   describe('updatePosition when size changed', () => {
