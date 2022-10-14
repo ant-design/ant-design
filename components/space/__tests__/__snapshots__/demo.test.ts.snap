@@ -1953,6 +1953,22 @@ exports[`renders ./components/space/demo/compact-buttons.md correctly 1`] = `
         Button 2
       </span>
     </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 3
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 4
+      </span>
+    </button>
     <span
       class="ant-tooltip-disabled-compatible-wrapper"
       style="display:inline-block;cursor:not-allowed"
