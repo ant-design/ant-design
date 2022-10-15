@@ -208,6 +208,8 @@ class Demo extends React.Component {
     );
 
     dependencies['@ant-design/icons'] = 'latest';
+    dependencies['@types/react'] = '^18.0.0';
+    dependencies['@types/react-dom'] = '^18.0.0';
     dependencies.react = '^18.0.0';
     dependencies['react-dom'] = '^18.0.0';
 
@@ -336,8 +338,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
       dependencies,
       files: {
         'index.css': indexCssContent,
-        'index.js': indexJsContent,
-        'demo.js': demoJsContent,
+        'index.tsx': indexJsContent,
+        'demo.tsx': demoJsContent,
         'index.html': html,
       },
     };
