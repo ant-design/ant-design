@@ -61,13 +61,11 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
   return nodeList;
 }
 
-const WalkingStates = {
-  NONE: 0,
-  PREPARE: 1,
-  WALKING: 2,
-  DONE_WITH_ELLIPSIS: 3,
-  DONE_WITHOUT_ELLIPSIS: 4,
-} as const;
+const NONE = 0;
+const PREPARE = 1;
+const WALKING = 2;
+const DONE_WITH_ELLIPSIS = 3;
+const DONE_WITHOUT_ELLIPSIS = 4;
 
 type WalkingState =
   | typeof NONE
