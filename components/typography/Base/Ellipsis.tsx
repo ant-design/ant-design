@@ -69,7 +69,12 @@ const WalkingStates = {
   DONE_WITHOUT_ELLIPSIS: 4,
 } as const;
 
-type WalkingState = typeof WalkingStates[keyof typeof WalkingStates];
+type WalkingState =
+  | typeof NONE
+  | typeof PREPARE
+  | typeof WALKING
+  | typeof DONE_WITH_ELLIPSIS
+  | typeof DONE_WITHOUT_ELLIPSIS;
 
 const Ellipsis = ({
   enabledMeasure,
@@ -83,7 +88,7 @@ const Ellipsis = ({
   const [[startLen, midLen, endLen], setCutLength] = React.useState<
     [startLen: number, midLen: number, endLen: number]
   >([0, 0, 0]);
-  const [walkingState, setWalkingState] = React.useState<WalkingState>(WalkingStates.NONE);
+  const [walkingState, setWalkingState] = React.useState<WalkingState>(NONE);
 
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
 
