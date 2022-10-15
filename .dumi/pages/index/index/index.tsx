@@ -15,6 +15,9 @@ const useStyle = () => {
   return {
     container: css`
       padding: 0 116px;
+
+      background: url(https://gw.alipayobjects.com/zos/bmw-prod/5741382d-cc22-4ede-b962-aea287a1d1a1/l4nq43o8_w2646_h1580.png);
+      background-size: 20% 10%;
     `,
   };
 };
@@ -53,7 +56,7 @@ const Homepage: FC = () => {
         <Group title={locale.titleNew}>
           <Recommends recommendations={siteData?.recommendations?.[localeStr]} />
         </Group>
-        <Group title={locale.titleFlexible}>
+        <Group title={locale.titleFlexible} id="flexible">
           <Theme />
         </Group>
         <Group title={locale.titleAssets} />
