@@ -428,7 +428,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 className="code-box-code-action"
                 onClick={() => {
                   this.track({ type: 'stackblitz', demo: meta.id });
-                  stackblitzSdk.openProject(stackblitzPrefillConfig);
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, { openFile: 'demo.tsx' });
                 }}
               >
                 <ThunderboltOutlined className="code-box-stackblitz" />
