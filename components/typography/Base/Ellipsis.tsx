@@ -97,7 +97,7 @@ const Ellipsis = ({
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
 
   const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure || walkingState !== WalkingStates.DONE_WITH_ELLIPSIS) {
+    if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
       return children(nodeList, false);
     }
 
@@ -107,31 +107,31 @@ const Ellipsis = ({
   // ======================== Walk ========================
   useIsomorphicLayoutEffect(() => {
     if (enabledMeasure && width && fontSize && totalLen) {
-      setWalkingState(WalkingStates.PREPARE);
+      setWalkingState(PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
   }, [enabledMeasure, width, fontSize, text, totalLen, rows]);
 
   useIsomorphicLayoutEffect(() => {
-    if (walkingState === WalkingStates.PREPARE) {
+    if (walkingState === PREPARE) {
       setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
     }
   }, [walkingState]);
 
   useIsomorphicLayoutEffect(() => {
     if (singleRowHeight) {
-      if (walkingState === WalkingStates.PREPARE) {
+      if (walkingState === PREPARE) {
         // Ignore if position is enough
         const midHeight = midRowRef.current?.offsetHeight || 0;
         const maxHeight = rows * singleRowHeight;
 
         if (midHeight <= maxHeight) {
-          setWalkingState(WalkingStates.DONE_WITHOUT_ELLIPSIS);
+          setWalkingState(DONE_WITHOUT_ELLIPSIS);
           onEllipsis(false);
         } else {
-          setWalkingState(WalkingStates.WALKING);
+          setWalkingState(WALKING);
         }
-      } else if (walkingState === WalkingStates.WALKING) {
+      } else if (walkingState === WALKING) {
         if (startLen !== endLen) {
           const midHeight = midRowRef.current?.offsetHeight || 0;
           const maxHeight = rows * singleRowHeight;
@@ -152,7 +152,7 @@ const Ellipsis = ({
 
           setCutLength([nextStartLen, nextMidLen, nextEndLen]);
         } else {
-          setWalkingState(WalkingStates.DONE_WITH_ELLIPSIS);
+          setWalkingState(DONE_WITH_ELLIPSIS);
           onEllipsis(true);
         }
       }
@@ -202,13 +202,13 @@ const Ellipsis = ({
       {mergedChildren}
       {/* Measure usage */}
       {enabledMeasure &&
-        walkingState !== WalkingStates.DONE_WITH_ELLIPSIS &&
-        walkingState !== WalkingStates.DONE_WITHOUT_ELLIPSIS && (
+        walkingState !== DONE_WITH_ELLIPSIS &&
+        walkingState !== DONE_WITHOUT_ELLIPSIS && (
           <>
             {/* `l` for top & `g` for bottom measure */}
             {renderMeasure('lg', singleRowRef, { wordBreak: 'keep-all', whiteSpace: 'nowrap' })}
             {/* {renderMeasureSlice(midLen, midRowRef)} */}
-            {walkingState === WalkingStates.PREPARE
+            {walkingState === PREPARE
               ? renderMeasure(children(nodeList, false), midRowRef, measureStyle)
               : renderMeasureSlice(midLen, midRowRef)}
           </>
