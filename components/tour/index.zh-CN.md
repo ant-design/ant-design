@@ -1,6 +1,6 @@
 ---
 category: Components
-subtitle: 文字提示
+subtitle: 漫游式引导
 type: 数据展示
 title: Tour
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg

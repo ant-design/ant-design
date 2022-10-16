@@ -1,13 +1,13 @@
 ---
 order: 0
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 展示媒体内容
+  en-US: Detailed-design
 ---
 
 ## zh-CN
 
-最简单的用法。
+展示媒体图片或者视频。
 
 ## en-US
 
@@ -42,9 +42,16 @@ const App: React.FC = () => {
         defaultCurrent={0}
         steps={[
           {
-            title: '创建',
-            description: '创建一条数据',
+            title: '引导标题',
+            description:
+              '我是内容我是内容我是内容我是内容,我是内容我是内容我是内容我是内容我是内容我是内容',
             target: () => createBtnRef.current,
+            cover: (
+              <img
+                style={{ height: 200 }}
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            ),
           },
           {
             title: '更新',
@@ -55,16 +62,6 @@ const App: React.FC = () => {
               </div>
             ),
             target: () => updateBtnRef.current,
-          },
-          {
-            title: '删除',
-            description: (
-              <div>
-                <span>危险操作：删除一条数据</span>
-              </div>
-            ),
-            target: () => deleteBtnRef.current,
-            style: { color: 'red' },
           },
         ]}
       />

@@ -1,14 +1,6 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type * as React from 'react';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
-
-// Direction naming standard:
-// Horizontal base:
-// -0-------------
-// vertical: part   (水平时，垂直方向命名为 part)
-// horizontal: full (水平时，水平方向命名为 full)
 
 export interface ComponentToken {
   controlSize: number;
@@ -20,14 +12,14 @@ export interface ComponentToken {
   dotSize: number;
 }
 
-interface SliderToken extends FullToken<'Slider'> {
+interface TourToken extends FullToken<'Tour'> {
   marginFull: number;
   marginPart: number;
   marginPartWithMark: number;
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SliderToken> = token => {
+const genBaseStyle: GenerateStyle<TourToken> = token => {
   const { componentCls } = token;
 
   return {
@@ -83,18 +75,65 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         outline: '0',
       },
 
-      [`${componentCls}-title`]: {
-        margin: '0',
-        fontSize: '14px',
-        lineHeight: '21px',
-        fontWeight: 'bold',
+      // Wrapper for the tour content
+      [`${componentCls}-inner`]: {
+        // color: '#fff',
+        textAlign: 'left',
+        textDecoration: 'none',
+        borderRadius: '6px',
+        boxShadow: '@overlay-shadow',
+        position: 'relative',
+        backgroundColor: '#ffffff',
+        border: 'none',
+        backgroundClip: 'padding-box',
+
+        [`${componentCls}-cover`]: {
+          textAlign: 'center',
+          padding: '40px 24px 0',
+          img: {
+            width: '100%',
+          },
+        },
+        [`${componentCls}-header`]: {
+          padding: '13px 20px 14px 20px',
+          borderRadius: '5px 5px 0 0',
+          background: '#fff',
+          color: '#666',
+          borderBottom: '1px solid #e9e9e9',
+
+          [`${componentCls}-title`]: {
+            margin: '0',
+            fontSize: '14px',
+            lineHeight: '21px',
+            fontWeight: 'bold',
+          },
+        },
+
+        [`${componentCls}-description`]: {
+          padding: '24px',
+          fontSize: '14px',
+          lineHeight: '1.5715',
+          wordWrap: 'break-word',
+        },
+
+        [`${componentCls}-footer`]: {
+          padding: '10px 16px',
+          textAlign: 'right',
+          background: '0 0',
+          borderTop: '1px solid rgba(0,0,0,.06)',
+          borderRadius: '0 0 2px 2px',
+          [`${componentCls}-prev-btn,${componentCls}-next-btn,${componentCls}-finish-btn`]: {
+            display: 'inline-block',
+            marginLeft: '8px',
+          },
+        },
       },
 
       [`${componentCls}-close`]: {
         cursor: 'pointer',
         border: '0',
         background: 'transparent',
-        fontSize: '21px',
+        fontSize: '20px',
         position: 'absolute',
         right: '20px',
         top: '12px',
@@ -105,38 +144,10 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         filter: 'alpha(opacity=20)',
         opacity: '.2',
         textDecoration: 'none',
-
         [`&:hover`]: {
           opacity: '1',
           filter: 'alpha(opacity=100)',
           textDecoration: 'none',
-        },
-      },
-
-
-      [`${componentCls}-header`]: {
-        padding: '13px 20px 14px 20px',
-        borderRadius: '5px 5px 0 0',
-        background: '#fff',
-        color: '#666',
-        borderBottom: '1px solid #e9e9e9',
-      },
-
-      [`${componentCls}-description`]: {
-        padding: '24px',
-        fontSize: '14px',
-        lineHeight: '1.5715',
-        wordWrap: 'break-word',
-      },
-
-      [`${componentCls}-footer`]: {
-        padding: '10px 16px',
-        textAlign: 'right',
-        background: '0 0',
-        borderTop: '1px solid rgba(0,0,0,.06)',
-        borderRadius: '0 0 2px 2px',
-        [`${componentCls}-prevButton,${componentCls}-nextButton`]: {
-          display: 'inline-block',
         },
       },
 
@@ -165,19 +176,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       {
         padding: '0 9px 0 5px',
       },
-
-    // // Wrapper for the tour content
-    [`${componentCls}-inner`]: {
-      // color: '#fff',
-      textAlign: 'left',
-      textDecoration: 'none',
-      borderRadius: '6px',
-      boxShadow: '@overlay-shadow',
-      position: 'relative',
-      backgroundColor: '#ffffff',
-      border: 'none',
-      backgroundClip: 'padding-box',
-    },
 
     [`${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-placement-topRight ${componentCls}-arrow`]:
       {
@@ -274,16 +272,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         borderColor: `#1890ff`,
         color: `#fff`,
       },
-      [`${componentCls}-close`]: {
-        color: '#fff',
-        opacity: 1,
-      },
-      [`ant-btn-primary`]: {
-        borderColor: '#fff',
-      },
 
       [`${componentCls}-sliders`]: {
-        'span': {
+        span: {
           background: '#fff',
           marginRight: '4px',
           opacity: 0.75,
@@ -296,98 +287,17 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
   };
 };
 
-// ============================ Horizontal ============================
-const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
-  const { componentCls, railSize, controlSize, handleSize, dotSize } = token;
-
-  const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
-  const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
-  const part: keyof React.CSSProperties = horizontal ? 'height' : 'width';
-  const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
-  const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
-
-  return {
-    [railPadding]: railSize,
-    [part]: controlSize,
-
-    [`${componentCls}-rail`]: {
-      [full]: '100%',
-      [part]: railSize,
-    },
-
-    [`${componentCls}-track`]: {
-      [part]: railSize,
-    },
-
-    [`${componentCls}-handle`]: {
-      [handlePos]: (controlSize - handleSize) / 2,
-    },
-
-    [`${componentCls}-mark`]: {
-      // Reset all
-      insetInlineStart: 0,
-      top: 0,
-      [markInset]: handleSize,
-      [full]: '100%',
-    },
-
-    [`${componentCls}-step`]: {
-      // Reset all
-      insetInlineStart: 0,
-      top: 0,
-      [markInset]: railSize,
-      [full]: '100%',
-      [part]: railSize,
-    },
-
-    [`${componentCls}-dot`]: {
-      position: 'absolute',
-      [handlePos]: (railSize - dotSize) / 2,
-    },
-  };
-};
-// ============================ Horizontal ============================
-const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
-  const { componentCls, marginPartWithMark } = token;
-
-  return {
-    [`${componentCls}-horizontal`]: {
-      ...genDirectionStyle(token, true),
-
-      [`&${componentCls}-with-marks`]: {
-        marginBottom: marginPartWithMark,
-      },
-    },
-  };
-};
-
-// ============================= Vertical =============================
-const genVerticalStyle: GenerateStyle<SliderToken> = token => {
-  const { componentCls } = token;
-
-  return {
-    [`${componentCls}-vertical`]: {
-      ...genDirectionStyle(token, false),
-      height: '100%',
-    },
-  };
-};
-
 // ============================== Export ==============================
 export default genComponentStyleHook(
-  'Slider',
+  'Tour',
   token => {
-    const sliderToken = mergeToken<SliderToken>(token, {
+    const sliderToken = mergeToken<TourToken>(token, {
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
     });
     console.log('styles', genBaseStyle(sliderToken));
-    return [
-      genBaseStyle(sliderToken),
-      genHorizontalStyle(sliderToken),
-      genVerticalStyle(sliderToken),
-    ];
+    return [genBaseStyle(sliderToken)];
   },
   token => {
     // Handle line width is always width-er 1px
