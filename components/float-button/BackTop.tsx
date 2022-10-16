@@ -76,7 +76,7 @@ const BackTop: React.FC<BackTopProps> = props => {
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR] = useStyle(prefixCls);
 
-  const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
+  const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
 
   const mergeShape = groupShape || shape;
 
