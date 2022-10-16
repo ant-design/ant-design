@@ -20,39 +20,13 @@ interface TourToken extends FullToken<'Tour'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<TourToken> = token => {
-  const { componentCls } = token;
-
+  const { componentCls, zIndexPopupBase } = token;
   return {
-    [`${componentCls}-root`]: {
-      [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
-        // reset scale avoid mousePosition bug
-        transform: 'none',
-        opacity: 0,
-        animationDuration: token.motionDurationSlow,
-        userSelect: 'none',
-      },
-
-      [`${componentCls}-mask`]: {
-        zIndex: token.zIndexPopupBase,
-        height: '100%',
-        backgroundColor: token.colorBgMask,
-
-        [`${componentCls}-hidden`]: {
-          display: 'none',
-        },
-      },
-
-      [`${componentCls}-wrap`]: {
-        overflow: 'auto',
-        outline: 0,
-        WebkitOverflowScrolling: 'touch',
-      },
-    },
     [componentCls]: {
       ...resetComponent(token),
 
       position: 'absolute',
-      zIndex: 1070,
+      zIndex: zIndexPopupBase + 70,
       display: 'block',
       visibility: 'visible',
       fontSize: '12px',
@@ -74,8 +48,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         WebkitOverflowScrolling: 'touch',
         outline: '0',
       },
-
-      // Wrapper for the tour content
+      // =============================  Wrapper for the tour content ===========================
       [`${componentCls}-inner`]: {
         // color: '#fff',
         textAlign: 'left',
@@ -86,6 +59,28 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         backgroundColor: '#ffffff',
         border: 'none',
         backgroundClip: 'padding-box',
+
+        [`${componentCls}-close`]: {
+          cursor: 'pointer',
+          border: '0',
+          background: 'transparent',
+          fontSize: '20px',
+          position: 'absolute',
+          right: '20px',
+          top: '12px',
+          fontWeight: '700',
+          lineHeight: '1',
+          color: '#000',
+          textShadow: '0 1px 0 #fff',
+          filter: 'alpha(opacity=20)',
+          opacity: '.2',
+          textDecoration: 'none',
+          [`&:hover`]: {
+            opacity: '1',
+            filter: 'alpha(opacity=100)',
+            textDecoration: 'none',
+          },
+        },
 
         [`${componentCls}-cover`]: {
           textAlign: 'center',
@@ -117,37 +112,34 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         },
 
         [`${componentCls}-footer`]: {
-          padding: '10px 16px',
+          padding: '16px',
           textAlign: 'right',
           background: '0 0',
           borderTop: '1px solid rgba(0,0,0,.06)',
           borderRadius: '0 0 2px 2px',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+
+          [`${componentCls}-sliders`]: {
+            display: 'inline-block',
+            span: {
+              width: '8px',
+              height: '8px',
+              display: 'inline-block',
+              borderRadius: '50%',
+              background: '#000',
+              marginRight: '4px',
+              opacity: 0.75,
+              '&.active': {
+                background: '#007aff',
+              },
+            },
+          },
           [`${componentCls}-prev-btn,${componentCls}-next-btn,${componentCls}-finish-btn`]: {
             display: 'inline-block',
             marginLeft: '8px',
           },
-        },
-      },
-
-      [`${componentCls}-close`]: {
-        cursor: 'pointer',
-        border: '0',
-        background: 'transparent',
-        fontSize: '20px',
-        position: 'absolute',
-        right: '20px',
-        top: '12px',
-        fontWeight: '700',
-        lineHeight: '1',
-        color: '#000',
-        textShadow: '0 1px 0 #fff',
-        filter: 'alpha(opacity=20)',
-        opacity: '.2',
-        textDecoration: 'none',
-        [`&:hover`]: {
-          opacity: '1',
-          filter: 'alpha(opacity=100)',
-          textDecoration: 'none',
         },
       },
 
@@ -159,7 +151,42 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         borderColor: 'transparent',
         borderStyle: 'solid',
       },
+      // =============================  primary type ===========================
+      [`&${componentCls}-primary`]: {
+        [`${componentCls}-inner`]: {
+          color: '#fff',
+          textAlign: 'left',
+          textDecoration: 'none',
+          backgroundColor: '#1890ff',
+          borderRadius: '6px',
+          textShadow: '0 -1px 0 rgb(0 0 0 / 12%)',
+          boxShadow: '0 2px #0000000b',
+
+          [`${componentCls}-close`]: {
+            color: `#fff`,
+            opacity: 0.75,
+          },
+          [`${componentCls}-header`]: {
+            backgroundColor: '#1890ff',
+            borderColor: `#1890ff`,
+            color: `#fff`,
+          },
+
+          [`${componentCls}-sliders`]: {
+            span: {
+              background: '#007aff',
+              marginRight: '4px',
+              opacity: 0.75,
+              '&.active': {
+                background: '#fff',
+              },
+            },
+          },
+        },
+      },
     },
+
+    // ============================= panel placement ===========================
     [`${componentCls}-placement-top,${componentCls}-placement-topLeft,${componentCls}-placement-topRight`]:
       {
         padding: '5px 0 9px 0',
@@ -184,7 +211,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         borderWidth: '5px 5px 0',
         borderTopColor: '#fff',
       },
-
+    [`${componentCls}-primary${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-primary${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-topRight ${componentCls}-arrow`]:
+      {
+        borderTopColor: '#007aff',
+      },
     [`${componentCls}-placement-top ${componentCls}-arrow`]: {
       left: '50%',
     },
@@ -203,6 +233,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         marginTop: '-5px',
         borderWidth: '5px 5px 5px 0',
         borderRightColor: '#fff',
+      },
+    [`${componentCls}-primary${componentCls}-placement-right ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightTop ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightBottom ${componentCls}-arrow`]:
+      {
+        borderRightColor: '#007aff',
       },
 
     [`${componentCls}-placement-right ${componentCls}-arrow`]: {
@@ -225,7 +259,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         borderWidth: '5px 0 5px 5px',
         borderLeftColor: '#fff',
       },
-
+    [`${componentCls}-primary${componentCls}-placement-left ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-leftTop ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-leftBottom ${componentCls}-arrow`]:
+      {
+        borderLeftColor: '#007aff',
+      },
     [`${componentCls}-placement-left ${componentCls}-arrow`]: {
       top: '50%',
     },
@@ -246,7 +283,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         borderWidth: '0 5px 5px',
         borderBottomColor: '#fff',
       },
-
+    [`${componentCls}-primary${componentCls}-placement-bottom ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomLeft ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomRight ${componentCls}-arrow`]:
+      {
+        borderBottomColor: '#007aff',
+      },
     [`${componentCls}-placement-bottom ${componentCls}-arrow`]: {
       left: '50%',
     },
@@ -257,32 +297,6 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
     [`${componentCls}-placement-bottomRight ${componentCls}-arrow`]: {
       right: '15%',
-    },
-
-    [`${componentCls}-inner${componentCls}-primary`]: {
-      color: '#fff',
-      textAlign: 'left',
-      textDecoration: 'none',
-      backgroundColor: '#1890ff',
-      borderRadius: '6px',
-      textShadow: '0 -1px 0 rgb(0 0 0 / 12%)',
-      boxShadow: '0 2px #0000000b',
-      [`${componentCls}-header`]: {
-        backgroundColor: '#1890ff',
-        borderColor: `#1890ff`,
-        color: `#fff`,
-      },
-
-      [`${componentCls}-sliders`]: {
-        span: {
-          background: '#fff',
-          marginRight: '4px',
-          opacity: 0.75,
-          '&.active': {
-            background: ' #007aff',
-          },
-        },
-      },
     },
   };
 };
@@ -296,7 +310,6 @@ export default genComponentStyleHook(
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
     });
-    console.log('styles', genBaseStyle(sliderToken));
     return [genBaseStyle(sliderToken)];
   },
   token => {

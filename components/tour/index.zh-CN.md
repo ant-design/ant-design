@@ -6,44 +6,46 @@ title: Tour
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
-简单的文字提示气泡框。
+引导用户认识网页中的某个或某些部分具有什么样的功能
 
 ## 何时使用
 
-鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。
-
-可用来代替系统默认的 `title` 提示，提供一个 `按钮/文字/操作` 的文案解释。
+对于拥有复杂功能的网页，或者推出新功能的网站，引导用户认识新的特性并学习新功能的用法非常重要
 
 ## API
 
-| 参数  | 说明     | 类型                         | 默认值 |
-| ----- | -------- | ---------------------------- | ------ |
-| title | 提示文字 | ReactNode \| () => ReactNode | -      |
+### Tour
 
-### 共同的 API
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| target | `() => HTMLElement`&#124; `HTMLElement` | - | 获取引导卡片指向的元素 |
+| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | 是否显示箭头，包含是否指向元素中心的配置 |
+| cover | `ReactNode` | - | 展示的图片或者视频 |
+| title | `ReactNode` | - | 标题 |
+| description | `ReactNode` | - | 主要描述部分 |
+| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | 引导卡片相对于目标元素的位置 |
+| onClose | `Function` | - | 关闭引导时的回调函数 |
+| mask | `boolean` | `true` | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 |
+| type | `default`&#124; `primary` | `default` | 类型，影响底色与文字颜色 |
+| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | 下一步按钮的属性 |
+| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | 上一步按钮的属性 |
+| className | `string` | - | - |
+| style | `React.CSSProperties` | - | - |
 
-以下 API 为 Tour、Popconfirm、Popover 共享的 API。
+### TourStep 引导步骤卡片
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| align | 该值将合并到 placement 的配置中，设置参考 [rc-tour](https://github.com/react-component/tour) | object | - |  |
-| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | false |  |
-| autoAdjustOverflow | 气泡被遮挡时自动调整位置 | boolean | true |  |
-| color | 背景颜色 | string | - | 4.3.0 |
-| defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
-| destroyTourOnHide | 关闭后是否销毁 Tour，当 `keepParent` 为 `false` 时销毁父容器 | boolean \| { keepParent?: boolean } | false |  |
-| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| mouseEnterDelay | 鼠标移入后延时多少才显示 Tour，单位：秒 | number | 0.1 |  |
-| mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tour，单位：秒 | number | 0.1 |  |
-| overlayClassName | 卡片类名 | string | - |  |
-| overlayStyle | 卡片样式 | object | - |  |
-| overlayInnerStyle | 卡片内容区域的样式对象 | object | - |  |
-| placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
-| open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#why-open)） | boolean | false | 4.23.0 |
-| zIndex | 设置 Tour 的 `z-index` | number | - |  |
-| onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
-
-## 注意
-
-请确保 `Tour` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| target | `() => HTMLElement`&#124; `HTMLElement` | - | 获取引导卡片指向的元素 |
+| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | 是否显示箭头，包含是否指向元素中心的配置 |
+| cover | `ReactNode` | - | 展示的图片或者视频 |
+| title | `ReactNode` | - | 标题 |
+| description | `ReactNode` | - | 主要描述部分 |
+| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | 引导卡片相对于目标元素的位置 |
+| onClose | `Function` | - | 关闭引导时的回调函数 |
+| mask | `boolean` | `true` | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 |
+| type | `default`&#124; `primary` | `default` | 类型，影响底色与文字颜色 |
+| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | 下一步按钮的属性 |
+| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | 上一步按钮的属性 |
+| className | `string` | - | - |
+| style | `React.CSSProperties` | - | - |
