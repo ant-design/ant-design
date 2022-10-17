@@ -619,15 +619,21 @@ describe('Form', () => {
     jest.useFakeTimers();
 
     const shouldNotRender = jest.fn();
-    const StaticInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ id, value }) => {
+    const StaticInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
+      id,
+      value = '',
+    }) => {
       shouldNotRender();
-      return <Input id={id} value={value} />;
+      return <input id={id} value={value} />;
     };
 
     const shouldRender = jest.fn();
-    const DynamicInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ value, id }) => {
+    const DynamicInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
+      value = '',
+      id,
+    }) => {
       shouldRender();
-      return <Input id={id} value={value} />;
+      return <input id={id} value={value} />;
     };
 
     const formRef = React.createRef<FormInstance>();
@@ -650,8 +656,9 @@ describe('Form', () => {
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
     formRef.current!.setFieldsValue({ light: 'bamboo' });
-
     await waitFakeTimer();
+
+    expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
 
     expect(container.querySelector<HTMLInputElement>('#changed')!.value).toEqual('bamboo');
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
