@@ -1,6 +1,5 @@
 FROM alekzonder/puppeteer:latest
-RUN mkdir /app2
-WORKDIR /app2
+WORKDIR /app
 COPY package.json ./
-ENV  PATH="${PATH}:/app2/node_modules/.bin"
+ENV  PATH="${PATH}:/app/node_modules/.bin"
 COPY . .
