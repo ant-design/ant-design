@@ -2,7 +2,7 @@
 import KeyCode from 'rc-util/lib/KeyCode';
 import raf from 'rc-util/lib/raf';
 import React from 'react';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
@@ -14,6 +14,18 @@ import TransButton from '../transButton';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    afterEach(() => {
+      jest.clearAllTimers();
+    });
+
     it('throttle function should work', async () => {
       const callback = jest.fn();
       const throttled = throttleByAnimationFrame(callback);
@@ -21,7 +33,7 @@ describe('Test utils function', () => {
 
       throttled();
       throttled();
-      await sleep(20);
+      await waitFakeTimer();
 
       expect(callback).toHaveBeenCalled();
       expect(callback.mock.calls.length).toBe(1);
@@ -33,7 +45,7 @@ describe('Test utils function', () => {
 
       throttled();
       throttled.cancel();
-      await sleep(20);
+      await waitFakeTimer();
 
       expect(callback).not.toHaveBeenCalled();
     });
@@ -50,7 +62,7 @@ describe('Test utils function', () => {
       test.callback();
       test.callback();
       test.callback();
-      await sleep(30);
+      await waitFakeTimer();
       expect(callbackFn).toHaveBeenCalledTimes(1);
     });
   });

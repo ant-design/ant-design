@@ -89,7 +89,16 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     >
-      default
+      <span
+        class="ant-switch-inner-checked"
+      >
+        customize
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        default
+      </span>
     </span>
   </button>
   <div

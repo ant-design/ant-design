@@ -1462,7 +1462,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -1478,7 +1485,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -1494,7 +1508,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>,
   <div
@@ -3051,7 +3072,14 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -3067,7 +3095,14 @@ exports[`renders ./components/tree/demo/line.md correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
