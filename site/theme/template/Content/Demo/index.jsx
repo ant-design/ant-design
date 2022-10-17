@@ -285,7 +285,7 @@ class Demo extends React.Component {
     };
 
     // Reorder source code
-    let parsedSourceCode = sourceCode;
+    let parsedSourceCode = suffix === 'tsx' ? sourceCodeTyped : sourceCode;
     let importReactContent = "import React from 'react';";
 
     const importReactReg = /import React(\D*)from 'react';/;
