@@ -1,6 +1,6 @@
 import React from 'react';
-// eslint-disable-next-line import/no-named-as-default
 import { render } from '@testing-library/react';
+import { waitFakeTimer } from '../../../tests/utils';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -15,10 +15,8 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect((container.querySelector('.ant-spin-nested-loading')! as HTMLElement).style.length).toBe(
-      0,
-    );
-    expect((container.querySelector('.ant-spin')! as HTMLElement).style.background).toBe('red');
+    expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
+    expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
   });
 
   it("should render custom indicator when it's set", () => {
@@ -27,11 +25,15 @@ describe('Spin', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should be controlled by spinning', () => {
+  it('should be controlled by spinning', async () => {
+    jest.useFakeTimers();
     const { container, rerender } = render(<Spin spinning={false} />);
     expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
+    await waitFakeTimer();
     expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('if indicator set null should not be render default indicator', () => {
