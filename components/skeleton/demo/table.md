@@ -52,7 +52,7 @@ const App: React.FC = () => {
     <>
       <Switch checked={!loading} onChange={onChange} />
       <Table
-        loading={{ type: 'skeleton', loading, active: true }}
+        loading={{ component: 'skeleton', loading, active: true }}
         columns={columns}
         dataSource={data}
       />
