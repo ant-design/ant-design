@@ -115,7 +115,6 @@
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
     "@rc-component/tour": "~1.0.0-2",
-    "@testing-library/user-event": "^14.4.2",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
