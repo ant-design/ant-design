@@ -67,7 +67,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         // Link
         '&': genLinkStyle(token),
       },
-      genCommonStyle(token, rootPrefixCls),
     ]);
 
     return [
@@ -102,7 +101,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             overrideComponentToken: token[component],
           });
           flush(component, mergedComponentToken);
-          return styleInterpolation;
+          return [genCommonStyle(token, prefixCls), styleInterpolation];
         },
       ),
       hashId,
