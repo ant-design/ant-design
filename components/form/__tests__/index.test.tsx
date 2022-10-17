@@ -656,7 +656,7 @@ describe('Form', () => {
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
     formRef.current!.setFieldsValue({ light: 'bamboo' });
-    await waitFakeTimer();
+    await waitFakeTimer(100, 100);
 
     expect(formRef.current!.getFieldsValue()).toEqual({ light: 'bamboo' });
 
