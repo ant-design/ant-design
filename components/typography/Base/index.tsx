@@ -36,6 +36,7 @@ interface CopyConfig {
 }
 
 interface EditConfig {
+  text?: string;
   editing?: boolean;
   icon?: React.ReactNode;
   tooltip?: boolean | React.ReactNode;
@@ -342,11 +343,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   // ========================== Tooltip ===========================
   let tooltipProps: TooltipProps = {};
   if (ellipsisConfig.tooltip === true) {
-    tooltipProps = { title: children };
+    tooltipProps = { title: editConfig.text ?? children };
   } else if (React.isValidElement(ellipsisConfig.tooltip)) {
     tooltipProps = { title: ellipsisConfig.tooltip };
   } else if (typeof ellipsisConfig.tooltip === 'object') {
-    tooltipProps = { title: children, ...ellipsisConfig.tooltip };
+    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
   } else {
     tooltipProps = { title: ellipsisConfig.tooltip };
   }
@@ -355,6 +356,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
+    }
+
+    if (isValid(editConfig.text)) {
+      return editConfig.text;
     }
 
     if (isValid(children)) {
@@ -377,7 +382,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   if (editing) {
     return (
       <Editable
-        value={typeof children === 'string' ? children : ''}
+        value={editConfig.text ?? (typeof children === 'string' ? children : '')}
         onSave={onEditChange}
         onCancel={onEditCancel}
         onEnd={editConfig.onEnd}

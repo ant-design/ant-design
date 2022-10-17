@@ -94,9 +94,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
-      onStart: function,
+      text: string,
       onChange: function(string),
       onCancel: function,
+      onStart: function,
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
@@ -109,10 +110,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
-| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
+| text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - | 4.24.0 |
 | onChange | 文本域编辑时触发 | function(value: string) | - |  |
-| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
+| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
 | onStart | 进入编辑中状态时触发 | function | - |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
