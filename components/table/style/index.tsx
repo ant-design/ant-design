@@ -12,5 +12,6 @@ import '../../input/style';
 import '../../pagination/style';
 import '../../radio/style';
 import '../../spin/style';
+import '../../skeleton/style';
 import '../../tooltip/style';
 import '../../tree/style';
