@@ -7,7 +7,6 @@ import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
 import type { ComponentTokenMap, GlobalToken } from '../interface';
-import warning from '../../_util/warning';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
