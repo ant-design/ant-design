@@ -643,10 +643,12 @@ describe('Form', () => {
       </Form>,
     );
 
+    await waitFakeTimer();
+
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(1);
 
-    formRef.current?.setFieldsValue({ light: 'bamboo' });
+    formRef.current!.setFieldsValue({ light: 'bamboo' });
 
     await waitFakeTimer();
 
