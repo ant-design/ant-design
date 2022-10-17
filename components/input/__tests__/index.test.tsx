@@ -7,6 +7,7 @@ import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Form from '../../form';
+import { triggerFocus } from '../Input';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -433,7 +434,7 @@ describe('Input allowClear', () => {
   });
 });
 
-describe('typescript types ', () => {
+describe('typescript types', () => {
   it('InputProps type should support data-* attributes', () => {
     const props: InputProps = {
       value: 123,
@@ -446,5 +447,13 @@ describe('typescript types ', () => {
     const input = container.querySelector('input');
     expect(input?.getAttribute('data-testid')).toBe('test-id');
     expect(input?.getAttribute('data-id')).toBe('12345');
+  });
+});
+
+describe('triggerFocus', () => {
+  it('triggerFocus correctly run when element is null', () => {
+    expect(() => {
+      triggerFocus();
+    }).not.toThrow();
   });
 });

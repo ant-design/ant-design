@@ -115,6 +115,25 @@ It's caused by option with different `label` and `value`. You can use `optionFil
 
 You can control it by `open` prop: [codesandbox](https://codesandbox.io/s/ji-ben-shi-yong-antd-4-21-7-forked-gnp4cy?file=/demo.js).
 
+### I don't want dropdown close when click inside `dropdownRender`?
+
+Select will close when it lose focus. You can prevent event to handle this:
+
+```jsx
+<Select
+  dropdownRender={() => (
+    <div
+      onMouseDown={e => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
+      Some Content
+    </div>
+  )}
+/>
+```
+
 ### Why sometime customize Option cause scroll break?
 
 Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:

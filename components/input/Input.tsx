@@ -2,6 +2,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
+import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import { ConfigContext } from '../config-provider';
@@ -12,6 +13,7 @@ import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import { hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
@@ -85,7 +87,9 @@ export function triggerFocus(
   element?: HTMLInputElement | HTMLTextAreaElement,
   option?: InputFocusOptions,
 ) {
-  if (!element) return;
+  if (!element) {
+    return;
+  }
 
   element.focus(option);
 
@@ -98,13 +102,12 @@ export function triggerFocus(
       case 'start':
         element.setSelectionRange(0, 0);
         break;
-
       case 'end':
         element.setSelectionRange(len, len);
         break;
-
       default:
         element.setSelectionRange(0, len);
+        break;
     }
   }
 }
@@ -134,6 +137,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
+    onChange,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -168,25 +172,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   }, [inputHasPrefixSuffix]);
 
   // ===================== Remove Password value =====================
-  const removePasswordTimeoutRef = useRef<number[]>([]);
-  const removePasswordTimeout = () => {
-    removePasswordTimeoutRef.current.push(
-      window.setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
-        }
-      }),
-    );
-  };
-
-  useEffect(() => {
-    removePasswordTimeout();
-    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
-  }, []);
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     removePasswordTimeout();
@@ -198,6 +184,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus?.(e);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    removePasswordTimeout();
+    onChange?.(e);
+  };
+
   const suffixNode = (hasFeedback || suffix) && (
     <>
       {suffix}
@@ -206,7 +197,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   );
 
   // Allow clear
-  let mergedAllowClear;
+  let mergedAllowClear: BaseInputProps['allowClear'];
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
     mergedAllowClear = allowClear;
   } else if (allowClear) {
@@ -224,6 +215,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
+      onChange={handleChange}
       addonAfter={
         addonAfter && (
           <NoFormStyle override status>

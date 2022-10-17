@@ -7,32 +7,8 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
   <div
     class="ant-spin-nested-loading"
   >
-    <div>
-      <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-spinning"
-      >
-        <span
-          class="ant-spin-dot ant-spin-dot-spin"
-        >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-        </span>
-      </div>
-    </div>
     <div
-      class="ant-spin-container ant-spin-blur"
+      class="ant-spin-container"
     >
       <div
         class="ant-table ant-table-empty"
@@ -44,14 +20,14 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 20%;"
+                  style="width:20%"
                 />
                 <col
-                  style="width: 20%;"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -252,7 +228,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -332,10 +308,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           John Brown
                         </a>
                       </div>
@@ -387,10 +364,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           Jim Green
                         </a>
                       </div>
@@ -447,10 +425,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           Joe Black
                         </a>
                       </div>
@@ -579,7 +558,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -593,7 +572,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell column-money"
-                    style="text-align: right;"
+                    style="text-align:right"
                   >
                     Cash Assets
                   </th>
@@ -620,7 +599,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
-                    style="text-align: right;"
+                    style="text-align:right"
                   >
                     ￥300,000.00
                   </td>
@@ -643,7 +622,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
-                    style="text-align: right;"
+                    style="text-align:right"
                   >
                     ￥1,256,000.00
                   </td>
@@ -666,7 +645,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell column-money"
-                    style="text-align: right;"
+                    style="text-align:right"
                   >
                     ￥120,000.00
                   </td>
@@ -791,7 +770,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -1071,14 +1050,14 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 30%;"
+                  style="width:30%"
                 />
                 <col
-                  style="width: 20%;"
+                  style="width:20%"
                 />
               </colgroup>
               <thead
@@ -1450,7 +1429,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -1480,8 +1459,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
-                  draggable="true"
-                  style="cursor: move;"
+                  style="cursor:move"
                 >
                   <td
                     class="ant-table-cell"
@@ -1502,8 +1480,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="2"
-                  draggable="true"
-                  style="cursor: move;"
+                  style="cursor:move"
                 >
                   <td
                     class="ant-table-cell"
@@ -1524,8 +1501,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="3"
-                  draggable="true"
-                  style="cursor: move;"
+                  style="cursor:move"
                 >
                   <td
                     class="ant-table-cell"
@@ -1653,11 +1629,11 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 30px;"
+                  style="width:30px"
                 />
               </colgroup>
               <thead
@@ -1699,7 +1675,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                       aria-label="menu"
                       class="anticon anticon-menu"
                       role="img"
-                      style="cursor: grab; color: rgb(153, 153, 153);"
+                      style="cursor:grab;color:#999"
                     >
                       <svg
                         aria-hidden="true"
@@ -1742,7 +1718,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                       aria-label="menu"
                       class="anticon anticon-menu"
                       role="img"
-                      style="cursor: grab; color: rgb(153, 153, 153);"
+                      style="cursor:grab;color:#999"
                     >
                       <svg
                         aria-hidden="true"
@@ -1785,7 +1761,7 @@ exports[`renders ./components/table/demo/drag-sorting-handler.md correctly 1`] =
                       aria-label="menu"
                       class="anticon anticon-menu"
                       role="img"
-                      style="cursor: grab; color: rgb(153, 153, 153);"
+                      style="cursor:grab;color:#999"
                     >
                       <svg
                         aria-hidden="true"
@@ -1832,7 +1808,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-form-item"
@@ -2467,7 +2443,6 @@ Array [
                       checked=""
                       class="ant-radio-button-input"
                       type="radio"
-                      value=""
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -2559,7 +2534,6 @@ Array [
                       checked=""
                       class="ant-radio-button-input"
                       type="radio"
-                      value=""
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -2837,7 +2811,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -2869,7 +2843,6 @@ Array [
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
-                              value=""
                             />
                             <span
                               class="ant-checkbox-inner"
@@ -3074,7 +3047,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3105,7 +3077,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3120,7 +3092,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3179,7 +3151,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3210,7 +3181,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3225,7 +3196,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3284,7 +3255,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3315,7 +3285,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3330,7 +3300,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3389,7 +3359,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3420,7 +3389,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3435,7 +3404,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3494,7 +3463,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3525,7 +3493,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3540,7 +3508,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3599,7 +3567,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3630,7 +3597,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3645,7 +3612,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3704,7 +3671,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3735,7 +3701,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3750,7 +3716,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3809,7 +3775,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3840,7 +3805,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3855,7 +3820,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3914,7 +3879,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -3945,7 +3909,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3960,7 +3924,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -4019,7 +3983,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -4050,7 +4013,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -4065,7 +4028,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -4198,7 +4161,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
     type="button"
   >
     <span>
@@ -4224,11 +4187,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
-                    style="width: 30%;"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -4269,7 +4232,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-right:24px"
                       >
                         Edward King 0
                       </div>
@@ -4301,7 +4264,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     >
                       <div
                         class="editable-cell-value-wrap"
-                        style="padding-right: 24px;"
+                        style="padding-right:24px"
                       >
                         Edward King 1
                       </div>
@@ -4435,17 +4398,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 25%;"
+                  style="width:25%"
                 />
                 <col
-                  style="width: 15%;"
+                  style="width:15%"
                 />
                 <col
-                  style="width: 40%;"
+                  style="width:40%"
                 />
               </colgroup>
               <thead
@@ -4958,19 +4921,18 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -4986,7 +4948,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -5037,14 +4999,14 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 80px;"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -5323,14 +5285,14 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
             class="ant-table-content"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 80px;"
+                  style="width:80px"
                 />
               </colgroup>
               <thead
@@ -5621,7 +5583,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
@@ -5918,15 +5880,15 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 30%;"
+                  style="width:30%"
                 />
                 <col />
                 <col
-                  style="width: 40%;"
+                  style="width:40%"
                 />
               </colgroup>
               <thead
@@ -6265,15 +6227,15 @@ exports[`renders ./components/table/demo/filter-search.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 30%;"
+                  style="width:30%"
                 />
                 <col />
                 <col
-                  style="width: 40%;"
+                  style="width:40%"
                 />
               </colgroup>
               <thead
@@ -6610,17 +6572,17 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x: auto; overflow-y: hidden;"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
-              style="width: 1300px; min-width: 100%; table-layout: fixed;"
+              style="width:1300px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col />
                 <col />
@@ -6631,7 +6593,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <col />
                 <col />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -6640,13 +6602,13 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Age
                   </th>
@@ -6692,7 +6654,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     Action
                   </th>
@@ -6704,93 +6666,93 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height:0;font-size:0"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
@@ -6801,13 +6763,13 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -6853,7 +6815,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -6866,13 +6828,13 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Jim Green
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     40
                   </td>
@@ -6918,7 +6880,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7033,10 +6995,10 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
         >
           <div
             class="ant-table-header"
-            style="overflow: hidden;"
+            style="overflow:hidden"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup />
               <thead
@@ -7045,13 +7007,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Age
                   </th>
@@ -7097,7 +7059,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     Action
                   </th>
@@ -7107,42 +7069,42 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x: auto; overflow-y: scroll; max-height: 300px;"
+            style="overflow-x:auto;overflow-y:scroll;max-height:300px"
           >
             <table
-              style="width: 1500px; min-width: 100%; table-layout: fixed;"
+              style="width:1500px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -7151,93 +7113,93 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height:0;font-size:0"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
@@ -7248,13 +7210,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7300,7 +7262,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7313,13 +7275,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7365,7 +7327,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7378,13 +7340,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7430,7 +7392,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7443,13 +7405,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7495,7 +7457,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7508,13 +7470,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7560,7 +7522,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7573,13 +7535,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7625,7 +7587,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7638,13 +7600,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7690,7 +7652,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7703,13 +7665,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7755,7 +7717,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7768,13 +7730,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7820,7 +7782,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -7833,13 +7795,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -7885,7 +7847,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -8083,19 +8045,18 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -8111,7 +8072,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -8160,10 +8121,10 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
         >
           <div
             class="ant-table-header"
-            style="overflow: hidden;"
+            style="overflow:hidden"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup />
               <thead
@@ -8191,17 +8152,17 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-y: scroll; max-height: 240px;"
+            style="overflow-y:scroll;max-height:240px"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
               </colgroup>
               <tbody
@@ -8210,29 +8171,29 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height:0;font-size:0"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
@@ -9346,19 +9307,18 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -9374,7 +9334,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -9423,10 +9383,10 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         >
           <div
             class="ant-table-header"
-            style="overflow: hidden;"
+            style="overflow:hidden"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup />
               <thead
@@ -9436,7 +9396,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
                     rowspan="4"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -9488,7 +9448,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
                     rowspan="4"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     Gender
                   </th>
@@ -9606,33 +9566,33 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x: auto; overflow-y: scroll; max-height: 240px;"
+            style="overflow-x:auto;overflow-y:scroll;max-height:240px"
           >
             <table
-              style="width: calc(700px + 50%); min-width: 100%; table-layout: fixed;"
+              style="width:calc(700px + 50%);min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 200px;"
+                  style="width:200px"
                 />
                 <col />
                 <col
-                  style="width: 80px;"
+                  style="width:80px"
                 />
               </colgroup>
               <tbody
@@ -9641,69 +9601,69 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height:0;font-size:0"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
@@ -9714,7 +9674,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9750,7 +9710,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9761,7 +9721,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9797,7 +9757,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9808,7 +9768,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9844,7 +9804,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9855,7 +9815,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9891,7 +9851,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9902,7 +9862,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9938,7 +9898,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9949,7 +9909,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -9985,7 +9945,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -9996,7 +9956,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -10032,7 +9992,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -10043,7 +10003,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -10079,7 +10039,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -10090,7 +10050,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -10126,7 +10086,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -10137,7 +10097,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     John Brown
                   </td>
@@ -10173,7 +10133,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     M
                   </td>
@@ -10369,19 +10329,18 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -10397,7 +10356,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -10448,7 +10407,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -10824,7 +10783,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -10924,10 +10883,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           Brown
                         </a>
                       </div>
@@ -10982,10 +10942,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           Green
                         </a>
                       </div>
@@ -11045,10 +11006,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 16px;"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite 
+                          <!-- -->
                           Black
                         </a>
                       </div>
@@ -11172,7 +11134,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -11564,7 +11526,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
 <div
-  style="width: 300px;"
+  style="width:300px"
 >
   <div
     class="ant-table-wrapper"
@@ -11585,7 +11547,7 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup />
                 <thead
@@ -12052,19 +12014,18 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_test_list_test"
+                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
-                    aria-controls="rc_select_test_list"
+                    aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_test_list"
+                    aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_test"
                     readonly=""
                     role="combobox"
-                    style="opacity: 0;"
+                    style="opacity:0"
                     type="search"
                     unselectable="on"
                     value=""
@@ -12080,7 +12041,7 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
               <span
                 aria-hidden="true"
                 class="ant-select-arrow"
-                style="user-select: none;"
+                style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
                 <span
@@ -12116,7 +12077,7 @@ exports[`renders ./components/table/demo/nest-table-border-debug.md correctly 1`
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-form-item"
@@ -12229,7 +12190,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -12556,7 +12517,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -12688,7 +12649,7 @@ Array [
                                   class="ant-table-content"
                                 >
                                   <table
-                                    style="table-layout: auto;"
+                                    style="table-layout:auto"
                                   >
                                     <colgroup />
                                     <thead
@@ -12749,9 +12710,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -12769,7 +12727,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -12777,7 +12735,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -12838,9 +12796,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -12858,7 +12813,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -12866,7 +12821,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -12927,9 +12882,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -12947,7 +12899,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -12955,7 +12907,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -13213,7 +13165,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -13345,7 +13297,7 @@ Array [
                                   class="ant-table-content"
                                 >
                                   <table
-                                    style="table-layout: auto;"
+                                    style="table-layout:auto"
                                   >
                                     <colgroup />
                                     <thead
@@ -13406,9 +13358,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -13426,7 +13375,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -13434,7 +13383,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -13495,9 +13444,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -13515,7 +13461,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -13523,7 +13469,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -13584,9 +13530,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -13604,7 +13547,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -13612,7 +13555,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -13870,7 +13813,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -14002,7 +13945,7 @@ Array [
                                   class="ant-table-content"
                                 >
                                   <table
-                                    style="table-layout: auto;"
+                                    style="table-layout:auto"
                                   >
                                     <colgroup />
                                     <thead
@@ -14063,9 +14006,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -14083,7 +14023,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -14091,7 +14031,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -14152,9 +14092,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -14172,7 +14109,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -14180,7 +14117,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -14241,9 +14178,6 @@ Array [
                                               <span
                                                 class="ant-badge-status-dot ant-badge-status-success"
                                               />
-                                              <span
-                                                class="ant-badge-status-text"
-                                              />
                                             </span>
                                             Finished
                                           </span>
@@ -14261,7 +14195,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -14269,7 +14203,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right: 16px;"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -14531,7 +14465,7 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col />
@@ -14575,7 +14509,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -14630,7 +14563,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -14680,7 +14612,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -14730,7 +14661,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -14780,7 +14710,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -14889,7 +14818,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
   <div>
     <div
       class="ant-radio-group ant-radio-group-outline"
-      style="margin-bottom: 10px;"
+      style="margin-bottom:10px"
     >
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -14972,7 +14901,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-bottom: 10px;"
+    style="margin-bottom:10px"
   >
     <label
       class="ant-radio-wrapper"
@@ -15231,7 +15160,7 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup />
                 <thead
@@ -15313,10 +15242,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite 
+                            <!-- -->
                             John Brown
                           </a>
                         </div>
@@ -15370,10 +15300,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite 
+                            <!-- -->
                             Jim Green
                           </a>
                         </div>
@@ -15432,10 +15363,11 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite 
+                            <!-- -->
                             Joe Black
                           </a>
                         </div>
@@ -15544,11 +15476,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -15561,7 +15493,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -15604,7 +15536,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: fixed;"
+                style="table-layout:fixed"
               >
                 <colgroup />
                 <thead
@@ -15615,6 +15547,7 @@ Array [
                       aria-label="Name sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Name"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -15709,6 +15642,7 @@ Array [
                       aria-label="Age sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Age"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -15770,6 +15704,7 @@ Array [
                       aria-label="Address sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Address"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -16068,20 +16003,20 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
-                  style="width: 200px;"
+                  style="width:200px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -16392,7 +16327,7 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup />
               <thead
@@ -16579,7 +16514,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -16605,7 +16540,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
-                              value=""
                             />
                             <span
                               class="ant-checkbox-inner"
@@ -16651,7 +16585,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             class="ant-checkbox-input"
                             name="John Brown"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -16694,7 +16627,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -16737,7 +16669,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             class="ant-checkbox-input"
                             name="Joe Black"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -16781,7 +16712,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             disabled=""
                             name="Disabled User"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -16901,7 +16831,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
 exports[`renders ./components/table/demo/row-selection-and-operation.md correctly 1`] = `
 <div>
   <div
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -16913,7 +16843,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
       </span>
     </button>
     <span
-      style="margin-left: 8px;"
+      style="margin-left:8px"
     />
   </div>
   <div
@@ -16935,7 +16865,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -16961,7 +16891,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
-                              value=""
                             />
                             <span
                               class="ant-checkbox-inner"
@@ -17006,7 +16935,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17046,7 +16974,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17086,7 +17013,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17126,7 +17052,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17166,7 +17091,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17206,7 +17130,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17246,7 +17169,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17286,7 +17208,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17326,7 +17247,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17366,7 +17286,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17545,7 +17464,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
@@ -17571,7 +17490,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -17643,7 +17561,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17683,7 +17600,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17723,7 +17639,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17763,7 +17678,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17803,7 +17717,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17843,7 +17756,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17883,7 +17795,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17923,7 +17834,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -17963,7 +17873,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18003,7 +17912,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18181,7 +18089,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout:auto"
             >
               <colgroup>
                 <col
@@ -18207,7 +18115,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -18235,6 +18142,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     rowspan="2"
                   >
                     false
+                    <!-- -->
                     : 
                     <label
                       class="ant-checkbox-wrapper"
@@ -18245,7 +18153,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18278,6 +18185,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     rowspan="2"
                   >
                     false
+                    <!-- -->
                     : 
                     <label
                       class="ant-checkbox-wrapper"
@@ -18288,7 +18196,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18321,6 +18228,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     rowspan="2"
                   >
                     false
+                    <!-- -->
                     : 
                     <label
                       class="ant-checkbox-wrapper"
@@ -18331,7 +18239,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18364,6 +18271,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     rowspan="2"
                   >
                     false
+                    <!-- -->
                     : 
                     <label
                       class="ant-checkbox-wrapper"
@@ -18374,7 +18282,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18407,6 +18314,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                     rowspan="2"
                   >
                     false
+                    <!-- -->
                     : 
                     <label
                       class="ant-checkbox-wrapper"
@@ -18417,7 +18325,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -18599,7 +18506,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup />
                 <thead
@@ -18796,7 +18703,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup />
                 <thead
@@ -18992,10 +18899,10 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
         >
           <div
             class="ant-table-header ant-table-sticky-holder"
-            style="overflow: hidden; top: 0px;"
+            style="overflow:hidden;top:0"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup />
               <thead
@@ -19004,13 +18911,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Age
                   </th>
@@ -19056,7 +18963,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     Action
                   </th>
@@ -19066,42 +18973,42 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
           </div>
           <div
             class="ant-table-body"
-            style="overflow-x: auto; overflow-y: hidden;"
+            style="overflow-x:auto;overflow-y:hidden"
           >
             <table
-              style="width: 1500px; min-width: 100%; table-layout: fixed;"
+              style="width:1500px;min-width:100%;table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
               </colgroup>
               <tbody
@@ -19110,93 +19017,93 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height:0;font-size:0"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding:0;border:0;height:0"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height:0;overflow:hidden"
                     >
                     </div>
                   </td>
@@ -19207,13 +19114,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 0
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19259,7 +19166,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19272,13 +19179,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19324,7 +19231,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19337,13 +19244,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 2
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19389,7 +19296,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19402,13 +19309,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 3
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19454,7 +19361,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19467,13 +19374,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 4
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19519,7 +19426,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19532,13 +19439,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 5
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19584,7 +19491,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19597,13 +19504,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 6
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19649,7 +19556,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19662,13 +19569,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 7
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19714,7 +19621,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19727,13 +19634,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 8
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19779,7 +19686,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19792,13 +19699,13 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     Edrward 9
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     32
                   </td>
@@ -19844,7 +19751,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     <a>
                       action
@@ -19856,10 +19763,10 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
           </div>
           <div
             class="ant-table-summary ant-table-sticky-holder"
-            style="overflow: hidden; bottom: 0px;"
+            style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup />
               <tfoot
@@ -19869,7 +19776,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
                     colspan="2"
-                    style="position: sticky; left: 0px;"
+                    style="position:sticky;left:0"
                   >
                     <button
                       aria-checked="false"
@@ -19895,7 +19802,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
-                    style="position: sticky; right: 0px;"
+                    style="position:sticky;right:0"
                   >
                     Fix Right
                   </td>
@@ -20091,19 +19998,18 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-label="Page Size"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -20119,7 +20025,7 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -20171,7 +20077,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup />
                 <thead
@@ -20350,10 +20256,10 @@ Array [
           >
             <div
               class="ant-table-header"
-              style="overflow: hidden;"
+              style="overflow:hidden"
             >
               <table
-                style="table-layout: fixed; visibility: hidden;"
+                style="table-layout:fixed;visibility:hidden"
               >
                 <colgroup />
                 <thead
@@ -20362,7 +20268,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Name
                     </th>
@@ -20377,14 +20283,14 @@ Array [
             </div>
             <div
               class="ant-table-body"
-              style="overflow-x: auto; overflow-y: scroll; max-height: 500px;"
+              style="overflow-x:auto;overflow-y:scroll;max-height:500px"
             >
               <table
-                style="width: 2000px; min-width: 100%; table-layout: fixed;"
+                style="width:2000px;min-width:100%;table-layout:fixed"
               >
                 <colgroup>
                   <col
-                    style="width: 100px;"
+                    style="width:100px"
                   />
                 </colgroup>
                 <tbody
@@ -20393,21 +20299,21 @@ Array [
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height: 0px; font-size: 0px;"
+                    style="height:0;font-size:0"
                   >
                     <td
-                      style="padding: 0px; border: 0px; height: 0px;"
+                      style="padding:0;border:0;height:0"
                     >
                       <div
-                        style="height: 0px; overflow: hidden;"
+                        style="height:0;overflow:hidden"
                       >
                       </div>
                     </td>
                     <td
-                      style="padding: 0px; border: 0px; height: 0px;"
+                      style="padding:0;border:0;height:0"
                     >
                       <div
-                        style="height: 0px; overflow: hidden;"
+                        style="height:0;overflow:hidden"
                       >
                       </div>
                     </td>
@@ -20418,7 +20324,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20434,7 +20340,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20450,7 +20356,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20466,7 +20372,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20482,7 +20388,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20498,7 +20404,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20514,7 +20420,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20530,7 +20436,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20546,7 +20452,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20562,7 +20468,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20578,7 +20484,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20594,7 +20500,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20610,7 +20516,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20626,7 +20532,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20642,7 +20548,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20658,7 +20564,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20674,7 +20580,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20690,7 +20596,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Little
                     </td>
@@ -20706,7 +20612,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Light
                     </td>
@@ -20722,7 +20628,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Bamboo
                     </td>
@@ -20737,10 +20643,10 @@ Array [
             </div>
             <div
               class="ant-table-summary"
-              style="overflow: hidden;"
+              style="overflow:hidden"
             >
               <table
-                style="table-layout: fixed; visibility: hidden;"
+                style="table-layout:fixed;visibility:hidden"
               >
                 <colgroup />
                 <tfoot
@@ -20749,7 +20655,7 @@ Array [
                   <tr>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       Summary
                     </td>
@@ -20774,11 +20680,11 @@ exports[`renders ./components/table/demo/tree-data.md correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       CheckStrictly: 
     </div>
@@ -20819,7 +20725,7 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout:auto"
               >
                 <colgroup>
                   <col
@@ -20827,10 +20733,10 @@ Array [
                   />
                   <col />
                   <col
-                    style="width: 12%;"
+                    style="width:12%"
                   />
                   <col
-                    style="width: 30%;"
+                    style="width:30%"
                   />
                 </colgroup>
                 <thead
@@ -20852,7 +20758,6 @@ Array [
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
-                              value=""
                             />
                             <span
                               class="ant-checkbox-inner"
@@ -20897,7 +20802,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -20910,7 +20814,7 @@ Array [
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
+                        style="padding-left:0px"
                       />
                       <button
                         aria-expanded="false"
@@ -20947,7 +20851,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -20960,7 +20863,7 @@ Array [
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
+                        style="padding-left:0px"
                       />
                       <button
                         aria-expanded="false"
@@ -21076,11 +20979,11 @@ exports[`renders ./components/table/demo/tree-table-ellipsis.md correctly 1`] = 
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom: 16px;"
+    style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       Fixed first column: 
     </div>
@@ -21121,18 +21024,18 @@ Array [
               class="ant-table-content"
             >
               <table
-                style="table-layout: fixed;"
+                style="table-layout:fixed"
               >
                 <colgroup>
                   <col
                     class="ant-table-selection-col"
-                    style="width: 100px;"
+                    style="width:100px"
                   />
                   <col
-                    style="width: 30%;"
+                    style="width:30%"
                   />
                   <col
-                    style="width: 12%;"
+                    style="width:12%"
                   />
                 </colgroup>
                 <thead
@@ -21141,7 +21044,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <div
                         class="ant-table-selection"
@@ -21155,7 +21058,6 @@ Array [
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
-                              value=""
                             />
                             <span
                               class="ant-checkbox-inner"
@@ -21166,7 +21068,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Name"
                     >
                       <span
@@ -21196,7 +21098,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21207,7 +21109,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21217,12 +21118,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
+                        style="padding-left:0px"
                       />
                       <button
                         aria-expanded="true"
@@ -21253,7 +21154,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21264,7 +21165,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21274,12 +21174,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-1"
-                        style="padding-left: 15px;"
+                        style="padding-left:15px"
                       />
                       <button
                         aria-expanded="true"
@@ -21310,7 +21210,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21321,7 +21221,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21331,12 +21230,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-1"
-                        style="padding-left: 15px;"
+                        style="padding-left:15px"
                       />
                       <button
                         aria-expanded="true"
@@ -21367,7 +21266,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21378,7 +21277,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21388,12 +21286,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr. John Brown sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-2"
-                        style="padding-left: 30px;"
+                        style="padding-left:30px"
                       />
                       <button
                         aria-expanded="true"
@@ -21424,7 +21322,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21435,7 +21333,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21445,12 +21342,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Jim Green sr. Jim Green sr. Jim Green sr. Jim Green sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-1"
-                        style="padding-left: 15px;"
+                        style="padding-left:15px"
                       />
                       <button
                         aria-expanded="true"
@@ -21481,7 +21378,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21492,7 +21389,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21502,12 +21398,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Jim Green. Jim Green. Jim Green. Jim Green. Jim Green. Jim Green."
                     >
                       <span
                         class="ant-table-row-indent indent-level-2"
-                        style="padding-left: 30px;"
+                        style="padding-left:30px"
                       />
                       <button
                         aria-expanded="true"
@@ -21538,7 +21434,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21549,7 +21445,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21559,12 +21454,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Jim Green jr. Jim Green jr. Jim Green jr. Jim Green jr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-3"
-                        style="padding-left: 45px;"
+                        style="padding-left:45px"
                       />
                       <button
                         aria-expanded="true"
@@ -21595,7 +21490,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21606,7 +21501,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21616,12 +21510,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Jimmy Green sr. Jimmy Green sr. Jimmy Green sr."
                     >
                       <span
                         class="ant-table-row-indent indent-level-3"
-                        style="padding-left: 45px;"
+                        style="padding-left:45px"
                       />
                       <button
                         aria-expanded="true"
@@ -21652,7 +21546,7 @@ Array [
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                     >
                       <label
                         class="ant-checkbox-wrapper"
@@ -21663,7 +21557,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -21673,12 +21566,12 @@ Array [
                     </td>
                     <td
                       class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis ant-table-cell-with-append"
-                      style="position: sticky; left: 0px;"
+                      style="position:sticky;left:0"
                       title="Joe Black"
                     >
                       <span
                         class="ant-table-row-indent indent-level-0"
-                        style="padding-left: 0px;"
+                        style="padding-left:0px"
                       />
                       <button
                         aria-expanded="true"
@@ -21812,29 +21705,29 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
         >
           <div
             class="ant-table-header"
-            style="overflow: hidden;"
+            style="overflow:hidden"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout:fixed"
             >
               <colgroup>
                 <col
-                  style="width: 150px;"
+                  style="width:150px"
                 />
                 <col
-                  style="width: 0px;"
+                  style="width:0"
                 />
                 <col
-                  style="width: 0px;"
+                  style="width:0"
                 />
                 <col
-                  style="width: 0px;"
+                  style="width:0"
                 />
                 <col
-                  style="width: 200px;"
+                  style="width:200px"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width:100px"
                 />
               </colgroup>
               <thead
@@ -21877,92 +21770,92 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
           </div>
           <div
             class="virtual-grid"
-            style="position: relative; height: 300px; width: 0px; overflow: auto; will-change: transform; direction: ltr;"
+            style="position:relative;height:300px;width:0;overflow:auto;-webkit-overflow-scrolling:touch;will-change:transform;direction:ltr"
           >
             <div
-              style="height: 5000028px; width: 350px;"
+              style="height:5000028px;width:350px"
             >
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 0px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:0;height:54px;width:150px"
               >
                 0
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 0px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:0;height:54px;width:0"
               >
                 0
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 54px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:54px;height:54px;width:150px"
               >
                 1
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 54px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:54px;height:54px;width:0"
               >
                 1
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 108px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:108px;height:54px;width:150px"
               >
                 2
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 108px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:108px;height:54px;width:0"
               >
                 2
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 162px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:162px;height:54px;width:150px"
               >
                 3
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 162px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:162px;height:54px;width:0"
               >
                 3
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 216px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:216px;height:54px;width:150px"
               >
                 4
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 216px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:216px;height:54px;width:0"
               >
                 4
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 270px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:270px;height:54px;width:150px"
               >
                 5
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 270px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:270px;height:54px;width:0"
               >
                 5
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 0px; top: 324px; height: 54px; width: 150px;"
+                style="position:absolute;left:0;top:324px;height:54px;width:150px"
               >
                 6
               </div>
               <div
                 class="virtual-table-cell"
-                style="position: absolute; left: 150px; top: 324px; height: 54px; width: 0px;"
+                style="position:absolute;left:150px;top:324px;height:54px;width:0"
               >
                 6
               </div>

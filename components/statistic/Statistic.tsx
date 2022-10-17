@@ -38,12 +38,21 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
-    loading,
+    loading = false,
     direction,
     onMouseEnter,
     onMouseLeave,
+    decimalSeparator = '.',
+    groupSeparator = ',',
   } = props;
-  const valueNode = <StatisticNumber {...props} value={value} />;
+  const valueNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      {...props}
+      value={value}
+    />
+  );
   const cls = classNames(
     prefixCls,
     {
@@ -63,12 +72,6 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
       </Skeleton>
     </div>
   );
-};
-
-Statistic.defaultProps = {
-  decimalSeparator: '.',
-  groupSeparator: ',',
-  loading: false,
 };
 
 const WrapperStatistic = withConfigConsumer<StatisticProps>({

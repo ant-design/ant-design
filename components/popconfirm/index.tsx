@@ -77,7 +77,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const onOpenChange = (value: boolean) => {
-    const { disabled } = props;
+    const { disabled = false } = props;
     if (disabled) {
       return;
     }
@@ -86,7 +86,10 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const {
     prefixCls: customizePrefixCls,
-    placement,
+    placement = 'top',
+    trigger = 'click',
+    okType = 'primary',
+    icon = <ExclamationCircleFilled />,
     children,
     overlayClassName,
     ...restProps
@@ -98,12 +101,17 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   return (
     <Popover
       {...restProps}
+      trigger={trigger}
       prefixCls={prefixCls}
       placement={placement}
       onOpenChange={onOpenChange}
       open={open}
+      ref={ref}
+      overlayClassName={overlayClassNames}
       _overlay={
         <Overlay
+          okType={okType}
+          icon={icon}
           {...props}
           prefixCls={prefixCls}
           close={close}
@@ -111,8 +119,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onCancel={onCancel}
         />
       }
-      overlayClassName={overlayClassNames}
-      ref={ref as any}
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -125,13 +131,5 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     </Popover>
   );
 });
-
-Popconfirm.defaultProps = {
-  placement: 'top' as PopconfirmProps['placement'],
-  trigger: 'click' as PopconfirmProps['trigger'],
-  okType: 'primary' as PopconfirmProps['okType'],
-  icon: <ExclamationCircleFilled />,
-  disabled: false,
-};
 
 export default Popconfirm;

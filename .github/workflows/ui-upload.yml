@@ -11,13 +11,20 @@ permissions:
   contents: read
 
 jobs:
+  wait:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait
+        run: sleep 60
   upload-ui:
     permissions:
       actions: read  # for dawidd6/action-download-artifact to query and download artifacts
       pull-requests: read  # for dawidd6/action-download-artifact to query commit hash
     name: deploy preview
     runs-on: ubuntu-latest
+    needs: wait
     if: >
+      github.repository == 'ant-design/ant-design' &&
       github.event.workflow_run.conclusion == 'success'
     steps:
       - name: checkout

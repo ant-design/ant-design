@@ -7,63 +7,58 @@ import defaultLocaleData from './default';
 export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
 
 export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleComponentName> {
-  componentName: C;
+  componentName?: C;
   defaultLocale?: Locale[C] | (() => Locale[C]);
-  children: (locale: Locale[C], localeCode?: string, fullLocale?: object) => React.ReactNode;
+  children: (
+    locale: NonNullable<Locale[C]>,
+    localeCode: string,
+    fullLocale: Locale,
+  ) => React.ReactElement;
 }
 
-export default class LocaleReceiver<
-  C extends LocaleComponentName = LocaleComponentName,
-> extends React.Component<LocaleReceiverProps<C>> {
-  static defaultProps = {
-    componentName: 'global',
-  };
+const LocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
+  props: LocaleReceiverProps<C>,
+) => {
+  const { componentName = 'global' as C, defaultLocale, children } = props;
+  const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
-  static contextType = LocaleContext;
-
-  context: LocaleContextProps;
-
-  getLocale(): Locale[C] {
-    const { componentName, defaultLocale } = this.props;
-    const locale = defaultLocale || defaultLocaleData[componentName ?? 'global'];
-    const antLocale = this.context;
-    const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
+  const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
+    const locale = defaultLocale || defaultLocaleData[componentName];
+    const localeFromContext = antLocale?.[componentName] ?? {};
     return {
       ...(locale instanceof Function ? locale() : locale),
       ...(localeFromContext || {}),
     };
-  }
+  }, [componentName, defaultLocale, antLocale]);
 
-  getLocaleCode() {
-    const antLocale = this.context;
+  const getLocaleCode = React.useMemo<string>(() => {
     const localeCode = antLocale && antLocale.locale;
     // Had use LocaleProvide but didn't set locale
     if (antLocale && antLocale.exist && !localeCode) {
       return defaultLocaleData.locale;
     }
-    return localeCode;
-  }
+    return localeCode!;
+  }, [antLocale]);
 
-  render() {
-    return this.props.children(this.getLocale(), this.getLocaleCode(), this.context);
-  }
-}
+  return children(getLocale, getLocaleCode, antLocale!);
+};
 
-export function useLocaleReceiver<T extends LocaleComponentName>(
-  componentName: T,
-  defaultLocale?: Locale[T] | Function,
-): [Locale[T]] {
-  const antLocale = React.useContext(LocaleContext);
+export default LocaleReceiver;
 
-  const componentLocale = React.useMemo(() => {
-    const locale = defaultLocale || defaultLocaleData[componentName || 'global'];
-    const localeFromContext = componentName && antLocale ? antLocale[componentName] : {};
+export const useLocaleReceiver = <C extends LocaleComponentName = LocaleComponentName>(
+  componentName: C,
+  defaultLocale?: Locale[C] | (() => Locale[C]),
+): [Locale[C]] => {
+  const antLocale = React.useContext<LocaleContextProps | undefined>(LocaleContext);
 
+  const getLocale = React.useMemo<NonNullable<Locale[C]>>(() => {
+    const locale = defaultLocale || defaultLocaleData[componentName];
+    const localeFromContext = antLocale?.[componentName] ?? {};
     return {
-      ...(typeof locale === 'function' ? (locale as Function)() : locale),
+      ...(typeof locale === 'function' ? locale() : locale),
       ...(localeFromContext || {}),
     };
   }, [componentName, defaultLocale, antLocale]);
 
-  return [componentLocale];
-}
+  return [getLocale];
+};

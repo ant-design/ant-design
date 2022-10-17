@@ -168,35 +168,17 @@ const Modal: React.FC<ModalProps> = props => {
     `\`visible\` will be removed in next major version, please use \`open\` instead.`,
   );
 
-  const renderFooter = (locale: ModalLocale) => {
-    const { okText, okType, cancelText, confirmLoading } = props;
-    return (
-      <>
-        <Button onClick={handleCancel} {...props.cancelButtonProps}>
-          {cancelText || locale.cancelText}
-        </Button>
-        <Button
-          {...convertLegacyProps(okType)}
-          loading={confirmLoading}
-          onClick={handleOk}
-          {...props.okButtonProps}
-        >
-          {okText || locale.okText}
-        </Button>
-      </>
-    );
-  };
-
   const {
     prefixCls: customizePrefixCls,
     footer,
     visible,
-    open,
+    open = false,
     wrapClassName,
     centered,
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
+    width = 520,
     ...restProps
   } = props;
 
@@ -205,7 +187,25 @@ const Modal: React.FC<ModalProps> = props => {
 
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {renderFooter}
+      {contextLocale => {
+        const { okText, okType = 'primary', cancelText, confirmLoading = false } = props;
+
+        return (
+          <>
+            <Button onClick={handleCancel} {...props.cancelButtonProps}>
+              {cancelText || contextLocale.cancelText}
+            </Button>
+            <Button
+              {...convertLegacyProps(okType)}
+              loading={confirmLoading}
+              onClick={handleOk}
+              {...props.okButtonProps}
+            >
+              {okText ?? contextLocale.okText}
+            </Button>
+          </>
+        );
+      }}
     </LocaleReceiver>
   );
 
@@ -222,6 +222,7 @@ const Modal: React.FC<ModalProps> = props => {
   return (
     <NoFormStyle status override>
       <Dialog
+        width={width}
         {...restProps}
         getContainer={
           getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
@@ -239,13 +240,6 @@ const Modal: React.FC<ModalProps> = props => {
       />
     </NoFormStyle>
   );
-};
-
-Modal.defaultProps = {
-  width: 520,
-  confirmLoading: false,
-  open: false,
-  okType: 'primary' as LegacyButtonType,
 };
 
 export default Modal;

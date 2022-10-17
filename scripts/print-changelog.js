@@ -8,7 +8,6 @@ const open = require('open');
 const fs = require('fs-extra');
 const path = require('path');
 const simpleGit = require('simple-git');
-const inquirer = require('inquirer');
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
@@ -36,6 +35,8 @@ const MAINTAINERS = [
   'fireairforce',
   'kerm1it',
   'madccc',
+  'MadCcc',
+  'li-jia-nan',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -53,6 +54,7 @@ function getDescription(entity) {
 
 async function printLog() {
   const tags = await git.tags();
+  const { default: inquirer } = await import('inquirer');
   const { fromVersion } = await inquirer.prompt([
     {
       type: 'list',

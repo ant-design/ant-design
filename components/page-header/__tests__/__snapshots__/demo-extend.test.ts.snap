@@ -18,7 +18,7 @@ Array [
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
             tabindex="0"
           >
             <span
@@ -63,7 +63,7 @@ Array [
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -76,7 +76,7 @@ Array [
           </div>
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -241,7 +241,7 @@ Array [
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
             tabindex="0"
           >
             <span
@@ -295,7 +295,7 @@ Array [
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -308,7 +308,7 @@ Array [
           </div>
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -360,7 +360,7 @@ Array [
         </div>
         <div
           class="ant-statistic"
-          style="margin: 0px 32px;"
+          style="margin:0 32px"
         >
           <div
             class="ant-statistic-title"
@@ -446,7 +446,7 @@ exports[`renders ./components/page-header/demo/basic.md extend context correctly
           aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
-          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
           <span
@@ -665,7 +665,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right:8px"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -678,7 +678,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right:8px"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -691,7 +691,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right:8px"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -713,7 +713,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
               aria-label="more"
               class="anticon anticon-more"
               role="img"
-              style="font-size: 20px;"
+              style="font-size:20px"
             >
               <svg
                 aria-hidden="true"
@@ -732,8 +732,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
           </button>
           <div>
             <div
-              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-              style="opacity: 0;"
+              class="ant-dropdown"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -743,7 +743,6 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
               >
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-1"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -761,8 +760,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -783,7 +782,6 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-2"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -801,8 +799,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -823,7 +821,6 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </div>
                 <li
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-3"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -841,8 +838,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </li>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -864,12 +861,12 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
               </ul>
               <div
                 aria-hidden="true"
-                style="display: none;"
+                style="display:none"
               >
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -890,8 +887,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -912,8 +909,8 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 </div>
                 <div>
                   <div
-                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                    style="opacity: 0;"
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -946,7 +943,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
       class="ant-row"
     >
       <div
-        style="flex: 1;"
+        style="flex:1"
       >
         <div
           class="ant-typography"
@@ -1025,7 +1022,7 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
             aria-label="Back"
             class="ant-page-header-back-button"
             role="button"
-            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+            style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
             tabindex="0"
           >
             <span
@@ -1070,7 +1067,7 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -1083,7 +1080,7 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
           </div>
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right:8px"
           >
             <button
               class="ant-btn ant-btn-default"
@@ -1251,7 +1248,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
-          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
           <span
@@ -1296,7 +1293,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right:8px"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -1309,7 +1306,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
+          style="margin-right:8px"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -1470,11 +1467,11 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
         class="extra"
       >
         <div
-          style="display: flex; justify-content: flex-end;"
+          style="display:flex;width:max-content;justify-content:flex-end"
         >
           <div
             class="ant-statistic"
-            style="margin-right: 32px;"
+            style="margin-right:32px"
           >
             <div
               class="ant-statistic-title"
@@ -1542,16 +1539,14 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
         >
           <div
             class="ant-tabs-nav-list"
-            style="transform: translate(0px, 0px);"
+            style="transform:translate(0px, 0px)"
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
-                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1562,10 +1557,8 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
               class="ant-tabs-tab"
             >
               <div
-                aria-controls="rc-tabs-test-panel-test"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-test"
                 role="tab"
                 tabindex="0"
               >
@@ -1581,13 +1574,13 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
         >
           <button
-            aria-controls="rc-tabs-test-more-popup"
+            aria-controls="null-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-hidden="true"
             class="ant-tabs-nav-more"
-            id="rc-tabs-test-more"
-            style="visibility: hidden; order: 1;"
+            id="null-more"
+            style="visibility:hidden;order:1"
             tabindex="-1"
             type="button"
           >
@@ -1613,20 +1606,20 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           </button>
           <div>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-              style="opacity: 0;"
+              class="ant-tabs-dropdown"
+              style="opacity:0"
             >
               <ul
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                 data-menu-list="true"
-                id="rc-tabs-test-more-popup"
+                id="null-more-popup"
                 role="listbox"
                 tabindex="-1"
               />
               <div
                 aria-hidden="true"
-                style="display: none;"
+                style="display:none"
               />
             </div>
           </div>
@@ -1640,9 +1633,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
         >
           <div
             aria-hidden="false"
-            aria-labelledby="rc-tabs-test-tab-test"
             class="ant-tabs-tabpane ant-tabs-tabpane-active"
-            id="rc-tabs-test-panel-test"
             role="tabpanel"
             tabindex="0"
           />

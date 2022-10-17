@@ -63,9 +63,9 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement> | { target: any }) => {
-      const { visibilityHeight } = props;
+      const { visibilityHeight = 400 } = props;
       const scrollTop = getScroll(e.target, true);
-      setVisible(scrollTop > visibilityHeight!);
+      setVisible(scrollTop > visibilityHeight);
     },
   );
 
@@ -129,10 +129,6 @@ const BackTop: React.FC<BackTopProps> = props => {
       </BackTopContent>
     </div>
   );
-};
-
-BackTop.defaultProps = {
-  visibilityHeight: 400,
 };
 
 export default React.memo(BackTop);
