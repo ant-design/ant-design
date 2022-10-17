@@ -396,6 +396,15 @@ describe('Typography', () => {
         expect(onEnd).toHaveBeenCalledTimes(1);
       });
 
+      it('should trigger onStart when type Start', () => {
+        const onStart = jest.fn();
+        const { container: wrapper } = render(<Paragraph editable={{ onStart }}>Bamboo</Paragraph>);
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.A });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.A });
+        expect(onStart).toHaveBeenCalledTimes(1);
+      });
+
       it('should trigger onCancel when type ESC', () => {
         const onCancel = jest.fn();
         const { container: wrapper } = render(
