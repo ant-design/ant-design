@@ -25,6 +25,7 @@ timeline: true
 - 🛠 Refactor Spin with Function Component. [#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Breadcrumb not support number `0`. [#38006](https://github.com/ant-design/ant-design/pull/38006) [@li-jia-nan](https://github.com/li-jia-nan)
 - Input
+  - 🐞 Fix Input.TextArea render extra input node when enable `autoSize`. [#38050](https://github.com/ant-design/ant-design/pull/38050)
   - 🐞 Fix Input.Password that should not have value prop on input after click toggle icon. [#37900](https://github.com/ant-design/ant-design/pull/37900) [@linxianxi](https://github.com/linxianxi)
   - 💄 Fix border style issues for Input.Search in RTL. [#37980](https://github.com/ant-design/ant-design/pull/37980) [@foryuki](https://github.com/foryuki)
 - 🐞 Fix AutoComplete warning for unused `dropdownClassName`. [#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)

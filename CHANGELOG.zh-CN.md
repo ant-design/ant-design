@@ -25,6 +25,7 @@ timeline: true
 - 🛠 重构 Spin 为 Function Component。[#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Breadcrumb 不支持数字 `0` 的问题。[#38006](https://github.com/ant-design/ant-design/pull/38006) [@li-jia-nan](https://github.com/li-jia-nan)
 - Input
+  - 🐞 修复 Input.TextArea 配置 `autoSize` 时会额外渲染 input 节点的问题。[#38050](https://github.com/ant-design/ant-design/pull/38050)
   - 🐞 修复 Input.Password 在点击隐藏按钮后 input 上会有 value 属性的问题。[#37900](https://github.com/ant-design/ant-design/pull/37900) [@linxianxi](https://github.com/linxianxi)
   - 💄 修复 RTL 下 Input.Search 边框样式问题。[#37980](https://github.com/ant-design/ant-design/pull/37980) [@foryuki](https://github.com/foryuki)
 - 🐞 修复 AutoComplete 会报未使用的废弃属性 `dropdownClassName` 的问题。[#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)
