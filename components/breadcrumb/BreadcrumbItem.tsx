@@ -43,7 +43,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
     return breadcrumbItem;
   };
 
-  let link;
+  let link: React.ReactNode;
   if ('href' in restProps) {
     link = (
       <a className={`${prefixCls}-link`} {...restProps}>
@@ -60,7 +60,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 
   // wrap to dropDown
   link = renderBreadcrumbNode(link);
-  if (children) {
+  if (children !== undefined && children !== null) {
     return (
       <li>
         {link}

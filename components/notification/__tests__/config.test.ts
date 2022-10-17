@@ -1,5 +1,5 @@
 import notification, { getInstance } from '..';
-import { sleep, act } from '../../../tests/utils';
+import { waitFakeTimer, act } from '../../../tests/utils';
 
 describe('notification.config', () => {
   beforeEach(() => {
@@ -32,24 +32,19 @@ describe('notification.config', () => {
       });
     });
 
-    await act(async () => {
-      await Promise.resolve();
-    });
+    await waitFakeTimer();
 
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(5);
     expect(document.querySelectorAll('.ant-notification-notice')[4]?.textContent).toBe(
       'Notification last',
     );
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
-    await act(async () => {
-      await sleep(500);
-    });
     expect((await getInstance('ant-notification-topRight'))?.component.state.notices).toHaveLength(
       0,
     );
+
+    jest.useRealTimers();
   });
 });
