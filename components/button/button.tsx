@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
+import { useComposeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -177,7 +177,8 @@ const InternalButton: React.ForwardRefRenderFunction<ButtonTypeElement, ButtonPr
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
 
   const buttonNodeRef = React.useRef<ButtonTypeElement>(null);
-  const buttonRef = composeRef<ButtonTypeElement>(ref, buttonNodeRef);
+
+  const buttonRef = useComposeRef<ButtonTypeElement>(ref, buttonNodeRef);
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
