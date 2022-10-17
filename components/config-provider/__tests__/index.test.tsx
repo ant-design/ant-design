@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
+import InputNumber from '../../input-number';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -132,5 +133,40 @@ describe('ConfigProvider', () => {
 
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
+  });
+
+  it('control spellCheck by ConfigProvider', () => {
+    const App: React.FC = () => (
+      <>
+        <Input />
+        <InputNumber />
+        <Input.TextArea />
+        <Input.Search />
+      </>
+    );
+
+    const { container } = render(
+      <ConfigProvider
+        input={{ spellCheck: false }}
+        search={{ spellCheck: false }}
+        textarea={{ spellCheck: false }}
+        inputNumber={{ spellCheck: false }}
+      >
+        <App />
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('[spellcheck="false"]').length).toBe(4);
+
+    const { container: container2 } = render(
+      <ConfigProvider
+        input={{ spellCheck: true }}
+        search={{ spellCheck: true }}
+        textarea={{ spellCheck: true }}
+        inputNumber={{ spellCheck: true }}
+      >
+        <App />
+      </ConfigProvider>,
+    );
+    expect(container2.querySelectorAll('[spellcheck="true"]').length).toBe(4);
   });
 });

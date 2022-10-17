@@ -78,8 +78,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     },
     ref,
   ) => {
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction, textarea } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
+
+    // ===================== spellCheck =====================
+    const mergedSpellCheck = props.spellCheck ?? textarea?.spellCheck;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -195,6 +198,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         )}
         style={showCount ? { resize: style?.resize } : style}
         prefixCls={prefixCls}
+        spellCheck={mergedSpellCheck}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
         onCompositionEnd={onInternalCompositionEnd}

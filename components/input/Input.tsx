@@ -144,6 +144,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
+  // ===================== spellCheck =====================
+  const mergedSpellCheck = rest.spellCheck ?? input?.spellCheck;
+
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
@@ -229,6 +232,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       {...rest}
       disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
+      spellCheck={mergedSpellCheck}
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}

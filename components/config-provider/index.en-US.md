@@ -48,7 +48,10 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | Set icon prefix className (cooperated with [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106)) | string | `anticon` | 4.11.0 |
-| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
+| input | Set Input common props | { autoComplete?: string, spellCheck?: boolean } | - | 4.2.0 |
+| search | Set Input.Search common props | { spellCheck?: boolean } | - | 4.2.0 |
+| textarea | Set Input.Textarea common props | { spellCheck?: boolean } | - | 4.2.0 |
+| inputNumber | Set InputNumber common props | { spellCheck?: boolean } | - | 4.2.0 |
 | locale | Language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | - |  |
 | pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
 | prefixCls | Set prefix className (cooperated with [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)) | string | `ant` |  |
