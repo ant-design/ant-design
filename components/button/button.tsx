@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -131,16 +131,22 @@ export type NativeButtonProps = {
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLElement>> {
+type ButtonTypeElement = HTMLAnchorElement | HTMLButtonElement;
+
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  ButtonProps & React.RefAttributes<ButtonTypeElement>
+> & {
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
 type Loading = number | boolean;
 
-const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {
+const InternalButton: React.ForwardRefRenderFunction<ButtonTypeElement, ButtonProps> = (
+  props,
+  ref,
+) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -156,7 +162,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     block = false,
     /** If we extract items here, we don't need use omit.js */
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-    htmlType = 'button' as ButtonProps['htmlType'],
+    htmlType = 'button',
     ...rest
   } = props;
 
@@ -169,17 +175,23 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
-  const buttonRef = (ref as any) || React.createRef<HTMLElement>();
+
+  const buttonNodeRef = React.useRef<ButtonTypeElement>(null);
+  const buttonRef = composeRef<ButtonTypeElement>(ref, buttonNodeRef);
 
   const isNeedInserted = () =>
     React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
   const fixTwoCNChar = () => {
     // Fix for HOC usage like <FormatMessage />
-    if (!buttonRef || !buttonRef.current || autoInsertSpaceInButton === false) {
+    if (
+      !buttonRef ||
+      !(buttonRef as React.RefObject<ButtonTypeElement>).current ||
+      autoInsertSpaceInButton === false
+    ) {
       return;
     }
-    const buttonText = buttonRef.current.textContent;
+    const buttonText = (buttonRef as React.RefObject<ButtonTypeElement>).current?.textContent;
     if (isNeedInserted() && isTwoCNChar(buttonText)) {
       if (!hasTwoCNChar) {
         setHasTwoCNChar(true);
@@ -192,38 +204,35 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   // =============== Update Loading ===============
   const loadingOrDelay: Loading = typeof loading === 'boolean' ? loading : loading?.delay || true;
 
-  React.useEffect(() => {
-    let delayTimer: number | null = null;
+  const delayTimerRef = React.useRef<NodeJS.Timer | null>(null);
 
+  React.useEffect(() => {
     if (typeof loadingOrDelay === 'number') {
-      delayTimer = window.setTimeout(() => {
-        delayTimer = null;
+      delayTimerRef.current = setTimeout(() => {
         setLoading(loadingOrDelay);
       }, loadingOrDelay);
     } else {
       setLoading(loadingOrDelay);
     }
-
     return () => {
-      if (delayTimer) {
+      if (delayTimerRef.current) {
         // in order to not perform a React state update on an unmounted component
         // and clear timer after 'loadingOrDelay' updated.
-        window.clearTimeout(delayTimer);
-        delayTimer = null;
+        clearTimeout(delayTimerRef.current);
       }
     };
   }, [loadingOrDelay]);
 
   React.useEffect(fixTwoCNChar, [buttonRef]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent<ButtonTypeElement, MouseEvent>) => {
     const { onClick } = props;
     // https://github.com/ant-design/ant-design/issues/30207
     if (innerLoading || mergedDisabled) {
       e.preventDefault();
       return;
     }
-    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
+    (onClick as React.MouseEventHandler<ButtonTypeElement>)?.(e);
   };
 
   warning(
@@ -281,7 +290,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   if (linkButtonRestProps.href !== undefined) {
     return (
-      <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
+      <a
+        {...linkButtonRestProps}
+        className={classes}
+        onClick={handleClick}
+        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+      >
         {iconNode}
         {kids}
       </a>
@@ -290,12 +304,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const buttonNode = (
     <button
-      {...(rest as NativeButtonProps)}
+      {...rest}
       type={htmlType}
       className={classes}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef}
+      ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
       {kids}
@@ -309,7 +323,10 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
 };
 
-const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
+const Button = React.forwardRef<ButtonTypeElement, ButtonProps>(
+  InternalButton,
+) as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Button.displayName = 'Button';
 }
