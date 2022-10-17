@@ -17,7 +17,6 @@ describe('Typography.Ellipsis', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
   let getWidthTimes = 0;
-  let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
 
   beforeAll(() => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
@@ -42,10 +41,6 @@ describe('Typography.Ellipsis', () => {
         return { height: lines * 16 };
       },
     });
-
-    computeSpy = jest
-      .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ fontSize: 12 } as unknown as CSSStyleDeclaration));
   });
 
   afterEach(() => {
@@ -56,7 +51,6 @@ describe('Typography.Ellipsis', () => {
   afterAll(() => {
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
-    computeSpy.mockRestore();
   });
 
   const fullStr =
@@ -196,43 +190,6 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
     expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr + suffix);
-
-    unmount();
-  });
-
-  it('should use editConfig.text over children in editing mode ', async () => {
-    const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
-    const { container: wrapper, unmount } = render(
-      <Base
-        ellipsis={{ rows: 1, suffix }}
-        component="p"
-        editable={{ text: fullStr + suffix }}
-        ref={ref}
-      >
-        {fullStr}
-      </Base>,
-    );
-
-    fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
-
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr + suffix);
-
-    unmount();
-  });
-
-  it('should use children as the fallback of editConfig.text in editing mode', async () => {
-    const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
-    const { container: wrapper, unmount } = render(
-      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref} editable>
-        {fullStr}
-      </Base>,
-    );
-
-    fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
-
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr);
 
     unmount();
   });
