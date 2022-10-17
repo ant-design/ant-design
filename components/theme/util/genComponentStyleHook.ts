@@ -7,7 +7,6 @@ import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
 import type { ComponentTokenMap, GlobalToken } from '../interface';
-import warning from '../../_util/warning';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -47,19 +46,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
-
-    if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
-      /* istanbul ignore next */
-      warning(
-        false,
-        'Next',
-        '\n\nYou are using dev version, ' +
-          'which is used for validating and may not same as final release version.\n\n' +
-          'DO NOT USE IN YOUR PRODUCTION!\n\n' +
-          'Ref:#33862 - What is in experimental?\n' +
-          'https://github.com/ant-design/ant-design/issues/33862#user-content-alpha-offset',
-      );
-    }
 
     // Generate style for all a tags in antd component.
     useStyleRegister({ theme, token, hashId, path: ['Shared', rootPrefixCls] }, () => [
