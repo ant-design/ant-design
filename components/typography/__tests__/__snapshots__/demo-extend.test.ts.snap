@@ -1145,12 +1145,13 @@ Array [
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   >
     This is a loooooooooooooooooooooooooooooooong editable text
+    <!-- -->
     with suffix.
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
       <span
@@ -1175,8 +1176,8 @@ Array [
     </div>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1199,13 +1200,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; word-break: keep-all; white-space: nowrap;"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 14px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
     >
       <span
         aria-hidden="true"
@@ -1217,7 +1218,7 @@ Array [
         aria-label="Edit"
         class="ant-typography-edit"
         role="button"
-        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
         tabindex="0"
       >
         <span
@@ -1242,8 +1243,8 @@ Array [
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1322,9 +1323,7 @@ Array [
       </div>
     </div>
   </div>,
-  Trigger edit with:,
-  <!-- -->,
-   ,
+  Trigger edit with: ,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
