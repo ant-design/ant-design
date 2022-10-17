@@ -191,7 +191,7 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
-    "antd-img-crop": "4.2.5",
+    "antd-img-crop": "4.2.8",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "^3.7.0-alpha.4",
