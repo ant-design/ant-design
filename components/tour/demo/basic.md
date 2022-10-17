@@ -40,7 +40,6 @@ const App: React.FC = () => {
 
       <Tour
         defaultCurrent={0}
-        open={false}
         steps={[
           {
             title: '创建',

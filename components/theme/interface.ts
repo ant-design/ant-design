@@ -43,6 +43,7 @@ import type { ComponentToken as TooltipComponentToken } from '../tooltip/style';
 import type { ComponentToken as TransferComponentToken } from '../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../upload/style';
+import type { ComponentToken as TourComponentToken } from '../tour/style';
 
 export const PresetColors = [
   'blue',
@@ -130,6 +131,7 @@ export interface ComponentTokenMap {
   Table?: TableComponentToken;
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
+  Tour?: TourComponentToken;
 }
 
 export type OverrideToken = {

@@ -1,7 +1,6 @@
-import classNames from 'classnames';
 import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
-// import RCTour from '../../../tour/src/index';
+import classNames from 'classnames';
 import RenderPanel from './RenderPanel';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';

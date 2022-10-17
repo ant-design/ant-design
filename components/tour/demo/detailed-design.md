@@ -23,16 +23,9 @@ const App: React.FC = () => {
   const createBtnRef = useRef<HTMLButtonElement>(null);
   const updateBtnRef = useRef<HTMLButtonElement>(null);
   const deleteBtnRef = useRef<HTMLButtonElement>(null);
-  const [open, setOpen] = React.useState(false);
+
   return (
     <div style={{ margin: 20 }}>
-      <button
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        Open: {String(open)}
-      </button>
       <div>
         <Button type="primary" ref={createBtnRef} style={{ marginLeft: 100 }}>
           Create
@@ -48,7 +41,6 @@ const App: React.FC = () => {
 
       <Tour
         defaultCurrent={0}
-        open={open}
         steps={[
           {
             title: '引导标题',
