@@ -30,6 +30,7 @@ timeline: true
 - 🐞 Fix AutoComplete warning for unused `dropdownClassName`. [#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)
 - 🐞 Fix Typography with ellipsis that the computed `fontSize` style be calculated as empty string in some case. [#37928](https://github.com/ant-design/ant-design/pull/37928) [@zheeeng](https://github.com/zheeeng)
 - 🐞 Fix editable Tabs add button missing in edge case. [#37937](https://github.com/ant-design/ant-design/pull/37937)
+- 🐞 Fix RangePicker panel blink in some case. [#439](https://github.com/react-component/picker/pull/439)
 - 🛠 Refactor Spin with Function Component. [#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 Refactor Statistic.Countdown with Function Component. [#37938](https://github.com/ant-design/ant-design/pull/37938) [@li-jia-nan](https://github.com/li-jia-nan)
 

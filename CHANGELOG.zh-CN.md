@@ -30,6 +30,7 @@ timeline: true
 - 🐞 修复 AutoComplete 会报未使用的废弃属性 `dropdownClassName` 的问题。[#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)
 - 🐞 修复 Typography 省略算法在计算一些元素 fontSize 时为空字符串的情况[#37928](https://github.com/ant-design/ant-design/pull/37928) [@zheeeng](https://github.com/zheeeng)
 - 🐞 Fix Tabs 添加按钮在某些边界情况下无法展示的问题。[#37937](https://github.com/ant-design/ant-design/pull/37937)
+- 🐞 修复 RangePicker 在某些情况下面板会闪烁的问题。[#439](https://github.com/react-component/picker/pull/439)
 - 🛠 重构 Spin 为 Function Component。[#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 重构 Statistic.Countdown 为 Function Component.[#37938](https://github.com/ant-design/ant-design/pull/37938) [@li-jia-nan](https://github.com/li-jia-nan)
 
