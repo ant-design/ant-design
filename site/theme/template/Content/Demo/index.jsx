@@ -48,12 +48,13 @@ class Demo extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { codeExpand, copied, copyTooltipOpen } = this.state;
+    const { codeExpand, copied, copyTooltipOpen, codeType } = this.state;
     const { expand, theme, showRiddleButton } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
       copyTooltipOpen !== nextState.copyTooltipOpen ||
+      codeType !== nextState.copyTooltipOpen ||
       nextProps.theme !== theme ||
       nextProps.showRiddleButton !== showRiddleButton
     );
@@ -141,7 +142,7 @@ class Demo extends React.Component {
       theme,
       showRiddleButton,
     } = props;
-    const { copied, copyTooltipOpen } = state;
+    const { copied, copyTooltipOpen, codeType } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -188,7 +189,18 @@ class Demo extends React.Component {
   </body>
 </html>`;
 
+    const tsconfig = `{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "esnext",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+  }
+}`;
+
     const [sourceCode, sourceCodeTyped] = this.getSourceCode();
+    const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
@@ -208,8 +220,10 @@ class Demo extends React.Component {
     );
 
     dependencies['@ant-design/icons'] = 'latest';
-    dependencies['@types/react'] = '^18.0.0';
-    dependencies['@types/react-dom'] = '^18.0.0';
+    if (suffix === 'tsx') {
+      dependencies['@types/react'] = '^18.0.0';
+      dependencies['@types/react-dom'] = '^18.0.0';
+    }
     dependencies.react = '^18.0.0';
     dependencies['react-dom'] = '^18.0.0';
 
@@ -325,8 +339,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
       files: {
         'package.json': { content: codesandboxPackage },
         'index.css': { content: indexCssContent },
-        'index.js': { content: indexJsContent },
-        'demo.js': { content: demoJsContent },
+        [`index.${suffix}`]: { content: indexJsContent },
+        [`demo.${suffix}`]: { content: demoJsContent },
         'index.html': {
           content: html,
         },
@@ -338,11 +352,14 @@ createRoot(document.getElementById('container')).render(<Demo />);
       dependencies,
       files: {
         'index.css': indexCssContent,
-        'index.tsx': indexJsContent,
-        'demo.tsx': demoJsContent,
+        [`index.${suffix}`]: indexJsContent,
+        [`demo.${suffix}`]: demoJsContent,
         'index.html': html,
       },
     };
+    if (suffix === 'tsx') {
+      stackblitzPrefillConfig.files['tsconfig.json'] = tsconfig;
+    }
 
     let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
@@ -428,7 +445,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 className="code-box-code-action"
                 onClick={() => {
                   this.track({ type: 'stackblitz', demo: meta.id });
-                  stackblitzSdk.openProject(stackblitzPrefillConfig, { openFile: 'demo.tsx' });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
+                    openFile: [`demo.${suffix}`],
+                  });
                 }}
               >
                 <ThunderboltOutlined className="code-box-stackblitz" />
