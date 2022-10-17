@@ -67,10 +67,13 @@ const Badge: CompoundedComponent = ({
     (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
   ) as string | number | null;
 
-  const hasStatus =
-    (status !== null && status !== undefined) || (color !== null && color !== undefined);
-
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
+
+  const ignoreCount = count === null || (count !== null && isZero);
+
+  const hasStatus =
+    ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
+    ignoreCount;
 
   const showAsDot = dot && !isZero;
 
@@ -169,9 +172,11 @@ const Badge: CompoundedComponent = ({
     return wrapSSR(
       <span {...restProps} className={classNames(badgeClassName, hashId)} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
-        <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
-          {text}
-        </span>
+        {text && (
+          <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
+            {text}
+          </span>
+        )}
       </span>,
     );
   }

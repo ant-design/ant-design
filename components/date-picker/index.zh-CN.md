@@ -180,9 +180,9 @@ import locale from 'antd/es/locale/zh_CN';
 
 请参考[常见问答](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
 
-### 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
+### 如何在 DatePicker 中使用自定义日期库（如 Moment.js ）？
 
-请参考[《替换 Day.js》](/docs/react/use-custom-date-library#DatePicker)
+请参考[《使用自定义日期库》](/docs/react/use-custom-date-library#DatePicker)
 
 ### 为什么时间类组件的国际化 locale 设置不生效？
 

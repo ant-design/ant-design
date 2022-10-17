@@ -11,10 +11,10 @@ export interface OverrideContextProps {
   onClick?: () => void;
 }
 
-/** @private Internal Usage. Only used for Dropdown component. Do not use this in your production. */
+/** @internal Only used for Dropdown component. Do not use this in your production. */
 const OverrideContext = React.createContext<OverrideContextProps | null>(null);
 
-/** @private Internal Usage. Only used for Dropdown component. Do not use this in your production. */
+/** @internal Only used for Dropdown component. Do not use this in your production. */
 export const OverrideProvider = ({
   children,
   ...restProps

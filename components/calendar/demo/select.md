@@ -20,8 +20,8 @@ import dayjs from 'dayjs';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [value, setValue] = useState(dayjs('2017-01-25'));
-  const [selectedValue, setSelectedValue] = useState(dayjs('2017-01-25'));
+  const [value, setValue] = useState(() => dayjs('2017-01-25'));
+  const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
 
   const onSelect = (newValue: Dayjs) => {
     setValue(newValue);

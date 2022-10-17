@@ -137,6 +137,7 @@ export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
+  /** @internal */
   __ANT_BUTTON: boolean;
 }
 
@@ -171,7 +172,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const size = React.useContext(SizeContext);
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);

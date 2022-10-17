@@ -17,6 +17,7 @@ describe('Typography.Ellipsis', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
   let getWidthTimes = 0;
+  let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
 
   beforeAll(() => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
@@ -41,6 +42,10 @@ describe('Typography.Ellipsis', () => {
         return { height: lines * 16 };
       },
     });
+
+    computeSpy = jest
+      .spyOn(window, 'getComputedStyle')
+      .mockImplementation(() => ({ fontSize: 12 } as unknown as CSSStyleDeclaration));
   });
 
   afterEach(() => {
@@ -51,6 +56,7 @@ describe('Typography.Ellipsis', () => {
   afterAll(() => {
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
+    computeSpy.mockRestore();
   });
 
   const fullStr =

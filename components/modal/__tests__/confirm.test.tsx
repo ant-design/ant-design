@@ -283,6 +283,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     jest.useFakeTimers();
     const onCancel = jest.fn();
     Modal.confirm({
+      // test legacy visible
+      visible: true,
       title: 'title',
       content: 'content',
       onCancel,

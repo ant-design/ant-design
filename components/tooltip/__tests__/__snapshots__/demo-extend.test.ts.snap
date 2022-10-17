@@ -12,8 +12,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -44,8 +44,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -71,7 +71,7 @@ Array [
 
 exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend context correctly 1`] = `
 <div
-  style="overflow: hidden; position: relative; padding: 24px; border: 1px solid #e9e9e9;"
+  style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
 >
   <button
     class="ant-btn ant-btn-default"
@@ -83,8 +83,8 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   </button>
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -116,8 +116,8 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   </button>
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -138,12 +138,6 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
       </div>
     </div>
   </div>
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
-  <div
-    style="position: absolute; top: 0px; left: 0px; width: 100%;"
-  />
 </div>
 `;
 
@@ -154,8 +148,8 @@ Array [
   </span>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -202,8 +196,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-pink ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-pink"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -234,8 +228,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-red ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-red"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -266,8 +260,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-yellow ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-yellow"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -298,8 +292,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-orange ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-orange"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -330,8 +324,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-cyan ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-cyan"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -362,8 +356,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-green ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-green"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -394,8 +388,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-blue ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-blue"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -426,8 +420,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-purple ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-purple"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -458,8 +452,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-geekblue ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-geekblue"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -490,8 +484,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-magenta ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-magenta"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -522,8 +516,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-volcano ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-volcano"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -554,8 +548,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-gold ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-gold"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -586,8 +580,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-tooltip-lime ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip ant-tooltip-lime"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -630,8 +624,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0; --antd-arrow-background-color: #f50;"
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#f50"
       >
         <div
           class="ant-tooltip-content"
@@ -646,7 +640,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background: rgb(255, 85, 0);"
+            style="background:#f50"
           >
             prompt text
           </div>
@@ -663,8 +657,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0; --antd-arrow-background-color: #2db7f5;"
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#2db7f5"
       >
         <div
           class="ant-tooltip-content"
@@ -679,7 +673,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background: rgb(45, 183, 245);"
+            style="background:#2db7f5"
           >
             prompt text
           </div>
@@ -696,8 +690,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0; --antd-arrow-background-color: #87d068;"
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#87d068"
       >
         <div
           class="ant-tooltip-content"
@@ -712,7 +706,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background: rgb(135, 208, 104);"
+            style="background:#87d068"
           >
             prompt text
           </div>
@@ -729,8 +723,8 @@ Array [
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0; --antd-arrow-background-color: #108ee9;"
+        class="ant-tooltip"
+        style="opacity:0;--antd-arrow-background-color:#108ee9"
       >
         <div
           class="ant-tooltip-content"
@@ -745,7 +739,7 @@ Array [
           <div
             class="ant-tooltip-inner"
             role="tooltip"
-            style="background: rgb(16, 142, 233);"
+            style="background:#108ee9"
           >
             prompt text
           </div>
@@ -763,8 +757,8 @@ Array [
   </span>,
   <div>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-      style="opacity: 0;"
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -793,7 +787,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
   class="demo"
 >
   <div
-    style="margin-left: 70px; white-space: nowrap;"
+    style="margin-left:70px;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -805,8 +799,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -839,8 +833,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -873,8 +867,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -899,7 +893,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="width: 70px; float: left;"
+    style="width:70px;float:left"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -911,8 +905,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -945,8 +939,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -979,8 +973,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1005,7 +999,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="width: 70px; margin-left: 304px;"
+    style="width:70px;margin-left:304px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1017,8 +1011,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1051,8 +1045,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1085,8 +1079,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1111,7 +1105,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="margin-left: 70px; clear: both; white-space: nowrap;"
+    style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1123,8 +1117,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1157,8 +1151,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1191,8 +1185,8 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-        style="opacity: 0;"
+        class="ant-tooltip"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1240,7 +1234,7 @@ Array [
   </div>,
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
-    style="--antd-arrow-background-color: #f50;"
+    style="--antd-arrow-background-color:#f50"
   >
     <div
       class="ant-tooltip-content"
@@ -1251,7 +1245,7 @@ Array [
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-        style="background: rgb(255, 85, 0);"
+        style="background:#f50"
       >
         Hello, Customize Color Pure Panel!
       </div>
@@ -1262,7 +1256,7 @@ Array [
   >
     <div
       class="ant-tooltip-content"
-      style="width: 200px;"
+      style="width:200px"
     >
       <div
         class="ant-tooltip-arrow"

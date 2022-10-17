@@ -1,35 +1,35 @@
 ---
 order: 7
-title: 定制主题
+title: Customize Theme
 ---
 
-Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
+Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
 
-在 5.0 版本的 Ant Design 中，我们提供了一套全新的定制主题方案。不同于 4.x 版本的 less 和 CSS 变量，有了 CSS-in-JS 的加持后，动态主题的能力也得到了加强，包括但不限于：
+In version 5.0, we provide a new way to customize themes. Different from the less and CSS variables of the 4.x version, with CSS-in-JS, the ability of theming has also been enhanced, including but not limited to:
 
-1. 支持动态切换主题；
-2. 支持同时存在多个主题；
-3. 支持针对某个/某些组件主题变量；
+1. Switching theme dynamically；
+2. Multiple themes；
+3. Customizing theme variables for some component；
 4. ...
 
-## 在 ConfigProvider 中配置主题
+## Customize theme with `ConfigProvider`
 
-通过在 ConfigProvider 中传入 theme，可以配置主题，在升级 v5 后，将默认使用 v5 的主题，以下是将主题切换至 v4 的示例：
+In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components.
+
+### Customize Design Token
+
+You can pass `theme` to ConfigProvider to customize theme. After migrate to V5, theme of V5 will be applied by default. Here's a simple example:
 
 ```tsx
 import React from 'react';
-import { ConfigProvider, Button, theme } from 'antd';
-
-const { defaultAlgorithmV4 } = theme;
+import { ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
       token: {
-        colorPrimary: '#1890ff',
-        radiusBase: 2,
+        colorPrimary: '#00b96b',
       },
-      algorithm: defaultAlgorithmV4,
     }}
   >
     <Button />
@@ -39,92 +39,49 @@ const App: React.FC = () => (
 export default App;
 ```
 
-> 完整的主题配置将会在 v4 兼容包中提供。
+You will get a theme with primary color <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`. And we can see the change in Button:
 
-## 定制主题
+![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
-`theme` 是一系列 **Design Token** 的集合，当我们传入 `theme` 后，antd 的组件就会根据相应的 **Design Token** 改变自己的样式。
+### Customize Component Token
 
-我们将依次介绍四类 **Design Token**
-
-### 基础变量（Seed Token）
-
-在大部分情况下，使用 **Seed Token** 就可以基本满足定制主题的需要，比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 **Seed Token** 计算出对应的一系列颜色并应用：
+In addition to Design Token, each component will also have its own Component Token to achieve style customization capabilities for components, and different components will not affect each other. Similarly, other Design Token of components can also be overridden in this way.
 
 ```tsx
-const theme = {
-  token: {
-    colorPrimary: '#1890ff',
-  },
-};
+import React from 'react';
+import { ConfigProvider, Radio, Checkbox } from 'antd';
+
+const App: React.FC = () => (
+  <ConfigProvider
+    theme={{
+      components: {
+        Radio: {
+          colorPrimary: '#00b96b',
+        },
+      },
+    }}
+  >
+    <Radio>Radio</Radio>
+    <Checkbox>Checkbox</Checkbox>
+  </ConfigProvider>
+);
+
+export default App;
 ```
 
-### 梯度变量（Map Token）
+In this way, we changed the primary color of Radio to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`, and Checkbox is not affected.
 
-**Map Token** 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
+![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 
-```tsx
-const theme = {
-  token: {
-    colorPrimaryBg: '#e6f7ff',
-  },
-};
-```
+## Other Ways to Use Dynamic Themes
 
-### 别名变量（Alias Token）
+### Switch Themes Dynamically
 
-Alias Token 用于批量控制某些共性组件的样式，基本上是 Map Token 别名，或者特殊处理过的 Map Token。
+In v5, dynamically switching themes is very simple for users, you can dynamically switch themes at any time through the `theme` property of `ConfigProvider` without any additional configuration.
 
-```tsx
-const theme = {
-  token: {
-    colorLink: '#1890ff',
-  },
-};
-```
+### Local Theme
 
-### 组件变量（Component Token）
-
-除了整体的 Token 链路之外，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
-
-```tsx
-const theme = {
-  components: {
-    Menu: {
-      colorItemText: 'rgba(0, 0, 0, 0.88)',
-      colorLink: '#1890ff',
-    },
-  },
-};
-```
-
-### 基本算法（algorithm)
-
-基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。在 v5 中，我们默认提供了三种算法，分别是默认算法（defaultAlgorithm）、暗色算法（darkAlgorithm）和紧凑算法（compactAlgorithm）。算法可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
-
-```tsx
-import { theme } from 'antd';
-
-const { darkAlgorithm, compactAlgorithm } = theme;
-
-const theme = {
-  algorithm: [darkAlgorithm, compactAlgorithm],
-};
-```
-
-### 演变过程
-
-![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
-
-## 动态主题的其他使用方式
-
-### 动态切换
-
-在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不用额外配置任何东西。
-
-### 局部主题
-
-可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
+By nesting `ConfigProvider` you can apply local theme to some parts of your page. Design Tokens that have not been changed in the child theme will inherit the parent theme.
 
 ```tsx
 import React from 'react';
@@ -154,9 +111,9 @@ const App: React.FC = () => (
 export default App;
 ```
 
-### 使用 Design Token
+### Consume Design Token
 
-如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
+If you want to consume the Design Token under the current theme, we provide `useToken` hook to get Design Token.
 
 ```tsx
 import React from 'react';
@@ -173,9 +130,63 @@ const App: React.FC = () => {
 export default App;
 ```
 
-### 在 umi 4 中定制主题
+## Advanced
 
-> TODO
+In Design Token, we provide a three-layer structure that is more suitable for the design, and disassemble the Design Token into three parts: Seed Token, Map Token and Alias Token. These three groups of Tokens are not simple groupings, but a three-layer derivation relationship. Map Tokens are derived from Seed Tokens, and Alias Tokens are derived from Map Tokens. In most cases, using Seed Tokens is sufficient for custom themes. But if you need a higher degree of theme customization, you need to understand the life cycle of Design Token in antd.
+
+### Life Cycle of Design Token
+
+![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
+
+### Seed Token
+
+Seed Token means the origin of all design intent. For example, we can change the theme color by changing `colorPrimary`, and the algorithm inside antd will automatically calculate and apply a series of corresponding colors according to the Seed Token:
+
+```tsx
+const theme = {
+  token: {
+    colorPrimary: '#1890ff',
+  },
+};
+```
+
+### Map Token
+
+Map Token is a gradient variable derived from Seed. It is recommended to implement custom Map Token through `theme.algorithm`, which can ensure the gradient relationship between Map Tokens. It can also be overridden by `theme.token` to modify the value of some map tokens individually.
+
+```tsx
+const theme = {
+  token: {
+    colorPrimaryBg: '#e6f7ff',
+  },
+};
+```
+
+### Alias Token
+
+Alias Token is used to control the style of some common components in batches, which is basically a Map Token alias, or a specially processed Map Token.
+
+```tsx
+const theme = {
+  token: {
+    colorLink: '#1890ff',
+  },
+};
+```
+
+### Algorithm
+
+The basic algorithm is used to expand the Seed Token into a Map Token, such as calculating a gradient color palette from a basic color, or calculating rounded corners of various sizes from a basic rounded corner. In v5, we provide three algorithms by default, namely the default algorithm (defaultAlgorithm), the dark algorithm (darkAlgorithm) and the compact algorithm (compactAlgorithm). Algorithms can be used in any combination, for example, dark and compact algorithms can be combined to get a dark and compact theme.
+
+```tsx
+import { theme } from 'antd';
+
+const { darkAlgorithm, compactAlgorithm } = theme;
+
+const theme = {
+  algorithm: [darkAlgorithm, compactAlgorithm],
+};
+```
 
 ## API
 
@@ -231,6 +242,8 @@ export default App;
 | wireframe | 线框化 | `boolean` | `false` |
 
 ### MapToken
+
+> 继承所有 SeedToken 的属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -321,7 +334,9 @@ export default App;
 | controlHeightSM | - | `number` | `16` |
 | controlHeightLG | - | `number` | `40` |
 
-### AliasToken (待补全)
+### AliasToken
+
+> 继承所有 SeedToken 和 MapToken 的属性
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -420,18 +435,18 @@ export default App;
 | screenXXLMin | - | `number` | `1599` |
 | screenXXLMax | - | `number` | `1600` |
 
-## 调试主题
+## How to Debug your Theme
 
-我们提供了帮助用户调试主题的工具：[主题编辑器](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
+We provide tools to help users debug themes: [Theme Editor](https://ant-design.github.io/antd-token-previewer/~demos/docs-theme-editor-simple)
 
-你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
+You can use this tool to freely modify Design Token to meet your theme expectations.
 
-## 主题展示
+## Theme Presets
 
-- [Ant Design 4.x 主题](https://ant-design.github.io/antd-token-previewer/~demos/docs-v4-theme)
+- [Ant Design 4.x](https://ant-design.github.io/antd-token-previewer/~demos/docs-v4-theme)
 
 ## FAQ
 
-### 为什么 `theme` 从 `undefined` 变为对象或者变为 `undefined` 时组件重新 mount 了？
+### Why component re-mounted when `theme` changed from `undefined` to some object or to `undefined`?
 
-在 ConfigProvider 中我们通过 `DesignTokenContext` 传递 context，`theme` 为 `undefined` 时不会套一层 Provider，所以从无到有或者从有到无时 React 的 VirtualDOM 结构变化，导致组件重新 mount。解决方法：将 `undefined` 替换为空对象 `{}` 即可。
+In ConfigProvider, we pass context through `DesignTokenContext`. When `theme` is `undefined`, a layer of Provider will not be set, so React VirtualDOM structure changes from scratch or from existence to nothing, causing components to be re-mounted. Solution: Replace `undefined` with an empty object `{}`.

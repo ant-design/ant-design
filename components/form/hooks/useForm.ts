@@ -7,7 +7,7 @@ import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
-  /** This is an internal usage. Do not use in your prod */
+  /** @internal: This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
     /** No! Do not use this in your code! */
     name?: string;

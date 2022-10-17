@@ -16,6 +16,7 @@ module.exports = {
     'app.header.menu.pro.components': 'Ant Design Pro Components',
     'app.header.menu.charts': 'Ant Design Charts',
     'app.header.menu.ecosystem': 'Ecosystem',
+    'app.header.menu.article.trigger': 'TOC',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
@@ -38,6 +39,8 @@ module.exports = {
     'app.demo.riddle': 'Open in Riddle',
     'app.home.introduce':
       'A design system for enterprise-level products. Create an efficient and enjoyable work experience.',
+    'app.home.pr-welcome':
+      '💡 It is an alpha version and still in progress. Contribution from community is welcome!',
     'app.home.recommend': 'Recommended',
     'app.home.popularize': 'Popular',
     'app.home.design-and-framework': 'Design language and framework',

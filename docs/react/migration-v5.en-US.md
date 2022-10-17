@@ -25,6 +25,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
 - Remove css variables and dynamic theme built on top of them.
 - Remove `lib`, only provide `dist` and `es` in package.
+- Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
 - `babel-plugin-import` is no longer supported. CSS-in-JS itself has the ability to import on demand, and plugin support is no longer required. Umi users can remove related configurations.
 
 ```diff
@@ -157,35 +158,7 @@ export default {
 
 ## Start upgrading
 
-#### Migrate with codemod
-
-> Not provided yet, coming soon after `5.0.0` release.
-
-```bash
-# Run directly through npx
-npx -p @ant-design/codemod-v5 antd5-codemod src
-
-# Or global installation
-# Use npm
-npm i -g @ant-design/codemod-v5
-# Use yarn
-yarn global add @ant-design/codemod-v5
-
-# Execute
-antd5-codemod src
-```
-
-> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
-
-At the same time, you can also use the codemod tool to apply a single change for a certain change. The following is a description of all the migration scripts:
-
-#### Install compatible package
-
-Install `@ant-design/compatible` with `v5-compatible-v4` tag:
-
-```bash
-npm install --save @ant-design/compatible@v5-compatible-v4
-```
+You can apply the changes mentioned above manually, and also we will provide codemod tool after released to help you upgrade.
 
 ## Encounter problems
 

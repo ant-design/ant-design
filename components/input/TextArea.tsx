@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
-import type ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
+import type { ResizableTextAreaRef } from 'rc-textarea/lib/ResizableTextArea';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -57,7 +57,7 @@ export interface TextAreaProps extends RcTextAreaProps {
 export interface TextAreaRef {
   focus: (options?: InputFocusOptions) => void;
   blur: () => void;
-  resizableTextArea?: ResizableTextArea;
+  resizableTextArea?: ResizableTextAreaRef;
 }
 
 const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
@@ -84,7 +84,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     const {
       status: contextStatus,
@@ -197,7 +197,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           getStatusClassNames(prefixCls, mergedStatus),
           hashId,
         )}
-        style={showCount ? undefined : style}
+        style={showCount ? { resize: style?.resize } : style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}

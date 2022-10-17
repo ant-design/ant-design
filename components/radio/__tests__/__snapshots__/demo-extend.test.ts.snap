@@ -33,7 +33,7 @@ exports[`renders ./components/radio/demo/badge.md extend context correctly 1`] =
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -72,7 +72,7 @@ exports[`renders ./components/radio/demo/badge.md extend context correctly 1`] =
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -95,7 +95,6 @@ exports[`renders ./components/radio/demo/basic.md extend context correctly 1`] =
     <input
       class="ant-radio-input"
       type="radio"
-      value=""
     />
     <span
       class="ant-radio-inner"
@@ -119,7 +118,6 @@ Array [
         class="ant-radio-input"
         disabled=""
         type="radio"
-        value=""
       />
       <span
         class="ant-radio-inner"
@@ -140,7 +138,6 @@ Array [
         class="ant-radio-input"
         disabled=""
         type="radio"
-        value=""
       />
       <span
         class="ant-radio-inner"
@@ -153,7 +150,7 @@ Array [
   <br />,
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
     type="button"
   >
     <span>
@@ -248,7 +245,7 @@ Array [
   </div>,
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -331,7 +328,7 @@ Array [
   </div>,
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
@@ -503,7 +500,7 @@ Array [
   </div>,
   <div
     class="ant-radio-group ant-radio-group-solid"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper"
@@ -680,7 +677,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md extend context corre
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -705,7 +702,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md extend context corre
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <label
         class="ant-radio-wrapper"
@@ -729,7 +726,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md extend context corre
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <label
         class="ant-radio-wrapper"
@@ -1211,7 +1208,7 @@ Array [
   </div>,
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1293,7 +1290,7 @@ Array [
   </div>,
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
-    style="margin-top: 16px;"
+    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"

@@ -46,7 +46,7 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
 | icon | Icon (appears on the right) | ReactNode | - |  |
 | overlay | The dropdown menu | [Menu](/components/menu) | - |  |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
+| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomRight` |  |
 | size | Size of the button, the same as [Button](/components/button/#API) | string | `default` |  |
 | trigger | The trigger mode which executes the dropdown action | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | type | Type of the button, the same as [Button](/components/button/#API) | string | `default` |  |
