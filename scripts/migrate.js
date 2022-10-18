@@ -73,8 +73,12 @@ components.forEach(component => {
         name,
         meta,
         html: {
-          'zh-CN': `<code src="./demo/${name}.tsx">${meta.title['zh-CN']}</code>`,
-          'en-US': `<code src="./demo/${name}.tsx">${meta.title['en-US']}</code>`,
+          'zh-CN': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
+            meta.title['zh-CN']
+          }</code>`,
+          'en-US': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
+            meta.title['en-US']
+          }</code>`,
         },
         md: content + extra,
         code: code.replace(/^```(tsx|jsx)\n|```$/g, ''),
@@ -128,7 +132,9 @@ $1`,
 
   console.log('写入', component, 'demo & demo md...');
   codes.forEach(code => {
-    const extraMeta = Object.keys(code.meta).filter(key => !['title', 'order'].includes(key));
+    const extraMeta = Object.keys(code.meta).filter(
+      key => !['title', 'order', 'debug'].includes(key),
+    );
 
     if (extraMeta.length) {
       console.log('写入额外的 meta', code.meta);
