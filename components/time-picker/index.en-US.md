@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: TimePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 demo:
@@ -30,7 +30,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/bordered.tsx">Bordered-less</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/suffix.tsx">Suffix</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -45,38 +45,38 @@ dayjs.extend(customParseFormat)
 <TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
-| Property            | Description                                                                                      | Type                                              | Default         | Version |
-| ------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------- | --------------- | ------- |
-| allowClear          | Whether allow clearing text                                                                      | boolean                                           | true            |         |
-| autoFocus           | If get focus when component mounted                                                              | boolean                                           | false           |         |
-| bordered            | Whether has border style                                                                         | boolean                                           | true            |         |
-| className           | The className of picker                                                                          | string                                            | -               |         |
-| clearIcon           | The custom clear icon                                                                            | ReactNode                                         | -               |         |
-| clearText           | The clear tooltip of icon                                                                        | string                                            | clear           |         |
-| defaultValue        | To set default time                                                                              | [dayjs](http://day.js.org/)                       | -               |         |
-| disabled            | Determine whether the TimePicker is disabled                                                     | boolean                                           | false           |         |
-| disabledTime        | To specify the time that cannot be selected                                                      | [DisabledTime](#DisabledTime)                     | -               | 4.19.0  |
-| format              | To set the time format                                                                           | string                                            | `HH:mm:ss`      |         |
-| getPopupContainer   | To set the container of the floating layer, while the default is to create a div element in body | function(trigger)                                 | -               |         |
-| hideDisabledOptions | Whether hide the options that can not be selected                                                | boolean                                           | false           |         |
-| hourStep            | Interval between hours in picker                                                                 | number                                            | 1               |         |
-| inputReadOnly       | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices)         | boolean                                           | false           |         |
-| minuteStep          | Interval between minutes in picker                                                               | number                                            | 1               |         |
-| open                | Whether to popup panel                                                                           | boolean                                           | false           |         |
-| placeholder         | Display when there's no value                                                                    | string \| \[string, string]                       | `Select a time` |         |
-| placement           | The position where the selection box pops up                                                     | `bottomLeft` `bottomRight` `topLeft` `topRight`   | bottomLeft      |         |
-| popupClassName      | The className of panel                                                                           | string                                            | -               |         |
-| popupStyle          | The style of panel                                                                               | CSSProperties                                     | -               |         |
-| renderExtraFooter   | Called from time picker panel to render some addon to its bottom                                 | () => ReactNode                                   | -               |         |
-| secondStep          | Interval between seconds in picker                                                               | number                                            | 1               |         |
-| showNow             | Whether to show `Now` button on panel                                                            | boolean                                           | -               | 4.4.0   |
-| status              | Set validation status                                                                            | 'error' \| 'warning' \| 'success' \| 'validating' | -               | 4.19.0  |
-| suffixIcon          | The custom suffix icon                                                                           | ReactNode                                         | -               |         |
-| use12Hours          | Display as 12 hours format, with default format `h:mm:ss a`                                      | boolean                                           | false           |         |
-| value               | To set time                                                                                      | [dayjs](http://day.js.org/)                       | -               |         |
-| onChange            | A callback function, can be executed when the selected time is changing                          | function(time: dayjs, timeString: string): void   | -               |         |
-| onOpenChange        | A callback function which will be called while panel opening/closing                             | (open: boolean) => void                           | -               |         |
-| onSelect            | A callback function, executes when a value is selected                                           | function(time: dayjs): void                       | -               |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| allowClear | Whether allow clearing text | boolean | true |  |
+| autoFocus | If get focus when component mounted | boolean | false |  |
+| bordered | Whether has border style | boolean | true |  |
+| className | The className of picker | string | - |  |
+| clearIcon | The custom clear icon | ReactNode | - |  |
+| clearText | The clear tooltip of icon | string | clear |  |
+| defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
+| disabled | Determine whether the TimePicker is disabled | boolean | false |  |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| format | To set the time format | string | `HH:mm:ss` |  |
+| getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
+| hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
+| hourStep | Interval between hours in picker | number | 1 |  |
+| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
+| minuteStep | Interval between minutes in picker | number | 1 |  |
+| open | Whether to popup panel | boolean | false |  |
+| placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
+| popupClassName | The className of panel | string | - |  |
+| popupStyle | The style of panel | CSSProperties | - |  |
+| renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
+| secondStep | Interval between seconds in picker | number | 1 |  |
+| showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
+| suffixIcon | The custom suffix icon | ReactNode | - |  |
+| use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
+| value | To set time | [dayjs](http://day.js.org/) | - |  |
+| onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
+| onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
+| onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
 
 #### DisabledTime
 
@@ -99,10 +99,10 @@ type DisabledTime = (now: Dayjs) => {
 
 Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
 
-| Property     | Description                                 | Type                                    | Default | Version |
-| ------------ | ------------------------------------------- | --------------------------------------- | ------- | ------- |
-| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | -       | 4.19.0  |
-| order        | Order start and end time                    | boolean                                 | true    | 4.1.0   |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
+| order | Order start and end time | boolean | true | 4.1.0 |
 
 ### RangeDisabledTime
 

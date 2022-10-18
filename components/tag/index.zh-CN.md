@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签
-type: 数据展示
+group: 数据展示
 title: Tag
 cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 demo:
@@ -31,13 +31,13 @@ demo:
 
 ### Tag
 
-| 参数      | 说明                                                       | 类型        | 默认值 | 版本  |
-| --------- | ---------------------------------------------------------- | ----------- | ------ | ----- |
-| closable  | 标签是否可以关闭（点击默认关闭）                           | boolean     | false  |       |
-| closeIcon | 自定义关闭按钮                                             | ReactNode   | -      | 4.4.0 |
-| color     | 标签色                                                     | string      | -      |       |
-| icon      | 设置图标                                                   | ReactNode   | -      |       |
-| onClose   | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e) => void | -      |       |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| closable | 标签是否可以关闭（点击默认关闭） | boolean | false |  |
+| closeIcon | 自定义关闭按钮 | ReactNode | - | 4.4.0 |
+| color | 标签色 | string | - |  |
+| icon | 设置图标 | ReactNode | - |  |
+| onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e) => void | - |  |
 
 ### Tag.CheckableTag
 

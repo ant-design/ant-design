@@ -1,10 +1,12 @@
 ---
 category: Components
-type: Feedback
 title: Alert
 cover: https://gw.alipayobjects.com/zos/alicdn/8emPa3fjl/Alert.svg
 demo:
   cols: 2
+group:
+  title: Feedback
+  order: 6
 ---
 
 Alert component for feedback.
@@ -31,20 +33,20 @@ Alert component for feedback.
 
 ## API
 
-| Property    | Description                                                          | Type                    | Default                                       | Version |
-| ----------- | -------------------------------------------------------------------- | ----------------------- | --------------------------------------------- | ------- |
-| action      | The action of Alert                                                  | ReactNode               | -                                             | 4.9.0   |
-| afterClose  | Called when close animation is finished                              | () => void              | -                                             |         |
-| banner      | Whether to show as banner                                            | boolean                 | false                                         |         |
-| closable    | Whether Alert can be closed                                          | boolean                 | -                                             |         |
-| closeText   | Close text to show                                                   | ReactNode               | -                                             |         |
-| closeIcon   | Custom close icon                                                    | ReactNode               | `<CloseOutlined />`                           | 4.17.0  |
-| description | Additional content of Alert                                          | ReactNode               | -                                             |         |
-| icon        | Custom icon, effective when `showIcon` is true                       | ReactNode               | -                                             |         |
-| message     | Content of Alert                                                     | ReactNode               | -                                             |         |
-| showIcon    | Whether to show icon                                                 | boolean                 | false, in `banner` mode default is true       |         |
-| type        | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string                  | `info`, in `banner` mode default is `warning` |         |
-| onClose     | Callback when Alert is closed                                        | (e: MouseEvent) => void | -                                             |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| action | The action of Alert | ReactNode | - | 4.9.0 |
+| afterClose | Called when close animation is finished | () => void | - |  |
+| banner | Whether to show as banner | boolean | false |  |
+| closable | Whether Alert can be closed | boolean | - |  |
+| closeText | Close text to show | ReactNode | - |  |
+| closeIcon | Custom close icon | ReactNode | `<CloseOutlined />` | 4.17.0 |
+| description | Additional content of Alert | ReactNode | - |  |
+| icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
+| message | Content of Alert | ReactNode | - |  |
+| showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  |
+| type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |
+| onClose | Callback when Alert is closed | (e: MouseEvent) => void | - |  |
 
 ### Alert.ErrorBoundary
 

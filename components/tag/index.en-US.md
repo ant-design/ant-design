@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tag
 cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 demo:
