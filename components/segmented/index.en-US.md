@@ -25,8 +25,8 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 <code src="./demo/size.tsx">Three sizes of Segmented</code>
 <code src="./demo/with-icon.tsx">With Icon</code>
 <code src="./demo/icon-only.tsx">With Icon only</code>
-<code src="./demo/controlled-two.tsx">Controlled Synced mode</code>
-<code src="./demo/size-consistent.tsx">Consistent height</code>
+<code src="./demo/controlled-two.tsx" debug>Controlled Synced mode</code>
+<code src="./demo/size-consistent.tsx" debug>Consistent height</code>
 
 ## API
 

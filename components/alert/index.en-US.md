@@ -28,7 +28,7 @@ Alert component for feedback.
 <code src="./demo/loop-banner.tsx">Loop Banner</code>
 <code src="./demo/smooth-closed.tsx">Smoothly Unmount</code>
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>
-<code src="./demo/custom-icon.tsx">Custom Icon</code>
+<code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
 
 ## API

@@ -29,7 +29,7 @@ demo:
 <code src="./demo/useWatch.tsx">字段监听 Hooks</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
 <code src="./demo/dynamic-form-items.tsx">动态增减嵌套字段</code>
-<code src="./demo/dynamic-form-items-no-style.tsx">动态增减嵌套纯字段</code>
+<code src="./demo/dynamic-form-items-no-style.tsx" debug>动态增减嵌套纯字段</code>
 <code src="./demo/dynamic-form-items-complex.tsx">复杂的动态增减表单项</code>
 <code src="./demo/nest-messages.tsx">嵌套结构与校验信息</code>
 <code src="./demo/complex-form-control.tsx">复杂一点的控件</code>
@@ -46,11 +46,11 @@ demo:
 <code src="./demo/validate-static.tsx">自定义校验</code>
 <code src="./demo/dynamic-rule.tsx">动态校验规则</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
-<code src="./demo/disabled-input-debug.tsx">Disabled Input Debug</code>
-<code src="./demo/dep-debug.tsx">Dep Debug</code>
-<code src="./demo/label-debug.tsx">测试 label 省略</code>
-<code src="./demo/col-24-debug.tsx">测试特殊 col 24 用法</code>
-<code src="./demo/ref-item.tsx">引用字段</code>
+<code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
+<code src="./demo/dep-debug.tsx" debug>Dep Debug</code>
+<code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
+<code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
+<code src="./demo/ref-item.tsx" debug>引用字段</code>
 
 ## API
 

@@ -26,8 +26,8 @@ demo:
 <code src="./demo/directory.tsx">目录</code>
 <code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
 <code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
-<code src="./demo/drag-debug.tsx">Drag Debug</code>
-<code src="./demo/big-data.tsx">大数据</code>
+<code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
+<code src="./demo/big-data.tsx" debug>大数据</code>
 
 ## API
 

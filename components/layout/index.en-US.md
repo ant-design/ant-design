@@ -68,7 +68,7 @@ Style of a navigation should conform to its level.
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/fixed.tsx">Fixed Header</code>
 <code src="./demo/fixed-sider.tsx">Fixed Sider</code>
-<code src="./demo/custom-trigger-debug.tsx">Custom trigger debug</code>
+<code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
 
 ## API
 

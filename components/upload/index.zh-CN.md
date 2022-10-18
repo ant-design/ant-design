@@ -34,7 +34,7 @@ demo:
 <code src="./demo/max-count.tsx">限制数量</code>
 <code src="./demo/transform-file.tsx">上传前转换文件</code>
 <code src="./demo/upload-with-aliyun-oss.tsx">阿里云 OSS</code>
-<code src="./demo/file-type.tsx">自定义显示 icon</code>
+<code src="./demo/file-type.tsx" debug>自定义显示 icon</code>
 <code src="./demo/upload-custom-action-icon.tsx">自定义交互图标</code>
 <code src="./demo/drag-sorting.tsx">上传列表拖拽排序</code>
 <code src="./demo/crop-image.tsx">上传前裁切图片</code>

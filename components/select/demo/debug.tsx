@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Button, Input, Select } from 'antd';
 
 const handleChange = (value: string | string[]) => {

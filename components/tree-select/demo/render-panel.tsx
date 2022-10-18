@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { TreeSelect } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTreeSelect } = TreeSelect;

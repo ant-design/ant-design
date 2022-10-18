@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Descriptions, Divider, Radio, Switch } from 'antd';
 
 const labelStyle: React.CSSProperties = { background: 'red' };

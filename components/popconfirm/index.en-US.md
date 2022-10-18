@@ -24,7 +24,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/icon.tsx">Customize icon</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/promise.tsx">Asynchronously close on Promise</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

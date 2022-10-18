@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Button, Select, Form, Input, Divider } from 'antd';
 
 const sharedItem = (

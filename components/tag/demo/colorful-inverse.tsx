@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Divider, Tag } from 'antd';
 
 const App: React.FC = () => (

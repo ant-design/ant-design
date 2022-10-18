@@ -17,12 +17,12 @@ Commonly displayed on the details page.
 
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/border.tsx">border</code>
-<code src="./demo/text.tsx">border</code>
+<code src="./demo/text.tsx" debug>border</code>
 <code src="./demo/size.tsx">Custom size</code>
 <code src="./demo/responsive.tsx">responsive</code>
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/vertical-border.tsx">Vertical border</code>
-<code src="./demo/style.tsx">Customize label & wrapper style</code>
+<code src="./demo/style.tsx" debug>Customize label & wrapper style</code>
 
 ## API
 

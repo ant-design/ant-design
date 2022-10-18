@@ -24,7 +24,7 @@ demo:
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

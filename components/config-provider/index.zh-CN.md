@@ -42,7 +42,7 @@ export default () => (
 <code src="./demo/direction.tsx">方向</code>
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">全局样式</code>
-<code src="./demo/prefixCls.tsx">前缀</code>
+<code src="./demo/prefixCls.tsx" debug>前缀</code>
 
 ## API
 

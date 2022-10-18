@@ -27,12 +27,12 @@ demo:
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
-<code src="./demo/dark.tsx">暗背景</code>
+<code src="./demo/dark.tsx" debug>暗背景</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

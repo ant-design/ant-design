@@ -26,12 +26,12 @@ demo:
 <code src="./demo/interval-options.tsx">步长选项</code>
 <code src="./demo/addon.tsx">附加内容</code>
 <code src="./demo/12hours.tsx">12 小时制</code>
-<code src="./demo/colored-popup.tsx">色付きポップアップ</code>
+<code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/bordered.tsx">无边框</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/suffix.tsx">后缀图标</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

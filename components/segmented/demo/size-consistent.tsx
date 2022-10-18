@@ -1,9 +1,4 @@
-import React from 'react';
-/*
- * debug: true
- */
-
-import { Button, Input, Select, Segmented } from 'antd';
+import React from 'react';import { Button, Input, Select, Segmented } from 'antd';
 
 export default () => (
   <>
@@ -25,3 +20,4 @@ export default () => (
     </div>
   </>
 );
+

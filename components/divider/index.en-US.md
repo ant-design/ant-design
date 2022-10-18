@@ -22,7 +22,7 @@ A divider line separates different content.
 <code src="./demo/with-text.tsx">Divider with title</code>
 <code src="./demo/plain.tsx">Text without heading style</code>
 <code src="./demo/vertical.tsx">Vertical</code>
-<code src="./demo/customize-style.tsx">Style Customization</code>
+<code src="./demo/customize-style.tsx" debug>Style Customization</code>
 
 ## API
 

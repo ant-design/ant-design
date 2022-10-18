@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 

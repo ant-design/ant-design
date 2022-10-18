@@ -23,8 +23,8 @@ Tree selection control.
 <code src="./demo/treeLine.tsx">Show Tree Line</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/suffix.tsx">Suffix</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/suffix.tsx" debug>Suffix</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

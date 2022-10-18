@@ -25,8 +25,8 @@ demo:
 <code src="./demo/align.tsx">对齐</code>
 <code src="./demo/customize.tsx">自定义尺寸</code>
 <code src="./demo/wrap.tsx">自动换行</code>
-<code src="./demo/debug.tsx">多样的 Child</code>
-<code src="./demo/gap-in-line.tsx">Flex gap 样式</code>
+<code src="./demo/debug.tsx" debug>多样的 Child</code>
+<code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
 <code src="./demo/split.tsx">分隔符</code>
 
 ## API

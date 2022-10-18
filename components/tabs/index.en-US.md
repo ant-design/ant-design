@@ -60,8 +60,8 @@ return <Tabs items={items} />;
 <code src="./demo/custom-add-trigger.tsx">Customized trigger of new tab</code>
 <code src="./demo/custom-tab-bar.tsx">Customized bar of tab</code>
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
-<code src="./demo/animated.tsx">Animated</code>
-<code src="./demo/nest.tsx">Nest</code>
+<code src="./demo/animated.tsx" debug>Animated</code>
+<code src="./demo/nest.tsx" debug>Nest</code>
 
 ## API
 

@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 

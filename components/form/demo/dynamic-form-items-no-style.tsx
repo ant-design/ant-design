@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Space } from 'antd';
 

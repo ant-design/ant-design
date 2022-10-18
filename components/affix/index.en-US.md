@@ -22,7 +22,7 @@ Please note that Affix should not cover other content on the page, especially wh
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/on-change.tsx">Callback</code>
 <code src="./demo/target.tsx">Container to scroll.</code>
-<code src="./demo/debug.tsx">debug</code>
+<code src="./demo/debug.tsx" debug>debug</code>
 
 ## API
 

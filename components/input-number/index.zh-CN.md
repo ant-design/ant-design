@@ -27,9 +27,9 @@ demo:
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/prefix.tsx">前缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/controls.tsx">图标按钮</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/debug-token.tsx">覆盖组件样式</code>
+<code src="./demo/controls.tsx" debug>图标按钮</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
 
 ## API
 

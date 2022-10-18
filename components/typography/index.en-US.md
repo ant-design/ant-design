@@ -18,12 +18,12 @@ Basic text writing, including headings, body text, lists, and more.
 
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/title.tsx">Title Component</code>
-<code src="./demo/paragraph-debug.tsx">Title and Paragraph</code>
+<code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
 <code src="./demo/text.tsx">Text and Link Component</code>
 <code src="./demo/interactive.tsx">Interactive</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
-<code src="./demo/ellipsis-debug.tsx">Ellipsis Debug</code>
+<code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
 <code src="./demo/suffix.tsx">suffix</code>
 
 ## API

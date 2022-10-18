@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Divider, Steps } from 'antd';
 
 const App: React.FC = () => (

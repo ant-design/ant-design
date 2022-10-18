@@ -19,13 +19,13 @@ demo:
 
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/colorful.tsx">多彩标签</code>
-<code src="./demo/colorful-inverse.tsx">反色多彩标签</code>
+<code src="./demo/colorful-inverse.tsx" debug>反色多彩标签</code>
 <code src="./demo/control.tsx">动态添加和删除</code>
 <code src="./demo/checkable.tsx">可选择标签</code>
 <code src="./demo/animation.tsx">添加动画</code>
 <code src="./demo/icon.tsx">图标按钮</code>
 <code src="./demo/status.tsx">预设状态的标签</code>
-<code src="./demo/customize.tsx">自定义关闭按钮</code>
+<code src="./demo/customize.tsx" debug>自定义关闭按钮</code>
 
 ## API
 

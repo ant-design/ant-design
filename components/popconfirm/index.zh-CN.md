@@ -25,7 +25,7 @@ demo:
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/promise.tsx">基于 Promise 的异步关闭</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

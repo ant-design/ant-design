@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;

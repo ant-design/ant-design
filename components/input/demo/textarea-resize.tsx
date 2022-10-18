@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Button, Input } from 'antd';
 
 const { TextArea } = Input;

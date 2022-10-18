@@ -34,9 +34,9 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/focus.tsx">聚焦</code>
-<code src="./demo/borderless-debug.tsx">Borderless Debug</code>
-<code src="./demo/align.tsx">文本对齐</code>
-<code src="./demo/textarea-resize.tsx">文本域</code>
+<code src="./demo/borderless-debug.tsx" debug>Borderless Debug</code>
+<code src="./demo/align.tsx" debug>文本对齐</code>
+<code src="./demo/textarea-resize.tsx" debug>文本域</code>
 
 ## API
 

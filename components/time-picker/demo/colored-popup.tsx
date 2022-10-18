@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { TimePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';

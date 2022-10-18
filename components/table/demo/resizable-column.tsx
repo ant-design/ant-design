@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Table } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
 import type { ResizeCallbackData } from 'react-resizable';

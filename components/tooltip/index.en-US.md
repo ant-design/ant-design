@@ -19,10 +19,10 @@ A simple text popup tip.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow-point-at-center.tsx">Arrow pointing at the center</code>
-<code src="./demo/auto-adjust-overflow.tsx">Adjust placement automatically</code>
-<code src="./demo/destroy-tooltip-on-hide.tsx">Destroy tooltip when hidden</code>
+<code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
+<code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

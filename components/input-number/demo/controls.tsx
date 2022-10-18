@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
 

@@ -24,12 +24,12 @@ When requiring users to interact with the application, but without jumping to a 
 <code src="./demo/manual.tsx">Manual to update destroy</code>
 <code src="./demo/position.tsx">To customize the position of modal</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
-<code src="./demo/dark.tsx">Dark Bg</code>
+<code src="./demo/dark.tsx" debug>Dark Bg</code>
 <code src="./demo/button-props.tsx">Customize footer buttons props</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/modal-render.tsx">Custom modal content render</code>
 <code src="./demo/width.tsx">To customize the width of modal</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

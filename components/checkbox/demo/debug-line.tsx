@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Checkbox, Radio, Space } from 'antd';
 
 const sharedStyle: React.CSSProperties = {

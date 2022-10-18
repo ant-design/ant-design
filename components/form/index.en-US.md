@@ -28,7 +28,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/useWatch.tsx">Watch Hooks</code>
 <code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
 <code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
-<code src="./demo/dynamic-form-items-no-style.tsx">Dynamic Form nest pure Items</code>
+<code src="./demo/dynamic-form-items-no-style.tsx" debug>Dynamic Form nest pure Items</code>
 <code src="./demo/dynamic-form-items-complex.tsx">Complex Dynamic Form Item</code>
 <code src="./demo/nest-messages.tsx">Nest</code>
 <code src="./demo/complex-form-control.tsx">complex form control</code>
@@ -45,11 +45,11 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/validate-static.tsx">Customized Validation</code>
 <code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
-<code src="./demo/disabled-input-debug.tsx">Disabled Input Debug</code>
-<code src="./demo/dep-debug.tsx">Dep Debug</code>
-<code src="./demo/label-debug.tsx">label ellipsis</code>
-<code src="./demo/col-24-debug.tsx">Test col 24 usage</code>
-<code src="./demo/ref-item.tsx">Ref item</code>
+<code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
+<code src="./demo/dep-debug.tsx" debug>Dep Debug</code>
+<code src="./demo/label-debug.tsx" debug>label ellipsis</code>
+<code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
+<code src="./demo/ref-item.tsx" debug>Ref item</code>
 
 ## API
 

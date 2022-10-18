@@ -30,7 +30,7 @@ demo:
 <code src="./demo/table-transfer.tsx">表格穿梭框</code>
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/custom-select-all-labels.tsx">自定义全选文字</code>
+<code src="./demo/custom-select-all-labels.tsx" debug>自定义全选文字</code>
 
 ## API
 

@@ -153,7 +153,7 @@ $1`,
     }
     fs.writeFileSync(
       path.join(demoPath, `${code.name}.tsx`),
-      `${importReactContent}${code.code}`,
+      `${importReactContent}${code.code}\n`,
       'utf-8',
     );
     if (code.md.trim()) {

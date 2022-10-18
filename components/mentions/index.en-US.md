@@ -23,7 +23,7 @@ When you need to mention someone or something.
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

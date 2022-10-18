@@ -27,10 +27,10 @@ demo:
 <code src="./demo/user-profile.tsx">信息预览抽屉</code>
 <code src="./demo/multi-level-drawer.tsx">多层抽屉</code>
 <code src="./demo/size.tsx">预设宽度</code>
-<code src="./demo/config-provider.tsx">ConfigProvider</code>
-<code src="./demo/no-mask.tsx">无遮罩</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/scroll-debug.tsx">滚动锁定调试</code>
+<code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
+<code src="./demo/no-mask.tsx" debug>无遮罩</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/scroll-debug.tsx" debug>滚动锁定调试</code>
 
 ## API
 

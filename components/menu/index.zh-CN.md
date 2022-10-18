@@ -64,8 +64,8 @@ return <Menu items={items} />;
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/submenu-theme.tsx">子菜单主题</code>
 <code src="./demo/switch-mode.tsx">切换菜单类型</code>
-<code src="./demo/style-debug.tsx">Style debug</code>
-<code src="./demo/menu-v4.tsx">v4 版本 Menu</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>v4 版本 Menu</code>
 
 ## API
 

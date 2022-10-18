@@ -33,7 +33,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/max-count.tsx">Max Count</code>
 <code src="./demo/transform-file.tsx">Transform file before request</code>
 <code src="./demo/upload-with-aliyun-oss.tsx">Aliyun OSS</code>
-<code src="./demo/file-type.tsx">custom show icon</code>
+<code src="./demo/file-type.tsx" debug>custom show icon</code>
 <code src="./demo/upload-custom-action-icon.tsx">custom action icon</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting of uploadList</code>
 <code src="./demo/crop-image.tsx">Crop image before uploading</code>

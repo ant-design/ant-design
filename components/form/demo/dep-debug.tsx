@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Form, Input } from 'antd';
 
 let acc = 0;

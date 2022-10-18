@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { SmileOutlined } from '@ant-design/icons';
 import { TreeSelect } from 'antd';
 

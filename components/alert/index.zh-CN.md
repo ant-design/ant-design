@@ -29,7 +29,7 @@ group:
 <code src="./demo/loop-banner.tsx">轮播的公告</code>
 <code src="./demo/smooth-closed.tsx">平滑地卸载</code>
 <code src="./demo/error-boundary.tsx">React 错误处理</code>
-<code src="./demo/custom-icon.tsx">自定义图标</code>
+<code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
 
 ## API

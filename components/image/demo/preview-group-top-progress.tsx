@@ -1,9 +1,4 @@
-import React from 'react';
-/*
- * debug: true
- */
-
-import { Image } from 'antd';
+import React from 'react';import { Image } from 'antd';
 
 const App = () => (
   <Image.PreviewGroup
@@ -22,3 +17,4 @@ const App = () => (
 );
 
 export default App;
+

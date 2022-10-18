@@ -41,7 +41,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/direction.tsx">Direction</code>
 <code src="./demo/size.tsx">Component size</code>
 <code src="./demo/theme.tsx">Global Theme</code>
-<code src="./demo/prefixCls.tsx">prefixCls</code>
+<code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 
 ## API
 

@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { SmileOutlined } from '@ant-design/icons';
 import { DatePicker, Space } from 'antd';
 import type { Dayjs } from 'dayjs';

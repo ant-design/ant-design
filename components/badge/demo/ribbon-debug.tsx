@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Badge, Card, Space } from 'antd';
 
 const App: React.FC = () => (

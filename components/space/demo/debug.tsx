@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Button, Popconfirm, Space } from 'antd';
 
 const App: React.FC = () => (

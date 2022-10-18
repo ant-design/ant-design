@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Modal } from 'antd';
 
 /** Test usage. Do not use in your production. */

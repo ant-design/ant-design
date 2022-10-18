@@ -21,10 +21,10 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
-<code src="./demo/auto-adjust-overflow.tsx">自动调整位置</code>
-<code src="./demo/destroy-tooltip-on-hide.tsx">隐藏后销毁</code>
+<code src="./demo/auto-adjust-overflow.tsx" debug>自动调整位置</code>
+<code src="./demo/destroy-tooltip-on-hide.tsx" debug>隐藏后销毁</code>
 <code src="./demo/colorful.tsx">多彩文字提示</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

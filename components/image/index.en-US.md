@@ -22,8 +22,8 @@ Previewable image.
 <code src="./demo/preview-group-visible.tsx">Preview from one image</code>
 <code src="./demo/previewSrc.tsx">Custom preview image</code>
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
-<code src="./demo/preview-mask.tsx">Custom preview mask</code>
-<code src="./demo/preview-group-top-progress.tsx">Top progress customization when previewing multiple images</code>
+<code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 
 ## API
 

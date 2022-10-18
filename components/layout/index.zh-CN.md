@@ -69,7 +69,7 @@ demo:
 <code src="./demo/responsive.tsx">响应式布局</code>
 <code src="./demo/fixed.tsx">固定头部</code>
 <code src="./demo/fixed-sider.tsx">固定侧边栏</code>
-<code src="./demo/custom-trigger-debug.tsx">自定义触发器 Debug</code>
+<code src="./demo/custom-trigger-debug.tsx" debug>自定义触发器 Debug</code>
 
 ## API
 

@@ -63,8 +63,8 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 <code src="./demo/theme.tsx">Menu Themes</code>
 <code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
 <code src="./demo/switch-mode.tsx">Switch the menu type</code>
-<code src="./demo/style-debug.tsx">Style debug</code>
-<code src="./demo/menu-v4.tsx">Menu v4</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 
 ## API
 

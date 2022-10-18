@@ -26,8 +26,8 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/with-icon.tsx">设置图标</code>
 <code src="./demo/icon-only.tsx">只设置图标</code>
-<code src="./demo/controlled-two.tsx">受控同步模式</code>
-<code src="./demo/size-consistent.tsx">统一高度</code>
+<code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
+<code src="./demo/size-consistent.tsx" debug>统一高度</code>
 
 ## API
 

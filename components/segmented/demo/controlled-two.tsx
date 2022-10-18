@@ -1,9 +1,4 @@
-import React from 'react';
-/*
- * debug: true
- */
-
-import { useState } from 'react';
+import React from 'react';import { useState } from 'react';
 import { Segmented } from 'antd';
 
 const Demo = () => {
@@ -18,3 +13,4 @@ const Demo = () => {
 };
 
 export default Demo;
+

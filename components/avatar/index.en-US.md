@@ -18,9 +18,9 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 <code src="./demo/dynamic.tsx">Autoset Font Size</code>
 <code src="./demo/badge.tsx">With Badge</code>
 <code src="./demo/group.tsx">Avatar.Group</code>
-<code src="./demo/toggle-debug.tsx">Calculate text style when hiding</code>
+<code src="./demo/toggle-debug.tsx" debug>Calculate text style when hiding</code>
 <code src="./demo/responsive.tsx">Responsive Size</code>
-<code src="./demo/fallback.tsx">Fallback</code>
+<code src="./demo/fallback.tsx" debug>Fallback</code>
 
 ## API
 

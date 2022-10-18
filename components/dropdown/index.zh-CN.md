@@ -32,8 +32,8 @@ demo:
 <code src="./demo/context-menu.tsx">右键菜单</code>
 <code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/selectable.tsx">菜单可选选择</code>
-<code src="./demo/menu-full.tsx">Menu 完整样式</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

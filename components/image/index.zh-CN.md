@@ -23,8 +23,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 <code src="./demo/preview-group-visible.tsx">相册模式</code>
 <code src="./demo/previewSrc.tsx">自定义预览图片</code>
 <code src="./demo/controlled-preview.tsx">受控的预览</code>
-<code src="./demo/preview-mask.tsx">自定义预览文本</code>
-<code src="./demo/preview-group-top-progress.tsx">多图预览时顶部进度自定义</code>
+<code src="./demo/preview-mask.tsx" debug>自定义预览文本</code>
+<code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
 
 ## API
 

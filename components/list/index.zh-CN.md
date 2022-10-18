@@ -21,7 +21,7 @@ demo:
 <code src="./demo/loadmore.tsx">加载更多</code>
 <code src="./demo/vertical.tsx">竖排列表样式</code>
 <code src="./demo/grid.tsx">栅格列表</code>
-<code src="./demo/grid-test.tsx">测试栅格列表</code>
+<code src="./demo/grid-test.tsx" debug>测试栅格列表</code>
 <code src="./demo/responsive.tsx">响应式的栅格列表</code>
 <code src="./demo/infinite-load.tsx">滚动加载</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>

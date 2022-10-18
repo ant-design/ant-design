@@ -29,7 +29,7 @@ Select component to select value from options.
 <code src="./demo/label-in-value.tsx">Get value of selected item</code>
 <code src="./demo/automatic-tokenization.tsx">Automatic tokenization</code>
 <code src="./demo/select-users.tsx">Search and Select Users</code>
-<code src="./demo/suffix.tsx">Suffix</code>
+<code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
 <code src="./demo/bordered.tsx">Bordered-less</code>
@@ -38,8 +38,8 @@ Select component to select value from options.
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/debug.tsx">4.0 Debug</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

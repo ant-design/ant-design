@@ -23,7 +23,7 @@ group:
 <code src="./demo/with-text.tsx">带文字的分割线</code>
 <code src="./demo/plain.tsx">分割文字使用正文样式</code>
 <code src="./demo/vertical.tsx">垂直分割线</code>
-<code src="./demo/customize-style.tsx">样式自定义</code>
+<code src="./demo/customize-style.tsx" debug>样式自定义</code>
 
 ## API
 

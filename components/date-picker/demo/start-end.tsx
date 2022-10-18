@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { DatePicker, Space } from 'antd';
 import type { Dayjs } from 'dayjs';
 

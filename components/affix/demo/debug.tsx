@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Affix, Button } from 'antd';
 
 const App: React.FC = () => {

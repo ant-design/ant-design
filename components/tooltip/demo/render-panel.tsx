@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import { Tooltip } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;

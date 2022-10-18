@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Button, Drawer } from 'antd';
 
 const App: React.FC = () => {

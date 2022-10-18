@@ -31,10 +31,10 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/bordered.tsx">无边框</code>
 <code src="./demo/placement.tsx">弹出位置</code>
-<code src="./demo/mode.tsx">受控面板</code>
-<code src="./demo/start-end.tsx">自定义日期范围选择</code>
-<code src="./demo/suffix.tsx">后缀图标</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/mode.tsx" debug>受控面板</code>
+<code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

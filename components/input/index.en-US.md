@@ -33,9 +33,9 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/focus.tsx">Focus</code>
-<code src="./demo/borderless-debug.tsx">Borderless Debug</code>
-<code src="./demo/align.tsx">Text Align</code>
-<code src="./demo/textarea-resize.tsx">TextArea</code>
+<code src="./demo/borderless-debug.tsx" debug>Borderless Debug</code>
+<code src="./demo/align.tsx" debug>Text Align</code>
+<code src="./demo/textarea-resize.tsx" debug>TextArea</code>
 
 ## API
 

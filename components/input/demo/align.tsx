@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * debug: true
- */
-
 import {
   AutoComplete,
   Button,

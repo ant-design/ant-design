@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { Switch, Space, Drawer, Modal } from 'antd';
 
 const App: React.FC = () => {

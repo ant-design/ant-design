@@ -1,5 +1,4 @@
-import React from 'react';
-/*
+import React from 'react';/*
  * version: 4.20.0
  */
 
@@ -80,3 +79,4 @@ const App: React.FC = () => {
 };
 
 export default App;
+

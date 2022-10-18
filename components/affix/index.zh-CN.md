@@ -23,7 +23,7 @@ group:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/on-change.tsx">固定状态改变的回调</code>
 <code src="./demo/target.tsx">滚动容器</code>
-<code src="./demo/debug.tsx">调整浏览器大小，观察 Affix 容器是否发生变化。跟随变化为正常。#17678</code>
+<code src="./demo/debug.tsx" debug>调整浏览器大小，观察 Affix 容器是否发生变化。跟随变化为正常。#17678</code>
 
 ## API
 

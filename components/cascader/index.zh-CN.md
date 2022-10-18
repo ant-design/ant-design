@@ -31,11 +31,11 @@ demo:
 <code src="./demo/search.tsx">搜索</code>
 <code src="./demo/lazy.tsx">动态加载选项</code>
 <code src="./demo/fields-name.tsx">自定义字段名</code>
-<code src="./demo/suffix.tsx">自定义图标</code>
+<code src="./demo/suffix.tsx" debug>自定义图标</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

@@ -23,7 +23,7 @@ demo:
 <code src="./demo/group.tsx">Checkbox 组</code>
 <code src="./demo/check-all.tsx">全选</code>
 <code src="./demo/layout.tsx">布局</code>
-<code src="./demo/debug-line.tsx">同行布局</code>
+<code src="./demo/debug-line.tsx" debug>同行布局</code>
 
 ## API
 

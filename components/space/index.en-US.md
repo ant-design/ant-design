@@ -21,8 +21,8 @@ Avoid components clinging together and set a unified space.
 <code src="./demo/align.tsx">Align</code>
 <code src="./demo/customize.tsx">Customize Size</code>
 <code src="./demo/wrap.tsx">Wrap</code>
-<code src="./demo/debug.tsx">Diverse Child</code>
-<code src="./demo/gap-in-line.tsx">Flex gap style</code>
+<code src="./demo/debug.tsx" debug>Diverse Child</code>
+<code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
 <code src="./demo/split.tsx">Split</code>
 
 ## API

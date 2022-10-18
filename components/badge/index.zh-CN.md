@@ -27,10 +27,10 @@ group: 数据展示
 <code src="./demo/status.tsx">状态点</code>
 <code src="./demo/colorful.tsx">多彩徽标</code>
 <code src="./demo/ribbbon.tsx">缎带</code>
-<code src="./demo/ribbon-debug.tsx">Ribbon Debug</code>
-<code src="./demo/mix.tsx">各种混用的情况</code>
-<code src="./demo/title.tsx">自定义标题</code>
-<code src="./demo/colorful-with-count-debug.tsx">多彩徽标支持 count 显示 Debug</code>
+<code src="./demo/ribbon-debug.tsx" debug>Ribbon Debug</code>
+<code src="./demo/mix.tsx" debug>各种混用的情况</code>
+<code src="./demo/title.tsx" debug>自定义标题</code>
+<code src="./demo/colorful-with-count-debug.tsx" debug>多彩徽标支持 count 显示 Debug</code>
 
 ## API
 

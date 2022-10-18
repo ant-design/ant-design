@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * debug: true
- */
-
 import { SmileOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Select } from 'antd';
 

@@ -26,9 +26,9 @@ When a numeric value needs to be provided.
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/prefix.tsx">Prefix</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/controls.tsx">Icon</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/debug-token.tsx">Override Component Style</code>
+<code src="./demo/controls.tsx" debug>Icon</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug-token.tsx" debug>Override Component Style</code>
 
 ## API
 

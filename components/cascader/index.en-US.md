@@ -30,11 +30,11 @@ Cascade selection box.
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/lazy.tsx">Load Options Lazily</code>
 <code src="./demo/fields-name.tsx">Custom Field Names</code>
-<code src="./demo/suffix.tsx">Custom Icons</code>
+<code src="./demo/suffix.tsx" debug>Custom Icons</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

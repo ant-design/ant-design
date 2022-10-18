@@ -22,7 +22,7 @@ Checkbox component.
 <code src="./demo/group.tsx">Checkbox Group</code>
 <code src="./demo/check-all.tsx">Check all</code>
 <code src="./demo/layout.tsx">Use with Grid</code>
-<code src="./demo/debug-line.tsx">Same line</code>
+<code src="./demo/debug-line.tsx" debug>Same line</code>
 
 ## API
 
