@@ -9,8 +9,7 @@ const path = require('path');
 
 const tmpFolder = `~demo`;
 
-glob('components/*/demo/*', (er, files) => {
-  // console.log(files);
+glob('components/**/*.md', (er, files) => {
   fs.ensureDirSync(tmpFolder);
   fs.emptyDirSync(tmpFolder);
 
