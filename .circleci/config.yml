@@ -5,22 +5,28 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  test-argos-ci:
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: Install node_modules
+          command: npm i
+      - run:
+          name: Install argos cli
+          command: npm i fast-glob lodash @argos-ci/cli
+      - run:
+          name: Run image screenshot tests
+          command: npm run test-image
+      - run:
+          name: Upload screenshots to Argos CI
+          command: npm run argos
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  test-argos-ci-workflow:
     jobs:
-      - say-hello
+      - test-argos-ci
