@@ -26,7 +26,18 @@ if (fs.existsSync(tmpFolder)) {
     }
 
     fs.ensureDirSync(path.dirname(filePath));
-    fs.copyFileSync(file, filePath);
+    if (filePath.endsWith('.en-US.md') || filePath.endsWith('.zh-CN.md')) {
+      // 保留 meta 信息
+      const md = fs.readFileSync(filePath, 'utf-8');
+      const [, frontmatter] = md.match(/^(---[^]+?\n---)/);
+      const legacyMD = fs.readFileSync(file, 'utf-8');
+      fs.writeFileSync(filePath, legacyMD.replace(/^(---[^]+?\n---)/, frontmatter));
+    } else if (filePath.startsWith('components/overview')) {
+      // overview 文件不需要迁移
+      return;
+    } else {
+      fs.copyFileSync(file, filePath);
+    }
 
     if (filePath.includes('demo')) {
       demoFileCount += 1;
@@ -74,11 +85,11 @@ components.forEach(component => {
   let zh = fs.readFileSync(zhPath, 'utf-8');
   let en = fs.readFileSync(enPath, 'utf-8');
 
-  if (!/\ncols: /.test(zh)) {
+  if (!/cols: /.test(zh)) {
     zh = zh.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
   }
 
-  if (!/\ncols: /.test(en)) {
+  if (!/cols: /.test(en)) {
     en = en.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
   }
 
