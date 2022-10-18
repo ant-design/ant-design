@@ -17,11 +17,14 @@ jobs:
           name: Install argos cli
           command: npm i fast-glob lodash @argos-ci/core
       - run:
+          name: Install puppeteer
+          command: node node_modules/puppeteer/install.js
+      - run:
           name: Build dist file
           command: npm run dist
       - run:
           name: Run image screenshot tests
-          command: npm run test-image:docker
+          command: npm run test-image
       - run:
           name: Upload screenshots to Argos CI
           command: npm run argos
