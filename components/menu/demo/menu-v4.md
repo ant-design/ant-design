@@ -22,13 +22,9 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Divider, Menu, Switch, theme, ConfigProvider } from 'antd';
+import { Divider, Menu, Switch, ConfigProvider } from 'antd';
 import type { MenuProps, MenuTheme } from 'antd/es/menu';
 import React, { useState } from 'react';
-
-const { useToken } = theme;
-
-console.log('version', version);
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -71,9 +67,6 @@ const items: MenuItem[] = [
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
-  const {
-    token: { colorPrimary, controlItemBgActive },
-  } = useToken();
 
   const changeMode = (value: boolean) => {
     setMode(value ? 'vertical' : 'inline');
@@ -94,9 +87,9 @@ const App: React.FC = () => {
             Menu: {
               radiusItem: 0,
               radiusSubMenuItem: 0,
-              colorItemTextHover: colorPrimary,
-              colorItemTextSelected: colorPrimary,
-              colorItemBgSelected: controlItemBgActive,
+              colorItemTextHover: '#1890ff',
+              colorItemTextSelected: '#1890ff',
+              colorItemBgSelected: '#e6f7ff',
               colorActiveBarWidth: 3,
               itemMarginInline: 0,
               colorItemBgHover: 'transparent',
