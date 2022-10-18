@@ -29,11 +29,29 @@ const { Header, Content, Sider } = Layout;
 
 const locales = {
   cn: {
+    customizeTheme: '定制主题',
+    myTheme: '我的主题',
     titlePrimaryColor: '主色',
     titleBorderRadius: '圆角',
+    titleCompact: '宽松度',
+    default: '默认',
+    compact: '紧凑',
     titleTheme: '主题',
+    light: '亮色',
+    dark: '暗黑',
   },
-  en: { titlePrimaryColor: '主色', titleBorderRadius: '圆角', titleTheme: '主题' },
+  en: {
+    customizeTheme: 'Customize Theme',
+    myTheme: 'My Theme',
+    titlePrimaryColor: 'Primary Color',
+    titleBorderRadius: 'Border Radius',
+    titleCompact: 'Compact',
+    titleTheme: 'Theme',
+    default: 'Default',
+    compact: 'Compact',
+    light: 'Light',
+    dark: 'Dark',
+  },
 };
 
 const useStyle = () => {
@@ -203,36 +221,36 @@ export default function Theme() {
                 <Breadcrumb.Item>Themes</Breadcrumb.Item>
               </Breadcrumb>
               <Content>
-                <Typography.Title level={2}>Customize Theme</Typography.Title>
-                <Card title="My Theme">
+                <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
+                <Card title={locale.myTheme}>
                   <Form
                     initialValues={themeData}
                     onValuesChange={onThemeChange}
                     labelCol={{ span: 8 }}
                     css={style.form}
                   >
-                    <Form.Item label="Primary Color" name="colorPrimary">
-                      <Input />
+                    <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
+                      <Input style={{ width: 120 }} />
                     </Form.Item>
-                    <Form.Item label="Border Radius" name="radiusBase">
-                      <InputNumber />
+                    <Form.Item label={locale.titleBorderRadius} name="radiusBase">
+                      <InputNumber style={{ width: 120 }} />
                     </Form.Item>
-                    <Form.Item label="宽松度" name="compact">
+                    <Form.Item label={locale.titleCompact} name="compact">
                       <Radio.Group>
-                        <Radio value="default">Default</Radio>
-                        <Radio value="compact">Compact</Radio>
+                        <Radio value="default">{locale.default}</Radio>
+                        <Radio value="compact">{locale.compact}</Radio>
                       </Radio.Group>
                     </Form.Item>
-                    <Form.Item label="主题" name="algorithm">
+                    <Form.Item label={locale.titleTheme} name="algorithm">
                       <Segmented
                         options={[
                           {
                             value: 'light',
-                            label: 'Light',
+                            label: locale.light,
                           },
                           {
                             value: 'dark',
-                            label: 'Dark',
+                            label: locale.dark,
                           },
                         ]}
                       />
