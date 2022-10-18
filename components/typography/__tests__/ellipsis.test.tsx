@@ -200,43 +200,6 @@ describe('Typography.Ellipsis', () => {
     unmount();
   });
 
-  it('should use editConfig.text over children in editing mode ', async () => {
-    const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
-    const { container: wrapper, unmount } = render(
-      <Base
-        ellipsis={{ rows: 1, suffix }}
-        component="p"
-        editable={{ text: fullStr + suffix }}
-        ref={ref}
-      >
-        {fullStr}
-      </Base>,
-    );
-
-    fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
-
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr + suffix);
-
-    unmount();
-  });
-
-  it('should use children as the fallback of editConfig.text in editing mode', async () => {
-    const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
-    const { container: wrapper, unmount } = render(
-      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref} editable>
-        {fullStr}
-      </Base>,
-    );
-
-    fireEvent.click(wrapper.querySelector('.ant-typography-edit')!);
-
-    expect(wrapper.querySelector('textarea')?.textContent).toEqual(fullStr);
-
-    unmount();
-  });
-
   it('connect children', async () => {
     const bamboo = 'Bamboo';
     const is = ' is ';
