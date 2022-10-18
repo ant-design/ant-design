@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Entry
+type: Data Entry
 title: Rate
 cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -15,16 +13,6 @@ Rate component.
 
 - Show evaluation.
 - A quick rating operation on something.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/half.tsx">Half star</code>
-<code src="./demo/text.tsx">Show copywriting</code>
-<code src="./demo/disabled.tsx">Read only</code>
-<code src="./demo/clear.tsx">Clear star</code>
-<code src="./demo/character.tsx">Other Character</code>
-<code src="./demo/character-function.tsx">Customize character</code>
 
 ## Examples
 

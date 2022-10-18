@@ -1,11 +1,9 @@
 ---
 category: Components
 subtitle: 统计数值
-group: 数据展示
+type: 数据展示
 title: Statistic
 cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -16,13 +14,6 @@ demo:
 
 - 当需要突出某个或某组数字时。
 - 当需要展示带描述的统计类数据时使用。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/unit.tsx">单位</code>
-<code src="./demo/card.tsx">在卡片中使用</code>
-<code src="./demo/countdown.tsx">倒计时</code>
 
 ## 代码演示
 

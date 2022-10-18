@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Entry
+type: Data Entry
 title: Switch
 cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -15,14 +13,6 @@ Switching Selector.
 
 - If you need to represent the switching between two states or on-off state.
 - The difference between `Switch` and `Checkbox` is that `Switch` will trigger a state change directly when you toggle it, while `Checkbox` is generally used for state marking, which should work in conjunction with submit operation.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/disabled.tsx">Disabled</code>
-<code src="./demo/text.tsx">Text & icon</code>
-<code src="./demo/size.tsx">Two sizes</code>
-<code src="./demo/loading.tsx">Loading</code>
 
 ## Examples
 

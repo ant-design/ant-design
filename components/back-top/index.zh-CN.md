@@ -1,11 +1,9 @@
 ---
 category: Components
+type: 其他
 subtitle: 回到顶部
 title: BackTop
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
-demo:
-  cols: 2
-group: 其他
 demo:
   cols: 2
 ---
@@ -16,11 +14,6 @@ demo:
 
 - 当页面内容区域比较长时；
 - 当用户需要频繁返回顶部查看相关内容时。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/custom.tsx">自定义样式</code>
 
 ## 代码演示
 

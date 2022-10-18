@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Navigation
+type: Navigation
 title: Steps
 cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
-demo:
-  cols: 2
 ---
 
 `Steps` is a navigation bar that guides users through the steps of a task.
@@ -12,25 +10,6 @@ demo:
 ## When To Use
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
-
-## Examples
-
-<code src="./demo/simple.tsx">Basic</code>
-<code src="./demo/small-size.tsx">Mini version</code>
-<code src="./demo/icon.tsx">With icon</code>
-<code src="./demo/step-next.tsx">Switch Step</code>
-<code src="./demo/vertical.tsx">Vertical</code>
-<code src="./demo/vertical-small.tsx">Vertical mini version</code>
-<code src="./demo/error.tsx">Error status</code>
-<code src="./demo/progress-dot.tsx">Dot Style</code>
-<code src="./demo/customized-progress-dot.tsx">Customized Dot Style</code>
-<code src="./demo/progress-dot-small.tsx">Dot Style Size Small</code>
-<code src="./demo/clickable.tsx">Clickable</code>
-<code src="./demo/nav.tsx">Navigation Steps</code>
-<code src="./demo/progress.tsx">Steps with progress</code>
-<code src="./demo/label-placement.tsx">Label Placement</code>
-<code src="./demo/progress-debug.tsx">Progress Debug</code>
-<code src="./demo/steps-in-steps.tsx">Steps inside Steps</code>
 
 ## Examples
 

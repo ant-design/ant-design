@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Other
+type: Other
 title: ConfigProvider
 cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
-demo:
-  cols: 2
 ---
 
 `ConfigProvider` provides a uniform configuration support for components.
@@ -34,14 +32,6 @@ Some components use dynamic style to support wave effect. You can config `csp` p
   <Button>My Button</Button>
 </ConfigProvider>
 ```
-
-## Examples
-
-<code src="./demo/locale.tsx">Locale</code>
-<code src="./demo/direction.tsx">Direction</code>
-<code src="./demo/size.tsx">Component size</code>
-<code src="./demo/theme.tsx">Global Theme</code>
-<code src="./demo/prefixCls.tsx">prefixCls</code>
 
 ## Examples
 

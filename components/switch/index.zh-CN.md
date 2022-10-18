@@ -1,11 +1,9 @@
 ---
 category: Components
 subtitle: 开关
-group: 数据录入
+type: 数据录入
 title: Switch
 cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -16,14 +14,6 @@ demo:
 
 - 需要表示开关状态/两种状态之间的切换时；
 - 和 `checkbox` 的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/disabled.tsx">不可用</code>
-<code src="./demo/text.tsx">文字和图标</code>
-<code src="./demo/size.tsx">两种大小</code>
-<code src="./demo/loading.tsx">加载中</code>
 
 ## 代码演示
 

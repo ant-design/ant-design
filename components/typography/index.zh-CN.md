@@ -1,11 +1,9 @@
 ---
 category: Components
 subtitle: 排版
-group: 通用
+type: 通用
 title: Typography
 cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
-demo:
-  cols: 2
 ---
 
 文本的基本格式。
@@ -14,18 +12,6 @@ demo:
 
 - 当需要展示标题、段落、列表内容时使用，如文章/博客/日志的文本样式。
 - 当需要一列基于文本的基础操作时，如拷贝/省略/可编辑。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/title.tsx">标题组件</code>
-<code src="./demo/paragraph-debug.tsx">标题与段落</code>
-<code src="./demo/text.tsx">文本与超链接组件</code>
-<code src="./demo/interactive.tsx">可交互</code>
-<code src="./demo/ellipsis.tsx">省略号</code>
-<code src="./demo/ellipsis-middle.tsx">省略中间</code>
-<code src="./demo/ellipsis-debug.tsx">省略号 Debug</code>
-<code src="./demo/suffix.tsx">后缀</code>
 
 ## 代码演示
 

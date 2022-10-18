@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Layout
+type: Layout
 title: Layout
 cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
-demo:
-  cols: 2
 ---
 
 Handling the overall layout of a page.
@@ -56,19 +54,6 @@ Style of a navigation should conform to its level.
 - `Footer`: The bottom layout with the default style, in which any element can be nested, and must be placed in `Layout`.
 
 > Based on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic Structure</code>
-<code src="./demo/top.tsx">Header-Content-Footer</code>
-<code src="./demo/top-side-2.tsx">Header Sider 2</code>
-<code src="./demo/top-side.tsx">Header-Sider</code>
-<code src="./demo/side.tsx">Sider</code>
-<code src="./demo/custom-trigger.tsx">Custom trigger</code>
-<code src="./demo/responsive.tsx">Responsive</code>
-<code src="./demo/fixed.tsx">Fixed Header</code>
-<code src="./demo/fixed-sider.tsx">Fixed Sider</code>
-<code src="./demo/custom-trigger-debug.tsx">Custom trigger debug</code>
 
 ## Examples
 

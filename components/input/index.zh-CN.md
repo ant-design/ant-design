@@ -1,11 +1,9 @@
 ---
 category: Components
 subtitle: 输入框
-group: 数据录入
+type: 数据录入
 title: Input
 cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -16,29 +14,6 @@ demo:
 
 - 需要用户输入表单域内容时。
 - 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本使用</code>
-<code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/addon.tsx">前置/后置标签</code>
-<code src="./demo/group.tsx">输入框组合</code>
-<code src="./demo/search-input.tsx">搜索框</code>
-<code src="./demo/search-input-loading.tsx">搜索框 loading</code>
-<code src="./demo/textarea.tsx">文本域</code>
-<code src="./demo/autosize-textarea.tsx">适应文本高度的文本域</code>
-<code src="./demo/tooltip.tsx">输入时格式化展示</code>
-<code src="./demo/presuffix.tsx">前缀和后缀</code>
-<code src="./demo/password-input.tsx">密码框</code>
-<code src="./demo/allowClear.tsx">带移除图标</code>
-<code src="./demo/show-count.tsx">带字数提示</code>
-<code src="./demo/textarea-show-count.tsx">带字数提示的文本域</code>
-<code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/borderless.tsx">无边框</code>
-<code src="./demo/focus.tsx">聚焦</code>
-<code src="./demo/borderless-debug.tsx">Borderless Debug</code>
-<code src="./demo/align.tsx">文本对齐</code>
-<code src="./demo/textarea-resize.tsx">文本域</code>
 
 ## 代码演示
 

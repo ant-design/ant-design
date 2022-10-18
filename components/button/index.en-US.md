@@ -1,12 +1,8 @@
 ---
 category: Components
+type: General
 title: Button
 cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
-demo:
-  cols: 2
-group:
-  title: General
-  order: 1
 demo:
   cols: 2
 ---
@@ -31,20 +27,6 @@ And 4 other properties additionally.
 - `ghost`: used in situations with complex background, home pages usually.
 - `disabled`: when actions are not available.
 - `loading`: add loading spinner in button, avoiding multiple submits too.
-
-## Examples
-
-<code src="./demo/basic.tsx">Type</code>
-<code src="./demo/icon.tsx">Icon</code>
-<code src="./demo/size.tsx">Size</code>
-<code src="./demo/disabled.tsx">Disabled</code>
-<code src="./demo/loading.tsx">Loading</code>
-<code src="./demo/multiple.tsx">Multiple Buttons</code>
-<code src="./demo/ghost.tsx">Ghost Button</code>
-<code src="./demo/danger.tsx">Danger Buttons</code>
-<code src="./demo/block.tsx">Block Button</code>
-<code src="./demo/legacy-group.tsx">Deprecated Button Group</code>
-<code src="./demo/chinese-chars-loading.tsx">Loading style bug</code>
 
 ## Examples
 

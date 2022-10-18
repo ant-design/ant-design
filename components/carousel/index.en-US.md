@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Display
+type: Data Display
 title: Carousel
 cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -16,13 +14,6 @@ A carousel component. Scales with its container.
 - When there is a group of content on the same level.
 - When there is insufficient content space, it can be used to save space in the form of a revolving door.
 - Commonly used for a group of pictures/cards.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/position.tsx">Position</code>
-<code src="./demo/autoplay.tsx">Scroll automatically</code>
-<code src="./demo/fade.tsx">Fade in</code>
 
 ## Examples
 

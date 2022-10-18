@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Display
+type: Data Display
 title: Tree
 cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -14,21 +12,6 @@ A hierarchical list structure component.
 ## When To Use
 
 Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The `Tree` component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a `Tree`.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/basic-controlled.tsx">Controlled Tree</code>
-<code src="./demo/draggable.tsx">draggable</code>
-<code src="./demo/dynamic.tsx">load data asynchronously</code>
-<code src="./demo/search.tsx">Searchable</code>
-<code src="./demo/line.tsx">Tree with line</code>
-<code src="./demo/customized-icon.tsx">Customize Icon</code>
-<code src="./demo/directory.tsx">directory</code>
-<code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
-<code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
-<code src="./demo/drag-debug.tsx">Drag Debug</code>
-<code src="./demo/big-data.tsx">Big data</code>
 
 ## Examples
 

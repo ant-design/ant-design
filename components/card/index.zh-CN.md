@@ -1,11 +1,9 @@
 ---
 category: Components
-group: 数据展示
+type: 数据展示
 title: Card
 subtitle: 卡片
 cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
-demo:
-  cols: 2
 ---
 
 通用卡片容器。
@@ -13,19 +11,6 @@ demo:
 ## 何时使用
 
 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">典型卡片</code>
-<code src="./demo/border-less.tsx">无边框</code>
-<code src="./demo/simple.tsx">简洁卡片</code>
-<code src="./demo/flexible-content.tsx">更灵活的内容展示</code>
-<code src="./demo/in-column.tsx">栅格卡片</code>
-<code src="./demo/loading.tsx">预加载的卡片</code>
-<code src="./demo/grid-card.tsx">网格型内嵌卡片</code>
-<code src="./demo/inner.tsx">内部卡片</code>
-<code src="./demo/tabs.tsx">带页签的卡片</code>
-<code src="./demo/meta.tsx">支持更多内容配置</code>
 
 ## 代码演示
 

@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Navigation
+type: Navigation
 title: Dropdown
 cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -14,24 +12,6 @@ A dropdown list.
 ## When To Use
 
 When there are more than a few options to choose from, you can wrap them in a `Dropdown`. By hovering or clicking on the trigger, a dropdown menu will appear, which allows you to choose an option and execute the relevant action.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/arrow.tsx">Arrow</code>
-<code src="./demo/item.tsx">Other elements</code>
-<code src="./demo/arrow-center.tsx">Arrow pointing at the center</code>
-<code src="./demo/trigger.tsx">Trigger mode</code>
-<code src="./demo/event.tsx">Click event</code>
-<code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
-<code src="./demo/sub-menu.tsx">Cascading menu</code>
-<code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
-<code src="./demo/context-menu.tsx">Context Menu</code>
-<code src="./demo/loading.tsx">Loading</code>
-<code src="./demo/selectable.tsx">Selectable Menu</code>
-<code src="./demo/menu-full.tsx">Menu full styles</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## Examples
 

@@ -7,10 +7,14 @@ const yaml = require('dumi/node_modules/js-yaml');
 const tmpFolder = `~demo`;
 
 if (fs.existsSync(tmpFolder)) {
-  console.log('存在 ~demo 文件夹，先做迁移');
-  let fileCount = 0;
+  let demoFileCount = 0;
+  let apiFileCount = 0;
 
-  const files = glob.sync(path.join(tmpFolder, `components/**`));
+  const files = glob
+    .sync(path.join(tmpFolder, `components/**`))
+    .filter(file => file.endsWith('.md'));
+  console.log('存在 ~demo 文件夹，先做迁移', files.length, '个文件');
+
   files.forEach(file => {
     const filePath = file.split(path.sep).splice(1).join(path.sep);
     if (fs.statSync(filePath).isDirectory()) {
@@ -23,10 +27,15 @@ if (fs.existsSync(tmpFolder)) {
 
     fs.ensureDirSync(path.dirname(filePath));
     fs.copyFileSync(file, filePath);
-    fileCount += 1;
+
+    if (filePath.includes('demo')) {
+      demoFileCount += 1;
+    } else {
+      apiFileCount += 1;
+    }
   });
 
-  console.log('迁移完成，共迁移文件数：', fileCount);
+  console.log('迁移完成，共迁移文件数：', apiFileCount, '个介绍文档', demoFileCount, '个 demo');
 }
 
 // 重新生成所有的 Demo 文件

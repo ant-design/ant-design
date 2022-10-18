@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Entry
+type: Data Entry
 title: InputNumber
 cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -14,23 +12,6 @@ Enter a number within certain range with the mouse or keyboard.
 ## When To Use
 
 When a numeric value needs to be provided.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/addon.tsx">Pre / Post tab</code>
-<code src="./demo/disabled.tsx">Disabled</code>
-<code src="./demo/digit.tsx">High precision decimals</code>
-<code src="./demo/formatter.tsx">Formatter</code>
-<code src="./demo/keyboard.tsx">Keyboard</code>
-<code src="./demo/borderless.tsx">Borderless</code>
-<code src="./demo/out-of-range.tsx">Out of range</code>
-<code src="./demo/prefix.tsx">Prefix</code>
-<code src="./demo/status.tsx">Status</code>
-<code src="./demo/controls.tsx">Icon</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/debug-token.tsx">Override Component Style</code>
 
 ## Examples
 

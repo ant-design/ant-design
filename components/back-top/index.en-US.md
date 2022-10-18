@@ -1,11 +1,8 @@
 ---
 category: Components
+type: Other
 title: BackTop
 cover: https://gw.alipayobjects.com/zos/alicdn/tJZ5jbTwX/BackTop.svg
-demo:
-  cols: 2
-group: Other
-order: 1
 demo:
   cols: 2
 ---
@@ -16,11 +13,6 @@ demo:
 
 - When the page content is very long.
 - When you need to go back to the top very frequently in order to view the contents.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/custom.tsx">Custom style</code>
 
 ## Examples
 

@@ -1,11 +1,9 @@
 ---
 category: Components
-group: 数据展示
+type: 数据展示
 title: Carousel
 subtitle: 走马灯
 cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -17,13 +15,6 @@ demo:
 - 当有一组平级的内容。
 - 当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。
 - 常用于一组图片或卡片轮播。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/position.tsx">位置</code>
-<code src="./demo/autoplay.tsx">自动切换</code>
-<code src="./demo/fade.tsx">渐显</code>
 
 ## 代码演示
 

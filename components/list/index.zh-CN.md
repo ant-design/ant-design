@@ -1,11 +1,9 @@
 ---
 category: Components
-group: 数据展示
+type: 数据展示
 title: List
 subtitle: 列表
 cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
-demo:
-  cols: 2
 ---
 
 通用列表。
@@ -13,18 +11,6 @@ demo:
 ## 何时使用
 
 最基础的列表展示，可承载文字、列表、图片、段落，常用于后台数据展示页面。
-
-## 代码演示
-
-<code src="./demo/simple.tsx">简单列表</code>
-<code src="./demo/basic.tsx">基础列表</code>
-<code src="./demo/loadmore.tsx">加载更多</code>
-<code src="./demo/vertical.tsx">竖排列表样式</code>
-<code src="./demo/grid.tsx">栅格列表</code>
-<code src="./demo/grid-test.tsx">测试栅格列表</code>
-<code src="./demo/responsive.tsx">响应式的栅格列表</code>
-<code src="./demo/infinite-load.tsx">滚动加载</code>
-<code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
 
 ## 代码演示
 

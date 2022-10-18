@@ -1,10 +1,8 @@
 ---
 category: Components
-group: Data Entry
+type: Data Entry
 title: DatePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/RT_USzA48/DatePicker.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -14,28 +12,6 @@ To select or input a date.
 ## When To Use
 
 By clicking the input box, you can select a date from a popup calendar.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/range-picker.tsx">Range Picker</code>
-<code src="./demo/switchable.tsx">Switchable picker</code>
-<code src="./demo/format.tsx">Date Format</code>
-<code src="./demo/time.tsx">Choose Time</code>
-<code src="./demo/disabled.tsx">Disabled</code>
-<code src="./demo/disabled-date.tsx">Disabled Date & Time</code>
-<code src="./demo/select-in-range.tsx">Select range dates in 7 days</code>
-<code src="./demo/presetted-ranges.tsx">Preset Ranges</code>
-<code src="./demo/extra-footer.tsx">Extra Footer</code>
-<code src="./demo/size.tsx">Three Sizes</code>
-<code src="./demo/date-render.tsx">Customized Date Rendering</code>
-<code src="./demo/status.tsx">Status</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
-<code src="./demo/placement.tsx">Basic</code>
-<code src="./demo/mode.tsx">Controlled Panels</code>
-<code src="./demo/start-end.tsx">Customized Range Picker</code>
-<code src="./demo/suffix.tsx">Suffix</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## Examples
 

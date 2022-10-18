@@ -1,10 +1,8 @@
 ---
 category: Components
-group: General
+type: General
 title: Typography
 cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
-demo:
-  cols: 2
 ---
 
 Basic text writing, including headings, body text, lists, and more.
@@ -13,18 +11,6 @@ Basic text writing, including headings, body text, lists, and more.
 
 - When need to display a title or paragraph contents in Articles/Blogs/Notes.
 - When you need copyable/editable/ellipsis texts.
-
-## Examples
-
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/title.tsx">Title Component</code>
-<code src="./demo/paragraph-debug.tsx">Title and Paragraph</code>
-<code src="./demo/text.tsx">Text and Link Component</code>
-<code src="./demo/interactive.tsx">Interactive</code>
-<code src="./demo/ellipsis.tsx">Ellipsis</code>
-<code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
-<code src="./demo/ellipsis-debug.tsx">Ellipsis Debug</code>
-<code src="./demo/suffix.tsx">suffix</code>
 
 ## Examples
 

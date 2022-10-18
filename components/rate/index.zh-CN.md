@@ -1,11 +1,9 @@
 ---
 category: Components
 subtitle: 评分
-group: 数据录入
+type: 数据录入
 title: Rate
 cover: https://gw.alipayobjects.com/zos/alicdn/R5uiIWmxe/Rate.svg
-demo:
-  cols: 2
 demo:
   cols: 2
 ---
@@ -16,16 +14,6 @@ demo:
 
 - 对评价进行展示。
 - 对事物进行快速的评级操作。
-
-## 代码演示
-
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/half.tsx">半星</code>
-<code src="./demo/text.tsx">文案展现</code>
-<code src="./demo/disabled.tsx">只读</code>
-<code src="./demo/clear.tsx">清除</code>
-<code src="./demo/character.tsx">其他字符</code>
-<code src="./demo/character-function.tsx">自定义字符</code>
 
 ## 代码演示
 
