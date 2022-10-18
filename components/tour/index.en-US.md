@@ -1,47 +1,51 @@
 ---
 category: Components
-type: Data Display
+subtitle: Walk Through
+type: Data Entry
 title: Tour
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
-A simple text popup tip.
+Guide the user to recognize what function a certain part or parts of a web page has
 
-## When To Use
+## 何时使用
 
-- The tip is shown on mouse enter, and is hidden on mouse leave. The Tour doesn't support complex text or operations.
-- To provide an explanation of a `button/text/operation`. It's often used instead of the html `title` attribute.
+For webpages with complex functions, or websites with new functions, it is very important to guide users to recognize the new features and learn how to use the new functions
 
 ## API
 
-| Property | Description                | Type                         | Default |
-| -------- | -------------------------- | ---------------------------- | ------- |
-| title    | The text shown in the tour | ReactNode \| () => ReactNode | -       |
+### Tour
 
-### Common API
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| target | `() => HTMLElement`&#124; `HTMLElement` | - | Get the element the guide card points to |
+| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | Whether to show the arrow, including the configuration whether to point to the center of the elemen |
+| cover | `ReactNode` | - | Displayed pictures or videos |
+| title | `ReactNode` | - | title |
+| description | `ReactNode` | - | description |
+| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | Position of the guide card relative to the target element |
+| onClose | `Function` | - | Callback function on shutdown |
+| mask | `boolean` | `true` | Whether to enable masking, the default follows the `mask` property of Tour |
+| type | `default`&#124; `primary` | `default` | Type, affects the background color and text color |
+| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | Properties of the Next button |
+| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | Properties of the previous button |
+| className | `string` | - | - |
+| style | `React.CSSProperties` | - | - |
 
-The following APIs are shared by Tour, Popconfirm, Popover.
+### TourStep 引导步骤卡片
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | This value will be merged into placement's config, please refer to the settings [rc-tour](https://github.com/react-component/tour) | object | - |  |
-| arrowPointAtCenter | Whether the arrow is pointed at the center of target | boolean | false |  |
-| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
-| color | The background color | string | - | 4.3.0 |
-| defaultOpen | Whether the floating tour card is open by default | boolean | false | 4.23.0 |
-| destroyTourOnHide | Whether destroy tour when hidden, parent container of tour will be destroyed when `keepParent` is false | boolean \| { keepParent?: boolean } | false |  |
-| getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
-| mouseEnterDelay | Delay in seconds, before tour is shown on mouse enter | number | 0.1 |  |
-| mouseLeaveDelay | Delay in seconds, before tour is hidden on mouse leave | number | 0.1 |  |
-| overlayClassName | Class name of the tour card | string | - |  |
-| overlayStyle | Style of the tour card | object | - |  |
-| overlayInnerStyle | Style of the tour inner content | object | - |  |
-| placement | The position of the tour relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
-| trigger | Tour trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
-| open | Whether the floating tour card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
-| zIndex | Config `z-index` of Tour | number | - |  |
-| onOpenChange | Callback executed when visibility of the tour card is changed | (open: boolean) => void | - | 4.23.0 |
-
-## Note
-
-Please ensure that the child node of `Tour` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| target | `() => HTMLElement`&#124; `HTMLElement` | - | Get the element the guide card points to |
+| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | Whether to show the arrow, including the configuration whether to point to the center of the element |
+| cover | `ReactNode` | - | Displayed pictures or videos |
+| title | `ReactNode` | - | title |
+| description | `ReactNode` | - | description |
+| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | Position of the guide card relative to the target element |
+| onClose | `Function` | - | Callback function on shutdown |
+| mask | `boolean` | `true` | Whether to enable masking, the default follows the `mask` property of Tour |
+| type | `default`&#124; `primary` | `default` | Type, affects the background color and text color |
+| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | Properties of the Next button |
+| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | Properties of the previous button |
+| className | `string` | - | - |
+| style | `React.CSSProperties` | - | - |
