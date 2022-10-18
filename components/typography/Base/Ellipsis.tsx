@@ -67,6 +67,13 @@ const WALKING = 2;
 const DONE_WITH_ELLIPSIS = 3;
 const DONE_WITHOUT_ELLIPSIS = 4;
 
+type WalkingState =
+  | typeof NONE
+  | typeof PREPARE
+  | typeof WALKING
+  | typeof DONE_WITH_ELLIPSIS
+  | typeof DONE_WITHOUT_ELLIPSIS;
+
 const Ellipsis = ({
   enabledMeasure,
   children,
@@ -76,20 +83,15 @@ const Ellipsis = ({
   rows,
   onEllipsis,
 }: EllipsisProps) => {
-  const [cutLength, setCutLength] = React.useState<[number, number, number]>([0, 0, 0]);
-  const [walkingState, setWalkingState] = React.useState<
-    | typeof NONE
-    | typeof PREPARE
-    | typeof WALKING
-    | typeof DONE_WITH_ELLIPSIS
-    | typeof DONE_WITHOUT_ELLIPSIS
-  >(NONE);
-  const [startLen, midLen, endLen] = cutLength;
+  const [[startLen, midLen, endLen], setCutLength] = React.useState<
+    [startLen: number, midLen: number, endLen: number]
+  >([0, 0, 0]);
+  const [walkingState, setWalkingState] = React.useState<WalkingState>(NONE);
 
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
 
-  const singleRowRef = React.useRef<HTMLSpanElement>(null);
-  const midRowRef = React.useRef<HTMLSpanElement>(null);
+  const singleRowRef = React.useRef<HTMLElement>(null);
+  const midRowRef = React.useRef<HTMLElement>(null);
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
@@ -167,7 +169,7 @@ const Ellipsis = ({
 
   const renderMeasure = (
     content: React.ReactNode,
-    ref: React.Ref<HTMLSpanElement>,
+    ref: React.Ref<HTMLElement>,
     style: React.CSSProperties,
   ) => (
     <span
@@ -189,7 +191,7 @@ const Ellipsis = ({
     </span>
   );
 
-  const renderMeasureSlice = (len: number, ref: React.Ref<HTMLSpanElement>) => {
+  const renderMeasureSlice = (len: number, ref: React.Ref<HTMLElement>) => {
     const sliceNodeList = sliceNodes(nodeList, len);
 
     return renderMeasure(children(sliceNodeList, true), ref, measureStyle);
