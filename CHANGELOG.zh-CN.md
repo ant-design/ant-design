@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.23.6
+
+`2022-10-17`
+
+- Table
+  - 🐞 修复 Table 配置固定表头时的阴影样式问题。[#38023](https://github.com/ant-design/ant-design/pull/38023) [@liuycy](https://github.com/liuycy)
+  - 🐞 修复 Table 配置省略时丢失 `title` 属性问题。[416c61f](https://github.com/ant-design/ant-design/commit/416c61f)
+- 🐞 修复 Breadcrumb 不支持数字 `0` 的问题。[#38006](https://github.com/ant-design/ant-design/pull/38006) [@li-jia-nan](https://github.com/li-jia-nan)
+- Input
+  - 🐞 修复 Input.TextArea 配置 `autoSize` 时会额外渲染 input 节点的问题。[#38050](https://github.com/ant-design/ant-design/pull/38050)
+  - 🐞 修复 Input.Password 在点击隐藏按钮后 input 上会有 value 属性的问题。[#37900](https://github.com/ant-design/ant-design/pull/37900) [@linxianxi](https://github.com/linxianxi)
+  - 💄 修复 RTL 下 Input.Search 边框样式问题。[#37980](https://github.com/ant-design/ant-design/pull/37980) [@foryuki](https://github.com/foryuki)
+- 🐞 修复 AutoComplete 会报未使用的废弃属性 `dropdownClassName` 的问题。[#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 Typography 省略算法在计算一些元素 fontSize 时为空字符串的情况[#37928](https://github.com/ant-design/ant-design/pull/37928) [@zheeeng](https://github.com/zheeeng)
+- 🐞 Fix Tabs 添加按钮在某些边界情况下无法展示的问题。[#37937](https://github.com/ant-design/ant-design/pull/37937)
+- 🐞 修复 RangePicker 在某些情况下面板会闪烁的问题。[#439](https://github.com/react-component/picker/pull/439)
+- 🛠 重构 Spin 为 Function Component。[#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 重构 Statistic.Countdown 为 Function Component.[#37938](https://github.com/ant-design/ant-design/pull/37938) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 4.23.5
 
 `2022-10-10`
