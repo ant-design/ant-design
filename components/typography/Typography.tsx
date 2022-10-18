@@ -51,10 +51,11 @@ const Typography = React.forwardRef<
       mergedRef = composeRef(ref, setContentRef);
     }
 
+    const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
     // Style
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    const prefixCls = getPrefixCls('typography', customizePrefixCls);
     const componentClassName = classNames(
       prefixCls,
       {
