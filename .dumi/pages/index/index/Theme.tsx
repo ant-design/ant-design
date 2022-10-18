@@ -43,9 +43,9 @@ const useStyle = () => {
     demo: css`
       border-radius: 8px;
       overflow: hidden;
-      background: rgba(250, 250, 250, 0.8);
-      backdrop-filter: blur(3px);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+      background: rgba(240, 242, 245, 0.25);
+      backdrop-filter: blur(50px);
+      box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
     `,
 
     darkDemo: css`
@@ -59,7 +59,7 @@ const useStyle = () => {
     header: css`
       display: flex;
       align-items: center;
-      border-bottom: 1px solid red;
+      border-bottom: 1px solid ${token.colorSplit};
     `,
 
     logo: css`
