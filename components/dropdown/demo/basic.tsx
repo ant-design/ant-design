@@ -1,6 +1,6 @@
+import React from 'react';
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
-import React from 'react';
 
 const menu = (
   <Menu

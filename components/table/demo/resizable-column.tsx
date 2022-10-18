@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType, ColumnType } from 'antd/es/table';
-import React, { useState } from 'react';
 import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
 

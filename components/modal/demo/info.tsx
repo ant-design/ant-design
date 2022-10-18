@@ -1,5 +1,5 @@
-import { Button, Modal, Space } from 'antd';
 import React from 'react';
+import { Button, Modal, Space } from 'antd';
 
 const info = () => {
   Modal.info({

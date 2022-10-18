@@ -1,8 +1,4 @@
-/*
- * debug: true
- */
-
-import { ConfigProvider, InputNumber, Space } from 'antd';
+import React from 'react';import { ConfigProvider, InputNumber, Space } from 'antd';
 
 export default () => (
   <ConfigProvider
@@ -31,3 +27,4 @@ export default () => (
     </Space>
   </ConfigProvider>
 );
+

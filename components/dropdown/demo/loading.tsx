@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space } from 'antd';
-import React, { useState } from 'react';
 
 const menu = (
   <Menu

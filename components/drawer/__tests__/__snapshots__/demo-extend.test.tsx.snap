@@ -3033,7 +3033,7 @@ exports[`renders ./components/drawer/demo/render-panel.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/drawer/demo/scroll-debug.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/scroll-debug.tsx extend context correctly 1`] = `
 <div
   style="position:relative;z-index:999999"
 >

@@ -1,5 +1,5 @@
-import { Image } from 'antd';
 import React, { useState } from 'react';
+import { Image } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

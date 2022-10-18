@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * version: 4.17.0
  */
 
 import { Button, Form, Input, message, Space } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();

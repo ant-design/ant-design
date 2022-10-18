@@ -1,5 +1,5 @@
-import { Button, Timeline } from 'antd';
 import React, { useState } from 'react';
+import { Button, Timeline } from 'antd';
 
 const App: React.FC = () => {
   const [reverse, setReverse] = useState(false);

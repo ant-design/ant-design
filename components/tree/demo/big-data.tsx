@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React from 'react';
 import { Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
-import React from 'react';
 
 const treeData: DataNode[] = [];
 

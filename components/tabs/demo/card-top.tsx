@@ -1,5 +1,5 @@
-import { Tabs } from 'antd';
 import React from 'react';
+import { Tabs } from 'antd';
 
 const items = new Array(3).fill(null).map((_, i) => {
   const id = String(i + 1);

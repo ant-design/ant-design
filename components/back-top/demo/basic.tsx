@@ -1,5 +1,5 @@
-import { BackTop } from 'antd';
 import React from 'react';
+import { BackTop } from 'antd';
 
 const App: React.FC = () => (
   <>

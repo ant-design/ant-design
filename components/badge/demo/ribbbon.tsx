@@ -1,5 +1,5 @@
-import { Badge, Card } from 'antd';
 import React from 'react';
+import { Badge, Card } from 'antd';
 
 const App: React.FC = () => (
   <>

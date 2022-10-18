@@ -1,5 +1,5 @@
-import { Card } from 'antd';
 import React from 'react';
+import { Card } from 'antd';
 
 const App: React.FC = () => (
   <div className="site-card-border-less-wrapper">

@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Badge } from 'antd';
 import React from 'react';
+import { Badge } from 'antd';
 
 const colors = [
   'pink',

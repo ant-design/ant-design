@@ -1,5 +1,5 @@
-import { Cascader, Divider } from 'antd';
 import React from 'react';
+import { Cascader, Divider } from 'antd';
 
 interface Option {
   value: string;

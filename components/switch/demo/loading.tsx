@@ -1,5 +1,5 @@
-import { Switch } from 'antd';
 import React from 'react';
+import { Switch } from 'antd';
 
 const App: React.FC = () => (
   <>

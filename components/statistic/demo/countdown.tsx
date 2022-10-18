@@ -1,6 +1,6 @@
+import React from 'react';
 import { Col, Row, Statistic } from 'antd';
 import type { countdownValueType } from 'antd/es/statistic/utils';
-import React from 'react';
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Dayjs is also OK

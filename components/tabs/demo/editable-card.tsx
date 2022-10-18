@@ -1,5 +1,5 @@
-import { Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
+import { Tabs } from 'antd';
 
 const initialItems = [
   { label: 'Tab 1', children: 'Content of Tab 1', key: '1' },

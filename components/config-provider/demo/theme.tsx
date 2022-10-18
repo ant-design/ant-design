@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 /*
  * version: 4.17.0
  */
@@ -44,7 +45,6 @@ import {
   TreeSelect,
   Typography,
 } from 'antd';
-import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 
 const SplitSpace: React.FC<SpaceProps> = props => (

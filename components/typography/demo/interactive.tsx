@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { CheckOutlined, HighlightOutlined, SmileFilled, SmileOutlined } from '@ant-design/icons';
 import { Divider, Radio, Typography } from 'antd';
-import React, { useState } from 'react';
 
 const { Paragraph } = Typography;
 

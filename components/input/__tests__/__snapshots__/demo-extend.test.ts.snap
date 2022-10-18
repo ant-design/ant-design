@@ -9744,19 +9744,7 @@ Array [
 ]
 `;
 
-<<<<<<< HEAD
 exports[`renders ./components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
-<div
-  class="ant-input-textarea ant-input-textarea-show-count"
-  data-count="0 / 100"
-  style="height: 120px;"
->
-  <textarea
-    class="ant-input"
-  />
-</div>
-=======
-exports[`renders ./components/input/demo/textarea-show-count.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
@@ -9780,7 +9768,6 @@ Array [
     />
   </div>,
 ]
->>>>>>> next
 `;
 
 exports[`renders ./components/input/demo/tooltip.tsx extend context correctly 1`] = `

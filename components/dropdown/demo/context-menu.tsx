@@ -1,5 +1,5 @@
-import { Dropdown, Menu } from 'antd';
 import React from 'react';
+import { Dropdown, Menu } from 'antd';
 
 const menu = (
   <Menu

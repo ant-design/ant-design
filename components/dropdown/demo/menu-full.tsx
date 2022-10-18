@@ -1,11 +1,7 @@
-/*
- * debug: true
- */
-
+import React from 'react';
 import { AppstoreOutlined, DownOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Dropdown, Menu, Space } from 'antd';
-import React from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

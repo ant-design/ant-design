@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Cascader } from 'antd';
 import React from 'react';
+import { Cascader } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalCascader } = Cascader;
 

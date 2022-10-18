@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * iframe: 400
  */
 
 import { BackTop } from 'antd';
-import React from 'react';
 
 const style: React.CSSProperties = {
   height: 40,

@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Avatar, Button } from 'antd';
 import React, { useState } from 'react';
+import { Avatar, Button } from 'antd';
 
 type SizeType = 'large' | 'small' | 'default' | number;
 

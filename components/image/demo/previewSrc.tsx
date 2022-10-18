@@ -1,5 +1,5 @@
-import { Image } from 'antd';
 import React from 'react';
+import { Image } from 'antd';
 
 const App: React.FC = () => (
   <Image

@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Button, Col, Form, Input, Row, Select } from 'antd';
-import React, { useState } from 'react';
 
 const { Option } = Select;
 

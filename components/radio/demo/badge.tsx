@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Badge, Radio } from 'antd';
 import React from 'react';
+import { Badge, Radio } from 'antd';
 
 const App: React.FC = () => (
   <Radio.Group buttonStyle="solid">

@@ -1,6 +1,6 @@
+import React from 'react';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Divider, Tooltip } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <>

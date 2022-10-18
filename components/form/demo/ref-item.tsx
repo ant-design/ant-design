@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React from 'react';
 import type { InputRef } from 'antd';
 import { Button, Form, Input } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();

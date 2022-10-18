@@ -1,7 +1,4 @@
-/*
- * debug: true
- */
-
+import React, { useState } from 'react';
 import {
   FileExcelTwoTone,
   FilePdfTwoTone,
@@ -13,7 +10,6 @@ import {
 } from '@ant-design/icons';
 import { Modal, Upload } from 'antd';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
-import React, { useState } from 'react';
 
 const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {

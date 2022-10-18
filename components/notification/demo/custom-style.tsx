@@ -1,5 +1,5 @@
-import { Button, notification } from 'antd';
 import React from 'react';
+import { Button, notification } from 'antd';
 
 const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();

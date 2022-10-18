@@ -528,10 +528,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend cont
 </div>
 `;
 
-<<<<<<< HEAD
-exports[`renders ./components/steps/demo/error.tsx extend context correctly 1`] = `
-=======
-exports[`renders ./components/steps/demo/deprecated.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/deprecated.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -664,8 +661,7 @@ exports[`renders ./components/steps/demo/deprecated.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/error.md extend context correctly 1`] = `
->>>>>>> next
+exports[`renders ./components/steps/demo/error.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >

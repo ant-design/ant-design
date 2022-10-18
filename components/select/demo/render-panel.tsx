@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Select, Switch, Space } from 'antd';
 import React from 'react';
+import { Select, Switch, Space } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalSelect } = Select;
 

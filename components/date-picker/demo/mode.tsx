@@ -1,12 +1,8 @@
-/*
- * debug: true
- */
-
+import React, { useState } from 'react';
 import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { Dayjs } from 'dayjs';
-import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 

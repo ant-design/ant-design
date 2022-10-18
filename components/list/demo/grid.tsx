@@ -1,5 +1,5 @@
-import { Card, List } from 'antd';
 import React from 'react';
+import { Card, List } from 'antd';
 
 const data = [
   {

@@ -1,5 +1,5 @@
-import { Col, InputNumber, Row, Slider } from 'antd';
 import React, { useState } from 'react';
+import { Col, InputNumber, Row, Slider } from 'antd';
 
 const IntegerStep = () => {
   const [inputValue, setInputValue] = useState(1);

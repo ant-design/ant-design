@@ -1,5 +1,5 @@
-import { Rate } from 'antd';
 import React, { useState } from 'react';
+import { Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 

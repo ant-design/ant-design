@@ -1,5 +1,5 @@
-import { Button, Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
+import { Button, Tabs } from 'antd';
 
 const defaultPanes = new Array(2).fill(null).map((_, index) => {
   const id = String(index + 1);
