@@ -1,5 +1,5 @@
-import { Badge, Divider, Space } from 'antd';
 import React from 'react';
+import { Badge, Divider, Space } from 'antd';
 
 const colors = [
   'pink',

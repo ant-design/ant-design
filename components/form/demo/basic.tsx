@@ -1,5 +1,5 @@
-import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
+import { Button, Checkbox, Form, Input } from 'antd';
 
 const App: React.FC = () => {
   const onFinish = (values: any) => {

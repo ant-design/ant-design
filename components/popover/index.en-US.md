@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Popover
 cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 demo:
@@ -23,14 +23,14 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/control.tsx">Controlling the close of the dialog</code>
 <code src="./demo/arrow-point-at-center.tsx">Arrow pointing</code>
 <code src="./demo/hover-with-click.tsx">Hover with click popover</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
-| Param   | Description         | Type                         | Default value | Version |
-| ------- | ------------------- | ---------------------------- | ------------- | ------- |
-| content | Content of the card | ReactNode \| () => ReactNode | -             |         |
-| title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| content | Content of the card | ReactNode \| () => ReactNode | - |  |
+| title | Title of the card | ReactNode \| () => ReactNode | - |  |
 
 Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 

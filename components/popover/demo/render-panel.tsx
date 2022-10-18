@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Popover } from 'antd';
 import React from 'react';
+import { Popover } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopover } = Popover;
 

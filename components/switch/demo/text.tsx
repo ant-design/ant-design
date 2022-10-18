@@ -1,6 +1,6 @@
+import React from 'react';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Switch } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <>

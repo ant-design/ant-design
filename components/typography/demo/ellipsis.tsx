@@ -1,5 +1,5 @@
-import { Switch, Typography } from 'antd';
 import React, { useState } from 'react';
+import { Switch, Typography } from 'antd';
 
 const { Paragraph, Text } = Typography;
 

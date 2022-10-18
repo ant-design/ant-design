@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 多选框
-type: 数据录入
+group: 数据录入
 title: Checkbox
 cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 demo:
@@ -23,7 +23,7 @@ demo:
 <code src="./demo/group.tsx">Checkbox 组</code>
 <code src="./demo/check-all.tsx">全选</code>
 <code src="./demo/layout.tsx">布局</code>
-<code src="./demo/debug-line.tsx">同行布局</code>
+<code src="./demo/debug-line.tsx" debug>同行布局</code>
 
 ## API
 
@@ -42,14 +42,14 @@ demo:
 
 #### Checkbox Group
 
-| 参数         | 说明                                                         | 类型                                | 默认值 | 版本 |
-| ------------ | ------------------------------------------------------------ | ----------------------------------- | ------ | ---- |
-| defaultValue | 默认选中的选项                                               | string\[]                           | \[]    |      |
-| disabled     | 整组失效                                                     | boolean                             | false  |      |
-| name         | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string                              | -      |      |
-| options      | 指定可选项                                                   | string\[] \| number\[] \| Option\[] | \[]    |      |
-| value        | 指定选中的选项                                               | string\[]                           | \[]    |      |
-| onChange     | 变化时回调函数                                               | function(checkedValue)              | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| defaultValue | 默认选中的选项 | string\[] | \[] |  |
+| disabled | 整组失效 | boolean | false |  |
+| name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
+| options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
+| value | 指定选中的选项 | string\[] | \[] |  |
+| onChange | 变化时回调函数 | function(checkedValue) | - |  |
 
 ##### Option
 

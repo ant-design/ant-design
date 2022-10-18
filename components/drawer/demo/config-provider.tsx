@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Button, ConfigProvider, Drawer } from 'antd';
 import React, { useRef, useState } from 'react';
+import { Button, ConfigProvider, Drawer } from 'antd';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);

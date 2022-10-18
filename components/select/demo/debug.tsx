@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Button, Input, Select } from 'antd';
 import React from 'react';
+import { Button, Input, Select } from 'antd';
 
 const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);

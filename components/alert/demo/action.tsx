@@ -1,5 +1,5 @@
-import { Alert, Button, Space } from 'antd';
 import React from 'react';
+import { Alert, Button, Space } from 'antd';
 
 const App: React.FC = () => (
   <>

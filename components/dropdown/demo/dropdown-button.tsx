@@ -1,7 +1,7 @@
+import React from 'react';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown, Menu, message, Space, Tooltip } from 'antd';
-import React from 'react';
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   message.info('Click on left button.');

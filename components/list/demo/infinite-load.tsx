@@ -1,5 +1,5 @@
-import { Avatar, Divider, List, Skeleton } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { Avatar, Divider, List, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 interface DataType {

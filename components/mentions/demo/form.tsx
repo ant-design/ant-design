@@ -1,5 +1,5 @@
-import { Button, Form, Mentions } from 'antd';
 import React from 'react';
+import { Button, Form, Mentions } from 'antd';
 
 const { Option, getMentions } = Mentions;
 

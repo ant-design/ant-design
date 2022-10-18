@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Badge, Space, Switch } from 'antd';
-import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [show, setShow] = useState(true);

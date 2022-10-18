@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import React from 'react';
 
 const Text1 = () => '部署';
 const Text2 = () => <span>部署</span>;

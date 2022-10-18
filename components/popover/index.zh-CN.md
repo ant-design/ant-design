@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 气泡卡片
-type: 数据展示
+group: 数据展示
 title: Popover
 cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 demo:
@@ -24,14 +24,14 @@ demo:
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
-<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
-| 参数    | 说明     | 类型                         | 默认值 | 版本 |
-| ------- | -------- | ---------------------------- | ------ | ---- |
-| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
-| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| content | 卡片内容 | ReactNode \| () => ReactNode | - |  |
+| title | 卡片标题 | ReactNode \| () => ReactNode | - |  |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

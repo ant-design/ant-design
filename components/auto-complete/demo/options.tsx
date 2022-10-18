@@ -1,5 +1,5 @@
-import { AutoComplete } from 'antd';
 import React, { useState } from 'react';
+import { AutoComplete } from 'antd';
 
 const App: React.FC = () => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>([]);

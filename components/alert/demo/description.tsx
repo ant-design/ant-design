@@ -1,5 +1,5 @@
-import { Alert } from 'antd';
 import React from 'react';
+import { Alert } from 'antd';
 
 const App: React.FC = () => (
   <>

@@ -1,5 +1,5 @@
-import { Popconfirm } from 'antd';
 import React from 'react';
+import { Popconfirm } from 'antd';
 
 const App: React.FC = () => (
   <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">

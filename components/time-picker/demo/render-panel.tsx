@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { TimePicker } from 'antd';
 import React from 'react';
+import { TimePicker } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTimePicker } = TimePicker;
 

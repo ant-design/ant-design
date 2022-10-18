@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Cascader } from 'antd';
-import React from 'react';
 
 interface Option {
   value: string;

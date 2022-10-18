@@ -1,6 +1,6 @@
+import React, { useRef, useState } from 'react';
 import type { TabsProps } from 'antd';
 import { Tabs } from 'antd';
-import React, { useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 

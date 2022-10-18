@@ -1,5 +1,5 @@
-import { Space, Spin } from 'antd';
 import React from 'react';
+import { Space, Spin } from 'antd';
 
 const App: React.FC = () => (
   <Space size="middle">

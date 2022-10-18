@@ -1,5 +1,5 @@
-import { Button, Switch } from 'antd';
 import React, { useState } from 'react';
+import { Button, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -6,7 +7,6 @@ import {
   VideoCameraOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
 
 const { Header, Sider, Content } = Layout;
 

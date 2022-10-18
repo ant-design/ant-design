@@ -1,10 +1,6 @@
-/*
- * debug: true
- */
-
+import React, { useState } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { TreeSelect } from 'antd';
-import React, { useState } from 'react';
 
 const icon = <SmileOutlined />;
 const treeData = [

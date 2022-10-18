@@ -1,10 +1,10 @@
+import React from 'react';
 /*
  * version: 4.17.0
  */
 
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
-import React from 'react';
 
 interface DataType {
   key: React.Key;

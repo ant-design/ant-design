@@ -1,5 +1,5 @@
-import { Collapse } from 'antd';
 import React from 'react';
+import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
 

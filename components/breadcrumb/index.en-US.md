@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 demo:
@@ -28,28 +28,28 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ### Breadcrumb
 
-| Property   | Description                             | Type                                        | Default | Version |
-| ---------- | --------------------------------------- | ------------------------------------------- | ------- | ------- |
-| itemRender | Custom item renderer                    | (route, params, routes, paths) => ReactNode | -       |         |
-| params     | Routing parameters                      | object                                      | -       |         |
-| routes     | The routing stack information of router | [routes\[\]](#routes)                       | -       |         |
-| separator  | Custom separator                        | ReactNode                                   | `/`     |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
+| params | Routing parameters | object | - |  |
+| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| separator | Custom separator | ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
-| Property      | Description                           | Type                                   | Default | Version |
-| ------------- | ------------------------------------- | -------------------------------------- | ------- | ------- |
-| className     | The additional css class              | string                                 | -       |         |
-| dropdownProps | The dropdown props                    | [Dropdown](/components/dropdown)       | -       |         |
-| href          | Target of hyperlink                   | string                                 | -       |         |
-| overlay       | The dropdown menu                     | [Menu](/components/menu) \| () => Menu | -       |         |
-| onClick       | Set the handler to handle click event | (e:MouseEvent) => void                 | -       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| className | The additional css class | string | - |  |
+| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
+| href | Target of hyperlink | string | - |  |
+| overlay | The dropdown menu | [Menu](/components/menu) \| () => Menu | - |  |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator
 
-| Property | Description      | Type      | Default | Version |
-| -------- | ---------------- | --------- | ------- | ------- |
-| children | Custom separator | ReactNode | `/`     |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| children | Custom separator | ReactNode | `/` |  |
 
 > When using `Breadcrumb.Separator`,its parent component must be set to `separator=""`, otherwise the default separator of the parent component will appear.
 

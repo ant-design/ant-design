@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Divider } from 'antd';
 import React from 'react';
+import { Divider } from 'antd';
 
 const App: React.FC = () => (
   <>

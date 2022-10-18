@@ -1,3 +1,4 @@
+import React from 'react';
 /*
  * iframe: 360
  */
@@ -14,7 +15,6 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
-import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 

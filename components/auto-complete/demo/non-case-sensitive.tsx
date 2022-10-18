@@ -1,5 +1,5 @@
-import { AutoComplete } from 'antd';
 import React from 'react';
+import { AutoComplete } from 'antd';
 
 const options = [
   { value: 'Burns Bay Road' },

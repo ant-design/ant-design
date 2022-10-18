@@ -1,9 +1,5 @@
-/*
- * debug: true
- */
-
-import { Tooltip } from 'antd';
 import React from 'react';
+import { Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Tooltip destroyTooltipOnHide={{ keepParent: false }} title="prompt text">

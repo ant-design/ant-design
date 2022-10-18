@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   FacebookOutlined,
   LinkedinOutlined,
@@ -5,7 +6,6 @@ import {
   YoutubeOutlined,
 } from '@ant-design/icons';
 import { Tag } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <>

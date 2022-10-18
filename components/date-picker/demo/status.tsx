@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * version: 4.19.0
  */
 
 import { DatePicker, Space } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>

@@ -1,4 +1,4 @@
-import { Segmented } from 'antd';
+import React from 'react';import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 export default () => (
@@ -17,3 +17,4 @@ export default () => (
     ]}
   />
 );
+

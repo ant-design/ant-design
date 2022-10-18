@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs-extra');
 const glob = require('glob');
 const path = require('path');
@@ -72,8 +73,12 @@ components.forEach(component => {
         name,
         meta,
         html: {
-          'zh-CN': `<code src="./demo/${name}.tsx">${meta.title['zh-CN']}</code>`,
-          'en-US': `<code src="./demo/${name}.tsx">${meta.title['en-US']}</code>`,
+          'zh-CN': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
+            meta.title['zh-CN']
+          }</code>`,
+          'en-US': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
+            meta.title['en-US']
+          }</code>`,
         },
         md: content + extra,
         code: code.replace(/^```(tsx|jsx)\n|```$/g, ''),
@@ -127,7 +132,9 @@ $1`,
 
   console.log('写入', component, 'demo & demo md...');
   codes.forEach(code => {
-    const extraMeta = Object.keys(code.meta).filter(key => !['title', 'order'].includes(key));
+    const extraMeta = Object.keys(code.meta).filter(
+      key => !['title', 'order', 'debug'].includes(key),
+    );
 
     if (extraMeta.length) {
       console.log('写入额外的 meta', code.meta);
@@ -136,7 +143,19 @@ $1`,
       }`;
     }
 
-    fs.writeFileSync(path.join(demoPath, `${code.name}.tsx`), code.code, 'utf-8');
+    let importReactContent = "import React from 'react';";
+
+    const importReactReg = /import React(\D*)from 'react';\n/;
+    const matchImportReact = code.code.match(importReactReg);
+    if (matchImportReact) {
+      [importReactContent] = matchImportReact;
+      code.code = code.code.replace(importReactReg, '').trim();
+    }
+    fs.writeFileSync(
+      path.join(demoPath, `${code.name}.tsx`),
+      `${importReactContent}${code.code}\n`,
+      'utf-8',
+    );
     if (code.md.trim()) {
       fs.writeFileSync(path.join(demoPath, `${code.name}.md`), code.md, 'utf-8');
     } else {

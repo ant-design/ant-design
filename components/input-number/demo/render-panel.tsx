@@ -1,7 +1,3 @@
-/*
- * debug: true
- */
-
 import React from 'react';
 import { InputNumber } from 'antd';
 

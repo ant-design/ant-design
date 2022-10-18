@@ -1,5 +1,5 @@
-import { Divider, Steps } from 'antd';
 import React, { useState } from 'react';
+import { Divider, Steps } from 'antd';
 
 const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
