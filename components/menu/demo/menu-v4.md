@@ -22,8 +22,8 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Divider, Menu, Switch, ConfigProvider } from 'antd';
-import type { MenuProps, MenuTheme } from 'antd/es/menu';
+import { Menu, Switch, ConfigProvider } from 'antd';
+import type { MenuProps } from 'antd/es/menu';
 import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -70,10 +70,6 @@ const App: React.FC = () => {
 
   const changeMode = (value: boolean) => {
     setMode(value ? 'vertical' : 'inline');
-  };
-
-  const changeTheme = (value: boolean) => {
-    setTheme(value ? 'dark' : 'light');
   };
 
   return (
