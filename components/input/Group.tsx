@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
+import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import useStyle from './style';
 
@@ -37,7 +38,8 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   const formItemContext = useContext(FormItemInputContext);
-  const groupFormItemContext = useMemo(
+
+  const groupFormItemContext = useMemo<FormItemStatusContextProps>(
     () => ({
       ...formItemContext,
       isFormItemInput: false,

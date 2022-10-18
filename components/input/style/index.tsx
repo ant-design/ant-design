@@ -605,6 +605,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       [`> input.${prefixCls}`]: {
         padding: 0,
+        fontSize: 'inherit',
         border: 'none',
         outline: 'none',
 
@@ -710,7 +711,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
         },
         '&-status-warning': {
-          [`.${prefixCls}-group-addon`]: {
+          [`.${prefixCls}-group-addon:last-child`]: {
             color: colorSuccess,
             borderColor: colorSuccess,
           },

@@ -6,7 +6,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -103,7 +103,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -116,7 +116,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-single ant-select-show-arrow"
-            style="width: 60px;"
+            style="width:60px"
           >
             <div
               class="ant-select-selector"
@@ -125,17 +125,16 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -151,7 +150,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -255,7 +254,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
         >
           <div
             class="ant-select ant-select-single ant-select-show-arrow"
-            style="width: 60px;"
+            style="width:60px"
           >
             <div
               class="ant-select-selector"
@@ -264,17 +263,16 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
                 class="ant-select-selection-search"
               >
                 <input
-                  aria-activedescendant="rc_select_test_list_test"
+                  aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -290,7 +288,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -320,7 +318,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -442,7 +440,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
         >
           <div
             class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
-            style="width: 150px;"
+            style="width:150px"
           >
             <div
               class="ant-select-selector"
@@ -452,15 +450,14 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="rc_select_test_list"
+                  aria-controls="undefined_list"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_test_list"
+                  aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_test"
                   readonly=""
                   role="combobox"
-                  style="opacity: 0;"
+                  style="opacity:0"
                   type="search"
                   unselectable="on"
                   value=""
@@ -475,7 +472,7 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-arrow"
-              style="user-select: none;"
+              style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
               <span
@@ -828,7 +825,7 @@ exports[`renders ./components/input-number/demo/debug-token.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -987,7 +984,7 @@ exports[`renders ./components/input-number/demo/debug-token.md correctly 1`] = `
 exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
 <div
   class="ant-input-number"
-  style="width: 200px;"
+  style="width:200px"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1144,7 +1141,7 @@ Array [
     </div>
   </div>,
   <div
-    style="margin-top: 20px;"
+    style="margin-top:20px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -1164,7 +1161,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1330,7 +1327,7 @@ exports[`renders ./components/input-number/demo/keyboard.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1422,7 +1419,6 @@ exports[`renders ./components/input-number/demo/keyboard.md correctly 1`] = `
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
-          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -1442,7 +1438,7 @@ exports[`renders ./components/input-number/demo/out-of-range.md correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number ant-input-number-out-of-range"
@@ -1540,7 +1536,7 @@ exports[`renders ./components/input-number/demo/prefix.md correctly 1`] = `
 Array [
   <div
     class="ant-input-number-affix-wrapper"
-    style="width: 100%;"
+    style="width:100%"
   >
     <span
       class="ant-input-number-prefix"
@@ -1625,7 +1621,7 @@ Array [
   <br />,
   <div
     class="ant-input-number-group-wrapper"
-    style="width: 100%;"
+    style="width:100%"
   >
     <div
       class="ant-input-number-wrapper ant-input-number-group"
@@ -1741,7 +1737,7 @@ Array [
   <br />,
   <div
     class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled"
-    style="width: 100%;"
+    style="width:100%"
   >
     <span
       class="ant-input-number-prefix"
@@ -1828,11 +1824,11 @@ Array [
 
 exports[`renders ./components/input-number/demo/render-panel.md correctly 1`] = `
 <div
-  style="display: flex; flex-direction: column; row-gap: 16px;"
+  style="display:flex;flex-direction:column;row-gap:16px"
 >
   <div
     class="ant-input-number"
-    style="width: 100%;"
+    style="width:100%"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -1913,7 +1909,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number ant-input-number-lg"
@@ -1994,7 +1990,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -2159,15 +2155,15 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
 exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number ant-input-number-status-error"
-      style="width: 100%;"
+      style="width:100%"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -2242,11 +2238,11 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number ant-input-number-status-warning"
-      style="width: 100%;"
+      style="width:100%"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -2321,11 +2317,11 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"
-      style="width: 100%;"
+      style="width:100%"
     >
       <span
         class="ant-input-number-prefix"
@@ -2433,7 +2429,7 @@ exports[`renders ./components/input-number/demo/status.md correctly 1`] = `
   >
     <div
       class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-warning"
-      style="width: 100%;"
+      style="width:100%"
     >
       <span
         class="ant-input-number-prefix"

@@ -3,7 +3,7 @@ import type { TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -70,6 +70,7 @@ describe('Table', () => {
   });
 
   it('loading with Spin', async () => {
+    jest.useFakeTimers();
     const loading = {
       spinning: false,
       delay: 500,
@@ -81,19 +82,24 @@ describe('Table', () => {
     loading.spinning = true;
     rerender(<Table loading={loading} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    await sleep(500);
+    await waitFakeTimer();
     rerender(<Table loading />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/22733
   it('support loading tip', async () => {
+    jest.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
-    await sleep(500);
+    await waitFakeTimer();
     rerender(
       <Table loading={{ tip: 'loading...', loading: true } as TableProps<any>['loading']} />,
     );
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
@@ -219,6 +225,22 @@ describe('Table', () => {
     container.querySelectorAll('.ant-table-tbody td').forEach(td => {
       expect((td.attributes as any).title).toBeFalsy();
     });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/37977
+  it('should render title when enable ellipsis, sorter and filters', () => {
+    const data = [] as any;
+    const columns = [
+      { title: 'id', dataKey: 'id', ellipsis: true, sorter: true, filters: [] },
+      { title: 'age', dataKey: 'age', ellipsis: true, sorter: true },
+      { title: 'age', dataKey: 'age', ellipsis: true, filters: [] },
+    ];
+    const { container } = render(<Table columns={columns} dataSource={data} />);
+    container
+      .querySelectorAll<HTMLTableCellElement>('.ant-table-thead th.ant-table-cell')
+      .forEach(td => {
+        expect((td.attributes as any).title).toBeTruthy();
+      });
   });
 
   it('warn about rowKey when using index parameter', () => {

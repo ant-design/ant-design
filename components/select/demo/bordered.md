@@ -17,18 +17,39 @@ Bordered-less style component.
 import { Select } from 'antd';
 import React from 'react';
 
-const { Option } = Select;
-
 const App: React.FC = () => (
   <>
-    <Select defaultValue="lucy" style={{ width: 120 }} bordered={false}>
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="Yiminghe">yiminghe</Option>
-    </Select>
-    <Select defaultValue="lucy" style={{ width: 120 }} disabled bordered={false}>
-      <Option value="lucy">Lucy</Option>
-    </Select>
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      bordered={false}
+      options={[
+        {
+          value: 'jack',
+          label: 'Jack',
+        },
+        {
+          value: 'lucy',
+          label: 'Lucy',
+        },
+        {
+          value: 'Yiminghe',
+          label: 'yiminghe',
+        },
+      ]}
+    />
+    <Select
+      defaultValue="lucy"
+      style={{ width: 120 }}
+      disabled
+      bordered={false}
+      options={[
+        {
+          value: 'lucy',
+          label: 'Lucy',
+        },
+      ]}
+    />
   </>
 );
 

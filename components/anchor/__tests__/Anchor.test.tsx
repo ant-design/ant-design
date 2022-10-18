@@ -1,6 +1,6 @@
 import React from 'react';
 import Anchor from '..';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import type { InternalAnchorClass } from '../Anchor';
 
 const { Link } = Anchor;
@@ -32,6 +32,7 @@ describe('Anchor Render', () => {
   const getClientRectsMock = jest.spyOn(HTMLHeadingElement.prototype, 'getClientRects');
 
   beforeAll(() => {
+    jest.useFakeTimers();
     getBoundingClientRectMock.mockReturnValue({
       width: 100,
       height: 100,
@@ -40,7 +41,12 @@ describe('Anchor Render', () => {
     getClientRectsMock.mockReturnValue({ length: 1 } as DOMRectList);
   });
 
+  afterEach(() => {
+    jest.clearAllTimers();
+  });
+
   afterAll(() => {
+    jest.useRealTimers();
     getBoundingClientRectMock.mockRestore();
     getClientRectsMock.mockRestore();
   });
@@ -96,7 +102,7 @@ describe('Anchor Render', () => {
     anchorInstance!.handleScrollTo('/#/faq?locale=en#Q1');
     expect(anchorInstance!.state.activeLink).toBe('/#/faq?locale=en#Q1');
     expect(scrollToSpy).not.toHaveBeenCalled();
-    await sleep(1000);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
@@ -137,7 +143,7 @@ describe('Anchor Render', () => {
     anchorInstance!.handleScrollTo(`##${hash}`);
     expect(anchorInstance!.state.activeLink).toBe(`##${hash}`);
     const calls = scrollToSpy.mock.calls.length;
-    await sleep(1000);
+    await waitFakeTimer();
     expect(scrollToSpy.mock.calls.length).toBeGreaterThan(calls);
   });
 
@@ -250,7 +256,7 @@ describe('Anchor Render', () => {
     );
 
     const removeListenerSpy = jest.spyOn((anchorInstance! as any).scrollEvent, 'remove');
-    await sleep(1000);
+    await waitFakeTimer();
     rerender(
       <Anchor getContainer={getContainerB}>
         <Link href={`#${hash}`} title={hash} />
@@ -287,7 +293,7 @@ describe('Anchor Render', () => {
 
     const removeListenerSpy = jest.spyOn((anchorInstance! as any).scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await sleep(1000);
+    await waitFakeTimer();
     rerender(
       <Anchor getContainer={getContainerB}>
         <Link href={`#${hash1}`} title={hash1} />
@@ -354,7 +360,7 @@ describe('Anchor Render', () => {
     );
     const removeListenerSpy = jest.spyOn((anchorInstance! as any).scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await sleep(1000);
+    await waitFakeTimer();
     holdContainer.container = document.getElementById(hash2);
     rerender(
       <Anchor getContainer={getContainer}>
@@ -409,21 +415,21 @@ describe('Anchor Render', () => {
       );
 
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     setProps({ offsetTop: 100 });
 
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     setProps({ targetOffset: 200 });
 
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
@@ -474,19 +480,19 @@ describe('Anchor Render', () => {
       );
 
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     setProps({ offsetTop: 100 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     setProps({ targetOffset: 200 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
@@ -584,19 +590,19 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
     dateNowMock = dataNowMockFn();
 
     setProps({ offsetTop: 100 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
     dateNowMock = dataNowMockFn();
 
     setProps({ targetOffset: 200 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
@@ -653,18 +659,18 @@ describe('Anchor Render', () => {
         </Anchor>,
       );
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
     dateNowMock = dataNowMockFn();
 
     setProps({ offsetTop: 100 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
     dateNowMock = dataNowMockFn();
     setProps({ targetOffset: 200 });
     anchorInstance!.handleScrollTo(`#${hash}`);
-    await sleep(30);
+    await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();

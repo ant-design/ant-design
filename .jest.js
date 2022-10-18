@@ -1,13 +1,12 @@
 const transformIgnorePatterns = [
-  '/dist/',
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)',
+  '/node_modules/(?!array-move|react-dnd|react-dnd-html5-backend|@react-dnd|dnd-core|tween-one|@babel|@ant-design)[^/]+?/(?!(es)/)',
 ];
 
 function getTestRegex(libDir) {
   if (libDir === 'dist') {
-    return 'demo\\.test\\.js$';
+    return 'demo\\.test\\.(j|t)s$';
   }
   return '.*\\.test\\.(j|t)sx?$';
 }
@@ -20,12 +19,6 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],
   moduleNameMapper: {
-    '/^dnd-core$/': 'dnd-core/dist/cjs',
-    '/^react-dnd$/': 'react-dnd/dist/cjs',
-    '/^react-dnd-html5-backend$/': 'react-dnd-html5-backend/dist/cjs',
-    '/^react-dnd-touch-backend$/': 'react-dnd-touch-backend/dist/cjs',
-    '/^react-dnd-test-backend$/': 'react-dnd-test-backend/dist/cjs',
-    '/^react-dnd-test-utils$/': 'react-dnd-test-utils/dist/cjs',
     '/\\.(css|less)$/': 'identity-obj-proxy',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
@@ -47,7 +40,6 @@ module.exports = {
     '!components/__tests__/node.test.tsx',
   ],
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfig: './tsconfig.test.json',

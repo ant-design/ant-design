@@ -3,7 +3,7 @@
 exports[`renders ./components/image/demo/basic.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px;"
+  style="width:200px"
 >
   <img
     class="ant-image-img"
@@ -43,6 +43,87 @@ exports[`renders ./components/image/demo/basic.md extend context correctly 1`] =
 
 exports[`renders ./components/image/demo/controlled-preview.md extend context correctly 1`] = `
 Array [
+  <div>
+    scaleStep:
+    <!-- -->
+    <div
+      class="ant-input-number"
+    >
+      <div
+        class="ant-input-number-handler-wrap"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-handler ant-input-number-handler-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-handler ant-input-number-handler-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-input-number-input-wrap"
+      >
+        <input
+          aria-valuemax="5"
+          aria-valuemin="0.1"
+          aria-valuenow="0.5"
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="0.1"
+          value="0.5"
+        />
+      </div>
+    </div>
+  </div>,
+  <br />,
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -53,17 +134,17 @@ Array [
   </button>,
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-      style="display: none;"
+      style="display:none"
       width="200"
     />
     <div
       class="ant-image-mask"
-      style="display: none;"
+      style="display:none"
     >
       <div
         class="ant-image-mask-info"
@@ -97,13 +178,13 @@ Array [
 exports[`renders ./components/image/demo/fallback.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px; height: 200px;"
+  style="width:200px;height:200px"
 >
   <img
     class="ant-image-img"
     height="200"
     src="error"
-    style="height: 200px;"
+    style="height:200px"
     width="200"
   />
   <div
@@ -143,11 +224,11 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-right: 12px;"
+    style="margin-right:12px"
   >
     <div
       class="ant-image"
-      style="width: 200px;"
+      style="width:200px"
     >
       <img
         class="ant-image-img"
@@ -160,7 +241,7 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
       >
         <div
           class="ant-image"
-          style="width: 200px;"
+          style="width:200px"
         >
           <img
             class="ant-image-img"
@@ -218,7 +299,7 @@ exports[`renders ./components/image/demo/preview-group.md extend context correct
 Array [
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -256,7 +337,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -299,7 +380,7 @@ exports[`renders ./components/image/demo/preview-group-top-progress.md extend co
 Array [
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -337,7 +418,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -375,7 +456,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width: 150px;"
+    style="width:150px"
   >
     <img
       class="ant-image-img"
@@ -418,7 +499,7 @@ exports[`renders ./components/image/demo/preview-group-visible.md extend context
 Array [
   <div
     class="ant-image"
-    style="width: 200px;"
+    style="width:200px"
   >
     <img
       class="ant-image-img"
@@ -455,7 +536,7 @@ Array [
     </div>
   </div>,
   <div
-    style="display: none;"
+    style="display:none"
   >
     <div
       class="ant-image"
@@ -572,7 +653,7 @@ Array [
 exports[`renders ./components/image/demo/preview-mask.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 96px;"
+  style="width:96px"
 >
   <img
     class="ant-image-img"
@@ -587,7 +668,7 @@ exports[`renders ./components/image/demo/preview-mask.md extend context correctl
     >
       <div
         class="ant-space-item"
-        style="margin-bottom: 8px;"
+        style="margin-bottom:8px"
       >
         <span
           aria-label="zoom-in"
@@ -622,7 +703,7 @@ exports[`renders ./components/image/demo/preview-mask.md extend context correctl
 exports[`renders ./components/image/demo/previewSrc.md extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width: 200px;"
+  style="width:200px"
 >
   <img
     class="ant-image-img"

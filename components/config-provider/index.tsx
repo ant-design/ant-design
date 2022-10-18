@@ -54,7 +54,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
 ];
 
 export interface ConfigProviderProps {
-  getTargetContainer?: () => HTMLElement;
+  getTargetContainer?: () => HTMLElement | Window;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
   iconPrefixCls?: string;
@@ -193,7 +193,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
   PASSED_PROPS.forEach(propName => {
-    const propValue: any = props[propName];
+    const propValue = props[propName];
     if (propValue) {
       (config as any)[propName] = propValue;
     }
@@ -203,9 +203,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const memoedConfig = useMemo(
     () => config,
     config,
-    (prevConfig: Record<string, any>, currentConfig) => {
-      const prevKeys = Object.keys(prevConfig);
-      const currentKeys = Object.keys(currentConfig);
+    (prevConfig, currentConfig) => {
+      const prevKeys = Object.keys(prevConfig) as Array<keyof typeof config>;
+      const currentKeys = Object.keys(currentConfig) as Array<keyof typeof config>;
       return (
         prevKeys.length !== currentKeys.length ||
         prevKeys.some(key => prevConfig[key] !== currentConfig[key])
@@ -297,11 +297,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
     {(_, __, legacyLocale) => (
       <ConfigConsumer>
         {context => (
-          <ProviderChildren
-            parentContext={context}
-            legacyLocale={legacyLocale as Locale}
-            {...props}
-          />
+          <ProviderChildren parentContext={context} legacyLocale={legacyLocale} {...props} />
         )}
       </ConfigConsumer>
     )}

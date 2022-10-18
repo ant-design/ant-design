@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('list');
+extendTest('list', { skip: ['virtual-list.md'] });

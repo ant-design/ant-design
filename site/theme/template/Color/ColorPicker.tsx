@@ -13,12 +13,6 @@ interface ColorPickerProps {
 }
 
 export default class ColorPicker extends Component<ColorPickerProps> {
-  static defaultProps = {
-    onChange: noop,
-    onChangeComplete: noop,
-    position: 'bottom',
-  };
-
   static getDerivedStateFromProps(props: ColorPickerProps) {
     if ('color' in props) {
       return {
@@ -43,28 +37,28 @@ export default class ColorPicker extends Component<ColorPickerProps> {
   };
 
   handleChange = (color: { hex: string }) => {
-    const { onChange } = this.props;
+    const { onChange = noop } = this.props;
     this.setState({ color: color.hex });
     onChange(color.hex, color);
   };
 
   handleChangeComplete = (color: { hex: string }) => {
-    const { onChangeComplete } = this.props;
+    const { onChangeComplete = noop } = this.props;
     this.setState({ color: color.hex });
     onChangeComplete(color.hex);
   };
 
   render() {
-    const { small, position, presetColors } = this.props;
+    const { small, position = 'bottom', presetColors } = this.props;
     const { color, displayColorPicker } = this.state;
     const width = small ? 80 : 120;
-    const styles = {
+    const styles: Record<PropertyKey, React.CSSProperties> = {
       color: {
         width: `${width}px`,
         height: small ? '16px' : '24px',
         borderRadius: '2px',
         background: color,
-      } as React.CSSProperties,
+      },
       swatch: {
         padding: '4px',
         background: '#fff',
@@ -72,22 +66,22 @@ export default class ColorPicker extends Component<ColorPickerProps> {
         boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
         display: 'inline-block',
         cursor: 'pointer',
-      } as React.CSSProperties,
+      },
       popover: {
         position: 'absolute',
         zIndex: 10,
-      } as React.CSSProperties,
+      },
       cover: {
         position: 'fixed',
         top: '0px',
         right: '0px',
         bottom: '0px',
         left: '0px',
-      } as React.CSSProperties,
+      },
       wrapper: {
         position: 'inherit',
         zIndex: 100,
-      } as React.CSSProperties,
+      },
     };
 
     if (position === 'top') {

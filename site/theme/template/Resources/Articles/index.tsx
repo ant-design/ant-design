@@ -4,29 +4,8 @@ import dayjs from 'dayjs';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
 import { useSiteData } from '../../Home/util';
+import type { Article, Authors } from '../../Home/util';
 import './index.less';
-
-interface Author {
-  avatar: string;
-  href: string;
-  type: 'design' | 'develop';
-  name: string;
-}
-
-interface Article {
-  title: string;
-  href: string;
-  date: string;
-  type: 'design' | 'develop';
-  author: Author['name'];
-}
-
-interface Articles {
-  cn: Article[];
-  en: Article[];
-}
-
-type Authors = Author[];
 
 interface ArticleListProps {
   name: React.ReactNode;
@@ -63,10 +42,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
 export default () => {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData<{
-    articles: Articles;
-    authors: Authors;
-  }>();
+  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {

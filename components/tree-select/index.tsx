@@ -184,7 +184,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const mergedSize = customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,

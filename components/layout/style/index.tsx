@@ -213,9 +213,13 @@ export default genComponentStyleHook(
 
     return [genLayoutStyle(layoutToken)];
   },
-  {
-    colorBgHeader: '#001529',
-    colorBgBody: '#f0f2f5',
-    colorBgTrigger: '#002140',
+  token => {
+    const { colorBgLayout } = token;
+
+    return {
+      colorBgHeader: '#001529',
+      colorBgBody: colorBgLayout,
+      colorBgTrigger: '#002140',
+    };
   },
 );

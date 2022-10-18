@@ -21,7 +21,6 @@ describe('Breadcrumb', () => {
     errorSpy.mockRestore();
   });
 
-  // https://github.com/airbnb/enzyme/issues/875
   it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom: React.FC = () => <div>foo</div>;
     render(
@@ -157,5 +156,16 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+  it('should support string `0` and number `0`', () => {
+    const { container } = render(
+      <Breadcrumb>
+        <Breadcrumb.Item>{0}</Breadcrumb.Item>
+        <Breadcrumb.Item>0</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

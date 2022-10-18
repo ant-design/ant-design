@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type { AlignType } from 'rc-trigger/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -94,9 +95,12 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = (obj: any, keys: string[]) => {
-  const picked: any = {};
-  const omitted: any = { ...obj };
+const splitObject = <T extends React.CSSProperties>(
+  obj: T,
+  keys: (keyof T)[],
+): Record<'picked' | 'omitted', T> => {
+  const picked: T = {} as T;
+  const omitted: T = { ...obj };
   keys.forEach(key => {
     if (obj && key in obj) {
       picked[key] = obj[key];
@@ -128,13 +132,13 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
       'display',
       'zIndex',
     ]);
-    const spanStyle = {
+    const spanStyle: React.CSSProperties = {
       display: 'inline-block', // default inline-block is important
       ...picked,
       cursor: 'not-allowed',
-      width: element.props.block ? '100%' : null,
+      width: element.props.block ? '100%' : undefined,
     };
-    const buttonStyle = {
+    const buttonStyle: React.CSSProperties = {
       ...omitted,
       pointerEvents: 'none',
     };
@@ -208,7 +212,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   };
 
   const getTooltipPlacements = () => {
-    const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = props;
+    const { builtinPlacements, arrowPointAtCenter = false, autoAdjustOverflow = true } = props;
     return (
       builtinPlacements ||
       getPlacements({
@@ -219,32 +223,31 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   };
 
   // 动态设置动画点
-  const onPopupAlign = (domNode: HTMLElement, align: any) => {
-    const placements: any = getTooltipPlacements();
+  const onPopupAlign = (domNode: HTMLElement, align: AlignType) => {
+    const placements = getTooltipPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).find(
       key =>
-        placements[key].points[0] === align.points[0] &&
-        placements[key].points[1] === align.points[1],
+        placements[key].points![0] === align.points?.[0] &&
+        placements[key].points![1] === align.points?.[1],
     );
     if (!placement) {
       return;
     }
     // 根据当前坐标设置动画点
     const rect = domNode.getBoundingClientRect();
-    const transformOrigin = {
-      top: '50%',
-      left: '50%',
-    };
-    if (placement.indexOf('top') >= 0 || placement.indexOf('Bottom') >= 0) {
-      transformOrigin.top = `${rect.height - align.offset[1]}px`;
-    } else if (placement.indexOf('Top') >= 0 || placement.indexOf('bottom') >= 0) {
-      transformOrigin.top = `${-align.offset[1]}px`;
+
+    const transformOrigin = { top: '50%', left: '50%' };
+
+    if (['top', 'Bottom'].includes(placement)) {
+      transformOrigin.top = `${rect.height - align.offset![1]}px`;
+    } else if (['Top', 'bottom'].includes(placement)) {
+      transformOrigin.top = `${-align.offset![1]}px`;
     }
-    if (placement.indexOf('left') >= 0 || placement.indexOf('Right') >= 0) {
-      transformOrigin.left = `${rect.width - align.offset[0]}px`;
-    } else if (placement.indexOf('right') >= 0 || placement.indexOf('Left') >= 0) {
-      transformOrigin.left = `${-align.offset[0]}px`;
+    if (['left', 'Right'].includes(placement)) {
+      transformOrigin.left = `${rect.width - align.offset![0]}px`;
+    } else if (['right', 'Left'].includes(placement)) {
+      transformOrigin.left = `${-align.offset![0]}px`;
     }
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   };
@@ -257,7 +260,14 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return overlay || title || '';
   };
 
-  const { getPopupContainer, overlayStyle, ...otherProps } = props;
+  const {
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    ...otherProps
+  } = props;
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -302,6 +312,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   return wrapSSR(
     <RcTooltip
       {...otherProps}
+      placement={placement}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
       overlayStyle={{
@@ -335,14 +348,6 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';
 }
-
-Tooltip.defaultProps = {
-  placement: 'top' as TooltipPlacement,
-  mouseEnterDelay: 0.1,
-  mouseLeaveDelay: 0.1,
-  arrowPointAtCenter: false,
-  autoAdjustOverflow: true,
-};
 
 Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 

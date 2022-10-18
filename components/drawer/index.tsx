@@ -150,11 +150,13 @@ function PurePanel({
   prefixCls: customizePrefixCls,
   style,
   className,
+  placement = 'right',
   ...restProps
 }: Omit<DrawerPanelProps, 'prefixCls' | 'drawerStyle'> & {
   prefixCls?: string;
   style?: React.CSSProperties;
   className?: string;
+  placement?: DrawerProps['placement'];
 }) {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -164,7 +166,16 @@ function PurePanel({
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   return wrapSSR(
-    <div className={classNames(prefixCls, `${prefixCls}-pure`, hashId, className)} style={style}>
+    <div
+      className={classNames(
+        prefixCls,
+        `${prefixCls}-pure`,
+        `${prefixCls}-${placement}`,
+        hashId,
+        className,
+      )}
+      style={style}
+    >
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
     </div>,
   );

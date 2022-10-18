@@ -14,8 +14,8 @@ title:
 Tree with connected line between nodes, turn on by `showLine`, customize the preseted icon by `switcherIcon`.
 
 ```tsx
-import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
-import { Switch, Tree } from 'antd';
+import { CarryOutOutlined, CheckOutlined, FormOutlined } from '@ant-design/icons';
+import { Select, Switch, Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import React, { useState } from 'react';
 
@@ -85,36 +85,44 @@ const treeData: DataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [showLine, setShowLine] = useState<boolean | { showLeafIcon: boolean }>(true);
+  const [showLine, setShowLine] = useState<boolean>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
-  const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
+  const [showLeafIcon, setShowLeafIcon] = useState<boolean | React.ReactNode>(true);
 
   const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);
   };
 
-  const onSetLeafIcon = (checked: boolean) => {
-    setShowLeafIcon(checked);
-    setShowLine({ showLeafIcon: checked });
-  };
+  const handleLeafIconChange = (value: 'true' | 'false' | 'custom') => {
+    if (value === 'custom') {
+      return setShowLeafIcon(<CheckOutlined />);
+    }
 
-  const onSetShowLine = (checked: boolean) => {
-    setShowLine(checked ? { showLeafIcon } : false);
+    if (value === 'true') {
+      return setShowLeafIcon(true);
+    }
+
+    return setShowLeafIcon(false);
   };
 
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        showLine: <Switch checked={!!showLine} onChange={onSetShowLine} />
+        showLine: <Switch checked={!!showLine} onChange={setShowLine} />
         <br />
         <br />
         showIcon: <Switch checked={showIcon} onChange={setShowIcon} />
         <br />
         <br />
-        showLeafIcon: <Switch checked={showLeafIcon} onChange={onSetLeafIcon} />
+        showLeafIcon:{' '}
+        <Select defaultValue="true" onChange={handleLeafIconChange}>
+          <Select.Option value="true">True</Select.Option>
+          <Select.Option value="false">False</Select.Option>
+          <Select.Option value="custom">Custom icon</Select.Option>
+        </Select>
       </div>
       <Tree
-        showLine={showLine}
+        showLine={showLine ? { showLeafIcon } : false}
         showIcon={showIcon}
         defaultExpandedKeys={['0-0-0']}
         onSelect={onSelect}

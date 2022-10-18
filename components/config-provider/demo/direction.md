@@ -52,7 +52,6 @@ const ButtonGroup = Button.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
-const { Step } = Steps;
 
 const cascaderOptions = [
   {
@@ -391,17 +390,43 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
             <Col span={24}>
               <Divider orientation="left">Steps example</Divider>
               <div>
-                <Steps progressDot current={currentStep}>
-                  <Step title="Finished" description="This is a description." />
-                  <Step title="In Progress" description="This is a description." />
-                  <Step title="Waiting" description="This is a description." />
-                </Steps>
+                <Steps
+                  progressDot
+                  current={currentStep}
+                  items={[
+                    {
+                      title: 'Finished',
+                      description: 'This is a description.',
+                    },
+                    {
+                      title: 'In Progress',
+                      description: 'This is a description.',
+                    },
+                    {
+                      title: 'Waiting',
+                      description: 'This is a description.',
+                    },
+                  ]}
+                />
                 <br />
-                <Steps current={currentStep} onChange={onStepsChange}>
-                  <Step title="Step 1" description="This is a description." />
-                  <Step title="Step 2" description="This is a description." />
-                  <Step title="Step 3" description="This is a description." />
-                </Steps>
+                <Steps
+                  current={currentStep}
+                  onChange={onStepsChange}
+                  items={[
+                    {
+                      title: 'Step 1',
+                      description: 'This is a description.',
+                    },
+                    {
+                      title: 'Step 2',
+                      description: 'This is a description.',
+                    },
+                    {
+                      title: 'Step 3',
+                      description: 'This is a description.',
+                    },
+                  ]}
+                />
               </div>
             </Col>
           </Row>

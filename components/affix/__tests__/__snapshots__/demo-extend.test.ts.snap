@@ -36,7 +36,7 @@ Array [
 
 exports[`renders ./components/affix/demo/debug.md extend context correctly 1`] = `
 <div
-  style="height: 10000px;"
+  style="height:10000px"
 >
   <div>
     Top
@@ -46,7 +46,7 @@ exports[`renders ./components/affix/demo/debug.md extend context correctly 1`] =
       class=""
     >
       <div
-        style="background: red;"
+        style="background:red"
       >
         <button
           class="ant-btn ant-btn-primary"

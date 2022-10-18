@@ -85,7 +85,7 @@ const Breadcrumb: BreadcrumbInterface = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  let crumbs;
+  let crumbs: React.ReactNode;
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 

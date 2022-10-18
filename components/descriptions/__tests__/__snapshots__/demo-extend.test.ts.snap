@@ -40,10 +40,6 @@ exports[`renders ./components/descriptions/demo/basic.md extend context correctl
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -63,10 +59,6 @@ exports[`renders ./components/descriptions/demo/basic.md extend context correctl
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -109,13 +101,9 @@ exports[`renders ./components/descriptions/demo/basic.md extend context correctl
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
@@ -176,10 +164,6 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
               Cloud Database
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -196,10 +180,6 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
               Prepaid
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -236,10 +216,6 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
               2018-04-24 18:00:00
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -250,7 +226,7 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="3"
           >
             <span>
               2019-04-24 18:00:00
@@ -270,7 +246,7 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="5"
           >
             <span>
               <span
@@ -307,10 +283,6 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
               $80.00
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -327,10 +299,6 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
               $20.00
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -361,7 +329,7 @@ exports[`renders ./components/descriptions/demo/border.md extend context correct
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="5"
           >
             <span>
               Data disk type: MongoDB
@@ -423,10 +391,6 @@ exports[`renders ./components/descriptions/demo/responsive.md extend context cor
                 Cloud Database
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -443,10 +407,6 @@ exports[`renders ./components/descriptions/demo/responsive.md extend context cor
                 Prepaid
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -483,10 +443,6 @@ exports[`renders ./components/descriptions/demo/responsive.md extend context cor
                 $80.00
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -503,10 +459,6 @@ exports[`renders ./components/descriptions/demo/responsive.md extend context cor
                 $20.00
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -537,7 +489,7 @@ exports[`renders ./components/descriptions/demo/responsive.md extend context cor
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="1"
+              colspan="5"
             >
               <span>
                 Data disk type: MongoDB
@@ -675,10 +627,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 Cloud Database
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -695,10 +643,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 Prepaid
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -735,10 +679,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 $80.00
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -755,10 +695,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 $20.00
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -789,7 +725,7 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
             </th>
             <td
               class="ant-descriptions-item-content"
-              colspan="1"
+              colspan="5"
             >
               <span>
                 Data disk type: MongoDB
@@ -864,10 +800,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -887,10 +819,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -933,10 +861,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -956,10 +880,6 @@ exports[`renders ./components/descriptions/demo/size.md extend context correctly
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1087,7 +1007,7 @@ Array [
             <th
               class="ant-descriptions-item-label"
               colspan="1"
-              style="background: red;"
+              style="background:red"
             >
               <span>
                 Product
@@ -1096,16 +1016,12 @@ Array [
             <td
               class="ant-descriptions-item-content"
               colspan="1"
-              style="background: green;"
+              style="background:green"
             >
               <span>
                 Cloud Database
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -1122,10 +1038,6 @@ Array [
                 Prepaid
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
@@ -1174,7 +1086,7 @@ Array [
             <th
               class="ant-descriptions-item-label"
               colspan="1"
-              style="background: red;"
+              style="background:red"
             >
               <span>
                 Product
@@ -1183,20 +1095,16 @@ Array [
             <td
               class="ant-descriptions-item-content"
               colspan="1"
-              style="background: green;"
+              style="background:green"
             >
               <span>
                 Cloud Database
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
-              style="background: red;"
+              style="background:red"
             >
               <span>
                 Billing Mode
@@ -1205,20 +1113,16 @@ Array [
             <td
               class="ant-descriptions-item-content"
               colspan="1"
-              style="background: green;"
+              style="background:green"
             >
               <span>
                 Prepaid
               </span>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <th
               class="ant-descriptions-item-label"
               colspan="1"
-              style="background: red; color: orange;"
+              style="background:red;color:orange"
             >
               <span>
                 Automatic Renewal
@@ -1227,7 +1131,7 @@ Array [
             <td
               class="ant-descriptions-item-content"
               colspan="1"
-              style="background: green; color: blue;"
+              style="background:green;color:blue"
             >
               <span>
                 YES
@@ -1292,7 +1196,7 @@ exports[`renders ./components/descriptions/demo/text.md extend context correctly
                 class="ant-descriptions-item-label"
               >
                 <div
-                  style="display: flex;"
+                  style="display:flex"
                 >
                   Billing Mode
                 </div>
@@ -1555,7 +1459,7 @@ exports[`renders ./components/descriptions/demo/text.md extend context correctly
                             class="ant-table-content"
                           >
                             <table
-                              style="table-layout: auto;"
+                              style="table-layout:auto"
                             >
                               <colgroup />
                               <thead
@@ -1675,28 +1579,6 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
               </span>
             </div>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Zhou Maomao
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item"
             colspan="1"
@@ -1711,28 +1593,6 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
               </span>
             </div>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                1810000000
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item"
             colspan="1"
@@ -1761,6 +1621,34 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
               <span
                 class="ant-descriptions-item-content"
               >
+                Zhou Maomao
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-content"
+              >
+                1810000000
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-content"
+              >
                 Hangzhou, Zhejiang
               </span>
             </div>
@@ -1771,7 +1659,7 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
         >
           <th
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
@@ -1783,28 +1671,6 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
               </span>
             </div>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item"
             colspan="1"
@@ -1823,6 +1689,20 @@ exports[`renders ./components/descriptions/demo/vertical.md extend context corre
         <tr
           class="ant-descriptions-row"
         >
+          <td
+            class="ant-descriptions-item"
+            colspan="2"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-content"
+              >
+                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+              </span>
+            </div>
+          </td>
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -1873,22 +1753,6 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
               Product
             </span>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Cloud Database
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -1897,22 +1761,6 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
               Billing Mode
             </span>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Prepaid
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -1925,6 +1773,22 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
         <tr
           class="ant-descriptions-row"
         >
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Cloud Database
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Prepaid
+            </span>
+          </td>
           <td
             class="ant-descriptions-item-content"
             colspan="1"
@@ -1945,25 +1809,9 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
               Order time
             </span>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              2018-04-24 18:00:00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
-            colspan="1"
+            colspan="2"
           >
             <span>
               Usage Time
@@ -1978,6 +1826,14 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
             colspan="1"
           >
             <span>
+              2018-04-24 18:00:00
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="2"
+          >
+            <span>
               2019-04-24 18:00:00
             </span>
           </td>
@@ -1987,7 +1843,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
         >
           <th
             class="ant-descriptions-item-label"
-            colspan="1"
+            colspan="3"
           >
             <span>
               Status
@@ -1999,7 +1855,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="3"
           >
             <span>
               <span
@@ -2028,22 +1884,6 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
               Negotiated Amount
             </span>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $80.00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -2052,22 +1892,6 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
               Discount
             </span>
           </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $20.00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <th
             class="ant-descriptions-item-label"
             colspan="1"
@@ -2085,6 +1909,22 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
             colspan="1"
           >
             <span>
+              $80.00
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              $20.00
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
               $60.00
             </span>
           </td>
@@ -2094,7 +1934,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
         >
           <th
             class="ant-descriptions-item-label"
-            colspan="1"
+            colspan="3"
           >
             <span>
               Config Info
@@ -2106,7 +1946,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md extend contex
         >
           <td
             class="ant-descriptions-item-content"
-            colspan="1"
+            colspan="3"
           >
             <span>
               Data disk type: MongoDB

@@ -1,3 +1,4 @@
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -69,7 +70,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const onOpenChange = (value: boolean) => {
-    const { disabled } = props;
+    const { disabled = false } = props;
     if (disabled) {
       return;
     }
@@ -78,7 +79,10 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const {
     prefixCls: customizePrefixCls,
-    placement,
+    placement = 'top',
+    trigger = 'click',
+    okType = 'primary',
+    icon = <ExclamationCircleFilled />,
     children,
     overlayClassName,
     ...restProps
@@ -91,11 +95,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   return wrapSSR(
     <Popover
       {...restProps}
+      trigger={trigger}
       placement={placement}
       onOpenChange={onOpenChange}
       open={open}
+      ref={ref}
+      overlayClassName={overlayClassNames}
       _overlay={
         <Overlay
+          okType={okType}
+          icon={icon}
           {...props}
           prefixCls={prefixCls}
           close={close}
@@ -103,8 +112,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onCancel={onCancel}
         />
       }
-      overlayClassName={overlayClassNames}
-      ref={ref as any}
       data-popover-inject
     >
       {cloneElement(children, {
@@ -121,11 +128,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
 > & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-};
-
-Popconfirm.defaultProps = {
-  trigger: 'click' as PopconfirmProps['trigger'],
-  disabled: false,
 };
 
 // We don't care debug panel

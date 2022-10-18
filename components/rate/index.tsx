@@ -15,9 +15,12 @@ interface RateNodeProps {
   index: number;
 }
 
-const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...props }, ref) => {
+const Rate = React.forwardRef<unknown, RateProps>((props, ref) => {
+  const { prefixCls, tooltips, character = <StarFilled />, ...rest } = props;
   const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
-    if (!tooltips) return node;
+    if (!tooltips) {
+      return node;
+    }
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
@@ -30,8 +33,9 @@ const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...pro
   return wrapSSR(
     <RcRate
       ref={ref}
+      character={character}
       characterRender={characterRender}
-      {...props}
+      {...rest}
       className={classNames(props.className, hashId)}
       prefixCls={ratePrefixCls}
       direction={direction}
@@ -42,9 +46,5 @@ const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...pro
 if (process.env.NODE_ENV !== 'production') {
   Rate.displayName = 'Rate';
 }
-
-Rate.defaultProps = {
-  character: <StarFilled />,
-};
 
 export default Rate;

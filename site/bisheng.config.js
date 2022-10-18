@@ -10,7 +10,6 @@ const themeConfig = require('./themeConfig');
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
-const { ANT_THEME, DEV_THEME } = process.env;
 
 function alertBabelConfig(rules) {
   rules.forEach(rule => {
@@ -42,7 +41,7 @@ module.exports = {
     'components/form/v3': ['components/form/v3.zh-CN.md', 'components/form/v3.en-US.md'],
     'docs/resources': ['./docs/resources.zh-CN.md', './docs/resources.en-US.md'],
   },
-  theme: ANT_THEME ? './site/theme/index-css-only.js' : './site/theme',
+  theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig,
   filePathMapper(filePath) {
@@ -63,7 +62,7 @@ module.exports = {
   lessConfig: {
     javascriptEnabled: true,
     modifyVars: {
-      'root-entry-name': ANT_THEME || DEV_THEME || 'variable',
+      'root-entry-name': 'variable',
     },
   },
   webpackConfig(config) {
@@ -129,47 +128,6 @@ module.exports = {
       // eslint-disable-next-line no-console
       console.log('Site build with development mode...');
       config.mode = 'development';
-    }
-
-    if (ANT_THEME) {
-      config.mode = 'development';
-      config.plugins.forEach(plugin => {
-        if (plugin?.options?.filename?.includes?.('.css')) {
-          delete plugin.options.chunkFilename;
-          plugin.options.filename = `${ANT_THEME}.css`;
-        }
-      });
-
-      // Remove preset target
-      config.module.rules.forEach(rule => {
-        if (rule.options?.presets?.[1]?.[0]?.includes('preset-env')) {
-          delete rule.options.presets[1][1];
-          delete rule.options.plugins;
-        }
-      });
-
-      config.optimization.minimize = false;
-      delete config.optimization.minimizer;
-
-      config.externals = [
-        /^rc-.*/,
-        /^react.*/,
-        /^@ant-design\/.*/,
-        /^@babel\/.*/,
-        /^@algolia\/.*/,
-        /^@docsearch\/.*/,
-        /autocomplete.js/,
-        /docsearch.js/,
-        /.*\.md/,
-        /lodash/,
-        /jquery/,
-        /dayjs/,
-        /core-js/,
-        /jsonml/,
-        /ramda/,
-        /tinycolor/,
-        /bisheng-plugin/,
-      ];
     }
 
     // Split chunks

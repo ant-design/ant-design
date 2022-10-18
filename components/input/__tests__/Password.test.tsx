@@ -71,10 +71,12 @@ describe('Input.Password', () => {
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('should not show value attribute in input element', async () => {
+    jest.useFakeTimers();
     const { container } = render(<Input.Password />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
-    await sleep();
+    jest.runAllTimers();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/24526
@@ -103,6 +105,19 @@ describe('Input.Password', () => {
   // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
   it('should not contain value attribute in input element with defaultValue', async () => {
     const { container } = render(<Input.Password defaultValue="value" />);
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+  });
+
+  it('should not show value attribute in input element after toggle visibility', async () => {
+    const { container } = render(<Input.Password />);
+    fireEvent.change(container.querySelector('input')!, { target: { value: 'value' } });
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+    await sleep();
+    expect(container.querySelector('input')?.getAttribute('value')).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     await sleep();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });

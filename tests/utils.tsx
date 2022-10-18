@@ -65,8 +65,14 @@ export const triggerResize = (target: Element) => {
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
 
-export async function waitFakeTimer(advanceTime = 1000) {
-  for (let i = 0; i < 20; i += 1) {
+/**
+ * Wait for a time delay. Will wait `advanceTime * times` ms.
+ *
+ * @param advanceTime Default 1000
+ * @param times Default 20
+ */
+export async function waitFakeTimer(advanceTime = 1000, times = 20) {
+  for (let i = 0; i < times; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     await act(async () => {
       await Promise.resolve();

@@ -9,7 +9,7 @@ export interface MenuContextProps {
   direction?: DirectionType;
   theme?: MenuTheme;
   firstLevel: boolean;
-  /** @private Internal Usage. Safe to remove */
+  /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
 }
 

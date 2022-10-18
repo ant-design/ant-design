@@ -14,7 +14,7 @@ exports[`renders ./components/upload/demo/avatar.md extend context correctly 1`]
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <div>
@@ -44,7 +44,7 @@ exports[`renders ./components/upload/demo/avatar.md extend context correctly 1`]
           </svg>
         </span>
         <div
-          style="margin-top: 8px;"
+          style="margin-top:8px"
         >
           Upload
         </div>
@@ -68,7 +68,7 @@ exports[`renders ./components/upload/demo/basic.md extend context correctly 1`] 
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -208,7 +208,7 @@ exports[`renders ./components/upload/demo/crop-image.md extend context correctly
       >
         <input
           accept="image/*"
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         + Upload
@@ -232,7 +232,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md extend conte
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -284,7 +284,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -530,8 +530,8 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -552,9 +552,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
   </div>
 </span>
@@ -575,7 +572,7 @@ exports[`renders ./components/upload/demo/directory.md extend context correctly 
       <input
         accept=""
         directory="directory"
-        style="display: none;"
+        style="display:none"
         type="file"
         webkitdirectory="webkitdirectory"
       />
@@ -629,7 +626,7 @@ exports[`renders ./components/upload/demo/drag.md extend context correctly 1`] =
       <input
         accept=""
         multiple=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <div
@@ -691,7 +688,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -731,8 +728,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -807,8 +803,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -883,8 +878,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -959,8 +953,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-done"
@@ -1035,8 +1028,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
     >
       <div
         class="ant-upload-draggable-list-item "
-        draggable="true"
-        style="cursor: move;"
+        style="cursor:move"
       >
         <div
           class="ant-upload-list-item ant-upload-list-item-error"
@@ -1103,8 +1095,8 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
         </div>
         <div>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -1419,7 +1411,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1473,8 +1465,8 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1495,9 +1487,6 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
     <div
       class="ant-upload-list-item-container"
@@ -1556,7 +1545,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1610,8 +1599,8 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1632,9 +1621,6 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
     <div
       class="ant-upload-list-item-container"
@@ -1685,7 +1671,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -1739,8 +1725,8 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1761,9 +1747,6 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
     <div
       class="ant-upload ant-upload-select"
@@ -1775,7 +1758,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <div>
@@ -1805,7 +1788,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
             </svg>
           </span>
           <div
-            style="margin-top: 8px;"
+            style="margin-top:8px"
           >
             Upload
           </div>
@@ -1831,7 +1814,7 @@ exports[`renders ./components/upload/demo/fileList.md extend context correctly 1
       <input
         accept=""
         multiple=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -1943,11 +1926,11 @@ exports[`renders ./components/upload/demo/fileList.md extend context correctly 1
 exports[`renders ./components/upload/demo/max-count.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 24px;"
+    style="margin-bottom:24px"
   >
     <span
       class="ant-upload-wrapper"
@@ -1962,7 +1945,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
         >
           <input
             accept=""
-            style="display: none;"
+            style="display:none"
             type="file"
           />
           <button
@@ -2016,7 +1999,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
           <input
             accept=""
             multiple=""
-            style="display: none;"
+            style="display:none"
             type="file"
           />
           <button
@@ -2482,7 +2465,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
         >
           <a
             rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
+            style="pointer-events:none;opacity:0.5"
             target="_blank"
             title="Preview file"
           >
@@ -2536,8 +2519,8 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -2558,9 +2541,6 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
     <div
       class="ant-upload ant-upload-select"
@@ -2572,7 +2552,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <div>
@@ -2602,7 +2582,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
             </svg>
           </span>
           <div
-            style="margin-top: 8px;"
+            style="margin-top:8px"
           >
             Upload
           </div>
@@ -2628,7 +2608,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -2874,8 +2854,8 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -2896,9 +2876,6 @@ Array [
             </div>
           </div>
         </div>
-        <div
-          style="position: absolute; top: 0px; left: 0px; width: 100%;"
-        />
       </div>
     </div>
   </span>,
@@ -2917,7 +2894,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -3163,8 +3140,8 @@ Array [
         </div>
         <div>
           <div
-            class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-            style="opacity: 0;"
+            class="ant-tooltip"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3185,9 +3162,6 @@ Array [
             </div>
           </div>
         </div>
-        <div
-          style="position: absolute; top: 0px; left: 0px; width: 100%;"
-        />
       </div>
     </div>
   </span>,
@@ -3208,7 +3182,7 @@ exports[`renders ./components/upload/demo/preview-file.md extend context correct
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3260,7 +3234,7 @@ exports[`renders ./components/upload/demo/transform-file.md extend context corre
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3312,7 +3286,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3576,8 +3550,8 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
       </div>
       <div>
         <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-          style="opacity: 0;"
+          class="ant-tooltip"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -3598,9 +3572,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
           </div>
         </div>
       </div>
-      <div
-        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-      />
     </div>
   </div>
 </span>
@@ -3621,7 +3592,7 @@ Array [
       >
         <input
           accept=""
-          style="display: none;"
+          style="display:none"
           type="file"
         />
         <button
@@ -3660,7 +3631,7 @@ Array [
   <button
     class="ant-btn ant-btn-primary"
     disabled=""
-    style="margin-top: 16px;"
+    style="margin-top:16px"
     type="button"
   >
     <span>
@@ -3684,7 +3655,7 @@ exports[`renders ./components/upload/demo/upload-png-only.md extend context corr
     >
       <input
         accept=""
-        style="display: none;"
+        style="display:none"
         type="file"
       />
       <button
@@ -3765,7 +3736,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
                 >
                   <input
                     accept=""
-                    style="display: none;"
+                    style="display:none"
                     type="file"
                   />
                   <button

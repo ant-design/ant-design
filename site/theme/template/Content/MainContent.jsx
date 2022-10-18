@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
-import { Link } from 'bisheng/router';
-import { Affix, Avatar, Col, Menu, Row, Tooltip } from 'antd';
-import { injectIntl } from 'react-intl';
-import { ExportOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import React, { cloneElement, Component } from 'react';
+import { Link, browserHistory } from 'bisheng/router';
+import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown, Drawer } from 'antd';
+import { injectIntl, FormattedMessage } from 'react-intl';
+import {
+  LeftOutlined,
+  RightOutlined,
+  ExportOutlined,
+  DoubleRightOutlined,
+} from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
-import MobileMenu from 'rc-drawer';
+
+import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -14,8 +20,6 @@ import SiteContext from '../Layout/SiteContext';
 import ComponentDoc from './ComponentDoc';
 import ComponentOverview from './ComponentOverview';
 import * as utils from '../utils';
-
-const { SubMenu } = Menu;
 
 function getModuleData(props) {
   const { pathname } = props.location;
@@ -145,7 +149,7 @@ class MainContent extends Component {
       }
       if (menuItem.children) {
         return (
-          <SubMenu title={menuItem.title} key={menuItem.title}>
+          <Menu.SubMenu title={menuItem.title} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
@@ -156,7 +160,7 @@ class MainContent extends Component {
               }
               return this.generateMenuItem(false, child, footerNavIcons);
             })}
-          </SubMenu>
+          </Menu.SubMenu>
         );
       }
       return this.generateMenuItem(true, menuItem, footerNavIcons);
@@ -288,11 +292,29 @@ class MainContent extends Component {
     );
   }
 
+  getThemeSwitchMenu() {
+    const { theme } = this.context;
+    const {
+      intl: { formatMessage },
+    } = this.props;
+    return (
+      <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
+        {[
+          { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
+          { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
+          { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
+        ].map(({ type, text }) => (
+          <Menu.Item key={type}>{text}</Menu.Item>
+        ))}
+      </Menu>
+    );
+  }
+
   flattenMenu(menu) {
     if (!menu) {
       return null;
     }
-    if (menu.type && menu.type.isMenuItem) {
+    if (menu.type && menu.type === Menu.Item) {
       return menu;
     }
     if (Array.isArray(menu)) {
@@ -300,6 +322,30 @@ class MainContent extends Component {
     }
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
+
+  changeThemeMode = theme => {
+    const { setTheme, theme: selectedTheme } = this.context;
+    const { pathname, hash, query } = this.props.location;
+    if (selectedTheme !== theme) {
+      setTheme(theme);
+      if (theme === 'default') {
+        document.documentElement.style.colorScheme = 'light';
+        setColor(false);
+        delete query.theme;
+      } else {
+        if (theme === 'dark') {
+          document.documentElement.style.colorScheme = 'dark';
+          setColor(true);
+        }
+        query.theme = theme;
+      }
+      browserHistory.push({
+        pathname: `/${pathname}`,
+        query,
+        hash,
+      });
+    }
+  };
 
   renderContributors() {
     const {
@@ -442,7 +488,7 @@ class MainContent extends Component {
 
   render() {
     const { demos, location } = this.props;
-    const { openKeys } = this.state;
+    const { openKeys, mobileMenuOpen } = this.state;
     const { isMobile, theme, setIframeTheme } = this.context;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
@@ -462,17 +508,38 @@ class MainContent extends Component {
         openKeys={openKeys}
         selectedKeys={[activeMenuItem]}
         onOpenChange={this.handleMenuOpenChange}
+        onClick={() => this.setState({ mobileMenuOpen: false })}
       >
         {menuItems}
       </Menu>
     );
+    const componentPage = /^\/?components/.test(location.pathname);
     return (
       <div className="main-wrapper">
         <Row>
           {isMobile ? (
-            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
-              {menuChild}
-            </MobileMenu>
+            <>
+              <a
+                onClick={() => this.setState({ mobileMenuOpen: true })}
+                className="mobile-menu-trigger"
+              >
+                <DoubleRightOutlined style={{ marginRight: 3 }} />
+                <FormattedMessage id="app.header.menu.article.trigger" />
+              </a>
+              <Drawer
+                placement="left"
+                width={300}
+                title={null}
+                closable={false}
+                open={mobileMenuOpen}
+                bodyStyle={{ overflowX: 'hidden' }}
+                onClose={() => this.setState({ mobileMenuOpen: false })}
+              >
+                {cloneElement(menuChild, {
+                  style: { margin: '0 -24px' },
+                })}
+              </Drawer>
+            </>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
               <Affix>
@@ -484,6 +551,13 @@ class MainContent extends Component {
             <section className={mainContainerClass}>
               {this.renderMainContent({ theme, setIframeTheme })}
             </section>
+            {componentPage && (
+              <div className="fixed-widgets">
+                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
+                  <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
+                </Dropdown>
+              </div>
+            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer location={location} />
           </Col>

@@ -181,7 +181,7 @@ Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cann
 
 ### How to use DatePicker with customize date library like dayjs?
 
-Please refer [replace dayjs](/docs/react/use-custom-date-library#DatePicker)
+Please refer [Use custom date library](/docs/react/use-custom-date-library#DatePicker)
 
 ### Why config dayjs.locale globally not work?
 
