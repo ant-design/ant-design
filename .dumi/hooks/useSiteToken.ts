@@ -21,6 +21,12 @@ const useSiteToken = () => {
       siteMarkdownCodeBg: '#f2f4f5',
       antCls: `.${rootPrefixCls}`,
       iconCls: `.${iconPrefixCls}`,
+      /** 56 */
+      marginFarXS: (token.marginXXL / 6) * 7,
+      /** 80 */
+      marginFarSM: (token.marginXXL / 3) * 5,
+      /** 96 */
+      marginFar: token.marginXXL * 2,
     },
   };
 };
