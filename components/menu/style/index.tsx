@@ -18,6 +18,7 @@ export interface ComponentToken {
 
   // radius
   radiusItem: number;
+  radiusSubMenuItem: number;
 
   // Item Text
   // > Default
@@ -39,6 +40,7 @@ export interface ComponentToken {
 
   // Item Bg
   colorItemBg: string;
+  colorItemBgHover: string;
   colorSubItemBg: string;
 
   // > Default
@@ -50,6 +52,8 @@ export interface ComponentToken {
   colorActiveBarWidth: number;
   colorActiveBarHeight: number;
   colorActiveBarBorderSize: number;
+
+  itemMarginInline: number;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -81,7 +85,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     zIndexPopup,
     radiusBase,
     radiusLG,
-    radiusSM,
+    radiusSubMenuItem,
     menuArrowSize,
     controlHeightSM,
     menuArrowOffset,
@@ -309,7 +313,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             borderRadius: radiusLG,
 
             [`> ${componentCls}-item`]: {
-              borderRadius: radiusSM,
+              borderRadius: radiusSubMenuItem,
             },
 
             [`${componentCls}-submenu-title::after`]: {
@@ -488,16 +492,18 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorTextDescription,
         colorBgContainer,
         colorFillAlter,
-        controlItemBgActive,
+        colorFillContent,
         lineWidth,
         lineWidthBold,
         controlItemBgActiveHover,
+        colorBgTextHover,
       } = token;
 
       return {
         dropdownWidth: 160,
         zIndexPopup: token.zIndexPopupBase + 50,
         radiusItem: token.radiusLG,
+        radiusSubMenuItem: token.radiusSM,
         colorItemText: colorText,
         colorItemTextHover: colorText,
         colorItemTextHoverHorizontal: colorPrimary,
@@ -505,8 +511,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorItemTextSelected: colorText,
         colorItemTextSelectedHorizontal: colorPrimary,
         colorItemBg: colorBgContainer,
+        colorItemBgHover: colorBgTextHover,
+        colorItemBgActive: colorFillContent,
         colorSubItemBg: colorFillAlter,
-        colorItemBgActive: controlItemBgActive,
         colorItemBgSelected: controlItemBgActiveHover,
         colorItemBgSelectedHorizontal: 'transparent',
         colorActiveBarWidth: 0,
@@ -522,6 +529,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorDangerItemTextSelected: colorError,
         colorDangerItemBgActive: colorErrorBg,
         colorDangerItemBgSelected: colorErrorBg,
+
+        itemMarginInline: token.marginXXS,
       };
     },
   );

@@ -3,8 +3,15 @@ import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
-  const { componentCls, menuItemHeight, menuItemMarginInline, padding, menuArrowSize, fontSize } =
-    token;
+  const {
+    componentCls,
+    menuItemHeight,
+    menuItemMarginInline,
+    itemMarginInline,
+    padding,
+    menuArrowSize,
+    fontSize,
+  } = token;
 
   const paddingWithArrow = menuArrowSize + fontSize;
 
@@ -22,8 +29,9 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     },
 
     [`${componentCls}-item`]: {
-      margin: menuItemMarginInline,
-      width: `calc(100% - ${menuItemMarginInline * 2}px)`,
+      marginInline: itemMarginInline,
+      marginBlock: menuItemMarginInline,
+      width: `calc(100% - ${itemMarginInline * 2}px)`,
     },
 
     [`${componentCls}-submenu-title`]: {

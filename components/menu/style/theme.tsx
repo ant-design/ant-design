@@ -24,12 +24,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     motionEaseInOut,
     motionEaseOut,
     menuItemPaddingInline,
-    menuItemMarginInline,
+    itemMarginInline,
     motionDurationFast,
     colorItemTextHover,
     lineType,
     colorSplit,
-    colorFillContent,
+    colorItemBgActive,
 
     // Disabled
     colorItemTextDisabled,
@@ -43,7 +43,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
     radiusItem,
 
-    colorBgTextHover,
+    colorItemBgHover,
   } = token;
 
   return {
@@ -81,7 +81,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
           '&:hover': {
-            backgroundColor: colorBgTextHover,
+            backgroundColor: colorItemBgHover,
           },
 
           '&:active::before': {
@@ -93,7 +93,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             height: '100%',
             flex: 1,
             borderRadius: radiusItem,
-            backgroundColor: colorFillContent,
+            backgroundColor: colorItemBgActive,
             transition: `background-color ${motionDurationFast}`,
           },
         },
@@ -101,9 +101,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           '&::before': {
             content: '""',
             position: 'absolute',
-            insetInlineStart: menuItemMarginInline,
+            insetInlineStart: itemMarginInline,
             top: 0,
-            width: `calc(100% - ${menuItemMarginInline * 2}px)`,
+            width: `calc(100% - ${itemMarginInline * 2}px)`,
             height: '100%',
             borderRadius: radiusItem,
             backgroundColor: 'transparent',
@@ -111,18 +111,18 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:hover::before': {
-            backgroundColor: colorBgTextHover,
+            backgroundColor: colorItemBgHover,
           },
 
           '&:active::after': {
             content: '""',
             position: 'absolute',
-            insetInlineStart: menuItemMarginInline,
+            insetInlineStart: itemMarginInline,
             top: 0,
-            width: `calc(100% - ${menuItemMarginInline * 2}px)`,
+            width: `calc(100% - ${itemMarginInline * 2}px)`,
             height: '100%',
             borderRadius: radiusItem,
-            backgroundColor: colorFillContent,
+            backgroundColor: colorItemBgActive,
             transition: `background-color ${motionDurationFast}`,
           },
         },
