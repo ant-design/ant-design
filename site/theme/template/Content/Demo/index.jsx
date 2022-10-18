@@ -64,10 +64,12 @@ class Demo extends React.Component {
     const { codeType } = this.state;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
+      const divJSX = document.createElement('div');
       div.innerHTML = highlightedCodes[codeType] || highlightedCodes.jsx;
-      return div.textContent;
+      divJSX.innerHTML = highlightedCodes.jsx;
+      return [divJSX.textContent, div.textContent];
     }
-    return '';
+    return ['', ''];
   }
 
   handleCodeExpand = demo => {
@@ -181,7 +183,7 @@ class Demo extends React.Component {
   </body>
 </html>`;
 
-    const sourceCode = this.getSourceCode();
+    const [sourceCode, sourceCodeTyped] = this.getSourceCode();
 
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
@@ -422,7 +424,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <ThunderboltOutlined className="code-box-stackblitz" />
               </span>
             </Tooltip>
-            <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
+            <CopyToClipboard text={sourceCodeTyped} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 open={copyTooltipOpen}
                 onOpenChange={this.onCopyTooltipOpenChange}

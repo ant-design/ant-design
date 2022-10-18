@@ -2375,7 +2375,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2418,7 +2425,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2461,7 +2475,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2504,7 +2525,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2547,7 +2575,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2590,7 +2625,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2633,7 +2675,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2676,7 +2725,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2719,7 +2775,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -2762,7 +2825,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -15861,7 +15931,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -15904,7 +15981,14 @@ Array [
                 />
                 <span
                   class="ant-switch-inner"
-                />
+                >
+                  <span
+                    class="ant-switch-inner-checked"
+                  />
+                  <span
+                    class="ant-switch-inner-unchecked"
+                  />
+                </span>
               </button>
             </div>
           </div>
@@ -20374,6 +20458,7 @@ Array [
                       aria-label="Name sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Name"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -20680,6 +20765,7 @@ Array [
                       aria-label="Age sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Age"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -20765,6 +20851,7 @@ Array [
                       aria-label="Address sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
+                      title="Address"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -25380,7 +25467,16 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
                       <span
                         class="ant-switch-inner"
                       >
-                        Fixed Top
+                        <span
+                          class="ant-switch-inner-checked"
+                        >
+                          Fixed Top
+                        </span>
+                        <span
+                          class="ant-switch-inner-unchecked"
+                        >
+                          Fixed Top
+                        </span>
                       </span>
                     </button>
                   </td>
@@ -26408,7 +26504,14 @@ Array [
         />
         <span
           class="ant-switch-inner"
-        />
+        >
+          <span
+            class="ant-switch-inner-checked"
+          />
+          <span
+            class="ant-switch-inner-unchecked"
+          />
+        </span>
       </button>
     </div>
   </div>,
@@ -26707,7 +26810,14 @@ Array [
         />
         <span
           class="ant-switch-inner"
-        />
+        >
+          <span
+            class="ant-switch-inner-checked"
+          />
+          <span
+            class="ant-switch-inner-unchecked"
+          />
+        </span>
       </button>
     </div>
   </div>,
