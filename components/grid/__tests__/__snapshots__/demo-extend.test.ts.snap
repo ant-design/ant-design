@@ -1420,19 +1420,10 @@ exports[`renders ./components/grid/demo/sort.tsx extend context correctly 1`] = 
 </div>
 `;
 
-<<<<<<< HEAD
 exports[`renders ./components/grid/demo/useBreakpoint.tsx extend context correctly 1`] = `
-<span
-  class="ant-tag ant-tag-blue"
->
-  xs
-</span>
-=======
-exports[`renders ./components/grid/demo/useBreakpoint.md extend context correctly 1`] = `
 Array [
   Current break point:,
   <!-- -->,
    ,
 ]
->>>>>>> next
 `;
