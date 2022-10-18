@@ -4,7 +4,9 @@
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 @tree-motion: ~'@{ant-prefix}-motion-collapse';
 @tree-node-padding: (@padding-xs / 2);
-@tree-node-highlight-color: inherit;
+// @deprecated: kept for customization usages, recommend using @tree-node-highlight-color instead.
+@tree-node-hightlight-color: inherit;
+@tree-node-highlight-color: @tree-node-hightlight-color;
 
 .antTreeSwitcherIcon(@type: 'tree-default-open-icon') {
   .@{tree-prefix-cls}-switcher-icon,
