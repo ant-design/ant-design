@@ -111,7 +111,7 @@ File icon realize by using switcherIcon. You can overwrite the style to hide it:
 
 ### Why defaultExpandAll not working on ajax data?
 
-`default` prefix prop only works when inited. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
+`default` prefix prop only works when initializing. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
 
 ### Virtual scroll limitation
 

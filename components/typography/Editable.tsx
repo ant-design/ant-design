@@ -5,6 +5,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import TextArea from '../input/TextArea';
+import type { TextAreaRef } from '../input/TextArea';
 import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
 
@@ -39,7 +40,7 @@ const Editable: React.FC<EditableProps> = ({
   component,
   enterIcon = <EnterOutlined />,
 }) => {
-  const ref = React.useRef<any>();
+  const ref = React.useRef<TextAreaRef>(null);
 
   const inComposition = React.useRef(false);
   const lastKeyCode = React.useRef<number>();
@@ -129,7 +130,7 @@ const Editable: React.FC<EditableProps> = ({
   return wrapSSR(
     <div className={textAreaClassName} style={style}>
       <TextArea
-        ref={ref as any}
+        ref={ref}
         maxLength={maxLength}
         value={current}
         onChange={onChange}

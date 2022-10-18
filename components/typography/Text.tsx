@@ -4,9 +4,10 @@ import warning from '../_util/warning';
 import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';
 
-export interface TextProps extends BlockProps {
+export interface TextProps
+  extends BlockProps<'span'>,
+    Omit<React.HTMLAttributes<HTMLSpanElement>, 'type' | keyof BlockProps<'span'>> {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
-  onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
