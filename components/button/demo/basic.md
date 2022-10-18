@@ -19,7 +19,7 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <Button type="primary">Primary Button</Button>
+    <Button type="primary">Primary ButtonPrimary ButtonPrimary Button</Button>
     <Button>Default Button</Button>
     <Button type="dashed">Dashed Button</Button>
     <br />
