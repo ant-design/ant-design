@@ -1,6 +1,6 @@
+import React from 'react';
 import { Mentions, Space } from 'antd';
 import type { OptionProps } from 'antd/es/mentions';
-import React from 'react';
 
 const { Option } = Mentions;
 

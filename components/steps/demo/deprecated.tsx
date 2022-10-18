@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * version: < 4.24.0
  */
 
 import { Steps } from 'antd';
-import React from 'react';
 
 const { Step } = Steps;
 const description = 'This is a description.';

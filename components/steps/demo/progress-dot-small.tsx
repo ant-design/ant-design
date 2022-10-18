@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { Divider, Steps } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <>

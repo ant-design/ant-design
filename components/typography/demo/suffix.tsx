@@ -1,5 +1,5 @@
-import { Slider, Typography } from 'antd';
 import React, { useState } from 'react';
+import { Slider, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 

@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { Typography } from 'antd';
-import React from 'react';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -22,7 +22,8 @@ const App: React.FC = () => (
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
         front-end development
-      </Text>.
+      </Text>
+      .
     </Paragraph>
     <Title level={2}>Guidelines and Resources</Title>
     <Paragraph>

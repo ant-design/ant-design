@@ -1,5 +1,5 @@
-import { Mentions } from 'antd';
 import React from 'react';
+import { Mentions } from 'antd';
 
 const { Option } = Mentions;
 

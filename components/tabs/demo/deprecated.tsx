@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * version: < 4.23.0
  */
 
 import { Tabs } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <Tabs defaultActiveKey="1">

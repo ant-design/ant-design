@@ -1,5 +1,5 @@
-import { Progress } from 'antd';
 import React from 'react';
+import { Progress } from 'antd';
 
 const App: React.FC = () => (
   <div style={{ width: 170 }}>

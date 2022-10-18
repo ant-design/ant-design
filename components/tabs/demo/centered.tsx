@@ -1,5 +1,5 @@
-import { Tabs } from 'antd';
 import React from 'react';
+import { Tabs } from 'antd';
 
 const App: React.FC = () => (
   <Tabs

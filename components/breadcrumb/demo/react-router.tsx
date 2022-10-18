@@ -1,10 +1,10 @@
+import React from 'react';
 /*
  * iframe: 200
  * reactRouter: react-router-dom
  */
 
 import { Alert, Breadcrumb } from 'antd';
-import React from 'react';
 import { HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
 
 const Apps = () => (

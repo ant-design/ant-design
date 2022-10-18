@@ -1,3 +1,4 @@
+import React from 'react';
 /*
  * debug: true
  */
@@ -16,7 +17,6 @@ import {
   TreeSelect,
   Typography,
 } from 'antd';
-import React from 'react';
 
 const { Text } = Typography;
 const { Option } = Select;

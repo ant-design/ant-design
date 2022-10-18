@@ -1,5 +1,5 @@
-import { Alert, Spin } from 'antd';
 import React from 'react';
+import { Alert, Spin } from 'antd';
 
 const App: React.FC = () => (
   <Spin tip="Loading...">

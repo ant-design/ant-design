@@ -1,3 +1,4 @@
+import React from 'react';
 /*
  * version: < 4.20.0
  */

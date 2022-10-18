@@ -1,10 +1,10 @@
+import React, { useState } from 'react';
 /*
  * debug: true
  */
 
 import type { StepsProps } from 'antd';
 import { Card, Radio, Steps } from 'antd';
-import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<StepsProps['size']>('default');

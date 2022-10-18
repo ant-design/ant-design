@@ -1,5 +1,5 @@
-import { Checkbox } from 'antd';
 import React from 'react';
+import { Checkbox } from 'antd';
 
 const App: React.FC = () => (
   <>

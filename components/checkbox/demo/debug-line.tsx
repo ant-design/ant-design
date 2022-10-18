@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { Checkbox, Radio, Space } from 'antd';
-import React from 'react';
 
 const sharedStyle: React.CSSProperties = {
   border: '1px solid red',

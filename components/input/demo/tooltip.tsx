@@ -1,5 +1,5 @@
-import { Input, Tooltip } from 'antd';
 import React, { useState } from 'react';
+import { Input, Tooltip } from 'antd';
 
 interface NumericInputProps {
   style: React.CSSProperties;

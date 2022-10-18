@@ -1,5 +1,5 @@
-import { Col, Divider, Row } from 'antd';
 import React from 'react';
+import { Col, Divider, Row } from 'antd';
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 

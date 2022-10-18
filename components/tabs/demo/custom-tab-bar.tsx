@@ -1,6 +1,6 @@
+import React from 'react';
 import type { TabsProps } from 'antd';
 import { Tabs } from 'antd';
-import React from 'react';
 import { Sticky, StickyContainer } from 'react-sticky';
 
 const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (

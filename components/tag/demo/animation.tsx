@@ -1,8 +1,8 @@
+import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import { Input, Tag } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
-import React, { useEffect, useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);

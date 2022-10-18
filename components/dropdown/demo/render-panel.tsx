@@ -1,10 +1,10 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Menu } from 'antd';
-import React from 'react';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalDropdown } = Dropdown;
 

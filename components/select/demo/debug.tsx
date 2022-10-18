@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { Button, Input, Select } from 'antd';
-import React from 'react';
 
 const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);

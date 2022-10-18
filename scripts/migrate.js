@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs-extra');
 const glob = require('glob');
 const path = require('path');
@@ -136,7 +137,19 @@ $1`,
       }`;
     }
 
-    fs.writeFileSync(path.join(demoPath, `${code.name}.tsx`), code.code, 'utf-8');
+    let importReactContent = "import React from 'react';";
+
+    const importReactReg = /import React(\D*)from 'react';\n/;
+    const matchImportReact = code.code.match(importReactReg);
+    if (matchImportReact) {
+      [importReactContent] = matchImportReact;
+      code.code = code.code.replace(importReactReg, '').trim();
+    }
+    fs.writeFileSync(
+      path.join(demoPath, `${code.name}.tsx`),
+      `${importReactContent}${code.code}`,
+      'utf-8',
+    );
     if (code.md.trim()) {
       fs.writeFileSync(path.join(demoPath, `${code.name}.md`), code.md, 'utf-8');
     } else {

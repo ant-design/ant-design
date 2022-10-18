@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * debug: true
  */
 
 import { Card, List } from 'antd';
-import React from 'react';
 
 const data = [
   {

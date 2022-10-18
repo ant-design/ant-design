@@ -1,9 +1,9 @@
+import React from 'react';
 /*
  * iframe: 360
  */
 
 import { Breadcrumb, Layout, Menu } from 'antd';
-import React from 'react';
 
 const { Header, Content, Footer } = Layout;
 

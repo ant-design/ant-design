@@ -1,5 +1,5 @@
-import { InputNumber, Space } from 'antd';
 import React from 'react';
+import { InputNumber, Space } from 'antd';
 
 const onChange = (value: number) => {
   console.log('changed', value);

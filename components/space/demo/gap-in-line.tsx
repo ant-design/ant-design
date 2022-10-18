@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 /*
  * debug: true
  */
 
 import { Space, Switch } from 'antd';
-import React, { useState } from 'react';
 
 const style: React.CSSProperties = {
   width: 150,

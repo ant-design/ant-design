@@ -1,5 +1,5 @@
-import { Col, Row, Slider } from 'antd';
 import React, { useState } from 'react';
+import { Col, Row, Slider } from 'antd';
 
 const gutters: Record<string, number> = {};
 const vgutters: Record<string, number> = {};

@@ -1,5 +1,5 @@
-import { Badge, Descriptions } from 'antd';
 import React from 'react';
+import { Badge, Descriptions } from 'antd';
 
 const App: React.FC = () => (
   <Descriptions title="User Info" layout="vertical" bordered>

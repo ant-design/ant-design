@@ -1,5 +1,5 @@
-import { Button, Modal } from 'antd';
 import React from 'react';
+import { Button, Modal } from 'antd';
 
 const countDown = () => {
   let secondsToGo = 5;

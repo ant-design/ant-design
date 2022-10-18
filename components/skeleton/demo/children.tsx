@@ -1,5 +1,5 @@
-import { Button, Skeleton } from 'antd';
 import React, { useState } from 'react';
+import { Button, Skeleton } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

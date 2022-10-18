@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Button, Modal, Space } from 'antd';
-import React, { useState } from 'react';
 
 const LocalizedModal = () => {
   const [open, setOpen] = useState(false);

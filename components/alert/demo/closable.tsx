@@ -1,5 +1,5 @@
-import { Alert } from 'antd';
 import React from 'react';
+import { Alert } from 'antd';
 
 const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   console.log(e, 'I was closed.');

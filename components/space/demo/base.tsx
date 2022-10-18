@@ -1,6 +1,6 @@
+import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Popconfirm, Space, Upload } from 'antd';
-import React from 'react';
 
 const App: React.FC = () => (
   <Space>

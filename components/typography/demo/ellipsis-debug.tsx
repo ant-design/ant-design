@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 /*
  * debug: true
  */
 
 import { Slider, Switch, Typography } from 'antd';
-import React, { useState } from 'react';
 
 const { Text, Paragraph } = Typography;
 
