@@ -4,4 +4,4 @@ import './index.less';
 import '../../button/style';
 import '../../tag/style';
 
-// deps-lint-skip: form
+// deps-lint-skip: form, space
