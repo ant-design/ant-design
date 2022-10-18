@@ -8,7 +8,7 @@ debug: true
 
 ## zh-CN
 
-V4 样式的 Menu。
+V4 样式的 Menu 组件。
 
 ## en-US
 
