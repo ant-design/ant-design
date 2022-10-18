@@ -59,7 +59,8 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps extends TypographyProps {
+export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
@@ -113,13 +114,9 @@ function toList<T extends any>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
 }
 
-interface InternalBlockProps extends BlockProps {
-  component: string;
-}
-
 const ELLIPSIS_STR = '...';
 
-const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
+const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -151,7 +148,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     'strong',
     'keyboard',
     'italic',
-  ]) as any;
+  ]);
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
@@ -175,7 +172,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [editing]);
 
-  const onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+  const onEditClick = (e?: React.MouseEvent<HTMLElement>) => {
     e?.preventDefault();
     triggerEdit(true);
   };
@@ -193,7 +190,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
   const [copied, setCopied] = React.useState(false);
-  const copyIdRef = React.useRef<NodeJS.Timeout>();
+  const copyIdRef = React.useRef<number>();
 
   const copyOptions: Pick<CopyConfig, 'format'> = {};
   if (copyConfig.format) {
@@ -201,7 +198,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   }
 
   const cleanCopyId = () => {
-    clearTimeout(copyIdRef.current!);
+    window.clearTimeout(copyIdRef.current!);
   };
 
   const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
@@ -214,7 +211,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
     // Trigger tips update
     cleanCopyId();
-    copyIdRef.current = setTimeout(() => {
+    copyIdRef.current = window.setTimeout(() => {
       setCopied(false);
     }, 3000);
 
@@ -351,7 +348,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     tooltipProps = { title: ellipsisConfig.tooltip };
   }
   const topAriaLabel = React.useMemo(() => {
-    const isValid = (val: any) => ['string', 'number'].includes(typeof val);
+    const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
 
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
@@ -490,7 +487,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
-      {resizeRef => (
+      {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
           tooltipProps={tooltipProps}
           enabledEllipsis={mergedEnableEllipsis}
@@ -515,8 +512,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
             component={component}
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
-            onClick={triggerType.includes('text') ? onEditClick : null}
-            aria-label={topAriaLabel}
+            onClick={triggerType.includes('text') ? onEditClick : undefined}
+            aria-label={topAriaLabel?.toString()}
             title={title}
             {...textProps}
           >

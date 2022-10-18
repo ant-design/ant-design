@@ -134,4 +134,26 @@ describe('ConfigProvider.Theme', () => {
       ),
     ).toBeTruthy();
   });
+
+  it('hashed should be true if not changed', () => {
+    let hashId = 'hashId';
+
+    theme.defaultConfig.hashed = true;
+
+    const Demo = () => {
+      const [, , hash] = useToken();
+      hashId = hash;
+      return null;
+    };
+
+    render(
+      <ConfigProvider theme={{ components: { InputNumber: { handleWidth: 50.1234 } } }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+
+    expect(hashId).not.toBe('');
+
+    theme.defaultConfig.hashed = false;
+  });
 });
