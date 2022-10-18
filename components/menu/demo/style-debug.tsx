@@ -1,5 +1,8 @@
 /*
- * debug: true */import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
 import React, { useState } from 'react';

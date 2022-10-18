@@ -1,7 +1,6 @@
 import { Select } from 'antd';
 import React, { useState } from 'react';
 
-const { Option } = Select;
 const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
   Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
@@ -25,16 +24,18 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Select defaultValue={provinceData[0]} style={{ width: 120 }} onChange={handleProvinceChange}>
-        {provinceData.map(province => (
-          <Option key={province}>{province}</Option>
-        ))}
-      </Select>
-      <Select style={{ width: 120 }} value={secondCity} onChange={onSecondCityChange}>
-        {cities.map(city => (
-          <Option key={city}>{city}</Option>
-        ))}
-      </Select>
+      <Select
+        defaultValue={provinceData[0]}
+        style={{ width: 120 }}
+        onChange={handleProvinceChange}
+        options={provinceData.map(province => ({ label: province, value: province }))}
+      />
+      <Select
+        style={{ width: 120 }}
+        value={secondCity}
+        onChange={onSecondCityChange}
+        options={cities.map(city => ({ label: city, value: city }))}
+      />
     </>
   );
 };

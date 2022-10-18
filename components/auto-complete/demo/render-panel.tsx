@@ -1,5 +1,8 @@
 /*
- * debug: true */import { AutoComplete, Switch, Space } from 'antd';
+ * debug: true
+ */
+
+import { AutoComplete, Switch, Space } from 'antd';
 import React from 'react';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalAutoComplete } = AutoComplete;

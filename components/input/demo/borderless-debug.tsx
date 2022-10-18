@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Input } from 'antd';
+ * debug: true
+ */
+
+import { Input } from 'antd';
 import React from 'react';
 
 const { TextArea } = Input;

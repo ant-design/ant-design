@@ -97,10 +97,10 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-export const genCommonStyle = (token: DerivativeToken, rootPrefixCls: string): CSSObject => {
+export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: string): CSSObject => {
   const { fontFamily, fontSize } = token;
 
-  const rootPrefixSelector = `[class^="${rootPrefixCls}-"], [class*=" ${rootPrefixCls}-"]`;
+  const rootPrefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`;
 
   return {
     [rootPrefixSelector]: {
@@ -108,8 +108,16 @@ export const genCommonStyle = (token: DerivativeToken, rootPrefixCls: string): C
       fontSize,
       boxSizing: 'border-box',
 
+      '&::before, &::after': {
+        boxSizing: 'border-box',
+      },
+
       [rootPrefixSelector]: {
         boxSizing: 'border-box',
+
+        '&::before, &::after': {
+          boxSizing: 'border-box',
+        },
       },
     },
   };

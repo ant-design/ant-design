@@ -476,9 +476,15 @@ describe('ConfigProvider', () => {
         myProps.iconPrefix = 'prefixIcon';
       }
       return (
-        <Steps {...props}>
-          <Steps.Step title="Bamboo" description="Little Light" />
-        </Steps>
+        <Steps
+          {...props}
+          items={[
+            {
+              title: 'Bamboo',
+              description: 'Little Light',
+            },
+          ]}
+        />
       );
     });
 

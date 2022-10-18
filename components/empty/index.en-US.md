@@ -3,6 +3,8 @@ category: Components
 group: Data Display
 title: Empty
 cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
+demo:
+  cols: 2
 ---
 
 Empty state placeholder.
@@ -20,6 +22,14 @@ Empty state placeholder.
 <code src="./demo/config-provider.tsx">ConfigProvider</code>
 <code src="./demo/description.tsx">No description</code>
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/simple.tsx">Chose image</code>
+<code src="./demo/customize.tsx">Customize</code>
+<code src="./demo/config-provider.tsx">ConfigProvider</code>
+<code src="./demo/description.tsx">No description</code>
+
 ## API
 
 ```jsx
@@ -28,11 +38,11 @@ Empty state placeholder.
 </Empty>
 ```
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| description | Customize description | ReactNode | - |  |
-| image | Customize image. Will treat as image url when string provided | ReactNode | `Empty.PRESENTED_IMAGE_DEFAULT` |  |
-| imageStyle | The style of image | CSSProperties | - |  |
+| Property    | Description                                                   | Type          | Default                         | Version |
+| ----------- | ------------------------------------------------------------- | ------------- | ------------------------------- | ------- |
+| description | Customize description                                         | ReactNode     | -                               |         |
+| image       | Customize image. Will treat as image url when string provided | ReactNode     | `Empty.PRESENTED_IMAGE_DEFAULT` |         |
+| imageStyle  | The style of image                                            | CSSProperties | -                               |         |
 
 ## Built-in images
 

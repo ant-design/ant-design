@@ -1,5 +1,8 @@
 /*
- * version: 4.18.0 */import { Table } from 'antd';
+ * version: 4.18.0
+ */
+
+import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React from 'react';
 

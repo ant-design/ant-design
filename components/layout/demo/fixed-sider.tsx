@@ -1,5 +1,8 @@
 /*
- * iframe: 360 */import {
+ * iframe: 360
+ */
+
+import {
   AppstoreOutlined,
   BarChartOutlined,
   CloudOutlined,

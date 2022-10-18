@@ -1,5 +1,8 @@
 /*
- * version: 4.19.0 */import { Space, Transfer } from 'antd';
+ * version: 4.19.0
+ */
+
+import { Space, Transfer } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (

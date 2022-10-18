@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Button, Select, Form, Input, Divider } from 'antd';
+ * debug: true
+ */
+
+import { Button, Select, Form, Input, Divider } from 'antd';
 import React from 'react';
 
 const sharedItem = (

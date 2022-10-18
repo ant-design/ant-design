@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Transfer } from 'antd';
+ * debug: true
+ */
+
+import { Transfer } from 'antd';
 import type { SelectAllLabel } from 'antd/es/transfer';
 import React, { useState } from 'react';
 

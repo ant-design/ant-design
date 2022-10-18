@@ -1,6 +1,7 @@
 /*
- * version: < 4.20.0 */
-import React from 'react';
+ * version: < 4.20.0
+ */
+
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 

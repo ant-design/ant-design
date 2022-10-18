@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Mentions } from 'antd';
+ * debug: true
+ */
+
+import { Mentions } from 'antd';
 import React from 'react';
 
 const { Option } = Mentions;

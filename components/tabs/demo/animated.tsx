@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Tabs, Switch, Space } from 'antd';
+ * debug: true
+ */
+
+import { Tabs, Switch, Space } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => {

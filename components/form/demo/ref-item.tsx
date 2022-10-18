@@ -1,5 +1,8 @@
 /*
- * debug: true */import type { InputRef } from 'antd';
+ * debug: true
+ */
+
+import type { InputRef } from 'antd';
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 

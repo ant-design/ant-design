@@ -1,5 +1,8 @@
 /*
- * debug: true */import { SearchOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { SearchOutlined } from '@ant-design/icons';
 import { AutoComplete, Button, Form, Input, TreeSelect } from 'antd';
 import React from 'react';
 

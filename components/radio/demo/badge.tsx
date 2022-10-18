@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Badge, Radio } from 'antd';
+ * debug: true
+ */
+
+import { Badge, Radio } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (

@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Button, Tooltip } from 'antd';
+ * debug: true
+ */
+
+import { Button, Tooltip } from 'antd';
 import React from 'react';
 
 const wrapStyles: React.CSSProperties = {

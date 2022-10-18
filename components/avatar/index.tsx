@@ -7,12 +7,14 @@ export type { AvatarProps } from './avatar';
 export type { GroupProps } from './group';
 export { Group };
 
-interface CompoundedComponent
-  extends ForwardRefExoticComponent<AvatarProps & RefAttributes<HTMLElement>> {
+type CompoundedComponent = ForwardRefExoticComponent<
+  AvatarProps & RefAttributes<HTMLSpanElement>
+> & {
   Group: typeof Group;
-}
+};
 
 const Avatar = InternalAvatar as CompoundedComponent;
+
 Avatar.Group = Group;
 
 export default Avatar;

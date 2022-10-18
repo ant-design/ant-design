@@ -1,5 +1,9 @@
 import type * as React from 'react';
 
+interface DivProps extends React.HTMLProps<HTMLDivElement> {
+  'data-testid'?: string;
+}
+
 export type NotificationPlacement =
   | 'top'
   | 'topLeft'
@@ -24,6 +28,7 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
+  props?: DivProps;
 }
 
 export interface NotificationInstance {
@@ -45,6 +50,7 @@ export interface GlobalConfigProps {
   closeIcon?: React.ReactNode;
   rtl?: boolean;
   maxCount?: number;
+  props?: DivProps;
 }
 
 export interface NotificationConfig {

@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Space, Switch, Table } from 'antd';
+ * debug: true
+ */
+
+import { Space, Switch, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 

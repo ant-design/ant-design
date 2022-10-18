@@ -9,6 +9,7 @@ export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>> {
   Group: typeof Group;
+  /** @internal */
   __ANT_CHECKBOX: boolean;
 }
 

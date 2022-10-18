@@ -3,8 +3,6 @@ import { Radio, Select } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 import React, { useState } from 'react';
 
-const { Option } = Select;
-
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
@@ -27,11 +25,21 @@ const App: React.FC = () => {
         style={{ width: 120 }}
         dropdownMatchSelectWidth={false}
         placement={placement}
-      >
-        <Option value="HangZhou">HangZhou #310000</Option>
-        <Option value="NingBo">NingBo #315000</Option>
-        <Option value="WenZhou">WenZhou #325000</Option>
-      </Select>
+        options={[
+          {
+            value: 'HangZhou',
+            label: 'HangZhou #310000',
+          },
+          {
+            value: 'NingBo',
+            label: 'NingBo #315000',
+          },
+          {
+            value: 'WenZhou',
+            label: 'WenZhou #325000',
+          },
+        ]}
+      />
     </>
   );
 };

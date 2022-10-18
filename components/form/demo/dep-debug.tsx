@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Form, Input } from 'antd';
+ * debug: true
+ */
+
+import { Form, Input } from 'antd';
 import React from 'react';
 
 let acc = 0;

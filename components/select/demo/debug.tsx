@@ -1,8 +1,9 @@
 /*
- * debug: true */import { Button, Input, Select } from 'antd';
-import React from 'react';
+ * debug: true
+ */
 
-const { Option } = Select;
+import { Button, Input, Select } from 'antd';
+import React from 'react';
 
 const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
@@ -19,15 +20,35 @@ const App: React.FC = () => (
     }}
   >
     <Input style={{ width: 100 }} value="222" />
-    <Select style={{ width: 120 }} onChange={handleChange} showSearch placeholder="233">
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>
-        Disabled
-      </Option>
-      <Option value="Yiminghe">yiminghe</Option>
-      <Option value="long">I am super super long!</Option>
-    </Select>
+    <Select
+      style={{ width: 120 }}
+      onChange={handleChange}
+      showSearch
+      placeholder="233"
+      options={[
+        {
+          value: 'jack',
+          label: 'Jack',
+        },
+        {
+          value: 'lucy',
+          label: 'Lucy',
+        },
+        {
+          value: 'disabled',
+          disabled: true,
+          label: 'Disabled',
+        },
+        {
+          value: 'Yiminghe',
+          label: 'yiminghe',
+        },
+        {
+          value: 'long',
+          label: 'I am super super long!',
+        },
+      ]}
+    />
     <Select
       mode="multiple"
       style={{ width: 120 }}
@@ -35,15 +56,30 @@ const App: React.FC = () => (
       onChange={handleChange}
       showSearch
       placeholder="233"
-    >
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>
-        Disabled
-      </Option>
-      <Option value="Yiminghe">yiminghe</Option>
-      <Option value="long">I am super super long!</Option>
-    </Select>
+      options={[
+        {
+          value: 'jack',
+          label: 'Jack',
+        },
+        {
+          value: 'lucy',
+          label: 'Lucy',
+        },
+        {
+          value: 'disabled',
+          disabled: true,
+          label: 'Disabled',
+        },
+        {
+          value: 'Yiminghe',
+          label: 'yiminghe',
+        },
+        {
+          value: 'long',
+          label: 'I am super super long!',
+        },
+      ]}
+    />
     <span className="debug-align">AntDesign</span>
     <Button>222</Button>
   </div>

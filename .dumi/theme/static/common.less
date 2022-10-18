@@ -190,6 +190,25 @@ a {
   }
 }
 
+.mobile-menu-trigger {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  z-index: 10;
+  padding: 2px 6px;
+  color: #777;
+  font-size: 12px;
+  background: #fff;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 1px 4px -2px rgba(0, 0, 0, 0.13), 0 2px 8px rgba(0, 0, 0, 0.08),
+    0 8px 16px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s;
+
+  &:hover {
+    color: #333;
+  }
+}
+
 // reset menu text color
 .menu-site {
   .ant-menu-item > a {

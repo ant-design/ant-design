@@ -1,6 +1,7 @@
 /*
- * debug: true */
-import React from 'react';
+ * debug: true
+ */
+
 import { ConfigProvider, InputNumber, Space } from 'antd';
 
 export default () => (

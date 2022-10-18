@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Badge, Descriptions, Table } from 'antd';
+ * debug: true
+ */
+
+import { Badge, Descriptions, Table } from 'antd';
 import React from 'react';
 
 const dataSource = [

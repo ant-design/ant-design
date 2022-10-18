@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Avatar } from 'antd';
+ * debug: true
+ */
+
+import { Avatar } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (

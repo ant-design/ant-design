@@ -1,5 +1,8 @@
 /*
- * debug: true */import { SmileOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { SmileOutlined } from '@ant-design/icons';
 import { TimePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';

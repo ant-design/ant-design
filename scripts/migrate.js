@@ -1,7 +1,35 @@
-const fs = require('fs');
+const fs = require('fs-extra');
+const glob = require('glob');
 const path = require('path');
 const yaml = require('dumi/node_modules/js-yaml');
 
+// 检查 ~demo 文件夹是否存在，存在则说明是来自 next 的合并
+const tmpFolder = `~demo`;
+
+if (fs.existsSync(tmpFolder)) {
+  console.log('存在 ~demo 文件夹，先做迁移');
+  let fileCount = 0;
+
+  const files = glob.sync(path.join(tmpFolder, `components/**`));
+  files.forEach(file => {
+    const filePath = file.split(path.sep).splice(1).join(path.sep);
+    if (fs.statSync(filePath).isDirectory()) {
+      return;
+    }
+
+    if (!filePath.startsWith('components')) {
+      throw new Error('Tmp demo path not correct');
+    }
+
+    fs.ensureDirSync(path.dirname(filePath));
+    fs.copyFileSync(file, filePath);
+    fileCount += 1;
+  });
+
+  console.log('迁移完成，共迁移文件数：', fileCount);
+}
+
+// 重新生成所有的 Demo 文件
 const componentsPath = path.join(__dirname, '../components');
 const components = fs
   .readdirSync(componentsPath)
@@ -9,7 +37,7 @@ const components = fs
 
 components.forEach(component => {
   const demoPath = path.join(componentsPath, component, 'demo');
-  const demos = fs.readdirSync(demoPath);
+  const demos = fs.readdirSync(demoPath).filter(demo => demo.endsWith('.md'));
   const codes = demos
     .map(demo => {
       const mdPath = path.join(demoPath, demo);

@@ -1,6 +1,7 @@
 /*
- * debug: true */
-import React from 'react';
+ * debug: true
+ */
+
 import { Button, notification } from 'antd';
 
 /** Test usage. Do not use in your production. */

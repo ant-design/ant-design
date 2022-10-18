@@ -32,7 +32,6 @@ describe('react router', () => {
     jest.useRealTimers();
   });
 
-  // https://github.com/airbnb/enzyme/issues/875
   it('react router 6', () => {
     const Home: React.FC = () => {
       const location = useLocation();

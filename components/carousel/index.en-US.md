@@ -5,6 +5,8 @@ title: Carousel
 cover: https://gw.alipayobjects.com/zos/antfincdn/%24C9tmj978R/Carousel.svg
 demo:
   cols: 2
+demo:
+  cols: 2
 ---
 
 A carousel component. Scales with its container.
@@ -22,25 +24,32 @@ A carousel component. Scales with its container.
 <code src="./demo/autoplay.tsx">Scroll automatically</code>
 <code src="./demo/fade.tsx">Fade in</code>
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/position.tsx">Position</code>
+<code src="./demo/autoplay.tsx">Scroll automatically</code>
+<code src="./demo/fade.tsx">Fade in</code>
+
 ## API
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| autoplay | Whether to scroll automatically | boolean | false |  |
-| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
-| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
-| easing | Transition interpolation function name | string | `linear` |  |
-| effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
-| afterChange | Callback function called after the current index changes | function(current) | - |  |
-| beforeChange | Callback function called before the current index changes | function(from, to) | - |  |
+| Property     | Description                                                                                    | Type                              | Default   | Version |
+| ------------ | ---------------------------------------------------------------------------------------------- | --------------------------------- | --------- | ------- |
+| autoplay     | Whether to scroll automatically                                                                | boolean                           | false     |         |
+| dotPosition  | The position of the dots, which can be one of `top` `bottom` `left` `right`                    | string                            | `bottom`  |         |
+| dots         | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true      |         |
+| easing       | Transition interpolation function name                                                         | string                            | `linear`  |         |
+| effect       | Transition effect                                                                              | `scrollx` \| `fade`               | `scrollx` |         |
+| afterChange  | Callback function called after the current index changes                                       | function(current)                 | -         |         |
+| beforeChange | Callback function called before the current index changes                                      | function(from, to)                | -         |         |
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
+| Name                           | Description                                                          |
+| ------------------------------ | -------------------------------------------------------------------- |
 | goTo(slideNumber, dontAnimate) | Go to slide index, if dontAnimate=true, it happens without animation |
-| next() | Change current slide to next slide |
-| prev() | Change current slide to previous slide |
+| next()                         | Change current slide to next slide                                   |
+| prev()                         | Change current slide to previous slide                               |
 
 Find more APIs in react-slick [documentation](https://react-slick.neostack.com/docs/api).
 

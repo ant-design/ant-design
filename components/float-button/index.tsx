@@ -33,7 +33,7 @@ const FloatButton: React.ForwardRefRenderFunction<
     ...restProps
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
-  const groupShape = useContext<FloatButtonShape | null>(FloatButtonGroupContext);
+  const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 

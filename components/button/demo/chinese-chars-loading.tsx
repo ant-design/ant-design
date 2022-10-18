@@ -1,5 +1,8 @@
 /*
- * debug: true */import { PoweroffOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { PoweroffOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 

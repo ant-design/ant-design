@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Slider, Switch, Typography } from 'antd';
+ * debug: true
+ */
+
+import { Slider, Switch, Typography } from 'antd';
 import React, { useState } from 'react';
 
 const { Text, Paragraph } = Typography;
@@ -43,6 +46,30 @@ const App: React.FC = () => {
           Hello World
         </Paragraph>
       )}
+
+      <Text style={{ maxWidth: 400, fontSize: 24 }} copyable ellipsis>
+        In the process of internal desktop applications development, many different design specs and
+        implementations would be involved, which might cause designers and developers difficulties
+        and duplication and reduce the efficiency of development.
+      </Text>
+
+      <br />
+
+      <Text style={{ maxWidth: 400, fontSize: 12 }} copyable ellipsis>
+        In the process of internal desktop applications development, many different design specs and
+        implementations would be involved, which might cause designers and developers difficulties
+        and duplication and reduce the efficiency of development.
+      </Text>
+
+      <br />
+
+      <Text style={{ width: 400, fontSize: 24 }} copyable ellipsis>
+        In the process of internal desktop applications development, many different design specs and
+        implementations would be involved, which might cause designers and developers difficulties
+        and duplication and reduce the efficiency of development.
+      </Text>
+
+      <br />
 
       <Text style={{ width: 100 }} ellipsis copyable>
         Ant Design is a design language for background applications, is refined by Ant UED Team.

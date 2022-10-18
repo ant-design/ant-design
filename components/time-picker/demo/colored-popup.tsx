@@ -1,5 +1,8 @@
 /*
- * debug: true */import { TimePicker } from 'antd';
+ * debug: true
+ */
+
+import { TimePicker } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';

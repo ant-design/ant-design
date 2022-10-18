@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Select, Tabs } from 'antd';
+ * debug: true
+ */
+
+import { Select, Tabs } from 'antd';
 import React, { useState } from 'react';
 
 const { Option } = Select;

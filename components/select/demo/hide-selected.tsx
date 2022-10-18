@@ -15,13 +15,11 @@ const App: React.FC = () => {
       value={selectedItems}
       onChange={setSelectedItems}
       style={{ width: '100%' }}
-    >
-      {filteredOptions.map(item => (
-        <Select.Option key={item} value={item}>
-          {item}
-        </Select.Option>
-      ))}
-    </Select>
+      options={filteredOptions.map(item => ({
+        value: item,
+        label: item,
+      }))}
+    />
   );
 };
 

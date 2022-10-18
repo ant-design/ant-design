@@ -1,5 +1,8 @@
 /*
- * debug: true */import { SmileOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { SmileOutlined } from '@ant-design/icons';
 import { Alert } from 'antd';
 import React from 'react';
 

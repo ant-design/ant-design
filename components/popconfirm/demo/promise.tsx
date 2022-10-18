@@ -1,5 +1,8 @@
 /*
- * version: 4.17.0 */import { Button, Popconfirm } from 'antd';
+ * version: 4.17.0
+ */
+
+import { Button, Popconfirm } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => {

@@ -94,7 +94,7 @@ const Dropdown: DropdownInterface = props => {
     if (transitionName !== undefined) {
       return transitionName;
     }
-    if (placement.indexOf('top') >= 0) {
+    if (placement.includes('top')) {
       return `${rootPrefixCls}-slide-down`;
     }
     return `${rootPrefixCls}-slide-up`;
@@ -103,7 +103,7 @@ const Dropdown: DropdownInterface = props => {
   const getPlacement = () => {
     const { placement } = props;
     if (!placement) {
-      return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+      return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
     }
 
     if (placement.includes('Center')) {
@@ -133,6 +133,8 @@ const Dropdown: DropdownInterface = props => {
     // Deprecated
     visible,
     onVisibleChange,
+    mouseEnterDelay = 0.15,
+    mouseLeaveDelay = 0.1,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -165,8 +167,8 @@ const Dropdown: DropdownInterface = props => {
   });
 
   const triggerActions = disabled ? [] : trigger;
-  let alignPoint;
-  if (triggerActions && triggerActions.indexOf('contextMenu') !== -1) {
+  let alignPoint: boolean;
+  if (triggerActions && triggerActions.includes('contextMenu')) {
     alignPoint = true;
   }
 
@@ -200,9 +202,9 @@ const Dropdown: DropdownInterface = props => {
     // So we need render the element to check and pass back to rc-dropdown.
     const { overlay } = props;
 
-    let overlayNode;
+    let overlayNode: React.ReactNode;
     if (typeof overlay === 'function') {
-      overlayNode = (overlay as OverlayFunc)();
+      overlayNode = overlay();
     } else {
       overlayNode = overlay;
     }
@@ -238,8 +240,10 @@ const Dropdown: DropdownInterface = props => {
   // ============================ Render ============================
   return wrapSSR(
     <RcDropdown
-      alignPoint={alignPoint}
+      alignPoint={alignPoint!}
       {...props}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
@@ -258,11 +262,6 @@ const Dropdown: DropdownInterface = props => {
 };
 
 Dropdown.Button = DropdownButton;
-
-Dropdown.defaultProps = {
-  mouseEnterDelay: 0.15,
-  mouseLeaveDelay: 0.1,
-};
 
 // We don't care debug panel
 const PurePanel = genPurePanel(Dropdown, 'dropdown', prefixCls => prefixCls);

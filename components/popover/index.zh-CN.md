@@ -6,6 +6,8 @@ title: Popover
 cover: https://gw.alipayobjects.com/zos/alicdn/1PNL1p_cO/Popover.svg
 demo:
   cols: 2
+demo:
+  cols: 2
 ---
 
 点击/鼠标移入元素，弹出气泡式的卡片浮层。
@@ -24,14 +26,24 @@ demo:
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
-<code src="./demo/render-panel.tsx">_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/triggerType.tsx">三种触发方式</code>
+<code src="./demo/placement.tsx">位置</code>
+<code src="./demo/control.tsx">从浮层内关闭</code>
+<code src="./demo/arrow-point-at-center.tsx">箭头指向</code>
+<code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
+<code src="./demo/render-panel.tsx">\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| content | 卡片内容 | ReactNode \| () => ReactNode | - |  |
-| title | 卡片标题 | ReactNode \| () => ReactNode | - |  |
+| 参数    | 说明     | 类型                         | 默认值 | 版本 |
+| ------- | -------- | ---------------------------- | ------ | ---- |
+| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
+| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

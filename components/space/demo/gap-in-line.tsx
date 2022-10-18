@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Space, Switch } from 'antd';
+ * debug: true
+ */
+
+import { Space, Switch } from 'antd';
 import React, { useState } from 'react';
 
 const style: React.CSSProperties = {

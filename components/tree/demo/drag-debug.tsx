@@ -1,5 +1,8 @@
 /*
- * debug: true */import React from 'react';
+ * debug: true
+ */
+
+import React from 'react';
 import { Tree, Switch } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 

@@ -8,7 +8,22 @@ const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 };
 
 const App: React.FC = () => (
-  <TextArea showCount maxLength={100} style={{ height: 120 }} onChange={onChange} />
+  <>
+    <TextArea
+      showCount
+      maxLength={100}
+      style={{ height: 120 }}
+      onChange={onChange}
+      placeholder="can resize"
+    />
+    <TextArea
+      showCount
+      maxLength={100}
+      style={{ height: 120, resize: 'none' }}
+      onChange={onChange}
+      placeholder="disable resize"
+    />
+  </>
 );
 
 export default App;

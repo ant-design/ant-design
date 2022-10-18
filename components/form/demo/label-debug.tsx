@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Form, Input, Typography } from 'antd';
+ * debug: true
+ */
+
+import { Form, Input, Typography } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (

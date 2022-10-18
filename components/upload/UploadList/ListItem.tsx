@@ -7,7 +7,6 @@ import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
-
 import type {
   ItemRender,
   UploadFile,

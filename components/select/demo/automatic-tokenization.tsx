@@ -1,11 +1,14 @@
 import { Select } from 'antd';
 import React from 'react';
+import type { SelectProps } from 'antd';
 
-const { Option } = Select;
+const options: SelectProps['options'] = [];
 
-const children: React.ReactNode[] = [];
 for (let i = 10; i < 36; i++) {
-  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
+  options.push({
+    value: i.toString(36) + i,
+    label: i.toString(36) + i,
+  });
 }
 
 const handleChange = (value: string) => {
@@ -13,9 +16,13 @@ const handleChange = (value: string) => {
 };
 
 const App: React.FC = () => (
-  <Select mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
-    {children}
-  </Select>
+  <Select
+    mode="tags"
+    style={{ width: '100%' }}
+    onChange={handleChange}
+    tokenSeparators={[',']}
+    options={options}
+  />
 );
 
 export default App;

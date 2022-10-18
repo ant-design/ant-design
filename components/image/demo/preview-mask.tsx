@@ -1,5 +1,8 @@
 /*
- * debug: true */import { ZoomInOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { ZoomInOutlined } from '@ant-design/icons';
 import { Image, Space } from 'antd';
 import React from 'react';
 

@@ -10,7 +10,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -20,7 +20,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -38,7 +38,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -57,14 +57,14 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <span
       aria-label="clock-circle"
       class="anticon anticon-clock-circle ant-scroll-number-custom-component"
       role="img"
-      style="color: rgb(245, 34, 45);"
+      style="color:#f5222d"
     >
       <svg
         aria-hidden="true"
@@ -97,7 +97,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -107,7 +107,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -211,7 +211,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -259,7 +259,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -276,7 +276,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -293,7 +293,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -310,7 +310,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -327,7 +327,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -344,7 +344,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -361,7 +361,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -378,7 +378,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -395,7 +395,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -412,7 +412,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -429,7 +429,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -446,7 +446,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -493,14 +493,14 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
           class="ant-badge-status-dot"
-          style="background: rgb(255, 85, 0);"
+          style="background:#f50"
         />
         <span
           class="ant-badge-status-text"
@@ -511,14 +511,14 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
           class="ant-badge-status-dot"
-          style="background: rgb(45, 183, 245);"
+          style="background:rgb(45, 183, 245)"
         />
         <span
           class="ant-badge-status-text"
@@ -529,14 +529,14 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
       >
         <span
           class="ant-badge-status-dot"
-          style="background: rgb(103, 103, 103);"
+          style="background:hsl(102, 53%, 61%)"
         />
         <span
           class="ant-badge-status-text"
@@ -553,6 +553,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
+          style="background:hwb(205 6% 9%)"
         />
         <span
           class="ant-badge-status-text"
@@ -565,7 +566,523 @@ Array [
 ]
 `;
 
+<<<<<<< HEAD
 exports[`renders ./components/badge/demo/dot.tsx extend context correctly 1`] = `
+=======
+exports[`renders ./components/badge/demo/colorful-with-count-debug.md extend context correctly 1`] = `
+Array [
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        pink
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-pink"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        red
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-red"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        yellow
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-yellow"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        orange
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-orange"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        cyan
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-cyan"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        green
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-green"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        blue
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-blue"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        purple
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-purple"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        geekblue
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-geekblue"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        magenta
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-magenta"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        volcano
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-volcano"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        gold
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-gold"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  <div
+    style="display:inline-block;vertical-align:middle"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+      >
+        lime
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-count ant-badge-multiple-words ant-badge-status-lime"
+        data-show="true"
+        title="44"
+      >
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+        <span
+          class="ant-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            4
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+]
+`;
+
+exports[`renders ./components/badge/demo/dot.md extend context correctly 1`] = `
+>>>>>>> next
 Array [
   <span
     class="ant-badge"
@@ -574,7 +1091,7 @@ Array [
       aria-label="notification"
       class="anticon anticon-notification"
       role="img"
-      style="font-size: 16px;"
+      style="font-size:16px"
     >
       <svg
         aria-hidden="true"
@@ -623,7 +1140,7 @@ exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] =
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -633,7 +1150,7 @@ exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] =
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -649,14 +1166,14 @@ exports[`renders ./components/badge/demo/link.tsx extend context correctly 1`] =
 exports[`renders ./components/badge/demo/mix.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-square"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -666,7 +1183,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -677,14 +1194,14 @@ Array [
     </sup>
   </span>,
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-square"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -694,7 +1211,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -705,14 +1222,14 @@ Array [
     </sup>
   </span>,
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-square"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -722,7 +1239,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -733,25 +1250,25 @@ Array [
     </sup>
   </span>,
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <span
       class="ant-avatar ant-avatar-lg ant-avatar-square"
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background: rgb(250, 84, 28);"
+      style="background:#fa541c"
       title="5"
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -769,7 +1286,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -785,7 +1302,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -801,7 +1318,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -817,13 +1334,13 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
-      style="background: rgb(250, 84, 28);"
+      style="background:#fa541c"
     />
   </span>,
 ]
@@ -835,7 +1352,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <button
       aria-checked="true"
@@ -860,7 +1377,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -872,7 +1389,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
       >
         <span
           class="ant-scroll-number-only"
-          style="transition: none;"
+          style="transition:none"
         >
           <span
             class="ant-scroll-number-only-unit current"
@@ -882,7 +1399,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
         </span>
         <span
           class="ant-scroll-number-only"
-          style="transition: none;"
+          style="transition:none"
         >
           <span
             class="ant-scroll-number-only-unit current"
@@ -895,7 +1412,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
+    style="margin-right:8px"
   >
     <span
       class="ant-badge ant-badge-not-a-wrapper"
@@ -904,7 +1421,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
         aria-label="clock-circle"
         class="anticon anticon-clock-circle ant-scroll-number-custom-component"
         role="img"
-        style="color: rgb(245, 34, 45);"
+        style="color:#f5222d"
       >
         <svg
           aria-hidden="true"
@@ -934,7 +1451,7 @@ exports[`renders ./components/badge/demo/no-wrapper.tsx extend context correctly
       <sup
         class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
         data-show="true"
-        style="background-color: rgb(82, 196, 26);"
+        style="background-color:#52c41a"
         title="109"
       >
         99+
@@ -953,18 +1470,18 @@ exports[`renders ./components/badge/demo/offset.tsx extend context correctly 1`]
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="opacity:0"
     />
   </span>
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top: 10px; right: -10px;"
+    style="margin-top:10px;right:-10px"
     title="5"
   >
     <span
       class="ant-scroll-number-only"
-      style="transition: none;"
+      style="transition:none"
     >
       <span
         class="ant-scroll-number-only-unit current"
@@ -986,7 +1503,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -996,7 +1513,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1006,7 +1523,7 @@ Array [
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1024,7 +1541,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1043,7 +1560,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1062,7 +1579,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1388,11 +1905,11 @@ Array [
 exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width: 100%;"
+  style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1422,7 +1939,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1452,7 +1969,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1468,7 +1985,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-end"
-        style="background: rgb(45, 183, 245);"
+        style="background:#2db7f5"
       >
         <span
           class="ant-ribbon-text"
@@ -1477,14 +1994,14 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color: rgb(45, 183, 245);"
+          style="color:#2db7f5"
         />
       </div>
     </div>
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+    style="margin-bottom:8px"
   >
     <div
       class="ant-ribbon-wrapper"
@@ -1500,7 +2017,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-start"
-        style="background: rgb(45, 183, 245);"
+        style="background:#2db7f5"
       >
         <span
           class="ant-ribbon-text"
@@ -1509,7 +2026,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color: rgb(45, 183, 245);"
+          style="color:#2db7f5"
         />
       </div>
     </div>
@@ -1531,7 +2048,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
       </div>
       <div
         class="ant-ribbon ant-ribbon-placement-end"
-        style="background: rgb(45, 183, 245);"
+        style="background:#2db7f5"
       >
         <span
           class="ant-ribbon-text"
@@ -1540,7 +2057,7 @@ exports[`renders ./components/badge/demo/ribbon-debug.tsx extend context correct
         </span>
         <div
           class="ant-ribbon-corner"
-          style="color: rgb(45, 183, 245);"
+          style="color:#2db7f5"
         />
       </div>
     </div>
@@ -1558,7 +2075,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1568,7 +2085,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1586,7 +2103,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1596,7 +2113,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1616,7 +2133,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1628,7 +2145,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1640,7 +2157,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1652,7 +2169,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1680,7 +2197,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1697,7 +2214,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1714,7 +2231,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1731,7 +2248,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
+      style="margin-bottom:8px"
     >
       <span
         class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1776,7 +2293,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1786,7 +2303,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1804,7 +2321,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="opacity:0"
       />
     </span>
     <sup
@@ -1814,7 +2331,7 @@ Array [
     >
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"
@@ -1824,7 +2341,7 @@ Array [
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition: none;"
+        style="transition:none"
       >
         <span
           class="ant-scroll-number-only-unit current"

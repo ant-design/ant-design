@@ -1,5 +1,8 @@
 /*
- * debug: true */import {
+ * debug: true
+ */
+
+import {
   DesktopOutlined,
   FileOutlined,
   MenuFoldOutlined,

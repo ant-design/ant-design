@@ -1,5 +1,8 @@
 /*
- * version: 4.17.0 */import { Cascader } from 'antd';
+ * version: 4.17.0
+ */
+
+import { Cascader } from 'antd';
 import React from 'react';
 
 interface Option {

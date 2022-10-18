@@ -1,7 +1,7 @@
 ## zh-CN
 
-也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `options`。
+可以返回自定义的 `Option` label
 
 ## en-US
 
-You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `options`。
+You could set custom `Option` label

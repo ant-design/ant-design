@@ -1,5 +1,8 @@
 /*
- * version: 4.20.0 */import React from 'react';
+ * version: 4.20.0
+ */
+
+import React from 'react';
 import { Form, Input, InputNumber, Typography } from 'antd';
 
 const Demo = () => {

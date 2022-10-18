@@ -1,5 +1,8 @@
 /*
- * debug: true */import { Card, List } from 'antd';
+ * debug: true
+ */
+
+import { Card, List } from 'antd';
 import React from 'react';
 
 const data = [

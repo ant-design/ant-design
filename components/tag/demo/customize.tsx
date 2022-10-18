@@ -1,5 +1,8 @@
 /*
- * debug: true */import { CloseCircleOutlined } from '@ant-design/icons';
+ * debug: true
+ */
+
+import { CloseCircleOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import React from 'react';
 

@@ -7,7 +7,7 @@ import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import type { PickerLocale, RangePickerProps } from '.';
+import type { RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -80,7 +80,7 @@ export default function generateRangePicker<DateType>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
@@ -100,7 +100,7 @@ export default function generateRangePicker<DateType>(
 
     return wrapSSR(
       <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-        {(contextLocale: PickerLocale) => {
+        {contextLocale => {
           const locale = { ...contextLocale, ...props.locale };
 
           return (
