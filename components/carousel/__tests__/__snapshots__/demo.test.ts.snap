@@ -262,7 +262,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 4
               </h3>
@@ -282,7 +282,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
               </h3>
@@ -302,7 +302,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 2
               </h3>
@@ -322,7 +322,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 3
               </h3>
@@ -342,7 +342,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 4
               </h3>
@@ -362,7 +362,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 1
               </h3>
@@ -382,7 +382,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 2
               </h3>
@@ -402,7 +402,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 3
               </h3>
@@ -422,7 +422,7 @@ exports[`renders ./components/carousel/demo/basic.md correctly 1`] = `
               tabindex="-1"
             >
               <h3
-                style="height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
+                style="margin:0;height:160px;color:#fff;line-height:160px;text-align:center;background:#364d79"
               >
                 4
               </h3>

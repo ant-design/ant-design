@@ -1,14 +1,14 @@
 ---
 order: 98
 title:
-  zh-CN: Borderless Debug
-  en-US: Borderless Debug
+  zh-CN: Style Debug
+  en-US: Style Debug
 debug: true
 ---
 
 ## zh-CN
 
-Buggy!
+Buggy! 测试一些踩过的样式坑。
 
 ## en-US
 
@@ -29,6 +29,7 @@ const App: React.FC = () => (
     <Input placeholder="Unbordered" bordered={false} allowClear />
     <Input prefix="￥" suffix="RMB" bordered={false} />
     <Input prefix="￥" suffix="RMB" disabled bordered={false} />
+    <TextArea allowClear style={{ border: '2px solid #000' }} />
   </div>
 );
 
