@@ -327,7 +327,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 <Header {...restProps} changeDirection={this.changeDirection} />
                 {children}
 
-                {process.env.NODE_ENV !== 'production' && (
+                {(process.env.NODE_ENV !== 'production' || process.env.antdPreview) && (
                   <DynamicTheme
                     componentName={(this.props as any).params?.children?.replace('-cn', '')}
                     defaultToken={

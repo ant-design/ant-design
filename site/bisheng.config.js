@@ -128,6 +128,12 @@ module.exports = {
       // eslint-disable-next-line no-console
       console.log('Site build with development mode...');
       config.mode = 'development';
+
+      config.plugins.push(
+        new webpack.DefinePlugin({
+          antdPreview: JSON.stringify(true),
+        }),
+      );
     }
 
     // Split chunks
