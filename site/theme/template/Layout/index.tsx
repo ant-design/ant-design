@@ -321,7 +321,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                   token: designToken,
                   hashed: hashedStyle,
                   algorithm: this.getAlgorithm(),
-                  ...(this.state.v5theme === 'compact' ? antdTheme.getCompactTheme() : {}),
+                  ...(this.state.v5theme === 'compact' ? antdTheme.compactTheme : {}),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
