@@ -23,7 +23,6 @@ import SiteContext from './SiteContext';
 import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 import 'moment/locale/zh-cn';
-import getCompactTheme from 'antd/es/theme/themes/compact';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -117,7 +116,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
       isMobile: false,
       setTheme: this.setTheme,
       setIframeTheme: this.setIframeTheme,
-      v5theme: 'compact',
+      v5theme: 'default',
       designToken: defaultSeedToken,
       hashedStyle: true,
     };
@@ -322,7 +321,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                   token: designToken,
                   hashed: hashedStyle,
                   algorithm: this.getAlgorithm(),
-                  ...(this.state.v5theme === 'compact' ? getCompactTheme() : {}),
+                  ...(this.state.v5theme === 'compact' ? antdTheme.getCompactTheme() : {}),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
