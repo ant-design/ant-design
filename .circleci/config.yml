@@ -12,22 +12,19 @@ jobs:
       - checkout
       - run:
           name: Install node_modules
-          command: yarn
+          command: npm i
       - run:
           name: Install argos cli
-          command: yarn add fast-glob lodash @argos-ci/core
-      - run:
-          name: Install puppeteer
-          command: node node_modules/puppeteer/install.js
+          command: npm i fast-glob lodash @argos-ci/core
       - run:
           name: Build dist file
-          command: yarn dist
+          command: npm run dist
       - run:
           name: Run image screenshot tests
-          command: yarn test-image
+          command: npm run test-image
       - run:
           name: Upload screenshots to Argos CI
-          command: yarn argos
+          command: npm run argos
     # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
     resource_class: large
 
