@@ -297,18 +297,13 @@ describe('TextArea', () => {
       });
     });
 
-    it('className & style patch to outer', () => {
-      const { container } = render(
-        <TextArea className="bamboo" style={{ background: 'red' }} showCount />,
+    it('className & style patch to self', () => {
+      const { container } = render(<TextArea className="bamboo" style={{ background: 'red' }} />);
+
+      expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeTruthy();
+      expect(container.querySelector<HTMLDivElement>('.ant-input')?.style.background).toEqual(
+        'red',
       );
-
-      // Outer
-      expect(container.querySelector('div')?.classList.contains('bamboo')).toBeTruthy();
-      expect(container.querySelector('div')?.style.background).toEqual('red');
-
-      // Inner
-      expect(container.querySelector('.ant-input')?.classList.contains('bamboo')).toBeFalsy();
-      expect(container.querySelector<HTMLDivElement>('.ant-input')?.style.background).toBeFalsy();
     });
 
     it('count formatter', () => {

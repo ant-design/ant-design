@@ -188,13 +188,13 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         className={classNames(
           {
             [`${prefixCls}-borderless`]: !bordered,
-            [className!]: className && !showCount,
             [`${prefixCls}-sm`]: size === 'small' || customizeSize === 'small',
             [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
           getStatusClassNames(prefixCls, mergedStatus),
+          className,
         )}
-        style={showCount ? { resize: style?.resize } : style}
+        style={style}
         prefixCls={prefixCls}
         onCompositionStart={onInternalCompositionStart}
         onChange={handleChange}
@@ -232,8 +232,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         ref={clearableInputRef}
         bordered={bordered}
         status={customStatus}
-        style={showCount ? undefined : style}
         focused={focused}
+        className={className}
       />
     );
 
@@ -259,9 +259,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
               [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
-            className,
           )}
-          style={style}
           data-count={dataCount}
         >
           {textareaNode}

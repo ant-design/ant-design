@@ -108,17 +108,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         [`${prefixCls}-affix-wrapper-disabled`]: disabled,
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
       },
     );
     return (
-      <span className={affixWrapperCls} style={style} hidden={hidden}>
+      <span className={affixWrapperCls} hidden={hidden}>
         {cloneElement(element, {
-          style: {
-            // padding只能放这里，加到父级会导致滚动条右侧留白
-            padding: style?.padding,
-          },
           value,
         })}
         {this.renderClearIcon(prefixCls)}

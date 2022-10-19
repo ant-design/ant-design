@@ -1302,10 +1302,10 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
   </span>
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
-    style="border:2px solid #000"
   >
     <textarea
       class="ant-input"
+      style="border:2px solid #000"
     />
     <span
       aria-label="close-circle"
@@ -3510,10 +3510,10 @@ Array [
   </textarea>,
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
-    style="width:93px"
   >
     <textarea
       class="ant-input"
+      style="width:93px"
     />
     <span
       aria-label="close-circle"
@@ -3544,22 +3544,21 @@ Array [
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
     data-count="0 / 100"
-    style="height:120px"
   >
     <textarea
       class="ant-input"
       placeholder="can resize"
+      style="height:120px"
     />
   </div>,
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
     data-count="0 / 100"
-    style="height:120px;resize:none"
   >
     <textarea
       class="ant-input"
       placeholder="disable resize"
-      style="resize:none"
+      style="height:120px;resize:none"
     />
   </div>,
 ]
