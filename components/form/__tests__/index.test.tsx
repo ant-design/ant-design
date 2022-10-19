@@ -201,41 +201,42 @@ describe('Form', () => {
     });
   });
 
-  // it('`shouldUpdate` should work with render props', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item>{() => null}</Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
-  //   );
-  // });
-  // it("`shouldUpdate` shouldn't work with `dependencies`", () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item shouldUpdate dependencies={[]}>
-  //         {() => null}
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
-  //   );
-  // });
+  it('`shouldUpdate` should work with render props', () => {
+    render(
+      <Form>
+        <Form.Item>{() => null}</Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
+    );
+  });
 
-  // it('`name` should not work with render props', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item name="test" shouldUpdate>
-  //         {() => null}
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
-  //   );
-  // });
+  it("`shouldUpdate` shouldn't work with `dependencies`", () => {
+    render(
+      <Form>
+        <Form.Item shouldUpdate dependencies={[]}>
+          {() => null}
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+    );
+  });
+
+  it('`name` should not work with render props', () => {
+    render(
+      <Form>
+        <Form.Item name="test" shouldUpdate>
+          {() => null}
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
+    );
+  });
 
   // it('children is array has name props', () => {
   //   render(
