@@ -9,13 +9,8 @@ import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { tuple } from '../_util/type';
-import type { InputProps } from './Input';
 
 const ClearableInputType = tuple('text', 'input');
-
-function hasAddon(props: InputProps | ClearableInputProps) {
-  return !!(props.addonBefore || props.addonAfter);
-}
 
 /** This basic props required for input and textarea. */
 interface BasicProps {
@@ -44,7 +39,6 @@ export interface ClearableInputProps extends BasicProps {
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
   status?: InputStatus;
-  focused: boolean;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -75,18 +69,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     element: React.ReactElement,
     statusContext: FormItemStatusContextProps,
   ) {
-    const {
-      value,
-      allowClear,
-      className,
-      style,
-      direction,
-      bordered,
-      hidden,
-      status: customStatus,
-      focused,
-      disabled,
-    } = this.props;
+    const { value, allowClear, direction, bordered, hidden, status: customStatus } = this.props;
 
     const { status: contextStatus, hasFeedback } = statusContext;
 
@@ -104,8 +87,6 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         hasFeedback,
       ),
       {
-        [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
       },

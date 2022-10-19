@@ -80,7 +80,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
   ) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
-    const [focused, setFocus] = React.useState(false);
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
@@ -200,14 +199,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         onChange={handleChange}
         onCompositionEnd={onInternalCompositionEnd}
         ref={innerRef}
-        onFocus={(event: React.FocusEvent<HTMLInputElement>) => {
-          setFocus(true);
-          props.onFocus?.(event);
-        }}
-        onBlur={(event: React.FocusEvent<HTMLInputElement>) => {
-          setFocus(false);
-          props.onBlur?.(event);
-        }}
       />
     );
 
@@ -232,7 +223,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         ref={clearableInputRef}
         bordered={bordered}
         status={customStatus}
-        focused={focused}
         className={className}
       />
     );
