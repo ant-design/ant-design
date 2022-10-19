@@ -143,4 +143,44 @@ describe('Grid', () => {
       xxl: false,
     });
   });
+
+  it('should align by responsive align prop', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      query =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        } as any),
+    );
+    const { container } = render(<Row align="middle" />);
+    expect(container.innerHTML).toContain('ant-row-middle');
+    const { container: container2 } = render(<Row align={{ xs: 'middle' }} />);
+    expect(container2.innerHTML).toContain('ant-row-middle');
+    const { container: container3 } = render(<Row align={{ lg: 'middle' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-middle');
+  });
+
+  it('should justify by responsive justify prop', () => {
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      query =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(max-width: 575px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(max-width: 575px)',
+        } as any),
+    );
+    const { container } = render(<Row justify="center" />);
+    expect(container.innerHTML).toContain('ant-row-center');
+    const { container: container2 } = render(<Row justify={{ xs: 'center' }} />);
+    expect(container2.innerHTML).toContain('ant-row-center');
+    const { container: container3 } = render(<Row justify={{ lg: 'center' }} />);
+    expect(container3.innerHTML).not.toContain('ant-row-center');
+  });
 });

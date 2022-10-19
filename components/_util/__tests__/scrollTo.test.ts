@@ -2,17 +2,14 @@ import { waitFakeTimer } from '../../../tests/utils';
 import scrollTo from '../scrollTo';
 
 describe('Test ScrollTo function', () => {
-  let dateNowMock: jest.SpyInstance;
+  const dateNowMock = jest.spyOn(Date, 'now');
 
   beforeAll(() => {
     jest.useFakeTimers();
   });
 
   beforeEach(() => {
-    dateNowMock = jest
-      .spyOn(Date, 'now')
-      .mockImplementationOnce(() => 0)
-      .mockImplementationOnce(() => 1000);
+    dateNowMock.mockReturnValueOnce(0).mockReturnValueOnce(1000);
   });
 
   afterAll(() => {
@@ -21,7 +18,7 @@ describe('Test ScrollTo function', () => {
 
   afterEach(() => {
     jest.clearAllTimers();
-    dateNowMock.mockRestore();
+    dateNowMock.mockClear();
   });
 
   it('test scrollTo', async () => {
