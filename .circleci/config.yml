@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   test-argos-ci:
     docker:
-      - image: circleci/node:16-browsers
+      - image: cimg/node:lts
     steps:
       - checkout
       - run:
