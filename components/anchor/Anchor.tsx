@@ -35,10 +35,10 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
 const sharpMatcherRegx = /#([\S ]+)$/;
 
-type Section = {
+interface Section {
   link: string;
   top: number;
-};
+}
 
 export interface AnchorProps {
   prefixCls?: string;
@@ -89,11 +89,6 @@ export interface AntAnchor {
 }
 
 class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
-  static defaultProps = {
-    affix: true,
-    showInkInFixed: false,
-  };
-
   static contextType = ConfigContext;
 
   state = {
@@ -111,20 +106,20 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
 
   private links: string[] = [];
 
-  private scrollEvent: any;
+  private scrollEvent: ReturnType<typeof addEventListener>;
 
   private animating: boolean;
 
   private prefixCls?: string;
 
   // Context
-  registerLink = (link: string) => {
+  registerLink: AntAnchor['registerLink'] = link => {
     if (!this.links.includes(link)) {
       this.links.push(link);
     }
   };
 
-  unregisterLink = (link: string) => {
+  unregisterLink: AntAnchor['unregisterLink'] = link => {
     const index = this.links.indexOf(link);
     if (index !== -1) {
       this.links.splice(index, 1);
@@ -174,7 +169,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     const linkSections: Array<Section> = [];
     const container = this.getContainer();
     this.links.forEach(link => {
-      const sharpLinkMatch = sharpMatcherRegx.exec(link.toString());
+      const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
       }
@@ -182,10 +177,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       if (target) {
         const top = getOffsetTop(target, container);
         if (top < offsetTop + bounds) {
-          linkSections.push({
-            link,
-            top,
-          });
+          linkSections.push({ link, top });
         }
       }
     });
@@ -259,10 +251,9 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
   updateInk = () => {
     const { prefixCls, wrapperRef } = this;
     const anchorNode = wrapperRef.current;
-    const linkNode = anchorNode?.getElementsByClassName(`${prefixCls}-link-title-active`)[0];
-
+    const linkNode = anchorNode?.querySelector<HTMLElement>(`.${prefixCls}-link-title-active`);
     if (linkNode) {
-      this.inkNode.style.top = `${(linkNode as any).offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      this.inkNode.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
     }
   };
 
@@ -283,8 +274,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       className = '',
       style,
       offsetTop,
-      affix,
-      showInkInFixed,
+      affix = true,
+      showInkInFixed = false,
       children,
       onClick,
     } = this.props;
@@ -311,7 +302,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
     });
 
-    const wrapperStyle = {
+    const wrapperStyle: React.CSSProperties = {
       maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
       ...style,
     };
@@ -331,33 +322,26 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
 
     return (
       <AnchorContext.Provider value={contextValue}>
-        {!affix ? (
-          anchorContent
-        ) : (
+        {affix ? (
           <Affix offsetTop={offsetTop} target={this.getContainer}>
             {anchorContent}
           </Affix>
+        ) : (
+          anchorContent
         )}
       </AnchorContext.Provider>
     );
   }
 }
+
 // just use in test
 export type InternalAnchorClass = Anchor;
 
 const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
-
-  const anchorProps: InternalAnchorProps = {
-    ...props,
-
-    anchorPrefixCls,
-  };
-
-  return <Anchor {...anchorProps} ref={ref} />;
+  return <Anchor {...props} ref={ref} anchorPrefixCls={anchorPrefixCls} />;
 });
 
 export default AnchorFC;
