@@ -238,340 +238,323 @@ describe('Form', () => {
     );
   });
 
-  // it('children is array has name props', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item name="test">
-  //         <div>one</div>
-  //         <div>two</div>
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
-  //   );
-  // });
+  it('children is array has name props', () => {
+    render(
+      <Form>
+        <Form.Item name="test">
+          <div>one</div>
+          <div>two</div>
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+    );
+  });
 
-  // it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
-  //   const { container } = pureRender(
-  //     <Form>
-  //       <Form.Item name="test" help="This is a help">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
-  //   expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
-  // });
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
 
-  // it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item help="This is a help">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
-  //   expect(container.querySelector('.ant-form-item-explain')?.id).toBeFalsy();
-  // });
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBeFalsy();
+  });
 
-  // it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
-  //   const { container } = render(
-  //     <Form name="form">
-  //       <Form.Item name="test" help="This is a help">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
-  //     'form_test_help',
-  //   );
-  //   expect(container.querySelector('.ant-form-item-explain')?.id).toBe('form_test_help');
-  // });
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const { container } = render(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
+      'form_test_help',
+    );
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('form_test_help');
+  });
 
-  // it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
-  //   jest.useFakeTimers();
-  //   const { container } = pureRender(
-  //     <Form>
-  //       <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   fireEvent.change(container.querySelector('input')!, { target: { value: 'Invalid number' } });
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const { container } = pureRender(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-  //   await waitFakeTimer();
+    await changeValue(0, 'Invalid number');
 
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
-  //   expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_help');
+    expect(container.querySelector('.ant-form-item-explain')?.id).toBe('test_help');
+  });
 
-  //   jest.clearAllTimers();
-  //   jest.useRealTimers();
-  // });
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-  // it('input element should have the prop aria-invalid when there are errors', async () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
+    await changeValue(0, 'Invalid number');
+    expect(container.querySelector('input')?.getAttribute('aria-invalid')).toBe('true');
+  });
 
-  //   fireEvent.change(container.querySelector('input')!, { target: { value: 'Invalid number' } });
-  //   await sleep(800);
-  //   expect(container.querySelector('input')?.getAttribute('aria-invalid')).toBe('true');
-  // });
+  it('input element should have the prop aria-required when the prop `required` is true', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
+  });
 
-  // it('input element should have the prop aria-required when the prop `required` is true', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="test" required>
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
-  // });
+  it('input element should have the prop aria-required when there is a rule with required', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
+  });
 
-  // it('input element should have the prop aria-required when there is a rule with required', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="test" rules={[{ required: true }]}>
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
-  // });
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
+    expect(container.querySelector('.ant-form-item-extra')?.id).toBe('test_extra');
+  });
 
-  // it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="test" extra="This is a extra message">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe('test_extra');
-  //   expect(container.querySelector('.ant-form-item-extra')?.id).toBe('test_extra');
-  // });
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
+    expect(container.querySelector('.ant-form-item-extra')?.id).toBeFalsy();
+  });
 
-  // it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item extra="This is a extra message">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBeFalsy();
-  //   expect(container.querySelector('.ant-form-item-extra')?.id).toBeFalsy();
-  // });
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
+      'test_help test_extra',
+    );
+  });
 
-  // it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="test" help="This is a help" extra="This is a extra message">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.querySelector('input')?.getAttribute('aria-describedby')).toBe(
-  //     'test_help test_extra',
-  //   );
-  // });
+  describe('scrollToField', () => {
+    const test = (name: string, genForm: () => any) => {
+      it(name, () => {
+        let callGetForm: any;
 
-  // describe('scrollToField', () => {
-  //   const test = (name: string, genForm: () => any) => {
-  //     it(name, () => {
-  //       let callGetForm: any;
+        const Demo: React.FC = () => {
+          const { props, getForm } = genForm();
+          callGetForm = getForm;
 
-  //       const Demo: React.FC = () => {
-  //         const { props, getForm } = genForm();
-  //         callGetForm = getForm;
+          return (
+            <Form name="scroll" {...props}>
+              <Form.Item name="test">
+                <Input />
+              </Form.Item>
+            </Form>
+          );
+        };
 
-  //         return (
-  //           <Form name="scroll" {...props}>
-  //             <Form.Item name="test">
-  //               <Input />
-  //             </Form.Item>
-  //           </Form>
-  //         );
-  //       };
+        render(<Demo />);
 
-  //       render(<Demo />);
+        expect(scrollIntoView).not.toHaveBeenCalled();
+        const form = callGetForm();
+        form.scrollToField('test', {
+          block: 'start',
+        });
 
-  //       expect(scrollIntoView).not.toHaveBeenCalled();
-  //       const form = callGetForm();
-  //       form.scrollToField('test', {
-  //         block: 'start',
-  //       });
+        const inputNode = document.getElementById('scroll_test');
+        expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+          block: 'start',
+          scrollMode: 'if-needed',
+        });
+      });
+    };
 
-  //       const inputNode = document.getElementById('scroll_test');
-  //       expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-  //         block: 'start',
-  //         scrollMode: 'if-needed',
-  //       });
-  //     });
-  //   };
+    // hooks
+    test('useForm', () => {
+      const [form] = Form.useForm();
+      return {
+        props: { form },
+        getForm: () => form,
+      };
+    });
 
-  //   // hooks
-  //   test('useForm', () => {
-  //     const [form] = Form.useForm();
-  //     return {
-  //       props: { form },
-  //       getForm: () => form,
-  //     };
-  //   });
+    // ref
+    test('ref', () => {
+      let form: any;
+      return {
+        props: {
+          ref: (instance: any) => {
+            form = instance;
+          },
+        },
+        getForm: () => form,
+      };
+    });
+  });
 
-  //   // ref
-  //   test('ref', () => {
-  //     let form: any;
-  //     return {
-  //       props: {
-  //         ref: (instance: any) => {
-  //           form = instance;
-  //         },
-  //       },
-  //       getForm: () => form,
-  //     };
-  //   });
-  // });
+  it('scrollToFirstError', async () => {
+    const onFinishFailed = jest.fn();
 
-  // it('scrollToFirstError', async () => {
-  //   const onFinishFailed = jest.fn();
+    const { container } = render(
+      <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
+      </Form>,
+    );
 
-  //   render(
-  //     <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
-  //       <Form.Item name="test" rules={[{ required: true }]}>
-  //         <input />
-  //       </Form.Item>
-  //       <Form.Item>
-  //         <Button htmlType="submit">Submit</Button>
-  //       </Form.Item>
-  //     </Form>,
-  //   );
+    expect(scrollIntoView).not.toHaveBeenCalled();
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
 
-  //   expect(scrollIntoView).not.toHaveBeenCalled();
-  //   await userEvent.click(screen.getByRole('button', { name: /submit/i }));
-  //   const inputNode = document.getElementById('test');
-  //   expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
-  //     block: 'center',
-  //     scrollMode: 'if-needed',
-  //   });
-  //   expect(onFinishFailed).toHaveBeenCalled();
-  // });
+    const inputNode = document.getElementById('test');
+    expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+      block: 'center',
+      scrollMode: 'if-needed',
+    });
+    expect(onFinishFailed).toHaveBeenCalled();
+  });
 
-  // it('Form.Item should support data-*、aria-* and custom attribute', () => {
-  //   const { container } = render(
-  //     <Form>
-  //       {/* @ts-ignore */}
-  //       <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
-  //         text
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(container.firstChild).toMatchSnapshot();
-  // });
+  it('Form.Item should support data-*、aria-* and custom attribute', () => {
+    const { container } = render(
+      <Form>
+        {/* @ts-ignore */}
+        <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
+          text
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 
-  // it('warning when use `name` but children is not validate element', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item name="warning">text</Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
-  //   );
-  // });
+  it('warning when use `name` but children is not validate element', () => {
+    render(
+      <Form>
+        <Form.Item name="warning">text</Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+    );
+  });
 
-  // it('dynamic change required', async () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item label="light" name="light" valuePropName="checked">
-  //         <input type="checkbox" />
-  //       </Form.Item>
-  //       <Form.Item
-  //         label="bamboo"
-  //         name="bamboo"
-  //         dependencies={['light']}
-  //         rules={[({ getFieldValue }) => ({ required: getFieldValue('light') })]}
-  //       >
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
+  it('dynamic change required', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item label="light" name="light" valuePropName="checked">
+          <input type="checkbox" />
+        </Form.Item>
+        <Form.Item
+          label="bamboo"
+          name="bamboo"
+          dependencies={['light']}
+          rules={[({ getFieldValue }) => ({ required: getFieldValue('light') })]}
+        >
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-  //   // should not show alert by default
-  //   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    // should not show alert by default
+    expect(container.querySelector('.ant-form-item-explain')).toBeFalsy();
 
-  //   // click to change the light field value to true
-  //   await userEvent.click(screen.getByLabelText('light'));
+    // click to change the light field value to true
+    fireEvent.click(container.querySelector('input')!);
+    await waitFakeTimer();
 
-  //   // user input something and clear
-  //   await userEvent.type(screen.getByLabelText('bamboo'), '1');
-  //   await userEvent.clear(screen.getByLabelText('bamboo'));
+    // user input something and clear
+    await changeValue(1, '1');
+    await changeValue(1, '');
 
-  //   // should show alert says that the field is required
-  //   await expect(screen.findByRole('alert')).resolves.toHaveTextContent("'bamboo' is required");
-  // });
+    // should show alert says that the field is required
+    expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
+      "'bamboo' is required",
+    );
+  });
 
-  // it('should show alert with string when help is non-empty string', async () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item help="good">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
+  describe('should show related className when customize help', () => {
+    it('normal', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item help="good">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
 
-  //   await expect(screen.findByRole('alert')).resolves.toHaveTextContent('good');
-  // });
+      await waitFakeTimer();
 
-  // it('should show alert with empty string when help is empty string', async () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item help="">
-  //         <input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
+      expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('good');
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+    });
 
-  //   await expect(screen.findByRole('alert')).resolves.toHaveTextContent('');
-  // });
+    it('empty string', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item help="">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
 
-  // describe('should show related className when customize help', () => {
-  //   it('normal', () => {
-  //     const { container } = render(
-  //       <Form>
-  //         <Form.Item help="good">
-  //           <input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-  //     expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
-  //   });
+      await waitFakeTimer();
 
-  //   it('empty string', () => {
-  //     const { container } = render(
-  //       <Form>
-  //         <Form.Item help="">
-  //           <input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-  //     expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
-  //   });
-  // });
+      expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('');
+      expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+    });
+  });
 
-  // it('warning when use v3 function', () => {
-  //   Form.create();
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
-  //   );
-  // });
+  it('warning when use v3 function', () => {
+    Form.create();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
+    );
+  });
 
   // // https://github.com/ant-design/ant-design/issues/20706
   // it('Error change should work', async () => {
