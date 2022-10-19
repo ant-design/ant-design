@@ -236,15 +236,19 @@ describe('Wave component', () => {
     fakeDoc.appendChild(document.createElement('span'));
     expect(fakeDoc.childNodes).toHaveLength(2);
 
-    (container.querySelector('.bamboo') as any).getRootNode = () => fakeDoc;
+    const elem = container.querySelector('.bamboo');
 
-    // Click should not throw
-    fireEvent.click(container.querySelector('.bamboo')!);
-    act(() => {
-      jest.runAllTimers();
-    });
+    if (elem) {
+      elem.getRootNode = () => fakeDoc;
 
-    expect(fakeDoc.querySelector('style')).toBeTruthy();
+      // Click should not throw
+      fireEvent.click(elem);
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(fakeDoc.querySelector('style')).toBeTruthy();
+    }
 
     jest.useRealTimers();
   });

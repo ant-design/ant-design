@@ -1,18 +1,19 @@
 import React from 'react';
 import Button from '..';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, assertsExist } from '../../../tests/utils';
 
 // Mock Wave ref
-let waveInstanceMock: any;
+let waveInstanceMock: InstanceType<typeof import('../../_util/wave').default> | null;
 jest.mock('../../_util/wave', () => {
-  const Wave = jest.requireActual('../../_util/wave');
+  const Wave: typeof import('../../_util/wave') = jest.requireActual('../../_util/wave');
   const WaveComponent = Wave.default;
+
   return {
     ...Wave,
     __esModule: true,
-    default: (props: any) => (
+    default: (props: import('../../_util/wave').WaveProps) => (
       <WaveComponent
-        ref={(node: any) => {
+        ref={node => {
           waveInstanceMock = node;
         }}
         {...props}
@@ -77,12 +78,14 @@ describe('click wave effect', () => {
 
   it('should run resetEffect in transitionstart', async () => {
     const wrapper = render(<Button type="primary">button</Button>);
+    assertsExist(waveInstanceMock);
     const resetEffect = jest.spyOn(waveInstanceMock, 'resetEffect');
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
     fireEvent.click(wrapper.container.querySelector('.ant-btn')!);
     await sleep(10);
     expect(resetEffect).toHaveBeenCalledTimes(2);
+    // @ts-expect-error: Property 'animationStart' is private and only accessible within class 'Wave'.ts(2341)
     waveInstanceMock.animationStart = false;
     fireEvent(wrapper.container.querySelector('.ant-btn')!, new Event('transitionstart'));
     expect(resetEffect).toHaveBeenCalledTimes(3);
@@ -91,6 +94,7 @@ describe('click wave effect', () => {
 
   it('should handle transitionend', async () => {
     const wrapper = render(<Button type="primary">button</Button>);
+    assertsExist(waveInstanceMock);
     const resetEffect = jest.spyOn(waveInstanceMock, 'resetEffect');
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);

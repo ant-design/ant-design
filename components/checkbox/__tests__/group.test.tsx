@@ -242,10 +242,10 @@ describe('CheckboxGroup', () => {
     const onChange = jest.fn();
 
     const Demo: React.FC = () => {
-      const [v, setV] = useState<string>('');
+      const [v, setV] = useState('');
 
       React.useEffect(() => {
-        setTimeout(setV('1') as unknown as TimerHandler, 1000);
+        setV('1');
       }, []);
 
       return (
