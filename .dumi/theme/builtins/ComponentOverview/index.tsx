@@ -6,7 +6,37 @@ import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getLocalizedPathname, getThemeConfig, getMenuItems } from '../../utils';
-import ProComponentsList from './ProComponentsList';
+import cnProComponentsList from './ProComponentsList';
+import { css } from '@emotion/react';
+
+const useStyle = () => {
+  return {
+    ['components-overview']: css`
+      padding: 0;
+    `,
+    ['components-overview-group-title']: css`
+      margin-bottom: 24px !important;
+    `,
+    ['components-overview-title']: css`
+      overflow: hidden;
+      color: 000000d9;
+      text-overflow: ellipsis;
+    `,
+    ['components-overview-img']: css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 152px;
+    `,
+    ['components-overview-card']: css`
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+      }
+    `,
+  };
+};
 
 const onClickCard = (pathname: string) => {
   if (window.gtag) {
@@ -29,6 +59,8 @@ const reportSearch = debounce<(value: string) => void>(value => {
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
+  const style = useStyle();
+
   const meta = useRouteMeta();
   const location = useLocation();
   const { routes } = useAppData();
@@ -38,13 +70,10 @@ const Overview: React.FC = () => {
       componentsList.push(component);
     }
   });
-  const enList = [...componentsList, ...ProComponentsList].filter(item =>
-    item?.id?.endsWith('.en-US'),
-  );
 
-  const cnList = [...componentsList, ...ProComponentsList].filter(item =>
-    item?.id?.endsWith('.zh-CN'),
-  );
+  const enList = componentsList.filter(item => item?.id?.endsWith('.en-US'));
+
+  const cnList = componentsList.filter(item => item?.id?.endsWith('.zh-CN'));
 
   const cnComponentsData = cnList.map(({ meta = {} }) => {
     const { frontmatter = {}, subtitle = '', category = 'Components' } = meta as any;
@@ -56,7 +85,12 @@ const Overview: React.FC = () => {
   const { locale, formatMessage } = useIntl();
   const documentTitle = `${meta.frontmatter.title} - Ant Design`;
   const { categoryOrder, typeOrder } = getThemeConfig();
-  const menuItems = getMenuItems(cnComponentsData, locale, categoryOrder, typeOrder);
+  const menuItems = getMenuItems(
+    [...cnComponentsData, ...cnProComponentsList],
+    locale,
+    categoryOrder,
+    typeOrder,
+  );
 
   const [search, setSearch] = useState<string>('');
   const sectionRef = React.useRef<HTMLElement>(null);
@@ -72,7 +106,7 @@ const Overview: React.FC = () => {
         <title>{documentTitle}</title>
         <meta property="og:title" content={documentTitle} />
       </Helmet>
-      <h1>title</h1>
+      <h1>Components Overview</h1>
       <Divider />
       <Input
         value={search}
@@ -94,13 +128,11 @@ const Overview: React.FC = () => {
             component =>
               !search.trim() ||
               component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
-              ((component as any).subtitle || '')
-                .toLowerCase()
-                .includes(search.trim().toLowerCase()),
+              (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
           return components?.length ? (
-            <div key={group.title} className="components-overview">
-              <Title level={2} className="components-overview-group-title">
+            <div key={group.title} css={style['components-overview']}>
+              <Title level={2} css={style['components-overview-group-title']}>
                 <Space align="center">
                   {group.title}
                   <Tag style={{ display: 'block' }}>{components.length}</Tag>
@@ -135,18 +167,18 @@ const Overview: React.FC = () => {
                             bodyStyle={{
                               backgroundRepeat: 'no-repeat',
                               backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${(component as any).tag})`,
+                              backgroundImage: `url(${component?.tag})`,
                             }}
                             size="small"
-                            className="components-overview-card"
+                            css={style['components-overview-card']}
                             title={
-                              <div className="components-overview-title">
-                                {component.title} {(component as any).subtitle}
+                              <div css={style['components-overview-title']}>
+                                {component.title} {component?.subtitle}
                               </div>
                             }
                           >
-                            <div className="components-overview-img">
-                              <img src={(component as any).cover} alt={component.title} />
+                            <div css={style['components-overview-img']}>
+                              <img src={component.cover} alt={component.title} />
                             </div>
                           </Card>
                         </ComponentLink>

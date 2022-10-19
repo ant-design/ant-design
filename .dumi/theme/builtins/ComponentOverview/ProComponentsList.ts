@@ -1,4 +1,4 @@
-const ProComponentsList = [
+const cnProComponentsList = [
   {
     meta: {
       category: 'Components',
@@ -67,4 +67,4 @@ const ProComponentsList = [
   },
 ];
 
-export default ProComponentsList;
+export default cnProComponentsList;
