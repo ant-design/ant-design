@@ -7,7 +7,7 @@ version: 2.1
 jobs:
   test-argos-ci:
     docker:
-      - image: circleci/node:16-browsers
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
       - run:
@@ -16,9 +16,6 @@ jobs:
       - run:
           name: Install argos cli
           command: npm i fast-glob lodash @argos-ci/core
-      - run:
-          name: Install puppeteer
-          command: node node_modules/puppeteer/install.js
       - run:
           name: Build dist file
           command: npm run dist
