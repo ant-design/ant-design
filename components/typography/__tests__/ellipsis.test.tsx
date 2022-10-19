@@ -382,21 +382,14 @@ describe('Typography.Ellipsis', () => {
 
   it('js ellipsis should show aria-label', () => {
     const { container: titleWrapper } = render(
-      <Base
-        component={undefined as unknown as string}
-        title="bamboo"
-        ellipsis={{ expandable: true }}
-      />,
+      <Base component={undefined} title="bamboo" ellipsis={{ expandable: true }} />,
     );
     expect(titleWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
       'bamboo',
     );
 
     const { container: tooltipWrapper } = render(
-      <Base
-        component={undefined as unknown as string}
-        ellipsis={{ expandable: true, tooltip: 'little' }}
-      />,
+      <Base component={undefined} ellipsis={{ expandable: true, tooltip: 'little' }} />,
     );
     expect(tooltipWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
       'little',
@@ -426,11 +419,7 @@ describe('Typography.Ellipsis', () => {
 
     const ref = React.createRef<any>();
     const { container, baseElement } = render(
-      <Base
-        component={undefined as unknown as string}
-        ellipsis={{ tooltip: 'This is tooltip', rows: 2 }}
-        ref={ref}
-      >
+      <Base component={undefined} ellipsis={{ tooltip: 'This is tooltip', rows: 2 }} ref={ref}>
         Ant Design, a design language for background applications, is refined by Ant UED Team.
       </Base>,
     );
