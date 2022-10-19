@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('message.config', () => {
@@ -87,7 +87,6 @@ describe('message.config', () => {
   });
 
   it('should be able to config duration', async () => {
-    jest.useRealTimers();
     message.config({
       duration: 0.5,
     });
@@ -97,7 +96,7 @@ describe('message.config', () => {
     });
     expect(getInstance()?.component.state.notices).toHaveLength(1);
 
-    await sleep(1000);
+    await waitFakeTimer();
     expect(getInstance()?.component.state.notices).toHaveLength(0);
     message.config({
       duration: 3,

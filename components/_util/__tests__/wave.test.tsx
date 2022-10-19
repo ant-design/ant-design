@@ -1,13 +1,22 @@
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, sleep, fireEvent, act } from '../../../tests/utils';
+import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 
 describe('Wave component', () => {
   mountTest(Wave);
 
+  beforeAll(() => {
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
+
   afterEach(() => {
+    jest.clearAllTimers();
     const styles = document.getElementsByTagName('style');
     for (let i = 0; i < styles.length; i += 1) {
       styles[i].remove();
@@ -56,7 +65,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('button')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
@@ -73,7 +82,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('button')?.click();
-    await sleep(200);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
@@ -89,7 +98,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('div')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
@@ -105,7 +114,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('div')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
@@ -121,7 +130,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('div')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('div')?.getRootNode() as HTMLDivElement
     ).getElementsByTagName('style');
@@ -139,7 +148,7 @@ describe('Wave component', () => {
       </Wave>,
     );
     container.querySelector('button')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');
@@ -156,7 +165,7 @@ describe('Wave component', () => {
       </ConfigProvider>,
     );
     container.querySelector('button')?.click();
-    await sleep(0);
+    await waitFakeTimer();
     const styles = (
       container.querySelector('button')?.getRootNode() as HTMLButtonElement
     ).getElementsByTagName('style');

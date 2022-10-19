@@ -6,17 +6,18 @@ import Base from './Base';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4, 5);
 
-export type TitleProps = Omit<
-  BlockProps & {
-    level?: typeof TITLE_ELE_LIST[number];
-    onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
-  },
-  'strong'
->;
+export interface TitleProps
+  extends Omit<BlockProps<'h1' | 'h2' | 'h3' | 'h4' | 'h5'>, 'strong'>,
+    Omit<
+      React.HTMLAttributes<HTMLHeadElement>,
+      'type' | keyof BlockProps<'h1' | 'h2' | 'h3' | 'h4' | 'h5'>
+    > {
+  level?: typeof TITLE_ELE_LIST[number];
+}
 
-const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (props, ref) => {
+const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
   const { level = 1, ...restProps } = props;
-  let component: string;
+  let component: keyof JSX.IntrinsicElements;
 
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
     component = `h${level}`;
@@ -30,6 +31,6 @@ const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (p
   }
 
   return <Base ref={ref} {...restProps} component={component} />;
-};
+});
 
-export default React.forwardRef(Title);
+export default Title;
