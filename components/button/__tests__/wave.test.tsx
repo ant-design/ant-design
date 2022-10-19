@@ -3,7 +3,7 @@ import Button from '..';
 import { fireEvent, render, sleep, assertsExist } from '../../../tests/utils';
 
 // Mock Wave ref
-let waveInstanceMock: InstanceType<typeof import('../../_util/wave').default> | null;
+let waveInstanceMock: any;
 jest.mock('../../_util/wave', () => {
   const Wave: typeof import('../../_util/wave') = jest.requireActual('../../_util/wave');
   const WaveComponent = Wave.default;
@@ -85,7 +85,6 @@ describe('click wave effect', () => {
     fireEvent.click(wrapper.container.querySelector('.ant-btn')!);
     await sleep(10);
     expect(resetEffect).toHaveBeenCalledTimes(2);
-    // @ts-expect-error: Property 'animationStart' is private and only accessible within class 'Wave'.ts(2341)
     waveInstanceMock.animationStart = false;
     fireEvent(wrapper.container.querySelector('.ant-btn')!, new Event('transitionstart'));
     expect(resetEffect).toHaveBeenCalledTimes(3);
