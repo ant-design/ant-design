@@ -17,6 +17,9 @@ jobs:
           name: Install argos cli
           command: yarn add fast-glob lodash @argos-ci/core
       - run:
+          name: Install puppeteer
+          command: node node_modules/puppeteer/install.js
+      - run:
           name: Build dist file
           command: yarn dist
       - run:
