@@ -33,8 +33,15 @@
 // ======================= TextArea ========================
 .@{ant-prefix}-input-affix-wrapper-textarea-with-clear-btn {
   padding: 0 !important;
-  border: 0 !important;
 
+  .@{ant-prefix}-input {
+    border: 0 !important;
+    outline: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
   .@{ant-prefix}-input-clear-icon {
     position: absolute;
     top: 8px;

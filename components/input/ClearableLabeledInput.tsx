@@ -44,6 +44,7 @@ export interface ClearableInputProps extends BasicProps {
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
   status?: InputStatus;
+  focused: boolean;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -83,6 +84,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       bordered,
       hidden,
       status: customStatus,
+      focused,
+      disabled,
     } = this.props;
 
     const { status: contextStatus, hasFeedback } = statusContext;
@@ -101,6 +104,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         hasFeedback,
       ),
       {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
+        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         // className will go to addon wrapper
@@ -110,7 +115,10 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return (
       <span className={affixWrapperCls} style={style} hidden={hidden}>
         {cloneElement(element, {
-          style: null,
+          style: {
+            // padding只能放这里，加到父级会导致滚动条右侧留白
+            padding: style?.padding,
+          },
           value,
         })}
         {this.renderClearIcon(prefixCls)}
