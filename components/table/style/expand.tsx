@@ -10,7 +10,6 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     controlInteractiveSize: checkboxSize,
     motionDurationSlow,
     controlLineWidth,
-    paddingXXS,
     paddingXS,
     controlLineType,
     tableBorderColor,
@@ -29,7 +28,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   // must be odd number, unless it cannot align center
   const expandIconSize = halfInnerSize * 2 + controlLineWidth * 3;
   const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
-  const expandIconLineOffset = paddingXXS - controlLineWidth;
+  const expandIconLineOffset = 4 - controlLineWidth;
 
   return {
     [`${componentCls}-wrapper`]: {

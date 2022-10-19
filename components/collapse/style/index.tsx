@@ -3,9 +3,13 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent, resetIcon } from '../../style';
 
+export interface ComponentToken {
+  _contentPaddingHorizontal: number;
+  _contentPaddingVertical: number;
+}
+
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
-  collapseContentPadding: number;
   collapseHeaderBg: string;
   collapseHeaderPadding: string;
   collapsePanelBorderRadius: number;
@@ -15,7 +19,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
   const {
     componentCls,
     collapseContentBg,
-    collapseContentPadding,
+    _contentPaddingVertical,
+    _contentPaddingHorizontal,
     collapseHeaderBg,
     collapseHeaderPadding,
     collapsePanelBorderRadius,
@@ -130,7 +135,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         borderTop: borderBase,
 
         [`& > ${componentCls}-content-box`]: {
-          padding: collapseContentPadding,
+          padding: `${_contentPaddingVertical}px ${_contentPaddingHorizontal}px`,
         },
 
         [`&-hidden`]: {
@@ -252,20 +257,26 @@ const genGhostStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
-export default genComponentStyleHook('Collapse', token => {
-  const collapseToken = mergeToken<CollapseToken>(token, {
-    collapseContentBg: token.colorBgContainer,
-    collapseContentPadding: token.padding,
-    collapseHeaderBg: token.colorFillAlter,
-    collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    collapsePanelBorderRadius: token.radiusLG,
-  });
+export default genComponentStyleHook(
+  'Collapse',
+  token => {
+    const collapseToken = mergeToken<CollapseToken>(token, {
+      collapseContentBg: token.colorBgContainer,
+      collapseHeaderBg: token.colorFillAlter,
+      collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
+      collapsePanelBorderRadius: token.radiusLG,
+    });
 
-  return [
-    genBaseStyle(collapseToken),
-    genBorderlessStyle(collapseToken),
-    genGhostStyle(collapseToken),
-    genArrowStyle(collapseToken),
-    genCollapseMotion(collapseToken),
-  ];
-});
+    return [
+      genBaseStyle(collapseToken),
+      genBorderlessStyle(collapseToken),
+      genGhostStyle(collapseToken),
+      genArrowStyle(collapseToken),
+      genCollapseMotion(collapseToken),
+    ];
+  },
+  token => ({
+    _contentPaddingHorizontal: token.padding,
+    _contentPaddingVertical: token.padding,
+  }),
+);

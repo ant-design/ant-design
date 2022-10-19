@@ -96,6 +96,10 @@ export default function DynamicTheme({
                   value: 'dark',
                 },
                 {
+                  label: 'Compact',
+                  value: 'compact',
+                },
+                {
                   label: 'Default-V4',
                   value: 'defaultV4',
                 },

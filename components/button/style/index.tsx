@@ -5,11 +5,15 @@ import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {}
+export interface ComponentToken {
+  _itemPaddingHorizontal: number;
+  _itemPaddingHorizontalSM: number;
+}
 
 export interface ButtonToken extends FullToken<'Button'> {
   // FIXME: should be removed
   colorOutlineDefault: string;
+  buttonPaddingHorizontal: number;
 }
 
 // ============================== Shared ==============================
@@ -344,7 +348,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     0,
     (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.controlLineWidth,
   );
-  const paddingHorizontal = token.padding - token.controlLineWidth;
+  const paddingHorizontal = token.buttonPaddingHorizontal - token.controlLineWidth;
 
   const iconOnlyCls = `${componentCls}-icon-only`;
 
@@ -399,6 +403,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
+    buttonPaddingHorizontal: token._itemPaddingHorizontalSM,
     controlRadius: token.controlRadiusSM,
   });
 
@@ -416,26 +421,34 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Button', token => {
-  const { controlTmpOutline } = token;
+export default genComponentStyleHook(
+  'Button',
+  token => {
+    const { controlTmpOutline, _itemPaddingHorizontal } = token;
 
-  const buttonToken = mergeToken<ButtonToken>(token, {
-    colorOutlineDefault: controlTmpOutline,
-  });
+    const buttonToken = mergeToken<ButtonToken>(token, {
+      colorOutlineDefault: controlTmpOutline,
+      buttonPaddingHorizontal: _itemPaddingHorizontal,
+    });
 
-  return [
-    // Shared
-    genSharedButtonStyle(buttonToken),
+    return [
+      // Shared
+      genSharedButtonStyle(buttonToken),
 
-    // Size
-    genSizeSmallButtonStyle(buttonToken),
-    genSizeBaseButtonStyle(buttonToken),
-    genSizeLargeButtonStyle(buttonToken),
+      // Size
+      genSizeSmallButtonStyle(buttonToken),
+      genSizeBaseButtonStyle(buttonToken),
+      genSizeLargeButtonStyle(buttonToken),
 
-    // Group (type, ghost, danger, disabled, loading)
-    genTypeButtonStyle(buttonToken),
+      // Group (type, ghost, danger, disabled, loading)
+      genTypeButtonStyle(buttonToken),
 
-    // Button Group
-    genGroupStyle(buttonToken),
-  ];
-});
+      // Button Group
+      genGroupStyle(buttonToken),
+    ];
+  },
+  token => ({
+    _itemPaddingHorizontal: token.padding,
+    _itemPaddingHorizontalSM: token.paddingXS,
+  }),
+);

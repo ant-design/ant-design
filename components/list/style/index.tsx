@@ -5,6 +5,12 @@ import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   contentWidth: number;
+  _itemPaddingHorizontal: number;
+  _itemPaddingVertical: number;
+  _itemPaddingHorizontalSM: number;
+  _itemPaddingVerticalSM: number;
+  _itemPaddingHorizontalLG: number;
+  _itemPaddingVerticalLG: number;
 }
 
 interface ListToken extends FullToken<'List'> {
@@ -341,14 +347,20 @@ export default genComponentStyleHook(
     const listToken = mergeToken<ListToken>(token, {
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,
-      listItemPadding: `${token.paddingSM}px 0`,
-      listItemPaddingSM: `${token.paddingXS}px ${token.padding}px`,
-      listItemPaddingLG: `${token.padding}px ${token.paddingLG}px`,
+      listItemPadding: `${token._itemPaddingVertical}px ${token._itemPaddingHorizontal}px`,
+      listItemPaddingSM: `${token._itemPaddingVerticalSM}px ${token._itemPaddingHorizontalSM}px`,
+      listItemPaddingLG: `${token._itemPaddingVerticalLG}px ${token._itemPaddingHorizontalLG}px`,
     });
 
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
   },
-  {
+  token => ({
     contentWidth: 220,
-  },
+    _itemPaddingHorizontal: token.paddingLG,
+    _itemPaddingVertical: token.paddingSM,
+    _itemPaddingHorizontalSM: token.padding,
+    _itemPaddingVerticalSM: token.paddingXS,
+    _itemPaddingHorizontalLG: token.paddingLG,
+    _itemPaddingVerticalLG: token.padding,
+  }),
 );

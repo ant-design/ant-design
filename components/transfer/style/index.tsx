@@ -8,11 +8,11 @@ export interface ComponentToken {
   listWidth: number;
   listWidthLG: number;
   listHeight: number;
+  _headerHeight: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
   transferItemHeight: number;
-  transferHeaderHeight: number;
   transferHeaderVerticalPadding: number;
   transferItemPaddingVertical: number;
 }
@@ -90,7 +90,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorSplit,
     controlLineWidth,
     transferItemHeight,
-    transferHeaderHeight,
+    _headerHeight,
     transferHeaderVerticalPadding,
     transferItemPaddingVertical,
     controlItemBgActive,
@@ -99,7 +99,6 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     listHeight,
     listWidth,
     listWidthLG,
-    marginXXS,
     fontSizeIcon,
     marginXS,
     paddingSM,
@@ -131,7 +130,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'none',
       alignItems: 'center',
-      height: transferHeaderHeight,
+      height: _headerHeight,
       // border-top is on the transfer dom. We should minus 1px for this
       padding: `${
         transferHeaderVerticalPadding - controlLineWidth
@@ -142,7 +141,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       borderRadius: `${token.controlRadiusLG}px ${token.controlRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
-        marginInlineEnd: marginXXS,
+        marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
       },
 
       '> *': {
@@ -284,7 +283,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    transferHeaderHeight,
+    _headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
@@ -330,7 +329,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
+        maxHeight: _headerHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },
   };
@@ -357,7 +356,7 @@ export default genComponentStyleHook(
 
     const transferToken = mergeToken<TransferToken>(token, {
       transferItemHeight,
-      transferHeaderHeight,
+      _headerHeight: transferHeaderHeight,
       transferHeaderVerticalPadding: Math.ceil(
         (transferHeaderHeight - controlLineWidth - fontHeight) / 2,
       ),
@@ -371,9 +370,10 @@ export default genComponentStyleHook(
       genTransferRTLStyle(transferToken),
     ];
   },
-  {
+  token => ({
     listWidth: 180,
     listHeight: 200,
     listWidthLG: 250,
-  },
+    _headerHeight: token.controlHeightLG,
+  }),
 );

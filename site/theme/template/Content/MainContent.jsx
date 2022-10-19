@@ -1,18 +1,16 @@
 import React, { cloneElement, Component } from 'react';
-import { Link, browserHistory } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Tooltip, Avatar, Dropdown, Drawer } from 'antd';
-import { injectIntl, FormattedMessage } from 'react-intl';
+import { browserHistory, Link } from 'bisheng/router';
+import { Affix, Avatar, Col, Drawer, Menu, Row, Tooltip } from 'antd';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import {
+  DoubleRightOutlined,
+  ExportOutlined,
   LeftOutlined,
   RightOutlined,
-  ExportOutlined,
-  DoubleRightOutlined,
 } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
-
-import ThemeIcon from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -513,7 +511,6 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
-    const componentPage = /^\/?components/.test(location.pathname);
     return (
       <div className="main-wrapper">
         <Row>
@@ -551,13 +548,6 @@ class MainContent extends Component {
             <section className={mainContainerClass}>
               {this.renderMainContent({ theme, setIframeTheme })}
             </section>
-            {componentPage && (
-              <div className="fixed-widgets">
-                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
-                  <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
-                </Dropdown>
-              </div>
-            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer location={location} />
           </Col>

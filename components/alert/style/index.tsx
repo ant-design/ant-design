@@ -3,7 +3,12 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  _itemPaddingHorizontal: number;
+  _itemPaddingVertical: number;
+  _itemPaddingHorizontalLG: number;
+  _itemPaddingVerticalLG: number;
+}
 
 type AlertToken = FullToken<'Alert'> & {
   alertIconSizeLG: number;
@@ -36,10 +41,10 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     motionEaseInOutCirc,
     alertIconSizeLG,
     colorText,
-    paddingSM,
-    paddingXS,
-    paddingTmp,
-    paddingLG,
+    _itemPaddingVertical,
+    _itemPaddingHorizontal,
+    _itemPaddingVerticalLG,
+    _itemPaddingHorizontalLG,
   } = token;
 
   return {
@@ -48,7 +53,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${paddingXS}px ${paddingSM}px`,
+      padding: `${_itemPaddingVertical}px ${_itemPaddingHorizontal}px`,
       wordWrap: 'break-word',
       borderRadius,
 
@@ -95,8 +100,8 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      paddingInline: paddingLG,
-      paddingBlock: paddingTmp,
+      paddingInline: _itemPaddingHorizontalLG,
+      paddingBlock: _itemPaddingVerticalLG,
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
@@ -227,12 +232,21 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
   genActionStyle(token),
 ];
 
-export default genComponentStyleHook('Alert', token => {
-  const { fontSizeHeading3 } = token;
+export default genComponentStyleHook(
+  'Alert',
+  token => {
+    const { fontSizeHeading3 } = token;
 
-  const alertToken = mergeToken<AlertToken>(token, {
-    alertIconSizeLG: fontSizeHeading3,
-  });
+    const alertToken = mergeToken<AlertToken>(token, {
+      alertIconSizeLG: fontSizeHeading3,
+    });
 
-  return [genAlertStyle(alertToken)];
-});
+    return [genAlertStyle(alertToken)];
+  },
+  token => ({
+    _itemPaddingHorizontal: token.paddingSM,
+    _itemPaddingVertical: token.paddingXS,
+    _itemPaddingHorizontalLG: token.paddingLG,
+    _itemPaddingVerticalLG: token.paddingTmp,
+  }),
+);

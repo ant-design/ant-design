@@ -4,6 +4,15 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { clearFix, resetComponent } from '../../style';
 
+export interface ComponentToken {
+  _headerPaddingHorizontal: number;
+  _headerPaddingHorizontalSM: number;
+  _headerHeight: number;
+  _headerHeightSM: number;
+  _contentPadding: number;
+  _contentPaddingSM: number;
+}
+
 interface CardToken extends FullToken<'Card'> {
   cardShadow: string;
   cardHeadHeight: number;
@@ -236,9 +245,9 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     cardShadow,
     cardHeadHeight,
     cardHeadPadding,
-    cardPaddingBase,
     colorBorderSecondary,
     boxShadow,
+    _contentPadding,
   } = token;
 
   return {
@@ -265,7 +274,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`${componentCls}-body`]: {
-        padding: cardPaddingBase,
+        padding: _contentPadding,
         ...clearFix(),
       },
 
@@ -345,15 +354,21 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, cardHeadPadding } = token;
-  const cardPaddingBaseSM = cardPaddingBase / 2;
-  const cardHeadPaddingSM = cardHeadPadding / 2;
+  const {
+    componentCls,
+    _headerHeightSM,
+    _headerPaddingHorizontalSM,
+    _contentPaddingSM,
+    fontSize,
+    lineHeight,
+  } = token;
+  const cardHeadPaddingSM = (_headerHeightSM - fontSize * lineHeight) / 2;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeadPaddingSM * 2 + token.fontSize,
-        padding: `0 ${cardPaddingBaseSM}px`,
+        minHeight: _headerHeightSM,
+        padding: `0 ${_headerPaddingHorizontalSM}px`,
         fontSize: token.fontSize,
 
         [`> ${componentCls}-head-wrapper`]: {
@@ -369,32 +384,43 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`> ${componentCls}-body`]: {
-        padding: cardPaddingBaseSM,
+        padding: _contentPaddingSM,
       },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', token => {
-  const cardHeadPadding = token.padding;
+export default genComponentStyleHook(
+  'Card',
+  token => {
+    const cardHeadPadding = (token._headerHeight - token.fontSizeLG * token.lineHeightLG) / 2;
 
-  const cardToken = mergeToken<CardToken>(token, {
-    cardShadow: token.boxShadowCard,
-    cardHeadHeight: token.fontSizeLG + cardHeadPadding * 2,
-    cardHeadPadding,
-    cardPaddingBase: token.paddingLG,
-    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
-    cardInnerHeadPadding: token.paddingSM,
-    cardActionsLiMargin: `${token.paddingSM}px 0`,
-    cardActionsIconSize: token.fontSize,
-  });
+    const cardToken = mergeToken<CardToken>(token, {
+      cardShadow: token.boxShadowCard,
+      cardHeadHeight: token._headerHeight,
+      cardHeadPadding,
+      cardPaddingBase: token.paddingLG,
+      cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
+      cardInnerHeadPadding: token.paddingSM,
+      cardActionsLiMargin: `${token.paddingSM}px 0`,
+      cardActionsIconSize: token.fontSize,
+    });
 
-  return [
-    // Style
-    genCardStyle(cardToken),
+    return [
+      // Style
+      genCardStyle(cardToken),
 
-    // Size
-    genCardSizeStyle(cardToken),
-  ];
-});
+      // Size
+      genCardSizeStyle(cardToken),
+    ];
+  },
+  token => ({
+    _headerPaddingHorizontal: token.padding,
+    _headerPaddingHorizontalSM: token.paddingSM,
+    _headerHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+    _headerHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+    _contentPadding: token.paddingLG,
+    _contentPaddingSM: token.paddingSM,
+  }),
+);
