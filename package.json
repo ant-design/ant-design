@@ -98,7 +98,7 @@
     "test-node": "jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
-    "test-image": "npm run dist && jest --config .jest.image.js --no-cache -i -u",
+    "test-image": "npm run dist && jest --config .jest.image.js -u",
     "argos": "node ./scripts/argos-upload.js",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16",
