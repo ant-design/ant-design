@@ -1,7 +1,6 @@
 import type { ChangeEventHandler } from 'react';
 import React, { useState } from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import userEvent from '@testing-library/user-event';
 import classNames from 'classnames';
 import type { ColProps } from 'antd/es/grid';
 import type { FormInstance } from '..';
@@ -20,15 +19,7 @@ import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import {
-  fireEvent,
-  render,
-  sleep,
-  act,
-  screen,
-  pureRender,
-  waitFakeTimer,
-} from '../../../tests/utils';
+import { fireEvent, render, screen, pureRender, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
@@ -887,647 +878,638 @@ describe('Form', () => {
     );
   });
 
-  // it('validation message should has alert role', async () => {
-  //   // https://github.com/ant-design/ant-design/issues/25711
-  //   render(
-  //     // eslint-disable-next-line no-template-curly-in-string
-  //     <Form validateMessages={{ required: 'name is good!' }}>
-  //       <Form.Item name="test" rules={[{ required: true }]}>
-  //         <input />
-  //       </Form.Item>
-  //       <Form.Item>
-  //         <Button htmlType="submit">Submit</Button>
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   await userEvent.click(screen.getByRole('button'));
-
-  //   await expect(screen.findByRole('alert')).resolves.toHaveTextContent('name is good!');
-  // });
-
-  // it('return same form instance', async () => {
-  //   const instances = new Set();
-
-  //   const App: React.FC = () => {
-  //     const [form] = Form.useForm();
-  //     instances.add(form);
-  //     const [, forceUpdate] = React.useState({});
-  //     return (
-  //       <button
-  //         type="button"
-  //         onClick={() => {
-  //           forceUpdate({});
-  //         }}
-  //       >
-  //         Refresh
-  //       </button>
-  //     );
-  //   };
-
-  //   pureRender(<App />);
-
-  //   for (let i = 0; i < 5; i += 1) {
-  //     // eslint-disable-next-line no-await-in-loop
-  //     await userEvent.click(screen.getByRole('button'));
-  //   }
-
-  //   expect(instances.size).toBe(1);
-  // });
-
-  // it('should avoid re-render', async () => {
-  //   let renderTimes = 0;
-
-  //   const MyInput: React.FC<{ value?: string }> = ({ value = '', ...props }) => {
-  //     renderTimes += 1;
-  //     return <input value={value} {...props} />;
-  //   };
-
-  //   const Demo: React.FC = () => (
-  //     <Form>
-  //       <Form.Item name="username" label="username" rules={[{ required: true }]}>
-  //         <MyInput />
-  //       </Form.Item>
-  //     </Form>
-  //   );
-  //   pureRender(<Demo />);
-  //   renderTimes = 0;
-  //   jest.clearAllMocks();
-  //   fireEvent.change(screen.getByLabelText('username'), { target: { value: 'a' } });
-  //   expect(renderTimes).toEqual(1);
-  //   expect(screen.getByLabelText('username')).toHaveValue('a');
-  // });
-
-  // it('should warning with `defaultValue`', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item name="light">
-  //         <input defaultValue="should warning" />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     'Warning: [antd: Form.Item] `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
-  //   );
-  // });
-
-  // it('should remove Field and also reset error', async () => {
-  //   const Demo: React.FC<{ showA?: boolean }> = ({ showA }) => (
-  //     <Form>
-  //       {showA ? (
-  //         <Form.Item name="a" help="error">
-  //           <input />
-  //         </Form.Item>
-  //       ) : (
-  //         <Form.Item name="b">
-  //           <input />
-  //         </Form.Item>
-  //       )}
-  //     </Form>
-  //   );
-
-  //   const { rerender } = render(<Demo showA />);
-
-  //   await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
-
-  //   rerender(<Demo showA={false} />);
-
-  //   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-  // });
-
-  // it('no warning of initialValue & getValueProps & preserve', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item initialValue="bamboo" getValueProps={() => ({})} preserve={false}>
-  //         <Input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-  //   expect(errorSpy).not.toHaveBeenCalled();
-  // });
-
-  // it('should customize id when pass with id', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item name="light">
-  //         <Input id="bamboo" />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   expect(screen.getByRole('textbox')).toHaveAttribute('id', 'bamboo');
-  // });
-
-  // it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
-  //   render(
-  //     <Form validateTrigger="onBlur">
-  //       <Form.Item name="light" label="light" rules={[{ len: 3 }]}>
-  //         <Input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   // type a invalidate value, not trigger validation
-  //   await userEvent.type(screen.getByRole('textbox'), '7777');
-
-  //   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
-
-  //   // tab(onBlur) the input field, trigger and see the alert
-  //   fireEvent.blur(screen.getByRole('textbox'));
-
-  //   await expect(screen.findByRole('alert')).resolves.toBeInTheDocument();
-  // });
-
-  // describe('Form item hidden', () => {
-  //   it('should work', () => {
-  //     const { container } = render(
-  //       <Form>
-  //         <Form.Item name="light" hidden>
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-  //     expect(container.firstChild).toMatchSnapshot();
-  //   });
-
-  //   it('noStyle should not work when hidden', () => {
-  //     const { container } = render(
-  //       <Form>
-  //         <Form.Item name="light" hidden noStyle>
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-  //     expect(container.firstChild).toMatchSnapshot();
-  //   });
-  // });
-
-  // it('legacy hideRequiredMark', () => {
-  //   render(
-  //     <Form hideRequiredMark role="form">
-  //       <Form.Item name="light" label="light" required>
-  //         <Input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   expect(screen.getByRole('form')).toHaveClass('ant-form-hide-required-mark');
-  // });
-
-  // it('form should support disabled', () => {
-  //   const App: React.FC = () => (
-  //     <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
-  //       <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
-  //         <Checkbox>disabled</Checkbox>
-  //       </Form.Item>
-  //       <Form.Item label="Radio">
-  //         <Radio.Group>
-  //           <Radio value="apple">Apple</Radio>
-  //           <Radio value="pear">Pear</Radio>
-  //         </Radio.Group>
-  //       </Form.Item>
-  //       <Form.Item label="Input">
-  //         <Input />
-  //       </Form.Item>
-  //       <Form.Item label="Select">
-  //         <Select>
-  //           <Select.Option value="demo">Demo</Select.Option>
-  //         </Select>
-  //       </Form.Item>
-  //       <Form.Item label="TreeSelect">
-  //         <TreeSelect
-  //           treeData={[
-  //             {
-  //               title: 'Light',
-  //               value: 'light',
-  //               children: [{ title: 'Bamboo', value: 'bamboo' }],
-  //             },
-  //           ]}
-  //         />
-  //       </Form.Item>
-  //       <Form.Item label="Cascader">
-  //         <Cascader
-  //           options={[
-  //             {
-  //               value: 'zhejiang',
-  //               label: 'Zhejiang',
-  //               children: [{ value: 'hangzhou', label: 'Hangzhou' }],
-  //             },
-  //           ]}
-  //         />
-  //       </Form.Item>
-  //       <Form.Item label="DatePicker">
-  //         <DatePicker />
-  //       </Form.Item>
-  //       <Form.Item label="RangePicker">
-  //         <RangePicker />
-  //       </Form.Item>
-  //       <Form.Item label="InputNumber">
-  //         <InputNumber />
-  //       </Form.Item>
-  //       <Form.Item label="TextArea">
-  //         <TextArea rows={4} />
-  //       </Form.Item>
-  //       <Form.Item label="Switch" valuePropName="checked">
-  //         <Switch />
-  //       </Form.Item>
-  //       <Form.Item label="Upload" valuePropName="fileList">
-  //         <Upload />
-  //       </Form.Item>
-  //       <Form.Item label="Button">
-  //         <Button>Button</Button>
-  //       </Form.Item>
-  //     </Form>
-  //   );
-  //   const { container } = render(<App />);
-  //   expect(container.firstChild).toMatchSnapshot();
-  // });
-
-  // it('_internalItemRender api test', () => {
-  //   render(
-  //     <Form>
-  //       <Form.Item
-  //         name="light"
-  //         // @ts-ignore
-  //         _internalItemRender={{
-  //           mark: 'pro_table_render',
-  //           render: (_: any, doms: any) => (
-  //             <div>
-  //               <h1>warning title</h1>
-  //               {doms.input}
-  //               {doms.errorList}
-  //               {doms.extra}
-  //             </div>
-  //           ),
-  //         }}
-  //       >
-  //         <input defaultValue="should warning" />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   expect(screen.getByRole('heading')).toHaveTextContent(/warning title/i);
-  // });
-
-  // it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
-  //   const mockFn = jest.spyOn(Util, 'getFieldId');
-  //   const itemName = 'parentNode';
-  //   // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
-  //   mockFn.mockImplementation(() => itemName);
-  //   const { Option } = Select;
-  //   const Demo: React.FC = () => {
-  //     const [open, setOpen] = useState(false);
-  //     return (
-  //       <>
-  //         <Form>
-  //           <Form.Item name={itemName} label={itemName}>
-  //             <Select
-  //               className="form_item_parentNode"
-  //               defaultValue="lucy"
-  //               open={open}
-  //               style={{ width: 120 }}
-  //             >
-  //               <Option value="jack">Jack</Option>
-  //               <Option value="lucy">Lucy</Option>
-  //               <Option value="Yiminghe">yiminghe</Option>
-  //             </Select>
-  //           </Form.Item>
-  //         </Form>
-  //         <button
-  //           type="button"
-  //           onClick={() => {
-  //             setOpen(true);
-  //           }}
-  //         >
-  //           {open ? 'show' : 'hidden'}
-  //         </button>
-  //       </>
-  //     );
-  //   };
-
-  //   const { rerender } = render(<Demo />);
-  //   expect(mockFn).toHaveBeenCalled();
-  //   expect((Util.getFieldId as () => string)()).toBe(itemName);
-
-  //   // make sure input id is parentNode
-  //   expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
-
-  //   await userEvent.click(screen.getByRole('button'));
-
-  //   expect(screen.getByRole('button')).toHaveTextContent('show');
-
-  //   mockFn.mockRestore();
-
-  //   rerender(<Demo />);
-  //   expect(screen.getByLabelText(itemName)).toBeInTheDocument();
-  // });
-
-  // describe('tooltip', () => {
-  //   it('ReactNode', async () => {
-  //     render(
-  //       <Form>
-  //         <Form.Item label="light" tooltip={<span>Bamboo</span>}>
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-
-  //     await userEvent.hover(screen.getByRole('img', { name: 'question-circle' }));
-  //     await expect(screen.findByRole('tooltip')).resolves.toMatchInlineSnapshot(`
-  //       <div
-  //         class="ant-tooltip-inner"
-  //         role="tooltip"
-  //       >
-  //         <span>
-  //           Bamboo
-  //         </span>
-  //       </div>
-  //     `);
-  //   });
-
-  //   it('config tooltip should show when hover on icon', async () => {
-  //     render(
-  //       <Form>
-  //         <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-
-  //     await userEvent.hover(screen.getByRole('img', { name: 'question-circle' }));
-
-  //     await expect(screen.findByRole('tooltip')).resolves.toHaveTextContent('Bamboo');
-  //   });
-  // });
-
-  // it('warningOnly validate', async () => {
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item>
-  //         <Form.Item
-  //           name="test"
-  //           label="test"
-  //           initialValue="bamboo"
-  //           rules={[{ required: true, warningOnly: true }]}
-  //         >
-  //           <Input />
-  //         </Form.Item>
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   await userEvent.type(screen.getByLabelText('test'), 'test');
-  //   await userEvent.clear(screen.getByLabelText('test'));
-
-  //   await sleep(1000);
-
-  //   expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
-  //   expect(container.querySelectorAll('.ant-form-item-has-warning').length).toBeTruthy();
-  // });
-
-  // it('not warning when remove on validate', async () => {
-  //   jest.useFakeTimers();
-  //   let rejectFn: (reason?: any) => void = jest.fn();
-
-  //   const { container, unmount } = render(
-  //     <Form>
-  //       <Form.Item>
-  //         <Form.Item
-  //           noStyle
-  //           name="test"
-  //           initialValue="bamboo"
-  //           rules={[
-  //             {
-  //               validator: () =>
-  //                 new Promise((_, reject) => {
-  //                   rejectFn = reject;
-  //                 }),
-  //             },
-  //           ]}
-  //         >
-  //           <Input />
-  //         </Form.Item>
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   await change(container, 0, '', true);
-
-  //   unmount();
-
-  //   // Delay validate failed
-  //   rejectFn(new Error('delay failed'));
-
-  //   expect(errorSpy).not.toHaveBeenCalled();
-
-  //   jest.useRealTimers();
-  // });
-
-  // describe('form colon', () => {
-  //   it('default colon', () => {
-  //     render(
-  //       <Form>
-  //         <Form.Item label="姓名" name="姓名">
-  //           <input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-
-  //     expect(screen.getByText('姓名')).not.toHaveClass('ant-form-item-no-colon');
-  //   });
-
-  //   it('set Form.Item colon false', () => {
-  //     render(
-  //       <Form colon>
-  //         <Form.Item colon={false} label="姓名" name="姓名">
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-
-  //     expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
-  //   });
-
-  //   it('set Form colon false', () => {
-  //     render(
-  //       <Form colon={false}>
-  //         <Form.Item label="姓名" name="姓名">
-  //           <Input />
-  //         </Form.Item>
-  //       </Form>,
-  //     );
-
-  //     expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
-  //   });
-  // });
-
-  // it('useFormInstance', () => {
-  //   let formInstance;
-  //   let subFormInstance;
-
-  //   const Sub = () => {
-  //     const formSub = Form.useFormInstance();
-  //     subFormInstance = formSub;
-
-  //     return null;
-  //   };
-
-  //   const Demo: React.FC = () => {
-  //     const [form] = Form.useForm();
-  //     formInstance = form;
-
-  //     return (
-  //       <Form form={form}>
-  //         <Sub />
-  //       </Form>
-  //     );
-  //   };
-
-  //   render(<Demo />);
-  //   expect(subFormInstance).toBe(formInstance);
-  // });
-
-  // it('noStyle should not affect status', () => {
-  //   const Demo: React.FC = () => (
-  //     <Form>
-  //       <Form.Item validateStatus="error" noStyle>
-  //         <Select className="custom-select" />
-  //       </Form.Item>
-  //       <Form.Item validateStatus="error">
-  //         <Form.Item noStyle>
-  //           <Select className="custom-select-b" />
-  //         </Form.Item>
-  //       </Form.Item>
-  //       <Form.Item validateStatus="error">
-  //         <Form.Item noStyle validateStatus="warning">
-  //           <Select className="custom-select-c" />
-  //         </Form.Item>
-  //       </Form.Item>
-  //       <Form.Item noStyle>
-  //         <Form.Item validateStatus="warning">
-  //           <Select className="custom-select-d" />
-  //         </Form.Item>
-  //       </Form.Item>
-  //     </Form>
-  //   );
-  //   const { container } = render(<Demo />);
-  //   expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
-  //   expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-  //   expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-  //   expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
-  //   expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
-  //   expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
-  //   expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
-  //   expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
-  // });
-
-  // it('should not affect Popup children style', () => {
-  //   const Demo: React.FC = () => (
-  //     <Form>
-  //       <Form.Item labelCol={4 as ColProps} validateStatus="error">
-  //         <Modal visible>
-  //           <Select className="modal-select" />
-  //         </Modal>
-  //       </Form.Item>
-  //       <Form.Item validateStatus="error">
-  //         <Drawer visible>
-  //           <Select className="drawer-select" />
-  //         </Drawer>
-  //       </Form.Item>
-  //     </Form>
-  //   );
-  //   const { container } = render(<Demo />, { container: document.body });
-  //   expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-  //   expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
-  //   expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
-  //   expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
-  // });
-
-  // it('Form.Item.useStatus should work', async () => {
-  //   jest.useFakeTimers();
-
-  //   const {
-  //     Item: { useStatus },
-  //   } = Form;
-
-  //   const CustomInput: React.FC<{ className?: string; value?: React.ReactNode }> = ({
-  //     className,
-  //     value,
-  //   }) => {
-  //     const { status } = useStatus();
-  //     return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
-  //   };
-
-  //   const Demo: React.FC = () => {
-  //     const [form] = Form.useForm();
-
-  //     return (
-  //       <Form form={form} name="my-form">
-  //         <Form.Item name="required" rules={[{ required: true }]}>
-  //           <CustomInput className="custom-input-required" value="" />
-  //         </Form.Item>
-  //         <Form.Item name="warning" validateStatus="warning">
-  //           <CustomInput className="custom-input-warning" />
-  //         </Form.Item>
-  //         <Form.Item name="normal">
-  //           <CustomInput className="custom-input" />
-  //         </Form.Item>
-  //         <CustomInput className="custom-input-wrong" />
-  //         <Button onClick={() => form.submit()} className="submit-button">
-  //           Submit
-  //         </Button>
-  //       </Form>
-  //     );
-  //   };
-
-  //   const { container } = render(<Demo />);
-
-  //   expect(container.querySelector('.custom-input-required')?.classList).toContain(
-  //     'custom-input-status-',
-  //   );
-  //   expect(container.querySelector('.custom-input-warning')?.classList).toContain(
-  //     'custom-input-status-warning',
-  //   );
-  //   expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
-  //   expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
-  //     'custom-input-status-undefined',
-  //   );
-  //   expect(errorSpy).toHaveBeenCalledWith(
-  //     expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
-  //   );
-
-  //   fireEvent.click(container.querySelector('.submit-button')!);
-  //   await waitFakeTimer();
-
-  //   expect(container.querySelector('.custom-input-required')?.classList).toContain(
-  //     'custom-input-status-error',
-  //   );
-
-  //   jest.clearAllTimers();
-  //   jest.useRealTimers();
-  // });
-
-  // it('item customize margin', async () => {
-  //   const computeSpy = jest
-  //     .spyOn(window, 'getComputedStyle')
-  //     .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
-
-  //   const { container } = render(
-  //     <Form>
-  //       <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
-  //         <Input />
-  //       </Form.Item>
-  //     </Form>,
-  //   );
-
-  //   fireEvent.change(container.querySelector('input')!, { target: { value: '' } });
-
-  //   await sleep(0);
-  //   computeSpy.mockRestore();
-
-  //   expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
-  //     marginBottom: -24,
-  //   });
-  // });
+  it('validation message should has alert role', async () => {
+    // https://github.com/ant-design/ant-design/issues/25711
+    const { container } = render(
+      // eslint-disable-next-line no-template-curly-in-string
+      <Form validateMessages={{ required: 'name is good!' }}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent(
+      'name is good!',
+    );
+  });
+
+  it('return same form instance', async () => {
+    const instances = new Set();
+
+    const App: React.FC = () => {
+      const [form] = Form.useForm();
+      instances.add(form);
+      const [, forceUpdate] = React.useState({});
+      return (
+        <button
+          type="button"
+          onClick={() => {
+            forceUpdate({});
+          }}
+        >
+          Refresh
+        </button>
+      );
+    };
+
+    const { container } = pureRender(<App />);
+
+    for (let i = 0; i < 5; i += 1) {
+      fireEvent.click(container.querySelector('button')!);
+      // eslint-disable-next-line no-await-in-loop
+      await waitFakeTimer();
+    }
+
+    expect(instances.size).toBe(1);
+  });
+
+  it('should avoid re-render', async () => {
+    let renderTimes = 0;
+
+    const MyInput: React.FC<{ value?: string }> = ({ value = '', ...props }) => {
+      renderTimes += 1;
+      return <input value={value} {...props} />;
+    };
+
+    const Demo: React.FC = () => (
+      <Form>
+        <Form.Item name="username" label="username" rules={[{ required: true }]}>
+          <MyInput />
+        </Form.Item>
+      </Form>
+    );
+    const { container } = pureRender(<Demo />);
+    renderTimes = 0;
+
+    await changeValue(0, 'a');
+
+    expect(renderTimes).toEqual(1);
+    expect(container.querySelector('input')).toHaveValue('a');
+  });
+
+  it('should warning with `defaultValue`', () => {
+    render(
+      <Form>
+        <Form.Item name="light">
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
+    );
+  });
+
+  it('should remove Field and also reset error', async () => {
+    const Demo: React.FC<{ showA?: boolean }> = ({ showA }) => (
+      <Form>
+        {showA ? (
+          <Form.Item name="a" help="error">
+            <input />
+          </Form.Item>
+        ) : (
+          <Form.Item name="b">
+            <input />
+          </Form.Item>
+        )}
+      </Form>
+    );
+
+    const { container, rerender } = render(<Demo showA />);
+
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-form-item-explain')).toBeTruthy();
+
+    rerender(<Demo showA={false} />);
+
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-form-item-explain')).toBeFalsy();
+  });
+
+  it('no warning of initialValue & getValueProps & preserve', () => {
+    render(
+      <Form>
+        <Form.Item initialValue="bamboo" getValueProps={() => ({})} preserve={false}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('should customize id when pass with id', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="light">
+          <Input id="bamboo" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')!.id).toEqual('bamboo');
+  });
+
+  it('should trigger validate when onBlur when pass validateTrigger onBlur', async () => {
+    const { container } = render(
+      <Form validateTrigger="onBlur">
+        <Form.Item name="light" label="light" rules={[{ len: 3 }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    // type a invalidate value, not trigger validation
+    await changeValue(0, '7777');
+    expect(container.querySelector('.ant-form-item-explain')).toBeFalsy();
+
+    // tab(onBlur) the input field, trigger and see the alert
+    fireEvent.blur(container.querySelector('input')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-form-item-explain')).toBeTruthy();
+  });
+
+  describe('Form item hidden', () => {
+    it('should work', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item name="light" hidden>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('noStyle should not work when hidden', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item name="light" hidden noStyle>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+      expect(container.firstChild).toMatchSnapshot();
+    });
+  });
+
+  it('legacy hideRequiredMark', () => {
+    const { container } = render(
+      <Form hideRequiredMark role="form">
+        <Form.Item name="light" label="light" required>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+  });
+
+  it('form should support disabled', () => {
+    const App: React.FC = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
+        <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
+          <Checkbox>disabled</Checkbox>
+        </Form.Item>
+        <Form.Item label="Radio">
+          <Radio.Group>
+            <Radio value="apple">Apple</Radio>
+            <Radio value="pear">Pear</Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="Input">
+          <Input />
+        </Form.Item>
+        <Form.Item label="Select">
+          <Select>
+            <Select.Option value="demo">Demo</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="TreeSelect">
+          <TreeSelect
+            treeData={[
+              {
+                title: 'Light',
+                value: 'light',
+                children: [{ title: 'Bamboo', value: 'bamboo' }],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="Cascader">
+          <Cascader
+            options={[
+              {
+                value: 'zhejiang',
+                label: 'Zhejiang',
+                children: [{ value: 'hangzhou', label: 'Hangzhou' }],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="DatePicker">
+          <DatePicker />
+        </Form.Item>
+        <Form.Item label="RangePicker">
+          <RangePicker />
+        </Form.Item>
+        <Form.Item label="InputNumber">
+          <InputNumber />
+        </Form.Item>
+        <Form.Item label="TextArea">
+          <TextArea rows={4} />
+        </Form.Item>
+        <Form.Item label="Switch" valuePropName="checked">
+          <Switch />
+        </Form.Item>
+        <Form.Item label="Upload" valuePropName="fileList">
+          <Upload />
+        </Form.Item>
+        <Form.Item label="Button">
+          <Button>Button</Button>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('_internalItemRender api test', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item
+          name="light"
+          // @ts-ignore
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (_: any, doms: any) => (
+              <div>
+                <h1>warning title</h1>
+                {doms.input}
+                {doms.errorList}
+                {doms.extra}
+              </div>
+            ),
+          }}
+        >
+          <input defaultValue="should warning" />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('h1')!).toHaveTextContent(/warning title/i);
+  });
+
+  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
+    const mockFn = jest.spyOn(Util, 'getFieldId');
+    const itemName = 'parentNode';
+    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
+    mockFn.mockImplementation(() => itemName);
+    const { Option } = Select;
+    const Demo: React.FC = () => {
+      const [open, setOpen] = useState(false);
+      return (
+        <>
+          <Form>
+            <Form.Item name={itemName} label={itemName}>
+              <Select
+                className="form_item_parentNode"
+                defaultValue="lucy"
+                open={open}
+                style={{ width: 120 }}
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+            </Form.Item>
+          </Form>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            {open ? 'show' : 'hidden'}
+          </button>
+        </>
+      );
+    };
+
+    const { container, rerender } = render(<Demo />);
+    expect(mockFn).toHaveBeenCalled();
+    expect((Util.getFieldId as () => string)()).toBe(itemName);
+
+    // make sure input id is parentNode
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
+
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('button')!).toHaveTextContent('show');
+
+    mockFn.mockRestore();
+
+    rerender(<Demo />);
+    expect(screen.getByLabelText(itemName)).toBeInTheDocument();
+  });
+
+  describe('tooltip', () => {
+    it('ReactNode', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="light" tooltip={<span>Bamboo</span>}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+    });
+
+    it('config tooltip should show when hover on icon', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
+    });
+  });
+
+  it('warningOnly validate', async () => {
+    const { container } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            name="test"
+            label="test"
+            initialValue="bamboo"
+            rules={[{ required: true, warningOnly: true }]}
+          >
+            <Input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, 'test');
+    await changeValue(0, '');
+
+    expect(container.querySelector('.ant-form-item-with-help')).toBeTruthy();
+    expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
+  });
+
+  it('not warning when remove on validate', async () => {
+    let rejectFn: (reason?: any) => void = jest.fn();
+
+    const { unmount } = render(
+      <Form>
+        <Form.Item>
+          <Form.Item
+            noStyle
+            name="test"
+            initialValue="bamboo"
+            rules={[
+              {
+                validator: () =>
+                  new Promise((_, reject) => {
+                    rejectFn = reject;
+                  }),
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, '');
+
+    unmount();
+
+    // Delay validate failed
+    rejectFn(new Error('delay failed'));
+
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  describe('form colon', () => {
+    it('default colon', () => {
+      render(
+        <Form>
+          <Form.Item label="姓名" name="姓名">
+            <input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('姓名')).not.toHaveClass('ant-form-item-no-colon');
+    });
+
+    it('set Form.Item colon false', () => {
+      render(
+        <Form colon>
+          <Form.Item colon={false} label="姓名" name="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
+    });
+
+    it('set Form colon false', () => {
+      render(
+        <Form colon={false}>
+          <Form.Item label="姓名" name="姓名">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(screen.getByText('姓名')).toHaveClass('ant-form-item-no-colon');
+    });
+  });
+
+  it('useFormInstance', () => {
+    let formInstance;
+    let subFormInstance;
+
+    const Sub = () => {
+      const formSub = Form.useFormInstance();
+      subFormInstance = formSub;
+
+      return null;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+      formInstance = form;
+
+      return (
+        <Form form={form}>
+          <Sub />
+        </Form>
+      );
+    };
+
+    render(<Demo />);
+    expect(subFormInstance).toBe(formInstance);
+  });
+
+  it('noStyle should not affect status', () => {
+    const Demo: React.FC = () => (
+      <Form>
+        <Form.Item validateStatus="error" noStyle>
+          <Select className="custom-select" />
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle>
+            <Select className="custom-select-b" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle validateStatus="warning">
+            <Select className="custom-select-c" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Form.Item validateStatus="warning">
+            <Select className="custom-select-d" />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+  });
+
+  it('should not affect Popup children style', () => {
+    const Demo: React.FC = () => (
+      <Form>
+        <Form.Item labelCol={4 as ColProps} validateStatus="error">
+          <Modal visible>
+            <Select className="modal-select" />
+          </Modal>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Drawer visible>
+            <Select className="drawer-select" />
+          </Drawer>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />, { container: document.body });
+    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+  });
+
+  it('Form.Item.useStatus should work', async () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
+    const CustomInput: React.FC<{ className?: string; value?: React.ReactNode }> = ({
+      className,
+      value,
+    }) => {
+      const { status } = useStatus();
+      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
+    };
+
+    const Demo: React.FC = () => {
+      const [form] = Form.useForm();
+
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item name="required" rules={[{ required: true }]}>
+            <CustomInput className="custom-input-required" value="" />
+          </Form.Item>
+          <Form.Item name="warning" validateStatus="warning">
+            <CustomInput className="custom-input-warning" />
+          </Form.Item>
+          <Form.Item name="normal">
+            <CustomInput className="custom-input" />
+          </Form.Item>
+          <CustomInput className="custom-input-wrong" />
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-',
+    );
+    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+      'custom-input-status-warning',
+    );
+    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+      'custom-input-status-undefined',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
+    );
+
+    fireEvent.click(container.querySelector('.submit-button')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-error',
+    );
+  });
+
+  it('item customize margin', async () => {
+    const computeSpy = jest
+      .spyOn(window, 'getComputedStyle')
+      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
+
+    const { container } = render(
+      <Form>
+        <Form.Item name="required" initialValue="bamboo" rules={[{ required: true }]}>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    await changeValue(0, '');
+
+    computeSpy.mockRestore();
+
+    expect(container.querySelector('.ant-form-item-margin-offset')).toHaveStyle({
+      marginBottom: -24,
+    });
+  });
 });
