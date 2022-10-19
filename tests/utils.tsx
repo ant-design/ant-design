@@ -6,6 +6,11 @@ import { render, act } from '@testing-library/react';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 
+export function assertsExist<T>(item: T | null | undefined): asserts item is T {
+  expect(item).not.toBeUndefined();
+  expect(item).not.toBeNull();
+}
+
 export function setMockDate(dateString = '2017-09-18T03:30:07.795') {
   MockDate.set(dateString);
 }

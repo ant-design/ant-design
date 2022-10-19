@@ -2,8 +2,8 @@
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
 // ========================= Input =========================
-.@{iconfont-css-prefix}.@{ant-prefix}-input-clear-icon,
-.@{ant-prefix}-input-clear-icon {
+.@{iconfont-css-prefix}.@{input-prefix-cls}-clear-icon,
+.@{input-prefix-cls}-clear-icon {
   margin: 0;
   color: @disabled-color;
   font-size: @font-size-sm;
@@ -31,11 +31,10 @@
 }
 
 // ======================= TextArea ========================
-.@{ant-prefix}-input-affix-wrapper-textarea-with-clear-btn {
-  padding: 0 !important;
-  border: 0 !important;
+.@{input-prefix-cls}-affix-wrapper.@{input-prefix-cls}-affix-wrapper-textarea-with-clear-btn {
+  padding: 0;
 
-  .@{ant-prefix}-input-clear-icon {
+  .@{input-prefix-cls}-clear-icon {
     position: absolute;
     top: 8px;
     right: 8px;
