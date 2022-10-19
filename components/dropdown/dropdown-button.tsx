@@ -6,10 +6,10 @@ import Button from '../button';
 import type { ButtonHTMLType } from '../button/button';
 import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
+import { useCompactItemContext } from '../space/Compact';
 import type { DropdownProps } from './dropdown';
 import Dropdown from './dropdown';
-
-const ButtonGroup = Button.Group;
+import Space from '../space';
 
 export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 
@@ -83,7 +83,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-  };
+  } as DropdownProps;
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const classes = classNames(prefixCls, compactItemClassnames, className);
 
   if ('open' in props) {
     dropdownProps.open = open;
@@ -117,10 +120,10 @@ const DropdownButton: DropdownButtonInterface = props => {
   const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 
   return (
-    <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+    <Space.Compact className={classes} size={compactSize} block {...restProps}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
-    </ButtonGroup>
+    </Space.Compact>
   );
 };
 
