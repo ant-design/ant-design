@@ -51,7 +51,7 @@ const DecimalStep = () => {
   const [inputValue, setInputValue] = useState(0);
 
   const onChange = (value: number) => {
-    if (isNaN(value)) {
+    if (Number.isNaN(value)) {
       return;
     }
 

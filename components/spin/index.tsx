@@ -67,7 +67,7 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
 }
 
 function shouldDelay(spinning?: boolean, delay?: number): boolean {
-  return !!spinning && !!delay && !isNaN(Number(delay));
+  return !!spinning && !!delay && !Number.isNaN(Number(delay));
 }
 
 const Spin: React.FC<SpinClassProps> = props => {

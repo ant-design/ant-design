@@ -54,7 +54,7 @@ describe('Table.rowSelection', () => {
     container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('input')?.checked) {
-        if (isNaN(Number(key))) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
           keys.push(key!);
         } else {
@@ -70,7 +70,7 @@ describe('Table.rowSelection', () => {
     container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('.ant-checkbox-indeterminate')) {
-        if (isNaN(Number(key))) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
           keys.push(key!);
         } else {
