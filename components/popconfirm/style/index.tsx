@@ -37,7 +37,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = token => {
         flexWrap: 'nowrap',
         alignItems: 'start',
 
-        [`> ${iconCls}`]: {
+        [`> ${componentCls}-message-icon ${iconCls}`]: {
           color: colorWarning,
           fontSize,
           flex: 'none',

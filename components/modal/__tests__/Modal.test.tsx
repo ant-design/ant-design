@@ -105,4 +105,9 @@ describe('Modal', () => {
 
     errSpy.mockRestore();
   });
+
+  it('should not render footer if null', () => {
+    const { container } = render(<Modal footer={null} />);
+    expect(container.querySelector('.ant-modal-footer')).toBeFalsy();
+  });
 });
