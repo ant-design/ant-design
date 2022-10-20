@@ -68,7 +68,7 @@ Let's create a `ProductList` component that we can use in multiple places to sho
 
 Create `src/components/ProductList.tsx` by typing:
 
-```js
+```tsx
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
@@ -112,16 +112,12 @@ export function queryProductList() {
 export function queryProductList() {
   return new Promise(resolve => {
     setTimeout(() => {
-      resolve([
-        {
-          id: 1,
-          name: 'dva',
-        },
-        {
-          id: 2,
-          name: 'antd',
-        },
-      ]);
+      resolve({
+        data: [
+          { id: 1, name: 'dva' },
+          { id: 2, name: 'antd' },
+        ],
+      });
     }, 2000);
   });
 }
@@ -134,7 +130,7 @@ import { useRequest } from 'umi';
 import { queryProductList } from '@/services/product';
 
 export default function useProductList(params: { pageSize: number; current: number }) {
-  const msg = useRequest(() => queryUserList(params));
+  const msg = useRequest(() => queryProductList(params));
 
   const deleteProducts = async (id: string) => {
     try {
