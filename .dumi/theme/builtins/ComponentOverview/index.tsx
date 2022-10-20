@@ -1,13 +1,13 @@
 import React, { useState, memo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useAppData, useLocation, useRouteMeta } from 'dumi';
+import { css } from '@emotion/react';
 import { useIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getLocalizedPathname, getThemeConfig, getMenuItems } from '../../utils';
 import cnProComponentsList from './ProComponentsList';
-import { css } from '@emotion/react';
 
 const useStyle = () => {
   return {
@@ -19,7 +19,7 @@ const useStyle = () => {
     `,
     ['components-overview-title']: css`
       overflow: hidden;
-      color: 000000d9;
+      color: '#000000d9';
       text-overflow: ellipsis;
     `,
     ['components-overview-img']: css`
@@ -76,10 +76,10 @@ const Overview: React.FC = () => {
   const cnList = componentsList.filter(item => item?.id?.endsWith('.zh-CN'));
 
   const cnComponentsData = cnList.map(({ meta = {} }) => {
-    const { frontmatter = {}, subtitle = '', category = 'Components' } = meta as any;
+    const { frontmatter = {}, subtitle = '', category = 'Components', path } = meta as any;
     const { group, title, cover } = frontmatter;
     const type = typeof group === 'string' ? group : group?.title;
-    return { meta: { category, subtitle, type, title, cover } };
+    return { meta: { category, subtitle, type, title, cover, filename: path } };
   });
 
   const { locale, formatMessage } = useIntl();
@@ -93,7 +93,9 @@ const Overview: React.FC = () => {
   );
 
   const [search, setSearch] = useState<string>('');
+
   const sectionRef = React.useRef<HTMLElement>(null);
+
   const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = event => {
     if (event.keyCode === 13 && search.trim().length) {
       sectionRef.current?.querySelector<HTMLElement>('.components-overview-card')?.click();
@@ -160,14 +162,14 @@ const Overview: React.FC = () => {
                           to={href as any}
                           href={typeof href === 'string' ? href : href.pathname}
                           onClick={() => {
-                            onClickCard((href as any).onClickCard);
+                            onClickCard(typeof href === 'string' ? href : href.pathname);
                           }}
                         >
                           <Card
                             bodyStyle={{
                               backgroundRepeat: 'no-repeat',
                               backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${component?.tag})`,
+                              backgroundImage: `url(${component?.tag || ''})`,
                             }}
                             size="small"
                             css={style['components-overview-card']}
