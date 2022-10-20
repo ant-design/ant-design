@@ -71,7 +71,7 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
 
   onItemSelect = (item: RecordType) => {
     const { onItemSelect, selectedKeys } = this.props;
-    const checked = selectedKeys.indexOf(item.key) >= 0;
+    const checked = selectedKeys.includes(item.key);
     onItemSelect(item.key, !checked);
   };
 
@@ -144,7 +144,7 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
         >
           {this.getItems().map(({ renderedEl, renderedText, item }: RenderedItem<RecordType>) => {
             const { disabled } = item;
-            const checked = selectedKeys.indexOf(item.key) >= 0;
+            const checked = selectedKeys.includes(item.key);
 
             return (
               <ListItem
