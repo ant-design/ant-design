@@ -16,36 +16,36 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 
 ### Tour
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| target | `() => HTMLElement`&#124; `HTMLElement` | - | 获取引导卡片指向的元素 |
-| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | 是否显示箭头，包含是否指向元素中心的配置 |
-| cover | `ReactNode` | - | 展示的图片或者视频 |
-| title | `ReactNode` | - | 标题 |
-| description | `ReactNode` | - | 主要描述部分 |
-| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | 引导卡片相对于目标元素的位置 |
-| onClose | `Function` | - | 关闭引导时的回调函数 |
-| mask | `boolean` | `true` | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 |
-| type | `default`&#124; `primary` | `default` | 类型，影响底色与文字颜色 |
-| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | 下一步按钮的属性 |
-| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | 上一步按钮的属性 |
-| className | `string` | - | - |
-| style | `React.CSSProperties` | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| target | 获取引导卡片指向的元素 | `() => HTMLElement` \| `HTMLElement` | - |  |
+| arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| cover | 展示的图片或者视频 | `ReactNode` | - |  |
+| title | 标题 | `ReactNode` | - |  |
+| description | 主要描述部分 | `ReactNode` | - |  |
+| placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
+| onClose | 关闭引导时的回调函数 | `Function` | - |  |
+| mask | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 | `boolean` | `true` |  |
+| type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
+| nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
+| prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
+| className |  | `string` | - |  |
+| style | 样式 | `React.CSSProperties` | - |  |
 
 ### TourStep 引导步骤卡片
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| target | `() => HTMLElement`&#124; `HTMLElement` | - | 获取引导卡片指向的元素 |
-| arrow | `boolean`&#124; `{ pointAtCenter: boolean}` | `true` | 是否显示箭头，包含是否指向元素中心的配置 |
-| cover | `ReactNode` | - | 展示的图片或者视频 |
-| title | `ReactNode` | - | 标题 |
-| description | `ReactNode` | - | 主要描述部分 |
-| placement | `left`&#124; `leftTop` &#124; `leftBottom` &#124; `right`&#124; `rightTop`&#124; `rightBottom`&#124; `top`&#124; `topLeft`&#124; `topRight`&#124; `bottom` &#124; `bottomLeft`&#124; `bottomRight` | `bottom` | 引导卡片相对于目标元素的位置 |
-| onClose | `Function` | - | 关闭引导时的回调函数 |
-| mask | `boolean` | `true` | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 |
-| type | `default`&#124; `primary` | `default` | 类型，影响底色与文字颜色 |
-| nextButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` | 下一步按钮的属性 |
-| prevButtonProps | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` | 上一步按钮的属性 |
-| className | `string` | - | - |
-| style | `React.CSSProperties` | - | - |
+| 属性 | 类型 | 默认值 | 说明 | 版本 |
+| --- | --- | --- | --- | --- |
+| target | 获取引导卡片指向的元素 | `() => HTMLElement` \| `HTMLElement` | - |  |
+| arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| cover | 展示的图片或者视频 | `ReactNode` | - |  |
+| title | 标题 | `ReactNode` | - |  |
+| description | 主要描述部分 | `ReactNode` | - |  |
+| placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `bottom` |  |
+| onClose | 关闭引导时的回调函数 | `Function` | - |  |
+| mask | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 | `boolean` | `true` |  |
+| type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
+| nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
+| prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
+| className | - | `string` | - |  |
+| style | - | `React.CSSProperties` | - |  |

@@ -64,7 +64,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           cursor: 'pointer',
           border: '0',
           background: 'transparent',
-          fontSize: '20px',
+          fontSize: '16px',
           position: 'absolute',
           right: '20px',
           top: '12px',
@@ -136,8 +136,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
               },
             },
           },
-          [`${componentCls}-prev-btn,${componentCls}-next-btn,${componentCls}-finish-btn`]: {
-            display: 'inline-block',
+          [`${componentCls}-buttons button`]: {
             marginLeft: '8px',
           },
         },
@@ -302,31 +301,11 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Tour',
-  token => {
-    const sliderToken = mergeToken<TourToken>(token, {
-      marginPart: (token.controlHeight - token.controlSize) / 2,
-      marginFull: token.controlSize / 2,
-      marginPartWithMark: token.controlHeightLG - token.controlSize,
-    });
-    return [genBaseStyle(sliderToken)];
-  },
-  token => {
-    // Handle line width is always width-er 1px
-    const increaseHandleWidth = 1;
-    const controlSize = token.controlHeightLG / 4;
-    const controlSizeHover = token.controlHeightSM / 2;
-    const handleLineWidth = token.lineWidth + increaseHandleWidth;
-    const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 3;
-    return {
-      controlSize,
-      railSize: controlSize / 3,
-      handleSize: controlSize,
-      handleSizeHover: controlSizeHover,
-      dotSize: (controlSize / 3) * 2,
-      handleLineWidth,
-      handleLineWidthHover,
-    };
-  },
-);
+export default genComponentStyleHook('Tour', token => {
+  const sliderToken = mergeToken<TourToken>(token, {
+    marginPart: (token.controlHeight - token.controlSize) / 2,
+    marginFull: token.controlSize / 2,
+    marginPartWithMark: token.controlHeightLG - token.controlSize,
+  });
+  return [genBaseStyle(sliderToken)];
+});
