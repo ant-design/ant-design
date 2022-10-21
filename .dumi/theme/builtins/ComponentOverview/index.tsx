@@ -71,15 +71,15 @@ const Overview: React.FC = () => {
     }
   });
 
-  const enList = componentsList.filter(item => item?.id?.endsWith('.en-US'));
+  // const enList = componentsList.filter(item => item?.id?.endsWith('.en-US'));
 
   const cnList = componentsList.filter(item => item?.id?.endsWith('.zh-CN'));
 
-  const cnComponentsData = cnList.map(({ meta = {} }) => {
-    const { frontmatter = {}, subtitle = '', category = 'Components', path } = meta as any;
+  const cnComponentsData = cnList.map(({ meta, path }) => {
+    const { frontmatter = {}, subtitle = '', category = 'Components' } = meta as any;
     const { group, title, cover } = frontmatter;
     const type = typeof group === 'string' ? group : group?.title;
-    return { meta: { category, subtitle, type, title, cover, filename: path } };
+    return { meta: { category, subtitle, type, title, cover, path } };
   });
 
   const { locale, formatMessage } = useIntl();
@@ -144,7 +144,7 @@ const Overview: React.FC = () => {
                 {components
                   .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
                   .map(component => {
-                    const url = `${(component as any).filename
+                    const url = `${component.path
                       ?.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                       ?.toLowerCase()}/`;
 
@@ -156,14 +156,14 @@ const Overview: React.FC = () => {
                     /** Link 不能跳转到外链 */
                     const ComponentLink = !url.startsWith('http') ? Link : 'a';
 
+                    const linkHref = typeof href === 'string' ? href : href.pathname;
+
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
                         <ComponentLink
-                          to={href as any}
-                          href={typeof href === 'string' ? href : href.pathname}
-                          onClick={() => {
-                            onClickCard(typeof href === 'string' ? href : href.pathname);
-                          }}
+                          to={linkHref}
+                          href={linkHref}
+                          onClick={() => onClickCard(linkHref)}
                         >
                           <Card
                             bodyStyle={{

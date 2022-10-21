@@ -9,6 +9,7 @@ interface Meta {
   title?: any;
   subtitle?: string;
   tag?: string;
+  path?: string;
   cover?: string;
   order?: number;
   children?: Meta[];
