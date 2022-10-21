@@ -78,8 +78,10 @@ export default function Banner({ children }: BannerProps) {
           </Typography.Paragraph>
 
           <Space size="middle" style={{ marginBottom: token.marginFar }}>
-            <Button type="primary">{locale.start}</Button>
-            <Button>{locale.designLanguage}</Button>
+            <Button size="large" type="primary">
+              {locale.start}
+            </Button>
+            <Button size="large">{locale.designLanguage}</Button>
           </Space>
 
           {children}
