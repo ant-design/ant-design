@@ -15,6 +15,7 @@ const useStyle = () => {
       padding: 0;
     `,
     componentsOverviewGroupTitle: css`
+      font-size: 24px;
       margin-bottom: 24px !important;
     `,
     componentsOverviewTitle: css`
@@ -60,7 +61,6 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const style = useStyle();
-
   const meta = useRouteMeta();
   const location = useLocation();
   const { routes } = useAppData();
@@ -76,8 +76,8 @@ const Overview: React.FC = () => {
   const cnList = componentsList.filter(item => item?.id?.endsWith('.zh-CN'));
 
   const cnComponentsData = cnList.map(({ meta, path }) => {
-    const { frontmatter = {}, subtitle = '', category = 'Components' } = meta as any;
-    const { group, title, cover } = frontmatter;
+    const { frontmatter = {} } = meta;
+    const { group, title, cover, subtitle = '', category } = frontmatter;
     const type = typeof group === 'string' ? group : group?.title;
     return { meta: { category, subtitle, type, title, cover, path } };
   });
@@ -124,7 +124,7 @@ const Overview: React.FC = () => {
       />
       <Divider />
       {menuItems
-        .filter(i => i.order! > -1)
+        .filter(i => i.order! > -1 && i.type !== 'category')
         .map(group => {
           const components = group?.children?.filter(
             component =>
@@ -136,7 +136,7 @@ const Overview: React.FC = () => {
             <div key={group.title} css={style.componentsOverview}>
               <Title level={2} css={style.componentsOverviewGroupTitle}>
                 <Space align="center">
-                  {group.title}
+                  <span style={{ fontSize: 24 }}>{group.title}</span>
                   <Tag style={{ display: 'block' }}>{components.length}</Tag>
                 </Space>
               </Title>
