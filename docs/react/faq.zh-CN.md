@@ -53,7 +53,7 @@ title: FAQ
 
 antd 在 minor 和 patch 版本迭代中会避免引入破坏性变更，遵从以下原则会确保不会破坏你的代码：
 
-- 出现在官方 Demo 中的写法
+- 使用出现在官方 Demo 中的写法
 - FAQ 中出现的解法，包含代码片段以及 codesandbox 示例、issue 中当前版本标记 FAQ label 的
 
 而下述变更则需要开发者自行校验：
