@@ -51,7 +51,7 @@ While you can override a component's style, we don't recommend doing so. antd is
 
 ## How to avoid breaking change when update version?
 
-antd will avoid breaking change in major version. You can safe do follow things:
+antd will avoid breaking change in minor & patch version. You can safe do follow things:
 
 - Official demo usage
 - FAQ suggestion. Including codesandbox sample, marked as FAQ issue
