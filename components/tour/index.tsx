@@ -28,7 +28,6 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props =>
       [`${prefixCls}-primary`]: type === 'primary',
     },
     hashId,
-    prefixCls,
     rootClassName,
   );
 
