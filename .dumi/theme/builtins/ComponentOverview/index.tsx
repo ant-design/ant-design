@@ -11,24 +11,24 @@ import cnProComponentsList from './ProComponentsList';
 
 const useStyle = () => {
   return {
-    ['components-overview']: css`
+    componentsOverview: css`
       padding: 0;
     `,
-    ['components-overview-group-title']: css`
+    componentsOverviewGroupTitle: css`
       margin-bottom: 24px !important;
     `,
-    ['components-overview-title']: css`
+    componentsOverviewTitle: css`
       overflow: hidden;
       color: '#000000d9';
       text-overflow: ellipsis;
     `,
-    ['components-overview-img']: css`
+    componentsOverviewImg: css`
       display: flex;
       align-items: center;
       justify-content: center;
       height: 152px;
     `,
-    ['components-overview-card']: css`
+    componentsOverviewCard: css`
       cursor: pointer;
       transition: all 0.5s;
       &:hover {
@@ -133,8 +133,8 @@ const Overview: React.FC = () => {
               (component?.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
           );
           return components?.length ? (
-            <div key={group.title} css={style['components-overview']}>
-              <Title level={2} css={style['components-overview-group-title']}>
+            <div key={group.title} css={style.componentsOverview}>
+              <Title level={2} css={style.componentsOverviewGroupTitle}>
                 <Space align="center">
                   {group.title}
                   <Tag style={{ display: 'block' }}>{components.length}</Tag>
@@ -172,14 +172,14 @@ const Overview: React.FC = () => {
                               backgroundImage: `url(${component?.tag || ''})`,
                             }}
                             size="small"
-                            css={style['components-overview-card']}
+                            css={style.componentsOverviewCard}
                             title={
-                              <div css={style['components-overview-title']}>
+                              <div css={style.componentsOverviewTitle}>
                                 {component.title} {component?.subtitle}
                               </div>
                             }
                           >
-                            <div css={style['components-overview-img']}>
+                            <div css={style.componentsOverviewImg}>
                               <img src={component.cover} alt={component.title} />
                             </div>
                           </Card>
