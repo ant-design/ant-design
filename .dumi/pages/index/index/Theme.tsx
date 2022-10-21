@@ -84,13 +84,7 @@ const useStyle = () => {
       height: 40px;
     `,
 
-    side: css`
-      .ant-menu-item {
-        width: auto;
-        margin: 0 4px;
-        border-radius: 8px;
-      }
-    `,
+    side: css``,
 
     form: css`
       width: 500px;
@@ -160,6 +154,7 @@ export default function Theme() {
 
   const { algorithm, compact, ...token } = themeData;
   const isLight = algorithm === 'light';
+  const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
 
   // ================================ Render ================================
   return (
@@ -169,7 +164,7 @@ export default function Theme() {
           ...token,
         },
         hashed: true,
-        algorithm: isLight ? theme.defaultAlgorithm : theme.darkAlgorithm,
+        algorithm: algorithmFn,
         components: {
           Layout: isLight
             ? {

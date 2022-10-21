@@ -55,7 +55,7 @@ export default function Group(props: GroupProps) {
         </Typography.Paragraph>
       </div>
 
-      <div style={{ maxWidth: 1208, marginInline: token.marginXXL }}>
+      <div style={{ maxWidth: 1208, marginInline: 'auto', paddingInline: token.marginXXL }}>
         {children ? (
           <div>{children}</div>
         ) : (
