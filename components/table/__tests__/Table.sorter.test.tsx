@@ -108,7 +108,7 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
   });
 
-  it('aria-lable should be use the first text content in element when title is ReactElement', () => {
+  it('aria-label should be use the first text content in element when title is ReactElement', () => {
     const { container } = render(
       createTable(
         {
