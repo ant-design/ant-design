@@ -142,6 +142,7 @@ export type {
   ColumnProps as TableColumnProps,
   ColumnsType as TableColumnsType,
   ColumnType as TableColumnType,
+  TableLoadingProps,
   TablePaginationConfig,
   TableProps,
 } from './table';
