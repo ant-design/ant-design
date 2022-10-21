@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '..';
-import { fireEvent, render, sleep, assertsExist } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, assertsExist } from '../../../tests/utils';
 
 // Mock Wave ref
 let waveInstanceMock: InstanceType<typeof import('../../_util/wave').default> | null;
@@ -23,13 +23,22 @@ jest.mock('../../_util/wave', () => {
 });
 
 describe('click wave effect', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
+
   async function clickButton(wrapper: any) {
     const element = wrapper.container.firstChild;
     fireEvent.click(element);
     fireEvent(element, new Event('transitionstart'));
-    await sleep(20);
+    await waitFakeTimer();
     fireEvent(element, new Event('animationend'));
-    await sleep(20);
+    await waitFakeTimer();
   }
 
   it('should have click wave effect for primary button', async () => {
@@ -83,7 +92,7 @@ describe('click wave effect', () => {
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
     fireEvent.click(wrapper.container.querySelector('.ant-btn')!);
-    await sleep(10);
+    await waitFakeTimer();
     expect(resetEffect).toHaveBeenCalledTimes(2);
     // @ts-expect-error: Property 'animationStart' is private and only accessible within class 'Wave'.ts(2341)
     waveInstanceMock.animationStart = false;
