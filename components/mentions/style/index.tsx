@@ -80,6 +80,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 
       // ================= Input Area =================
       [`> textarea, ${componentCls}-measure`]: {
+        color: colorText,
+        boxSizing: 'border-box',
         minHeight: controlHeight - 2,
         margin: 0,
         padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
