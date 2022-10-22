@@ -6,11 +6,11 @@ title: Tour
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
-Guide the user to recognize what function a certain part or parts of a web page has
+Guide the user to recognize what function a certain part or parts of a web page has.
 
 ## When To Use
 
-For webpages with complex functions, or websites with new functions, it is very important to guide users to recognize the new features and learn how to use the new functions
+Often used when a user enters a website or a page for the first time,or a page or a website with a new feature or a revamp.
 
 ## API
 
@@ -29,8 +29,6 @@ For webpages with complex functions, or websites with new functions, it is very 
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | `{ children: 'next' }` |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | `{ children: 'pre' }` |  |
-| className | - | `string` | - |  |
-| style | - | `React.CSSProperties` | - |  |
 
 ### TourStep
 

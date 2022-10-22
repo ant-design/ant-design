@@ -16,7 +16,6 @@ The most basic usage.
 ```tsx
 import React, { useRef } from 'react';
 import { Button } from 'antd';
-import { LinkOutlined } from '@ant-design/icons';
 import Tour from '../index';
 
 const App: React.FC = () => {

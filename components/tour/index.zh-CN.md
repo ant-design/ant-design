@@ -6,11 +6,11 @@ title: Tour
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 ---
 
-引导用户认识网页中的某个或某些部分具有什么样的功能
+引导用户认识网页中的某个或某些部分具有什么样的功能。
 
 ## 何时使用
 
-对于拥有复杂功能的网页，或者推出新功能的网站，引导用户认识新的特性并学习新功能的用法非常重要
+常用于用户第一次进入网站，或某个页面或者推出新功能或改版的网站。
 
 ## API
 
@@ -29,8 +29,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
-| className |  | `string` | - |  |
-| style | 样式 | `React.CSSProperties` | - |  |
 
 ### TourStep 引导步骤卡片
 
