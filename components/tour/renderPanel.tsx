@@ -84,7 +84,7 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
         <div className={`${prefixCls}-buttons`}>
           {current !== 0 ? (
             <Button type={mergedType} {...prevButtonProps} onClick={prevBtnClick}>
-              下一步
+              上一步
             </Button>
           ) : null}
           {current === total - 1 ? (

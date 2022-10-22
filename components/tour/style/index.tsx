@@ -20,7 +20,20 @@ interface TourToken extends FullToken<'Tour'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<TourToken> = token => {
-  const { componentCls, zIndexPopupBase } = token;
+  const {
+    componentCls,
+    lineHeight,
+    zIndexPopupBase,
+    padding,
+    paddingSM,
+    fontSizeSM,
+    fontSizeLG,
+    lineHeightLG,
+    controlRadius,
+    controlLineWidth,
+    paddingXL,
+    paddingLG,
+  } = token;
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -29,31 +42,20 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       zIndex: zIndexPopupBase + 70,
       display: 'block',
       visibility: 'visible',
-      fontSize: '12px',
-      lineHeight: 1.5,
+      fontSize: fontSizeSM,
+      lineHeight: lineHeightLG,
       opacity: '0.9',
       width: '520px',
       [`${componentCls}-hidden`]: {
         display: 'none',
       },
 
-      [`${componentCls}-wrap`]: {
-        position: 'fixed',
-        overflow: 'auto',
-        top: '0',
-        right: '0',
-        bottom: '0',
-        left: '0',
-        zIndex: '1050',
-        WebkitOverflowScrolling: 'touch',
-        outline: '0',
-      },
       // =============================  Wrapper for the tour content ===========================
       [`${componentCls}-inner`]: {
         // color: '#fff',
-        textAlign: 'left',
+        textAlign: 'start',
         textDecoration: 'none',
-        borderRadius: '6px',
+        borderRadius: controlRadius,
         boxShadow: '@overlay-shadow',
         position: 'relative',
         backgroundColor: '#ffffff',
@@ -64,10 +66,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           cursor: 'pointer',
           border: '0',
           background: 'transparent',
-          fontSize: '16px',
+          fontSize: fontSizeLG,
           position: 'absolute',
-          right: '20px',
-          top: '12px',
+          insetInlineEnd: '20px',
+          insetBlockStart: '12px',
           fontWeight: '700',
           lineHeight: '1',
           color: '#000',
@@ -84,38 +86,36 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
         [`${componentCls}-cover`]: {
           textAlign: 'center',
-          padding: '40px 24px 0',
+          padding: `${paddingXL}px ${paddingLG}px 0`,
           img: {
             width: '100%',
           },
         },
         [`${componentCls}-header`]: {
-          padding: '13px 20px 14px 20px',
-          borderRadius: '5px 5px 0 0',
+          padding: `${paddingSM}px ${paddingLG}px`,
+          borderRadius: `${controlRadius}px ${controlRadius}px 0 0`,
           background: '#fff',
           color: '#666',
-          borderBottom: '1px solid #e9e9e9',
+          borderBlockEnd: '1px solid #e9e9e9',
 
           [`${componentCls}-title`]: {
             margin: '0',
-            fontSize: '14px',
-            lineHeight: '21px',
+            lineHeight: lineHeightLG,
             fontWeight: 'bold',
           },
         },
 
         [`${componentCls}-description`]: {
-          padding: '24px',
-          fontSize: '14px',
-          lineHeight: '1.5715',
+          padding: paddingLG,
+          lineHeight,
           wordWrap: 'break-word',
         },
 
         [`${componentCls}-footer`]: {
-          padding: '16px',
-          textAlign: 'right',
+          padding,
+          textAlign: 'end',
           background: '0 0',
-          borderTop: '1px solid rgba(0,0,0,.06)',
+          borderTop: `${controlLineWidth} solid rgba(0,0,0,.06)`,
           borderRadius: '0 0 2px 2px',
           display: 'flex',
           flexDirection: 'row',
@@ -129,15 +129,15 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
               display: 'inline-block',
               borderRadius: '50%',
               background: '#000',
-              marginRight: '4px',
+              marginInlineEnd: '4px',
               opacity: 0.75,
               '&.active': {
-                background: '#007aff',
+                background: '#1890ff',
               },
             },
           },
           [`${componentCls}-buttons button`]: {
-            marginLeft: '8px',
+            marginInlineStart: '8px',
           },
         },
       },
@@ -154,10 +154,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       [`&${componentCls}-primary`]: {
         [`${componentCls}-inner`]: {
           color: '#fff',
-          textAlign: 'left',
+          textAlign: 'start',
           textDecoration: 'none',
           backgroundColor: '#1890ff',
-          borderRadius: '6px',
+          borderRadius: controlRadius,
           textShadow: '0 -1px 0 rgb(0 0 0 / 12%)',
           boxShadow: '0 2px #0000000b',
 
@@ -174,7 +174,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           [`${componentCls}-sliders`]: {
             span: {
               background: '#007aff',
-              marginRight: '4px',
+              marginInlineEnd: '4px',
               opacity: 0.75,
               '&.active': {
                 background: '#fff',
@@ -192,7 +192,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       },
     [`${componentCls}-placement-right, ${componentCls}-placement-rightTop, ${componentCls}-placement-rightBottom`]:
       {
-        padding: '0 5px 0 9px',
+        paddingBlock: 0,
+        paddingInlineStart: '9px',
+        paddingInlineEnd: '5px',
       },
     [`${componentCls}-placement-bottom, ${componentCls}-placement-bottomLeft, ${componentCls}-placement-bottomRight`]:
       {
@@ -200,13 +202,14 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       },
     [`${componentCls}-placement-left, ${componentCls}-placement-leftTop, ${componentCls}-placement-leftBottom`]:
       {
-        padding: '0 9px 0 5px',
+        paddingBlock: 0,
+        paddingInlineStart: '5px',
+        paddingInlineEnd: '9px',
       },
-
     [`${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-placement-topRight ${componentCls}-arrow`]:
       {
-        bottom: '4px',
-        marginLeft: '-5px',
+        insetBlockEnd: '4px',
+        marginInlineStart: '-5px',
         borderWidth: '5px 5px 0',
         borderTopColor: '#fff',
       },
@@ -215,87 +218,91 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         borderTopColor: '#007aff',
       },
     [`${componentCls}-placement-top ${componentCls}-arrow`]: {
-      left: '50%',
+      insetInlineStart: '50%',
     },
 
     [`${componentCls}-placement-topLeft ${componentCls}-arrow`]: {
-      left: '15%',
+      insetInlineStart: '15%',
     },
 
     [`${componentCls}-placement-topRight ${componentCls}-arrow`]: {
-      right: '15%',
+      insetInlineEnd: '15%',
     },
 
     [`${componentCls}-placement-right ${componentCls}-arrow,${componentCls}-placement-rightTop ${componentCls}-arrow,${componentCls}-placement-rightBottom ${componentCls}-arrow`]:
       {
-        left: '4px',
-        marginTop: '-5px',
-        borderWidth: '5px 5px 5px 0',
-        borderRightColor: '#fff',
+        insetInlineStart: '4px',
+        marginBlockStart: '-5px',
+        borderBlockWidth: '5px',
+        borderInlineStartWidth: '0',
+        borderInlineEndWidth: '5px',
+        borderInlineEndColor: '#fff',
       },
     [`${componentCls}-primary${componentCls}-placement-right ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightTop ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightBottom ${componentCls}-arrow`]:
       {
-        borderRightColor: '#007aff',
+        borderInlineEndColor: '#007aff',
       },
 
     [`${componentCls}-placement-right ${componentCls}-arrow`]: {
-      top: '50%',
+      insetBlockStart: '50%',
     },
 
     [`${componentCls}-placement-rightTop ${componentCls}-arrow`]: {
-      top: '15%',
-      marginTop: '0',
+      insetBlockStart: '15%',
+      marginBlockStart: '0',
     },
 
     [`${componentCls}-placement-rightBottom ${componentCls}-arrow`]: {
-      bottom: '15%',
+      insetBlockEnd: '15%',
     },
 
     [`${componentCls}-placement-left ${componentCls}-arrow,${componentCls}-placement-leftTop ${componentCls}-arrow,${componentCls}-placement-leftBottom ${componentCls}-arrow`]:
       {
-        right: '4px',
-        marginTop: '-5px',
-        borderWidth: '5px 0 5px 5px',
-        borderLeftColor: '#fff',
+        insetInlineEnd: '4px',
+        marginBlockStart: '-5px',
+        borderBlockWidth: '5px',
+        borderInlineStartWidth: '5px',
+        borderInlineEndWidth: '0',
+        borderInlineStartColor: '#fff',
       },
     [`${componentCls}-primary${componentCls}-placement-left ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-leftTop ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-leftBottom ${componentCls}-arrow`]:
       {
-        borderLeftColor: '#007aff',
+        borderInlineStartColor: '#007aff',
       },
     [`${componentCls}-placement-left ${componentCls}-arrow`]: {
-      top: '50%',
+      insetBlockStart: '50%',
     },
 
     [`${componentCls}-placement-leftTop ${componentCls}-arrow`]: {
-      top: '15%',
-      marginTop: '0',
+      insetBlockStart: '15%',
+      marginBlockStart: '0',
     },
 
     [`${componentCls}-placement-leftBottom ${componentCls}-arrow`]: {
-      bottom: '15%',
+      insetBlockEnd: '15%',
     },
 
     [`${componentCls}-placement-bottom ${componentCls}-arrow,${componentCls}-placement-bottomLeft ${componentCls}-arrow,${componentCls}-placement-bottomRight ${componentCls}-arrow`]:
       {
-        top: '4px',
-        marginLeft: '-5px',
+        insetBlockStart: '4px',
+        marginInlineStart: '-5px',
         borderWidth: '0 5px 5px',
-        borderBottomColor: '#fff',
+        borderBlockEndColor: '#fff',
       },
     [`${componentCls}-primary${componentCls}-placement-bottom ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomLeft ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomRight ${componentCls}-arrow`]:
       {
-        borderBottomColor: '#007aff',
+        borderBlockEndColor: '#007aff',
       },
     [`${componentCls}-placement-bottom ${componentCls}-arrow`]: {
-      left: '50%',
+      insetInlineStart: '50%',
     },
 
     [`${componentCls}-placement-bottomLeft ${componentCls}-arrow`]: {
-      left: '15%',
+      insetInlineStart: '15%',
     },
 
     [`${componentCls}-placement-bottomRight ${componentCls}-arrow`]: {
-      right: '15%',
+      insetInlineEnd: '15%',
     },
   };
 };
