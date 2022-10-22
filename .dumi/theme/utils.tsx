@@ -7,6 +7,10 @@ interface Meta {
   category?: any;
   type?: any;
   title?: any;
+  subtitle?: string;
+  tag?: string;
+  path?: string;
+  cover?: string;
   order?: number;
   children?: Meta[];
 }
