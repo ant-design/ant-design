@@ -65,12 +65,7 @@ export function calcRangeKeys({
       // Append selection
       keys.push(key);
     }
-
-    if (expandedKeys.indexOf(key) === -1) {
-      return false;
-    }
-
-    return true;
+    return expandedKeys.includes(key);
   });
 
   return keys;
