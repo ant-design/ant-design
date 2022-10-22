@@ -14,7 +14,7 @@ Primary主题模式。
 Primary theme mode.
 
 ```tsx
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import { Button,Space } from 'antd';
 import Tour from '../index';
 
@@ -23,7 +23,11 @@ const App: React.FC = () => {
   const updateBtnRef = useRef<HTMLButtonElement>(null);
   const deleteBtnRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = React.useState(false);
+  const [current,setCurrent] = useState(-1)
 
+  const onClose=()=>{
+    setCurrent(-1)
+  }
   return (
     <div style={{ margin: 20 }}>
       <Space>
@@ -31,19 +35,24 @@ const App: React.FC = () => {
         <Button ref={updateBtnRef}>Update</Button>
         <Button danger ref={deleteBtnRef} type="dashed">Delete</Button>
         <Button type="link"  onClick={() => {
+          setCurrent(0)
           setOpen(true)
         }}>点击开启引导</Button>
       </Space>
-
       <Tour
-        defaultCurrent={0}
-        type="primary"
-        open={open}
+        current={current}
+        onClose={onClose}
         steps={[
           {
             title: '创建',
             description: '创建一条数据',
             target: () => createBtnRef.current,
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            nextButtonProps:{
+              onClick:()=>setCurrent(current+1)
+            }
           },
           {
             title: '更新',
@@ -54,6 +63,12 @@ const App: React.FC = () => {
               </div>
             ),
             target: () => updateBtnRef.current,
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            nextButtonProps:{
+              onClick:()=>setCurrent(current+1)
+            }
           },
           {
             title: '删除',
@@ -64,6 +79,12 @@ const App: React.FC = () => {
             ),
             target: () => deleteBtnRef.current,
             style: { color: 'red' },
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            finishButtonProps:{
+              onClick:onClose,
+            }
           },
         ]}
       />
