@@ -274,7 +274,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
 
   warning(
     !('message' in args),
-    'Modal',
+    'Notification',
     `\`message\` will be removed in next major version, please use \`title\` instead.`,
   );
 
