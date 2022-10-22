@@ -66,7 +66,9 @@ describe('Transfer.Search', () => {
   it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
     const props = { onSearchChange };
-    const { container } = render(<Transfer render={item => item.title!} {...props} showSearch />);
+    const { container } = render(
+      <Transfer render={(item: any) => item.title} {...props} dataSource={[]} showSearch />,
+    );
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: 'a' } });
     expect(errorSpy).not.toHaveBeenCalled();
     expect(onSearchChange).not.toHaveBeenCalled();
