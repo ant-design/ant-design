@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { MenuProps } from '..';
 import Menu from '..';
 
 describe('Menu.typescript', () => {
@@ -30,6 +31,57 @@ describe('Menu.typescript', () => {
             ],
           },
           { key: 'divider', type: 'divider' },
+          null,
+        ]}
+      />
+    );
+
+    expect(menu).toBeTruthy();
+  });
+
+  it('Menu.items Customizable attributes', () => {
+    const menu = (
+      <Menu<MenuProps<{ 'data-x': number }>>
+        items={[
+          { key: 'item', title: 'Item', 'data-x': 1 },
+          {
+            key: 'submenu',
+            theme: 'light',
+            'data-x': 1,
+            children: [
+              { key: 'submenu-item', title: 'SubmenuItem2', 'data-x': 1 },
+              { key: 'submenu-submenu', theme: 'light', children: [], 'data-x': 1 },
+              { key: 'submenu-divider', type: 'divider', 'data-x': 1 },
+              { key: 'submenu-group', type: 'group', 'data-x': 1 },
+              { key: 'submenu-group', type: 'group', 'data-x': 1 },
+              null,
+            ],
+          },
+          null,
+        ]}
+      />
+    );
+
+    expect(menu).toBeTruthy();
+  });
+
+  it('Menu.items Customizable optional attributes', () => {
+    const menu = (
+      <Menu<MenuProps<{ 'data-x'?: number }>>
+        items={[
+          { key: 'item', title: 'Item', 'data-x': 222 },
+          {
+            key: 'submenu',
+            theme: 'light',
+            children: [
+              { key: 'submenu-item', title: 'SubmenuItem2' },
+              { key: 'submenu-submenu', theme: 'light', children: [] },
+              { key: 'submenu-divider', type: 'divider' },
+              { key: 'submenu-group', type: 'group' },
+              { key: 'submenu-group', type: 'group' },
+              null,
+            ],
+          },
           null,
         ]}
       />

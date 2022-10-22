@@ -1,93 +1,92 @@
-import { ItemGroup } from 'rc-menu';
-import type {
-  MenuDividerType as RcMenuDividerType,
-  MenuItemGroupType as RcMenuItemGroupType,
-  MenuItemType as RcMenuItemType,
-  SubMenuType as RcSubMenuType,
-} from 'rc-menu/lib/interface';
 import * as React from 'react';
-import MenuDivider from '../MenuDivider';
-import MenuItem from '../MenuItem';
-import SubMenu from '../SubMenu';
+import type { MenuProps } from '..';
+import Menu from '..';
 
-export interface MenuItemType extends RcMenuItemType {
-  danger?: boolean;
-  icon?: React.ReactNode;
-  title?: string;
-}
+describe('Menu.typescript', () => {
+  it('Menu.items', () => {
+    const menu = (
+      <Menu
+        items={[
+          { key: 'item', title: 'Item' },
+          {
+            key: 'submenu',
+            theme: 'light',
+            children: [
+              { key: 'submenu-item', title: 'SubmenuItem' },
+              { key: 'submenu-submenu', theme: 'light', children: [] },
+              { key: 'submenu-divider', type: 'divider' },
+              { key: 'submenu-group', type: 'group' },
+              null,
+            ],
+          },
+          {
+            key: 'group',
+            type: 'group',
+            children: [
+              { key: 'group-item', label: 'GroupItem' },
+              { key: 'group-submenu', theme: 'light', children: [] },
+              { key: 'group-divider', type: 'divider' },
+              { key: 'group-group', type: 'group' },
+              null,
+            ],
+          },
+          { key: 'divider', type: 'divider' },
+          null,
+        ]}
+      />
+    );
 
-export interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
-  icon?: React.ReactNode;
-  theme?: 'dark' | 'light';
-  children: ItemType[];
-}
+    expect(menu).toBeTruthy();
+  });
 
-export interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
-  children?: ItemType[];
-  key?: React.Key;
-}
+  it('Menu.items Customizable attributes', () => {
+    const menu = (
+      <Menu<MenuProps<{ 'data-x': number }>>
+        items={[
+          { key: 'item', title: 'Item', 'data-x': 1 },
+          {
+            key: 'submenu',
+            theme: 'light',
+            'data-x': 1,
+            children: [
+              { key: 'submenu-item', title: 'SubmenuItem2', 'data-x': 1 },
+              { key: 'submenu-submenu', theme: 'light', children: [], 'data-x': 1 },
+              { key: 'submenu-divider', type: 'divider', 'data-x': 1 },
+              { key: 'submenu-group', type: 'group', 'data-x': 1 },
+              { key: 'submenu-group', type: 'group', 'data-x': 1 },
+              null,
+            ],
+          },
+          null,
+        ]}
+      />
+    );
 
-export interface MenuDividerType extends RcMenuDividerType {
-  dashed?: boolean;
-  key?: React.Key;
-}
+    expect(menu).toBeTruthy();
+  });
 
-export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType | null;
+  it('Menu.items Customizable optional attributes', () => {
+    const menu = (
+      <Menu<MenuProps<{ 'data-x'?: number }>>
+        items={[
+          { key: 'item', title: 'Item', 'data-x': 222 },
+          {
+            key: 'submenu',
+            theme: 'light',
+            children: [
+              { key: 'submenu-item', title: 'SubmenuItem2' },
+              { key: 'submenu-submenu', theme: 'light', children: [] },
+              { key: 'submenu-divider', type: 'divider' },
+              { key: 'submenu-group', type: 'group' },
+              { key: 'submenu-group', type: 'group' },
+              null,
+            ],
+          },
+          null,
+        ]}
+      />
+    );
 
-function convertItemsToNodes(list: ItemType[]) {
-  return (list || [])
-    .map((opt, index) => {
-      if (opt && typeof opt === 'object') {
-        const { label, children, key, type, ...restProps } = opt as any;
-        const mergedKey = key ?? `tmp-${index}`;
-
-        // MenuItemGroup & SubMenuItem
-        if (children || type === 'group') {
-          if (type === 'group') {
-            // Group
-            return (
-              <ItemGroup key={mergedKey} {...restProps} title={label}>
-                {convertItemsToNodes(children)}
-              </ItemGroup>
-            );
-          }
-
-          // Sub Menu
-          return (
-            <SubMenu key={mergedKey} {...restProps} title={label}>
-              {convertItemsToNodes(children)}
-            </SubMenu>
-          );
-        }
-
-        // MenuItem & Divider
-        if (type === 'divider') {
-          return <MenuDivider key={mergedKey} {...restProps} />;
-        }
-
-        return (
-          <MenuItem key={mergedKey} {...restProps}>
-            {label}
-          </MenuItem>
-        );
-      }
-
-      return null;
-    })
-    .filter(opt => opt);
-}
-
-// FIXME: Move logic here in v5
-/**
- * We simply convert `items` to ReactNode for reuse origin component logic. But we need move all the
- * logic from component into this hooks when in v5
- */
-export default function useItems(items?: ItemType[]) {
-  return React.useMemo(() => {
-    if (!items) {
-      return items;
-    }
-
-    return convertItemsToNodes(items);
-  }, [items]);
-}
+    expect(menu).toBeTruthy();
+  });
+});
