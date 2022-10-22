@@ -11,14 +11,48 @@ import { useRowStyle } from './style';
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
+type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type ResponsiveLike<T> = {
+  [key in Responsive]?: T;
+};
+
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
+
+type ResponsiveAligns = ResponsiveLike<typeof RowAligns[number]>;
+type ResponsiveJustify = ResponsiveLike<typeof RowJustify[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number];
-  justify?: typeof RowJustify[number];
+  align?: typeof RowAligns[number] | ResponsiveAligns;
+  justify?: typeof RowJustify[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
+}
+
+function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], screen: ScreenMap) {
+  const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
+
+  const clacMergeAlignOrJustify = () => {
+    if (typeof oriProp !== 'object') {
+      return;
+    }
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      // if do not match, do nothing
+      if (!screen[breakpoint]) continue;
+      const curVal = oriProp[breakpoint];
+      if (curVal !== undefined) {
+        setProp(curVal);
+        return;
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    clacMergeAlignOrJustify();
+  }, [JSON.stringify(oriProp), screen]);
+
+  return prop;
 }
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
@@ -44,6 +78,20 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xl: true,
     xxl: true,
   });
+  // to save screens info when responsiveObserve callback had been call
+  const [curScreens, setCurScreens] = React.useState<ScreenMap>({
+    xs: false,
+    sm: false,
+    md: false,
+    lg: false,
+    xl: false,
+    xxl: false,
+  });
+
+  // ================================== calc reponsive data ==================================
+  const mergeAlign = useMergePropByScreen(align, curScreens);
+
+  const mergeJustify = useMergePropByScreen(justify, curScreens);
 
   const supportFlexGap = useFlexGapSupport();
 
@@ -52,6 +100,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   // ================================== Effect ==================================
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(screen => {
+      setCurScreens(screen);
       const currentGutter = gutterRef.current || 0;
       if (
         (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
@@ -91,8 +140,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     prefixCls,
     {
       [`${prefixCls}-no-wrap`]: wrap === false,
-      [`${prefixCls}-${justify}`]: justify,
-      [`${prefixCls}-${align}`]: align,
+      [`${prefixCls}-${mergeJustify}`]: mergeJustify,
+      [`${prefixCls}-${mergeAlign}`]: mergeAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,

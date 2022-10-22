@@ -22,6 +22,7 @@ import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { useCompactItemContext } from '../space/Compact';
 import warning from '../_util/warning';
 
 import useStyle from './style';
@@ -119,6 +120,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
@@ -181,7 +183,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = compactSize || customizeSize || size;
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -196,6 +198,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    compactItemClassnames,
     className,
     hashId,
   );

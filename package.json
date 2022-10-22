@@ -91,7 +91,7 @@
     "test-node": "npm run version && jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
-    "test-image": "npm run dist && jest --config .jest.image.js --no-cache -i -u",
+    "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "node ./scripts/argos-upload.js",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16",
@@ -306,13 +306,13 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "372 kB"
+      "limit": "373 kB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "372 kB"
+      "maxSize": "373 kB"
     }
   ],
   "tnpm": {
