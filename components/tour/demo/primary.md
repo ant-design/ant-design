@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-最简单的用法。
+Primary主题模式。
 
 ## en-US
 
-The most basic usage.
+Primary theme mode.
 
 ```tsx
 import React, { useRef } from 'react';
