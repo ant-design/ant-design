@@ -17,7 +17,7 @@ To see if bordered style applied to other tables.
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
 import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'antd';
+import { Badge, Dropdown, Form, Space, Switch, Table } from 'antd';
 import React, { useState } from 'react';
 
 interface DataType {
@@ -37,14 +37,10 @@ interface ExpandedDataType {
   upgradeNum: string;
 }
 
-const menu = (
-  <Menu
-    items={[
-      { key: '1', label: 'Action 1' },
-      { key: '2', label: 'Action 2' },
-    ]}
-  />
-);
+const items = [
+  { key: '1', label: 'Action 1' },
+  { key: '2', label: 'Action 2' },
+];
 
 const App: React.FC = () => {
   const createExpandedRowRender = (bordered: boolean) => () => {
@@ -70,7 +66,7 @@ const App: React.FC = () => {
           <Space size="middle">
             <a>Pause</a>
             <a>Stop</a>
-            <Dropdown overlay={menu}>
+            <Dropdown menu={{ items }}>
               <a>
                 More <DownOutlined />
               </a>
