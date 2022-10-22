@@ -81,7 +81,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           insetBlockStart: '12px',
           fontWeight: '700',
           lineHeight: '1',
-          textShadow: '0 1px 0 #fff',
+          textShadow: `0 1px 0 ${colorBgBase}`,
           filter: 'alpha(opacity=20)',
           opacity: '.2',
           textDecoration: 'none',
