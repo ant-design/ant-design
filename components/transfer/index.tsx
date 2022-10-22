@@ -69,7 +69,7 @@ export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
   disabled?: boolean;
-  dataSource: RecordType[];
+  dataSource?: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender<RecordType>;
@@ -115,13 +115,6 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   static Operation = Operation;
 
   static Search = Search;
-
-  static defaultProps = {
-    dataSource: [],
-    locale: {},
-    showSearch: false,
-    listStyle: () => {},
-  };
 
   static getDerivedStateFromProps<T>({
     selectedKeys,
@@ -180,11 +173,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     return this.props.titles ?? transferLocale.titles ?? [];
   }
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
-    ...transferLocale,
-    notFoundContent: renderEmpty('Transfer'),
-    ...this.props.locale,
-  });
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
+    const { locale = {} } = this.props;
+    return { ...transferLocale, notFoundContent: renderEmpty('Transfer'), ...locale };
+  };
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
@@ -192,7 +184,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
     const newMoveKeys = moveKeys.filter(
-      (key: string) => !dataSource.some(data => !!(key === data.key && data.disabled)),
+      key => !dataSource.some(data => !!(key === data.key && data.disabled)),
     );
     // move items to target box
     const newTargetKeys =
@@ -324,7 +316,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   };
 
   separateDataSource() {
-    const { dataSource, rowKey, targetKeys = [] } = this.props;
+    const { dataSource = [], rowKey, targetKeys = [] } = this.props;
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
@@ -365,10 +357,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                     className,
                     disabled,
                     operations = [],
-                    showSearch,
+                    showSearch = false,
                     footer,
                     style,
-                    listStyle,
+                    listStyle = {},
                     operationStyle,
                     filterOption,
                     render,
