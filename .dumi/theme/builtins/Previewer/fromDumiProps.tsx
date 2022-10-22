@@ -39,7 +39,7 @@ export default function fromDumiProps<P extends object>(
   const hoc = function DumiPropsAntdPreviewer(props: IPreviewerProps) {
     const showRiddleButton = useShowRiddleButton();
     const location = useLocation();
-    const { asset, children, demoUrl, description = '', ...meta } = props;
+    const { asset, children, demoUrl, expand, description = '', ...meta } = props;
     const intl = useIntl();
     const entryCode = asset.dependencies['index.tsx'].value;
     const transformedProps = {
@@ -88,7 +88,7 @@ export default function fromDumiProps<P extends object>(
       location,
       src: demoUrl,
       // TODO: pass from DemoWrapper
-      expand: false,
+      expand,
       // FIXME: confirm is there has any case?
       highlightedStyle: '',
       // FIXME: dumi support usePrefersColor
