@@ -14,10 +14,10 @@ const listCommonProps: TransferListProps<any> = {
   notFoundContent: 'Not Found',
 } as TransferListProps<any>;
 
-const listProps = {
+const listProps: TransferListProps<any> = {
   ...listCommonProps,
-  dataSource: undefined as unknown as TransferListProps<any>['dataSource'],
-} as TransferListProps<any>;
+  dataSource: undefined as unknown as any[],
+};
 
 describe('Transfer.List', () => {
   it('should render correctly', () => {
