@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import { Radio, Input, Empty } from 'antd';
+import { Radio, Input, Empty, Affix } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
@@ -84,33 +84,35 @@ const IconDisplay: React.FC<IconDisplayProps> = ({ intl }) => {
   }, [displayState.searchKey, displayState.theme]);
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Radio.Group
-          value={displayState.theme}
-          onChange={handleChangeTheme}
-          size="large"
-          buttonStyle="solid"
-        >
-          <Radio.Button value={ThemeType.Outlined}>
-            <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
-          </Radio.Button>
-          <Radio.Button value={ThemeType.Filled}>
-            <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
-          </Radio.Button>
-          <Radio.Button value={ThemeType.TwoTone}>
-            <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
-          </Radio.Button>
-        </Radio.Group>
-        <Input.Search
-          placeholder={messages['app.docs.components.icon.search.placeholder']}
-          style={{ margin: '0 10px', flex: 1 }}
-          allowClear
-          onChange={e => handleSearchIcon(e.currentTarget.value)}
-          size="large"
-          autoFocus
-          suffix={<IconPicSearcher />}
-        />
-      </div>
+      <Affix offsetTop={0}>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Radio.Group
+            value={displayState.theme}
+            onChange={handleChangeTheme}
+            size="large"
+            buttonStyle="solid"
+          >
+            <Radio.Button value={ThemeType.Outlined}>
+              <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
+            </Radio.Button>
+            <Radio.Button value={ThemeType.Filled}>
+              <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
+            </Radio.Button>
+            <Radio.Button value={ThemeType.TwoTone}>
+              <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
+            </Radio.Button>
+          </Radio.Group>
+          <Input.Search
+            placeholder={messages['app.docs.components.icon.search.placeholder']}
+            style={{ margin: '0 10px', flex: 1 }}
+            allowClear
+            onChange={e => handleSearchIcon(e.currentTarget.value)}
+            size="large"
+            autoFocus
+            suffix={<IconPicSearcher />}
+          />
+        </div>
+      </Affix>
       {renderCategories}
     </>
   );
