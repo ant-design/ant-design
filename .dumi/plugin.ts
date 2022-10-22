@@ -1,5 +1,5 @@
 import fs from 'fs';
-import type { IApi } from 'dumi';
+import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 
 /**
@@ -30,12 +30,37 @@ class AntdReactTechStack extends ReactTechStack {
   }
 }
 
-export default (api: IApi) => {
-  // @ts-ignore
+const resolve = (path: string): string => require.resolve(path);
+
+const RoutesPlugin = (api: IApi) => {
   api.registerTechStack(() => new AntdReactTechStack());
 
-  // api.modifyRoutes((routes) => {
-  //   // TODO: append extra routes, such as home, changelog, form-v3
-  //   return routes;
-  // });
+  api.modifyRoutes(routes => {
+    // TODO: append extra routes, such as home, changelog, form-v3
+
+    const extraRoutesList: IRoute[] = [
+      {
+        id: 'changelog-cn',
+        path: 'changelog-cn',
+        absPath: '/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../CHANGELOG.zh-CN.md'),
+      },
+      {
+        id: 'changelog',
+        path: 'changelog',
+        absPath: '/changelog',
+        parentId: 'DocLayout',
+        file: resolve('../CHANGELOG.en-US.md'),
+      },
+    ];
+
+    extraRoutesList.forEach(itemRoute => {
+      routes[itemRoute.path] = itemRoute;
+    });
+
+    return routes;
+  });
 };
+
+export default RoutesPlugin;
