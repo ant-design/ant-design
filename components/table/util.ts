@@ -24,7 +24,7 @@ export function getColumnPos(index: number, pos?: string) {
  * @returns
  */
 function getElementFirstTextContent(node: React.ReactElement): string {
-  if (!node.props || !node.props.children) return '';
+  if (!node || !node.props || !node.props.children) return '';
   if (typeof node.props.children === 'string') return node.props.children;
   return (
     node.props.children.map((item: React.ReactElement) => getElementFirstTextContent(item))?.[0] ||
