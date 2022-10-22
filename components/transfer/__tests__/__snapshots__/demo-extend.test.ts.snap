@@ -6539,7 +6539,27 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
-                            />
+                            >
+                              <div
+                                class="ant-table-selection"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </th>
                             <th
                               class="ant-table-cell"
                             >
@@ -7368,7 +7388,27 @@ Array [
                           <tr>
                             <th
                               class="ant-table-cell ant-table-selection-column"
-                            />
+                            >
+                              <div
+                                class="ant-table-selection"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                              </div>
+                            </th>
                             <th
                               class="ant-table-cell"
                             >

@@ -42,8 +42,9 @@ export function renderColumnTitle<RecordType>(
   }
   // fix: #38155
   if (React.isValidElement(title)) {
-    // if title is a React Element, we should get first text content as result
-    return getElementFirstTextContent(title);
+    // if title is a React Element, we should get first text content as result,
+    // if there has not text content in React Element, return origin title
+    return getElementFirstTextContent(title) || title;
   }
 
   return title;
