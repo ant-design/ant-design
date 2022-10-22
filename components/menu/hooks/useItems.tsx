@@ -16,14 +16,14 @@ export interface MenuItemType extends RcMenuItemType {
   title?: string;
 }
 
-export interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
+export interface SubMenuType<T> extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
-  children: ItemType[];
+  children: ItemType<T>[];
 }
 
-export interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
-  children?: ItemType[];
+export interface MenuItemGroupType<T> extends Omit<RcMenuItemGroupType, 'children'> {
+  children?: ItemType<T>[];
   key?: React.Key;
 }
 
@@ -32,7 +32,12 @@ export interface MenuDividerType extends RcMenuDividerType {
   key?: React.Key;
 }
 
-export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType | null;
+export type ItemType<T = {}> =
+  | (MenuItemType & T)
+  | (SubMenuType<T> & T)
+  | (MenuItemGroupType<T> & T)
+  | (MenuDividerType & T)
+  | null;
 
 function convertItemsToNodes(list: ItemType[]) {
   return (list || [])
