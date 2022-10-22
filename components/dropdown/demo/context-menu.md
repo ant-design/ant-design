@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 10
 title:
   zh-CN: 右键菜单
   en-US: Context Menu
@@ -14,30 +14,27 @@ title:
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
 ```tsx
-import { Dropdown, Menu } from 'antd';
+import type { MenuProps } from 'antd';
+import { Dropdown } from 'antd';
 import React from 'react';
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: '1st menu item',
-        key: '1',
-      },
-      {
-        label: '2nd menu item',
-        key: '2',
-      },
-      {
-        label: '3rd menu item',
-        key: '3',
-      },
-    ]}
-  />
-);
+const items: MenuProps['items'] = [
+  {
+    label: '1st menu item',
+    key: '1',
+  },
+  {
+    label: '2nd menu item',
+    key: '2',
+  },
+  {
+    label: '3rd menu item',
+    key: '3',
+  },
+];
 
 const App: React.FC = () => (
-  <Dropdown overlay={menu} trigger={['contextMenu']}>
+  <Dropdown menu={{ items }} trigger={['contextMenu']}>
     <div
       className="site-dropdown-context-menu"
       style={{

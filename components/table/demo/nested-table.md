@@ -16,7 +16,7 @@ Showing more detailed info of every row.
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
 import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Menu, Space, Table } from 'antd';
+import { Badge, Dropdown, Space, Table } from 'antd';
 import React from 'react';
 
 interface DataType {
@@ -36,14 +36,10 @@ interface ExpandedDataType {
   upgradeNum: string;
 }
 
-const menu = (
-  <Menu
-    items={[
-      { key: '1', label: 'Action 1' },
-      { key: '2', label: 'Action 2' },
-    ]}
-  />
-);
+const items = [
+  { key: '1', label: 'Action 1' },
+  { key: '2', label: 'Action 2' },
+];
 
 const App: React.FC = () => {
   const expandedRowRender = () => {
@@ -69,7 +65,7 @@ const App: React.FC = () => {
           <Space size="middle">
             <a>Pause</a>
             <a>Stop</a>
-            <Dropdown overlay={menu}>
+            <Dropdown menu={{ items }}>
               <a>
                 More <DownOutlined />
               </a>

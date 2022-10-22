@@ -457,7 +457,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
   }
 
-  const menu = (
+  const menu = () => (
     <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
       {dropdownContent}
     </FilterDropdownMenuWrapper>
@@ -478,7 +478,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
       <Dropdown
-        overlay={menu}
+        dropdownRender={menu}
         trigger={['click']}
         open={mergedVisible}
         onOpenChange={onVisibleChange}
