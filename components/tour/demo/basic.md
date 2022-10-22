@@ -26,9 +26,7 @@ const App: React.FC = () => {
   const [show,setShow] = useState(false)
 
   useEffect(()=>{
-    return ()=>{
-      setShow(true)
-    }
+    if(!show) setShow(true)
   },[show])
 
   return (
