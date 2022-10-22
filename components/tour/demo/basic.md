@@ -14,45 +14,52 @@ title:
 The most basic usage.
 
 ```tsx
-import React, { useRef } from 'react';
-import { Button } from 'antd';
+import React, { useRef,useState } from 'react';
+import { Button,Space } from 'antd';
 import Tour from '../index';
 
 const App: React.FC = () => {
   const createBtnRef = useRef<HTMLButtonElement>(null);
   const updateBtnRef = useRef<HTMLButtonElement>(null);
   const deleteBtnRef = useRef<HTMLButtonElement>(null);
-  const [open, setOpen] = React.useState(false);
+
+  const [current,setCurrent] = useState(-1)
+
+  const onClose=()=>{
+    setCurrent(-1)
+  }
   return (
     <div style={{ margin: 20 }}>
-      <Button
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        点击开启引导
-      </Button>
-      <div style={{ height: 200 }} />
-      <div>
-        <Button type="primary" ref={createBtnRef} style={{ marginLeft: 100 }}>
-          Create
-        </Button>
-        <div style={{ height: 200 }} />
+      <Space>
+        <Button type="primary" ref={createBtnRef}>Create</Button>
         <Button ref={updateBtnRef}>Update</Button>
-        <Button danger ref={deleteBtnRef} style={{ marginLeft: 200 }}>
-          Delete
-        </Button>
-      </div>
-      <div style={{ height: 200 }} />
-
+        <Button danger ref={deleteBtnRef} type="dashed">Delete</Button>
+        <Button type="link"  onClick={() => {
+          setCurrent(0)
+        }}>点击开启引导</Button>
+      </Space>
       <Tour
-        open={open}
-        defaultCurrent={0}
+        current={current}
+        onClose={onClose}
         steps={[
           {
-            title: '创建',
-            description: '创建一条数据',
+            title: '引导标题',
+            description:
+              '我是内容我是内容我是内容我是内容,我是内容我是内容我是内容我是内容我是内容我是内容',
             target: () => createBtnRef.current,
+            cover: (
+              <img
+                style={{ height: 200 }}
+                alt='girl.png'
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            ),
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            nextButtonProps:{
+              onClick:()=>setCurrent(current+1)
+            }
           },
           {
             title: '更新',
@@ -63,6 +70,12 @@ const App: React.FC = () => {
               </div>
             ),
             target: () => updateBtnRef.current,
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            nextButtonProps:{
+              onClick:()=>setCurrent(current+1)
+            }
           },
           {
             title: '删除',
@@ -73,6 +86,12 @@ const App: React.FC = () => {
             ),
             target: () => deleteBtnRef.current,
             style: { color: 'red' },
+            prevButtonProps:{
+              onClick: ()=>setCurrent(current-1)
+            },
+            finishButtonProps:{
+              onClick:()=>setCurrent(-1)
+            }
           },
         ]}
       />

@@ -15,7 +15,7 @@ Primary theme mode.
 
 ```tsx
 import React, { useRef } from 'react';
-import { Button } from 'antd';
+import { Button,Space } from 'antd';
 import Tour from '../index';
 
 const App: React.FC = () => {
@@ -26,26 +26,14 @@ const App: React.FC = () => {
 
   return (
     <div style={{ margin: 20 }}>
-      <Button
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        点击开启引导
-      </Button>
-      <div style={{ height: 200 }} />
-      <div>
-        <Button type="primary" ref={createBtnRef} style={{ marginLeft: 100 }}>
-          Create
-        </Button>
-        <div style={{ height: 200 }} />
+      <Space>
+        <Button type="primary" ref={createBtnRef}>Create</Button>
         <Button ref={updateBtnRef}>Update</Button>
-        <Button danger ref={deleteBtnRef} style={{ marginLeft: 200 }}>
-          Delete
-        </Button>
-      </div>
-
-      <div style={{ height: 200 }} />
+        <Button danger ref={deleteBtnRef} type="dashed">Delete</Button>
+        <Button type="link"  onClick={() => {
+          setOpen(true)
+        }}>点击开启引导</Button>
+      </Space>
 
       <Tour
         defaultCurrent={0}

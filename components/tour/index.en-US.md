@@ -18,18 +18,11 @@ Often used when a user enters a website or a page for the first time,or a page o
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| target | Get the element the guide card points to | `() => HTMLElement`\|`HTMLElement` | - |  |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the elemen | `boolean`\|`{ pointAtCenter: boolean}` | `true` |  |
-| cover | Displayed pictures or videos | `ReactNode` | - |  |
-| title | title | `ReactNode` | - |  |
-| description | description | `ReactNode` | - |  |
 | placement | Position of the guide card relative to the target element | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking, the default follows the `mask` property of Tour | `boolean` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
-| nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | `{ children: 'next' }` |  |
-| prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | `{ children: 'pre' }` |  |
-| rootClassName |  | `string` | - |  |
 
 ### TourStep
 
