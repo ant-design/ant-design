@@ -26,7 +26,7 @@ export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
-export interface MenuProps extends Omit<RcMenuProps, 'items'> {
+export interface MenuProps<T = {}> extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -36,7 +36,7 @@ export interface MenuProps extends Omit<RcMenuProps, 'items'> {
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
-  items?: ItemType[];
+  items?: ItemType<T>[];
 }
 
 type InternalMenuProps = MenuProps &
@@ -50,7 +50,6 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -175,7 +174,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 });
 
 // We should keep this as ref-able
-class Menu extends React.Component<MenuProps, {}> {
+class Menu<T extends MenuProps = MenuProps> extends React.Component<T, {}> {
   static Divider = MenuDivider;
 
   static Item = Item;
