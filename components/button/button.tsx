@@ -8,7 +8,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import { cloneElement } from '../_util/reactNode';
+import { cloneElement, isFragment } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
@@ -23,10 +23,6 @@ function isString(str: any) {
 
 function isUnBorderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
-}
-
-function isReactFragment(node: React.ReactNode) {
-  return React.isValidElement(node) && node.type === React.Fragment;
 }
 
 // Insert one space between two chinese characters automatically.
@@ -50,7 +46,7 @@ function insertSpace(child: React.ReactElement | string | number, needInserted: 
   if (typeof child === 'string') {
     return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
   }
-  if (isReactFragment(child)) {
+  if (isFragment(child)) {
     return <span>{child}</span>;
   }
   return child;

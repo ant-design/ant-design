@@ -69,7 +69,7 @@ export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
   disabled?: boolean;
-  dataSource: RecordType[];
+  dataSource?: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender<RecordType>;
@@ -116,13 +116,6 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   static Search = Search;
 
-  static defaultProps = {
-    dataSource: [],
-    locale: {},
-    showSearch: false,
-    listStyle: () => {},
-  };
-
   static getDerivedStateFromProps<T>({
     selectedKeys,
     targetKeys,
@@ -156,8 +149,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-      targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
+      sourceSelectedKeys: selectedKeys.filter(key => !targetKeys.includes(key)),
+      targetSelectedKeys: selectedKeys.filter(key => targetKeys.includes(key)),
     };
   }
 
@@ -180,11 +173,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     return this.props.titles ?? transferLocale.titles ?? [];
   }
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
-    ...transferLocale,
-    notFoundContent: renderEmpty('Transfer'),
-    ...this.props.locale,
-  });
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
+    const { locale = {} } = this.props;
+    return { ...transferLocale, notFoundContent: renderEmpty('Transfer'), ...locale };
+  };
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
@@ -192,13 +184,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
     const newMoveKeys = moveKeys.filter(
-      (key: string) => !dataSource.some(data => !!(key === data.key && data.disabled)),
+      key => !dataSource.some(data => !!(key === data.key && data.disabled)),
     );
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
+        : targetKeys.filter(targetKey => !newMoveKeys.includes(targetKey));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -214,13 +206,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
     this.setStateKeys(direction, prevKeys => {
-      let mergedCheckedKeys = [];
+      let mergedCheckedKeys: string[] = [];
       if (checkAll) {
         // Merge current keys with origin key
-        mergedCheckedKeys = Array.from(new Set([...prevKeys, ...selectedKeys]));
+        mergedCheckedKeys = Array.from(new Set<string>([...prevKeys, ...selectedKeys]));
       } else {
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter((key: string) => selectedKeys.indexOf(key) === -1);
+        mergedCheckedKeys = prevKeys.filter(key => !selectedKeys.includes(key));
       }
 
       this.handleSelectChange(direction, mergedCheckedKeys);
@@ -324,7 +316,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   };
 
   separateDataSource() {
-    const { dataSource, rowKey, targetKeys = [] } = this.props;
+    const { dataSource = [], rowKey, targetKeys = [] } = this.props;
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
@@ -365,10 +357,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                     className,
                     disabled,
                     operations = [],
-                    showSearch,
+                    showSearch = false,
                     footer,
                     style,
-                    listStyle,
+                    listStyle = {},
                     operationStyle,
                     filterOption,
                     render,

@@ -19,7 +19,7 @@ const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
   const { level = 1, ...restProps } = props;
   let component: keyof JSX.IntrinsicElements;
 
-  if (TITLE_ELE_LIST.indexOf(level) !== -1) {
+  if (TITLE_ELE_LIST.includes(level)) {
     component = `h${level}`;
   } else {
     warning(
