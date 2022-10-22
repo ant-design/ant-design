@@ -69,7 +69,7 @@ export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
   disabled?: boolean;
-  dataSource: RecordType[];
+  dataSource?: RecordType[];
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender<RecordType>;

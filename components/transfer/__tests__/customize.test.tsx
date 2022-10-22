@@ -16,7 +16,7 @@ describe('Transfer.Customize', () => {
   it('props#body does not work anymore', () => {
     const body = jest.fn();
     const props = { body };
-    render(<Transfer {...props} dataSource={[]} />);
+    render(<Transfer {...props} />);
     expect(errorSpy).not.toHaveBeenCalled();
     expect(body).not.toHaveBeenCalled();
   });
