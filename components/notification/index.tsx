@@ -9,6 +9,7 @@ import type { NotificationInstance as RCNotificationInstance } from 'rc-notifica
 import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
 import createUseNotification from './hooks/useNotification';
+import warning from '../_util/warning';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -203,7 +204,12 @@ const typeToIcon = {
 };
 
 export interface ArgsProps {
-  message: React.ReactNode;
+  /**
+   * @deprecated `message` is deprecated which will be removed in next major version. Please use
+   *   `title` instead
+   */
+  message?: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
   btn?: React.ReactNode;
   key?: string;
@@ -231,6 +237,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     type,
     description,
     message,
+    title,
     btn,
     onClose,
     onClick,
@@ -263,6 +270,14 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
+  const mergedMessage = title ?? message;
+
+  warning(
+    !('message' in args),
+    'Modal',
+    `\`message\` will be removed in next major version, please use \`title\` instead.`,
+  );
+
   return {
     content: (
       <ConfigProvider iconPrefixCls={iconPrefixCls}>
@@ -270,7 +285,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
           {iconNode}
           <div className={`${prefixCls}-message`}>
             {autoMarginTag}
-            {message}
+            {mergedMessage}
           </div>
           <div className={`${prefixCls}-description`}>{description}</div>
           {btn ? <span className={`${prefixCls}-btn`}>{btn}</span> : null}

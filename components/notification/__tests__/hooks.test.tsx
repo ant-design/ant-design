@@ -29,7 +29,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.open({
-                  message: null,
+                  title: null,
                   description: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}

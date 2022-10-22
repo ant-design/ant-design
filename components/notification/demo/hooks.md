@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
-      message: `Notification ${placement}`,
+      title: `Notification ${placement}`,
       description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       placement,
     });
