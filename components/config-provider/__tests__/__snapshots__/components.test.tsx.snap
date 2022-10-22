@@ -14690,10 +14690,10 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14701,7 +14701,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -14729,10 +14729,10 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     disabled=""
     type="button"
   >
@@ -14741,7 +14741,7 @@ exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`]
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     disabled=""
     type="button"
   >
@@ -14770,10 +14770,10 @@ exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Dropdown configProvider componentSize large 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default config-btn-lg"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14781,7 +14781,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -14809,10 +14809,10 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
 
 exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14820,7 +14820,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -14848,10 +14848,10 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
 
 exports[`ConfigProvider components Dropdown configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-btn-group ant-dropdown-button"
+  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14859,7 +14859,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -14887,10 +14887,10 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
 
 exports[`ConfigProvider components Dropdown normal 1`] = `
 <div
-  class="ant-btn-group ant-dropdown-button"
+  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14898,7 +14898,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -14926,10 +14926,10 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-btn-group prefix-Dropdown-button"
+  class="ant-space-compact ant-space-compact-block prefix-Dropdown"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14937,7 +14937,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
