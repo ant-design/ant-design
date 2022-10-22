@@ -40,8 +40,8 @@ The properties of config are as follows:
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | icon | Customized icon | ReactNode | - |
 | key | The unique identifier of the Notification | string | - |
-| message | The title of notification box (required), `message` is deprecated which will be removed in next major version. Please use `title` instead | ReactNode | - |
-| title | The title of notification box (required) | ReactNode | - |
+| message | The title of notification box, `message` is deprecated which will be removed in next major version. Please use `title` instead | ReactNode | - |
+| title | The title of notification box | ReactNode | - |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |
