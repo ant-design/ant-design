@@ -29,6 +29,7 @@ Often used when a user enters a website or a page for the first time,or a page o
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | `{ children: 'next' }` |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | `{ children: 'pre' }` |  |
+| rootClassName |  | `string` | - |  |
 
 ### TourStep
 

@@ -29,6 +29,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
+| rootClassName |  | `string` | - |  |
 
 ### TourStep 引导步骤卡片
 
