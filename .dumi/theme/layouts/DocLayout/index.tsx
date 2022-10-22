@@ -1,5 +1,5 @@
 import React, { type FC, useEffect, useRef } from 'react';
-import { useOutlet, useSearchParams } from 'dumi';
+import { useOutlet, useSearchParams, history } from 'dumi';
 import Header from 'dumi/theme/slots/Header';
 import Content from 'dumi/theme/slots/Content';
 import Sidebar from 'dumi/theme/slots/Sidebar';
@@ -51,6 +51,13 @@ const DocLayout: FC = () => {
   const updateMobileMode = () => {
     setIsMobile(window.innerWidth < RESPONSIVE_MOBILE);
   };
+
+  // Redirect to home if needed
+  useEffect(() => {
+    if (!pathname) {
+      history.replace('/index');
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
