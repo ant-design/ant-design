@@ -14,44 +14,54 @@ title:
 The most basic usage.
 
 ```tsx
-import React, { useRef,useState,useEffect } from 'react';
-import { Button,Space } from 'antd';
+import React, { useRef, useState, useEffect } from 'react';
+import { Button, Space } from 'antd';
 import Tour from '../index';
 
 const App: React.FC = () => {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const placementBtnRef = useRef<HTMLButtonElement>(null);
-  const firstUpload = useRef(false)
+  const firstUpload = useRef(false);
 
-  const [show,setShow] = useState(false)
-  const [placement,setPlacement] = useState('bottom')
+  const [show, setShow] = useState(false);
+  const [placement, setPlacement] = useState('bottom');
 
-  useEffect(()=>{
+  useEffect(() => {
     if (!firstUpload.current) {
-     return firstUpload.current = true
+      return (firstUpload.current = true);
     }
-    if(!show) setShow(true)
-  },[show])
+    if (!show) setShow(true);
+  }, [show]);
 
   return (
     <div style={{ margin: 20 }}>
       <Space>
-        <Button type="primary" onClick={() => {
-          setShow(!show)
-        }}>Show</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          Show
+        </Button>
         <Button ref={coverBtnRef}>Cover</Button>
-        <Button type="primary" ref={placementBtnRef}  onClick={() => {
-          setPlacement('top')
-        }}>Placement</Button>
+        <Button
+          ref={placementBtnRef}
+          onClick={() => {
+            setPlacement('top');
+          }}
+        >
+          Placement
+        </Button>
       </Space>
-      {
-        show && <Tour
+      {show && (
+        <Tour
           steps={[
             {
               title: '引导标题',
               description:
                 '我是内容我是内容我是内容我是内容,我是内容我是内容我是内容我是内容我是内容我是内容',
-              target: null
+              target: null,
             },
             {
               title: '更新',
@@ -64,10 +74,10 @@ const App: React.FC = () => {
               target: () => coverBtnRef.current,
               cover: (
                 <img
-                  alt='tour.png'
+                  alt="tour.png"
                   src="https://user-images.githubusercontent.com/5378891/197374836-6a42fed4-4f4a-4a57-b6ca-337824ad9ff9.png"
                 />
-              )
+              ),
             },
             {
               title: '删除',
@@ -78,12 +88,11 @@ const App: React.FC = () => {
               ),
               placement,
               target: () => placementBtnRef.current,
-              style: { color: 'red' }
+              style: { color: 'red' },
             },
           ]}
         />
-      }
-
+      )}
     </div>
   );
 };
