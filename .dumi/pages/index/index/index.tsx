@@ -25,9 +25,6 @@ const useStyle = () => {
 
 const locales = {
   cn: {
-    themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 5.0 全新圆角算法，让你定制主题更简单',
-
     assetsTitle: '组件丰富，选用自如',
     assetsDesc: 'Ant Design 5.0 全新圆角算法，让你定制主题更简单',
 
@@ -35,9 +32,6 @@ const locales = {
     designDesc: 'Ant Design 5.0 全新圆角算法，让你定制主题更简单',
   },
   en: {
-    themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 5.0 全新圆角算法，让你定制主题更简单',
-
     assetsTitle: '组件丰富，选用自如',
     assetsDesc: 'Ant Design 5.0 全新圆角算法，让你定制主题更简单',
 
@@ -65,28 +59,7 @@ const Homepage: FC = () => {
       </Banner>
 
       <div css={style.container}>
-        <Group
-          title={locale.themeTitle}
-          description={locale.themeDesc}
-          id="flexible"
-          background="#F5F8FF"
-          decoration={
-            <>
-              {/* Image Left Top */}
-              <img
-                style={{ position: 'absolute', left: 0, top: -100, height: 500 }}
-                src="https://gw.alipayobjects.com/zos/bmw-prod/0533d7c8-4c06-4663-9652-a3e6405d3558.svg"
-              />
-              {/* Image Right Bottom */}
-              <img
-                style={{ position: 'absolute', right: 0, bottom: -100, height: 287 }}
-                src="https://gw.alipayobjects.com/zos/bmw-prod/7d1dcad9-d49a-4a1d-b736-a5793341083d.svg"
-              />
-            </>
-          }
-        >
-          <Theme />
-        </Group>
+        <Theme />
         <Group title={locale.assetsTitle} description={locale.assetsDesc} id="design" />
         <Group
           title={locale.designTitle}

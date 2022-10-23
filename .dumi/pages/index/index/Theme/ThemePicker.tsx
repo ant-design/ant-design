@@ -3,12 +3,14 @@ import { Space } from 'antd';
 import * as React from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
 
-export const THEMES: Record<string, string> = {
+export const THEMES = {
   default: 'https://gw.alipayobjects.com/zos/bmw-prod/ae669a89-0c65-46db-b14b-72d1c7dd46d6.svg',
   dark: 'https://gw.alipayobjects.com/zos/bmw-prod/0f93c777-5320-446b-9bb7-4d4b499f346d.svg',
   lark: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
   comic: 'https://gw.alipayobjects.com/zos/bmw-prod/ed9b04e8-9b8d-4945-8f8a-c8fc025e846f.svg',
-};
+} as const;
+
+export type THEME = keyof typeof THEMES;
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -41,7 +43,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
   return (
     <Space size={token.paddingLG}>
       {Object.keys(THEMES).map(theme => {
-        const url = THEMES[theme];
+        const url = THEMES[theme as THEME];
 
         return (
           <img

@@ -22,6 +22,8 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
     <div
       className="site-mask"
       style={{
+        position: 'relative',
+        zIndex: 1,
         ...style,
         ...additionalStyle,
       }}
@@ -34,23 +36,25 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
 export interface GroupProps {
   id?: string;
   title?: React.ReactNode;
+  titleColor?: string;
   description?: React.ReactNode;
   children?: React.ReactNode;
   background?: string;
+
   decoration?: React.ReactNode;
 }
 
 export default function Group(props: GroupProps) {
-  const { id, title, description, children, decoration, background } = props;
+  const { id, title, titleColor, description, children, decoration, background } = props;
   const { token } = useSiteToken();
 
   let childNode = (
     <>
       <div style={{ textAlign: 'center' }}>
-        <Typography.Title id={id} level={1} style={{ fontWeight: 400 }}>
+        <Typography.Title id={id} level={1} style={{ fontWeight: 400, color: titleColor }}>
           {title}
         </Typography.Title>
-        <Typography.Paragraph style={{ marginBottom: token.marginFarXS }}>
+        <Typography.Paragraph style={{ marginBottom: token.marginFarXS, color: titleColor }}>
           {description}
         </Typography.Paragraph>
       </div>
@@ -67,8 +71,15 @@ export default function Group(props: GroupProps) {
 
   return (
     <div style={{ position: 'relative' }}>
-      {decoration}
-      <GroupMask disabled={!!background} style={{ paddingBlock: token.marginFarSM, background }}>
+      <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
+      <GroupMask
+        disabled={!!background}
+        style={{
+          paddingBlock: token.marginFarSM,
+          background,
+          transition: `all ${token.motionDurationSlow}`,
+        }}
+      >
         {childNode}
       </GroupMask>
     </div>
