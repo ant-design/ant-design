@@ -52,10 +52,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
 
   const cachedSelectedKeys = React.useRef<Key[]>();
 
-  const treeRef = React.createRef<RcTree>();
-
-  React.useImperativeHandle(ref, () => treeRef.current!);
-
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props));
 
@@ -191,7 +187,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   return (
     <Tree
       icon={getIcon}
-      ref={treeRef}
+      ref={ref}
       blockNode
       {...otherProps}
       showIcon={showIcon}
