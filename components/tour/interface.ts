@@ -24,3 +24,9 @@ export interface TourStepProps extends RCTourStepProps {
   style?: CSSProperties;
   type?: 'default' | 'primary'; //	default	类型，影响底色与文字颜色
 }
+
+export interface TourLocale {
+  nextText: string;
+  preText: string;
+  finishText: string;
+}

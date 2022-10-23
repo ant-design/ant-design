@@ -40,6 +40,11 @@ const localeValues: Locale = {
     cancelText: 'Cancel',
     justOkText: 'OK',
   },
+  Tour: {
+    nextText: 'next step',
+    preText: 'previous',
+    finishText: 'finish the tour',
+  },
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Cancel',

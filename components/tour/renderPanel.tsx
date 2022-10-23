@@ -2,7 +2,9 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Button from '../button';
+import defaultLocale from '../locale/default';
 
 const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
   props: TourStepProps,
@@ -74,31 +76,35 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
 
   const mergedType = type === 'primary' ? 'primary' : 'default';
   return (
-    <>
-      <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
-      {coverNode}
-      {headerNode}
-      {descriptionNode}
-      <div className={`${prefixCls}-footer`}>
-        <div className={`${prefixCls}-sliders`}>{slickNode}</div>
-        <div className={`${prefixCls}-buttons`}>
-          {current !== 0 ? (
-            <Button type={mergedType} {...prevButtonProps} onClick={prevBtnClick}>
-              上一步
-            </Button>
-          ) : null}
-          {current === total - 1 ? (
-            <Button type={mergedType} {...finishButtonProps} onClick={finishBtnClick}>
-              结束引导
-            </Button>
-          ) : (
-            <Button type={mergedType} {...nextButtonProps} onClick={nextBtnClick}>
-              下一步
-            </Button>
-          )}
-        </div>
-      </div>
-    </>
+    <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
+      {contextLocale => (
+        <>
+          <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+          {coverNode}
+          {headerNode}
+          {descriptionNode}
+          <div className={`${prefixCls}-footer`}>
+            <div className={`${prefixCls}-sliders`}>{slickNode}</div>
+            <div className={`${prefixCls}-buttons`}>
+              {current !== 0 ? (
+                <Button type={mergedType} {...prevButtonProps} onClick={prevBtnClick}>
+                  {contextLocale.preText}
+                </Button>
+              ) : null}
+              {current === total - 1 ? (
+                <Button type={mergedType} {...finishButtonProps} onClick={finishBtnClick}>
+                  {contextLocale.finishText}
+                </Button>
+              ) : (
+                <Button type={mergedType} {...nextButtonProps} onClick={nextBtnClick}>
+                  {contextLocale.nextText}
+                </Button>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+    </LocaleReceiver>
   );
 };
 

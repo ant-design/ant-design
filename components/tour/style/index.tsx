@@ -56,7 +56,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       fontSize: fontSizeBase,
       lineHeight: lineHeightLG,
       width: '520px',
-      [`${componentCls}-hidden`]: {
+      [`&${componentCls}-hidden`]: {
         display: 'none',
       },
 
