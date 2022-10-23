@@ -1,6 +1,7 @@
 import React from 'react';
 import type { TriggerProps } from 'rc-trigger';
 import Dropdown from '..';
+import Menu from '../../menu';
 import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
