@@ -21,79 +21,64 @@ import Tour from '../index';
 const App: React.FC = () => {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const placementBtnRef = useRef<HTMLButtonElement>(null);
-  const firstUpload = useRef(false);
+  // const firstUpload = useRef(false);
 
-  const [show, setShow] = useState(false);
-  const [placement, setPlacement] = useState('bottom');
+  const [show, setShow] = useState<boolean | undefined>();
 
   useEffect(() => {
-    if (!firstUpload.current) {
-      return (firstUpload.current = true);
+    if (show === false) {
+      setShow(true);
     }
-    if (!show) setShow(true);
   }, [show]);
 
   return (
-    <div style={{ margin: 20 }}>
+    <>
       <Space>
         <Button
           type="primary"
           onClick={() => {
-            setShow(!show);
+            setShow(false);
           }}
         >
           Show
         </Button>
-        <Button ref={coverBtnRef}>Cover</Button>
-        <Button
-          ref={placementBtnRef}
-          onClick={() => {
-            setPlacement('top');
-          }}
-        >
+        <Button disabled ref={coverBtnRef}>
+          Cover
+        </Button>
+        <Button disabled ref={placementBtnRef}>
           Placement
         </Button>
       </Space>
+
       {show && (
         <Tour
           steps={[
             {
-              title: '引导标题',
-              description:
-                '我是内容我是内容我是内容我是内容,我是内容我是内容我是内容我是内容我是内容我是内容',
+              title: 'Show in Center',
+              description: 'Here is the content of Tour.',
               target: null,
             },
             {
-              title: '更新',
-              description: (
-                <div>
-                  <span>更新一条数据</span>
-                  <Button type="link">帮助文档</Button>
-                </div>
-              ),
+              title: 'With Cover',
+              description: 'Here is the content of Tour.',
               target: () => coverBtnRef.current,
               cover: (
                 <img
                   alt="tour.png"
-                  src="https://user-images.githubusercontent.com/5378891/197374836-6a42fed4-4f4a-4a57-b6ca-337824ad9ff9.png"
+                  src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
                 />
               ),
             },
             {
-              title: '删除',
-              description: (
-                <div>
-                  <span>危险操作：删除一条数据</span>
-                </div>
-              ),
-              placement,
+              title: 'Adjust Placement',
+              description: 'Here is the content of Tour which show on the right.',
+              placement: 'right',
               target: () => placementBtnRef.current,
-              style: { color: 'red' },
             },
           ]}
         />
       )}
-    </div>
+    </>
   );
 };
 
