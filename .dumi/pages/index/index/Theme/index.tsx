@@ -6,8 +6,8 @@ import {
   BellOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
+import useLocale from '../../../../hooks/useLocale';
+import useSiteToken from '../../../../hooks/useSiteToken';
 import {
   Typography,
   Layout,
@@ -24,6 +24,7 @@ import {
   Segmented,
   theme,
 } from 'antd';
+import ThemePicker, { THEMES } from './ThemePicker';
 
 const { Header, Content, Sider } = Layout;
 
@@ -87,7 +88,7 @@ const useStyle = () => {
     side: css``,
 
     form: css`
-      width: 500px;
+      width: 800px;
       margin: 0 auto;
     `,
   };
@@ -131,6 +132,7 @@ const sideMenuItems: MenuProps['items'] = [
 ];
 
 interface ThemeData {
+  themeType: keyof typeof THEMES;
   colorPrimary: string;
   radiusBase: number;
   compact: 'default' | 'compact';
@@ -142,6 +144,7 @@ export default function Theme() {
   const [locale] = useLocale(locales);
 
   const [themeData, setThemeData] = React.useState<ThemeData>({
+    themeType: 'default',
     colorPrimary: '#1677FF',
     radiusBase: 6,
     compact: 'default',
@@ -152,9 +155,13 @@ export default function Theme() {
     setThemeData(nextThemeData);
   };
 
-  const { algorithm, compact, ...token } = themeData;
+  const { algorithm, compact, themeType, ...token } = themeData;
   const isLight = algorithm === 'light';
-  const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
+
+  const algorithmFn = themeType !== 'dark' ? theme.defaultAlgorithm : theme.darkAlgorithm;
+
+  // ================================ Themes ================================
+  React.useEffect(() => {}, [themeType]);
 
   // ================================ Render ================================
   return (
@@ -221,9 +228,14 @@ export default function Theme() {
                   <Form
                     initialValues={themeData}
                     onValuesChange={onThemeChange}
-                    labelCol={{ span: 8 }}
+                    labelCol={{ span: 4 }}
+                    wrapperCol={{ span: 20 }}
                     css={style.form}
                   >
+                    <Form.Item label={locale.titleTheme} name="themeType">
+                      <ThemePicker />
+                    </Form.Item>
+
                     <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
                       <Input style={{ width: 120 }} />
                     </Form.Item>
@@ -236,7 +248,7 @@ export default function Theme() {
                         <Radio value="compact">{locale.compact}</Radio>
                       </Radio.Group>
                     </Form.Item>
-                    <Form.Item label={locale.titleTheme} name="algorithm">
+                    {/* <Form.Item label={locale.titleTheme} name="algorithm">
                       <Segmented
                         options={[
                           {
@@ -249,7 +261,7 @@ export default function Theme() {
                           },
                         ]}
                       />
-                    </Form.Item>
+                    </Form.Item> */}
                   </Form>
                 </Card>
               </Content>
