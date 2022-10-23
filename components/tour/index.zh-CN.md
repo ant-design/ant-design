@@ -26,7 +26,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 
 ### TourStep 引导步骤卡片
 
-| 属性 | 类型 | 默认值 | 说明 | 版本 |
+| 属性 | 说明 | 默认值 | 类型 | 版本 |
 | --- | --- | --- | --- | --- |
 | target | 获取引导卡片指向的元素 | `() => HTMLElement` \| `HTMLElement` | - |  |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
