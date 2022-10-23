@@ -7,7 +7,7 @@ import LZString from 'lz-string';
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import ReactDOM from 'react-dom';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'dumi';
 import BrowserFrame from '../../common/BrowserFrame';
 import EditButton from '../../common/EditButton';
 import CodePenIcon from '../../common/CodePenIcon';

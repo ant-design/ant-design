@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { MenuProps } from 'antd';
 import { Dropdown, Menu, Button } from 'antd';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'dumi';
 import { DownOutlined } from '@ant-design/icons';
 import type { SharedProps } from './interface';
 
