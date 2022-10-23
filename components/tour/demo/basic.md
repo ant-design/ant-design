@@ -21,7 +21,6 @@ import Tour from '../index';
 const App: React.FC = () => {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const placementBtnRef = useRef<HTMLButtonElement>(null);
-  // const firstUpload = useRef(false);
 
   const [show, setShow] = useState<boolean | undefined>();
 
