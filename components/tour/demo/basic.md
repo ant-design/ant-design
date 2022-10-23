@@ -21,11 +21,15 @@ import Tour from '../index';
 const App: React.FC = () => {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
   const placementBtnRef = useRef<HTMLButtonElement>(null);
+  const firstUpload = useRef(false)
 
   const [show,setShow] = useState(false)
   const [placement,setPlacement] = useState('bottom')
 
   useEffect(()=>{
+    if (!firstUpload.current) {
+     return firstUpload.current = true
+    }
     if(!show) setShow(true)
   },[show])
 
@@ -36,7 +40,7 @@ const App: React.FC = () => {
           setShow(!show)
         }}>Show</Button>
         <Button ref={coverBtnRef}>Cover</Button>
-        <Button danger ref={placementBtnRef} type="dashed" onClick={() => {
+        <Button type="primary" ref={placementBtnRef}  onClick={() => {
           setPlacement('top')
         }}>Placement</Button>
       </Space>
@@ -60,9 +64,8 @@ const App: React.FC = () => {
               target: () => coverBtnRef.current,
               cover: (
                 <img
-                  style={{width:200}}
-                  alt='girl.png'
-                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                  alt='tour.png'
+                  src="https://user-images.githubusercontent.com/5378891/197374836-6a42fed4-4f4a-4a57-b6ca-337824ad9ff9.png"
                 />
               )
             },
