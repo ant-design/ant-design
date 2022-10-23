@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'dumi';
 import classNames from 'classnames';
 import { Button, Col, Modal, Popover, Row, Select } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -139,6 +139,7 @@ interface HeaderState {
 }
 
 const Header: React.FC<HeaderProps> = props => {
+  const intl = useIntl();
   const { changeDirection } = props;
   const [, lang] = useLocale();
 
