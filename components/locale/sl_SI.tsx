@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Prekliči',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Išči tukaj',
     itemUnit: 'Objekt',
     itemsUnit: 'Objektov',

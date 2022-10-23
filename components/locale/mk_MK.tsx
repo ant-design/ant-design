@@ -30,6 +30,7 @@ const localeValues: Locale = {
     cancelText: 'Откажи',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Пребарај тука',
     itemUnit: 'предмет',
     itemsUnit: 'предмети',

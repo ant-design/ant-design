@@ -45,7 +45,7 @@ const localeValues: Locale = {
     cancelText: 'Annulla',
   },
   Transfer: {
-	titles: ['', ''],
+    titles: ['', ''],
     searchPlaceholder: 'Cerca qui',
     itemUnit: 'elemento',
     itemsUnit: 'elementi',
@@ -75,7 +75,7 @@ const localeValues: Locale = {
     copied: 'copia effettuata',
     expand: 'espandi',
   },
-    PageHeader: {
+  PageHeader: {
     back: 'Torna',
   },
   Form: {
