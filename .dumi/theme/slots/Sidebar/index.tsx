@@ -4,7 +4,7 @@ import { Affix, Col, Menu, MenuProps } from 'antd';
 import MobileMenu from 'rc-drawer';
 import SiteContext from '../SiteContext';
 import useLocation from '../../../hooks/useLocation';
-import { useFullSidebarData } from 'dumi/dist/client/theme-api/useSidebarData';
+import { useFullSidebarData } from 'dumi';
 
 const Sidebar: FC = () => {
   const sidebarData = useSidebarData();
