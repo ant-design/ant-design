@@ -19,11 +19,11 @@ import { Button,Space } from 'antd';
 import Tour from '../index';
 
 const App: React.FC = () => {
-  const createBtnRef = useRef<HTMLButtonElement>(null);
-  const updateBtnRef = useRef<HTMLButtonElement>(null);
-  const deleteBtnRef = useRef<HTMLButtonElement>(null);
+  const coverBtnRef = useRef<HTMLButtonElement>(null);
+  const placementBtnRef = useRef<HTMLButtonElement>(null);
 
   const [show,setShow] = useState(false)
+  const [placement,setPlacement] = useState('bottom')
 
   useEffect(()=>{
     if(!show) setShow(true)
@@ -32,12 +32,13 @@ const App: React.FC = () => {
   return (
     <div style={{ margin: 20 }}>
       <Space>
-        <Button type="primary" ref={createBtnRef}>Create</Button>
-        <Button ref={updateBtnRef}>Update</Button>
-        <Button danger ref={deleteBtnRef} type="dashed">Delete</Button>
-        <Button type="link"  onClick={() => {
+        <Button type="primary" onClick={() => {
           setShow(!show)
-        }}>点击开启引导</Button>
+        }}>Show</Button>
+        <Button ref={coverBtnRef}>Cover</Button>
+        <Button danger ref={placementBtnRef} type="dashed" onClick={() => {
+          setPlacement('top')
+        }}>Placement</Button>
       </Space>
       {
         show && <Tour
@@ -46,14 +47,7 @@ const App: React.FC = () => {
               title: '引导标题',
               description:
                 '我是内容我是内容我是内容我是内容,我是内容我是内容我是内容我是内容我是内容我是内容',
-              target: () => createBtnRef.current,
-              cover: (
-                <img
-                  style={{ height: 200 }}
-                  alt='girl.png'
-                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                />
-              )
+              target: null
             },
             {
               title: '更新',
@@ -63,7 +57,14 @@ const App: React.FC = () => {
                   <Button type="link">帮助文档</Button>
                 </div>
               ),
-              target: () => updateBtnRef.current,
+              target: () => coverBtnRef.current,
+              cover: (
+                <img
+                  style={{width:200}}
+                  alt='girl.png'
+                  src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                />
+              )
             },
             {
               title: '删除',
@@ -72,7 +73,8 @@ const App: React.FC = () => {
                   <span>危险操作：删除一条数据</span>
                 </div>
               ),
-              target: () => deleteBtnRef.current,
+              placement,
+              target: () => placementBtnRef.current,
               style: { color: 'red' }
             },
           ]}

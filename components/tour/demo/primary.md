@@ -19,9 +19,8 @@ import { Button,Space } from 'antd';
 import Tour from '../index';
 
 const App: React.FC = () => {
-  const createBtnRef = useRef<HTMLButtonElement>(null);
-  const updateBtnRef = useRef<HTMLButtonElement>(null);
-  const deleteBtnRef = useRef<HTMLButtonElement>(null);
+  const showBtnRef = useRef<HTMLButtonElement>(null);
+
   const [open, setOpen] = React.useState(false);
   const [current,setCurrent] = useState(-1)
 
@@ -31,61 +30,36 @@ const App: React.FC = () => {
   return (
     <div style={{ margin: 20 }}>
       <Space>
-        <Button type="primary" ref={createBtnRef}>Create</Button>
-        <Button ref={updateBtnRef}>Update</Button>
-        <Button danger ref={deleteBtnRef} type="dashed">Delete</Button>
-        <Button type="link"  onClick={() => {
-          setCurrent(0)
-          setOpen(true)
-        }}>点击开启引导</Button>
+        <Button
+          type="primary"
+          ref={showBtnRef}
+          onClick={() => {
+            setCurrent(0)
+            setOpen(true)
+          }}
+        >
+          Show
+        </Button>
       </Space>
       <Tour
         current={current}
         onClose={onClose}
+        type='primary'
         steps={[
           {
             title: '创建',
             description: '创建一条数据',
-            target: () => createBtnRef.current,
+            target: () => showBtnRef.current,
             prevButtonProps:{
               onClick: ()=>setCurrent(current-1)
             },
             nextButtonProps:{
               onClick:()=>setCurrent(current+1)
-            }
-          },
-          {
-            title: '更新',
-            description: (
-              <div>
-                <span>更新一条数据</span>
-                <Button type="link">帮助文档</Button>
-              </div>
-            ),
-            target: () => updateBtnRef.current,
-            prevButtonProps:{
-              onClick: ()=>setCurrent(current-1)
-            },
-            nextButtonProps:{
-              onClick:()=>setCurrent(current+1)
-            }
-          },
-          {
-            title: '删除',
-            description: (
-              <div>
-                <span>危险操作：删除一条数据</span>
-              </div>
-            ),
-            target: () => deleteBtnRef.current,
-            style: { color: 'red' },
-            prevButtonProps:{
-              onClick: ()=>setCurrent(current-1)
             },
             finishButtonProps:{
               onClick:onClose,
             }
-          },
+          }
         ]}
       />
     </div>
