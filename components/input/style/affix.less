@@ -28,14 +28,17 @@
       }
     }
 
-    > input.@{ant-prefix}-input {
-      padding: 0;
+    > .@{ant-prefix}-input {
       font-size: inherit;
       border: none;
       outline: none;
 
       &:focus {
         box-shadow: none !important;
+      }
+
+      &:not(textarea) {
+        padding: 0;
       }
     }
 

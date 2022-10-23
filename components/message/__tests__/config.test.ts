@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('message.config', () => {
@@ -87,7 +87,6 @@ describe('message.config', () => {
   });
 
   it('should be able to config duration', async () => {
-    jest.useRealTimers();
     message.config({
       duration: 0.5,
     });
@@ -97,7 +96,7 @@ describe('message.config', () => {
     });
     expect(getInstance()?.component.state.notices).toHaveLength(1);
 
-    await sleep(1000);
+    await waitFakeTimer();
     expect(getInstance()?.component.state.notices).toHaveLength(0);
     message.config({
       duration: 3,
@@ -180,10 +179,10 @@ describe('message.config', () => {
     }
     const [container1, removeContainer1] = createContainer();
     const [container2, removeContainer2] = createContainer();
-    expect((container1 as HTMLDivElement).querySelector('.ant-message-notice')).toBeFalsy();
-    expect((container2 as HTMLDivElement).querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
     message.config({
-      getContainer: () => container1 as HTMLDivElement,
+      getContainer: () => container1,
     });
     const messageText1 = 'mounted in container1';
 
@@ -191,20 +190,16 @@ describe('message.config', () => {
       message.info(messageText1);
     });
 
-    expect(
-      (container1 as HTMLDivElement).querySelector('.ant-message-notice')?.textContent,
-    ).toEqual(messageText1);
+    expect(container1.querySelector('.ant-message-notice')?.textContent).toEqual(messageText1);
     message.config({
-      getContainer: () => container2 as HTMLDivElement,
+      getContainer: () => container2,
     });
     const messageText2 = 'mounted in container2';
 
     act(() => {
       message.info(messageText2);
     });
-    expect(
-      (container2 as HTMLDivElement).querySelector('.ant-message-notice')?.textContent,
-    ).toEqual(messageText2);
+    expect(container2.querySelector('.ant-message-notice')?.textContent).toEqual(messageText2);
     if (typeof removeContainer1 === 'function') {
       removeContainer1();
     }

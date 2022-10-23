@@ -10,9 +10,11 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
+import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import { hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
@@ -136,6 +138,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
+    className,
     onChange,
     ...rest
   } = props;
@@ -144,9 +147,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
+  // ===================== Compact Item =====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
-  const mergedSize = customSize || size;
+  const mergedSize = compactSize || customSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -171,25 +177,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   }, [inputHasPrefixSuffix]);
 
   // ===================== Remove Password value =====================
-  const removePasswordTimeoutRef = useRef<number[]>([]);
-  const removePasswordTimeout = () => {
-    removePasswordTimeoutRef.current.push(
-      window.setTimeout(() => {
-        if (
-          inputRef.current?.input &&
-          inputRef.current?.input.getAttribute('type') === 'password' &&
-          inputRef.current?.input.hasAttribute('value')
-        ) {
-          inputRef.current?.input.removeAttribute('value');
-        }
-      }),
-    );
-  };
-
-  useEffect(() => {
-    removePasswordTimeout();
-    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
-  }, []);
+  const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true);
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     removePasswordTimeout();
@@ -232,19 +220,24 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
+      className={classNames(className, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
-          <NoFormStyle override status>
-            {addonAfter}
-          </NoFormStyle>
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonAfter}
+            </NoFormStyle>
+          </NoCompactStyle>
         )
       }
       addonBefore={
         addonBefore && (
-          <NoFormStyle override status>
-            {addonBefore}
-          </NoFormStyle>
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonBefore}
+            </NoFormStyle>
+          </NoCompactStyle>
         )
       }
       inputClassName={classNames(

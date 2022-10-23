@@ -22,7 +22,7 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
     return `${formName}_${mergedId}`;
   }
 
-  const isIllegalName = formItemNameBlackList.indexOf(mergedId) >= 0;
+  const isIllegalName = formItemNameBlackList.includes(mergedId);
 
   return isIllegalName ? `${defaultItemNamePrefixCls}_${mergedId}` : mergedId;
 }

@@ -20,6 +20,7 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 import warning from '../_util/warning';
+import { useCompactItemContext } from '../space/Compact';
 
 type RawValue = string | number;
 
@@ -96,6 +97,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -157,7 +159,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = compactSize || customizeSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -172,6 +174,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    compactItemClassnames,
     className,
   );
 

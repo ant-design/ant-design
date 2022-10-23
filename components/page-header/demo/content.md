@@ -15,44 +15,40 @@ Show all props provided by PageHeader.
 
 ```tsx
 import { MoreOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu, PageHeader, Row, Tag, Typography } from 'antd';
+import { Button, Dropdown, PageHeader, Row, Tag, Typography } from 'antd';
 import React from 'react';
 
 const { Paragraph } = Typography;
 
-const menu = (
-  <Menu
-    items={[
-      {
-        key: '1',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-            1st menu item
-          </a>
-        ),
-      },
-      {
-        key: '2',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-            2nd menu item
-          </a>
-        ),
-      },
-      {
-        key: '3',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-            3rd menu item
-          </a>
-        ),
-      },
-    ]}
-  />
-);
+const items = [
+  {
+    key: '1',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
+    ),
+  },
+  {
+    key: '2',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
+    ),
+  },
+  {
+    key: '3',
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        3rd menu item
+      </a>
+    ),
+  },
+];
 
 const DropdownMenu = () => (
-  <Dropdown key="more" overlay={menu} placement="bottomRight">
+  <Dropdown key="more" menu={{ items }} placement="bottomRight">
     <Button type="text" icon={<MoreOutlined style={{ fontSize: 20 }} />} />
   </Dropdown>
 );
