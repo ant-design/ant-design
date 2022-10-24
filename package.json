@@ -306,13 +306,13 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "373 kB"
+      "limit": "375 kB"
     }
   ],
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "373 kB"
+      "maxSize": "375 kB"
     }
   ],
   "tnpm": {
