@@ -69,6 +69,7 @@ module.exports = {
     config.resolve.alias = {
       'antd/lib': path.join(process.cwd(), 'components'),
       'antd/es': path.join(process.cwd(), 'components'),
+      'antd/locale': path.join(process.cwd(), 'components/locale'),
       // Change antd from `index.js` to `site/antd.js` to remove deps of root style
       antd: path.join(process.cwd(), 'site', 'antd'),
       site: path.join(process.cwd(), 'site'),
