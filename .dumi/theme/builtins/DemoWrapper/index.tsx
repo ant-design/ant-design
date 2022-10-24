@@ -5,10 +5,6 @@ import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/ic
 import classNames from 'classnames';
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  // TODO: implement demo toolbar
-  // from: https://github.com/ant-design/ant-design/blob/86891775dd6deb4e154b885718a370d31bc78288/site/theme/template/Content/ComponentDoc.jsx#L187-L214
-  //  1. Expand source code for all previewer
-  //  2. Display debug demo
   const [visibleAll, setVisibleAll] = useState(false);
   const [expandAll, setExpandAll] = useState(false);
 
@@ -56,6 +52,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
           )}
         </Tooltip>
       </span>
+      {/* FIXME: find a new way instead of `key` to trigger re-render */}
       <DumiDemoGrid items={filteredItems} key={expandAll + '' + visibleAll} />
     </div>
   );

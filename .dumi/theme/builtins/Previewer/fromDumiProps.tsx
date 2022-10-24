@@ -87,7 +87,6 @@ export default function fromDumiProps<P extends object>(
       style: meta.style,
       location,
       src: demoUrl,
-      // TODO: pass from DemoWrapper
       expand,
       // FIXME: confirm is there has any case?
       highlightedStyle: '',
