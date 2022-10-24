@@ -4,7 +4,7 @@ import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { memo, useContext, useEffect, useMemo, useRef } from 'react';
-import FloatButton, { floatButtonPrefixCls } from '.';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
