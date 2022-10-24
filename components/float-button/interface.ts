@@ -60,4 +60,5 @@ export type CompoundedComponent = React.ForwardRefExoticComponent<
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
