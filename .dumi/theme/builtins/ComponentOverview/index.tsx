@@ -1,8 +1,7 @@
 import React, { useState, memo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useAppData, useLocation, useRouteMeta } from 'dumi';
+import { Link, useAppData, useLocation, useRouteMeta, useIntl } from 'dumi';
 import { css } from '@emotion/react';
-import { useIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';

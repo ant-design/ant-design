@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { FormattedMessage } from 'react-intl';
-import { Link, useLocation } from 'dumi';
+import { Link, useLocation, FormattedMessage } from 'dumi';
 import type { MenuProps } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';

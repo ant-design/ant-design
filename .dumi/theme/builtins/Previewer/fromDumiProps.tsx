@@ -6,7 +6,7 @@ import toReactComponent from 'jsonml-to-react-element';
 // @ts-ignore
 import Prism from 'prismjs';
 import { useLocation } from 'dumi';
-import { useIntl, type IPreviewerProps } from 'dumi/theme';
+import { useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
 
 let pingDeferrer: PromiseLike<boolean>;

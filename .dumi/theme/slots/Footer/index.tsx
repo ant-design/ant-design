@@ -1,8 +1,7 @@
 import React from 'react';
 import RcFooter from 'rc-footer';
-import { Link } from 'dumi';
+import { Link, FormattedMessage } from 'dumi';
 import type { FooterColumn } from 'rc-footer/lib/column';
-import { FormattedMessage } from 'react-intl';
 import {
   AntDesignOutlined,
   BgColorsOutlined,
