@@ -11,7 +11,9 @@ export interface PureFloatButtonProps extends FloatButtonProps {
   backTop?: boolean;
 }
 
-export interface PurePanelProps extends PureFloatButtonProps, FloatButtonGroupProps {
+export interface PurePanelProps
+  extends PureFloatButtonProps,
+    Omit<FloatButtonGroupProps, 'children'> {
   /** Convert to FloatGroup when configured */
   items?: PureFloatButtonProps[];
 }
