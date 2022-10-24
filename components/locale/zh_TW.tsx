@@ -38,9 +38,9 @@ const localeValues: Locale = {
     justOkText: '知道了',
   },
   Tour: {
-    nextText: '下一步',
-    preText: '上一步',
-    finishText: '結束導覽',
+    Next: '下一步',
+    Previous: '上一步',
+    Finish: '結束導覽',
   },
   Popconfirm: {
     okText: '確定',

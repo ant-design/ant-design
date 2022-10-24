@@ -26,7 +26,7 @@ export interface TourStepProps extends RCTourStepProps {
 }
 
 export interface TourLocale {
-  nextText: string;
-  preText: string;
-  finishText: string;
+  Next: string;
+  Previous: string;
+  Finish: string;
 }

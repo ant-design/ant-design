@@ -41,9 +41,9 @@ const localeValues: Locale = {
     justOkText: 'OK',
   },
   Tour: {
-    nextText: 'next step',
-    preText: 'previous',
-    finishText: 'finish the tour',
+    Next: 'next step',
+    Previous: 'previous',
+    Finish: 'finish the tour',
   },
   Popconfirm: {
     okText: 'OK',
