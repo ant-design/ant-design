@@ -156,4 +156,25 @@ describe('ConfigProvider.Theme', () => {
 
     theme.defaultConfig.hashed = false;
   });
+
+  it('support internal algorithm', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' }, algorithm: 'dark' }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+    render(
+      <ConfigProvider theme={{ token: { colorPrimary: '#1677ff' }, algorithm: ['default'] }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
+  });
 });

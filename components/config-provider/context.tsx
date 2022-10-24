@@ -25,10 +25,12 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 
 export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
+export type InternalAlgorithm = 'dark' | 'default';
+
 export interface ThemeConfig {
   token?: Partial<AliasToken>;
   components?: OverrideToken;
-  algorithm?: MappingAlgorithm | MappingAlgorithm[];
+  algorithm?: MappingAlgorithm | InternalAlgorithm | (MappingAlgorithm | InternalAlgorithm)[];
   hashed?: boolean;
 }
 

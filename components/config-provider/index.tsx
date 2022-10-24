@@ -11,7 +11,14 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { DesignTokenContext } from '../theme';
 import defaultSeedToken from '../theme/themes/seed';
-import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
+import type {
+  ConfigConsumerProps,
+  CSPConfig,
+  DirectionType,
+  InternalAlgorithm,
+  Theme,
+  ThemeConfig,
+} from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -19,6 +26,17 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
+import darkAlgorithm from '../theme/themes/dark';
+import defaultAlgorithm from '../theme/themes/default';
+
+function getAlgorithm(algorithm: InternalAlgorithm): typeof defaultAlgorithm {
+  switch (algorithm) {
+    case 'dark':
+      return darkAlgorithm;
+    default:
+      return defaultAlgorithm;
+  }
+}
 
 export {
   RenderEmptyHandler,
@@ -254,7 +272,18 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, ...rest } = mergedTheme || {};
+    const { algorithm: customAlgorithm, token, ...rest } = mergedTheme || {};
+    let algorithm = customAlgorithm;
+    if (typeof customAlgorithm === 'string') {
+      algorithm = getAlgorithm(customAlgorithm);
+    } else if (Array.isArray(customAlgorithm)) {
+      algorithm = customAlgorithm.map(item => {
+        if (typeof item === 'string') {
+          return getAlgorithm(item);
+        }
+        return item;
+      });
+    }
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
