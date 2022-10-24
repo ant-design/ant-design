@@ -7,7 +7,7 @@ import { css } from '@emotion/react';
 const PLACEHOLDER_WIDTH = 400;
 
 const SAMPLE_CONTENT =
-  'Ant Design 5.0 support dynamic theme switching. Which helps developer to build flexible web application.';
+  'WOW! This component preview is design out of screen. Seems you have a large screen or view the HTML element. Whish you like Ant Design and have a nice day!~';
 
 const COMPONENTS: {
   title: React.ReactNode;
