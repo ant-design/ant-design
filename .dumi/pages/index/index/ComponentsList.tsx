@@ -1,16 +1,28 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
-import { Button, Space, Typography, Tag, TimePicker } from 'antd';
+import { Button, Space, Typography, Tag, TimePicker, Alert, Modal } from 'antd';
 import dayjs from 'dayjs';
 import { css } from '@emotion/react';
 
 const PLACEHOLDER_WIDTH = 400;
+
+const SAMPLE_CONTENT =
+  'Ant Design 5.0 support dynamic theme switching. Which helps developer to build flexible web application.';
 
 const COMPONENTS: {
   title: React.ReactNode;
   type: 'new' | 'update';
   node: React.ReactNode;
 }[] = [
+  {
+    title: 'Modal',
+    type: 'update',
+    node: (
+      <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+        {SAMPLE_CONTENT}
+      </Modal._InternalPanelDoNotUseOrYouWillBeFired>
+    ),
+  },
   {
     title: 'Tour',
     type: 'new',
@@ -23,22 +35,34 @@ const COMPONENTS: {
       <TimePicker._InternalPanelDoNotUseOrYouWillBeFired value={dayjs('2022-11-18 14:00:00')} />
     ),
   },
+  // {
+  //   title: 'DatePicker',
+  //   type: 'update',
+  //   node: (
+  //     <TimePicker._InternalPanelDoNotUseOrYouWillBeFired value={dayjs('2022-11-18 14:00:00')} />
+  //   ),
+  // },
+  // {
+  //   title: 'Steps',
+  //   type: 'update',
+  //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
+  // },
+  // {
+  //   title: 'Progress',
+  //   type: 'update',
+  //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
+  // },
   {
-    title: 'DatePicker',
+    title: 'Alert',
     type: 'update',
     node: (
-      <TimePicker._InternalPanelDoNotUseOrYouWillBeFired value={dayjs('2022-11-18 14:00:00')} />
+      <Alert
+        style={{ width: 400 }}
+        message="Ant Design 5.0"
+        description={SAMPLE_CONTENT}
+        closable
+      />
     ),
-  },
-  {
-    title: 'Steps',
-    type: 'update',
-    node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
-  },
-  {
-    title: 'Progress',
-    type: 'update',
-    node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
   },
 ];
 
@@ -53,6 +77,13 @@ const useStyle = () => {
       flex: none;
       overflow: hidden;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+
+      > * {
+        flex: none;
+      }
     `,
     cardCircle: css`
       position: absolute;
@@ -96,7 +127,16 @@ export default function ComponentsList() {
                 <Tag color={tagColor}>{tagText}</Tag>
               </Space>
 
-              <div style={{ marginTop: token.paddingLG }}>{node}</div>
+              <div
+                style={{
+                  marginTop: token.paddingLG,
+                  flex: 'auto',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {node}
+              </div>
             </div>
           );
         })}
