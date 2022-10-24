@@ -24,6 +24,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalFloatButton } = FloatBut
 
 export default () => (
   <div style={{ display: 'flex', columnGap: 16, alignItems: 'center' }}>
+    <InternalFloatButton backTop />
     <InternalFloatButton icon={<CustomerServiceOutlined />} />
     <InternalFloatButton
       icon={<QuestionCircleOutlined />}
