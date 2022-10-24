@@ -48,7 +48,7 @@ const locales = {
     dark: '暗黑',
   },
   en: {
-    themeTitle: 'Customize theme as you wish',
+    themeTitle: 'Flexible theme customization',
     themeDesc: 'Ant Design 5.0 new border-radius algorithm, make custom theme easier',
 
     customizeTheme: 'Customize Theme',
