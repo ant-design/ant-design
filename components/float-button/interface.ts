@@ -2,6 +2,7 @@ import type React from 'react';
 import type Group from './FloatButtonGroup';
 import type BackTop from './BackTop';
 import type { TooltipProps } from '../tooltip';
+import type PurePanel from './PurePanel';
 
 export type FloatButtonType = 'default' | 'primary';
 
