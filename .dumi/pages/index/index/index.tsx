@@ -10,6 +10,7 @@ import useSiteToken from '../../../hooks/useSiteToken';
 import Theme from './Theme';
 import BannerRecommends from './BannerRecommends';
 import ComponentsList from './ComponentsList';
+import DesignFramework from './DesignFramework';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -77,7 +78,9 @@ const Homepage: FC = () => {
               />
             </>
           }
-        />
+        >
+          <DesignFramework />
+        </Group>
       </div>
     </section>
   );
