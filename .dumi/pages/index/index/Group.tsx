@@ -13,9 +13,9 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
     ? {}
     : {
         position: 'relative',
-        zIndex: 1,
         background: `rgba(255,255,255,0.1)`,
         backdropFilter: `blur(25px)`,
+        zIndex: 1,
       };
 
   return (
@@ -23,7 +23,6 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
       className="site-mask"
       style={{
         position: 'relative',
-        zIndex: 1,
         ...style,
         ...additionalStyle,
       }}
@@ -70,14 +69,14 @@ export default function Group(props: GroupProps) {
   );
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div
+      style={{ position: 'relative', background, transition: `all ${token.motionDurationSlow}` }}
+    >
       <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
       <GroupMask
         disabled={!!background}
         style={{
           paddingBlock: token.marginFarSM,
-          background,
-          transition: `all ${token.motionDurationSlow}`,
         }}
       >
         {childNode}

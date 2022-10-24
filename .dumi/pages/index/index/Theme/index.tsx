@@ -80,6 +80,13 @@ const useStyle = () => {
       // background: green;
     `,
 
+    larkDemo: css`
+      background: #f7f7f7;
+    `,
+    comicDemo: css`
+      background: #ffe4e6;
+    `,
+
     menu: css`
       margin-left: auto;
     `,
@@ -263,7 +270,12 @@ export default function Theme() {
       }}
     >
       <div
-        css={[style.demo, !isLight && style.darkDemo]}
+        css={[
+          style.demo,
+          !isLight && style.darkDemo,
+          themeType === 'lark' && style.larkDemo,
+          themeType === 'comic' && style.comicDemo,
+        ]}
         style={{ borderRadius: themeData.radiusBase }}
       >
         <Layout>
@@ -338,7 +350,6 @@ export default function Theme() {
 
   const posStyle: React.CSSProperties = {
     position: 'absolute',
-    // zIndex: -1,
   };
 
   return (
