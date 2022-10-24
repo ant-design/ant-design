@@ -9,6 +9,7 @@ import Recommends from './RecommendsOld';
 import useSiteToken from '../../../hooks/useSiteToken';
 import Theme from './Theme';
 import BannerRecommends from './BannerRecommends';
+import ComponentsList from './ComponentsList';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -60,7 +61,9 @@ const Homepage: FC = () => {
 
       <div css={style.container}>
         <Theme />
-        <Group title={locale.assetsTitle} description={locale.assetsDesc} id="design" />
+        <Group collapse title={locale.assetsTitle} description={locale.assetsDesc} id="design">
+          <ComponentsList />
+        </Group>
         <Group
           title={locale.designTitle}
           description={locale.designDesc}

@@ -40,13 +40,23 @@ export interface GroupProps {
   children?: React.ReactNode;
   background?: string;
 
+  /** 是否不使用两侧 margin */
+  collapse?: boolean;
+
   decoration?: React.ReactNode;
 }
 
 export default function Group(props: GroupProps) {
-  const { id, title, titleColor, description, children, decoration, background } = props;
+  const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const { token } = useSiteToken();
 
+  const marginStyle: React.CSSProperties = collapse
+    ? {}
+    : {
+        maxWidth: 1208,
+        marginInline: 'auto',
+        paddingInline: token.marginXXL,
+      };
   let childNode = (
     <>
       <div style={{ textAlign: 'center' }}>
@@ -58,7 +68,7 @@ export default function Group(props: GroupProps) {
         </Typography.Paragraph>
       </div>
 
-      <div style={{ maxWidth: 1208, marginInline: 'auto', paddingInline: token.marginXXL }}>
+      <div style={marginStyle}>
         {children ? (
           <div>{children}</div>
         ) : (
