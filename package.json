@@ -32,7 +32,8 @@
   },
   "files": [
     "dist",
-    "es"
+    "es",
+    "locale"
   ],
   "sideEffects": [
     "*.less"
