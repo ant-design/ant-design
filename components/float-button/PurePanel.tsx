@@ -17,7 +17,7 @@ export interface PurePanelProps extends PureFloatButtonProps, FloatButtonGroupPr
 }
 
 function PureFloatButton({ backTop, ...props }: PureFloatButtonProps) {
-  return backTop ? <BackTop {...props} target={undefined} /> : <FloatButton {...props} />;
+  return backTop ? <BackTop {...props} visible target={undefined} /> : <FloatButton {...props} />;
 }
 
 export default function PurePanel({ className, items, ...props }: PurePanelProps) {
