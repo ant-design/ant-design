@@ -24,6 +24,7 @@ import {
   theme,
 } from 'antd';
 import ThemePicker, { THEME } from './ThemePicker';
+import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 
@@ -327,7 +328,7 @@ export default function Theme() {
                     </Form.Item>
 
                     <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
-                      <Input style={{ width: 120 }} />
+                      <ColorPicker />
                     </Form.Item>
                     <Form.Item label={locale.titleBorderRadius} name="radiusBase">
                       <RadiusPicker />

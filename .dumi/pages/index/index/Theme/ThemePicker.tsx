@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { Space } from 'antd';
 import * as React from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
+import useLocale from '../../../../hooks/useLocale';
 
 export const THEMES = {
   default: 'https://gw.alipayobjects.com/zos/bmw-prod/ae669a89-0c65-46db-b14b-72d1c7dd46d6.svg',
@@ -11,6 +12,21 @@ export const THEMES = {
 } as const;
 
 export type THEME = keyof typeof THEMES;
+
+const locales = {
+  cn: {
+    default: '默认',
+    dark: '暗黑',
+    lark: '知识协作',
+    comic: '二次元',
+  },
+  en: {
+    default: 'Default',
+    dark: 'Dark',
+    lark: 'Document',
+    comic: 'Comic',
+  },
+};
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -40,20 +56,25 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
   const { token } = useSiteToken();
   const style = useStyle();
 
+  const [locale] = useLocale(locales);
+
   return (
     <Space size={token.paddingLG}>
       {Object.keys(THEMES).map(theme => {
         const url = THEMES[theme as THEME];
 
         return (
-          <img
-            key={theme}
-            src={url}
-            css={[style.themeCard, value === theme && style.themeCardActive]}
-            onClick={() => {
-              onChange?.(theme);
-            }}
-          />
+          <Space direction="vertical" align="center">
+            <img
+              key={theme}
+              src={url}
+              css={[style.themeCard, value === theme && style.themeCardActive]}
+              onClick={() => {
+                onChange?.(theme);
+              }}
+            />
+            <span>{locale[theme as keyof typeof locale]}</span>
+          </Space>
         );
       })}
     </Space>
