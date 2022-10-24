@@ -21,7 +21,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
 | placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
-| mask | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 | `boolean` | `true` |  |
+| mask | 是否启用蒙层 | `boolean` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 
 ### TourStep 引导步骤卡片
