@@ -23,12 +23,13 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
+    paddingXXS,
   } = token;
   const halfInnerSize = checkboxSize / 2 - controlLineWidth;
   // must be odd number, unless it cannot align center
   const expandIconSize = halfInnerSize * 2 + controlLineWidth * 3;
   const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
-  const expandIconLineOffset = 4 - controlLineWidth;
+  const expandIconLineOffset = paddingXXS - controlLineWidth;
 
   return {
     [`${componentCls}-wrapper`]: {

@@ -505,7 +505,7 @@ export default genComponentStyleHook('Radio', token => {
 
   const radioSize = fontSizeLG;
   const radioTop = (Math.round(fontSize * lineHeight) - radioSize) / 2;
-  const dotPadding = 4; // This is magic.
+  const dotPadding = 4; // Fixed value
   const radioDotDisabledSize = radioSize - dotPadding * 2;
   const radioDotSize = wireframe
     ? radioDotDisabledSize

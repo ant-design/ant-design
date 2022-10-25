@@ -5,10 +5,7 @@ import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  _itemPaddingHorizontal: number;
-  _itemPaddingHorizontalSM: number;
-}
+export interface ComponentToken {}
 
 export interface ButtonToken extends FullToken<'Button'> {
   // FIXME: should be removed
@@ -403,7 +400,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
-    buttonPaddingHorizontal: token._itemPaddingHorizontalSM,
+    buttonPaddingHorizontal: 8, // Fixed padding
     controlRadius: token.controlRadiusSM,
   });
 
@@ -421,34 +418,27 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Button',
-  token => {
-    const { controlTmpOutline, _itemPaddingHorizontal } = token;
+export default genComponentStyleHook('Button', token => {
+  const { controlTmpOutline, paddingContentHorizontal } = token;
 
-    const buttonToken = mergeToken<ButtonToken>(token, {
-      colorOutlineDefault: controlTmpOutline,
-      buttonPaddingHorizontal: _itemPaddingHorizontal,
-    });
+  const buttonToken = mergeToken<ButtonToken>(token, {
+    colorOutlineDefault: controlTmpOutline,
+    buttonPaddingHorizontal: paddingContentHorizontal,
+  });
 
-    return [
-      // Shared
-      genSharedButtonStyle(buttonToken),
+  return [
+    // Shared
+    genSharedButtonStyle(buttonToken),
 
-      // Size
-      genSizeSmallButtonStyle(buttonToken),
-      genSizeBaseButtonStyle(buttonToken),
-      genSizeLargeButtonStyle(buttonToken),
+    // Size
+    genSizeSmallButtonStyle(buttonToken),
+    genSizeBaseButtonStyle(buttonToken),
+    genSizeLargeButtonStyle(buttonToken),
 
-      // Group (type, ghost, danger, disabled, loading)
-      genTypeButtonStyle(buttonToken),
+    // Group (type, ghost, danger, disabled, loading)
+    genTypeButtonStyle(buttonToken),
 
-      // Button Group
-      genGroupStyle(buttonToken),
-    ];
-  },
-  token => ({
-    _itemPaddingHorizontal: token.padding,
-    _itemPaddingHorizontalSM: token.paddingXS,
-  }),
-);
+    // Button Group
+    genGroupStyle(buttonToken),
+  ];
+});

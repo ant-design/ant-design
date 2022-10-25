@@ -8,8 +8,6 @@ import { resetComponent } from '../../style';
 export interface ComponentToken {
   zIndexPopup: number;
   width: number;
-  _itemPaddingHorizontal: number;
-  _itemPaddingVertical: number;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -263,7 +261,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 export default genComponentStyleHook(
   'Notification',
   token => {
-    const notificationPaddingVertical = token.paddingTmp;
+    const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
 
     const notificationToken = mergeToken<NotificationToken>(token, {
@@ -272,7 +270,7 @@ export default genComponentStyleHook(
       notificationPaddingVertical,
       notificationPaddingHorizontal,
       // index.less variables
-      notificationPadding: `${token._itemPaddingVertical}px ${token._itemPaddingHorizontal}px`,
+      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginBottom: token.margin,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
@@ -285,7 +283,5 @@ export default genComponentStyleHook(
   token => ({
     zIndexPopup: token.zIndexPopupBase + 50,
     width: 384,
-    _itemPaddingHorizontal: token.paddingLG,
-    _itemPaddingVertical: token.paddingTmp,
   }),
 );

@@ -162,10 +162,6 @@ export interface SeedToken extends PresetColorType {
   fontFamily: string;
   fontSizeBase: number;
 
-  // Grid
-  gridUnit: number;
-  gridBaseStep: number;
-
   // Line
   /** Border width of base components */
   lineWidth: number;
@@ -299,23 +295,24 @@ export interface ColorMapToken extends NeutralColorMapToken {
   colorBgMask: string;
 }
 
+export interface SizeMapToken {
+  // Size
+  sizeXXL: number;
+  sizeXL: number;
+  sizeLG: number;
+  sizeMD: number;
+  /** Same as size by default, but can be larger in compact mode */
+  sizeMS: number;
+  size: number;
+  sizeSM: number;
+  sizeXS: number;
+  sizeXXS: number;
+}
+
 export interface CommonMapToken {
   // Font
   fontSizes: number[];
   lineHeights: number[];
-
-  // Size
-  sizeSpace: number;
-  sizeSpaceXS: number;
-  sizeSpaceXXS: number;
-  sizeSpaceSM: number;
-
-  // Grid
-  gridSpaceSM: number;
-  gridSpaceBase: number;
-  gridSpaceLG: number;
-  gridSpaceXL: number;
-  gridSpaceXXL: number;
 
   // Line
   lineWidthBold: number;
@@ -342,7 +339,12 @@ export interface CommonMapToken {
 // ==                         Map Token                         ==
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {}
+export interface MapToken
+  extends SeedToken,
+    ColorPalettes,
+    ColorMapToken,
+    SizeMapToken,
+    CommonMapToken {}
 
 // ======================================================================
 // ==                           Alias Token                            ==
@@ -425,11 +427,35 @@ export interface AliasToken extends MapToken {
   controlInteractiveSize: number;
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
+  // Padding
+  paddingXXS: number;
+  paddingXS: number;
+  paddingSM: number;
+  padding: number;
+  paddingMD: number;
+  paddingLG: number;
+  paddingXL: number;
+
+  // Padding Content
+  paddingContentHorizontalLG: number;
+  paddingContentHorizontal: number;
+  paddingContentHorizontalSM: number;
+  paddingContentVerticalLG: number;
+  paddingContentVertical: number;
+  paddingContentVerticalSM: number;
+
+  // Margin
+  marginXXS: number;
+  marginXS: number;
+  marginSM: number;
+  margin: number;
+  marginMD: number;
+  marginLG: number;
+  marginXL: number;
+  marginXXL: number;
+
   // =============== Legacy: should be remove ===============
   opacityLoading: number;
-
-  padding: number;
-  margin: number;
 
   boxShadow: string;
   boxShadowSecondary: string;
@@ -440,20 +466,6 @@ export interface AliasToken extends MapToken {
 
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
-
-  paddingSM: number;
-  paddingXS: number;
-  paddingXXS: number;
-  paddingLG: number;
-  paddingXL: number;
-  paddingTmp: number;
-  marginXXS: number;
-  marginXS: number;
-  marginSM: number;
-  marginLG: number;
-  marginXL: number;
-  marginXXL: number;
-  marginTmp: number;
 
   // Media queries breakpoints
   screenXS: number;

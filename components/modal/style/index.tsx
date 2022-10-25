@@ -8,8 +8,6 @@ import { clearFix, genFocusStyle, resetComponent } from '../../style';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
-  _itemPaddingHorizontal: number;
-  _itemPaddingVertical: number;
 }
 
 export interface ModalToken extends FullToken<'Modal'> {
@@ -167,7 +165,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           borderRadius: token.radiusLG,
           boxShadow: token.boxShadowSecondary,
           pointerEvents: 'auto',
-          padding: `${token._itemPaddingVertical}px ${token._itemPaddingHorizontal}px`,
+          padding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
         },
 
         [`${componentCls}-close`]: {
@@ -418,48 +416,41 @@ const genWireframeStyle: GenerateStyle<ModalToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Modal',
-  token => {
-    const headerPaddingVertical = token.padding;
-    const headerFontSize = token.fontSizeHeading5;
-    const headerLineHeight = token.lineHeightHeading5;
+export default genComponentStyleHook('Modal', token => {
+  const headerPaddingVertical = token.padding;
+  const headerFontSize = token.fontSizeHeading5;
+  const headerLineHeight = token.lineHeightHeading5;
 
-    const modalToken = mergeToken<ModalToken>(token, {
-      modalBodyPadding: token.paddingLG,
-      modalHeaderBg: token.colorBgElevated,
-      modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
-      modalHeaderBorderWidth: token.controlLineWidth,
-      modalHeaderBorderStyle: token.controlLineType,
-      modalHeaderTitleLineHeight: headerLineHeight,
-      modalHeaderTitleFontSize: headerFontSize,
-      modalHeaderBorderColorSplit: token.colorSplit,
-      modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
-      modalContentBg: token.colorBgElevated,
-      modalHeadingColor: token.colorTextHeading,
-      modalCloseColor: token.colorTextDescription,
-      modalFooterBg: 'transparent',
-      modalFooterBorderColorSplit: token.colorSplit,
-      modalFooterBorderStyle: token.controlLineType,
-      modalFooterPaddingVertical: token.paddingXS,
-      modalFooterPaddingHorizontal: token.padding,
-      modalFooterBorderWidth: token.controlLineWidth,
-      modalConfirmTitleFontSize: token.fontSizeLG,
-      modalIconHoverColor: token.colorIconHover,
-      modalConfirmIconSize: token.fontSize * token.lineHeight,
-      modalCloseBtnSize: token.controlHeightLG * 0.55,
-    });
-    return [
-      genModalStyle(modalToken),
-      genModalConfirmStyle(modalToken),
-      genRTLStyle(modalToken),
-      genModalMaskStyle(modalToken),
-      token.wireframe && genWireframeStyle(modalToken),
-      initZoomMotion(modalToken, 'zoom'),
-    ];
-  },
-  token => ({
-    _itemPaddingHorizontal: token.paddingLG,
-    _itemPaddingVertical: token.paddingTmp,
-  }),
-);
+  const modalToken = mergeToken<ModalToken>(token, {
+    modalBodyPadding: token.paddingLG,
+    modalHeaderBg: token.colorBgElevated,
+    modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
+    modalHeaderBorderWidth: token.controlLineWidth,
+    modalHeaderBorderStyle: token.controlLineType,
+    modalHeaderTitleLineHeight: headerLineHeight,
+    modalHeaderTitleFontSize: headerFontSize,
+    modalHeaderBorderColorSplit: token.colorSplit,
+    modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
+    modalContentBg: token.colorBgElevated,
+    modalHeadingColor: token.colorTextHeading,
+    modalCloseColor: token.colorTextDescription,
+    modalFooterBg: 'transparent',
+    modalFooterBorderColorSplit: token.colorSplit,
+    modalFooterBorderStyle: token.controlLineType,
+    modalFooterPaddingVertical: token.paddingXS,
+    modalFooterPaddingHorizontal: token.padding,
+    modalFooterBorderWidth: token.controlLineWidth,
+    modalConfirmTitleFontSize: token.fontSizeLG,
+    modalIconHoverColor: token.colorIconHover,
+    modalConfirmIconSize: token.fontSize * token.lineHeight,
+    modalCloseBtnSize: token.controlHeightLG * 0.55,
+  });
+  return [
+    genModalStyle(modalToken),
+    genModalConfirmStyle(modalToken),
+    genRTLStyle(modalToken),
+    genModalMaskStyle(modalToken),
+    token.wireframe && genWireframeStyle(modalToken),
+    initZoomMotion(modalToken, 'zoom'),
+  ];
+});

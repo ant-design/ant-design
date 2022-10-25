@@ -96,10 +96,6 @@ export default function DynamicTheme({
                   value: 'dark',
                 },
                 {
-                  label: 'Compact',
-                  value: 'compact',
-                },
-                {
                   label: 'Default-V4',
                   value: 'defaultV4',
                 },
@@ -109,6 +105,10 @@ export default function DynamicTheme({
                 },
               ]}
             />
+          </Form.Item>
+
+          <Form.Item valuePropName="checked" name="compact" label="Compact">
+            <Checkbox>Compact</Checkbox>
           </Form.Item>
 
           {keys.map((key: keyof typeof defaultToken) => {

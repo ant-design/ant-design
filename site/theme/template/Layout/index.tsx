@@ -93,6 +93,7 @@ interface LayoutStateType {
   setTheme: SiteContextProps['setTheme'];
   setIframeTheme: SiteContextProps['setIframeTheme'];
   v5theme: string;
+  compact: boolean;
   designToken: SeedToken;
   hashedStyle: boolean;
 }
@@ -119,6 +120,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
       setTheme: this.setTheme,
       setIframeTheme: this.setIframeTheme,
       v5theme: 'default',
+      compact: false,
       designToken: defaultSeedToken,
       hashedStyle: true,
     };
@@ -322,8 +324,9 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  algorithm: this.getAlgorithm(),
-                  ...(this.state.v5theme === 'compact' ? antdTheme.compactTheme : {}),
+                  algorithm: this.state.compact
+                    ? [this.getAlgorithm(), antdTheme.compactAlgorithm]
+                    : this.getAlgorithm(),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
@@ -341,11 +344,12 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                     }
                     onChangeTheme={newToken => {
                       console.log('Change Theme:', newToken);
-                      const { hashed, theme: newTheme, ...restToken } = newToken as any;
+                      const { hashed, theme: newTheme, compact, ...restToken } = newToken as any;
                       this.setState({
                         v5theme: newTheme,
                         designToken: restToken,
                         hashedStyle: hashed,
+                        compact,
                       });
                     }}
                   />

@@ -7,8 +7,6 @@ import getArrowStyle from '../../style/placementArrow';
 export interface ComponentToken {
   zIndexPopup: number;
   width: number;
-  _itemPaddingHorizontal: number;
-  _itemPaddingVertical: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
@@ -160,13 +158,12 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = token => {
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const { colorBgElevated, colorText, wireframe, _itemPaddingHorizontal, _itemPaddingVertical } =
-      token;
+    const { colorBgElevated, colorText, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverBg: colorBgElevated,
       popoverColor: colorText,
-      popoverPadding: `${_itemPaddingVertical}px ${_itemPaddingHorizontal}px`,
+      popoverPadding: 12, // Fixed Value
     });
 
     return [
@@ -176,10 +173,8 @@ export default genComponentStyleHook(
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  ({ zIndexPopupBase, paddingSM }) => ({
+  ({ zIndexPopupBase }) => ({
     zIndexPopup: zIndexPopupBase + 30,
     width: 177,
-    _itemPaddingHorizontal: paddingSM,
-    _itemPaddingVertical: paddingSM,
   }),
 );

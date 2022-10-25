@@ -8,13 +8,13 @@ export interface ComponentToken {
   listWidth: number;
   listWidthLG: number;
   listHeight: number;
-  _headerHeight: number;
 }
 
 interface TransferToken extends FullToken<'Transfer'> {
   transferItemHeight: number;
   transferHeaderVerticalPadding: number;
   transferItemPaddingVertical: number;
+  transferHeaderHeight: number;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -90,7 +90,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     colorSplit,
     controlLineWidth,
     transferItemHeight,
-    _headerHeight,
+    transferHeaderHeight,
     transferHeaderVerticalPadding,
     transferItemPaddingVertical,
     controlItemBgActive,
@@ -130,7 +130,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       display: 'flex',
       flex: 'none',
       alignItems: 'center',
-      height: _headerHeight,
+      height: transferHeaderHeight,
       // border-top is on the transfer dom. We should minus 1px for this
       padding: `${
         transferHeaderVerticalPadding - controlLineWidth
@@ -283,7 +283,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    _headerHeight,
+    transferHeaderHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
@@ -329,7 +329,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: _headerHeight / 2 - Math.round(fontSize * lineHeight),
+        maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },
   };
@@ -356,7 +356,7 @@ export default genComponentStyleHook(
 
     const transferToken = mergeToken<TransferToken>(token, {
       transferItemHeight,
-      _headerHeight: transferHeaderHeight,
+      transferHeaderHeight,
       transferHeaderVerticalPadding: Math.ceil(
         (transferHeaderHeight - controlLineWidth - fontHeight) / 2,
       ),
@@ -370,10 +370,9 @@ export default genComponentStyleHook(
       genTransferRTLStyle(transferToken),
     ];
   },
-  token => ({
+  {
     listWidth: 180,
     listHeight: 200,
     listWidthLG: 250,
-    _headerHeight: token.controlHeightLG,
-  }),
+  },
 );
