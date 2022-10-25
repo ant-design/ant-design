@@ -15,8 +15,7 @@ The most basic usage.
 
 ```tsx
 import React, { useRef, useState, useEffect } from 'react';
-import { Button, Space } from 'antd';
-import Tour from '../index';
+import { Button, Space, Tour } from 'antd';
 
 const App: React.FC = () => {
   const coverBtnRef = useRef<HTMLButtonElement>(null);
