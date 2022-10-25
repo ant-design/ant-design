@@ -18,8 +18,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Button, Space, Tour } from 'antd';
 
 const App: React.FC = () => {
-  const coverBtnRef = useRef<HTMLElement>(null);
-  const placementBtnRef = useRef<HTMLElement>(null);
+  const coverBtnRef = useRef(null);
+  const placementBtnRef = useRef(null);
 
   const [show, setShow] = useState<boolean | undefined>();
 
