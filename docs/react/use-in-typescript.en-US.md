@@ -16,7 +16,7 @@ Ensure your system has installed latest version of [yarn](https://yarnpkg.com) o
 Create a new [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) project named `antd-demo-ts` using yarn.
 
 ```bash
-$ yarn create react-app antd-demo-ts --template typescript
+$ yarn create-react-app antd-demo-ts --template typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
