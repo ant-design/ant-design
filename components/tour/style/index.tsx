@@ -15,6 +15,7 @@ export interface ComponentToken {
 interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
   slidersPrimaryBackground: string;
+  sizeSpaceXXS: number;
 }
 
 // =============================== Base ===============================
