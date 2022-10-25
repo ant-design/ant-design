@@ -2,21 +2,13 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent } from '../../style';
 
-export interface ComponentToken {
-  controlSize: number;
-  railSize: number;
-  handleSize: number;
-  handleSizeHover: number;
-  handleLineWidth: number;
-  handleLineWidthHover: number;
-  dotSize: number;
-}
+export interface ComponentToken {}
 
 interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
-  slidersPrimaryBackground: string;
-  sizeSpaceXXS: number;
-  sizeSpaceXS: number;
+  sliderWidth: number;
+  sliderHeight: number;
+  marginMD: number;
 }
 
 // =============================== Base ===============================
@@ -28,23 +20,31 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     fontSizeLG,
     lineHeightLG,
     controlRadius,
-    controlRadiusXS,
-    controlLineWidth,
+    radiusXS,
     paddingXL,
     colorBgBase,
     colorPrimary,
     colorText,
-    colorBgMask,
-    colorFillSecondary,
-    sizeSpaceXXS,
-    sizeSpaceXS,
-    slidersPrimaryBackground,
+    colorTextTertiary,
+    lineWidth,
+    lineType,
+    colorSplit,
+    sliderHeight,
+    sliderWidth,
+    colorPrimaryBorderHover,
     paddingXS,
     paddingXXS,
     colorBorderBg,
     boxShadow,
     tourZIndexPopup,
-    fontSizeBase,
+    fontSize,
+    colorBgContainer,
+    fontWeightStrong,
+    marginSM,
+    marginXXS,
+    marginXS,
+    colorTextLightSolid,
+    radiusBase,
   } = token;
   return {
     [componentCls]: {
@@ -55,9 +55,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       zIndex: tourZIndexPopup,
       display: 'block',
       visibility: 'visible',
-      fontSize: fontSizeBase,
-      lineHeight: lineHeightLG,
-      width: '520px',
+      fontSize,
+      lineHeight,
+      width: 520,
       [`&${componentCls}-hidden`]: {
         display: 'none',
       },
@@ -67,9 +67,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         textAlign: 'start',
         textDecoration: 'none',
         borderRadius: controlRadius,
-        boxShadow: '@overlay-shadow',
+        boxShadow,
         position: 'relative',
-        backgroundColor: colorBgBase,
+        backgroundColor: colorBgContainer,
         border: 'none',
         backgroundClip: 'padding-box',
 
@@ -78,17 +78,14 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           background: 'transparent',
           fontSize: fontSizeLG,
           position: 'absolute',
-          insetInlineEnd: '20px',
-          insetBlockStart: '12px',
-          fontWeight: '700',
-          lineHeight: '1',
-          textShadow: `0 1px 0 ${colorBgBase}`,
-          filter: 'alpha(opacity=20)',
-          opacity: '.2',
+          insetInlineEnd: marginSM,
+          insetBlockStart: marginSM,
+          fontWeight: fontWeightStrong,
+          lineHeight: 1,
+          opacity: 0.2,
           textDecoration: 'none',
           [`&:hover`]: {
-            opacity: '1',
-            filter: 'alpha(opacity=100)',
+            opacity: 1,
             textDecoration: 'none',
           },
         },
@@ -101,17 +98,17 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           },
         },
         [`${componentCls}-header`]: {
-          padding: `${padding}px`,
+          padding,
 
           [`${componentCls}-title`]: {
             lineHeight: lineHeightLG,
-            fontWeight: 'bold',
+            fontWeight: fontWeightStrong,
             fontSize: fontSizeLG,
           },
         },
 
         [`${componentCls}-description`]: {
-          padding: ` 0 ${padding}px 0`,
+          padding: `0 ${padding}px`,
           lineHeight,
           wordWrap: 'break-word',
         },
@@ -119,29 +116,27 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         [`${componentCls}-footer`]: {
           padding,
           textAlign: 'end',
-          borderTop: `${controlLineWidth} solid ${colorFillSecondary}`,
-          borderRadius: `0 0 ${controlRadiusXS}px ${controlRadiusXS}px`,
+          borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+          borderRadius: `0 0 ${radiusXS}px ${radiusXS}px`,
           display: 'flex',
-          flexDirection: 'row',
           justifyContent: 'space-between',
 
           [`${componentCls}-sliders`]: {
             display: 'inline-block',
             span: {
-              width: `${sizeSpaceXS}px`,
-              height: `${sizeSpaceXS}px`,
+              width: `${sliderWidth}px`,
+              height: `${sliderHeight}px`,
               display: 'inline-block',
               borderRadius: '50%',
-              background: colorBgMask,
-              marginInlineEnd: `${sizeSpaceXXS}px`,
-              opacity: 0.75,
+              background: colorTextTertiary,
+              marginInlineEnd: marginXXS,
               '&.active': {
                 background: colorPrimary,
               },
             },
           },
           [`${componentCls}-buttons button`]: {
-            marginInlineStart: `${sizeSpaceXS}px`,
+            marginInlineStart: marginXS,
           },
         },
       },
@@ -157,12 +152,11 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       // =============================  primary type ===========================
       [`&${componentCls}-primary`]: {
         [`${componentCls}-inner`]: {
-          color: colorBgBase,
+          color: colorTextLightSolid,
           textAlign: 'start',
           textDecoration: 'none',
           backgroundColor: colorPrimary,
-          borderRadius: controlRadius,
-          textShadow: '0 -1px 0 rgb(0 0 0 / 12%)',
+          borderRadius: radiusBase,
           boxShadow,
 
           [`${componentCls}-close`]: {
@@ -171,9 +165,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
           [`${componentCls}-sliders`]: {
             span: {
-              background: slidersPrimaryBackground,
-              marginInlineEnd: `${sizeSpaceXXS}px`,
-              opacity: 0.75,
+              background: colorPrimaryBorderHover,
+              marginInlineEnd: marginXXS,
               '&.active': {
                 background: colorBgBase,
               },
@@ -186,7 +179,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     // ============================= panel placement ===========================
     [`${componentCls}-placement-top,${componentCls}-placement-topLeft,${componentCls}-placement-topRight`]:
       {
-        padding: `${paddingXXS}px 0 ${paddingXS}px 0`,
+        padding: `${paddingXXS}px 0 ${paddingXS}px`,
       },
     [`${componentCls}-placement-right, ${componentCls}-placement-rightTop, ${componentCls}-placement-rightBottom`]:
       {
@@ -206,9 +199,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       },
     [`${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-placement-topRight ${componentCls}-arrow`]:
       {
-        insetBlockEnd: `${sizeSpaceXXS}px`,
-        marginInlineStart: `-${sizeSpaceXXS}px`,
-        borderWidth: `${sizeSpaceXXS}px ${sizeSpaceXXS}px 0`,
+        insetBlockEnd: `${marginXXS}px`,
+        marginInlineStart: `-${marginXXS}px`,
+        borderWidth: `${marginXXS}px ${marginXXS}px 0`,
         borderTopColor: colorBorderBg,
       },
     [`${componentCls}-primary${componentCls}-placement-top ${componentCls}-arrow, ${componentCls}-primary${componentCls}-placement-topLeft ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-topRight ${componentCls}-arrow`]:
@@ -229,11 +222,11 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
     [`${componentCls}-placement-right ${componentCls}-arrow,${componentCls}-placement-rightTop ${componentCls}-arrow,${componentCls}-placement-rightBottom ${componentCls}-arrow`]:
       {
-        insetInlineStart: `${sizeSpaceXXS}px`,
-        marginBlockStart: `-${sizeSpaceXXS}px`,
-        borderBlockWidth: `${sizeSpaceXXS}px`,
+        insetInlineStart: `${marginXXS}px`,
+        marginBlockStart: `-${marginXXS}px`,
+        borderBlockWidth: `${marginXXS}px`,
         borderInlineStartWidth: '0',
-        borderInlineEndWidth: `${sizeSpaceXXS}px`,
+        borderInlineEndWidth: `${marginXXS}px`,
         borderInlineEndColor: colorBorderBg,
       },
     [`${componentCls}-primary${componentCls}-placement-right ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightTop ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-rightBottom ${componentCls}-arrow`]:
@@ -256,10 +249,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
     [`${componentCls}-placement-left ${componentCls}-arrow,${componentCls}-placement-leftTop ${componentCls}-arrow,${componentCls}-placement-leftBottom ${componentCls}-arrow`]:
       {
-        insetInlineEnd: `${sizeSpaceXXS}px`,
-        marginBlockStart: `-${sizeSpaceXXS}px`,
-        borderBlockWidth: `${sizeSpaceXXS}px`,
-        borderInlineStartWidth: `${sizeSpaceXXS}px`,
+        insetInlineEnd: `${marginXXS}px`,
+        marginBlockStart: `-${marginXXS}px`,
+        borderBlockWidth: `${marginXXS}px`,
+        borderInlineStartWidth: `${marginXXS}px`,
         borderInlineEndWidth: '0',
         borderInlineStartColor: colorBorderBg,
       },
@@ -282,9 +275,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
     [`${componentCls}-placement-bottom ${componentCls}-arrow,${componentCls}-placement-bottomLeft ${componentCls}-arrow,${componentCls}-placement-bottomRight ${componentCls}-arrow`]:
       {
-        insetBlockStart: `${sizeSpaceXXS}px`,
-        marginInlineStart: `-${sizeSpaceXXS}px`,
-        borderWidth: `0 ${sizeSpaceXXS}px ${sizeSpaceXXS}px`,
+        insetBlockStart: `${marginXXS}px`,
+        marginInlineStart: `-${marginXXS}px`,
+        borderWidth: `0 ${marginXXS}px ${marginXXS}px`,
         borderBlockEndColor: colorBorderBg,
       },
     [`${componentCls}-primary${componentCls}-placement-bottom ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomLeft ${componentCls}-arrow,${componentCls}-primary${componentCls}-placement-bottomRight ${componentCls}-arrow`]:
@@ -309,7 +302,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 export default genComponentStyleHook('Tour', token => {
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,
-    slidersPrimaryBackground: token['blue-4'],
+    sliderWidth: 8,
+    sliderHeight: 8,
   });
   return [genBaseStyle(TourToken)];
 });
