@@ -12,6 +12,7 @@ const App: React.FC = () => (
     <Input placeholder="Unbordered" bordered={false} allowClear />
     <Input prefix="￥" suffix="RMB" bordered={false} />
     <Input prefix="￥" suffix="RMB" disabled bordered={false} />
+    <TextArea allowClear style={{ border: '2px solid #000' }} />
   </div>
 );
 

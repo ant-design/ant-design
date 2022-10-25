@@ -4,7 +4,7 @@ import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import FloatButton, { floatButtonPrefixCls } from '.';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';

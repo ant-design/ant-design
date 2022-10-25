@@ -23,6 +23,7 @@ import getIcons from './utils/iconUtil';
 import useStyle from './style';
 import genPurePanel from '../_util/PurePanel';
 import warning from '../_util/warning';
+import { useCompactItemContext } from '../space/Compact';
 
 type RawValue = string | number;
 
@@ -96,6 +97,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -156,7 +158,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-  const mergedSize = customizeSize || size;
+  const mergedSize = compactSize || customizeSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -171,6 +173,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    compactItemClassnames,
     className,
     hashId,
   );

@@ -96,7 +96,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           width: token.handleSize,
           height: token.handleSize,
           backgroundColor: token.colorBgContainer,
-          outline: `${token.handleLineWidth}px solid ${token.colorPrimaryBorder}`,
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.colorPrimaryBorder}`,
           borderRadius: '50%',
           cursor: 'pointer',
           transition: `
@@ -104,7 +104,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
             inset-block-start ${token.motionDurationFast},
             width ${token.motionDurationFast},
             height ${token.motionDurationFast},
-            outline ${token.motionDurationFast}
+            box-shadow ${token.motionDurationFast}
           `,
         },
 
@@ -117,8 +117,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           },
 
           '&::after': {
-            outlineWidth: token.handleLineWidthHover,
-            outlineColor: token.colorPrimary,
+            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
             width: token.handleSizeHover,
             height: token.handleSizeHover,
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
@@ -141,15 +140,15 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${componentCls}-handle${antCls}-tooltip-open::after`]: {
-          outlineColor: token.colorPrimary,
+          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
         },
 
-        [`
-          ${componentCls}-handle::after,
-          ${componentCls}-dot-active
-        `]: {
+        [`${componentCls}-handle::after`]: {
+          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
+        },
+
+        [`${componentCls}-dot-active`]: {
           borderColor: token.colorPrimary,
-          outlineColor: token.colorPrimary,
         },
       },
 
@@ -205,22 +204,22 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`
-          ${componentCls}-handle::after,
           ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgContainer,
           borderColor: token.colorTextDisabled,
-          outlineColor: new TinyColor(token.colorTextDisabled)
-            .onBackground(token.colorBgContainer)
-            .toHexString(),
           boxShadow: 'none',
           cursor: 'not-allowed',
         },
 
         [`${componentCls}-handle::after`]: {
+          backgroundColor: token.colorBgContainer,
+          cursor: 'not-allowed',
           width: token.handleSize,
           height: token.handleSize,
-          outlineWidth: token.handleLineWidth,
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${new TinyColor(token.colorTextDisabled)
+            .onBackground(token.colorBgContainer)
+            .toHexString()}`,
           insetInlineStart: 0,
           insetBlockStart: 0,
         },

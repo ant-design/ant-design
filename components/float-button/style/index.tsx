@@ -67,6 +67,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.radiusBase,
+
       [`${groupPrefixCls}-wrap`]: {
         zIndex: -1,
         display: 'block',
@@ -179,9 +180,17 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
+
+      // Pure Panel
+      '&-pure': {
+        position: 'relative',
+        inset: 'auto',
+      },
+
       '&:empty': {
         display: 'none',
       },
+
       [`${componentCls}-body`]: {
         width: floatButtonSize,
         height: floatButtonSize,

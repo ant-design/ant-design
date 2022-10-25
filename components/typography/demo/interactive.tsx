@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { CheckOutlined, HighlightOutlined, SmileFilled, SmileOutlined } from '@ant-design/icons';
 import { Divider, Radio, Typography } from 'antd';
 
@@ -6,6 +6,13 @@ const { Paragraph } = Typography;
 
 const App: React.FC = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
+  const [editableStrWithSuffix, setEditableStrWithSuffix] = useState(
+    'This is a loooooooooooooooooooooooooooooooong editable text with suffix.',
+  );
+  const [editableStrWithSuffixStartPart, editableStrWithSuffixSuffixPart] = useMemo(
+    () => [editableStrWithSuffix.slice(0, -12), editableStrWithSuffix.slice(-12)],
+    [editableStrWithSuffix],
+  );
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [clickTriggerStr, setClickTriggerStr] = useState(
     'Text or icon as trigger - click to start editing.',
@@ -44,6 +51,17 @@ const App: React.FC = () => {
   return (
     <>
       <Paragraph editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
+      <Paragraph
+        editable={{
+          onChange: setEditableStrWithSuffix,
+          text: editableStrWithSuffix,
+        }}
+        ellipsis={{
+          suffix: editableStrWithSuffixSuffixPart,
+        }}
+      >
+        {editableStrWithSuffixStartPart}
+      </Paragraph>
       <Paragraph
         editable={{
           icon: <HighlightOutlined />,
