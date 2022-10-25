@@ -18,7 +18,7 @@ import React, { useRef, useState } from 'react';
 import { Button, Space, Tour } from 'antd';
 
 const App: React.FC = () => {
-  const showBtnRef = useRef<HTMLButtonElement>(null);
+  const showBtnRef = useRef<HTMLElement>(null);
 
   const [open, setOpen] = React.useState(false);
   const [current, setCurrent] = useState(-1);
