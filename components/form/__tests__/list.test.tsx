@@ -1,27 +1,59 @@
 import React from 'react';
 import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
-import { fireEvent, render, sleep, act } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 
 describe('Form.List', () => {
-  const change = async (
-    wrapper: ReturnType<typeof render>['container'],
-    index: number,
+  // const change = async (
+  //   wrapper: ReturnType<typeof render>['container'],
+  //   index: number,
+  //   value: string,
+  // ) => {
+  //   fireEvent.change(wrapper.getElementsByClassName('ant-input')?.[index], { target: { value } });
+  //   await sleep();
+  // };
+
+  const changeValue = async (
+    input: HTMLElement | null | number,
     value: string,
+    advTimer = 1000,
   ) => {
-    fireEvent.change(wrapper.getElementsByClassName('ant-input')?.[index], { target: { value } });
-    await sleep();
+    let element: HTMLElement;
+
+    if (typeof input === 'number') {
+      element = document.querySelectorAll('input')[input];
+    }
+
+    expect(element!).toBeTruthy();
+
+    fireEvent.change(element!, {
+      target: {
+        value,
+      },
+    });
+
+    if (advTimer) {
+      await waitFakeTimer(advTimer / 20);
+    }
   };
+
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    jest.useFakeTimers();
+  });
+
+  afterAll(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 
   const testList = (
     name: string,
     renderField: (value: FormListFieldData) => React.ReactNode,
   ): void => {
     it(name, async () => {
-      jest.useFakeTimers();
-
       const { container } = render(
         <Form>
           <Form.List name="list">
@@ -39,39 +71,31 @@ describe('Form.List', () => {
         </Form>,
       );
 
-      function operate(className: string) {
+      async function operate(className: string) {
         fireEvent.click(container.querySelector(className)!);
-        act(() => {
-          jest.runAllTimers();
-        });
+        await waitFakeTimer();
       }
 
-      operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(1);
+      await operate('.add');
+      expect(container.querySelectorAll('.ant-input').length).toBe(1);
 
-      operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(2);
+      await operate('.add');
+      expect(container.querySelectorAll('.ant-input').length).toBe(2);
 
-      operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(3);
+      await operate('.add');
+      expect(container.querySelectorAll('.ant-input').length).toBe(3);
 
-      await change(container, 2, '');
-      for (let i = 0; i < 10; i += 1) {
-        act(() => {
-          jest.runAllTimers();
-        });
-      }
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(1);
+      await changeValue(2, '');
 
-      operate('.remove-0');
-      expect(container.getElementsByClassName('ant-input').length).toBe(2);
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(1);
+      expect(container.querySelectorAll('.ant-form-item-explain').length).toBe(1);
 
-      operate('.remove-1');
-      expect(container.getElementsByClassName('ant-input').length).toBe(1);
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(0);
+      await operate('.remove-0');
+      expect(container.querySelectorAll('.ant-input').length).toBe(2);
+      expect(container.querySelectorAll('.ant-form-item-explain').length).toBe(1);
 
-      jest.useRealTimers();
+      await operate('.remove-1');
+      expect(container.querySelectorAll('.ant-input').length).toBe(1);
+      expect(container.querySelectorAll('.ant-form-item-explain').length).toBe(0);
     });
   };
 
@@ -131,28 +155,26 @@ describe('Form.List', () => {
     );
 
     await click(container, '.add');
-    await change(container, 0, 'input1');
+    await changeValue(0, 'input1');
     fireEvent.submit(container.querySelector('form')!);
-    await sleep();
+    await waitFakeTimer();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1'] });
 
     await click(container, '.add');
-    await change(container, 1, 'input2');
+    await changeValue(1, 'input2');
     await click(container, '.add');
-    await change(container, 2, 'input3');
+    await changeValue(2, 'input3');
     fireEvent.submit(container.querySelector('form')!);
-    await sleep();
+    await waitFakeTimer();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1', 'input2', 'input3'] });
 
     await click(container, '.remove'); // will remove first input
     fireEvent.submit(container.querySelector('form')!);
-    await sleep();
+    await waitFakeTimer();
     expect(onFinish).toHaveBeenLastCalledWith({ list: ['input2', 'input3'] });
   });
 
   it('list errors', async () => {
-    jest.useFakeTimers();
-
     let operation: FormListOperation;
     const { container } = render(
       <Form>
@@ -177,15 +199,8 @@ describe('Form.List', () => {
     );
 
     async function addItem() {
-      await act(async () => {
-        operation.add();
-        await sleep(100);
-        jest.runAllTimers();
-      });
-
-      act(() => {
-        jest.runAllTimers();
-      });
+      operation.add();
+      await waitFakeTimer();
     }
 
     await addItem();
@@ -193,8 +208,6 @@ describe('Form.List', () => {
 
     await addItem();
     expect(container.getElementsByClassName('ant-form-item-explain div')).toHaveLength(0);
-
-    jest.useRealTimers();
   });
 
   it('should render empty without errors', () => {
@@ -243,7 +256,7 @@ describe('Form.List', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    await sleep();
+    await waitFakeTimer();
 
     expect(errorSpy).not.toHaveBeenCalled();
 

@@ -34,6 +34,7 @@ const localeValues: Locale = {
     cancelText: 'Cancelar',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Buscar aquí',
     itemUnit: 'elemento',
     itemsUnit: 'elementos',

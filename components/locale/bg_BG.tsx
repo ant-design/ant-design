@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Отказ',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Търсене',
     itemUnit: 'избор',
     itemsUnit: 'избори',
