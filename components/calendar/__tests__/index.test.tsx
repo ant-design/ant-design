@@ -14,19 +14,16 @@ import Button from '../../radio/radioButton';
 import Select from '../../select';
 import Header, { type CalendarHeaderProps } from '../Header';
 
-function calendarProps(): PickerPanelProps<any> {
-  return (global as any).calendarProps;
-}
-
-function calendarHeaderProps(): CalendarHeaderProps<any> {
-  return (global as any).calendarHeaderProps;
-}
+const ref: {
+  calendarProps?: PickerPanelProps<unknown>;
+  calendarHeaderProps?: CalendarHeaderProps<unknown>;
+} = {};
 
 jest.mock('../Header', () => {
   const HeaderModule = jest.requireActual('../Header');
   const HeaderComponent = HeaderModule.default;
   return (props: CalendarHeaderProps<any>) => {
-    (global as any).calendarHeaderProps = props;
+    ref.calendarHeaderProps = props;
     return <HeaderComponent {...props} />;
   };
 });
@@ -36,8 +33,8 @@ jest.mock('rc-picker', () => {
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
-    PickerPanel: (props: PickerPanelProps<any>) => {
-      (global as any).calendarProps = props;
+    PickerPanel: (props: PickerPanelProps<unknown>) => {
+      ref.calendarProps = props;
       return <PickerPanelComponent {...props} />;
     },
   };
@@ -151,8 +148,8 @@ describe('Calendar', () => {
   it('getDateRange should returns a disabledDate function', () => {
     const validRange: [Dayjs.Dayjs, Dayjs.Dayjs] = [Dayjs('2018-02-02'), Dayjs('2018-05-18')];
     render(<Calendar validRange={validRange} defaultValue={Dayjs('2018-02-02')} />);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-06-02'))).toBe(true);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-04-02'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-02'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-04-02'))).toBe(false);
   });
 
   it('validRange should work with disabledDate function', () => {
@@ -161,11 +158,11 @@ describe('Calendar', () => {
       <Calendar validRange={validRange} disabledDate={data => data.isSame(Dayjs('2018-02-03'))} />,
     );
 
-    expect(calendarProps().disabledDate?.(Dayjs('2018-02-01'))).toBe(true);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-02-02'))).toBe(false);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-02-03'))).toBe(true);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-02-04'))).toBe(false);
-    expect(calendarProps().disabledDate?.(Dayjs('2018-06-01'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-01'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-02'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-03'))).toBe(true);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-02-04'))).toBe(false);
+    expect(ref.calendarProps?.disabledDate?.(Dayjs('2018-06-01'))).toBe(true);
   });
 
   it('Calendar MonthSelect should display correct label', () => {
@@ -178,9 +175,9 @@ describe('Calendar', () => {
     const monthMode = 'month';
     const yearMode = 'year';
     const wrapper = render(<Calendar />);
-    expect(calendarHeaderProps().mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
     wrapper.rerender(<Calendar mode={yearMode} />);
-    expect(calendarHeaderProps().mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
   });
 
   it('Calendar should switch mode', () => {
@@ -188,9 +185,9 @@ describe('Calendar', () => {
     const yearMode = 'year';
     const onPanelChangeStub = jest.fn();
     const wrapper = render(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
-    expect(calendarHeaderProps().mode).toEqual(yearMode);
+    expect(ref.calendarHeaderProps?.mode).toEqual(yearMode);
     wrapper.rerender(<Calendar mode={monthMode} onPanelChange={onPanelChangeStub} />);
-    expect(calendarHeaderProps().mode).toEqual(monthMode);
+    expect(ref.calendarHeaderProps?.mode).toEqual(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
@@ -231,7 +228,7 @@ describe('Calendar', () => {
     const date = Dayjs(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-    expect(calendarHeaderProps().mode).toBe('month');
+    expect(ref.calendarHeaderProps?.mode).toBe('month');
     expect(wrapper.container.querySelectorAll('.ant-picker-date-panel').length).toBe(1);
     expect(wrapper.container.querySelectorAll('.ant-picker-month-panel').length).toBe(0);
     fireEvent.click(wrapper.container.querySelector('.ant-radio-button-input[value="year"]')!);

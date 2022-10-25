@@ -6,11 +6,11 @@ import Button from '../button';
 import type { ButtonHTMLType } from '../button/button';
 import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
+import { useCompactItemContext } from '../space/Compact';
 import type { DropdownProps } from './dropdown';
 import Dropdown from './dropdown';
+import Space from '../space';
 import useStyle from './style';
-
-const ButtonGroup = Button.Group;
 
 export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 
@@ -85,7 +85,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-  };
+  } as DropdownProps;
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const classes = classNames(buttonPrefixCls, compactItemClassnames, className, hashId);
 
   if ('open' in props) {
     dropdownProps.open = open;
@@ -117,10 +120,10 @@ const DropdownButton: DropdownButtonInterface = props => {
   const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 
   return wrapSSR(
-    <ButtonGroup {...restProps} className={classNames(buttonPrefixCls, className, hashId)}>
+    <Space.Compact className={classes} size={compactSize} block {...restProps}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
-    </ButtonGroup>,
+    </Space.Compact>,
   );
 };
 

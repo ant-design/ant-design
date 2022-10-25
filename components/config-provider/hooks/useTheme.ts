@@ -2,13 +2,14 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import shallowEqual from 'shallowequal';
 import type { OverrideToken } from '../../theme/interface';
 import type { ThemeConfig } from '../context';
+import { defaultConfig } from '../../theme';
 
 export default function useTheme(
   theme?: ThemeConfig,
   parentTheme?: ThemeConfig,
 ): ThemeConfig | undefined {
   const themeConfig = theme || {};
-  const parentThemeConfig = parentTheme || {};
+  const parentThemeConfig: ThemeConfig = parentTheme || defaultConfig;
 
   const mergedTheme = useMemo<ThemeConfig | undefined>(
     () => {
@@ -17,19 +18,19 @@ export default function useTheme(
       }
 
       // Override
-      const mergedOverride = {
+      const mergedComponents = {
         ...parentThemeConfig.components,
       };
 
       Object.keys(theme.components || {}).forEach((componentName: keyof OverrideToken) => {
-        mergedOverride[componentName] = {
-          ...mergedOverride[componentName],
+        mergedComponents[componentName] = {
+          ...mergedComponents[componentName],
           ...theme.components![componentName],
         } as any;
       });
 
       // Base token
-      const merged = {
+      return {
         ...parentThemeConfig,
         ...themeConfig,
 
@@ -37,10 +38,8 @@ export default function useTheme(
           ...parentThemeConfig.token,
           ...themeConfig.token,
         },
-        override: mergedOverride,
+        components: mergedComponents,
       };
-
-      return merged;
     },
     [themeConfig, parentThemeConfig],
     (prev, next) =>

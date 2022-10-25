@@ -54,26 +54,26 @@ export function renderFooter(
     footer,
   } = props;
 
-  return (
-    footer ?? (
-      <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-        {locale => (
-          <>
-            <Button onClick={onCancel} {...cancelButtonProps}>
-              {cancelText || locale!.cancelText}
-            </Button>
-            <Button
-              {...convertLegacyProps(okType)}
-              loading={confirmLoading}
-              onClick={onOk}
-              {...okButtonProps}
-            >
-              {okText || locale!.okText}
-            </Button>
-          </>
-        )}
-      </LocaleReceiver>
-    )
+  return footer === undefined ? (
+    <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
+      {locale => (
+        <>
+          <Button onClick={onCancel} {...cancelButtonProps}>
+            {cancelText || locale!.cancelText}
+          </Button>
+          <Button
+            {...convertLegacyProps(okType)}
+            loading={confirmLoading}
+            onClick={onOk}
+            {...okButtonProps}
+          >
+            {okText || locale!.okText}
+          </Button>
+        </>
+      )}
+    </LocaleReceiver>
+  ) : (
+    footer
   );
 }
 
