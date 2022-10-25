@@ -8,7 +8,8 @@ import { useToken } from '../../theme';
 import theme from '../../theme/export';
 import { resetWarned } from '../../_util/warning';
 
-const { defaultAlgorithm, darkAlgorithm, defaultAlgorithmV4, darkAlgorithmV4 } = theme;
+const { defaultAlgorithm, darkAlgorithm, defaultAlgorithmV4, darkAlgorithmV4, compactAlgorithm } =
+  theme;
 
 let mockCanUseDom = true;
 
@@ -100,6 +101,33 @@ describe('ConfigProvider.Theme', () => {
       </ConfigProvider>,
     );
     expect(tokenRef?.colorPrimaryText).toBe('#177ddc');
+  });
+
+  it('compactAlgorithm should work', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ token: { sizeBaseStep: 2 }, algorithm: compactAlgorithm }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef).toEqual(
+      expect.objectContaining({
+        sizeXXL: 48,
+        sizeXL: 32,
+        sizeLG: 16,
+        sizeMD: 16,
+        sizeMS: 12,
+        size: 8,
+        sizeSM: 8,
+        sizeXS: 4,
+        sizeXXS: 4,
+      }),
+    );
   });
 
   it('should support algorithm array', () => {

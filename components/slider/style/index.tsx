@@ -237,7 +237,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================ Horizontal ============================
 const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
-  const { componentCls, railSize, controlSize, handleSize, dotSize } = token;
+  const { componentCls, railSize, handleSize, dotSize } = token;
 
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
   const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
@@ -247,7 +247,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
 
   return {
     [railPadding]: railSize,
-    [part]: controlSize,
+    [part]: railSize * 3,
 
     [`${componentCls}-rail`]: {
       [full]: '100%',
@@ -259,7 +259,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     },
 
     [`${componentCls}-handle`]: {
-      [handlePos]: (controlSize - handleSize) / 2,
+      [handlePos]: (railSize * 3 - handleSize) / 2,
     },
 
     [`${componentCls}-mark`]: {
@@ -336,7 +336,7 @@ export default genComponentStyleHook(
     const handleLineWidthHover = token.lineWidth + increaseHandleWidth * 3;
     return {
       controlSize,
-      railSize: controlSize / 3,
+      railSize: 4,
       handleSize: controlSize,
       handleSizeHover: controlSizeHover,
       dotSize: (controlSize / 3) * 2,

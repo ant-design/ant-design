@@ -90,6 +90,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tableSelectedRowHoverBg,
     tableFooterTextColor,
     tableFooterBg,
+    paddingContentVerticalLG,
     wireframe,
   } = token;
   const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
@@ -122,7 +123,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           tfoot > tr > td
         `]: {
         position: 'relative',
-        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        padding: `${paddingContentVerticalLG}px ${tablePaddingHorizontal}px`,
         overflowWrap: 'break-word',
       },
 

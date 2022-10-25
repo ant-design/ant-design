@@ -159,7 +159,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.marginSM,
+      top: token.stepsIconSize / 2 - token.lineWidth,
       insetInlineStart: 0,
       width: '100%',
 
@@ -347,7 +347,7 @@ export default genComponentStyleHook(
       stepsIconSize,
       stepsIconCustomSize: stepsIconSize,
       stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: fontSizeHeading3,
+      stepsIconCustomFontSize: controlHeightLG / 2,
       stepsIconTop: -0.5, // magic for ui experience
       stepsIconFontSize: fontSize,
       stepsTitleLineHeight: controlHeight,

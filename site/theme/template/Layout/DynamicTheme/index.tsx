@@ -107,6 +107,10 @@ export default function DynamicTheme({
             />
           </Form.Item>
 
+          <Form.Item valuePropName="checked" name="compact" label="Compact">
+            <Checkbox>Compact</Checkbox>
+          </Form.Item>
+
           {keys.map((key: keyof typeof defaultToken) => {
             if (PresetColors.includes(key as any)) {
               return null;

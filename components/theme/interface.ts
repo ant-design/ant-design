@@ -6,9 +6,11 @@ import type { ComponentToken as BackTopComponentToken } from '../back-top/style'
 import type { ComponentToken as ButtonComponentToken } from '../button/style';
 import type { ComponentToken as FloatButtonComponentToken } from '../float-button/style';
 import type { ComponentToken as CalendarComponentToken } from '../calendar/style';
+import type { ComponentToken as CardComponentToken } from '../card/style';
 import type { ComponentToken as CarouselComponentToken } from '../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../cascader/style';
 import type { ComponentToken as CheckboxComponentToken } from '../checkbox/style';
+import type { ComponentToken as CollapseComponentToken } from '../collapse/style';
 import type { ComponentToken as DatePickerComponentToken } from '../date-picker/style';
 import type { ComponentToken as DividerComponentToken } from '../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../dropdown/style';
@@ -38,6 +40,7 @@ import type { ComponentToken as SpinComponentToken } from '../spin/style';
 import type { ComponentToken as StepsComponentToken } from '../steps/style';
 import type { ComponentToken as TableComponentToken } from '../table/style';
 import type { ComponentToken as TabsComponentToken } from '../tabs/style';
+import type { ComponentToken as TagComponentToken } from '../tag/style';
 import type { ComponentToken as TimelineComponentToken } from '../timeline/style';
 import type { ComponentToken as TooltipComponentToken } from '../tooltip/style';
 import type { ComponentToken as TransferComponentToken } from '../transfer/style';
@@ -79,10 +82,11 @@ export interface ComponentTokenMap {
   Badge?: {};
   Button?: ButtonComponentToken;
   Breadcrumb?: {};
+  Card?: CardComponentToken;
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: CheckboxComponentToken;
-  Collapse?: {};
+  Collapse?: CollapseComponentToken;
   DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
@@ -112,7 +116,7 @@ export interface ComponentTokenMap {
   Spin?: SpinComponentToken;
   Statistic?: {};
   Switch?: {};
-  Tag?: {};
+  Tag?: TagComponentToken;
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
@@ -120,7 +124,6 @@ export interface ComponentTokenMap {
   Transfer?: TransferComponentToken;
   Tabs?: TabsComponentToken;
   Calendar?: CalendarComponentToken;
-  Card?: {};
   Steps?: StepsComponentToken;
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
@@ -158,10 +161,6 @@ export interface SeedToken extends PresetColorType {
   // Font
   fontFamily: string;
   fontSizeBase: number;
-
-  // Grid
-  gridUnit: number;
-  gridBaseStep: number;
 
   // Line
   /** Border width of base components */
@@ -296,23 +295,24 @@ export interface ColorMapToken extends NeutralColorMapToken {
   colorBgMask: string;
 }
 
+export interface SizeMapToken {
+  // Size
+  sizeXXL: number;
+  sizeXL: number;
+  sizeLG: number;
+  sizeMD: number;
+  /** Same as size by default, but can be larger in compact mode */
+  sizeMS: number;
+  size: number;
+  sizeSM: number;
+  sizeXS: number;
+  sizeXXS: number;
+}
+
 export interface CommonMapToken {
   // Font
   fontSizes: number[];
   lineHeights: number[];
-
-  // Size
-  sizeSpace: number;
-  sizeSpaceXS: number;
-  sizeSpaceXXS: number;
-  sizeSpaceSM: number;
-
-  // Grid
-  gridSpaceSM: number;
-  gridSpaceBase: number;
-  gridSpaceLG: number;
-  gridSpaceXL: number;
-  gridSpaceXXL: number;
 
   // Line
   lineWidthBold: number;
@@ -339,7 +339,12 @@ export interface CommonMapToken {
 // ==                         Map Token                         ==
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {}
+export interface MapToken
+  extends SeedToken,
+    ColorPalettes,
+    ColorMapToken,
+    SizeMapToken,
+    CommonMapToken {}
 
 // ======================================================================
 // ==                           Alias Token                            ==
@@ -422,11 +427,35 @@ export interface AliasToken extends MapToken {
   controlInteractiveSize: number;
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
+  // Padding
+  paddingXXS: number;
+  paddingXS: number;
+  paddingSM: number;
+  padding: number;
+  paddingMD: number;
+  paddingLG: number;
+  paddingXL: number;
+
+  // Padding Content
+  paddingContentHorizontalLG: number;
+  paddingContentHorizontal: number;
+  paddingContentHorizontalSM: number;
+  paddingContentVerticalLG: number;
+  paddingContentVertical: number;
+  paddingContentVerticalSM: number;
+
+  // Margin
+  marginXXS: number;
+  marginXS: number;
+  marginSM: number;
+  margin: number;
+  marginMD: number;
+  marginLG: number;
+  marginXL: number;
+  marginXXL: number;
+
   // =============== Legacy: should be remove ===============
   opacityLoading: number;
-
-  padding: number;
-  margin: number;
 
   boxShadow: string;
   boxShadowSecondary: string;
@@ -437,20 +466,6 @@ export interface AliasToken extends MapToken {
 
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
-
-  paddingSM: number;
-  paddingXS: number;
-  paddingXXS: number;
-  paddingLG: number;
-  paddingXL: number;
-  paddingTmp: number;
-  marginXXS: number;
-  marginXS: number;
-  marginSM: number;
-  marginLG: number;
-  marginXL: number;
-  marginXXL: number;
-  marginTmp: number;
 
   // Media queries breakpoints
   screenXS: number;

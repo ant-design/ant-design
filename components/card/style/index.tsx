@@ -4,10 +4,15 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { clearFix, resetComponent } from '../../style';
 
+export interface ComponentToken {}
+
 interface CardToken extends FullToken<'Card'> {
+  cardHeaderHeight: number;
+  cardHeaderHeightSM: number;
   cardShadow: string;
   cardHeadHeight: number;
   cardHeadPadding: number;
+  cardPaddingSM: number;
   cardPaddingBase: number;
   cardHeadTabsMarginBottom: number;
   cardInnerHeadPadding: number;
@@ -236,9 +241,9 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     cardShadow,
     cardHeadHeight,
     cardHeadPadding,
-    cardPaddingBase,
     colorBorderSecondary,
     boxShadow,
+    cardPaddingBase,
   } = token;
 
   return {
@@ -345,15 +350,14 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, cardHeadPadding } = token;
-  const cardPaddingBaseSM = cardPaddingBase / 2;
-  const cardHeadPaddingSM = cardHeadPadding / 2;
+  const { componentCls, cardPaddingSM, fontSize, lineHeight, cardHeaderHeightSM } = token;
+  const cardHeadPaddingSM = (cardHeaderHeightSM - fontSize * lineHeight) / 2;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeadPaddingSM * 2 + token.fontSize,
-        padding: `0 ${cardPaddingBaseSM}px`,
+        minHeight: cardHeaderHeightSM,
+        padding: `0 ${cardPaddingSM}px`,
         fontSize: token.fontSize,
 
         [`> ${componentCls}-head-wrapper`]: {
@@ -369,7 +373,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`> ${componentCls}-body`]: {
-        padding: cardPaddingBaseSM,
+        padding: cardPaddingSM,
       },
     },
   };
@@ -377,17 +381,17 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Card', token => {
-  const cardHeadPadding = token.padding;
-
   const cardToken = mergeToken<CardToken>(token, {
     cardShadow: token.boxShadowCard,
-    cardHeadHeight: token.fontSizeLG + cardHeadPadding * 2,
-    cardHeadPadding,
+    cardHeaderHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+    cardHeaderHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+    cardHeadPadding: token.padding,
     cardPaddingBase: token.paddingLG,
     cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
     cardInnerHeadPadding: token.paddingSM,
     cardActionsLiMargin: `${token.paddingSM}px 0`,
     cardActionsIconSize: token.fontSize,
+    cardPaddingSM: 12, // Fixed padding.
   });
 
   return [
