@@ -134,7 +134,7 @@ export type { TimelineItemProps, TimelineProps } from './timeline';
 export { default as Tooltip } from './tooltip';
 export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
-export type { TourProps } from './tour/interface';
+export type { TourProps, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
 export type { TransferProps } from './transfer';
 export { default as Tree } from './tree';
