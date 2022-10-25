@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { MenuProps } from '..';
 import Menu from '..';
 
 describe('Menu.typescript', () => {
@@ -41,7 +40,7 @@ describe('Menu.typescript', () => {
 
   it('Menu.items Customizable attributes', () => {
     const menu = (
-      <Menu<MenuProps<{ 'data-x': number }>>
+      <Menu<{ 'data-x': number }>
         items={[
           { key: 'item', title: 'Item', 'data-x': 1 },
           {
@@ -65,11 +64,12 @@ describe('Menu.typescript', () => {
     expect(menu).toBeTruthy();
   });
 
-  it('Menu.items Customizable optional attributes', () => {
+  it('Menu and Menu.items Customizable attributes', () => {
     const menu = (
-      <Menu<MenuProps<{ 'data-x'?: number }>>
+      <Menu<{ 'data-x'?: number }, { custom: string }>
+        custom="1"
         items={[
-          { key: 'item', title: 'Item', 'data-x': 222 },
+          { key: 'item', title: 'Item', 'data-x': 1 },
           {
             key: 'submenu',
             theme: 'light',
