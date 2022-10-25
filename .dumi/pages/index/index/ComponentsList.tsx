@@ -1,7 +1,8 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
-import { Button, Space, Typography, Tag, TimePicker, Alert, Modal } from 'antd';
+import { Button, Space, Typography, Tag, TimePicker, Alert, Modal, FloatButton } from 'antd';
 import dayjs from 'dayjs';
+import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 
 const PLACEHOLDER_WIDTH = 400;
@@ -32,7 +33,20 @@ const COMPONENTS: {
     title: 'FloatButton',
     type: 'new',
     node: (
-      <TimePicker._InternalPanelDoNotUseOrYouWillBeFired value={dayjs('2022-11-18 14:00:00')} />
+      <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+        shape="square"
+        items={[
+          {
+            icon: <QuestionCircleOutlined />,
+          },
+          {
+            icon: <CustomerServiceOutlined />,
+          },
+          {
+            icon: <SyncOutlined />,
+          },
+        ]}
+      />
     ),
   },
   // {
@@ -133,6 +147,7 @@ export default function ComponentsList() {
                   flex: 'auto',
                   display: 'flex',
                   alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
                 {node}
