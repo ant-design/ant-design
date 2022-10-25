@@ -37,6 +37,7 @@ const localeValues: Locale = {
     cancelText: 'Afbryd',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Søg her',
     itemUnit: 'element',
     itemsUnit: 'elementer',

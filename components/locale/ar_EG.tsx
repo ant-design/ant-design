@@ -40,6 +40,7 @@ const localeValues: Locale = {
     cancelText: 'إلغاء',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'ابحث هنا',
     itemUnit: 'عنصر',
     itemsUnit: 'عناصر',

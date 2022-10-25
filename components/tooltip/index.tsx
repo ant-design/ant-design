@@ -237,14 +237,14 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
 
     const transformOrigin = { top: '50%', left: '50%' };
 
-    if (['top', 'Bottom'].includes(placement)) {
+    if (/top|Bottom/.test(placement)) {
       transformOrigin.top = `${rect.height - align.offset![1]}px`;
-    } else if (['Top', 'bottom'].includes(placement)) {
+    } else if (/Top|bottom/.test(placement)) {
       transformOrigin.top = `${-align.offset![1]}px`;
     }
-    if (['left', 'Right'].includes(placement)) {
+    if (/left|Right/.test(placement)) {
       transformOrigin.left = `${rect.width - align.offset![0]}px`;
-    } else if (['right', 'Left'].includes(placement)) {
+    } else if (/right|Left/.test(placement)) {
       transformOrigin.left = `${-align.offset![0]}px`;
     }
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
