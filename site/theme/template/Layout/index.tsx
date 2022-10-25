@@ -12,7 +12,7 @@ import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import type { SeedToken } from 'antd/es/theme';
 import classNames from 'classnames';
 import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
-import zhCN from 'antd/lib/locale/zh_CN';
+import zhCN from 'antd/locale/zh_CN';
 import type { DirectionType } from 'antd/es/config-provider';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
