@@ -36,7 +36,7 @@ export interface MenuProps<T = {}> extends Omit<RcMenuProps, 'items'> {
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
-  items?: ItemType<T>[];
+  items?: T extends infer U ? ItemType<U>[] : ItemType[];
 }
 
 type InternalMenuProps = MenuProps &
@@ -173,8 +173,18 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 });
 
+type ExtraCustomType = {
+  [customProp: string]: any;
+};
+
 // We should keep this as ref-able
-class Menu<T extends MenuProps = MenuProps> extends React.Component<T, {}> {
+class Menu<
+  ExtraItems extends ExtraCustomType = {},
+  ExtraMenuProps extends ExtraCustomType = {},
+> extends React.Component<
+  ExtraMenuProps extends infer S ? MenuProps<ExtraItems> & S : MenuProps<ExtraItems>,
+  {}
+> {
   static Divider = MenuDivider;
 
   static Item = Item;
