@@ -16,6 +16,7 @@ interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
   slidersPrimaryBackground: string;
   sizeSpaceXXS: number;
+  sizeSpaceXS: number;
 }
 
 // =============================== Base ===============================
