@@ -49,17 +49,18 @@ const items: MenuProps['items'] = [
 const App: React.FC = () => (
   <Layout hasSider>
     <Sider
+      collapsible
       style={{
-        overflow: 'auto',
-        height: '100vh',
         position: 'fixed',
         left: 0,
         top: 0,
         bottom: 0,
       }}
     >
-      <div className="logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+      <div style={{ height: '100%', overflow: 'auto' }}>
+        <div className="logo" />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+      </div>
     </Sider>
     <Layout className="site-layout" style={{ marginLeft: 200 }}>
       <Header className="site-layout-background" style={{ padding: 0 }} />
