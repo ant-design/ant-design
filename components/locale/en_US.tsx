@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
   },
+  Tour: {
+    Next: 'next step',
+    Previous: 'previous',
+    Finish: 'finish the tour',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Cancel',
