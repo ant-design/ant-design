@@ -2,13 +2,15 @@ import React from 'react';
 import BackTop from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('BackTop', () => {
   mountTest(BackTop);
   rtlTest(BackTop);
 
   it('should scroll to top after click it', async () => {
+    jest.useFakeTimers();
+
     const { container } = render(<BackTop visibilityHeight={-1} />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
       window.scrollY = y;
@@ -18,9 +20,12 @@ describe('BackTop', () => {
     window.scrollTo(0, 400);
     expect(document.documentElement.scrollTop).toBe(400);
     fireEvent.click(container.querySelector('.ant-back-top')!);
-    await sleep(500);
+    await waitFakeTimer();
     expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('support onClick', async () => {

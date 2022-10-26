@@ -475,8 +475,8 @@ function InternalTable<RecordType extends object = any>(
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
-      const topPos = position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
+      const topPos = position.find(p => p.includes('top'));
+      const bottomPos = position.find(p => p.includes('bottom'));
       const isDisable = position.every(p => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);

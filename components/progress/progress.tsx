@@ -77,7 +77,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
 
   function getProgressStatus() {
     const { status } = props;
-    if (ProgressStatuses.indexOf(status!) < 0 && getPercentNumber() >= 100) {
+    if (!ProgressStatuses.includes(status!) && getPercentNumber() >= 100) {
       return 'success';
     }
     return status || 'normal';
@@ -123,7 +123,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
   const strokeColorNotGradient =
     typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
-  let progress;
+  let progress: React.ReactNode;
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (

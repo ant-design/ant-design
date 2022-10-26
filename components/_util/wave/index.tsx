@@ -114,7 +114,7 @@ class InternalWave extends React.Component<WaveProps> {
   onClick = (node: HTMLElement, waveColor: string) => {
     const { insertExtraNode, disabled } = this.props;
 
-    if (disabled || !node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
+    if (disabled || !node || isHidden(node) || node.className.includes('-leave')) {
       return;
     }
 
@@ -183,7 +183,7 @@ class InternalWave extends React.Component<WaveProps> {
       !node ||
       !node.getAttribute ||
       node.getAttribute('disabled') ||
-      node.className.indexOf('disabled') >= 0
+      node.className.includes('disabled')
     ) {
       return;
     }

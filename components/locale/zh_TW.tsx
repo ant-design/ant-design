@@ -47,6 +47,7 @@ const localeValues: Locale = {
     cancelText: '取消',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: '搜尋資料',
     itemUnit: '項目',
     itemsUnit: '項目',

@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Цуцлах',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Хайх',
     itemUnit: 'Зүйл',
     itemsUnit: 'Зүйлүүд',

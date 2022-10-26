@@ -28,6 +28,7 @@ const localeValues: Locale = {
     cancelText: 'Visszavonás',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Keresés',
     itemUnit: 'elem',
     itemsUnit: 'elemek',

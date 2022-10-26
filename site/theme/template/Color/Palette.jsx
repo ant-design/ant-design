@@ -19,7 +19,7 @@ export default class Palette extends React.Component {
     this.hexColors = {};
     Object.keys(this.colorNodes).forEach(key => {
       const computedColor = getComputedStyle(this.colorNodes[key])['background-color'];
-      if (computedColor.indexOf('rgba') >= 0) {
+      if (computedColor.includes('rgba')) {
         this.hexColors[key] = computedColor;
       } else {
         this.hexColors[key] = rgbToHex(computedColor);
