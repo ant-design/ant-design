@@ -122,23 +122,25 @@ describe('Input.Password', () => {
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
 
-  it('should control visible', () => {
-    const { container, rerender } = render(<Input.Password visible />);
+  it('should control password visible', () => {
+    const { container, rerender } = render(<Input.Password visibilityToggle={{ visible: true }} />);
     expect(container.querySelectorAll('.anticon-eye').length).toBe(1);
-    rerender(<Input.Password visible={false} />);
+    rerender(<Input.Password visibilityToggle={{ visible: false }} />);
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
   });
 
-  it('should call onVisibleChange when visible is changed', () => {
-    const handleVisibleChange = jest.fn();
+  it('should call onPasswordVisibleChange when visible is changed', () => {
+    const handlePasswordVisibleChange = jest.fn();
     const { container, rerender } = render(
-      <Input.Password onVisibleChange={handleVisibleChange} />,
+      <Input.Password visibilityToggle={{ onVisibleChange: handlePasswordVisibleChange }} />,
     );
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
-    expect(handleVisibleChange).toHaveBeenCalledTimes(1);
-    rerender(<Input.Password onVisibleChange={handleVisibleChange} />);
-    expect(handleVisibleChange).toHaveBeenCalledTimes(1);
+    expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(1);
+    rerender(
+      <Input.Password visibilityToggle={{ onVisibleChange: handlePasswordVisibleChange }} />,
+    );
+    expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(1);
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
-    expect(handleVisibleChange).toHaveBeenCalledTimes(2);
+    expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(2);
   });
 });

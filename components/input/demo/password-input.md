@@ -19,23 +19,22 @@ import { Button, Input, Space } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [passwordVisible, setPasswordVisible] = React.useState(false);
 
   return (
     <Space direction="vertical">
       <Input.Password placeholder="input password" />
       <Input.Password
         placeholder="input password"
-        iconRender={isVisible => (isVisible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
       />
       <Space direction="horizontal">
         <Input.Password
           placeholder="input password"
-          visible={visible}
-          onVisibleChange={isVisible => setVisible(isVisible)}
+          visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
         />
-        <Button style={{ width: 80 }} onClick={() => setVisible(prevState => !prevState)}>
-          {visible ? 'Hide' : 'Show'}
+        <Button style={{ width: 80 }} onClick={() => setPasswordVisible(prevState => !prevState)}>
+          {passwordVisible ? 'Hide' : 'Show'}
         </Button>
       </Space>
     </Space>
