@@ -7,7 +7,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
   mountTest(Button);
@@ -38,7 +37,8 @@ describe('Button', () => {
   it('warns if size is wrong', () => {
     resetWarned();
     const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const size = 'who am I' as any as SizeType;
+    const size = 'who am I';
+    // @ts-expect-error: Type '"who am I"' is not assignable to type 'SizeType'.ts(2322)
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledWith('Warning: [antd: Button.Group] Invalid prop `size`.');
 

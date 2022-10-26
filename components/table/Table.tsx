@@ -482,8 +482,8 @@ function InternalTable<RecordType extends object = any>(
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
-      const topPos = position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
+      const topPos = position.find(p => p.includes('top'));
+      const bottomPos = position.find(p => p.includes('bottom'));
       const isDisable = position.every(p => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
@@ -557,7 +557,6 @@ const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends obje
 type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
-  defaultProps?: Partial<TableProps<any>>;
   SELECTION_COLUMN: typeof SELECTION_COLUMN;
   EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';

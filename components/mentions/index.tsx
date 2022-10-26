@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import type { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type {
+  MentionsProps as RcMentionsProps,
+  MentionsRef as RcMentionsRef,
+} from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -29,6 +32,8 @@ export interface MentionProps extends RcMentionsProps {
   status?: InputStatus;
 }
 
+export interface MentionsRef extends RcMentionsRef {}
+
 export interface MentionState {
   focused: boolean;
 }
@@ -44,12 +49,12 @@ interface MentionsEntity {
 }
 
 interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<HTMLElement>> {
+  extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<MentionsRef>> {
   Option: typeof Option;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 }
 
-const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = (
+const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
   {
     prefixCls: customizePrefixCls,
     className,
@@ -64,7 +69,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   ref,
 ) => {
   const [focused, setFocused] = React.useState(false);
-  const innerRef = React.useRef<HTMLElement>();
+  const innerRef = React.useRef<MentionsRef>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
   const {
@@ -163,7 +168,9 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   return mentions;
 };
 
-const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
+const Mentions = React.forwardRef<MentionsRef, MentionProps>(
+  InternalMentions,
+) as CompoundedComponent;
 if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }

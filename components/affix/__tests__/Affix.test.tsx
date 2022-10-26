@@ -5,7 +5,7 @@ import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import { getObserverEntities } from '../utils';
+import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -119,6 +119,11 @@ describe('Affix Render', () => {
     expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
+  it('Anchor correct render when target is null', async () => {
+    render(<Affix target={() => null}>test</Affix>);
+    await waitFakeTimer();
+  });
+
   it('support offsetBottom', async () => {
     const { container } = render(<AffixMounter offsetBottom={0} />);
 
@@ -196,6 +201,21 @@ describe('Affix Render', () => {
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(window);
     });
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
+    });
   });
 
   describe('updatePosition when size changed', () => {
@@ -241,6 +261,12 @@ describe('Affix Render', () => {
 
         expect(updateCalled).toHaveBeenCalled();
       });
+    });
+
+    it('addObserveTarget should not Throw Error when target is null', () => {
+      expect(() => {
+        addObserveTarget(null);
+      }).not.toThrow();
     });
   });
 });

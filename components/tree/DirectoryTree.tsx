@@ -23,7 +23,6 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends 
 type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<DirectoryTreeProps<T>> & { ref?: React.Ref<RcTree> },
 ) => React.ReactElement) & {
-  defaultProps: Partial<React.PropsWithChildren<DirectoryTreeProps<any>>>;
   displayName?: string;
 };
 
@@ -52,10 +51,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const lastSelectedKey = React.useRef<Key>();
 
   const cachedSelectedKeys = React.useRef<Key[]>();
-
-  const treeRef = React.createRef<RcTree>();
-
-  React.useImperativeHandle(ref, () => treeRef.current!);
 
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props));
@@ -192,7 +187,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   return (
     <Tree
       icon={getIcon}
-      ref={treeRef}
+      ref={ref}
       blockNode
       {...otherProps}
       showIcon={showIcon}
