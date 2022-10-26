@@ -12,7 +12,7 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
 ) => {
   const {
     prefixCls,
-    total = 0,
+    total,
     title,
     onClose,
     onPrev,
@@ -69,10 +69,10 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
 
   const mergedSlickNode =
     (typeof renderStep === 'function' && renderStep(current)) ||
-    [...Array.from({ length: total }).keys()].map((stepItem, index) => (
+    [...Array.from({ length: total! }).keys()].map((stepItem, index) => (
       <span key={stepItem} className={index === current ? 'active' : ''} />
     ));
-  const slickNode: ReactNode = total > 1 ? mergedSlickNode : null;
+  const slickNode: ReactNode = total! > 1 ? mergedSlickNode : null;
 
   const mergedType = type === 'primary' ? 'primary' : 'default';
   return (
@@ -91,7 +91,7 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
                   {contextLocale.Previous}
                 </Button>
               ) : null}
-              {current === total - 1 ? (
+              {current === total! - 1 ? (
                 <Button type={mergedType} {...finishButtonProps} onClick={finishBtnClick}>
                   {contextLocale.Finish}
                 </Button>

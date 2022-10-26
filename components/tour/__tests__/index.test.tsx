@@ -52,7 +52,60 @@ describe('Tour', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('button props', () => {
+  it('steps props renderStep', () => {
+    const onClickMock = jest.fn();
+    const renderStepMock = jest.fn();
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<any>();
+      return (
+        <>
+          <button disabled ref={coverBtnRef} type="button">
+            Cover
+          </button>
+          <Tour
+            type="default"
+            steps={[
+              {
+                title: 'With Cover',
+                nextButtonProps: {
+                  onClick: onClickMock,
+                },
+                renderStep: renderStepMock,
+              },
+              {
+                title: 'With Cover',
+                nextButtonProps: {
+                  onClick: onClickMock,
+                },
+                prevButtonProps: {
+                  onClick: onClickMock,
+                },
+              },
+              {
+                title: 'With Cover',
+                prevButtonProps: {
+                  onClick: onClickMock,
+                },
+                finishButtonProps: {
+                  onClick: onClickMock,
+                },
+              },
+            ]}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'previous' }));
+    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'finish the tour' }));
+    expect(onClickMock).toHaveBeenCalledTimes(5);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('button props onClick', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<any>();
       const [btnName, steBtnName] = React.useState<string>('defaultBtn');
@@ -66,8 +119,8 @@ describe('Tour', () => {
           <Tour
             steps={[
               {
-                title: 'With Cover',
-                description: 'cover description.',
+                title: '',
+                description: '',
                 target: () => coverBtnRef.current,
                 nextButtonProps: {
                   onClick: () => steBtnName('nextButton'),
