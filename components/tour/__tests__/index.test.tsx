@@ -35,6 +35,71 @@ describe('Tour', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('steps is []', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<any>();
+      return (
+        <>
+          <button disabled ref={coverBtnRef} type="button">
+            Cover
+          </button>
+
+          <Tour steps={[]} />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('button props', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<any>();
+      const [btnName, steBtnName] = React.useState<string>('defaultBtn');
+      return (
+        <>
+          <span id="btnName">{btnName}</span>
+          <button disabled ref={coverBtnRef} type="button">
+            target
+          </button>
+
+          <Tour
+            steps={[
+              {
+                title: 'With Cover',
+                description: 'cover description.',
+                target: () => coverBtnRef.current,
+                nextButtonProps: {
+                  onClick: () => steBtnName('nextButton'),
+                },
+              },
+              {
+                title: 'With Cover',
+                description: 'Here is the content of Tour.',
+                target: () => coverBtnRef.current,
+                prevButtonProps: {
+                  onClick: () => steBtnName('prevButton'),
+                },
+                finishButtonProps: {
+                  onClick: () => steBtnName('finishButton'),
+                },
+              },
+            ]}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('#btnName')).toHaveTextContent('defaultBtn');
+    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    expect(container.querySelector('#btnName')).toHaveTextContent('nextButton');
+    fireEvent.click(screen.getByRole('button', { name: 'previous' }));
+    expect(container.querySelector('#btnName')).toHaveTextContent('prevButton');
+    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'finish the tour' }));
+    expect(container.querySelector('#btnName')).toHaveTextContent('finishButton');
+  });
+
   it('Primary', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<any>();

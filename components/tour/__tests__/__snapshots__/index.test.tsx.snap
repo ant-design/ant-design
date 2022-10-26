@@ -41,3 +41,12 @@ exports[`Tour single 1`] = `
   Cover
 </button>
 `;
+
+exports[`Tour steps is [] 1`] = `
+<button
+  disabled=""
+  type="button"
+>
+  Cover
+</button>
+`;
