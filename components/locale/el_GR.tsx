@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Άκυρο',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Αναζήτηση',
     itemUnit: 'αντικείμενο',
     itemsUnit: 'αντικείμενα',
