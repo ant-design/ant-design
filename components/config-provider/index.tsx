@@ -8,7 +8,7 @@ import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme';
 import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
