@@ -79,8 +79,7 @@ describe('Input', () => {
     it('click outside should also get focus', () => {
       const { container } = render(<Input suffix={<span className="test-suffix" />} />);
       const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
-      fireEvent.mouseDown(container.querySelector('.test-suffix')!);
-      fireEvent.mouseUp(container.querySelector('.test-suffix')!);
+      fireEvent.click(container.querySelector('.test-suffix')!);
       expect(onFocus).toHaveBeenCalled();
     });
 
