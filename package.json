@@ -113,7 +113,7 @@
     "@ant-design/react-slick": "~0.29.1",
     "@babel/runtime": "^7.18.3",
     "@ctrl/tinycolor": "^3.4.0",
-    "@rc-component/tour": "~1.0.0-6",
+    "@rc-component/tour": "~1.0.0-7",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
