@@ -4,7 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Button from '../button';
-import defaultLocale from '../locale/default';
+import defaultLocale from '../locale/en_US';
 
 const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
   props: TourStepProps,
