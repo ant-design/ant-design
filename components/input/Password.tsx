@@ -97,7 +97,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     });
 
     const omittedProps: InputProps = {
-      ...omit(restProps, ['suffix', 'iconRender']),
+      ...omit(restProps, ['suffix', 'iconRender', 'visible', 'onVisibleChange']),
       type: visibleState ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,

@@ -26,11 +26,15 @@ const App: React.FC = () => {
       <Input.Password placeholder="input password" />
       <Input.Password
         placeholder="input password"
-        iconRender={isVisible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+        iconRender={isVisible => (isVisible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
       />
       <Space direction="horizontal">
-        <Input.Password placeholder="input password" visibilityToggle={false} visible={visible} />
-        <Button onClick={() => setVisible(prevState => !prevState)}>
+        <Input.Password
+          placeholder="input password"
+          visible={visible}
+          onVisibleChange={isVisible => setVisible(isVisible)}
+        />
+        <Button style={{ width: 80 }} onClick={() => setVisible(prevState => !prevState)}>
           {visible ? 'Hide' : 'Show'}
         </Button>
       </Space>

@@ -121,4 +121,24 @@ describe('Input.Password', () => {
     await sleep();
     expect(container.querySelector('input')?.getAttribute('value')).toBeFalsy();
   });
+
+  it('should control visible', () => {
+    const { container, rerender } = render(<Input.Password visible />);
+    expect(container.querySelectorAll('.anticon-eye').length).toBe(1);
+    rerender(<Input.Password visible={false} />);
+    expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
+  });
+
+  it('should call onVisibleChange when visible is changed', () => {
+    const handleVisibleChange = jest.fn();
+    const { container, rerender } = render(
+      <Input.Password onVisibleChange={handleVisibleChange} />,
+    );
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+    expect(handleVisibleChange).toHaveBeenCalledTimes(1);
+    rerender(<Input.Password onVisibleChange={handleVisibleChange} />);
+    expect(handleVisibleChange).toHaveBeenCalledTimes(1);
+    fireEvent.click(container.querySelector('.ant-input-password-icon')!);
+    expect(handleVisibleChange).toHaveBeenCalledTimes(2);
+  });
 });
