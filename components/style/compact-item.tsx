@@ -62,11 +62,7 @@ function compactItemBorder(
   };
 }
 
-function compactItemBorderRadius(
-  token: DerivativeToken,
-  prefixCls: string,
-  borderItemCls?: string,
-): CSSObject {
+function compactItemBorderRadius(prefixCls: string, borderItemCls?: string): CSSObject {
   if (!borderItemCls) {
     return {
       [`&-item:not(&-first-item):not(&-last-item)`]: {
@@ -132,7 +128,7 @@ export function genCompactItem(
   return {
     '&-compact': {
       ...compactItemBorder(token, prefixCls, borderItemCls, specialItemCls),
-      ...compactItemBorderRadius(token, prefixCls, borderItemCls),
+      ...compactItemBorderRadius(prefixCls, borderItemCls),
     },
   };
 }
