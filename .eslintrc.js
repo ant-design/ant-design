@@ -20,6 +20,9 @@ module.exports = {
       version: 'detect',
     },
     polyfills: ['Promise', 'URL'],
+    'import/resolver': {
+      typescript: {},
+    },
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
