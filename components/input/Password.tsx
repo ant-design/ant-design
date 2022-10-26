@@ -17,6 +17,8 @@ const defaultIconRender = (visible: boolean) =>
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
+  visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
   visibilityToggle?: boolean;
   iconRender?: (visible: boolean) => React.ReactNode;
 }
@@ -27,8 +29,14 @@ const ActionMap: Record<string, string> = {
 };
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
-  const [visible, setVisible] = useState(false);
+  const [visibleState, setVisibleState] = useState(props.visible ?? false);
   const inputRef = useRef<InputRef>(null);
+
+  React.useEffect(() => {
+    if (props.visible !== undefined) {
+      setVisibleState(props.visible);
+    }
+  }, [props.visible]);
 
   // Remove Password value
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
@@ -38,16 +46,20 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (disabled) {
       return;
     }
-    if (visible) {
+    if (visibleState) {
       removePasswordTimeout();
     }
-    setVisible(prevState => !prevState);
+    setVisibleState(prevState => {
+      const newState = !prevState;
+      props.onVisibleChange?.(newState);
+      return newState;
+    });
   };
 
   const getIcon = (prefixCls: string) => {
     const { action = 'click', iconRender = defaultIconRender } = props;
     const iconTrigger = ActionMap[action] || '';
-    const icon = iconRender(visible);
+    const icon = iconRender(visibleState);
     const iconProps = {
       [iconTrigger]: onVisibleChange,
       className: `${prefixCls}-icon`,
@@ -86,7 +98,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
     const omittedProps: InputProps = {
       ...omit(restProps, ['suffix', 'iconRender']),
-      type: visible ? 'text' : 'password',
+      type: visibleState ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,
       suffix: suffixIcon,
