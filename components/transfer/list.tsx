@@ -81,12 +81,6 @@ interface TransferListState {
 export default class TransferList<
   RecordType extends KeyWiseTransferItem,
 > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
-  static defaultProps = {
-    dataSource: [],
-    titleText: '',
-    showSearch: false,
-  };
-
   timer: number;
 
   triggerScrollTimer: number;
@@ -109,7 +103,7 @@ export default class TransferList<
     if (checkedKeys.length === 0) {
       return 'none';
     }
-    if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
+    if (filteredItems.every(item => checkedKeys.includes(item.key) || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -161,7 +155,7 @@ export default class TransferList<
     if (filterOption) {
       return filterOption(filterValue, item);
     }
-    return text.indexOf(filterValue) >= 0;
+    return text.includes(filterValue);
   };
 
   // =============================== Render ===============================
@@ -305,12 +299,12 @@ export default class TransferList<
     const { filterValue } = this.state;
     const {
       prefixCls,
-      dataSource,
-      titleText,
+      dataSource = [],
+      titleText = '',
       checkedKeys,
       disabled,
       footer,
-      showSearch,
+      showSearch = false,
       style,
       searchPlaceholder,
       notFoundContent,
