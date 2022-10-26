@@ -226,15 +226,15 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
       [`&:not(${componentCls}-disabled):active`]: {
         [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
           [`${switchInnerCls}-unchecked`]: {
-            marginInlineStart: token.switchInnerMarginMax + token.marginXXS,
-            marginInlineEnd: token.switchInnerMarginMin - token.marginXXS,
+            marginInlineStart: token.switchInnerMarginMax + token.switchPadding * 2,
+            marginInlineEnd: token.switchInnerMarginMin - token.switchPadding * 2,
           },
         },
 
         [`&${componentCls}-checked ${switchInnerCls}`]: {
           [`${switchInnerCls}-checked`]: {
-            marginInlineStart: token.switchInnerMarginMin - token.marginXXS,
-            marginInlineEnd: token.switchInnerMarginMax + token.marginXXS,
+            marginInlineStart: token.switchInnerMarginMin - token.switchPadding * 2,
+            marginInlineEnd: token.switchInnerMarginMax + token.switchPadding * 2,
           },
         },
       },
@@ -299,7 +299,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 export default genComponentStyleHook('Switch', token => {
   const switchHeight = token.fontSize * token.lineHeight;
   const switchHeightSM = token.controlHeight / 2;
-  const switchPadding = token.paddingXXS / 2;
+  const switchPadding = 2; // This is magic
   const switchPinSize = switchHeight - switchPadding * 2;
   const switchPinSizeSM = switchHeightSM - switchPadding * 2;
 
@@ -310,14 +310,14 @@ export default genComponentStyleHook('Switch', token => {
     switchColor: token.colorPrimary,
     switchDisabledOpacity: token.opacityLoading,
     switchInnerMarginMin: switchPinSize / 2,
-    switchInnerMarginMax: switchPinSize + switchPadding + token.paddingXXS,
+    switchInnerMarginMax: switchPinSize + switchPadding + switchPadding * 2,
     switchPadding,
     switchPinSize,
     switchBg: token.colorBgContainer,
     switchMinWidthSM: switchPinSizeSM * 2 + switchPadding * 2,
     switchHeightSM,
     switchInnerMarginMinSM: switchPinSizeSM / 2,
-    switchInnerMarginMaxSM: switchPinSizeSM + switchPadding + token.paddingXXS,
+    switchInnerMarginMaxSM: switchPinSizeSM + switchPadding + switchPadding * 2,
     switchPinSizeSM,
     switchHandleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
     switchLoadingIconSize: token.fontSizeIcon * 0.75,
