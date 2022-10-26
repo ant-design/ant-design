@@ -5,6 +5,7 @@ import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
 import { resetComponent, resetIcon } from '../../style';
+import { genCompactItem } from '../../style/compact-item';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -264,6 +265,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = token => {
         '&&-in-form-item': {
           width: '100%',
         },
+        // Space.Compact
+        ...genCompactItem(
+          token,
+          componentCls,
+          `${componentCls}-selector`,
+          `${componentCls}-focused`,
+        ),
       },
     },
 

@@ -12,6 +12,7 @@ import {
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
 import { resetComponent, resetIcon } from '../../style';
+import { genCompactItem } from '../../style/compact-item';
 
 export interface ComponentToken {
   controlWidth: number;
@@ -62,6 +63,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         padding: 0,
         border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
         borderRadius: controlRadius,
+
+        ...genCompactItem(token, componentCls),
 
         '&-rtl': {
           direction: 'rtl',
