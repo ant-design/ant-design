@@ -5,7 +5,7 @@ import renderPanel from './renderPanel';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import type { TourProps } from './interface';
+import type { TourProps, TourStepProps } from './interface';
 
 const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props => {
   const {
@@ -31,6 +31,9 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props =>
     rootClassName,
   );
 
+  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
+    renderPanel(stepProps, stepCurrent, type);
+
   return wrapSSR(
     <RCTour
       {...restProps}
@@ -38,7 +41,7 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props =>
       prefixCls={prefixCls}
       steps={steps}
       current={current}
-      renderPanel={renderPanel}
+      renderPanel={mergedRenderPanel}
     />,
   );
 };

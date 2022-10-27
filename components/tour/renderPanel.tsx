@@ -6,10 +6,11 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Button from '../button';
 import defaultLocale from '../locale/en_US';
 
-const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
-  props: TourStepProps,
+const renderPanel: (
+  step: TourStepProps,
   current: number,
-) => {
+  type: TourStepProps['type'],
+) => ReactNode = (props: TourStepProps, current: number, type) => {
   const {
     prefixCls,
     total,
@@ -23,7 +24,6 @@ const renderPanel: (step: TourStepProps, current: number) => ReactNode = (
     nextButtonProps,
     prevButtonProps,
     finishButtonProps,
-    type = 'default',
     renderStep,
   } = props;
 
