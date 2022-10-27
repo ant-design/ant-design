@@ -88,7 +88,7 @@ const Progress: React.FC<ProgressProps> = props => {
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const renderProcessInfo = React.useMemo<React.ReactNode>(() => {
+  const processInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
     }
