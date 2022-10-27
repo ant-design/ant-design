@@ -58,6 +58,7 @@ export default () => (
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
 | iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
 | input | 设置 Input 组件的通用属性 | { autoComplete?: string } | - | 4.2.0 |
+| select | 设置 Select 组件的通用属性 | { showSearch?: boolean } | - |  |
 | locale | 语言包配置，语言包可到 [antd/locale](http://unpkg.com/antd/locale/) 目录下寻找 | object | - |  |
 | prefixCls | 设置统一样式前缀 | string | `ant` |  |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty-cn) | function(componentName: string): ReactNode | - |  |
