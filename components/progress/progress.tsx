@@ -109,7 +109,7 @@ const Progress: React.FC<ProgressProps> = props => {
         {text}
       </span>
     );
-  }, [showInfo, percentNumber, progressStatus, type]);
+  }, [showInfo, percentNumber, progressStatus, type, prefixCls, format]);
 
   warning(
     !('successPercent' in props),
