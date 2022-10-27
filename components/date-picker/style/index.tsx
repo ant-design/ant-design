@@ -284,7 +284,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     colorBgContainer,
     controlLineWidth,
     controlLineType,
-    colorBorder,
     controlRadiusLG,
     colorPrimary,
     colorTextHeading,
@@ -331,7 +330,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         flexDirection: 'column',
         textAlign: 'center',
         background: colorBgContainer,
-        border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+        border: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
         borderRadius: controlRadiusLG,
         outline: 'none',
 
@@ -407,6 +406,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           button: {
             color: 'inherit',
             fontWeight: 'inherit',
+            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -566,7 +566,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         minWidth: '100%',
         lineHeight: `${pickerTextHeight - 2 * controlLineWidth}px`,
         textAlign: 'center',
-        borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
 
         '&-extra': {
           padding: `0 ${paddingSM}`,
@@ -574,7 +573,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           textAlign: 'start',
 
           '&:not(:last-child)': {
-            borderBottom: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+            borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
           },
         },
       },
@@ -736,7 +735,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         display: 'flex',
 
         [`${componentCls}-time-panel`]: {
-          borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+          borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
         },
 
         [`${componentCls}-date-panel,
@@ -1319,6 +1318,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
             flexWrap: 'nowrap',
             direction: 'ltr',
 
+            [`${componentCls}-panel`]: {
+              borderWidth: `0 0 ${controlLineWidth}px`,
+            },
+
             '&:last-child': {
               [`${componentCls}-panel`]: {
                 borderWidth: 0,
@@ -1329,8 +1332,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           [`${componentCls}-panel`]: {
             verticalAlign: 'top',
             background: 'transparent',
-            borderWidth: `0 0 ${controlLineWidth}px`,
             borderRadius: 0,
+            borderWidth: 0,
 
             [`${componentCls}-content,
             table`]: {
