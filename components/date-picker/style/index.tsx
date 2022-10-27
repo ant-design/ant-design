@@ -40,7 +40,7 @@ export type PickerPanelToken = {
 
 type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
 
-type SharedPickerToken = Omit<PickerToken, 'zIndexPopup'>;
+type SharedPickerToken = Omit<PickerToken, 'zIndexPopup' | 'presetsWidth'>;
 
 const genPikerPadding = (
   token: PickerToken,
