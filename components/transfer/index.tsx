@@ -398,7 +398,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                     <div className={cls} style={style}>
                       <List<KeyWise<RecordType>>
                         prefixCls={`${prefixCls}-list`}
-                        titleText={titles[0]}
+                        titleText={titles?.[0]}
                         dataSource={leftDataSource}
                         filterOption={filterOption}
                         style={this.handleListStyle(listStyle, 'left')}
@@ -434,7 +434,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                       />
                       <List<KeyWise<RecordType>>
                         prefixCls={`${prefixCls}-list`}
-                        titleText={titles[1]}
+                        titleText={titles?.[1]}
                         dataSource={rightDataSource}
                         filterOption={filterOption}
                         style={this.handleListStyle(listStyle, 'right')}

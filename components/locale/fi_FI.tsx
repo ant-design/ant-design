@@ -31,6 +31,7 @@ const localeValues: Locale = {
     cancelText: 'Peruuta',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Etsi täältä',
     itemUnit: 'kohde',
     itemsUnit: 'kohdetta',

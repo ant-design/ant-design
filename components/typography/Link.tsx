@@ -16,10 +16,6 @@ const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restP
     '`ellipsis` only supports boolean value.',
   );
 
-  const baseRef = React.useRef<any>(null);
-
-  React.useImperativeHandle(ref, () => baseRef.current);
-
   const mergedProps = {
     ...restProps,
     rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
@@ -28,7 +24,7 @@ const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restP
   // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
   delete mergedProps.navigate;
 
-  return <Base {...mergedProps} ref={baseRef} ellipsis={!!ellipsis} component="a" />;
+  return <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a" />;
 });
 
 export default Link;
