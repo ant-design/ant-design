@@ -7,7 +7,7 @@ import { getPercentage, getStrokeColor } from './utils';
 
 const MINSTROKEWIDTH = 3;
 
-const getMinStrokePercent = (width: number): number => (MINSTROKEWIDTH / width) * 100;
+const getMinPercent = (width: number): number => (MINSTROKEWIDTH / width) * 100;
 
 export interface CircleProps extends ProgressProps {
   prefixCls: string;
@@ -21,7 +21,7 @@ const Circle: React.FC<CircleProps> = props => {
     prefixCls,
     width,
     strokeWidth,
-    trailColor = null as any,
+    trailColor = null as unknown as string,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
@@ -40,10 +40,10 @@ const Circle: React.FC<CircleProps> = props => {
 
   const memoizedStrokeWidth = React.useMemo<number>(() => {
     if (!strokeWidth) {
-      return Math.max(getMinStrokePercent(circleSize), 6);
+      return Math.max(getMinPercent(circleSize), 6);
     }
     if (strokeWidth * 0.01 * circleSize <= MINSTROKEWIDTH) {
-      return getMinStrokePercent(circleSize);
+      return getMinPercent(circleSize);
     }
     return strokeWidth;
   }, [circleSize, strokeWidth]);
