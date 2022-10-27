@@ -5,6 +5,10 @@ import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
 import { getPercentage, getStrokeColor } from './utils';
 
+const MINSTROKEWIDTH = 3;
+
+const getMinStrokePercent = (width: number): number => (MINSTROKEWIDTH / width) * 100;
+
 export interface CircleProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
@@ -35,13 +39,11 @@ const Circle: React.FC<CircleProps> = props => {
   };
 
   const memoizedStrokeWidth = React.useMemo<number>(() => {
-    // 如果没传，默认画布宽度的 6%
     if (!strokeWidth) {
-      return 6;
+      return Math.max(getMinStrokePercent(circleSize), 6);
     }
-    // 如果小于3px，则返回3px对应的百分比
-    if (strokeWidth * 0.01 * circleSize <= 3) {
-      return (3 / circleSize) * 100;
+    if (strokeWidth * 0.01 * circleSize <= MINSTROKEWIDTH) {
+      return getMinStrokePercent(circleSize);
     }
     return strokeWidth;
   }, [circleSize, strokeWidth]);
