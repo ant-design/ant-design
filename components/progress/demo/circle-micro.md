@@ -1,8 +1,8 @@
 ---
 order: 3
 title:
-  zh-CN: 微型进度圈
-  en-US: Micro size circular progress bar
+  zh-CN: 响应式进度圈
+  en-US: Responsive circular progress bar
 ---
 
 ## zh-CN
