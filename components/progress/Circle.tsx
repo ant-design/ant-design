@@ -7,7 +7,7 @@ import { getPercentage, getStrokeColor } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
 
-const getMinPercent = (width: number): number => (MINSTROKEWIDTH / width) * 100;
+const getMinPercent = (width: number): number => (CIRCLE_MIN_STROKE_WIDTH / width) * 100;
 
 export interface CircleProps extends ProgressProps {
   prefixCls: string;
@@ -42,7 +42,7 @@ const Circle: React.FC<CircleProps> = props => {
     if (!strokeWidth) {
       return Math.max(getMinPercent(circleSize), 6);
     }
-    if (strokeWidth * 0.01 * circleSize <= MINSTROKEWIDTH) {
+    if (strokeWidth * 0.01 * circleSize <= CIRCLE_MIN_STROKE_WIDTH) {
       return getMinPercent(circleSize);
     }
     return strokeWidth;
