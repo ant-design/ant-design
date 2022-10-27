@@ -34,12 +34,17 @@ const Circle: React.FC<CircleProps> = props => {
     fontSize: circleSize * 0.15 + 6,
   };
 
-  const circleWidth = React.useMemo<number>(() => {
-    if (strokeWidth! <= 3) {
-      return 3;
+  const memoizedStrokeWidth = React.useMemo<number>(() => {
+    // 如果没传，默认画布宽度的 6%
+    if (!strokeWidth) {
+      return 6;
     }
-    return strokeWidth || 6;
-  }, []);
+    // 如果小于3px，则返回3px对应的百分比
+    if (strokeWidth * 0.01 * circleSize <= 3) {
+      return (3 / circleSize) * 100;
+    }
+    return strokeWidth;
+  }, [circleSize, strokeWidth]);
 
   const getGapDegree = React.useMemo<number | undefined>(() => {
     // Support gapDeg = 0 when type = 'dashboard'
@@ -65,8 +70,8 @@ const Circle: React.FC<CircleProps> = props => {
   const circleContent = (
     <RCCircle
       percent={getPercentage(props)}
-      strokeWidth={circleWidth}
-      trailWidth={circleWidth}
+      strokeWidth={memoizedStrokeWidth}
+      trailWidth={memoizedStrokeWidth}
       strokeColor={strokeColor}
       strokeLinecap={strokeLinecap}
       trailColor={trailColor}
