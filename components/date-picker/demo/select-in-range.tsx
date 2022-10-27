@@ -8,7 +8,6 @@ type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
 const App: React.FC = () => {
   const [dates, setDates] = useState<RangeValue>(null);
-  const [hackValue, setHackValue] = useState<RangeValue>(null);
   const [value, setValue] = useState<RangeValue>(null);
 
   const disabledDate = (current: Dayjs) => {
@@ -22,16 +21,15 @@ const App: React.FC = () => {
 
   const onOpenChange = (open: boolean) => {
     if (open) {
-      setHackValue([null, null]);
       setDates([null, null]);
     } else {
-      setHackValue(null);
+      setDates(null);
     }
   };
 
   return (
     <RangePicker
-      value={hackValue || value}
+      value={dates || value}
       disabledDate={disabledDate}
       onCalendarChange={val => setDates(val)}
       onChange={val => setValue(val)}
