@@ -42,25 +42,7 @@ exports[`Tour single 1`] = `
 </button>
 `;
 
-exports[`Tour steps is [] 1`] = `
-<button
-  disabled=""
-  type="button"
->
-  Cover
-</button>
-`;
-
 exports[`Tour steps is empty 1`] = `
-<button
-  disabled=""
-  type="button"
->
-  Cover
-</button>
-`;
-
-exports[`Tour steps props renderStep 1`] = `
 <button
   disabled=""
   type="button"
