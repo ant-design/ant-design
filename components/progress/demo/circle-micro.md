@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-A least circular progress bar.
+Responsive circular progress bar. When `width` is smaller than 20, progress information will be displayed in Tooltip.
 
 ```tsx
 import { Progress } from 'antd';
