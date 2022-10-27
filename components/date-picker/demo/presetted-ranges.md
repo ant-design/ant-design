@@ -3,6 +3,7 @@ order: 8
 title:
   zh-CN: 预设范围
   en-US: Preset Ranges
+only: true
 ---
 
 ## zh-CN
@@ -38,6 +39,7 @@ const App: React.FC = () => (
         'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
       }}
       onChange={onChange}
+      open
     />
     <RangePicker
       ranges={{

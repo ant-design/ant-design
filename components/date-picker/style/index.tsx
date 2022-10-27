@@ -1168,6 +1168,30 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           boxShadow: token.boxShadowSecondary,
           transition: `margin ${token.motionDurationSlow}`,
 
+          // ======================== Layout ========================
+          [`${componentCls}-panel-layout`]: {
+            display: 'flex',
+            flexWrap: 'nowrap',
+
+            '> *': {
+              alignItems: 'stretch',
+            },
+          },
+
+          // ======================== Preset ========================
+          [`${componentCls}-presets`]: {
+            listStyle: 'none',
+            margin: 0,
+            padding: token.paddingSM,
+            borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+
+            li: {
+              borderRadius: token.radiusSM,
+              paddingInline: token.paddingXS,
+            },
+          },
+
+          // ======================== Panels ========================
           [`${componentCls}-panels`]: {
             display: 'inline-flex',
             flexWrap: 'nowrap',
