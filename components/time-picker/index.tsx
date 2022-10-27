@@ -23,11 +23,6 @@ export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>,
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
   const { dropdownClassName, popupClassName } = props;
-  warning(
-    !dropdownClassName,
-    'RangePicker',
-    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
   return (
     <InternalRangePicker
       {...props}

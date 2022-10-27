@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Betal ke',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Lêgerîn',
     itemUnit: 'tişt',
     itemsUnit: 'tişt',
