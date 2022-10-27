@@ -12,7 +12,7 @@ import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import type { SeedToken } from 'antd/es/theme';
 import classNames from 'classnames';
 import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
-import zhCN from 'antd/lib/locale/zh_CN';
+import zhCN from 'antd/locale/zh_CN';
 import type { DirectionType } from 'antd/es/config-provider';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
@@ -23,6 +23,8 @@ import SiteContext from './SiteContext';
 import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 import 'moment/locale/zh-cn';
+
+declare const antdPreview: string | undefined;
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -91,6 +93,7 @@ interface LayoutStateType {
   setTheme: SiteContextProps['setTheme'];
   setIframeTheme: SiteContextProps['setIframeTheme'];
   v5theme: string;
+  compact: boolean;
   designToken: SeedToken;
   hashedStyle: boolean;
 }
@@ -117,6 +120,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
       setTheme: this.setTheme,
       setIframeTheme: this.setIframeTheme,
       v5theme: 'default',
+      compact: false,
       designToken: defaultSeedToken,
       hashedStyle: true,
     };
@@ -320,13 +324,15 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  algorithm: this.getAlgorithm(),
+                  algorithm: this.state.compact
+                    ? [this.getAlgorithm(), antdTheme.compactAlgorithm]
+                    : this.getAlgorithm(),
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
                 {children}
 
-                {process.env.NODE_ENV !== 'production' && (
+                {(process.env.NODE_ENV !== 'production' || antdPreview) && (
                   <DynamicTheme
                     componentName={(this.props as any).params?.children?.replace('-cn', '')}
                     defaultToken={
@@ -338,11 +344,12 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                     }
                     onChangeTheme={newToken => {
                       console.log('Change Theme:', newToken);
-                      const { hashed, theme: newTheme, ...restToken } = newToken as any;
+                      const { hashed, theme: newTheme, compact, ...restToken } = newToken as any;
                       this.setState({
                         v5theme: newTheme,
                         designToken: restToken,
                         hashedStyle: hashed,
+                        compact,
                       });
                     }}
                   />

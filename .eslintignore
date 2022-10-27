@@ -25,6 +25,7 @@ site/**/*.tsx
 typings
 es/**/*
 lib/**/*
+locale
 node_modules
 _site
 dist

@@ -2,6 +2,7 @@
 import { useToken as useInternalToken, defaultConfig } from '.';
 import defaultAlgorithm from './themes/default';
 import darkAlgorithm from './themes/dark';
+import compactAlgorithm from './themes/compact';
 import { defaultAlgorithmV4, darkAlgorithmV4 } from './themes/v4';
 
 // ZombieJ: We export as object to user but array in internal.
@@ -23,4 +24,5 @@ export default {
   darkAlgorithm,
   defaultAlgorithmV4,
   darkAlgorithmV4,
+  compactAlgorithm,
 };

@@ -49,6 +49,18 @@ See: https://ant.design/docs/react/customize-theme .
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
 
+## How to avoid breaking change when update version?
+
+antd will avoid breaking change in minor & patch version. You can safe do follow things:
+
+- Official demo usage
+- FAQ suggestion. Including codesandbox sample, marked as FAQ issue
+
+And which you should avoid to do:
+
+- Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
+- Use magic code to realize requirement but which can be realized with normal API
+
 ## How to use other data-time lib like Moment.js?
 
 Please refer to [Use custom date library](/docs/react/use-custom-date-library).

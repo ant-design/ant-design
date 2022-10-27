@@ -4,7 +4,8 @@
     "paths": {
       "antd": ["components/index.tsx"],
       "antd/es/*": ["components/*"],
-      "antd/lib/*": ["components/*"]
+      "antd/lib/*": ["components/*"],
+      "antd/locale/*": ["components/locale/*"]
     },
     "strictNullChecks": true,
     "module": "esnext",

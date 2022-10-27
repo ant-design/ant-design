@@ -32,6 +32,7 @@ const localeValues: Locale = {
     cancelText: '취소',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: '여기에 검색하세요',
     itemUnit: '개',
     itemsUnit: '개',

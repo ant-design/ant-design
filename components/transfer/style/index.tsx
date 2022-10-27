@@ -12,9 +12,9 @@ export interface ComponentToken {
 
 interface TransferToken extends FullToken<'Transfer'> {
   transferItemHeight: number;
-  transferHeaderHeight: number;
   transferHeaderVerticalPadding: number;
   transferItemPaddingVertical: number;
+  transferHeaderHeight: number;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -99,7 +99,6 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     listHeight,
     listWidth,
     listWidthLG,
-    marginXXS,
     fontSizeIcon,
     marginXS,
     paddingSM,
@@ -142,7 +141,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       borderRadius: `${token.controlRadiusLG}px ${token.controlRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
-        marginInlineEnd: marginXXS,
+        marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
       },
 
       '> *': {

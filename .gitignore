@@ -28,6 +28,7 @@ dist
 report.html
 /lib
 /es
+/locale
 elasticsearch-*
 config/base.yaml
 /.vscode/

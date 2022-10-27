@@ -4,7 +4,7 @@ import Dropdown from '..';
 import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, sleep } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Menu from '../../menu';
 import { resetWarned } from '../../_util/warning';
 
@@ -56,6 +56,7 @@ describe('Dropdown', () => {
   });
 
   it('support Menu expandIcon', async () => {
+    jest.useFakeTimers();
     const props: DropDownProps = {
       overlay: (
         <Menu expandIcon={<span id="customExpandIcon" />}>
@@ -74,8 +75,9 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    await sleep(500);
+    await waitFakeTimer();
     expect(container.querySelectorAll('#customExpandIcon').length).toBe(1);
+    jest.useRealTimers();
   });
 
   it('should warn if use topCenter or bottomCenter', () => {

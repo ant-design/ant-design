@@ -7,6 +7,7 @@ export interface ComponentToken {}
 
 type AlertToken = FullToken<'Alert'> & {
   alertIconSizeLG: number;
+  alertPaddingHorizontal: number;
 };
 
 const genAlertTypeStyle = (
@@ -36,10 +37,10 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     motionEaseInOutCirc,
     alertIconSizeLG,
     colorText,
-    paddingSM,
-    paddingXS,
-    paddingTmp,
-    paddingLG,
+    paddingContentVerticalSM,
+    alertPaddingHorizontal,
+    paddingMD,
+    paddingContentHorizontalLG,
   } = token;
 
   return {
@@ -48,7 +49,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: `${paddingXS}px ${paddingSM}px`,
+      padding: `${paddingContentVerticalSM}px ${alertPaddingHorizontal}px`, // Fixed horizontal padding here.
       wordWrap: 'break-word',
       borderRadius,
 
@@ -95,8 +96,8 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      paddingInline: paddingLG,
-      paddingBlock: paddingTmp,
+      paddingInline: paddingContentHorizontalLG,
+      paddingBlock: paddingMD,
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginSM,
@@ -232,6 +233,7 @@ export default genComponentStyleHook('Alert', token => {
 
   const alertToken = mergeToken<AlertToken>(token, {
     alertIconSizeLG: fontSizeHeading3,
+    alertPaddingHorizontal: 12, // Fixed value here.
   });
 
   return [genAlertStyle(alertToken)];

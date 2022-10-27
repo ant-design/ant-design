@@ -14,6 +14,11 @@ const listCommonProps: TransferListProps<any> = {
   notFoundContent: 'Not Found',
 } as TransferListProps<any>;
 
+const listProps: TransferListProps<any> = {
+  ...listCommonProps,
+  dataSource: undefined as unknown as any[],
+};
+
 describe('Transfer.List', () => {
   it('should render correctly', () => {
     const { container } = render(<List {...listCommonProps} />);
@@ -42,5 +47,10 @@ describe('Transfer.List', () => {
     render(<List ref={instance} {...listCommonProps} handleFilter={handleFilter} />);
     expect(instance.current?.handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
+  });
+  it('should render correctly when dataSource is not exists', () => {
+    expect(() => {
+      render(<List {...listProps} />);
+    }).not.toThrow();
   });
 });

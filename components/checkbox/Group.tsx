@@ -103,7 +103,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
     const opts = getOptions();
     onChange?.(
       newValue
-        .filter(val => registeredValues.indexOf(val) !== -1)
+        .filter(val => registeredValues.includes(val))
         .sort((a, b) => {
           const indexA = opts.findIndex(opt => opt.value === a);
           const indexB = opts.findIndex(opt => opt.value === b);
@@ -126,7 +126,7 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
         key={option.value.toString()}
         disabled={'disabled' in option ? option.disabled : restProps.disabled}
         value={option.value}
-        checked={value.indexOf(option.value) !== -1}
+        checked={value.includes(option.value)}
         onChange={option.onChange}
         className={`${groupPrefixCls}-item`}
         style={option.style}

@@ -21,7 +21,7 @@ async function execute() {
   logs = _.remove(logs, ({ author_email: email }) => {
     for (let i = 0; i < excludes.length; i++) {
       const item = excludes[i];
-      if (email.indexOf(item) !== -1) {
+      if (email.includes(item)) {
         return false;
       }
     }

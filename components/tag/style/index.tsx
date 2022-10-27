@@ -5,12 +5,15 @@ import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
 import capitalize from '../../_util/capitalize';
 import { resetComponent } from '../../style';
 
+export interface ComponentToken {}
+
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
   tagDefaultBg: string;
   tagDefaultColor: string;
   tagIconSize: number;
+  tagPaddingHorizontal: number;
 }
 
 // ============================== Styles ==============================
@@ -55,8 +58,8 @@ const genTagColorStyle = (token: TagToken): CSSInterpolation =>
   }, {} as CSSObject);
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXS, paddingXXS, controlLineWidth } = token;
-  const paddingInline = paddingXS - controlLineWidth;
+  const { paddingXXS, controlLineWidth, tagPaddingHorizontal } = token;
+  const paddingInline = tagPaddingHorizontal - controlLineWidth;
   const iconMarginInline = paddingXXS - controlLineWidth;
 
   return {
@@ -160,6 +163,7 @@ export default genComponentStyleHook('Tag', token => {
     tagDefaultBg,
     tagDefaultColor,
     tagIconSize: fontSizeIcon - 2 * controlLineWidth, // Tag icon is much more smaller
+    tagPaddingHorizontal: 8, // Fixed padding.
   });
 
   return [
