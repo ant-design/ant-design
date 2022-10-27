@@ -5,7 +5,7 @@ import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
 import { getPercentage, getStrokeColor } from './utils';
 
-const MINSTROKEWIDTH = 3;
+const CIRCLE_MIN_STROKE_WIDTH = 3;
 
 const getMinPercent = (width: number): number => (MINSTROKEWIDTH / width) * 100;
 
