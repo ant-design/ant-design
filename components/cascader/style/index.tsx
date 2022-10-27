@@ -5,4 +5,4 @@ import './index.less';
 import '../../empty/style';
 import '../../select/style';
 
-// deps-lint-skip: form
+// deps-lint-skip: form, space

@@ -17,14 +17,24 @@ A simple mini version step bar in the vertical direction.
 import { Steps } from 'antd';
 import React from 'react';
 
-const { Step } = Steps;
-
+const description = 'This is a description.';
 const App: React.FC = () => (
-  <Steps direction="vertical" size="small" current={1}>
-    <Step title="Finished" description="This is a description." />
-    <Step title="In Progress" description="This is a description." />
-    <Step title="Waiting" description="This is a description." />
-  </Steps>
+  <Steps
+    direction="vertical"
+    size="small"
+    current={1}
+    items={[
+      { title: 'Finished', description },
+      {
+        title: 'In Progress',
+        description,
+      },
+      {
+        title: 'Waiting',
+        description,
+      },
+    ]}
+  />
 );
 
 export default App;

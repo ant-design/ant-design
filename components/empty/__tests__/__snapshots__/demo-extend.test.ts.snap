@@ -1197,7 +1197,7 @@ exports[`renders ./components/empty/demo/customize.md extend context correctly 1
     class="ant-empty-description"
   >
     <span>
-      Customize 
+      Customize
       <a
         href="#API"
       >

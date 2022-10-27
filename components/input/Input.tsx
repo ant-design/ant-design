@@ -10,6 +10,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
+import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -137,6 +138,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     allowClear,
     addonAfter,
     addonBefore,
+    className,
     onChange,
     ...rest
   } = props;
@@ -145,13 +147,16 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
+  // ===================== Compact Item =====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
-  const mergedSize = customSize || size;
+  const mergedSize = compactSize || customSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -215,19 +220,24 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
+      className={classNames(className, compactItemClassnames)}
       onChange={handleChange}
       addonAfter={
         addonAfter && (
-          <NoFormStyle override status>
-            {addonAfter}
-          </NoFormStyle>
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonAfter}
+            </NoFormStyle>
+          </NoCompactStyle>
         )
       }
       addonBefore={
         addonBefore && (
-          <NoFormStyle override status>
-            {addonBefore}
-          </NoFormStyle>
+          <NoCompactStyle>
+            <NoFormStyle override status>
+              {addonBefore}
+            </NoFormStyle>
+          </NoCompactStyle>
         )
       }
       inputClassName={classNames(

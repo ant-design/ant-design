@@ -210,12 +210,12 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
       <span>
         Zhejiang
         <!-- -->
-         / 
+         /
       </span>
       <span>
         Hangzhou
         <!-- -->
-         / 
+         /
       </span>
       <span>
         West Lake
