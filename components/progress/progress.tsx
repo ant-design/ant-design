@@ -125,7 +125,7 @@ const Progress: React.FC<ProgressProps> = props => {
   if (type === 'line') {
     progress = steps ? (
       <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
-        {renderProcessInfo}
+        {processInfo}
       </Steps>
     ) : (
       <Line
@@ -134,7 +134,7 @@ const Progress: React.FC<ProgressProps> = props => {
         prefixCls={prefixCls}
         direction={direction}
       >
-        {renderProcessInfo}
+        {processInfo}
       </Line>
     );
   } else if (type === 'circle' || type === 'dashboard') {
@@ -145,7 +145,7 @@ const Progress: React.FC<ProgressProps> = props => {
         prefixCls={prefixCls}
         progressStatus={progressStatus}
       >
-        {renderProcessInfo}
+        {processInfo}
       </Circle>
     );
   }
