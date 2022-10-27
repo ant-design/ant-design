@@ -36,9 +36,9 @@ const localeValues: Locale = {
     cancelSort: 'Click to cancel sorting',
   },
   Tour: {
-    Next: 'next step',
-    Previous: 'previous',
-    Finish: 'finish the tour',
+    Next: 'Next',
+    Previous: 'Previous',
+    Finish: 'Finish',
   },
   Modal: {
     okText: 'OK',
