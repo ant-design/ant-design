@@ -137,7 +137,7 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 
-这是由于虚拟滚动默认选项高度为 `32px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
+这是由于虚拟滚动默认选项高度为 `24px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
 
 ```tsx
 <Select listItemHeight={10} listHeight={250} />
