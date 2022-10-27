@@ -198,10 +198,6 @@ Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-
 - Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
 - Alternate example: <https://stackblitz.com/edit/react-9aegkj>
 
-### Why origin panel don't switch when using `panelRender`?
-
-When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
-
 ```js
 dayjs.locale('en', {
   week: {
@@ -209,3 +205,7 @@ dayjs.locale('en', {
   },
 });
 ```
+
+### Why origin panel don't switch when using `panelRender`?
+
+When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
