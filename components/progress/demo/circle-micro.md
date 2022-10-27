@@ -19,16 +19,15 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <Progress type="circle" percent={100} strokeWidth={20} width={20} />
-    <Progress type="circle" percent={75} strokeWidth={20} width={18} />
-    <Progress type="circle" percent={50} strokeWidth={20} width={16} status="exception" />
     <Progress
       type="circle"
-      percent={25}
+      percent={60}
       strokeWidth={20}
       width={14}
       format={number => `进行中，已完成${number}%`}
+      style={{ marginRight: 8 }}
     />
+    代码发布
   </>
 );
 

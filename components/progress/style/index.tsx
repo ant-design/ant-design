@@ -113,7 +113,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
         [`${progressCls}-bg::before`]: {
           position: 'absolute',
           inset: 0,
-          background: token.colorBgContainer,
+          backgroundColor: token.colorBgContainer,
           borderRadius: token.progressLineRadius,
           opacity: 0,
           animationName: antProgressActive,
@@ -163,11 +163,6 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
   return {
     [progressCls]: {
-      '&-circle': {
-        marginInlineEnd: token.marginXS,
-        marginBottom: token.marginXS,
-      },
-
       [`${progressCls}-circle-trail`]: {
         stroke: token.progressRemainingColor,
       },
@@ -227,11 +222,11 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           flexShrink: 0,
           minWidth: token.progressStepMinWidth,
           marginInlineEnd: token.progressStepMarginInlineEnd,
-          background: token.progressRemainingColor,
+          backgroundColor: token.progressRemainingColor,
           transition: `all ${token.motionDurationSlow}`,
 
           '&-active': {
-            background: token.colorInfo,
+            backgroundColor: token.colorInfo,
           },
         },
       },
