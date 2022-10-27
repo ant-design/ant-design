@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent, resetIcon } from '../../style';
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   listWidth: number;
@@ -149,11 +149,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-title': {
+        ...textEllipsis,
         flex: 'auto',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
         textAlign: 'end',
-        textOverflow: 'ellipsis',
       },
 
       '&-dropdown': {
@@ -206,10 +204,8 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-text': {
+          ...textEllipsis,
           flex: 'auto',
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
         },
 
         '&-remove': {

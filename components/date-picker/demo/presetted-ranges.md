@@ -15,14 +15,21 @@ only: true
 We can set preset ranges to RangePicker to improve user experience.
 
 ```tsx
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import dayjs from 'dayjs';
 import React from 'react';
+import { DatePicker, Space } from 'antd';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
-const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
+const onChange = (date: Dayjs) => {
+  if (date) {
+    console.log('Date: ', date);
+  } else {
+    console.log('Clear');
+  }
+};
+const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) => {
   if (dates) {
     console.log('From: ', dates[0], ', to: ', dates[1]);
     console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
@@ -33,22 +40,29 @@ const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
 
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
-    <RangePicker
-      ranges={{
-        Today: [dayjs(), dayjs()],
-        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
-      }}
+    <DatePicker
+      presets={[
+        { label: 'Today', value: dayjs() },
+        { label: 'Yesterday', value: dayjs().add(-1, 'd') },
+        { label: 'Last Week', value: dayjs().add(-7, 'd') },
+      ]}
       onChange={onChange}
-      open
     />
     <RangePicker
-      ranges={{
-        Today: [dayjs(), dayjs()],
-        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
-      }}
+      presets={[
+        { label: 'Today', value: [dayjs(), dayjs()] },
+        { label: 'This Month', value: [dayjs().startOf('month'), dayjs().endOf('month')] },
+      ]}
+      onChange={onRangeChange}
+    />
+    <RangePicker
+      presets={[
+        { label: 'Today', value: [dayjs(), dayjs()] },
+        { label: 'This Month', value: [dayjs().startOf('month'), dayjs().endOf('month')] },
+      ]}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
-      onChange={onChange}
+      onChange={onRangeChange}
     />
   </Space>
 );

@@ -12,9 +12,10 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { GlobalToken } from '../../theme/interface';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { resetComponent, roundedArrow } from '../../style';
+import { resetComponent, roundedArrow, textEllipsis } from '../../style';
 
 export interface ComponentToken {
+  presetsWidth: number;
   zIndexPopup: number;
 }
 
@@ -931,6 +932,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     marginXS,
     colorTextDescription,
     lineWidthBold,
+    lineHeight,
     colorPrimary,
     motionDurationSlow,
     zIndexPopup,
@@ -947,6 +949,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     boxShadowSecondary,
     radiusSM,
     colorSplit,
+    controlItemBgHover,
+    presetsWidth,
   } = token;
 
   return {
@@ -1272,22 +1276,40 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           [`${componentCls}-panel-layout`]: {
             display: 'flex',
             flexWrap: 'nowrap',
-
-            '> *': {
-              alignItems: 'stretch',
-            },
+            alignItems: 'stretch',
           },
 
           // ======================== Preset ========================
           [`${componentCls}-presets`]: {
-            listStyle: 'none',
-            margin: 0,
-            padding: paddingSM,
-            borderInlineEnd: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+            display: 'flex',
+            flexDirection: 'column',
+            minWidth: presetsWidth,
 
-            li: {
-              borderRadius: radiusSM,
-              paddingInline: paddingXS,
+            ul: {
+              height: 0,
+              flex: 'auto',
+              listStyle: 'none',
+              overflow: 'auto',
+              margin: 0,
+              padding: paddingXS,
+              borderInlineEnd: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+
+              li: {
+                ...textEllipsis,
+                borderRadius: radiusSM,
+                paddingInline: paddingXS,
+                paddingBlock: (controlHeightSM - Math.round(fontSize * lineHeight)) / 2,
+                cursor: 'pointer',
+                transition: `all ${motionDurationSlow}`,
+
+                '+ li': {
+                  marginTop: marginXS,
+                },
+
+                '&:hover': {
+                  background: controlItemBgHover,
+                },
+              },
             },
           },
 
@@ -1382,6 +1404,7 @@ export default genComponentStyleHook(
     return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
   },
   token => ({
+    presetsWidth: 120,
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

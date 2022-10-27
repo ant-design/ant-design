@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { clearFix, resetComponent } from '../../style';
+import { clearFix, resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {}
 
@@ -55,9 +55,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       display: 'inline-block',
       flex: 1,
       padding: `${cardHeadPadding}px 0`,
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
+      ...textEllipsis,
 
       [`
           > ${componentCls}-typography,
@@ -183,12 +181,10 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
   },
 
   '&-title': {
-    overflow: 'hidden',
     color: token.colorTextHeading,
     fontWeight: token.fontWeightStrong,
     fontSize: token.fontSizeLG,
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
+    ...textEllipsis,
   },
 
   '&-description': {
