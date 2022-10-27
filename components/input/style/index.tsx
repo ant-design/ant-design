@@ -3,7 +3,7 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { GlobalToken } from '../../theme/interface';
 import { clearFix, resetComponent } from '../../style';
-import { genCompactItem } from '../../style/compact-item';
+import { genCompactItemStyle } from '../../style/compact-item';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
@@ -507,7 +507,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
       ...genStatusStyle(token),
-      ...genCompactItem(token, prefixCls),
+      ...genCompactItemStyle(token, prefixCls),
 
       '&[type="color"]': {
         height: token.controlHeight,

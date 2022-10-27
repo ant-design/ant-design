@@ -2,133 +2,80 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '../theme';
 
+// handle border collapse
 function compactItemBorder(
   token: DerivativeToken,
-  prefixCls: string,
-  borderItemCls?: string,
-  specialItemCls?: string,
+  borderedItemCls?: string,
+  popoverFocusedCls?: string,
 ): CSSObject {
-  function genSpecial(): CSSObject {
-    if (specialItemCls) {
-      return {
-        [`&.${specialItemCls}`]: {
-          zIndex: 2,
-        },
-      };
-    }
-    return {};
-  }
-  if (!borderItemCls) {
-    return {
-      // border collapse
-      '&-item:not(&-last-item)': {
-        marginInlineEnd: -token.controlLineWidth,
-      },
-
-      '&-item': {
-        '&:hover, &:focus, &:active': {
-          zIndex: 2,
-        },
-        ...genSpecial(),
-
-        '&[disabled]': {
-          zIndex: 0,
-        },
-      },
-    };
-  }
+  const childCombinator = borderedItemCls ? '> *' : '';
   return {
-    // border collapse
     '&-item:not(&-last-item)': {
       marginInlineEnd: -token.controlLineWidth,
-
-      [`&.${prefixCls}-compact-item-rtl`]: {
-        marginInlineEnd: 0,
-        marginInlineStart: -token.controlLineWidth,
-      },
     },
-    '&-item': {
-      '&:hover,&:focus,&:active': {
-        '> *': {
-          zIndex: 2,
-        },
-      },
-      ...genSpecial(),
 
-      '&[disabled] > *': {
+    '&-item': {
+      [`&:hover ${childCombinator}, &:focus ${childCombinator}, &:active ${childCombinator}`]: {
+        zIndex: 2,
+      },
+
+      ...(popoverFocusedCls
+        ? {
+            [`&${popoverFocusedCls}`]: {
+              zIndex: 2,
+            },
+          }
+        : {}),
+
+      [`&[disabled] ${childCombinator}`]: {
         zIndex: 0,
       },
     },
   };
 }
 
-function compactItemBorderRadius(prefixCls: string, borderItemCls?: string): CSSObject {
-  if (!borderItemCls) {
-    return {
-      [`&-item:not(&-first-item):not(&-last-item)`]: {
-        borderRadius: 0,
-      },
-
-      '&-item&-first-item': {
-        borderStartEndRadius: 0,
-        borderEndEndRadius: 0,
-
-        [`&&${prefixCls}-sm`]: {
-          borderStartEndRadius: 0,
-          borderEndEndRadius: 0,
-        },
-      },
-
-      '&-item&-last-item': {
-        borderStartStartRadius: 0,
-        borderEndStartRadius: 0,
-
-        [`&&${prefixCls}-sm`]: {
-          borderStartStartRadius: 0,
-          borderEndStartRadius: 0,
-        },
-      },
-    };
-  }
+// handle border-radius
+function compactItemBorderRadius(prefixCls: string, borderedElementCls?: string): CSSObject {
+  const childCombinator = borderedElementCls ? `> ${borderedElementCls}` : '';
 
   return {
-    // border-radius
-    [`&-item:not(&-first-item):not(&-last-item) > ${borderItemCls}`]: {
+    [`&-item:not(&-first-item):not(&-last-item) ${childCombinator}`]: {
       borderRadius: 0,
     },
 
-    [`&-item&-first-item > ${borderItemCls}`]: {
-      borderStartEndRadius: 0,
-      borderEndEndRadius: 0,
-
-      [`&&${prefixCls}-sm`]: {
-        borderStartEndRadius: 0,
-        borderEndEndRadius: 0,
-      },
+    '&-item&-first-item': {
+      [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
+        {
+          borderStartEndRadius: 0,
+          borderEndEndRadius: 0,
+        },
     },
 
-    [`&-item&-last-item > ${borderItemCls}`]: {
-      borderStartStartRadius: 0,
-      borderEndStartRadius: 0,
-
-      [`&&${prefixCls}-sm`]: {
-        borderStartEndRadius: 0,
-        borderEndEndRadius: 0,
-      },
+    '&-item&-last-item': {
+      [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
+        {
+          borderStartStartRadius: 0,
+          borderEndStartRadius: 0,
+        },
     },
   };
 }
 
-export function genCompactItem(
+export function genCompactItemStyle(
   token: DerivativeToken,
   prefixCls: string,
-  borderItemCls?: string,
-  specialItemCls?: string,
+  /** Some component borders are implemented on child elements like `Select` */
+  borderedElementCls?: string,
+  /**
+   * Some components have special `focus` className especially with popovers like `Select` and
+   * `DatePicker`
+   */
+  popoverFocusedCls?: string,
 ): CSSObject {
   return {
     '&-compact': {
-      ...compactItemBorder(token, prefixCls, borderItemCls, specialItemCls),
-      ...compactItemBorderRadius(prefixCls, borderItemCls),
+      ...compactItemBorder(token, borderedElementCls, popoverFocusedCls),
+      ...compactItemBorderRadius(prefixCls, borderedElementCls),
     },
   };
 }

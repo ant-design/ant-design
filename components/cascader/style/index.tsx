@@ -1,7 +1,7 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
-import { genCompactItem } from '../../style/compact-item';
+import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   controlWidth: number;
@@ -31,7 +31,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
     {
       [componentCls]: {
         width: token.controlWidth,
-        ...genCompactItem(token, componentCls),
+        ...genCompactItemStyle(token, componentCls),
       },
     },
     // =====================================================

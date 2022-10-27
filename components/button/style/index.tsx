@@ -3,8 +3,8 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
-import { genCompactItem } from '../../style/compact-item';
-import { genCompactItemVertical } from '../../style/compact-item-vertical';
+import { genCompactItemStyle } from '../../style/compact-item';
+import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -53,8 +53,8 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         ...genFocusStyle(token),
       },
 
-      ...genCompactItem(token, componentCls),
-      ...genCompactItemVertical(token, componentCls),
+      ...genCompactItemStyle(token, componentCls),
+      ...genCompactItemVerticalStyle(token, componentCls),
 
       // make `btn-icon-only` not too narrow
       '&-icon-only&-compact-item': {

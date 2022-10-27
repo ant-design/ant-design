@@ -28,20 +28,14 @@ function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
     },
 
     '&-item&-first-item': {
-      borderEndEndRadius: 0,
-      borderEndStartRadius: 0,
-
-      [`&&${prefixCls}-sm`]: {
+      [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderEndEndRadius: 0,
         borderEndStartRadius: 0,
       },
     },
 
     '&-item&-last-item': {
-      borderStartStartRadius: 0,
-      borderStartEndRadius: 0,
-
-      [`&&${prefixCls}-sm`]: {
+      [`&, &${prefixCls}-sm, &${prefixCls}-lg`]: {
         borderStartStartRadius: 0,
         borderStartEndRadius: 0,
       },
@@ -49,7 +43,7 @@ function compactItemBorderVerticalRadius(prefixCls: string): CSSObject {
   };
 }
 
-export function genCompactItemVertical(token: DerivativeToken, prefixCls: string): CSSObject {
+export function genCompactItemVerticalStyle(token: DerivativeToken, prefixCls: string): CSSObject {
   return {
     '&-compact-vertical': {
       ...compactItemVerticalBorder(token),
