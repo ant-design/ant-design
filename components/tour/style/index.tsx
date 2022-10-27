@@ -132,16 +132,16 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
             [`${componentCls}-sliders`]: {
               display: 'inline-block',
-              span: {
+              [`${componentCls}-slider`]: {
                 width: `${sliderWidth}px`,
                 height: `${sliderHeight}px`,
                 display: 'inline-block',
                 borderRadius: '50%',
                 background: colorTextTertiary,
                 marginInlineEnd: marginXXS,
-                '&.active': {
-                  background: colorPrimary,
-                },
+              },
+              [`${componentCls}-slider-active`]: {
+                background: colorPrimary,
               },
             },
             [`${componentCls}-buttons button`]: {

@@ -35,7 +35,7 @@ describe('Tour', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('steps is []', () => {
+  it('steps is empty', () => {
     const App: React.FC = () => {
       const coverBtnRef = useRef<any>();
       return (
@@ -43,8 +43,8 @@ describe('Tour', () => {
           <button disabled ref={coverBtnRef} type="button">
             Cover
           </button>
-
           <Tour steps={[]} />
+          <Tour />
         </>
       );
     };
@@ -52,9 +52,9 @@ describe('Tour', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('steps props renderStep', () => {
+  it('steps props stepRender', () => {
     const onClickMock = jest.fn();
-    const renderStepMock = jest.fn();
+    const stepRenderMock = jest.fn();
     const App: React.FC = () => {
       const coverBtnRef = useRef<any>();
       return (
@@ -64,13 +64,13 @@ describe('Tour', () => {
           </button>
           <Tour
             type="default"
+            stepRender={stepRenderMock}
             steps={[
               {
                 title: 'With Cover',
                 nextButtonProps: {
                   onClick: onClickMock,
                 },
-                renderStep: renderStepMock,
               },
               {
                 title: 'With Cover',
@@ -96,11 +96,11 @@ describe('Tour', () => {
       );
     };
     const { container } = render(<App />);
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
-    fireEvent.click(screen.getByRole('button', { name: 'previous' }));
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
-    fireEvent.click(screen.getByRole('button', { name: 'finish the tour' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Previous' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(onClickMock).toHaveBeenCalledTimes(5);
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -127,8 +127,7 @@ describe('Tour', () => {
                 },
               },
               {
-                title: 'With Cover',
-                description: 'Here is the content of Tour.',
+                title: '',
                 target: () => coverBtnRef.current,
                 prevButtonProps: {
                   onClick: () => steBtnName('prevButton'),
@@ -144,12 +143,12 @@ describe('Tour', () => {
     };
     const { container } = render(<App />);
     expect(container.querySelector('#btnName')).toHaveTextContent('defaultBtn');
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(container.querySelector('#btnName')).toHaveTextContent('nextButton');
-    fireEvent.click(screen.getByRole('button', { name: 'previous' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Previous' }));
     expect(container.querySelector('#btnName')).toHaveTextContent('prevButton');
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
-    fireEvent.click(screen.getByRole('button', { name: 'finish the tour' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(container.querySelector('#btnName')).toHaveTextContent('finishButton');
   });
 
@@ -247,11 +246,11 @@ describe('Tour', () => {
     const { getByText, container } = render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Show' }));
     expect(getByText('Show in Center')).toBeTruthy();
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('Here is the content of Tour.')).toBeTruthy();
-    fireEvent.click(screen.getByRole('button', { name: 'next step' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('Adjust Placement')).toBeTruthy();
-    fireEvent.click(screen.getByRole('button', { name: 'finish the tour' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(document.querySelector('.rc-tour')).toBeFalsy();
     expect(container.firstChild).toMatchSnapshot();
   });

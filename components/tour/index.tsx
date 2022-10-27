@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import renderPanel from './renderPanel';
+import panelRender from './panelRender';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -32,7 +32,7 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props =>
   );
 
   const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number) =>
-    renderPanel(stepProps, stepCurrent, type);
+    panelRender(stepProps, stepCurrent, type);
 
   return wrapSSR(
     <RCTour

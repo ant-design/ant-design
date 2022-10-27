@@ -1,12 +1,13 @@
 import React from 'react';
 import type { ReactNode } from 'react';
+import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Button from '../button';
 import defaultLocale from '../locale/en_US';
 
-const renderPanel: (
+const panelRender: (
   step: TourStepProps,
   current: number,
   type: TourStepProps['type'],
@@ -24,7 +25,7 @@ const renderPanel: (
     nextButtonProps,
     prevButtonProps,
     finishButtonProps,
-    renderStep,
+    stepRender,
   } = props;
 
   const prevBtnClick = () => {
@@ -68,9 +69,15 @@ const renderPanel: (
   }
 
   const mergedSlickNode =
-    (typeof renderStep === 'function' && renderStep(current)) ||
+    (typeof stepRender === 'function' && stepRender(current, total!)) ||
     [...Array.from({ length: total! }).keys()].map((stepItem, index) => (
-      <span key={stepItem} className={index === current ? 'active' : ''} />
+      <span
+        key={stepItem}
+        className={classNames(
+          index === current && `${prefixCls}-slider-active`,
+          `${prefixCls}-slider`,
+        )}
+      />
     ));
   const slickNode: ReactNode = total! > 1 ? mergedSlickNode : null;
 
@@ -108,4 +115,4 @@ const renderPanel: (
   );
 };
 
-export default renderPanel;
+export default panelRender;
