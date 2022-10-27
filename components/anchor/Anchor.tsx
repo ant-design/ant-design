@@ -277,11 +277,11 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
   );
 };
 
-const AnchorFC = React.forwardRef<any, AnchorProps>(props => {
+const AnchorFC: React.FC<AnchorProps> = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
   return <Anchor {...props} anchorPrefixCls={anchorPrefixCls} />;
-});
+};
 
 export default AnchorFC;
