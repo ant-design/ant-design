@@ -88,7 +88,7 @@ const Progress: React.FC<ProgressProps> = props => {
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  function renderProcessInfo() {
+  const renderProcessInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
     }
@@ -109,7 +109,7 @@ const Progress: React.FC<ProgressProps> = props => {
         {text}
       </span>
     );
-  }
+  }, [showInfo, percentNumber, progressStatus, type]);
 
   warning(
     !('successPercent' in props),
@@ -125,7 +125,7 @@ const Progress: React.FC<ProgressProps> = props => {
   if (type === 'line') {
     progress = steps ? (
       <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
-        {renderProcessInfo()}
+        {renderProcessInfo}
       </Steps>
     ) : (
       <Line
@@ -134,7 +134,7 @@ const Progress: React.FC<ProgressProps> = props => {
         prefixCls={prefixCls}
         direction={direction}
       >
-        {renderProcessInfo()}
+        {renderProcessInfo}
       </Line>
     );
   } else if (type === 'circle' || type === 'dashboard') {
@@ -145,7 +145,7 @@ const Progress: React.FC<ProgressProps> = props => {
         prefixCls={prefixCls}
         progressStatus={progressStatus}
       >
-        {renderProcessInfo()}
+        {renderProcessInfo}
       </Circle>
     );
   }
