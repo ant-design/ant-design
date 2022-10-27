@@ -242,22 +242,16 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
     const scrollContainer = getCurrentContainer();
     const scrollEvent = addEventListener(scrollContainer, 'scroll', handleScroll);
     handleScroll();
-    if (scrollEvent) {
-      const currentContainer = getCurrentContainer();
-      if (scrollContainer !== currentContainer) {
-        handleScroll();
-      }
-    }
     if (typeof props.getCurrentAnchor === 'function') {
       setCurrentActiveLink(props.getCurrentAnchor(activeLink || ''), false);
     }
     updateInk();
     return () => {
       if (scrollEvent) {
-        scrollEvent.remove();
+        scrollEvent?.remove();
       }
     };
-  }, []);
+  }, [getContainer, getTargetContainer]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
