@@ -30713,13 +30713,13 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
             >
               <ul>
                 <li>
-                  Today
-                </li>
-                <li>
                   Yesterday
                 </li>
                 <li>
                   Last Week
+                </li>
+                <li>
+                  Last Month
                 </li>
               </ul>
             </div>
@@ -31381,10 +31381,16 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
               >
                 <ul>
                   <li>
-                    Today
+                    Last 7 Days
                   </li>
                   <li>
-                    This Month
+                    Last 14 Days
+                  </li>
+                  <li>
+                    Last 30 Days
+                  </li>
+                  <li>
+                    Last 90 Days
                   </li>
                 </ul>
               </div>
@@ -32581,10 +32587,16 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
               >
                 <ul>
                   <li>
-                    Today
+                    Last 7 Days
                   </li>
                   <li>
-                    This Month
+                    Last 14 Days
+                  </li>
+                  <li>
+                    Last 30 Days
+                  </li>
+                  <li>
+                    Last 90 Days
                   </li>
                 </ul>
               </div>

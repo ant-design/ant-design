@@ -37,28 +37,29 @@ const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) =>
   }
 };
 
+const rangePresets: {
+  label: string;
+  value: [Dayjs, Dayjs];
+}[] = [
+  { label: 'Last 7 Days', value: [dayjs().add(-7, 'd'), dayjs()] },
+  { label: 'Last 14 Days', value: [dayjs().add(-14, 'd'), dayjs()] },
+  { label: 'Last 30 Days', value: [dayjs().add(-30, 'd'), dayjs()] },
+  { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
+];
+
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       presets={[
-        { label: 'Today', value: dayjs() },
         { label: 'Yesterday', value: dayjs().add(-1, 'd') },
         { label: 'Last Week', value: dayjs().add(-7, 'd') },
+        { label: 'Last Month', value: dayjs().add(-1, 'month') },
       ]}
       onChange={onChange}
     />
+    <RangePicker presets={rangePresets} onChange={onRangeChange} />
     <RangePicker
-      presets={[
-        { label: 'Today', value: [dayjs(), dayjs()] },
-        { label: 'This Month', value: [dayjs().startOf('month'), dayjs().endOf('month')] },
-      ]}
-      onChange={onRangeChange}
-    />
-    <RangePicker
-      presets={[
-        { label: 'Today', value: [dayjs(), dayjs()] },
-        { label: 'This Month', value: [dayjs().startOf('month'), dayjs().endOf('month')] },
-      ]}
+      presets={rangePresets}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onRangeChange}
