@@ -105,7 +105,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
-  const activeLinkRef = React.useRef(activeLink);
+  const activeLinkRef = React.useRef<string | null>(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
