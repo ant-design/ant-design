@@ -158,7 +158,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
   };
 };
 
-const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
+const genCircleStyle: GenerateStyle<ProgressToken> = token => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
