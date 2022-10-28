@@ -130,7 +130,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
         setLinks(prev => prev.filter(i => i !== link));
       }
     },
-    [links],
+    [links.join(',')],
   );
 
   const updateInk = () => {
@@ -195,7 +195,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
       bounds,
     );
     setCurrentActiveLink(currentActiveLink);
-  }, [links, targetOffset, offsetTop]);
+  }, [links.join(','), targetOffset, offsetTop]);
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     link => {
@@ -266,7 +266,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
         scrollEvent?.remove();
       }
     };
-  }, [links]);
+  }, [links.join(',')]);
 
   React.useEffect(() => {
     if (typeof props.getCurrentAnchor === 'function') {
@@ -276,7 +276,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   React.useEffect(() => {
     updateInk();
-  }, [props.getCurrentAnchor, links, activeLink]);
+  }, [props.getCurrentAnchor, links.join(','), activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
