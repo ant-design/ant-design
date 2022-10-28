@@ -1,11 +1,11 @@
 {
-  "extends": "../.umi/tsconfig.json",
+  "extends": "../.dumi/tmp/tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "baseUrl": "../",
     "paths": {
-      "@@/*": [".umi/*"],
+      "@@/*": [".dumi/tmp/*"],
       "antd": ["components/index.tsx"],
       "antd/es/*": ["components/*"],
       "dumi/theme/*": [".dumi/theme/*"]

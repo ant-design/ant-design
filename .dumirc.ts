@@ -27,7 +27,6 @@ export default defineConfig({
     // Change antd from `index.js` to `.dumi/theme/antd.js` to remove deps of root style
     antd: require.resolve('./.dumi/theme/antd.js'),
   },
-  plugins: [require.resolve('./.dumi/plugin.ts')],
   extraRehypePlugins: [rehypeAntd],
   extraBabelPresets: ['@emotion/babel-preset-css-prop'],
   mfsu: false,
