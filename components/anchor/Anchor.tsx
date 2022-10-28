@@ -121,7 +121,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
         setLinks(prev => [...prev, link]);
       }
     },
-    [links],
+    [links.join(',')],
   );
 
   const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
