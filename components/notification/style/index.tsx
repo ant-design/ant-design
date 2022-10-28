@@ -261,7 +261,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 export default genComponentStyleHook(
   'Notification',
   token => {
-    const notificationPaddingVertical = token.paddingTmp;
+    const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
 
     const notificationToken = mergeToken<NotificationToken>(token, {
@@ -270,7 +270,7 @@ export default genComponentStyleHook(
       notificationPaddingVertical,
       notificationPaddingHorizontal,
       // index.less variables
-      notificationPadding: `${notificationPaddingVertical}px ${notificationPaddingHorizontal}px`,
+      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginBottom: token.margin,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,

@@ -38,6 +38,7 @@ const localeValues: Locale = {
     cancelText: 'キャンセル',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'ここを検索',
     itemUnit: 'アイテム',
     itemsUnit: 'アイテム',

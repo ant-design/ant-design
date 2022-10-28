@@ -39,7 +39,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import locale from 'antd/es/locale/zh_CN';
+import locale from 'antd/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
@@ -198,10 +198,6 @@ Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-
 - Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
 - Alternate example: <https://stackblitz.com/edit/react-9aegkj>
 
-### Why origin panel don't switch when using `panelRender`?
-
-When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
-
 ```js
 dayjs.locale('en', {
   week: {
@@ -209,3 +205,7 @@ dayjs.locale('en', {
   },
 });
 ```
+
+### Why origin panel don't switch when using `panelRender`?
+
+When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.

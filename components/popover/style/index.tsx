@@ -12,7 +12,7 @@ export interface ComponentToken {
 export type PopoverToken = FullToken<'Popover'> & {
   popoverBg: string;
   popoverColor: string;
-  popoverPadding: number;
+  popoverPadding: number | string;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
@@ -158,12 +158,12 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = token => {
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const { colorBgElevated, colorText, paddingSM, wireframe } = token;
+    const { colorBgElevated, colorText, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverBg: colorBgElevated,
       popoverColor: colorText,
-      popoverPadding: paddingSM,
+      popoverPadding: 12, // Fixed Value
     });
 
     return [

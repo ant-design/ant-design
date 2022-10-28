@@ -37,10 +37,6 @@ const seedToken: SeedToken = {
 'Noto Color Emoji'`,
   fontSizeBase: 14,
 
-  // Grid
-  gridUnit: 4,
-  gridBaseStep: 2,
-
   // Line
   lineWidth: 1,
   lineType: 'solid',

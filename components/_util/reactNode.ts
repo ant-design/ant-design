@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const { isValidElement } = React;
 
-export function isFragment(child: React.ReactElement): boolean {
+export function isFragment(child: any): boolean {
   return child && isValidElement(child) && child.type === React.Fragment;
 }
 

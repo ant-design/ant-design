@@ -1,6 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
@@ -66,6 +66,7 @@ describe('Collapse', () => {
   });
 
   it('could be expand and collapse', async () => {
+    jest.useFakeTimers();
     const { container } = render(
       <Collapse>
         <Collapse.Panel header="This is panel header 1" key="1">
@@ -77,10 +78,11 @@ describe('Collapse', () => {
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(false);
     fireEvent.click(container.querySelector('.ant-collapse-header')!);
-    await sleep(400);
+    await waitFakeTimer();
     expect(
       container.querySelector('.ant-collapse-item')?.classList.contains('ant-collapse-item-active'),
     ).toBe(true);
+    jest.useRealTimers();
   });
 
   it('could override default openMotion', () => {

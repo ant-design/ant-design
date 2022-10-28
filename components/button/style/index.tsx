@@ -12,6 +12,7 @@ export interface ComponentToken {}
 export interface ButtonToken extends FullToken<'Button'> {
   // FIXME: should be removed
   colorOutlineDefault: string;
+  buttonPaddingHorizontal: number;
 }
 
 // ============================== Shared ==============================
@@ -390,7 +391,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     0,
     (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.controlLineWidth,
   );
-  const paddingHorizontal = token.padding - token.controlLineWidth;
+  const paddingHorizontal = token.buttonPaddingHorizontal - token.controlLineWidth;
 
   const iconOnlyCls = `${componentCls}-icon-only`;
 
@@ -445,6 +446,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
+    buttonPaddingHorizontal: 8, // Fixed padding
     controlRadius: token.controlRadiusSM,
   });
 
@@ -463,10 +465,11 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', token => {
-  const { controlTmpOutline } = token;
+  const { controlTmpOutline, paddingContentHorizontal } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     colorOutlineDefault: controlTmpOutline,
+    buttonPaddingHorizontal: paddingContentHorizontal,
   });
 
   return [

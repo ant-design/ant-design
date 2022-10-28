@@ -6,7 +6,7 @@ import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import ActionButton from '../_util/ActionButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+import defaultLocale from '../locale/en_US';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { ConfigContext } from '../config-provider';
 import PopoverPurePanel from '../popover/PurePanel';

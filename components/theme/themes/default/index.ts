@@ -1,4 +1,5 @@
 import { generate } from '@ant-design/colors';
+import genSizeMapToken from '../shared/genSizeMapToken';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
@@ -31,7 +32,9 @@ export default function derivative(token: SeedToken): MapToken {
       generateColorPalettes,
       generateNeutralColorPalettes,
     }),
-
+    // Size
+    ...genSizeMapToken(token),
+    // Others
     ...genCommonMapToken(token),
   };
 }

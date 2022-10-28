@@ -10,7 +10,6 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     controlInteractiveSize: checkboxSize,
     motionDurationSlow,
     controlLineWidth,
-    paddingXXS,
     paddingXS,
     controlLineType,
     tableBorderColor,
@@ -24,6 +23,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
+    paddingXXS,
   } = token;
   const halfInnerSize = checkboxSize / 2 - controlLineWidth;
   // must be odd number, unless it cannot align center

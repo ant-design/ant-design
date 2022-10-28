@@ -40,7 +40,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import locale from 'antd/es/locale/zh_CN';
+import locale from 'antd/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
@@ -192,10 +192,6 @@ import locale from 'antd/es/locale/zh_CN';
 
 请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
 
-### 为何使用 `panelRender` 时，原来面板无法切换？
-
-当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
-
 ```js
 dayjs.locale('en', {
   // 注意请修改你正在使用的 locale 语言，比如 zh-cn
@@ -204,3 +200,7 @@ dayjs.locale('en', {
   },
 });
 ```
+
+### 为何使用 `panelRender` 时，原来面板无法切换？
+
+当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
