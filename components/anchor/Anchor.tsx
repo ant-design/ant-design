@@ -262,9 +262,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     const scrollEvent = addEventListener(scrollContainer, 'scroll', handleScroll);
     handleScroll();
     return () => {
-      if (scrollEvent) {
-        scrollEvent?.remove();
-      }
+      scrollEvent?.remove();
     };
   }, [links.join(',')]);
 
