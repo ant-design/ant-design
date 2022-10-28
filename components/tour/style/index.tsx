@@ -28,7 +28,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorBgBase,
     colorPrimary,
     colorText,
-    colorTextTertiary,
+    colorFill,
     lineWidth,
     lineType,
     colorSplit,
@@ -68,7 +68,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           display: 'none',
         },
 
-        // ============================= panel  content ===========================
+        // ============================= panel content ===========================
         [`${componentCls}-content`]: {
           position: 'relative',
         },
@@ -132,12 +132,13 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
             [`${componentCls}-sliders`]: {
               display: 'inline-block',
+
               [`${componentCls}-slider`]: {
                 width: `${sliderWidth}px`,
                 height: `${sliderHeight}px`,
                 display: 'inline-block',
                 borderRadius: '50%',
-                background: colorTextTertiary,
+                background: colorFill,
                 marginInlineEnd: marginXXS,
               },
               [`${componentCls}-slider-active`]: {
@@ -150,7 +151,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           },
         },
 
-        // =============================  primary type ===========================
+        // ============================= primary type ===========================
         [`&${componentCls}-primary`]: {
           '--antd-arrow-background-color': colorPrimary,
           [`${componentCls}-inner`]: {

@@ -14,14 +14,16 @@ Primary 主题模式。
 Primary theme mode.
 
 ```tsx
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Space, Tour } from 'antd';
 
 const App: React.FC = () => {
-  const showBtnRef = useRef(null);
-
   const [open, setOpen] = React.useState(false);
   const [current, setCurrent] = useState(-1);
+
+  const onChange = (nextCurrent: number) => {
+    setCurrent(nextCurrent);
+  };
 
   const onClose = () => {
     setOpen(false);
@@ -31,7 +33,6 @@ const App: React.FC = () => {
       <Space>
         <Button
           type="primary"
-          ref={showBtnRef}
           onClick={() => {
             setCurrent(0);
             setOpen(true);
@@ -44,16 +45,17 @@ const App: React.FC = () => {
       <Tour
         open={open}
         current={current}
+        onChange={onChange}
         onClose={onClose}
         onFinish={onClose}
         type="primary"
-        steps={[
-          {
-            title: '创建',
-            description: '创建一条数据',
-            target: () => showBtnRef.current,
-          },
-        ]}
+        steps={new Array(3).fill(null).map((_, index) => {
+          const id = index + 1;
+          return {
+            title: `Title ${id}`,
+            description: `description ${id}`,
+          };
+        })}
       />
     </>
   );
