@@ -3,14 +3,7 @@ import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import {
-  fireEvent,
-  waitFakeTimer,
-  render,
-  sleep,
-  triggerResize,
-  pureRender,
-} from '../../../tests/utils';
+import { fireEvent, waitFakeTimer, render, triggerResize, pureRender } from '../../../tests/utils';
 import type { RenderOptions } from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
@@ -439,6 +432,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('scroll to bottom when autoSize', async () => {
+    jest.useFakeTimers();
     const ref = React.createRef<TextAreaRef>();
     const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
       container: document.body,
@@ -454,9 +448,11 @@ describe('TextArea allowClear', () => {
     fireEvent.input(container.querySelector('textarea')!, { target: { value: '\n1' } });
     const target = ref.current?.resizableTextArea?.textArea!;
     triggerResize(target);
-    await sleep(100);
+    await waitFakeTimer();
     expect(setSelectionRangeFn).toHaveBeenCalled();
     unmount();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/26308
