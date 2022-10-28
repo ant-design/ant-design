@@ -153,6 +153,7 @@ const Progress: React.FC<ProgressProps> = props => {
   const classString = classNames(
     prefixCls,
     {
+      [`${prefixCls}-inline-circle`]: type === 'circle' && props.width! <= 20,
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
@@ -165,6 +166,7 @@ const Progress: React.FC<ProgressProps> = props => {
 
   return wrapSSR(
     <div
+      className={classString}
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',
@@ -175,7 +177,6 @@ const Progress: React.FC<ProgressProps> = props => {
         'success',
         'successPercent',
       ])}
-      className={classString}
     >
       {progress}
     </div>,

@@ -21,6 +21,7 @@ const App: React.FC = () => (
   <Space size={8}>
     <Progress
       type="circle"
+      trailColor="#e6f4ff"
       percent={60}
       strokeWidth={20}
       width={14}

@@ -204,6 +204,9 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         },
       },
     },
+    [`${progressCls}-inline-circle`]: {
+      display: 'flex',
+    },
   };
 };
 
