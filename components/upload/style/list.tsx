@@ -1,6 +1,6 @@
 import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme';
-import { clearFix } from '../../style';
+import { clearFix, textEllipsis } from '../../style';
 
 const genListStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls, antCls, iconCls, fontSizeBase, lineHeight } = token;
@@ -29,11 +29,9 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
           },
 
           [`${itemCls}-name`]: {
+            ...textEllipsis,
             padding: `0 ${token.paddingXS}px`,
-            overflow: 'hidden',
             lineHeight,
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
             flex: 'auto',
             transition: `all ${token.motionDurationSlow}`,
           },

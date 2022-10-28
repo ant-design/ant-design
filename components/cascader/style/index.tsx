@@ -1,6 +1,7 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
+import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
@@ -91,14 +92,12 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
               },
 
               '&-item': {
+                ...textEllipsis,
                 display: 'flex',
                 flexWrap: 'nowrap',
                 alignItems: 'center',
                 padding: `${itemPaddingVertical}px ${token.paddingSM}px`,
-                overflow: 'hidden',
                 lineHeight: token.lineHeight,
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
                 cursor: 'pointer',
                 transition: `all ${token.motionDurationFast}`,
                 borderRadius: token.radiusSM,

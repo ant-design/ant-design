@@ -5,6 +5,12 @@ import type { DerivativeToken } from '../theme';
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
 
+export const textEllipsis: CSSObject = {
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+};
+
 export const resetComponent = (token: DerivativeToken): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,

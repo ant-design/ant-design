@@ -14,14 +14,21 @@ title:
 We can set preset ranges to RangePicker to improve user experience.
 
 ```tsx
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import dayjs from 'dayjs';
 import React from 'react';
+import { DatePicker, Space } from 'antd';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
-const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
+const onChange = (date: Dayjs) => {
+  if (date) {
+    console.log('Date: ', date);
+  } else {
+    console.log('Clear');
+  }
+};
+const onRangeChange = (dates: null | (Dayjs | null)[], dateStrings: string[]) => {
   if (dates) {
     console.log('From: ', dates[0], ', to: ', dates[1]);
     console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
@@ -30,23 +37,32 @@ const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
   }
 };
 
+const rangePresets: {
+  label: string;
+  value: [Dayjs, Dayjs];
+}[] = [
+  { label: 'Last 7 Days', value: [dayjs().add(-7, 'd'), dayjs()] },
+  { label: 'Last 14 Days', value: [dayjs().add(-14, 'd'), dayjs()] },
+  { label: 'Last 30 Days', value: [dayjs().add(-30, 'd'), dayjs()] },
+  { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
+];
+
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
-    <RangePicker
-      ranges={{
-        Today: [dayjs(), dayjs()],
-        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
-      }}
+    <DatePicker
+      presets={[
+        { label: 'Yesterday', value: dayjs().add(-1, 'd') },
+        { label: 'Last Week', value: dayjs().add(-7, 'd') },
+        { label: 'Last Month', value: dayjs().add(-1, 'month') },
+      ]}
       onChange={onChange}
     />
+    <RangePicker presets={rangePresets} onChange={onRangeChange} />
     <RangePicker
-      ranges={{
-        Today: [dayjs(), dayjs()],
-        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
-      }}
+      presets={rangePresets}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
-      onChange={onChange}
+      onChange={onRangeChange}
     />
   </Space>
 );
