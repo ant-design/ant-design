@@ -105,6 +105,7 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
 
   const [links, setLinks] = React.useState<string[]>([]);
   const [activeLink, setActiveLink] = React.useState<string | null>(null);
+  const activeLinkRef = React.useRef(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
@@ -112,19 +113,25 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
 
   const { direction, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
-  const getCurrentContainer = () => (getContainer ?? getTargetContainer ?? getDefaultContainer)();
+  const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
-  const registerLink: AntAnchor['registerLink'] = link => {
-    if (!links.includes(link)) {
-      setLinks(prev => [...prev, link]);
-    }
-  };
+  const registerLink: AntAnchor['registerLink'] = React.useCallback(
+    link => {
+      if (!links.includes(link)) {
+        setLinks(prev => [...prev, link]);
+      }
+    },
+    [links],
+  );
 
-  const unregisterLink: AntAnchor['unregisterLink'] = link => {
-    if (links.includes(link)) {
-      setLinks(prev => prev.filter(i => i !== link));
-    }
-  };
+  const unregisterLink: AntAnchor['unregisterLink'] = React.useCallback(
+    link => {
+      if (links.includes(link)) {
+        setLinks(prev => prev.filter(i => i !== link));
+      }
+    },
+    [links],
+  );
 
   const updateInk = () => {
     const linkNode = wrapperRef.current?.querySelector<HTMLElement>(
@@ -135,10 +142,10 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
     }
   };
 
-  const getCurrentAnchor = (_offsetTop = 0, _bounds = 5): string => {
+  const getCurrentAnchor = (_links: string[], _offsetTop = 0, _bounds = 5): string => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
-    links.forEach(link => {
+    _links.forEach(link => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
@@ -159,52 +166,64 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
     return '';
   };
 
-  const setCurrentActiveLink = (link: string, triggerChange = true) => {
-    if (activeLink === link) {
+  const setCurrentActiveLink = (link: string) => {
+    if (activeLinkRef.current === link) {
       return;
     }
+
     // https://github.com/ant-design/ant-design/issues/30584
-    setActiveLink(
-      typeof props.getCurrentAnchor === 'function' ? props.getCurrentAnchor(link) : link,
-    );
-    if (triggerChange) {
-      onChange?.(link);
-    }
+    const newLink =
+      typeof props.getCurrentAnchor === 'function' ? props.getCurrentAnchor(link) : link;
+    setActiveLink(newLink);
+    activeLinkRef.current = newLink;
+
+    // onChange should respect the original link (which may caused by
+    // window scroll or user click), not the new link
+    onChange?.(link);
   };
-  const handleScroll = () => {
+
+  const handleScroll = React.useCallback(() => {
     if (animating.current) {
       return;
     }
+    if (typeof props.getCurrentAnchor === 'function') {
+      return;
+    }
     const currentActiveLink = getCurrentAnchor(
+      links,
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
     );
     setCurrentActiveLink(currentActiveLink);
-  };
-  const handleScrollTo = (link: string) => {
-    setCurrentActiveLink(link);
-    const container = getCurrentContainer();
-    const scrollTop = getScroll(container, true);
-    const sharpLinkMatch = sharpMatcherRegx.exec(link);
-    if (!sharpLinkMatch) {
-      return;
-    }
-    const targetElement = document.getElementById(sharpLinkMatch[1]);
-    if (!targetElement) {
-      return;
-    }
+  }, [links, targetOffset, offsetTop]);
 
-    const eleOffsetTop = getOffsetTop(targetElement, container);
-    let y = scrollTop + eleOffsetTop;
-    y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
-    animating.current = true;
-    scrollTo(y, {
-      getContainer: getCurrentContainer,
-      callback() {
-        animating.current = false;
-      },
-    });
-  };
+  const handleScrollTo = React.useCallback(
+    (link: string) => {
+      setCurrentActiveLink(link);
+      const container = getCurrentContainer();
+      const scrollTop = getScroll(container, true);
+      const sharpLinkMatch = sharpMatcherRegx.exec(link);
+      if (!sharpLinkMatch) {
+        return;
+      }
+      const targetElement = document.getElementById(sharpLinkMatch[1]);
+      if (!targetElement) {
+        return;
+      }
+
+      const eleOffsetTop = getOffsetTop(targetElement, container);
+      let y = scrollTop + eleOffsetTop;
+      y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
+      animating.current = true;
+      scrollTo(y, {
+        getContainer: getCurrentContainer,
+        callback() {
+          animating.current = false;
+        },
+      });
+    },
+    [targetOffset, offsetTop],
+  );
 
   const inkClass = classNames(`${prefixCls}-ink-ball`, {
     visible: activeLink,
@@ -242,16 +261,22 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
     const scrollContainer = getCurrentContainer();
     const scrollEvent = addEventListener(scrollContainer, 'scroll', handleScroll);
     handleScroll();
-    if (typeof props.getCurrentAnchor === 'function') {
-      setCurrentActiveLink(props.getCurrentAnchor(activeLink || ''), false);
-    }
-    updateInk();
     return () => {
       if (scrollEvent) {
         scrollEvent?.remove();
       }
     };
-  }, [getContainer, getTargetContainer, props.getCurrentAnchor]);
+  }, [links]);
+
+  React.useEffect(() => {
+    if (typeof props.getCurrentAnchor === 'function') {
+      setCurrentActiveLink(props.getCurrentAnchor(activeLinkRef.current || ''));
+    }
+  }, [props.getCurrentAnchor]);
+
+  React.useEffect(() => {
+    updateInk();
+  }, [props.getCurrentAnchor, links, activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
@@ -261,7 +286,7 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
       activeLink,
       onClick,
     }),
-    [activeLink, onClick],
+    [activeLink, onClick, handleScrollTo],
   );
 
   return (
