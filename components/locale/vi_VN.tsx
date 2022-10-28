@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Huỷ',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Tìm ở đây',
     itemUnit: 'mục',
     itemsUnit: 'mục',

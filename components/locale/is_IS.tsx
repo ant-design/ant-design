@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Hætta við',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Leita hér',
     itemUnit: 'færsla',
     itemsUnit: 'færslur',
