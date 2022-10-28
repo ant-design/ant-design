@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {}
 
@@ -75,13 +75,11 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           paddingInline: `${token.anchorPaddingInline}px 0`,
 
           '&-title': {
+            ...textEllipsis,
             position: 'relative',
             display: 'block',
             marginBlockEnd: token.anchorTitleBlock,
-            overflow: 'hidden',
             color: token.colorText,
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
             transition: `all ${token.motionDurationSlow}`,
 
             '&:only-child': {

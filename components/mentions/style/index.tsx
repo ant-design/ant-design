@@ -9,7 +9,7 @@ import {
 } from '../../input/style';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -161,16 +161,14 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           outline: 'none',
 
           '&-item': {
+            ...textEllipsis,
             position: 'relative',
             display: 'block',
             minWidth: token.controlItemWidth,
             padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
-            overflow: 'hidden',
             color: colorText,
             fontWeight: 'normal',
             lineHeight,
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
             cursor: 'pointer',
             transition: `background ${motionDurationSlow} ease`,
 

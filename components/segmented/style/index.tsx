@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {}
 
@@ -36,9 +36,7 @@ function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
 const segmentedTextEllipsisCss: CSSObject = {
   overflow: 'hidden',
   // handle text ellipsis
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  wordBreak: 'keep-all',
+  ...textEllipsis,
 };
 
 // ============================== Styles ==============================

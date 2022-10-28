@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
@@ -7,9 +8,7 @@ const genEllipsisStyle: GenerateStyle<TableToken, CSSObject> = token => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-cell-ellipsis`]: {
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
+        ...textEllipsis,
         wordBreak: 'keep-all',
 
         // Fixed first or last should special process

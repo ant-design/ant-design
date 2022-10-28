@@ -3,6 +3,8 @@ import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import genGroupStyle from './group';
 import { genFocusStyle } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
+import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -50,6 +52,50 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       '&:not(:disabled)': {
         ...genFocusStyle(token),
+      },
+
+      ...genCompactItemStyle(token, componentCls),
+      ...genCompactItemVerticalStyle(token, componentCls),
+
+      // make `btn-icon-only` not too narrow
+      '&-icon-only&-compact-item': {
+        flex: 'none',
+      },
+      // Special styles for Primary Button
+      [`&-compact-item${componentCls}-primary`]: {
+        '&:not([disabled]) + &:not([disabled])': {
+          position: 'relative',
+
+          '&:after': {
+            position: 'absolute',
+            top: -token.controlLineWidth,
+            insetInlineStart: -token.controlLineWidth,
+            display: 'inline-block',
+            width: token.controlLineWidth,
+            height: `calc(100% + ${token.controlLineWidth * 2}px)`,
+            backgroundColor: token.colorPrimaryBorder,
+            content: '""',
+          },
+        },
+      },
+      // Special styles for Primary Button
+      '&-compact-vertical-item': {
+        [`&${componentCls}-primary`]: {
+          '&:not([disabled]) + &:not([disabled])': {
+            position: 'relative',
+
+            '&:after': {
+              position: 'absolute',
+              top: -token.controlLineWidth,
+              insetInlineStart: -token.controlLineWidth,
+              display: 'inline-block',
+              width: `calc(100% + ${token.controlLineWidth * 2}px)`,
+              height: token.controlLineWidth,
+              backgroundColor: token.colorPrimaryBorder,
+              content: '""',
+            },
+          },
+        },
       },
     },
   };

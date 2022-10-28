@@ -9,7 +9,7 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { controlPaddingHorizontal } = token;
@@ -111,9 +111,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
 
             '&-content': {
               flex: 'auto',
-              overflow: 'hidden',
-              whiteSpace: 'nowrap',
-              textOverflow: 'ellipsis',
+              ...textEllipsis,
             },
 
             '&-state': {
