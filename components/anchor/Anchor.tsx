@@ -87,7 +87,7 @@ export interface AntAnchor {
   ) => void;
 }
 
-export const Anchor: React.FC<InternalAnchorProps> = props => {
+const AnchorContent: React.FC<InternalAnchorProps> = props => {
   const {
     anchorPrefixCls: prefixCls,
     className = '',
@@ -302,11 +302,11 @@ export const Anchor: React.FC<InternalAnchorProps> = props => {
   );
 };
 
-const AnchorFC: React.FC<AnchorProps> = props => {
+const Anchor: React.FC<AnchorProps> = props => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
-  return <Anchor {...props} anchorPrefixCls={anchorPrefixCls} />;
+  return <AnchorContent {...props} anchorPrefixCls={anchorPrefixCls} />;
 };
 
-export default AnchorFC;
+export default Anchor;
