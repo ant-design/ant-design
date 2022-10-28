@@ -17,6 +17,7 @@ import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   presetsWidth: number;
+  presetsMaxWidth: number;
   zIndexPopup: number;
 }
 
@@ -41,7 +42,7 @@ export type PickerPanelToken = {
 
 type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
 
-type SharedPickerToken = Omit<PickerToken, 'zIndexPopup' | 'presetsWidth'>;
+type SharedPickerToken = Omit<PickerToken, 'zIndexPopup' | 'presetsWidth' | 'presetsMaxWidth'>;
 
 const genPikerPadding = (
   token: PickerToken,
@@ -951,6 +952,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     colorSplit,
     controlItemBgHover,
     presetsWidth,
+    presetsMaxWidth,
   } = token;
 
   return {
@@ -1287,6 +1289,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
             display: 'flex',
             flexDirection: 'column',
             minWidth: presetsWidth,
+            maxWidth: presetsMaxWidth,
 
             ul: {
               height: 0,
@@ -1412,6 +1415,7 @@ export default genComponentStyleHook(
   },
   token => ({
     presetsWidth: 120,
+    presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );
