@@ -31,7 +31,7 @@ const antProgressActive = new Keyframes('antProgressActive', {
   },
 });
 
-const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
+const genBaseStyle: GenerateStyle<ProgressToken> = token => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -39,6 +39,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
       ...resetComponent(token),
 
       display: 'inline-block',
+      verticalAlign: 'text-bottom',
 
       '&-rtl': {
         direction: 'rtl',

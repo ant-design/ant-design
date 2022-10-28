@@ -3,7 +3,7 @@ import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
 import warning from '../_util/warning';
 
-export function validProgress(progress: number | undefined) {
+export function validProgress(progress?: number) {
   if (!progress || progress < 0) {
     return 0;
   }
