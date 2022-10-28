@@ -28,9 +28,6 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorPrimary,
     colorText,
     colorFill,
-    lineWidth,
-    lineType,
-    colorSplit,
     sliderHeight,
     sliderWidth,
     opacityLoading,
@@ -124,7 +121,6 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           [`${componentCls}-footer`]: {
             padding,
             textAlign: 'end',
-            borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
             borderRadius: `0 0 ${radiusXS}px ${radiusXS}px`,
             display: 'flex',
             justifyContent: 'space-between',
