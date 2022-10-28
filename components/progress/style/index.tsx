@@ -39,7 +39,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
       ...resetComponent(token),
 
       display: 'inline-block',
-      verticalAlign: 'text-bottom',
 
       '&-rtl': {
         direction: 'rtl',
