@@ -115,7 +115,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
-  const registerLink: AntAnchor['registerLink'] = React.useCallback(
+  const registerLink = React.useCallback<AntAnchor['registerLink']>(
     link => {
       if (!links.includes(link)) {
         setLinks(prev => [...prev, link]);
@@ -124,7 +124,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     [links],
   );
 
-  const unregisterLink: AntAnchor['unregisterLink'] = React.useCallback(
+  const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
     link => {
       if (links.includes(link)) {
         setLinks(prev => prev.filter(i => i !== link));
@@ -197,8 +197,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     setCurrentActiveLink(currentActiveLink);
   }, [links, targetOffset, offsetTop]);
 
-  const handleScrollTo = React.useCallback(
-    (link: string) => {
+  const handleScrollTo = React.useCallback<(link: string) => void>(
+    link => {
       setCurrentActiveLink(link);
       const container = getCurrentContainer();
       const scrollTop = getScroll(container, true);
