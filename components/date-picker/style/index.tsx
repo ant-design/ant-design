@@ -13,6 +13,7 @@ import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { GlobalToken } from '../../theme/interface';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { resetComponent, roundedArrow } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -848,6 +849,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
       borderRadius: token.controlRadius,
       transition: `border ${token.motionDurationFast}, box-shadow ${token.motionDurationFast}`,
+      // Space.Compact
+      ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
 
       '&:hover, &-focused': {
         ...genHoverStyle(token),
