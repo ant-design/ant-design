@@ -44,7 +44,7 @@ function Tabs({
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
 
   let editable: EditableConfig | undefined;
@@ -77,6 +77,7 @@ function Tabs({
         return (
           <RcTabs
             direction={direction}
+            getPopupContainer={getPopupContainer}
             moreTransitionName={`${rootPrefixCls}-slide-up`}
             {...props}
             items={mergedItems}

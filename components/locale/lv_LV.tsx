@@ -27,6 +27,7 @@ const localeValues: Locale = {
     cancelText: 'Atcelt',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Meklēt šeit',
     itemUnit: 'vienumu',
     itemsUnit: 'vienumus',
