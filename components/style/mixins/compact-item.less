@@ -8,43 +8,23 @@
     &-item.@{prefix-cls}&-first-item:not(&-item-rtl) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-
-      .@{prefix-cls}-sm & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
     }
 
     &-item.@{prefix-cls}&-last-item:not(&-item-rtl) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-
-      .@{prefix-cls}-sm & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
     }
 
     // ----------rtl for first item----------
     &-item.@{prefix-cls}&-item-rtl&-first-item {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-
-      .@{prefix-cls}-sm & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
     }
 
     // ----------rtl for last item----------
     &-item.@{prefix-cls}&-item-rtl&-last-item {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-
-      .@{prefix-cls}-sm & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
     }
   }
 
@@ -57,40 +37,23 @@
     &-item&-first-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-
-      .@{prefix-cls}-sm & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
     }
 
     &-item&-last-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      .@{prefix-cls}-sm & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
     }
 
     // ----------rtl for first item----------
     &-item.@{prefix-cls}&-first-item&-item-rtl > .@{bordered-item-cls} {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      .@{prefix-cls}-sm & {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
     }
 
     // ----------rtl for last item----------
     &-item.@{prefix-cls}&-last-item&-item-rtl > .@{bordered-item-cls} {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      .@{prefix-cls}-sm & {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
     }
   }
 }
