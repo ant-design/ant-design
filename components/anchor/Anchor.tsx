@@ -101,6 +101,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     onClick,
     onChange,
     getContainer,
+    getCurrentAnchor,
   } = props;
 
   const [links, setLinks] = React.useState<string[]>([]);
@@ -142,7 +143,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     }
   };
 
-  const getCurrentAnchor = (_links: string[], _offsetTop = 0, _bounds = 5): string => {
+  const getInternalCurrentAnchor = (_links: string[], _offsetTop = 0, _bounds = 5): string => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
     _links.forEach(link => {
@@ -172,8 +173,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     }
 
     // https://github.com/ant-design/ant-design/issues/30584
-    const newLink =
-      typeof props.getCurrentAnchor === 'function' ? props.getCurrentAnchor(link) : link;
+    const newLink = typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link;
     setActiveLink(newLink);
     activeLinkRef.current = newLink;
 
@@ -186,10 +186,10 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     if (animating.current) {
       return;
     }
-    if (typeof props.getCurrentAnchor === 'function') {
+    if (typeof getCurrentAnchor === 'function') {
       return;
     }
-    const currentActiveLink = getCurrentAnchor(
+    const currentActiveLink = getInternalCurrentAnchor(
       links,
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
@@ -225,9 +225,12 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     [targetOffset, offsetTop],
   );
 
-  const inkClass = classNames(`${prefixCls}-ink-ball`, {
-    visible: activeLink,
-  });
+  const inkClass = classNames(
+    {
+      [`${prefixCls}-ink-ball-visible`]: activeLink,
+    },
+    `${prefixCls}-ink-ball`,
+  );
 
   const wrapperClass = classNames(
     `${prefixCls}-wrapper`,
@@ -267,14 +270,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
   }, [links.join(',')]);
 
   React.useEffect(() => {
-    if (typeof props.getCurrentAnchor === 'function') {
-      setCurrentActiveLink(props.getCurrentAnchor(activeLinkRef.current || ''));
+    if (typeof getCurrentAnchor === 'function') {
+      setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
     }
-  }, [props.getCurrentAnchor]);
+  }, [getCurrentAnchor]);
 
   React.useEffect(() => {
     updateInk();
-  }, [props.getCurrentAnchor, links.join(','), activeLink]);
+  }, [getCurrentAnchor, links.join(','), activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
