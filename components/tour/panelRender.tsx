@@ -5,6 +5,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { TourStepProps } from './interface';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import Button from '../button';
+import type { ButtonProps } from '../button';
 import defaultLocale from '../locale/en_US';
 
 const panelRender: (
@@ -81,7 +82,12 @@ const panelRender: (
     ));
   const slickNode: ReactNode = total! > 1 ? mergedSlickNode : null;
 
-  const mergedType = type === 'primary' ? 'primary' : 'default';
+  const mainBtnType = type === 'primary' ? 'default' : 'primary';
+  const secondaryBtnProps: ButtonProps = {
+    type: 'default',
+    ghost: type === 'primary',
+  };
+
   return (
     <LocaleReceiver componentName="Tour" defaultLocale={defaultLocale.Tour}>
       {contextLocale => (
@@ -94,16 +100,16 @@ const panelRender: (
             <div className={`${prefixCls}-sliders`}>{slickNode}</div>
             <div className={`${prefixCls}-buttons`}>
               {current !== 0 ? (
-                <Button type={mergedType} {...prevButtonProps} onClick={prevBtnClick}>
+                <Button {...secondaryBtnProps} {...prevButtonProps} onClick={prevBtnClick}>
                   {contextLocale.Previous}
                 </Button>
               ) : null}
               {current === total! - 1 ? (
-                <Button type={mergedType} {...finishButtonProps} onClick={finishBtnClick}>
+                <Button type={mainBtnType} {...finishButtonProps} onClick={finishBtnClick}>
                   {contextLocale.Finish}
                 </Button>
               ) : (
-                <Button type={mergedType} {...nextButtonProps} onClick={nextBtnClick}>
+                <Button type={mainBtnType} {...nextButtonProps} onClick={nextBtnClick}>
                   {contextLocale.Next}
                 </Button>
               )}

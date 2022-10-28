@@ -25,7 +25,6 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     controlRadius,
     radiusXS,
     paddingXL,
-    colorBgBase,
     colorPrimary,
     colorText,
     colorFill,
@@ -34,7 +33,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorSplit,
     sliderHeight,
     sliderWidth,
-    colorPrimaryBorderHover,
+    opacityLoading,
     boxShadow,
     tourZIndexPopup,
     fontSize,
@@ -140,9 +139,10 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
                 borderRadius: '50%',
                 background: colorFill,
                 marginInlineEnd: marginXXS,
-              },
-              [`${componentCls}-slider-active`]: {
-                background: colorPrimary,
+
+                '&-active': {
+                  background: colorPrimary,
+                },
               },
             },
             [`${componentCls}-buttons button`]: {
@@ -167,11 +167,13 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             },
 
             [`${componentCls}-sliders`]: {
-              span: {
-                background: colorPrimaryBorderHover,
-                marginInlineEnd: marginXXS,
-                '&.active': {
-                  background: colorBgBase,
+              [`${componentCls}-slider`]: {
+                background: colorTextLightSolid,
+                opacity: opacityLoading,
+
+                '&-active': {
+                  background: colorTextLightSolid,
+                  opacity: 1,
                 },
               },
             },
