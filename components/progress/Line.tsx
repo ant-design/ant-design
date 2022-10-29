@@ -108,17 +108,14 @@ const Line: React.FC<LineProps> = props => {
     backgroundColor: success?.strokeColor,
   };
 
-  const successSegment =
-    successPercent !== undefined ? (
-      <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-    ) : null;
-
   return (
     <>
       <div className={`${prefixCls}-outer`}>
         <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
-          {successSegment}
+          {successPercent !== undefined ? (
+            <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
+          ) : null}
         </div>
       </div>
       {children}
