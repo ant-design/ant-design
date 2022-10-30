@@ -15,7 +15,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 ```__react
 import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Dropdown menu={{ items: [...] }} /> with better perfermance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Dropdown menu={{ items: [...] }} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
 ```
 
 ```jsx
