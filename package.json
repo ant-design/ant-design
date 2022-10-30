@@ -122,7 +122,6 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
-    "memoize-one": "^6.0.0",
     "moment": "^2.29.2",
     "rc-cascader": "~3.7.0",
     "rc-checkbox": "~2.3.0",
