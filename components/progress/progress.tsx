@@ -153,6 +153,7 @@ const Progress: React.FC<ProgressProps> = props => {
   const classString = classNames(
     prefixCls,
     {
+      [`${prefixCls}-inline-circle`]: type === 'circle' && props.width! <= 20,
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,

@@ -304,7 +304,7 @@ Array [
 exports[`renders ./components/progress/demo/circle-micro.md extend context correctly 1`] = `
 Array [
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
     <div
       class="ant-progress-inner"

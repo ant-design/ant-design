@@ -203,6 +203,9 @@ const genCircleStyle: GenerateStyle<ProgressToken> = token => {
         },
       },
     },
+    [`${progressCls}-inline-circle`]: {
+      lineHeight: 1,
+    },
   };
 };
 
