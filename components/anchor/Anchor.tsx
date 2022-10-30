@@ -116,13 +116,15 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
+  const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
+
   const registerLink = React.useCallback<AntAnchor['registerLink']>(
     link => {
       if (!links.includes(link)) {
         setLinks(prev => [...prev, link]);
       }
     },
-    [links.join(',')],
+    [dependencyListItem],
   );
 
   const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
@@ -131,7 +133,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
         setLinks(prev => prev.filter(i => i !== link));
       }
     },
-    [links.join(',')],
+    [dependencyListItem],
   );
 
   const updateInk = () => {
@@ -195,7 +197,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
       bounds,
     );
     setCurrentActiveLink(currentActiveLink);
-  }, [links.join(','), targetOffset, offsetTop]);
+  }, [dependencyListItem, targetOffset, offsetTop]);
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
     link => {
@@ -267,7 +269,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
     return () => {
       scrollEvent?.remove();
     };
-  }, [links.join(',')]);
+  }, [dependencyListItem]);
 
   React.useEffect(() => {
     if (typeof getCurrentAnchor === 'function') {
@@ -277,7 +279,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   React.useEffect(() => {
     updateInk();
-  }, [getCurrentAnchor, links.join(','), activeLink]);
+  }, [getCurrentAnchor, dependencyListItem, activeLink]);
 
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
