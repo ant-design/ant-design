@@ -14,11 +14,11 @@ title:
 Responsive circular progress bar. When `width` is smaller than 20, progress information will be displayed in Tooltip.
 
 ```tsx
-import { Progress, Space } from 'antd';
+import { Progress } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
-  <Space size={8}>
+  <>
     <Progress
       type="circle"
       trailColor="#e6f4ff"
@@ -27,8 +27,8 @@ const App: React.FC = () => (
       width={14}
       format={number => `进行中，已完成${number}%`}
     />
-    代码发布
-  </Space>
+    <span style={{ marginLeft: 8 }}>代码发布</span>
+  </>
 );
 
 export default App;
