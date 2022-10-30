@@ -26,3 +26,11 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
 
   return isIllegalName ? `${defaultItemNamePrefixCls}_${mergedId}` : mergedId;
 }
+
+export function lookUpward(namePath: InternalNamePath, upward: number): InternalNamePath {
+  return namePath.slice(0, namePath.length - Math.abs(upward));
+}
+
+export function isPlainObject(v: any): boolean {
+  return Object.prototype.toString.call(v) === '[object Object]';
+}
