@@ -15320,7 +15320,7 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15395,7 +15395,7 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15470,7 +15470,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15545,7 +15545,7 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15620,7 +15620,7 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15695,7 +15695,7 @@ exports[`ConfigProvider components Empty normal 1`] = `
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15770,7 +15770,7 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
   <div
     class="prefix-Empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -27189,7 +27189,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -27497,7 +27497,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -27803,7 +27803,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28109,7 +28109,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28415,7 +28415,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28721,7 +28721,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -29027,7 +29027,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -38780,7 +38780,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -38940,7 +38940,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39054,7 +39054,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39215,7 +39215,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39328,7 +39328,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39488,7 +39488,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39601,7 +39601,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39761,7 +39761,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39874,7 +39874,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40034,7 +40034,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40147,7 +40147,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40307,7 +40307,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40420,7 +40420,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40580,7 +40580,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

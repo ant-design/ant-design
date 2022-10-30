@@ -1686,7 +1686,7 @@ exports[`Cascader should render not found content 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -1762,7 +1762,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>

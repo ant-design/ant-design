@@ -555,7 +555,7 @@ exports[`renders ./components/input/demo/addon.md extend context correctly 1`] =
                             <div
                               class="ant-empty-description"
                             >
-                              No Data
+                              No data
                             </div>
                           </div>
                         </div>
@@ -3068,7 +3068,7 @@ Array [
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>

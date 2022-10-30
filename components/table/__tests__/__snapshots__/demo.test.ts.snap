@@ -193,7 +193,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>

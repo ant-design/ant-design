@@ -172,7 +172,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -419,7 +419,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1234,7 +1234,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1396,7 +1396,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1923,7 +1923,7 @@ Array [
             <div
               class="ant-empty-description"
             >
-              No Data
+              No data
             </div>
           </div>
         </div>
@@ -2069,7 +2069,7 @@ Array [
             <div
               class="ant-empty-description"
             >
-              No Data
+              No data
             </div>
           </div>
         </div>
@@ -3010,7 +3010,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -3237,7 +3237,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -3358,7 +3358,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -3519,7 +3519,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -3700,7 +3700,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -3927,7 +3927,7 @@ exports[`renders ./components/transfer/demo/status.md correctly 1`] = `
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -5458,7 +5458,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

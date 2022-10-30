@@ -576,7 +576,7 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>

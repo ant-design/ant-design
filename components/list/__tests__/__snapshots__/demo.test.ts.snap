@@ -1086,7 +1086,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>

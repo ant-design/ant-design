@@ -70,7 +70,7 @@ exports[`renders ./components/empty/demo/basic.md extend context correctly 1`] =
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -186,7 +186,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>
@@ -305,7 +305,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>
@@ -433,7 +433,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </div>
@@ -706,7 +706,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -996,7 +996,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -1098,7 +1098,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
                           <div
                             class="ant-empty-description"
                           >
-                            No Data
+                            No data
                           </div>
                         </div>
                       </td>
@@ -1169,7 +1169,7 @@ exports[`renders ./components/empty/demo/config-provider.md extend context corre
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -1334,7 +1334,7 @@ exports[`renders ./components/empty/demo/simple.md extend context correctly 1`] 
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
