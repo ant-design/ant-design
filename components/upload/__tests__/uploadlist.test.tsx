@@ -1,6 +1,6 @@
 import React from 'react';
 import Upload from '..';
-import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Form from '../../form';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
@@ -54,10 +54,15 @@ describe('Upload List', () => {
 
   // HTMLCanvasElement.prototype
 
-  beforeEach(() => setup());
+  beforeEach(() => {
+    jest.useFakeTimers();
+    return setup();
+  });
   afterEach(() => {
     teardown();
     drawImageCallback = null;
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   let open: jest.MockInstance<any, any[]>;
@@ -109,8 +114,6 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
-    jest.useFakeTimers();
-
     const list = [
       {
         uid: '0',
@@ -138,36 +141,22 @@ describe('Upload List', () => {
     );
 
     // Upload use Promise to wait remove action. Let's wait this also.
-    await act(async () => {
-      for (let i = 0; i < 10; i += 1) {
-        // eslint-disable-next-line no-await-in-loop
-        await Promise.resolve();
-      }
-    });
-
-    // Progress motion to active
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     // Progress motion to done
     // React 17 will reach deadline, so we need check if already done
     if (container.querySelector('.ant-upload-animate-leave-active')) {
       fireEvent.animationEnd(container.querySelector('.ant-upload-animate-leave-active')!);
     }
-    act(() => {
-      jest.runAllTimers();
-    });
+
+    await waitFakeTimer();
 
     expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
 
     unmount();
-
-    jest.useRealTimers();
   });
 
   it('should be uploading when upload a file', async () => {
-    jest.useFakeTimers();
     const done = jest.fn();
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
@@ -195,23 +184,14 @@ describe('Upload List', () => {
     fireEvent.change(wrapper.container.querySelector('input')!, {
       target: { files: [{ name: 'foo.png' }] },
     });
-    await act(async () => {
-      await Promise.resolve();
-      await Promise.resolve();
-    });
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     expect(done).toHaveBeenCalled();
 
     wrapper.unmount();
-
-    jest.useRealTimers();
   });
 
   it('handle error', async () => {
-    jest.useFakeTimers();
     const onChange = jest.fn();
 
     const {
@@ -231,14 +211,9 @@ describe('Upload List', () => {
       target: { files: [{ name: 'foo.png' }] },
     });
 
-    await act(async () => {
-      await Promise.resolve();
-    });
+    await waitFakeTimer();
 
     // Wait twice since `errorRequest` also use timeout for mock
-    act(() => {
-      jest.runAllTimers();
-    });
 
     expect(onChange).toHaveBeenLastCalledWith(
       expect.objectContaining({
@@ -249,21 +224,15 @@ describe('Upload List', () => {
       fireEvent.animationEnd(wrapper.querySelector('.ant-upload-animate-appear-active')!);
     }
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(wrapper.firstChild).toMatchSnapshot();
 
     // Error message
     fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item')!);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-
+    await waitFakeTimer();
     expect(baseElement.querySelector('.ant-tooltip')).not.toHaveClass('.ant-tooltip-hidden');
 
-    jest.useRealTimers();
     unmount();
   });
 
@@ -285,7 +254,7 @@ describe('Upload List', () => {
       target: { files: [{ name: 'foo.png' }] },
     });
 
-    await sleep();
+    await waitFakeTimer();
 
     expect(ref.current.fileList.length).toBe(fileList.length + 1);
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
@@ -381,8 +350,8 @@ describe('Upload List', () => {
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
     fireEvent.click(wrapper.querySelectorAll('.anticon-delete')[1]);
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
-    await sleep();
-    expect(handleChange.mock.calls.length).toBe(2);
+    await waitFakeTimer();
+    expect(handleChange).toHaveBeenCalledTimes(2);
 
     unmount();
   });
@@ -409,6 +378,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     fireEvent.click(wrapper.querySelectorAll('.anticon-download')[0]);
+    expect(handleDownload).toHaveBeenCalled();
 
     unmount();
   });
@@ -467,7 +437,7 @@ describe('Upload List', () => {
             <button type="button">upload</button>
           </Upload>,
         );
-        await sleep();
+        await waitFakeTimer();
 
         expect(ref.current.fileList[2].thumbUrl).not.toBe(undefined);
         expect(onDrawImage).toHaveBeenCalled();
@@ -559,8 +529,6 @@ describe('Upload List', () => {
   });
 
   it('not crash when uploading not provides percent', async () => {
-    jest.useFakeTimers();
-
     const { unmount } = render(
       <Upload
         listType="picture"
@@ -570,13 +538,9 @@ describe('Upload List', () => {
       />,
     );
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     unmount();
-
-    jest.useRealTimers();
   });
 
   it('should support showRemoveIcon and showPreviewIcon', () => {
@@ -640,8 +604,8 @@ describe('Upload List', () => {
     fireEvent.click(wrapper.querySelectorAll('.custom-delete')[1]);
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     expect(myClick).toHaveBeenCalled();
-    await sleep();
-    expect(handleChange.mock.calls.length).toBe(2);
+    await waitFakeTimer();
+    expect(handleChange).toHaveBeenCalledTimes(2);
 
     unmount();
   });
@@ -718,11 +682,9 @@ describe('Upload List', () => {
             rules={[
               {
                 required: true,
-                validator(_, value, callback) {
+                async validator(_, value) {
                   if (!value || value.length === 0) {
-                    callback('file required');
-                  } else {
-                    callback();
+                    throw new Error('file required');
                   }
                 },
               },
@@ -739,7 +701,7 @@ describe('Upload List', () => {
     const { container, unmount } = render(<TestForm />);
 
     fireEvent.submit(container.querySelector('form')!);
-    await sleep();
+    await waitFakeTimer();
     expect(formRef!.getFieldError(['file'])).toEqual(['file required']);
 
     fireEvent.change(container.querySelector('input')!, {
@@ -747,7 +709,7 @@ describe('Upload List', () => {
     });
 
     fireEvent.submit(container.querySelector('form')!);
-    await sleep();
+    await waitFakeTimer();
     expect(formRef!.getFieldError(['file'])).toEqual([]);
 
     unmount();
@@ -795,7 +757,8 @@ describe('Upload List', () => {
       target: { files: [{ name: 'foo.png' }] },
     });
 
-    await sleep();
+    await waitFakeTimer();
+
     expect(wrapper.querySelector('.ant-upload-list-item-thumbnail')?.getAttribute('href')).toBe(
       null,
     );
@@ -1005,7 +968,7 @@ describe('Upload List', () => {
           </Upload>,
         );
         expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
-        await sleep(100);
+        await waitFakeTimer();
 
         expect(
           wrapper.querySelector('.ant-upload-list-item-thumbnail img')?.getAttribute('src'),
@@ -1039,7 +1002,6 @@ describe('Upload List', () => {
       );
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
       expect(imgNode.length).toBe(2);
-
       unmount();
     });
     it('should render <img /> when custom imageUrl return true', () => {
@@ -1056,7 +1018,6 @@ describe('Upload List', () => {
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
       expect(isImageUrl).toHaveBeenCalled();
       expect(imgNode.length).toBe(3);
-
       unmount();
     });
     it('should not render <img /> when custom imageUrl return false', () => {
@@ -1073,31 +1034,11 @@ describe('Upload List', () => {
       const imgNode = wrapper.querySelectorAll('.ant-upload-list-item-thumbnail img');
       expect(isImageUrl).toHaveBeenCalled();
       expect(imgNode.length).toBe(0);
-
       unmount();
     });
   });
-
   describe('thumbUrl support for non-image', () => {
-    beforeEach(() => {
-      jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-      jest.useRealTimers();
-    });
-
     const nonImageFile = new File([''], 'foo.7z', { type: 'application/x-7z-compressed' });
-
-    /** Wait for a long promise since `rc-util` internal has at least 3 promise wait */
-    async function waitPromise() {
-      /* eslint-disable no-await-in-loop */
-      for (let i = 0; i < 10; i += 1) {
-        await Promise.resolve();
-      }
-      /* eslint-enable */
-    }
-
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
@@ -1140,20 +1081,12 @@ describe('Upload List', () => {
       });
 
       // Wait for `rc-upload` process file
-      await waitPromise();
-
-      // Wait for mock request finish request
-      act(() => {
-        jest.runAllTimers();
-      });
-
+      await waitFakeTimer();
       // Basic called times
       expect(onChange).toHaveBeenCalled();
 
       // Check for images
-      act(() => {
-        jest.runAllTimers();
-      });
+      await waitFakeTimer();
       const afterImgNode = wrapper.container.querySelectorAll(
         '.ant-upload-list-item-thumbnail img',
       );
@@ -1162,29 +1095,25 @@ describe('Upload List', () => {
       wrapper.unmount();
     });
 
-    it('should not render <img /> when upload non-image file without thumbUrl in onChange', done => {
+    it('should not render <img /> when upload non-image file without thumbUrl in onChange', async () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
       let wrapper: ReturnType<typeof render>;
-      const onChange: UploadProps['onChange'] = async ({ fileList: files }) => {
-        wrapper.rerender(
-          <Upload
-            action="http://jsonplaceholder.typicode.com/posts/"
-            listType="picture-card"
-            fileList={files}
-            onChange={onChange}
-            customRequest={successRequest}
-          >
-            <button type="button">upload</button>
-          </Upload>,
-        );
-
-        await sleep();
-        const imgNode = wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img');
-        expect(imgNode.length).toBe(0);
-
-        done();
-      };
+      const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
+        ({ fileList: files }) => {
+          wrapper.rerender(
+            <Upload
+              action="http://jsonplaceholder.typicode.com/posts/"
+              listType="picture-card"
+              fileList={files}
+              onChange={onChange}
+              customRequest={successRequest}
+            >
+              <button type="button">upload</button>
+            </Upload>,
+          );
+        },
+      );
       wrapper = render(
         <Upload
           action="http://jsonplaceholder.typicode.com/posts/"
@@ -1201,10 +1130,17 @@ describe('Upload List', () => {
       fireEvent.change(wrapper.container.querySelector('input')!, {
         target: { files: [nonImageFile] },
       });
+
+      await waitFakeTimer();
+      expect(onChange).toHaveBeenCalled();
+      expect(wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img').length).toBe(
+        0,
+      );
     });
   });
 
   it('[deprecated] should support transformFile', done => {
+    jest.useRealTimers();
     let wrapper: ReturnType<typeof render>;
     let lastFile: UploadFile;
 
@@ -1281,8 +1217,6 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/26536
   it('multiple file upload should keep the internal fileList async', async () => {
-    jest.useFakeTimers();
-
     const uploadRef = React.createRef<any>();
 
     const MyUpload: React.FC = () => {
@@ -1320,14 +1254,10 @@ describe('Upload List', () => {
 
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
     expect(uploadRef.current.fileList).toHaveLength(fileNames.length);
 
     unmount();
-
-    jest.useRealTimers();
   });
 
   it('itemRender', () => {
@@ -1384,13 +1314,11 @@ describe('Upload List', () => {
     const beforeUpload = jest.fn(() => Upload.LIST_IGNORE);
     const { container: wrapper, unmount } = render(<Upload beforeUpload={beforeUpload} />);
 
-    await act(() => {
-      fireEvent.change(wrapper.querySelector('input')!, {
-        target: { files: [{ file: 'foo.png' }] },
-      });
+    fireEvent.change(wrapper.querySelector('input')!, {
+      target: { files: [{ file: 'foo.png' }] },
     });
 
-    await sleep();
+    await waitFakeTimer();
 
     expect(beforeUpload).toHaveBeenCalled();
     expect(wrapper.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(0);
@@ -1585,8 +1513,6 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/36286
   it('remove should keep origin className', async () => {
-    jest.useFakeTimers();
-
     const onChange = jest.fn();
     const list = [
       {
@@ -1605,15 +1531,7 @@ describe('Upload List', () => {
 
     fireEvent.click(container.querySelector('.anticon-delete')!);
 
-    // Wait for Upload sync
-    for (let i = 0; i < 10; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      await Promise.resolve();
-    }
-
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -1622,7 +1540,5 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
-
-    jest.useRealTimers();
   });
 });
