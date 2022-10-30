@@ -12,7 +12,12 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-## API
+### Usage upgrade after 4.24.0
+
+```__react
+import Alert from '../alert';
+ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Steps items={[...]} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+```
 
 ```jsx
 // works when >=4.24.0, recommended ✅
@@ -26,6 +31,8 @@ return <Tabs items={items} />;
   <Step title="third step" />
 </Steps>;
 ```
+
+## API
 
 ### Steps
 

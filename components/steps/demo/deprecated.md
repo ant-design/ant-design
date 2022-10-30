@@ -2,7 +2,7 @@
 order: -1
 title:
   zh-CN: 基本用法（废弃的语法糖）
-  en-US: Basic
+  en-US: Basic (deprecated syntactic sugar)
 version: < 4.24.0
 ---
 
