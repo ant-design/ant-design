@@ -36,7 +36,6 @@ const Circle: React.FC<CircleProps> = props => {
     width: circleSize,
     height: circleSize,
     fontSize: circleSize * 0.15 + 6,
-    verticalAlign: 'bottom',
   };
 
   const memoizedStrokeWidth = React.useMemo<number>(() => {

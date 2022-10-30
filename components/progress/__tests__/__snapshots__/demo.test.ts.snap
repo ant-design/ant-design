@@ -8,7 +8,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -57,7 +57,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -124,7 +124,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -196,7 +196,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -308,7 +308,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:14px;height:14px;font-size:8.1px;vertical-align:bottom"
+      style="width:14px;height:14px;font-size:8.1px"
     >
       <svg
         class="ant-progress-circle"
@@ -363,7 +363,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18px;vertical-align:bottom"
+      style="width:80px;height:80px;font-size:18px"
     >
       <svg
         class="ant-progress-circle"
@@ -412,7 +412,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18px;vertical-align:bottom"
+      style="width:80px;height:80px;font-size:18px"
     >
       <svg
         class="ant-progress-circle"
@@ -479,7 +479,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:80px;height:80px;font-size:18px;vertical-align:bottom"
+      style="width:80px;height:80px;font-size:18px"
     >
       <svg
         class="ant-progress-circle"
@@ -551,7 +551,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -600,7 +600,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -739,7 +739,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -789,7 +789,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -887,7 +887,7 @@ Array [
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -956,7 +956,7 @@ Array [
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -1341,7 +1341,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -1391,7 +1391,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -1471,7 +1471,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"
@@ -1521,7 +1521,7 @@ Array [
   >
     <div
       class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px;vertical-align:bottom"
+      style="width:120px;height:120px;font-size:24px"
     >
       <svg
         class="ant-progress-circle"

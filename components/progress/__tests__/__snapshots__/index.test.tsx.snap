@@ -6,7 +6,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
@@ -58,7 +58,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
@@ -110,7 +110,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
@@ -354,7 +354,7 @@ exports[`Progress render strokeColor 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
@@ -457,7 +457,7 @@ exports[`Progress render strokeWidth of progress 1`] = `
   >
     <div
       class="ant-progress-inner"
-      style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+      style="width: 120px; height: 120px; font-size: 24px;"
     >
       <svg
         class="ant-progress-circle"
@@ -539,7 +539,7 @@ exports[`Progress render successColor progress type="circle" 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
@@ -591,7 +591,7 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
 >
   <div
     class="ant-progress-inner"
-    style="width: 120px; height: 120px; font-size: 24px; vertical-align: bottom;"
+    style="width: 120px; height: 120px; font-size: 24px;"
   >
     <svg
       class="ant-progress-circle"
