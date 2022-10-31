@@ -86,7 +86,14 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| visibilityToggle | 是否显示切换按钮 | boolean | true |  |
+| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#VisibilityToggle) | true |  |
+
+#### VisibilityToggle
+
+| Property        | Description          | Type    | Default | Version |
+| --------------- | -------------------- | ------- | ------- | ------- |
+| visible         | 用于手动控制密码显隐 | boolean | false   | 4.24    |
+| onVisibleChange | 显隐密码的回调       | boolean | -       | 4.24    |
 
 #### Input Methods
 
