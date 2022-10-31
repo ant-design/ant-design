@@ -228,7 +228,16 @@ export default function Theme() {
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
 
-  const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
+  // const algorithmFn = isLight ? theme.defaultAlgorithm : theme.darkAlgorithm;
+  const algorithmFn = React.useMemo(() => {
+    const algorithms = [isLight ? theme.defaultAlgorithm : theme.darkAlgorithm];
+
+    if (compact) {
+      algorithms.push(theme.compactAlgorithm);
+    }
+
+    return algorithms;
+  }, [isLight, compact]);
 
   // ================================ Themes ================================
   React.useEffect(() => {
