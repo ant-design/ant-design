@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {
   descriptionsTitleMarginBottom: number;
@@ -87,14 +87,12 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         marginBottom: descriptionsTitleMarginBottom,
       },
       [`${componentCls}-title`]: {
+        ...textEllipsis,
         flex: 'auto',
-        overflow: 'hidden',
         color: token.colorText,
         fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeightLG,
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
       },
       [`${componentCls}-extra`]: {
         marginInlineStart: 'auto',

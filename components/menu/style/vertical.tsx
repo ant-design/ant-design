@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { textEllipsis } from '../../style';
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
@@ -217,10 +218,8 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
         },
 
         [`${componentCls}-item-group-title`]: {
+          ...textEllipsis,
           paddingInline: paddingXS,
-          overflow: 'hidden',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
         },
       },
     },

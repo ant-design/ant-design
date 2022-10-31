@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme';
-import { clearFix } from '../../style';
+import { clearFix, textEllipsis } from '../../style';
 
 const genPictureStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
@@ -24,14 +24,12 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
           },
 
           [`${itemCls}-thumbnail`]: {
+            ...textEllipsis,
             width: uploadThumbnailSize,
             height: uploadThumbnailSize,
             lineHeight: `${uploadThumbnailSize + token.paddingSM}px`,
             textAlign: 'center',
             flex: 'none',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
 
             [iconCls]: {
               fontSize: token.fontSizeHeading2,

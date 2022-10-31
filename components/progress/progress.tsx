@@ -5,6 +5,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
@@ -12,7 +13,6 @@ import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
 import { getSuccessPercent, validProgress } from './utils';
-
 import useStyle from './style';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
@@ -54,7 +54,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
+const Progress: React.FC<ProgressProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -64,33 +64,37 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     size = 'default',
     showInfo = true,
     type = 'line',
+    status,
+    format,
     ...restProps
   } = props;
 
-  function getPercentNumber() {
+  const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
     return parseInt(
       successPercent !== undefined ? successPercent.toString() : percent.toString(),
       10,
     );
-  }
+  }, [percent, props.success, props.successPercent]);
 
-  function getProgressStatus() {
-    const { status } = props;
-    if (!ProgressStatuses.includes(status!) && getPercentNumber() >= 100) {
+  const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
+    if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
     return status || 'normal';
-  }
+  }, [status, percentNumber]);
 
-  function renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { format } = props;
-    const successPercent = getSuccessPercent(props);
+  const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const prefixCls = getPrefixCls('progress', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
     }
-    let text;
-    const textFormatter = format || (percentNumber => `${percentNumber}%`);
+    const successPercent = getSuccessPercent(props);
+    let text: React.ReactNode;
+    const textFormatter = format || (number => `${number}%`);
     const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
@@ -105,14 +109,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         {text}
       </span>
     );
-  }
-
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
-  const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const progressStatus = getProgressStatus();
-  const progressInfo = renderProcessInfo(prefixCls, progressStatus);
+  }, [showInfo, percentNumber, progressStatus, type, prefixCls, format]);
 
   warning(
     !('successPercent' in props),
@@ -156,6 +153,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const classString = classNames(
     prefixCls,
     {
+      [`${prefixCls}-inline-circle`]: type === 'circle' && props.width! <= 20,
       [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
@@ -168,9 +166,8 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
 
   return wrapSSR(
     <div
+      className={classString}
       {...omit(restProps, [
-        'status',
-        'format',
         'trailColor',
         'strokeWidth',
         'width',
@@ -180,7 +177,6 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         'success',
         'successPercent',
       ])}
-      className={classString}
     >
       {progress}
     </div>,
