@@ -39,7 +39,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Progress type="circle" percent={percent} />
+      <Progress type="circle" percent={percent} style={{ marginRight: 8 }} />
       <Button.Group>
         <Button onClick={decline} icon={<MinusOutlined />} />
         <Button onClick={increase} icon={<PlusOutlined />} />

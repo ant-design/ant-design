@@ -29,6 +29,11 @@ describe('Progress', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('render strokeWidth of progress', () => {
+    const { container } = render(<Progress type="circle" percent={30} strokeWidth={50} />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('render out-of-range progress with info', () => {
     const { container: wrapper } = render(<Progress percent={120} showInfo />);
     expect(wrapper.firstChild).toMatchSnapshot();
