@@ -27,7 +27,6 @@ const seedToken: SeedToken = {
   colorError: '#f5222d',
   colorInfo: '#1677ff',
   colorTextBase: '',
-  colorTextLightSolid: '#fff',
 
   colorBgBase: '',
 
