@@ -13,11 +13,9 @@ interface RecordType {
 }
 
 interface DataType {
-  key: string;
   title: string;
-  description: string;
-  disabled: boolean;
   tag: string;
+  description: string;
 }
 
 interface TableTransferProps extends TransferProps<TransferItem> {

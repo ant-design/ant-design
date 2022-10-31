@@ -71,7 +71,8 @@ const App: React.FC = () => {
       >
         {customIconStr}
       </Paragraph>
-      Trigger edit with: <Radio.Group
+      Trigger edit with:{' '}
+      <Radio.Group
         onChange={e => setChooseTrigger(radioToState(e.target.value))}
         value={stateToRadio()}
       >
