@@ -14,7 +14,7 @@ import Input from './Input';
 const defaultIconRender = (visible: boolean) =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
 
-export type VisibilityToggle = {
+type VisibilityToggle = {
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
 };
