@@ -38,6 +38,7 @@ timeline: true
 - 🐞 TimePicker 移除使用了 `popupClassName` 冗余警告。[#38190](https://github.com/ant-design/ant-design/pull/38190) [@kiner-tang](https://github.com/kiner-tang)
 - 🐞 修复嵌套 Drawer 在默认都设置 `open` 时，添加至 document 顺序出错的问题。[#37767](https://github.com/ant-design/ant-design/pull/37767) [#37790](https://github.com/ant-design/ant-design/pull/37790)
 - 🐞 修复 Badge 同时设置 `color` 和 `count` 时，数字不展示的问题。[#37609](https://github.com/ant-design/ant-design/pull/37609) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Progress 在 Safari 下缩放异常的问题。[#38301](https://github.com/ant-design/ant-design/pull/38301)
 - Modal
   - 🐞 修复在 React 18 下 Modal 动画闪烁的问题。[#38275](https://github.com/ant-design/ant-design/pull/38275)
   - 🐞 修复 Modal.method() 关闭时默认没有聚焦触发元素的问题。[#38275](https://github.com/ant-design/ant-design/pull/38275)
