@@ -1,5 +1,5 @@
 import { generate } from '@ant-design/colors';
-import genControlHeight from 'antd/es/theme/themes/shared/genControlHeight';
+import genControlHeight from '../shared/genControlHeight';
 import genSizeMapToken from '../shared/genSizeMapToken';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';

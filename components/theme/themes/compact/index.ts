@@ -1,5 +1,5 @@
 import type { DerivativeFunc } from '@ant-design/cssinjs';
-import genControlHeight from 'antd/es/theme/themes/shared/genControlHeight';
+import genControlHeight from '../shared/genControlHeight';
 import type { SeedToken, MapToken } from '../../interface';
 import defaultAlgorithm from '../default';
 import genCompactSizeMapToken from './genCompactSizeMapToken';
