@@ -39,6 +39,7 @@ Previewable image.
   maskClassName?: string; // v4.11.0
   current?: number; // v4.12.0 Only support PreviewGroup
   countRender?: (current: number, total: number) => string  // v4.20.0 Only support PreviewGroup
+  scaleStep?: number;
 }
 ```
 

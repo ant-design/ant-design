@@ -12,15 +12,27 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
 
 When a given task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
-## API
+### Usage upgrade after 4.24.0
+
+```__react
+import Alert from '../alert';
+ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Steps items={[...]} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+```
 
 ```jsx
+// works when >=4.24.0, recommended ✅
+const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
+return <Tabs items={items} />;
+
+// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
 <Steps>
   <Step title="first step" />
   <Step title="second step" />
   <Step title="third step" />
-</Steps>
+</Steps>;
 ```
+
+## API
 
 ### Steps
 
@@ -40,8 +52,9 @@ The whole of the step bar.
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | type | Type of steps, can be set to one of the following values: `default`, `navigation` | string | `default` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
+| items | StepItem content | [StepItem](#StepItem) | [] | 4.24.0 |
 
-### Steps.Step
+### StepItem
 
 A single step in the step bar.
 

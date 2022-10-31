@@ -1,5 +1,5 @@
 ---
-order: 98
+order: 6
 title:
   zh-CN: 自动换行
   en-US: Wrap

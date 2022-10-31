@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Space.Compact rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Space.Compact rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-space-compact ant-space-compact-rtl"
+>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-rtl ant-btn-compact-item ant-btn-compact-first-item ant-btn-compact-last-item ant-btn-compact-item-rtl"
+    type="button"
+  >
+    <span>
+      Submit
+    </span>
+  </button>
+</div>
+`;

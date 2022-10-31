@@ -93,7 +93,7 @@ const App: React.FC = () => {
   const fetchData = () => {
     setLoading(true);
     fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(({ results }) => {
         setData(results);
         setLoading(false);
@@ -128,7 +128,7 @@ const App: React.FC = () => {
   return (
     <Table
       columns={columns}
-      rowKey={(record) => record.login.uuid}
+      rowKey={record => record.login.uuid}
       dataSource={data}
       pagination={tableParams.pagination}
       loading={loading}

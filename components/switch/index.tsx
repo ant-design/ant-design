@@ -64,7 +64,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled || loading;
+    const mergedDisabled = (customDisabled ?? disabled) || loading;
 
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (
