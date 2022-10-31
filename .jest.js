@@ -1,7 +1,27 @@
+const compileModules = [
+  'array-move',
+  'react-dnd',
+  'react-dnd-html5-backend',
+  '@react-dnd',
+  'dnd-core',
+  'tween-one',
+  '@babel',
+  '@ant-design',
+];
+
+const ignoreList = [];
+
+// cnpm use `_` as prefix
+['', '_'].forEach(prefix => {
+  compileModules.forEach(module => {
+    ignoreList.push(`${prefix}${module}`);
+  });
+});
+
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  '/node_modules/(?!array-move|react-dnd|react-dnd-html5-backend|@react-dnd|dnd-core|tween-one|@babel|@ant-design)[^/]+?/(?!(es)/)',
+  `/node_modules/(?!${ignoreList.join('|')})[^/]+?/(?!(es)/)`,
 ];
 
 function getTestRegex(libDir) {
