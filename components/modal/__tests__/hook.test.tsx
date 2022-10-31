@@ -5,7 +5,7 @@ import React from 'react';
 import TestUtils, { act } from 'react-dom/test-utils';
 
 import Modal from '..';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
@@ -200,13 +200,11 @@ describe('Modal.hook', () => {
     jest.useFakeTimers();
 
     const clear = async function clear() {
-      await act(async () => {
-        jest.runAllTimers();
-        await sleep();
-      });
+      await waitFakeTimer();
     };
 
     const mockFn = jest.fn();
+
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
 
