@@ -24,8 +24,6 @@ import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 import 'moment/locale/zh-cn';
 
-declare const antdPreview: string | undefined;
-
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
     registrations.forEach(registration => registration.unregister());
@@ -332,7 +330,7 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
                 <Header {...restProps} changeDirection={this.changeDirection} />
                 {children}
 
-                {(process.env.NODE_ENV !== 'production' || antdPreview) && (
+                {process.env.NODE_ENV !== 'production' && (
                   <DynamicTheme
                     componentName={(this.props as any).params?.children?.replace('-cn', '')}
                     defaultToken={
