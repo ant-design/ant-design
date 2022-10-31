@@ -1,16 +1,16 @@
 import React, { type FC } from 'react';
 import { useLocale as useDumiLocale } from 'dumi';
 import { css } from '@emotion/react';
-import useLocale from '../../../hooks/useLocale';
-import Banner from './Banner';
-import Group from './Group';
-import { useSiteData } from './util';
-import Recommends from './RecommendsOld';
-import useSiteToken from '../../../hooks/useSiteToken';
-import Theme from './Theme';
-import BannerRecommends from './BannerRecommends';
-import ComponentsList from './ComponentsList';
-import DesignFramework from './DesignFramework';
+import useLocale from '../../hooks/useLocale';
+import Banner from './components/Banner';
+import Group from './components/Group';
+import { useSiteData } from './components/util';
+import Recommends from './components/RecommendsOld';
+import useSiteToken from '../../hooks/useSiteToken';
+import Theme from './components/Theme';
+import BannerRecommends from './components/BannerRecommends';
+import ComponentsList from './components/ComponentsList';
+import DesignFramework from './components/DesignFramework';
 
 const useStyle = () => {
   const { token } = useSiteToken();
