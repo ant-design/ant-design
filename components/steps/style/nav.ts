@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { textEllipsis } from '../../style';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
@@ -42,9 +43,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           [`${componentCls}-item-title`]: {
             maxWidth: '100%',
             paddingInlineEnd: 0,
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
+            ...textEllipsis,
 
             '&::after': {
               display: 'none',

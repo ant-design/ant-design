@@ -4,7 +4,7 @@ import { genModalMaskStyle } from '../../modal/style';
 import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { resetComponent } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -41,10 +41,8 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     transition: `opacity ${motionDurationSlow}`,
 
     [`.${prefixCls}-mask-info`]: {
+      ...textEllipsis,
       padding: `0 ${paddingXXS}px`,
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
       [iconCls]: {
         marginInlineEnd: marginXXS,
       },

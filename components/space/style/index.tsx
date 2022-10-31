@@ -1,5 +1,6 @@
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook } from '../../theme';
+import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -47,4 +48,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Space', token => [genSpaceStyle(token)]);
+export default genComponentStyleHook('Space', token => [
+  genSpaceStyle(token),
+  genSpaceCompactStyle(token),
+]);

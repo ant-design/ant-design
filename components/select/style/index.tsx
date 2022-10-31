@@ -4,7 +4,8 @@ import { genComponentStyleHook, mergeToken } from '../../theme';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
-import { resetComponent, resetIcon } from '../../style';
+import { resetComponent, resetIcon, textEllipsis } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -143,19 +144,15 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
-        overflow: 'hidden',
         fontWeight: 'normal',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
+        ...textEllipsis,
       },
 
       // ======================= Placeholder =======================
       [`${componentCls}-selection-placeholder`]: {
+        ...textEllipsis,
         flex: 1,
-        overflow: 'hidden',
         color: token.colorTextPlaceholder,
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
         pointerEvents: 'none',
       },
 
@@ -264,6 +261,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = token => {
         '&&-in-form-item': {
           width: '100%',
         },
+        // Space.Compact
+        ...genCompactItemStyle(
+          token,
+          componentCls,
+          `${componentCls}-selector`,
+          `${componentCls}-focused`,
+        ),
       },
     },
 

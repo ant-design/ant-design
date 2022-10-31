@@ -1213,30 +1213,30 @@ Array [
                     class="ant-progress-circle-trail"
                     cx="50"
                     cy="50"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="1"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:122.63715789784806;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:119.98892818282235;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke:#52C41A;stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                 </svg>
                 <span
@@ -1977,30 +1977,30 @@ exports[`renders ./components/steps/demo/progress.md extend context correctly 1`
                   class="ant-progress-circle-trail"
                   cx="50"
                   cy="50"
-                  r="48"
+                  r="46.25"
                   stroke-linecap="round"
-                  stroke-width="4"
-                  style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                  stroke-width="7.5"
+                  style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                 />
                 <circle
                   class="ant-progress-circle-path"
                   cx="50"
                   cy="50"
                   opacity="1"
-                  r="48"
+                  r="46.25"
                   stroke-linecap="round"
-                  stroke-width="4"
-                  style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:122.63715789784806;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                  stroke-width="7.5"
+                  style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:119.98892818282235;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                 />
                 <circle
                   class="ant-progress-circle-path"
                   cx="50"
                   cy="50"
                   opacity="0"
-                  r="48"
+                  r="46.25"
                   stroke-linecap="round"
-                  stroke-width="4"
-                  style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                  stroke-width="7.5"
+                  style="stroke:#52C41A;stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                 />
               </svg>
               <span
@@ -2217,30 +2217,30 @@ Array [
                     class="ant-progress-circle-trail"
                     cx="50"
                     cy="50"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke:#52C41A;stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                 </svg>
                 <span
@@ -2397,30 +2397,30 @@ Array [
                     class="ant-progress-circle-trail"
                     cx="50"
                     cy="50"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:284.696834231575;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke:#52C41A;stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:284.696834231575;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                 </svg>
                 <span
@@ -2577,30 +2577,30 @@ Array [
                     class="ant-progress-circle-trail"
                     cx="50"
                     cy="50"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="46.25"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="7.5"
+                    style="stroke:#52C41A;stroke-dasharray:290.59732045705584px 290.59732045705584;stroke-dashoffset:290.58732045705585;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                 </svg>
                 <span
@@ -2757,30 +2757,30 @@ Array [
                     class="ant-progress-circle-trail"
                     cx="50"
                     cy="50"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:284.696834231575;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                   <circle
                     class="ant-progress-circle-path"
                     cx="50"
                     cy="50"
                     opacity="0"
-                    r="48"
+                    r="45.3125"
                     stroke-linecap="round"
-                    stroke-width="4"
-                    style="stroke:#52C41A;stroke-dasharray:301.59289474462014px 301.59289474462014;stroke-dashoffset:301.58289474462015;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
+                    stroke-width="9.375"
+                    style="stroke:#52C41A;stroke-dasharray:284.706834231575px 284.706834231575;stroke-dashoffset:284.696834231575;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
                   />
                 </svg>
                 <span

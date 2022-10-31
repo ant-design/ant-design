@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
-import { genFocusStyle, resetComponent } from '../../style';
+import { genFocusStyle, resetComponent, textEllipsis } from '../../style';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -173,18 +173,16 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         boxShadow: token.boxShadow,
 
         '&-item': {
+          ...textEllipsis,
           display: 'flex',
           alignItems: 'center',
           minWidth: token.tabsDropdownWidth,
           margin: 0,
           padding: `${token.paddingXXS}px ${token.paddingSM}px`,
-          overflow: 'hidden',
           color: token.colorText,
           fontWeight: 'normal',
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
           cursor: 'pointer',
           transition: `all ${token.motionDurationSlow}`,
 

@@ -20,22 +20,9 @@ import React from 'react';
 const App: React.FC = () => (
   <>
     <Progress type="circle" percent={75} format={percent => `${percent} Days`} />
-    <Progress type="circle" percent={100} format={() => 'Done'} />
+    <Progress type="circle" percent={100} format={() => 'Done'} style={{ marginLeft: 8 }} />
   </>
 );
 
 export default App;
 ```
-
-<style>
-div.ant-progress-circle,
-div.ant-progress-line {
-  margin-right: 8px;
-  margin-bottom: 8px;
-}
-[class*='-col-rtl'] div.ant-progress-circle,
-[class*='-col-rtl'] div.ant-progress-line {
-  margin-right: 0;
-  margin-left: 8px;
-}
-</style>

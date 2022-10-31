@@ -6,6 +6,8 @@ import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 
+import useStyle from './style';
+
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
   compactDirection?: 'horizontal' | 'vertical';
@@ -73,8 +75,10 @@ const Compact: React.FC<SpaceCompactProps> = props => {
   } = props;
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const clx = classNames(
     prefixCls,
+    hashId,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-block`]: block,
@@ -113,10 +117,10 @@ const Compact: React.FC<SpaceCompactProps> = props => {
     return null;
   }
 
-  return (
+  return wrapSSR(
     <div className={clx} {...restProps}>
       {nodes}
-    </div>
+    </div>,
   );
 };
 

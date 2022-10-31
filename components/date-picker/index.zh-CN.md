@@ -73,6 +73,7 @@ import locale from 'antd/locale/zh_CN';
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
+| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/) }[] | - |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
@@ -165,7 +166,7 @@ import locale from 'antd/locale/zh_CN';
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
 | disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
 | format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
-| ranges | 预设时间范围快捷选择 | { \[range: string]: [dayjs](https://day.js.org/)\[] } \| { \[range: string]: () => [dayjs](https://day.js.org/)\[] } | - |  |
+| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/)\[] }[] | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker/#API) |  |
