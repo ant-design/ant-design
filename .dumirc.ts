@@ -24,6 +24,7 @@ export default defineConfig({
   alias: {
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
+    'antd/locale': path.join(__dirname, 'components/locale'),
     // Change antd from `index.js` to `.dumi/theme/antd.js` to remove deps of root style
     antd: require.resolve('./.dumi/theme/antd.js'),
   },
