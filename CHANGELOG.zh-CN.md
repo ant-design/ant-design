@@ -27,6 +27,7 @@ timeline: true
 - 🆕 Image 增加 preview.scaleStep 属性调整放大缩小的幅度，并将默认的 scaleOffset 设置为 0.5。[#37340](https://github.com/ant-design/ant-design/pull/37340) [@coldice945](https://github.com/coldice945)
 - 🆕 Steps 新增支持 `items`。[#37531](https://github.com/ant-design/ant-design/pull/37531) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Collapse 新增 `collapsible="icon"` 从而支持点击图标展开收起。[#37566](https://github.com/ant-design/ant-design/pull/37566) [@Sheepeer](https://github.com/Sheepeer)
+- 🆕 Input.Password 支持手动控制密码显隐。[#38216](https://github.com/ant-design/ant-design/pull/38216) [@MrHeer](https://github.com/MrHeer)
 - Table
   - 🆕 Table `filterDropdown` 新增一个 close 参数对象用于关闭筛选菜单。[#37745](https://github.com/ant-design/ant-design/pull/37745) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修复 Table 组件 `aria-label` 出现 `[object Object]` 的问题。[#38160](https://github.com/ant-design/ant-design/pull/38160) [@kiner-tang](https://github.com/kiner-tang)
