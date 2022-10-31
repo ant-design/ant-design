@@ -154,13 +154,12 @@ export interface SeedToken extends PresetColorType {
   colorError: string;
   colorInfo: string;
   colorTextBase: string;
-  colorTextLightSolid: string;
   /** Base component background color. Will derivative container background color with this */
   colorBgBase: string;
 
   // Font
   fontFamily: string;
-  fontSizeBase: number;
+  fontSize: number;
 
   // Line
   /** Border width of base components */
@@ -179,11 +178,11 @@ export interface SeedToken extends PresetColorType {
   motionEaseOut: string;
 
   // Radius
-  radiusBase: number;
+  borderRadius: number;
 
   // Size
   sizeUnit: number;
-  sizeBaseStep: number;
+  sizeStep: number;
   sizePopupArrow: number;
 
   // Control Base
@@ -293,6 +292,7 @@ export interface ColorMapToken extends NeutralColorMapToken {
   colorInfoTextActive: string; // 10
 
   colorBgMask: string;
+  colorWhite: string;
 }
 
 export interface SizeMapToken {
@@ -309,6 +309,14 @@ export interface SizeMapToken {
   sizeXXS: number;
 }
 
+export interface HeightMapToken {
+  // Control
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
+}
+
 export interface CommonMapToken {
   // Font
   fontSizes: number[];
@@ -323,16 +331,10 @@ export interface CommonMapToken {
   motionDurationSlow: string;
 
   // Radius
-  radiusXS: number;
-  radiusSM: number;
-  radiusLG: number;
-  radiusOuter: number;
-
-  // Control
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
+  borderRadiusXS: number;
+  borderRadiusSM: number;
+  borderRadiusLG: number;
+  borderRadiusOuter: number;
 }
 
 // ======================================================================
@@ -344,6 +346,7 @@ export interface MapToken
     ColorPalettes,
     ColorMapToken,
     SizeMapToken,
+    HeightMapToken,
     CommonMapToken {}
 
 // ======================================================================
@@ -367,6 +370,7 @@ export interface AliasToken extends MapToken {
   colorTextHeading: string;
   colorTextLabel: string;
   colorTextDescription: string;
+  colorTextLightSolid: string;
   colorBgTextHover: string;
   colorBgTextActive: string;
 

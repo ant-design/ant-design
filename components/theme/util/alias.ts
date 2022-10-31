@@ -58,6 +58,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorTextHeading: mergedToken.colorText,
     colorTextLabel: mergedToken.colorTextSecondary,
     colorTextDescription: mergedToken.colorTextTertiary,
+    colorTextLightSolid: mergedToken.colorWhite,
     colorHighlight: mergedToken.colorError,
     colorBgTextHover: mergedToken.colorFillSecondary,
     colorBgTextActive: mergedToken.colorFill,
@@ -104,10 +105,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlOutline: getAlphaColor(mergedToken.colorPrimaryBg, mergedToken.colorBgContainer),
 
     controlLineType: mergedToken.lineType,
-    controlRadius: mergedToken.radiusBase,
-    controlRadiusXS: mergedToken.radiusXS,
-    controlRadiusSM: mergedToken.radiusSM,
-    controlRadiusLG: mergedToken.radiusLG,
+    controlRadius: mergedToken.borderRadius,
+    controlRadiusXS: mergedToken.borderRadiusXS,
+    controlRadiusSM: mergedToken.borderRadiusSM,
+    controlRadiusLG: mergedToken.borderRadiusLG,
 
     fontWeightStrong: 600,
 

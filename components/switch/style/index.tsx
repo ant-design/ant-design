@@ -145,7 +145,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
           insetInlineEnd: 0,
           bottom: 0,
           insetInlineStart: 0,
-          backgroundColor: token.switchBg,
+          backgroundColor: token.colorWhite,
           borderRadius: token.switchPinSize / 2,
           boxShadow: token.switchHandleShadow,
           transition: `all ${token.switchDuration} ease-in-out`,

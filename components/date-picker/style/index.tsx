@@ -310,7 +310,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     colorLinkHover,
     pickerDateHoverRangeBorderColor,
     controlRadiusSM,
-    radiusSM,
+    borderRadiusSM,
     colorTextLightSolid,
     controlRadius,
     controlItemBgHover,
@@ -684,13 +684,13 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             transition: `background ${motionDurationFast}`,
 
             '&:first-child': {
-              borderStartStartRadius: radiusSM,
-              borderEndStartRadius: radiusSM,
+              borderStartStartRadius: borderRadiusSM,
+              borderEndStartRadius: borderRadiusSM,
             },
 
             '&:last-child': {
-              borderStartEndRadius: radiusSM,
-              borderEndEndRadius: radiusSM,
+              borderStartEndRadius: borderRadiusSM,
+              borderEndEndRadius: borderRadiusSM,
             },
           },
 
@@ -943,12 +943,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     controlItemBgActive,
     colorPrimaryBorder,
     sizePopupArrow,
-    radiusXS,
-    radiusOuter,
+    borderRadiusXS,
+    borderRadiusOuter,
     colorBgElevated,
     controlRadiusLG,
     boxShadowSecondary,
-    radiusSM,
+    borderRadiusSM,
     colorSplit,
     controlItemBgHover,
     presetsWidth,
@@ -1262,8 +1262,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           transition: `left ${motionDurationSlow} ease-out`,
           ...roundedArrow(
             sizePopupArrow,
-            radiusXS,
-            radiusOuter,
+            borderRadiusXS,
+            borderRadiusOuter,
             colorBgElevated,
             boxShadowPopoverArrow,
           ),
@@ -1302,7 +1302,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
               li: {
                 ...textEllipsis,
-                borderRadius: radiusSM,
+                borderRadius: borderRadiusSM,
                 paddingInline: paddingXS,
                 paddingBlock: (controlHeightSM - Math.round(fontSize * lineHeight)) / 2,
                 cursor: 'pointer',

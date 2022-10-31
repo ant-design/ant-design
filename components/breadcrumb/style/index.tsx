@@ -39,7 +39,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         color: token.breadcrumbLinkColor,
         transition: `color ${token.motionDurationFast}`,
         padding: `0 ${token.paddingXXS}px`,
-        borderRadius: token.radiusSM,
+        borderRadius: token.borderRadiusSM,
         height: token.lineHeight * token.fontSize,
         display: 'inline-block',
         marginInline: -token.marginXXS,
@@ -71,7 +71,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       },
 
       [`${componentCls}-overlay-link`]: {
-        borderRadius: token.radiusSM,
+        borderRadius: token.borderRadiusSM,
         height: token.lineHeight * token.fontSize,
         display: 'inline-block',
         padding: `0 ${token.paddingXXS}px`,
@@ -110,8 +110,8 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 export default genComponentStyleHook('Breadcrumb', token => {
   const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
     breadcrumbBaseColor: token.colorTextDescription,
-    breadcrumbFontSize: token.fontSizeBase,
-    breadcrumbIconFontSize: token.fontSizeBase,
+    breadcrumbFontSize: token.fontSize,
+    breadcrumbIconFontSize: token.fontSize,
     breadcrumbLinkColor: token.colorTextDescription,
     breadcrumbLinkColorHover: token.colorText,
     breadcrumbLastItemColor: token.colorText,

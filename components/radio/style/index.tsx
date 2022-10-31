@@ -85,6 +85,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     controlLineType,
     radioDotDisabledSize,
     wireframe,
+    colorWhite,
   } = token;
   const radioInnerPrefixCls = `${componentCls}-inner`;
 
@@ -164,7 +165,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
           height: radioSize,
           marginBlockStart: radioSize / -2,
           marginInlineStart: radioSize / -2,
-          backgroundColor: wireframe ? radioCheckedColor : radioButtonBg,
+          backgroundColor: wireframe ? radioCheckedColor : colorWhite,
           borderBlockStart: 0,
           borderInlineStart: 0,
           borderRadius: radioSize,

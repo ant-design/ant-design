@@ -117,7 +117,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
             display: 'table',
             width: (token.checkboxSize / 14) * 5,
             height: (token.checkboxSize / 14) * 8,
-            border: `${token.lineWidthBold}px solid ${token.colorBgContainer}`,
+            border: `${token.lineWidthBold}px solid ${token.colorWhite}`,
             borderTop: 0,
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',

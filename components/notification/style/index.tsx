@@ -29,7 +29,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
     boxShadowSecondary,
     fontSizeLG,
     notificationMarginBottom,
-    radiusLG,
+    borderRadiusLG,
     colorSuccess,
     colorInfo,
     colorWarning,
@@ -40,7 +40,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
     notificationMarginEdge,
     motionDurationMid,
     motionEaseInOut,
-    fontSizeBase,
+    fontSize,
     lineHeight,
     width,
     notificationIconSize,
@@ -164,11 +164,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         lineHeight,
         wordWrap: 'break-word',
         background: notificationBg,
-        borderRadius: radiusLG,
+        borderRadius: borderRadiusLG,
         boxShadow: boxShadowSecondary,
 
         [`${componentCls}-close-icon`]: {
-          fontSize: fontSizeBase,
+          fontSize,
           cursor: 'pointer',
         },
 
@@ -180,7 +180,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
         },
 
         [`${noticeCls}-description`]: {
-          fontSize: fontSizeBase,
+          fontSize,
         },
 
         [`&${noticeCls}-closable ${noticeCls}-message`]: {
@@ -195,7 +195,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 
         [`${noticeCls}-with-icon ${noticeCls}-description`]: {
           marginInlineStart: token.marginSM + notificationIconSize,
-          fontSize: fontSizeBase,
+          fontSize,
         },
 
         // Icon & color style in different selector level
@@ -229,7 +229,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
           outline: 'none',
           width: token.notificationCloseButtonSize,
           height: token.notificationCloseButtonSize,
-          borderRadius: token.radiusSM,
+          borderRadius: token.borderRadiusSM,
           transition: `background-color ${token.motionDurationFast}, color ${token.motionDurationFast}`,
           display: 'flex',
           alignItems: 'center',

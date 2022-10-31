@@ -172,7 +172,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       flex: 'auto',
       flexDirection: 'column',
       overflow: 'hidden',
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
 
       '&-search-wrapper': {
         position: 'relative',

@@ -75,7 +75,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       whiteSpace: 'nowrap',
       background: token.tagDefaultBg,
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-      borderRadius: token.radiusSM,
+      borderRadius: token.borderRadiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationFast}`,
       textAlign: 'start',

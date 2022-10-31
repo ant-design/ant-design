@@ -197,11 +197,11 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       marginInlineStart: token.marginXS,
       color: token.colorTextDescription,
       fontWeight: 'normal',
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
     },
     [`${stepsItemCls}-description`]: {
       color: token.colorTextDescription,
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
     },
     ...genStepsItemStatusStyle(StepItemStatusEnum.wait, token),
     ...genStepsItemStatusStyle(StepItemStatusEnum.process, token),

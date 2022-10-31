@@ -100,7 +100,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
                 lineHeight: token.lineHeight,
                 cursor: 'pointer',
                 transition: `all ${token.motionDurationFast}`,
-                borderRadius: token.radiusSM,
+                borderRadius: token.borderRadiusSM,
 
                 '&:hover': {
                   background: token.controlItemBgHover,

@@ -44,8 +44,8 @@ const genBaseStyle: GenerateStyle<UploadToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Upload', token => {
-  const { fontSizeHeading3, fontSizeBase, lineHeight, lineWidth, controlHeightLG } = token;
-  const listItemHeightSM = Math.round(fontSizeBase * lineHeight);
+  const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
+  const listItemHeightSM = Math.round(fontSize * lineHeight);
 
   const uploadToken = mergeToken<UploadToken>(token, {
     uploadThumbnailSize: fontSizeHeading3 * 2,

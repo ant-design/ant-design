@@ -19,7 +19,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
     tableHeaderIconColor,
     fontSizeSM,
     tablePaddingHorizontal,
-    radiusBase,
+    borderRadius,
     motionDurationSlow,
     colorTextDescription,
     colorPrimary,
@@ -53,7 +53,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
           padding: `0 ${paddingXXS}px`,
           color: tableHeaderIconColor,
           fontSize: fontSizeSM,
-          borderRadius: radiusBase,
+          borderRadius,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}`,
 
@@ -76,7 +76,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
 
           minWidth: tableFilterDropdownWidth,
           backgroundColor: tableFilterDropdownBg,
-          borderRadius: radiusBase,
+          borderRadius,
           boxShadow,
 
           // Reset menu

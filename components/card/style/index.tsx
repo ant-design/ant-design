@@ -42,7 +42,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     fontSize: token.fontSizeLG,
     background: 'transparent',
     borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
-    borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
+    borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
 
     ...clearFix(),
 
@@ -72,7 +72,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       marginBottom: cardHeadTabsMarginBottom,
       color: token.colorText,
       fontWeight: 'normal',
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
 
       '&-bar': {
         borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
@@ -203,7 +203,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
       },
     },
 
@@ -248,7 +248,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       position: 'relative',
       background: token.colorBgContainer,
-      borderRadius: token.radiusLG,
+      borderRadius: token.borderRadiusLG,
 
       [`&:not(${componentCls}-bordered)`]: {
         boxShadow,
@@ -262,7 +262,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         padding: '',
         color: '',
         fontWeight: 'normal',
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
       },
 
       [`${componentCls}-body`]: {
@@ -279,7 +279,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         img: {
-          borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
+          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         },
       },
 

@@ -111,7 +111,7 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ token: { sizeBaseStep: 2 }, algorithm: compactAlgorithm }}>
+      <ConfigProvider theme={{ token: { sizeStep: 2 }, algorithm: compactAlgorithm }}>
         <Demo />
       </ConfigProvider>,
     );
