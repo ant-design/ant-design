@@ -301,7 +301,7 @@ export interface SizeMapToken {
   sizeXL: number;
   sizeLG: number;
   sizeMD: number;
-  /** Same as size by default, but can be larger in compact mode */
+  /** Same as size by default, but could be larger in compact mode */
   sizeMS: number;
   size: number;
   sizeSM: number;
