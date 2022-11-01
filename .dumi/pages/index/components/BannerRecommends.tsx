@@ -45,6 +45,7 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
       style={{
         maxWidth: 1208,
         marginInline: 'auto',
+        boxSizing: 'border-box',
         paddingInline: token.marginXXL,
         display: 'flex',
         columnGap: token.paddingMD * 2,

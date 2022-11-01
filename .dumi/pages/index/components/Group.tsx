@@ -55,6 +55,7 @@ export default function Group(props: GroupProps) {
     : {
         maxWidth: 1208,
         marginInline: 'auto',
+        boxSizing: 'border-box',
         paddingInline: token.marginXXL,
       };
   let childNode = (

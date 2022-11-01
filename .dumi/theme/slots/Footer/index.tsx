@@ -19,18 +19,47 @@ import {
 import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
+import useSiteToken from '../../../hooks/useSiteToken';
 
-const style = {
-  footer: css`
-    * {
-      box-sizing: border-box;
-    }
-  `,
+const useStyle = () => {
+  const { token } = useSiteToken();
+
+  return {
+    footer: css`
+      background: #f0f3fa;
+      color: ${token.colorTextSecondary};
+      box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h2,
+      a {
+        color: ${token.colorText};
+      }
+
+      .rc-footer-column {
+        margin-bottom: 0;
+      }
+
+      .rc-footer-container {
+        max-width: 1208px;
+        margin-inline: auto;
+        padding-inline: ${token.marginXXL}px;
+      }
+
+      .rc-footer-bottom {
+        box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
+      }
+    `,
+  };
 };
 
 const Footer = () => {
   const location = useLocation();
   const [, lang] = useLocale();
+  const style = useStyle();
 
   const { getLink } = location;
 
@@ -311,11 +340,7 @@ const Footer = () => {
       css={style.footer}
       bottom={
         <>
-          Made with <span style={{ color: '#fff' }}>❤</span> by
-          {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
-          <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
-            <FormattedMessage id="app.footer.company" />
-          </a>
+          Made with <span style={{ color: '#fff' }}>❤</span> by 蚂蚁体验技术部 & 蚂蚁企业级应用设计
         </>
       }
     />
