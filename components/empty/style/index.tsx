@@ -14,12 +14,12 @@ interface EmptyToken extends FullToken<'Empty'> {
 
 // ============================== Shared ==============================
 const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
-  const { componentCls, margin, marginXS, marginXL, fontSizeBase, lineHeight } = token;
+  const { componentCls, margin, marginXS, marginXL, fontSize, lineHeight } = token;
 
   return {
     [componentCls]: {
       marginInline: marginXS,
-      fontSize: fontSizeBase,
+      fontSize,
       lineHeight,
       textAlign: 'center',
 

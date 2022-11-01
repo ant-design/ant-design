@@ -40,9 +40,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     motionDurationMid,
     motionDurationFast,
     dropdownPaddingVertical,
-    fontSizeBase,
+    fontSize,
     dropdownEdgeChildPadding,
-    radiusBase,
+    borderRadius,
     colorTextDisabled,
     fontSizeIcon,
     controlPaddingHorizontal,
@@ -128,8 +128,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
           ...roundedArrow(
             sizePopupArrow,
-            token.radiusXS,
-            token.radiusOuter,
+            token.borderRadiusXS,
+            token.borderRadiusOuter,
             colorBgElevated,
             boxShadowPopoverArrow,
           ),
@@ -265,7 +265,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           listStyleType: 'none',
           backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
-          borderRadius: token.controlRadiusLG,
+          borderRadius: token.borderRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadowSecondary,
           ...genFocusStyle(token),
@@ -281,11 +281,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
-            borderRadius: token.radiusSM,
+            borderRadius: token.borderRadiusSM,
           },
 
           [`${menuCls}-item-icon`]: {
-            minWidth: fontSizeBase,
+            minWidth: fontSize,
             marginInlineEnd: token.marginXS,
             fontSize: token.fontSizeSM,
           },
@@ -316,20 +316,20 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: token.colorText,
             fontWeight: 'normal',
-            fontSize: fontSizeBase,
+            fontSize,
             lineHeight: token.lineHeight,
             cursor: 'pointer',
             transition: `all ${motionDurationFast}`,
 
             '&:first-child': !dropdownEdgeChildPadding
               ? {
-                  borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
+                  borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
                 }
               : [],
 
             '&:last-child': !dropdownEdgeChildPadding
               ? {
-                  borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
+                  borderRadius: `0 0 ${borderRadius}px ${borderRadius}px`,
                 }
               : [],
 
@@ -431,19 +431,19 @@ export default genComponentStyleHook(
       marginXXS,
       sizePopupArrow,
       controlHeight,
-      fontSizeBase,
+      fontSize,
       lineHeight,
       paddingXXS,
       componentCls,
-      radiusOuter,
-      radiusLG,
+      borderRadiusOuter,
+      borderRadiusLG,
     } = token;
 
-    const dropdownPaddingVertical = (controlHeight - fontSizeBase * lineHeight) / 2;
+    const dropdownPaddingVertical = (controlHeight - fontSize * lineHeight) / 2;
     const { dropdownArrowOffset } = getArrowOffset({
       sizePopupArrow,
-      contentRadius: radiusLG,
-      radiusOuter,
+      contentRadius: borderRadiusLG,
+      borderRadiusOuter,
     });
 
     const dropdownToken = mergeToken<DropdownToken>(token, {

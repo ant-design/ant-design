@@ -32,7 +32,7 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
     // Dark tokens
     ...colorPalettes,
     // Colors
-    ...genColorMapToken(token, {
+    ...genColorMapToken(mapToken ?? token, {
       generateColorPalettes,
       generateNeutralColorPalettes,
     }),

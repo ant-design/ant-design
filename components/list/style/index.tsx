@@ -24,12 +24,12 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     padding,
     listItemPaddingSM,
     marginLG,
-    radiusLG,
+    borderRadiusLG,
   } = token;
   return {
     [`${listBorderedCls}`]: {
       border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-      borderRadius: radiusLG,
+      borderRadius: borderRadiusLG,
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
@@ -297,7 +297,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     },
 
     [`${componentCls}-split ${componentCls}-item`]: {
-      borderBlockEnd: `${token.lineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+      borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
 
       [`&:last-child`]: {
         borderBlockEnd: 'none',

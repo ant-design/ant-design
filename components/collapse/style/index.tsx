@@ -23,8 +23,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     collapseHeaderPadding,
     collapsePanelBorderRadius,
 
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     colorBorder,
     colorText,
     colorTextHeading,
@@ -37,7 +37,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     fontSizeIcon,
   } = token;
 
-  const borderBase = `${controlLineWidth}px ${controlLineType} ${colorBorder}`;
+  const borderBase = `${lineWidth}px ${lineType} ${colorBorder}`;
 
   return {
     [componentCls]: {
@@ -260,7 +260,7 @@ export default genComponentStyleHook('Collapse', token => {
     collapseContentBg: token.colorBgContainer,
     collapseHeaderBg: token.colorFillAlter,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    collapsePanelBorderRadius: token.radiusLG,
+    collapsePanelBorderRadius: token.borderRadiusLG,
     collapseContentPaddingHorizontal: 16, // Fixed value
   });
 

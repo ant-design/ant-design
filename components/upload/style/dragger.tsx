@@ -12,8 +12,8 @@ const genDraggerStyle: GenerateStyle<UploadToken> = token => {
         height: '100%',
         textAlign: 'center',
         background: token.colorFillAlter,
-        border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
-        borderRadius: token.controlRadiusLG,
+        border: `${token.lineWidth}px dashed ${token.colorBorder}`,
+        borderRadius: token.borderRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 
@@ -54,7 +54,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = token => {
 
         [`p${componentCls}-hint`]: {
           color: token.colorTextDescription,
-          fontSize: token.fontSizeBase,
+          fontSize: token.fontSize,
         },
 
         // ===================== Disabled =====================

@@ -8,7 +8,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     stepsSmallIconSize,
     // stepsSmallIconMargin,
     fontSizeSM,
-    fontSizeBase,
+    fontSize,
     colorTextDescription,
   } = token;
 
@@ -35,7 +35,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
       [`${componentCls}-item-title`]: {
         paddingInlineEnd: token.paddingSM,
-        fontSize: fontSizeBase,
+        fontSize,
         lineHeight: `${stepsSmallIconSize}px`,
 
         '&::after': {
@@ -44,10 +44,10 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
       [`${componentCls}-item-description`]: {
         color: colorTextDescription,
-        fontSize: fontSizeBase,
+        fontSize,
       },
       [`${componentCls}-item-tail`]: {
-        top: stepsSmallIconSize / 2 - token.lineWidth,
+        top: stepsSmallIconSize / 2 - token.paddingXXS,
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',

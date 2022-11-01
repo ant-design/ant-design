@@ -41,8 +41,8 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     fontWeight: token.fontWeightStrong,
     fontSize: token.fontSizeLG,
     background: 'transparent',
-    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
-    borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
+    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+    borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
 
     ...clearFix(),
 
@@ -72,10 +72,10 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       marginBottom: cardHeadTabsMarginBottom,
       color: token.colorText,
       fontWeight: 'normal',
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
 
       '&-bar': {
-        borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
+        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
       },
     },
   };
@@ -115,7 +115,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     padding: 0,
     listStyle: 'none',
     background: token.colorBgContainer,
-    borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
+    borderTop: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
     display: 'flex',
     ...clearFix(),
 
@@ -156,7 +156,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       '&:not(:last-child)': {
-        borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
+        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
       },
     },
   };
@@ -203,7 +203,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
       },
     },
 
@@ -248,7 +248,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       position: 'relative',
       background: token.colorBgContainer,
-      borderRadius: token.radiusLG,
+      borderRadius: token.borderRadiusLG,
 
       [`&:not(${componentCls}-bordered)`]: {
         boxShadow,
@@ -262,7 +262,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         padding: '',
         color: '',
         fontWeight: 'normal',
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
       },
 
       [`${componentCls}-body`]: {
@@ -279,7 +279,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         img: {
-          borderRadius: `${token.radiusLG}px ${token.radiusLG}px 0 0`,
+          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
         },
       },
 
@@ -289,7 +289,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-bordered`]: {
-      border: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
+      border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
 
       [`${componentCls}-cover`]: {
         marginTop: -1,

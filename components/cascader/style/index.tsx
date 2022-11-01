@@ -88,7 +88,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
               '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
 
               '&:not(:last-child)': {
-                borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+                borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
               },
 
               '&-item': {
@@ -100,7 +100,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
                 lineHeight: token.lineHeight,
                 cursor: 'pointer',
                 transition: `all ${token.motionDurationFast}`,
-                borderRadius: token.radiusSM,
+                borderRadius: token.borderRadiusSM,
 
                 '&:hover': {
                   background: token.controlItemBgHover,

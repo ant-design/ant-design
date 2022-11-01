@@ -12,7 +12,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tableScrollBg,
     zIndexTableSticky,
   } = token;
-  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-sticky`]: {

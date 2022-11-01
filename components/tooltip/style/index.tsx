@@ -120,7 +120,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
     // Arrow Style
     getArrowStyle<TooltipToken>(
       mergeToken<TooltipToken>(token, {
-        radiusOuter: tooltipRadiusOuter,
+        borderRadiusOuter: tooltipRadiusOuter,
       }),
       {
         colorBg: 'var(--antd-arrow-background-color)',
@@ -150,15 +150,15 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { radiusBase, colorTextLightSolid, colorBgDefault, radiusOuter } = token;
+      const { borderRadius, colorTextLightSolid, colorBgDefault, borderRadiusOuter } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables
         tooltipMaxWidth: 250,
         tooltipColor: colorTextLightSolid,
-        tooltipBorderRadius: radiusBase,
+        tooltipBorderRadius: borderRadius,
         tooltipBg: colorBgDefault,
-        tooltipRadiusOuter: radiusOuter > 4 ? 4 : radiusOuter,
+        tooltipRadiusOuter: borderRadiusOuter > 4 ? 4 : borderRadiusOuter,
       });
 
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];

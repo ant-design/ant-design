@@ -3,9 +3,9 @@ import genFontSizes from './genFontSizes';
 import genRadius from './genRadius';
 
 export default function genCommonMapToken(token: SeedToken): CommonMapToken {
-  const { motionUnit, motionBase, fontSizeBase, radiusBase, controlHeight, lineWidth } = token;
+  const { motionUnit, motionBase, fontSize, borderRadius, lineWidth } = token;
 
-  const fontSizes = genFontSizes(fontSizeBase);
+  const fontSizes = genFontSizes(fontSize);
 
   return {
     // motion
@@ -21,11 +21,6 @@ export default function genCommonMapToken(token: SeedToken): CommonMapToken {
     lineWidthBold: lineWidth + 1,
 
     // radius
-    ...genRadius(radiusBase),
-
-    // control
-    controlHeightSM: controlHeight * 0.75,
-    controlHeightXS: controlHeight * 0.5,
-    controlHeightLG: controlHeight * 1.25,
+    ...genRadius(borderRadius),
   };
 }

@@ -33,7 +33,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     inputPaddingVertical,
     fontSize,
     colorBgElevated,
-    controlRadiusLG,
+    borderRadiusLG,
     boxShadowSecondary,
   } = token;
 
@@ -144,7 +144,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         fontSize,
         fontVariant: 'initial',
         backgroundColor: colorBgElevated,
-        borderRadius: controlRadiusLG,
+        borderRadius: borderRadiusLG,
         outline: 'none',
         boxShadow: boxShadowSecondary,
 
@@ -177,8 +177,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             },
 
             '&:first-child': {
-              borderStartStartRadius: controlRadiusLG,
-              borderStartEndRadius: controlRadiusLG,
+              borderStartStartRadius: borderRadiusLG,
+              borderStartEndRadius: borderRadiusLG,
               borderEndStartRadius: 0,
               borderEndEndRadius: 0,
             },
@@ -186,8 +186,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             '&:last-child': {
               borderStartStartRadius: 0,
               borderStartEndRadius: 0,
-              borderEndStartRadius: controlRadiusLG,
-              borderEndEndRadius: controlRadiusLG,
+              borderEndStartRadius: borderRadiusLG,
+              borderEndEndRadius: borderRadiusLG,
             },
 
             '&-disabled': {

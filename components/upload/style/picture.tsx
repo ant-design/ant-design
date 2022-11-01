@@ -14,10 +14,10 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
       [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
-          height: uploadThumbnailSize + token.controlLineWidth * 2 + token.paddingXS * 2,
+          height: uploadThumbnailSize + token.lineWidth * 2 + token.paddingXS * 2,
           padding: token.paddingXS,
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          borderRadius: token.controlRadiusLG,
+          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+          borderRadius: token.borderRadiusLG,
 
           '&:hover': {
             background: 'transparent',
@@ -98,8 +98,8 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
         textAlign: 'center',
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
-        border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
-        borderRadius: token.controlRadiusLG,
+        border: `${token.lineWidth}px dashed ${token.colorBorder}`,
+        borderRadius: token.borderRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 
