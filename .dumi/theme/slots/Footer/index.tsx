@@ -23,10 +23,15 @@ import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const background = '#f0f3fa';
 
   return {
+    holder: css`
+      background: ${background};
+    `,
+
     footer: css`
-      background: #f0f3fa;
+      background: ${background};
       color: ${token.colorTextSecondary};
       box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
 
@@ -61,7 +66,10 @@ const Footer = () => {
   const [, lang] = useLocale();
   const style = useStyle();
 
-  const { getLink } = location;
+  const { getLink, pathname } = location;
+  const cutPath = pathname.replace(/\/$/, '').replace(/-cn$/, '');
+  const isHome = cutPath === '/index' || !cutPath;
+  console.log('~~~>', isHome);
 
   const getColumns = React.useMemo<FooterColumn[]>(() => {
     const isZhCN = lang === 'cn';
@@ -335,15 +343,18 @@ const Footer = () => {
   }, [lang, location.search]);
 
   return (
-    <RcFooter
-      columns={getColumns}
-      css={style.footer}
-      bottom={
-        <>
-          Made with <span style={{ color: '#fff' }}>❤</span> by 蚂蚁体验技术部 & 蚂蚁企业级应用设计
-        </>
-      }
-    />
+    <div css={style.holder} style={{ position: 'relative', overflow: 'hidden', height: 630 }}>
+      <RcFooter
+        columns={getColumns}
+        css={style.footer}
+        bottom={
+          <>
+            Made with <span style={{ color: '#fff' }}>❤</span> by 蚂蚁体验技术部 &
+            蚂蚁企业级应用设计
+          </>
+        }
+      />
+    </div>
   );
 };
 

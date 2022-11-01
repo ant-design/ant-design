@@ -52,13 +52,6 @@ const DocLayout: FC = () => {
     setIsMobile(window.innerWidth < RESPONSIVE_MOBILE);
   };
 
-  // Redirect to home if needed
-  useEffect(() => {
-    if (!pathname) {
-      history.replace('/index');
-    }
-  }, [pathname]);
-
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
@@ -101,7 +94,7 @@ const DocLayout: FC = () => {
     setSearchParams(searchParams);
   };
 
-  const selfRender = ['/index', '/resource'].some(path => pathname.includes(path));
+  const selfRender = ['', '/', '/index', '/resource'].some(path => pathname.includes(path));
 
   return (
     <StyleProvider cache={styleCache}>

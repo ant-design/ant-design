@@ -37,7 +37,6 @@ const useStyle = () => {
       z-index: 10;
       max-width: 100%;
       background: ${token.colorBgContainer};
-      box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;

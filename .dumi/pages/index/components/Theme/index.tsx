@@ -387,13 +387,25 @@ export default function Theme() {
           >
             {/* Image Left Top */}
             <img
-              style={{ ...posStyle, left: 0, top: -100, height: 500 }}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/0533d7c8-4c06-4663-9652-a3e6405d3558.svg"
+              style={{
+                ...posStyle,
+                left: '50%',
+                transform: 'translateX(-900px)',
+                top: -100,
+                height: 500,
+              }}
+              src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
             />
             {/* Image Right Bottom */}
             <img
-              style={{ ...posStyle, right: 0, bottom: -100, height: 287 }}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/7d1dcad9-d49a-4a1d-b736-a5793341083d.svg"
+              style={{
+                ...posStyle,
+                right: '50%',
+                transform: 'translateX(750px)',
+                bottom: -100,
+                height: 287,
+              }}
+              src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
             />
           </div>
 

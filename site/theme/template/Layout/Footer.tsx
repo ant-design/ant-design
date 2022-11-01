@@ -22,6 +22,7 @@ import { getLocalizedPathname } from '../utils';
 
 const Footer: React.FC<WrappedComponentProps & { location: any }> = props => {
   const { intl, location } = props;
+
   const getColumns = useMemo<FooterColumn[]>(() => {
     const isZhCN = intl.locale === 'zh-CN';
     const getLinkHash = (path: string, hash: { zhCN: string; enUS: string }) => {
