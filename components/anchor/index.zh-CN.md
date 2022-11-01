@@ -13,6 +13,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
 
 需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。
 
+> 开发者注意事项：
+>
+> 自 `4.24.0` 起，由于组件从 class 重构成 FC，之前一些获取 `ref` 并调用内部实例方法的写法都会失效
+
 ## API
 
 ### Anchor Props
