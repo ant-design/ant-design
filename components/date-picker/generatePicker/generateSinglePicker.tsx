@@ -23,7 +23,7 @@ import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
-  type DatePickerProps = PickerProps<DateType> & {
+  type CustomPickerProps = {
     status?: InputStatus;
     /**
      * @deprecated `dropdownClassName` is deprecated which will be removed in next major
@@ -31,7 +31,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
      */
     dropdownClassName?: string;
     popupClassName?: string;
-  };
+  }
+  type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
+  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps
+
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
     displayName?: string,
@@ -172,11 +175,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   }
 
   const DatePicker = getPicker<DatePickerProps>();
-  const WeekPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('week', 'WeekPicker');
-  const MonthPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('month', 'MonthPicker');
-  const YearPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('year', 'YearPicker');
-  const TimePicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>(
+  const WeekPicker = getPicker<Omit<DatePickerProps, 'picker'>>('week', 'WeekPicker');
+  const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
+  const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
+  const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
+  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>(
     'quarter',
     'QuarterPicker',
   );
