@@ -27,7 +27,7 @@ timeline: true
 - 🆕 Steps support `items`. [#37531](https://github.com/ant-design/ant-design/pull/37531) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Collapse supports `collapsible="icon"` to collapse by clicking icon. [#37566](https://github.com/ant-design/ant-design/pull/37566) [@Sheepeer](https://github.com/Sheepeer)
 - 🆕 Input.Password supports `visibilityToggle={{ visible, onVisibleChange }}` so that you can manually control password display and hide. [#38216](https://github.com/ant-design/ant-design/pull/38216) [@MrHeer](https://github.com/MrHeer)
-- 🆕 Breadcrumb added the `menu` property, Dropdown added the `menu` `dropdownRender` property, and both deprecated the `overlay` property. [#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Breadcrumb added the `menu` property. Dropdown added the `menu` `dropdownRender` property, and deprecated the `overlay` property. [#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
 - Table
   - 🆕 Table `filterDropdown` add close in argument to `close` filter dropdown only. [#37745](https://github.com/ant-design/ant-design/pull/37745) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 Fix Table `aria-label` contains `[object Object]`. [#38160](https://github.com/ant-design/ant-design/pull/38160) [@kiner-tang](https://github.com/kiner-tang)
