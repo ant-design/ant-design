@@ -23,8 +23,7 @@ const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({
 });
 
 const genGroupStyle: GenerateStyle<ButtonToken> = token => {
-  const { componentCls, fontSizeBase, controlLineWidth, colorPrimaryHover, colorErrorHover } =
-    token;
+  const { componentCls, fontSize, lineWidth, colorPrimaryHover, colorErrorHover } = token;
 
   return {
     [`${componentCls}-group`]: [
@@ -42,7 +41,7 @@ const genGroupStyle: GenerateStyle<ButtonToken> = token => {
           },
 
           '&:not(:first-child)': {
-            marginInlineStart: -controlLineWidth,
+            marginInlineStart: -lineWidth,
 
             [`&, & > ${componentCls}`]: {
               borderStartStartRadius: 0,
@@ -67,7 +66,7 @@ const genGroupStyle: GenerateStyle<ButtonToken> = token => {
         },
 
         [`${componentCls}-icon-only`]: {
-          fontSize: fontSizeBase,
+          fontSize,
         },
       },
 

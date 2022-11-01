@@ -47,7 +47,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
       '&-line': {
         position: 'relative',
         width: '100%',
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
         marginInlineEnd: token.marginXS,
         marginBottom: token.marginXS,
       },
@@ -105,7 +105,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
         verticalAlign: 'middle',
         wordBreak: 'normal',
         [iconPrefixCls]: {
-          fontSize: token.fontSizeBase,
+          fontSize: token.fontSize,
         },
       },
 

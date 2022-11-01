@@ -3,8 +3,8 @@ import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
 const genSummaryStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, controlLineWidth, tableBorderColor } = token;
-  const tableBorder = `${controlLineWidth}px ${token.controlLineType} ${tableBorderColor}`;
+  const { componentCls, lineWidth, tableBorderColor } = token;
+  const tableBorder = `${lineWidth}px ${token.lineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-summary`]: {
@@ -20,7 +20,7 @@ const genSummaryStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`div${componentCls}-summary`]: {
-        boxShadow: `0 -${controlLineWidth}px 0 ${tableBorderColor}`,
+        boxShadow: `0 -${lineWidth}px 0 ${tableBorderColor}`,
       },
     },
   };

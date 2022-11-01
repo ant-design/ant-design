@@ -12,12 +12,12 @@ export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 export function getArrowOffset(options: {
   sizePopupArrow: number;
   contentRadius: number;
-  radiusOuter: number;
+  borderRadiusOuter: number;
   limitVerticalRadius?: boolean;
 }) {
   const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
-  const { sizePopupArrow, contentRadius, radiusOuter, limitVerticalRadius } = options;
-  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(radiusOuter * (Math.sqrt(2) - 1));
+  const { sizePopupArrow, contentRadius, borderRadiusOuter, limitVerticalRadius } = options;
+  const arrowInnerOffset = sizePopupArrow / 2 - Math.ceil(borderRadiusOuter * (Math.sqrt(2) - 1));
   const dropdownArrowOffset = (contentRadius > 12 ? contentRadius + 2 : 12) - arrowInnerOffset;
   const dropdownArrowOffsetVertical = limitVerticalRadius
     ? maxVerticalContentRadius - arrowInnerOffset
@@ -34,15 +34,26 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     limitVerticalRadius?: boolean;
   },
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, marginXXS, radiusXS, radiusOuter, boxShadowPopoverArrow } =
-    token;
+  const {
+    componentCls,
+    sizePopupArrow,
+    marginXXS,
+    borderRadiusXS,
+    borderRadiusOuter,
+    boxShadowPopoverArrow,
+  } = token;
 
-  const { colorBg, showArrowCls, contentRadius = token.radiusLG, limitVerticalRadius } = options;
+  const {
+    colorBg,
+    showArrowCls,
+    contentRadius = token.borderRadiusLG,
+    limitVerticalRadius,
+  } = options;
 
   const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
     sizePopupArrow,
     contentRadius,
-    radiusOuter,
+    borderRadiusOuter,
     limitVerticalRadius,
   });
   const dropdownArrowDistance = sizePopupArrow + marginXXS;
@@ -56,7 +67,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
 
-          ...roundedArrow(sizePopupArrow, radiusXS, radiusOuter, colorBg, boxShadowPopoverArrow),
+          ...roundedArrow(
+            sizePopupArrow,
+            borderRadiusXS,
+            borderRadiusOuter,
+            colorBg,
+            boxShadowPopoverArrow,
+          ),
 
           '&:before': {
             background: colorBg,

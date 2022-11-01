@@ -2,7 +2,10 @@ import type { MapToken } from '../../interface';
 
 const genRadius = (
   radiusBase: number,
-): Pick<MapToken, 'radiusXS' | 'radiusSM' | 'radiusLG' | 'radiusBase' | 'radiusOuter'> => {
+): Pick<
+  MapToken,
+  'borderRadiusXS' | 'borderRadiusSM' | 'borderRadiusLG' | 'borderRadius' | 'borderRadiusOuter'
+> => {
   let radiusLG = radiusBase;
   let radiusSM = radiusBase;
   let radiusXS = radiusBase;
@@ -45,11 +48,11 @@ const genRadius = (
   }
 
   return {
-    radiusBase: radiusBase > 16 ? 16 : radiusBase,
-    radiusXS,
-    radiusSM,
-    radiusLG,
-    radiusOuter,
+    borderRadius: radiusBase > 16 ? 16 : radiusBase,
+    borderRadiusXS: radiusXS,
+    borderRadiusSM: radiusSM,
+    borderRadiusLG: radiusLG,
+    borderRadiusOuter: radiusOuter,
   };
 };
 

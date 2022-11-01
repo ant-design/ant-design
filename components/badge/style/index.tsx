@@ -288,7 +288,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
-      borderRadius: token.controlRadiusSM,
+      borderRadius: token.borderRadiusSM,
       [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
@@ -324,10 +324,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Badge', token => {
-  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS, colorBorderBg } = token;
+  const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);
-  const badgeShadowSize = controlLineWidth;
+  const badgeShadowSize = lineWidth;
   const badgeZIndex = 'auto';
   const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
   const badgeTextColor = token.colorBgContainer;

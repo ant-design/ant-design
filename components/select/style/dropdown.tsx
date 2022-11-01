@@ -52,7 +52,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
         backgroundColor: token.colorBgElevated,
-        borderRadius: token.controlRadiusLG,
+        borderRadius: token.borderRadiusLG,
         outline: 'none',
         boxShadow: token.boxShadowSecondary,
 
@@ -96,7 +96,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
           ...genItemStyle(token),
           cursor: 'pointer',
           transition: `background ${token.motionDurationSlow} ease`,
-          borderRadius: token.radiusSM,
+          borderRadius: token.borderRadiusSM,
 
           // =========== Group ============
           '&-group': {

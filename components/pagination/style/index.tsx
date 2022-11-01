@@ -218,8 +218,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
         padding: `0 ${token.paginationItemPaddingInline}px`,
         textAlign: 'center',
         backgroundColor: token.paginationItemInputBg,
-        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-        borderRadius: token.radiusBase,
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+        borderRadius: token.borderRadius,
         outline: 'none',
         transition: `border-color ${token.motionDurationFast}`,
 
@@ -329,7 +329,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
       cursor: 'pointer',
       transition: `all ${token.motionDurationFast}`,
     },
@@ -352,8 +352,8 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         fontSize: token.fontSizeSM,
         textAlign: 'center',
         backgroundColor: 'transparent',
-        border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
-        borderRadius: token.radiusBase,
+        border: `${token.lineWidth}px ${token.lineType} transparent`,
+        borderRadius: token.borderRadius,
         outline: 'none',
         transition: `border ${token.motionDurationFast}`,
       },
@@ -428,8 +428,8 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       verticalAlign: 'middle',
       listStyle: 'none',
       backgroundColor: 'transparent',
-      border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
-      borderRadius: token.radiusBase,
+      border: `${token.lineWidth}px ${token.lineType} transparent`,
+      borderRadius: token.borderRadius,
       outline: 0,
       cursor: 'pointer',
       userSelect: 'none',
@@ -626,7 +626,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = token => {
 
       [`${componentCls}-item`]: {
         backgroundColor: token.paginationItemBg,
-        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
 
         [`&:hover:not(${componentCls}-item-active)`]: {
           borderColor: token.colorPrimary,
