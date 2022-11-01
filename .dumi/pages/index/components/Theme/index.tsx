@@ -27,6 +27,7 @@ import ThemePicker, { THEME } from './ThemePicker';
 import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
+import BackgroundImage from './BackgroundImage';
 
 const { Header, Content, Sider } = Layout;
 
@@ -87,10 +88,12 @@ const useStyle = () => {
     `,
 
     larkDemo: css`
-      background: #f7f7f7;
+      // background: #f7f7f7;
+      background: rgba(240, 242, 245, 0.65);
     `,
     comicDemo: css`
-      background: #ffe4e6;
+      // background: #ffe4e6;
+      background: rgba(240, 242, 245, 0.65);
     `,
 
     menu: css`
@@ -428,37 +431,8 @@ export default function Theme() {
             />
           </div>
 
-          {/* >>>>>> Lark <<<<<< */}
-          <img
-            style={{
-              transition: `all ${token.motionDurationSlow}`,
-              opacity: themeType === 'lark' ? 1 : 0,
-              objectFit: 'cover',
-              objectPosition: 'right top',
-              ...posStyle,
-              left: 0,
-              top: 0,
-              height: '100%',
-              width: '100%',
-            }}
-            src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jEIGQICe7aEAAAAAAAAAAAAAARQnAQ"
-          />
-
-          {/* >>>>>> Comic <<<<<< */}
-          <img
-            style={{
-              transition: `all ${token.motionDurationSlow}`,
-              opacity: themeType === 'comic' ? 1 : 0,
-              objectFit: 'cover',
-              objectPosition: 'right top',
-              ...posStyle,
-              left: 0,
-              top: 0,
-              height: '100%',
-              width: '100%',
-            }}
-            src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2g4oTp4jmzIAAAAAAAAAAAAAARQnAQ"
-          />
+          {/* >>>>>> Background Image <<<<<< */}
+          <BackgroundImage colorPrimary={themeData.colorPrimary} />
         </>
       }
     >
