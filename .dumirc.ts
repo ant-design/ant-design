@@ -4,6 +4,7 @@ import rehypeAntd from './.dumi/rehypeAntd';
 import { version } from './package.json';
 
 export default defineConfig({
+  hash: true,
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
