@@ -20,7 +20,7 @@ import ResizeObserver from 'rc-resize-observer';
 import React, { useEffect, useRef, useState } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const VirtualTable = (props: Parameters<typeof Table>[0]) => {
+const VirtualTable = <RecordType extends object>(props: Partial<TableProps<RecordType>>) => {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
 
