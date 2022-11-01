@@ -33,7 +33,7 @@ const useStyle = () => {
 
   return {
     themeCard: css`
-      border-radius: ${token.radiusBase}px;
+      border-radius: ${token.borderRadius}px;
       cursor: pointer;
       outline-offset: 1px;
       transition: all ${token.motionDurationSlow};

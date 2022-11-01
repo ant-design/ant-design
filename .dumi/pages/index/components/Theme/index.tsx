@@ -185,29 +185,29 @@ const sideMenuItems: MenuProps['items'] = [
 interface ThemeData {
   themeType: THEME;
   colorPrimary: string;
-  radiusBase: number;
+  borderRadius: number;
   compact: 'default' | 'compact';
 }
 
 const ThemeDefault: ThemeData = {
   themeType: 'default',
   colorPrimary: '#1677FF',
-  radiusBase: 6,
+  borderRadius: 6,
   compact: 'default',
 };
 
 const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
   default: {},
   dark: {
-    radiusBase: 2,
+    borderRadius: 2,
   },
   lark: {
     colorPrimary: '#00B96B',
-    radiusBase: 4,
+    borderRadius: 4,
   },
   comic: {
     colorPrimary: '#fb7299',
-    radiusBase: 16,
+    borderRadius: 16,
   },
 };
 
@@ -292,7 +292,7 @@ export default function Theme() {
           themeType === 'lark' && style.larkDemo,
           themeType === 'comic' && style.comicDemo,
         ]}
-        style={{ borderRadius: themeData.radiusBase }}
+        style={{ borderRadius: themeData.borderRadius }}
       >
         <Layout>
           <Header css={style.header}>
@@ -345,7 +345,7 @@ export default function Theme() {
                     <Form.Item label={locale.titlePrimaryColor} name="colorPrimary">
                       <ColorPicker />
                     </Form.Item>
-                    <Form.Item label={locale.titleBorderRadius} name="radiusBase">
+                    <Form.Item label={locale.titleBorderRadius} name="borderRadius">
                       <RadiusPicker />
                     </Form.Item>
                     <Form.Item label={locale.titleCompact} name="compact">
