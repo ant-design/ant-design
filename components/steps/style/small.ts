@@ -47,7 +47,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         fontSize,
       },
       [`${componentCls}-item-tail`]: {
-        top: stepsSmallIconSize / 2 - token.lineWidth,
+        top: stepsSmallIconSize / 2 - token.paddingXXS,
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',

@@ -159,7 +159,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.stepsIconSize / 2 - token.lineWidth,
+      top: token.stepsIconSize / 2 - token.paddingXXS,
       insetInlineStart: 0,
       width: '100%',
 
