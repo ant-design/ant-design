@@ -27,7 +27,8 @@ timeline: true
 - 🆕 Steps 新增支持 `items`。[#37531](https://github.com/ant-design/ant-design/pull/37531) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Collapse 新增 `collapsible="icon"` 从而支持点击图标展开收起。[#37566](https://github.com/ant-design/ant-design/pull/37566) [@Sheepeer](https://github.com/Sheepeer)
 - 🆕 Input.Password 支持 `visibilityToggle={{ visible, onVisibleChange }}` 从而可以手动控制密码显隐。[#38216](https://github.com/ant-design/ant-design/pull/38216) [@MrHeer](https://github.com/MrHeer)
-- 🆕 Breadcrumb 新增 `menu` 属性。Dropdown 新增 `menu` `dropdownRender` 属性，并废弃了 `overlay` 属性。[#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Breadcrumb 新增 `menu` 属性。[#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Dropdown 新增 `menu` `dropdownRender` 属性，并废弃了 `overlay` 属性。[#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
 - Table
   - 🆕 Table `filterDropdown` 新增一个 `close` 参数对象用于关闭筛选菜单。[#37745](https://github.com/ant-design/ant-design/pull/37745) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修复 Table 组件 `aria-label` 出现 `[object Object]` 的问题。[#38160](https://github.com/ant-design/ant-design/pull/38160) [@kiner-tang](https://github.com/kiner-tang)
