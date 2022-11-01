@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-01`
 
-- 🔥 新增组件 Space.Compact，用以替代 Input.Group 和 Button.Group 组件。[#37652](https://github.com/ant-design/ant-design/pull/37652) [@foryuki](https://github.com/foryuki)
+- 🔥 新增组件 Space.Compact 用以替代 Input.Group 和 Button.Group 组件。[#37652](https://github.com/ant-design/ant-design/pull/37652) [@foryuki](https://github.com/foryuki)
 - 🆕 Form 内组件上的 `disabled` 属性现在将优先于 Form 的 `disabled` 属性。[#37628](https://github.com/ant-design/ant-design/pull/37628) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Typograph 增加 `text` 配置，支持同时开启省略与编辑模式时的使用。[#37761](https://github.com/ant-design/ant-design/pull/37761) [@zheeeng](https://github.com/zheeeng)
 - 🆕 Row 组件的 `align` 和 `justify` 属性支持设置响应式的值。[#37860](https://github.com/ant-design/ant-design/pull/37860) [@kiner-tang](https://github.com/kiner-tang)

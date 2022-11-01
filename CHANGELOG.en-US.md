@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-01`
 
-- 🔥 Add new component Space.Compact, used to replace Input.Group and Button.Group. [#37652](https://github.com/ant-design/ant-design/pull/37652) [@foryuki](https://github.com/foryuki)
+- 🔥 Add new component Space.Compact used to replace Input.Group and Button.Group. [#37652](https://github.com/ant-design/ant-design/pull/37652) [@foryuki](https://github.com/foryuki)
 - 🆕 The `disabled` property on components inside a Form will now take precedence over the `disabled` property of the Form. [#37628](https://github.com/ant-design/ant-design/pull/37628) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Add `text` config for editable Typograph, support enabling ellipsis and editable at the same time. [#37761](https://github.com/ant-design/ant-design/pull/37761) [@zheeeng](https://github.com/zheeeng)
 - 🆕 Row `align` and `justify` support reponsive value. [#37860](https://github.com/ant-design/ant-design/pull/37860) [@kiner-tang](https://github.com/kiner-tang)
