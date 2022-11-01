@@ -2,7 +2,7 @@ import React from 'react';
 import Steps from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Steps', () => {
@@ -31,6 +31,30 @@ describe('Steps', () => {
       />,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('items out of render function', () => {
+    const items = [
+      {
+        title: '已完成',
+      },
+      {
+        title: '进行中',
+      },
+    ];
+
+    let current = 0;
+    const onChange = (val: number) => {
+      current = val;
+    };
+    const { container } = render(
+      <Steps current={current} onChange={onChange} items={items} key={current} />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-steps-item').at(1));
+    // wrapper.find('.rc-steps-item-container').at(1).simulate('click');
+    // wrapper.setProps({ current: current });
+    // expect(wrapper.find('.rc-steps-item').at(1).hasClass('rc-steps-item-process')).toBeTruthy();
   });
 
   it('should render correct when use Step', () => {
