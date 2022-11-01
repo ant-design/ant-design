@@ -25,12 +25,12 @@ const useStyle = () => {
       height: ${token.controlHeightLG / 2}px;
       border-radius: 100%;
       cursor: pointer;
-      transition: all ${token.motionDurationSlow};
+      outline-offset: 1px;
+      transition: all ${token.motionDurationFast};
     `,
 
     colorActive: css`
       outline: ${token.controlOutlineWidth * 2}px solid ${token.colorPrimary};
-      outline-offset: 1px;
     `,
   };
 };
