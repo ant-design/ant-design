@@ -28,7 +28,7 @@ Often used when a user enters a website or a page for the first time,or a page o
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| target | Get the element the guide card points to | `() => HTMLElement` `HTMLElement` | - |  |
+| target | Get the element the guide card points to. Empty makes it show in center of screen | `() => HTMLElement` `HTMLElement` | - |  |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean` `{ pointAtCenter: boolean}` | `true` |  |
 | cover | Displayed pictures or videos | `ReactNode` | - |  |
 | title | title | `ReactNode` | - |  |
@@ -39,5 +39,3 @@ Often used when a user enters a website or a page for the first time,or a page o
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | `{ children: 'next' }` |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | `{ children: 'pre' }` |  |
-| className | - | `string` | - |  |
-| style | - | `React.CSSProperties` | - |  |

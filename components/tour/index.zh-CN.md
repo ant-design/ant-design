@@ -27,9 +27,9 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388
 
 ### TourStep 引导步骤卡片
 
-| 属性 | 说明 | 默认值 | 类型 | 版本 |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| target | 获取引导卡片指向的元素 | `() => HTMLElement` \| `HTMLElement` | - |  |
+| target | 获取引导卡片指向的元素，为空时居中于屏幕 | `() => HTMLElement` \| `HTMLElement` | - |  |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
 | cover | 展示的图片或者视频 | `ReactNode` | - |  |
 | title | 标题 | `ReactNode` | - |  |
@@ -40,5 +40,3 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
-| className | - | `string` | - |  |
-| style | - | `React.CSSProperties` | - |  |
