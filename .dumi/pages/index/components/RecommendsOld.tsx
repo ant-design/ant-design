@@ -61,12 +61,12 @@ const useStyle = () => {
 
         h4${token.antCls}-typography {
           position: absolute;
-          padding: 0 ${token.paddingTmp}px ${token.paddingTmp}px;
+          padding: 0 ${token.paddingMD}px ${token.paddingMD}px;
           transform: translateY(-100%);
         }
 
         div${token.antCls}-typography {
-          padding: ${token.paddingXS}px ${token.paddingTmp}px ${token.paddingLG}px;
+          padding: ${token.paddingXS}px ${token.paddingMD}px ${token.paddingLG}px;
         }
       }
     `,
@@ -82,7 +82,7 @@ export default function Recommends({ recommendations = [] }: RecommendsProps) {
   const style = useStyle();
 
   return (
-    <Row gutter={token.gridSpaceXXL}>
+    <Row gutter={token.marginLG}>
       {new Array(3).fill(null).map((_, index) => {
         const data = recommendations[index];
 

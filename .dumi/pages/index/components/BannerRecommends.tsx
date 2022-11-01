@@ -11,7 +11,7 @@ const useStyle = () => {
     card: css`
       border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
       border-radius: ${token.radiusLG}px;
-      padding-block: ${token.paddingTmp}px;
+      padding-block: ${token.paddingMD}px;
       padding-inline: ${token.paddingLG}px;
       flex: 1 1 0;
       width: 33%;
@@ -47,7 +47,7 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
         marginInline: 'auto',
         paddingInline: token.marginXXL,
         display: 'flex',
-        columnGap: token.paddingTmp * 2,
+        columnGap: token.paddingMD * 2,
         alignItems: 'stretch',
         textAlign: 'start',
       }}

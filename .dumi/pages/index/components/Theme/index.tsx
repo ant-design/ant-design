@@ -30,6 +30,11 @@ import Group from '../Group';
 
 const { Header, Content, Sider } = Layout;
 
+const TokenChecker = () => {
+  console.log('Demo Token:', theme.useToken());
+  return null;
+};
+
 // ============================= Theme =============================
 const locales = {
   cn: {
@@ -279,6 +284,7 @@ export default function Theme() {
         },
       }}
     >
+      <TokenChecker />
       <div
         css={[
           style.demo,

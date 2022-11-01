@@ -94,7 +94,7 @@ const useStyle = () => {
     cardMini: css`
       display: block;
       border-radius: ${token.radiusBase * 2}px;
-      padding: ${token.paddingTmp}px ${token.paddingLG}px;
+      padding: ${token.paddingMD}px ${token.paddingLG}px;
       background: rgba(0, 0, 0, 0.02);
       border: 1px solid rgba(0, 0, 0, 0.06);
 

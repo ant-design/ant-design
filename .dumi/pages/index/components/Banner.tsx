@@ -29,7 +29,16 @@ export default function Banner({ children }: BannerProps) {
   return (
     <>
       {/* Banner Placeholder Motion */}
-      <div style={{ height: 360, background: '#77C6FF' }} />
+      <div
+        style={{
+          height: 360,
+          background: '#77C6FF',
+          backgroundImage:
+            'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*XmkgT4UK6dsAAAAAAAAAAAAAARQnAQ)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
 
       {/* Logo */}
       <div style={{ position: 'relative' }}>
@@ -63,7 +72,7 @@ export default function Banner({ children }: BannerProps) {
               fontSize: token.fontSizes[9],
               lineHeight: token.lineHeights[9],
               fontWeight: 'normal',
-              marginBottom: token.marginTmp,
+              marginBottom: token.marginMD,
             }}
           >
             Ant Design 5.0
@@ -72,7 +81,7 @@ export default function Banner({ children }: BannerProps) {
             style={{
               fontSize: token.fontSizeHeading5,
               lineHeight: token.lineHeightHeading5,
-              marginBottom: token.marginTmp * 2,
+              marginBottom: token.marginMD * 2,
             }}
           >
             <div>{locale.slogan}</div>
