@@ -2,7 +2,7 @@ import React from 'react';
 import Steps from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, screen } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Steps', () => {
@@ -47,14 +47,10 @@ describe('Steps', () => {
     const onChange = (val: number) => {
       current = val;
     };
-    const { container } = render(
-      <Steps current={current} onChange={onChange} items={items} key={current} />,
-    );
+    render(<Steps current={current} onChange={onChange} items={items} key={current} />);
 
-    fireEvent.click(container.querySelector('.ant-steps-item').at(1));
-    // wrapper.find('.rc-steps-item-container').at(1).simulate('click');
-    // wrapper.setProps({ current: current });
-    // expect(wrapper.find('.rc-steps-item').at(1).hasClass('rc-steps-item-process')).toBeTruthy();
+    fireEvent.click(screen.getByText(/进行中/i));
+    expect(screen.getByText(/进行中/i)).toHaveClass('rc-steps-item-process');
   });
 
   it('should render correct when use Step', () => {
