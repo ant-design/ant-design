@@ -3,11 +3,11 @@ import type { GenerateStyle } from '../../theme';
 import { clearFix, textEllipsis } from '../../style';
 
 const genListStyle: GenerateStyle<UploadToken> = token => {
-  const { componentCls, antCls, iconCls, fontSizeBase, lineHeight } = token;
+  const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
-  const listItemHeightSM = Math.round(fontSizeBase * lineHeight);
+  const listItemHeightSM = Math.round(fontSize * lineHeight);
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -17,9 +17,9 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
 
         [itemCls]: {
           position: 'relative',
-          height: token.lineHeight * fontSizeBase,
+          height: token.lineHeight * fontSize,
           marginTop: token.marginXS,
-          fontSize: fontSizeBase,
+          fontSize,
           display: 'flex',
           alignItems: 'center',
           transition: `background-color ${token.motionDurationSlow}`,
@@ -70,15 +70,15 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
 
           [`${componentCls}-icon ${iconCls}`]: {
             color: token.colorTextDescription,
-            fontSize: fontSizeBase,
+            fontSize,
           },
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
             bottom: -token.uploadProgressOffset,
             width: '100%',
-            paddingInlineStart: fontSizeBase + token.paddingXS,
-            fontSize: fontSizeBase,
+            paddingInlineStart: fontSize + token.paddingXS,
+            fontSize,
             lineHeight: 0,
             pointerEvents: 'none',
 

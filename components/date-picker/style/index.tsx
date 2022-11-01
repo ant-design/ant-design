@@ -67,11 +67,11 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     pickerCellInnerCls,
     pickerPanelCellHeight,
     motionDurationSlow,
-    controlRadiusSM,
+    borderRadiusSM,
     motionDurationFast,
     controlItemBgHover,
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     colorPrimary,
     controlItemBgActive,
     colorTextLightSolid,
@@ -105,7 +105,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       minWidth: pickerPanelCellHeight,
       height: pickerPanelCellHeight,
       lineHeight: `${pickerPanelCellHeight}px`,
-      borderRadius: controlRadiusSM,
+      borderRadius: borderRadiusSM,
       transition: `background ${motionDurationFast}, border ${motionDurationFast}`,
     },
 
@@ -127,8 +127,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         bottom: 0,
         insetInlineStart: 0,
         zIndex: 1,
-        border: `${controlLineWidth}px ${controlLineType} ${colorPrimary}`,
-        borderRadius: controlRadiusSM,
+        border: `${lineWidth}px ${lineType} ${colorPrimary}`,
+        borderRadius: borderRadiusSM,
         content: '""',
       },
     },
@@ -178,8 +178,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
         top: '50%',
         zIndex: 0,
         height: controlHeightSM,
-        borderTop: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-        borderBottom: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+        borderTop: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+        borderBottom: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
         transform: 'translateY(-50%)',
         transition: `all ${motionDurationSlow}`,
         content: '""',
@@ -212,8 +212,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     // range start border-radius
     [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${pickerCellInnerCls}`]:
       {
-        borderStartStartRadius: controlRadiusSM,
-        borderEndStartRadius: controlRadiusSM,
+        borderStartStartRadius: borderRadiusSM,
+        borderEndStartRadius: borderRadiusSM,
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -223,8 +223,8 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
-        borderStartEndRadius: controlRadiusSM,
-        borderEndEndRadius: controlRadiusSM,
+        borderStartEndRadius: borderRadiusSM,
+        borderEndEndRadius: borderRadiusSM,
       },
 
     '&-range-hover:is(&-range-end)::after': {
@@ -238,9 +238,9 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
       &-in-view:is(&-range-hover-start)::after`]: {
       insetInlineStart: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
-      borderInlineStart: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartStartRadius: controlLineWidth,
-      borderEndStartRadius: controlLineWidth,
+      borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+      borderStartStartRadius: lineWidth,
+      borderEndStartRadius: lineWidth,
     },
 
     // Edge end
@@ -250,9 +250,9 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
       &-in-view:is(&-range-hover-end)::after`]: {
       insetInlineEnd: (pickerPanelCellWidth - pickerPanelCellHeight) / 2,
-      borderInlineEnd: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-      borderStartEndRadius: controlLineWidth,
-      borderEndEndRadius: controlLineWidth,
+      borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+      borderStartEndRadius: lineWidth,
+      borderEndEndRadius: lineWidth,
     },
 
     // >>> Disabled
@@ -284,9 +284,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     paddingSM,
     paddingXS,
     colorBgContainer,
-    controlLineWidth,
-    controlLineType,
-    controlRadiusLG,
+    lineWidth,
+    lineType,
+    borderRadiusLG,
     colorPrimary,
     colorTextHeading,
     colorSplit,
@@ -309,10 +309,9 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     colorLinkActive,
     colorLinkHover,
     pickerDateHoverRangeBorderColor,
-    controlRadiusSM,
-    radiusSM,
+    borderRadiusSM,
     colorTextLightSolid,
-    controlRadius,
+    borderRadius,
     controlItemBgHover,
     pickerTimePanelColumnHeight,
     pickerTimePanelColumnWidth,
@@ -332,8 +331,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         flexDirection: 'column',
         textAlign: 'center',
         background: colorBgContainer,
-        border: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
-        borderRadius: controlRadiusLG,
+        border: `${lineWidth}px ${lineType} ${colorSplit}`,
+        borderRadius: borderRadiusLG,
         outline: 'none',
 
         '&-focused': {
@@ -375,7 +374,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         display: 'flex',
         padding: `0 ${paddingXS}px`,
         color: colorTextHeading,
-        borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
 
         '> *': {
           flex: 'none',
@@ -560,22 +559,22 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
       // ======================== Footer ========================
       [`&-panel ${componentCls}-footer`]: {
-        borderTop: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+        borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
       },
 
       '&-footer': {
         width: 'min-content',
         minWidth: '100%',
-        lineHeight: `${pickerTextHeight - 2 * controlLineWidth}px`,
+        lineHeight: `${pickerTextHeight - 2 * lineWidth}px`,
         textAlign: 'center',
 
         '&-extra': {
           padding: `0 ${paddingSM}`,
-          lineHeight: `${pickerTextHeight - 2 * controlLineWidth}px`,
+          lineHeight: `${pickerTextHeight - 2 * lineWidth}px`,
           textAlign: 'start',
 
           '&:not(:last-child)': {
-            borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+            borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
           },
         },
       },
@@ -630,34 +629,34 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         [`${componentCls}-cell-range-hover-start::after`]: {
           insetInlineStart: hoverCellFixedDistance,
-          borderInlineStart: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-          borderStartStartRadius: controlRadiusSM,
-          borderBottomStartRadius: controlRadiusSM,
+          borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+          borderStartStartRadius: borderRadiusSM,
+          borderBottomStartRadius: borderRadiusSM,
           borderStartEndRadius: 0,
           borderBottomEndRadius: 0,
 
           [`${componentCls}-panel-rtl &`]: {
             insetInlineEnd: hoverCellFixedDistance,
-            borderInlineEnd: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+            borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
             borderStartStartRadius: 0,
             borderBottomStartRadius: 0,
-            borderStartEndRadius: controlRadiusSM,
-            borderBottomEndRadius: controlRadiusSM,
+            borderStartEndRadius: borderRadiusSM,
+            borderBottomEndRadius: borderRadiusSM,
           },
         },
         [`${componentCls}-cell-range-hover-end::after`]: {
           insetInlineEnd: hoverCellFixedDistance,
-          borderInlineEnd: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+          borderInlineEnd: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
           borderStartStartRadius: 0,
           borderBottomStartRadius: 0,
-          borderStartEndRadius: controlRadius,
-          borderBottomEndRadius: controlRadius,
+          borderStartEndRadius: borderRadius,
+          borderBottomEndRadius: borderRadius,
 
           [`${componentCls}-panel-rtl &`]: {
             insetInlineStart: hoverCellFixedDistance,
-            borderInlineStart: `${controlLineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
-            borderStartStartRadius: controlRadius,
-            borderBottomStartRadius: controlRadius,
+            borderInlineStart: `${lineWidth}px dashed ${pickerDateHoverRangeBorderColor}`,
+            borderStartStartRadius: borderRadius,
+            borderBottomStartRadius: borderRadius,
             borderStartEndRadius: 0,
             borderBottomEndRadius: 0,
           },
@@ -684,13 +683,13 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             transition: `background ${motionDurationFast}`,
 
             '&:first-child': {
-              borderStartStartRadius: radiusSM,
-              borderEndStartRadius: radiusSM,
+              borderStartStartRadius: borderRadiusSM,
+              borderEndStartRadius: borderRadiusSM,
             },
 
             '&:last-child': {
-              borderStartEndRadius: radiusSM,
-              borderEndEndRadius: radiusSM,
+              borderStartEndRadius: borderRadiusSM,
+              borderEndEndRadius: borderRadiusSM,
             },
           },
 
@@ -737,7 +736,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         display: 'flex',
 
         [`${componentCls}-time-panel`]: {
-          borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+          borderInlineStart: `${lineWidth}px ${lineType} ${colorSplit}`,
         },
 
         [`${componentCls}-date-panel,
@@ -787,14 +786,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             content: '""',
             [`${componentCls}-datetime-panel &`]: {
               height:
-                pickerTimePanelColumnHeight -
-                pickerPanelWithoutTimeCellHeight +
-                2 * controlLineWidth,
+                pickerTimePanelColumnHeight - pickerPanelWithoutTimeCellHeight + 2 * lineWidth,
             },
           },
 
           '&:not(:first-child)': {
-            borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+            borderInlineStart: `${lineWidth}px ${lineType} ${colorSplit}`,
           },
 
           '&-active': {
@@ -821,7 +818,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 paddingInlineStart: (pickerTimePanelColumnWidth - pickerTimePanelCellHeight) / 2,
                 color: colorText,
                 lineHeight: `${pickerTimePanelCellHeight}px`,
-                borderRadius: controlRadiusSM,
+                borderRadius: borderRadiusSM,
                 cursor: 'pointer',
                 transition: `background ${motionDurationFast}`,
 
@@ -917,10 +914,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     fontSize,
     inputPaddingHorizontal,
     colorBgContainer,
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     colorBorder,
-    controlRadius,
+    borderRadius,
     motionDurationFast,
     colorBgContainerDisabled,
     colorTextDisabled,
@@ -943,12 +940,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     controlItemBgActive,
     colorPrimaryBorder,
     sizePopupArrow,
-    radiusXS,
-    radiusOuter,
+    borderRadiusXS,
+    borderRadiusOuter,
     colorBgElevated,
-    controlRadiusLG,
+    borderRadiusLG,
     boxShadowSecondary,
-    radiusSM,
+    borderRadiusSM,
     colorSplit,
     controlItemBgHover,
     presetsWidth,
@@ -963,8 +960,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       display: 'inline-flex',
       alignItems: 'center',
       background: colorBgContainer,
-      border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-      borderRadius: controlRadius,
+      border: `${lineWidth}px ${lineType} ${colorBorder}`,
+      borderRadius,
       transition: `border ${motionDurationFast}, box-shadow ${motionDurationFast}`,
 
       // Space.Compact
@@ -1126,7 +1123,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         // Active bar
         [`${componentCls}-active-bar`]: {
-          bottom: -controlLineWidth,
+          bottom: -lineWidth,
           height: lineWidthBold,
           marginInlineStart: inputPaddingHorizontal,
           background: colorPrimary,
@@ -1226,7 +1223,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           marginBottom: 0,
           padding: `${paddingXXS}px ${paddingSM}px`,
           overflow: 'hidden',
-          lineHeight: `${pickerTextHeight - 2 * controlLineWidth - paddingXS / 2}px`,
+          lineHeight: `${pickerTextHeight - 2 * lineWidth - paddingXS / 2}px`,
           textAlign: 'start',
           listStyle: 'none',
           display: 'flex',
@@ -1262,8 +1259,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           transition: `left ${motionDurationSlow} ease-out`,
           ...roundedArrow(
             sizePopupArrow,
-            radiusXS,
-            radiusOuter,
+            borderRadiusXS,
+            borderRadiusOuter,
             colorBgElevated,
             boxShadowPopoverArrow,
           ),
@@ -1273,7 +1270,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           overflow: 'hidden',
           verticalAlign: 'top',
           background: colorBgElevated,
-          borderRadius: controlRadiusLG,
+          borderRadius: borderRadiusLG,
           boxShadow: boxShadowSecondary,
           transition: `margin ${motionDurationSlow}`,
 
@@ -1298,11 +1295,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
               overflow: 'auto',
               margin: 0,
               padding: paddingXS,
-              borderInlineEnd: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+              borderInlineEnd: `${lineWidth}px ${lineType} ${colorSplit}`,
 
               li: {
                 ...textEllipsis,
-                borderRadius: radiusSM,
+                borderRadius: borderRadiusSM,
                 paddingInline: paddingXS,
                 paddingBlock: (controlHeightSM - Math.round(fontSize * lineHeight)) / 2,
                 cursor: 'pointer',
@@ -1326,7 +1323,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
             direction: 'ltr',
 
             [`${componentCls}-panel`]: {
-              borderWidth: `0 0 ${controlLineWidth}px`,
+              borderWidth: `0 0 ${lineWidth}px`,
             },
 
             '&:last-child': {

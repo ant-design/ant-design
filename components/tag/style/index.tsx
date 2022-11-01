@@ -58,9 +58,9 @@ const genTagColorStyle = (token: TagToken): CSSInterpolation =>
   }, {} as CSSObject);
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, controlLineWidth, tagPaddingHorizontal } = token;
-  const paddingInline = tagPaddingHorizontal - controlLineWidth;
-  const iconMarginInline = paddingXXS - controlLineWidth;
+  const { paddingXXS, lineWidth, tagPaddingHorizontal } = token;
+  const paddingInline = tagPaddingHorizontal - lineWidth;
+  const iconMarginInline = paddingXXS - lineWidth;
 
   return {
     // Result
@@ -74,8 +74,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       lineHeight: `${token.tagLineHeight}px`,
       whiteSpace: 'nowrap',
       background: token.tagDefaultBg,
-      border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-      borderRadius: token.radiusSM,
+      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+      borderRadius: token.borderRadiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationFast}`,
       textAlign: 'start',
@@ -149,11 +149,11 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tag', token => {
-  const { fontSize, lineHeight, controlLineWidth, fontSizeIcon } = token;
+  const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
   const tagHeight = Math.round(fontSize * lineHeight);
 
   const tagFontSize = token.fontSizeSM;
-  const tagLineHeight = tagHeight - controlLineWidth * 2;
+  const tagLineHeight = tagHeight - lineWidth * 2;
   const tagDefaultBg = token.colorFillAlter;
   const tagDefaultColor = token.colorText;
 
@@ -162,7 +162,7 @@ export default genComponentStyleHook('Tag', token => {
     tagLineHeight,
     tagDefaultBg,
     tagDefaultColor,
-    tagIconSize: fontSizeIcon - 2 * controlLineWidth, // Tag icon is much more smaller
+    tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much more smaller
     tagPaddingHorizontal: 8, // Fixed padding.
   });
 

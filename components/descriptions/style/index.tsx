@@ -101,7 +101,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       },
       [`${componentCls}-view`]: {
         width: '100%',
-        borderRadius: token.radiusLG,
+        borderRadius: token.borderRadiusLG,
         table: {
           width: '100%',
           tableLayout: 'fixed',

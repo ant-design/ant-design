@@ -16,12 +16,12 @@ interface DividerToken extends FullToken<'Divider'> {
 
 // ============================== Shared ==============================
 const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
-  const { componentCls, sizePaddingEdgeHorizontal, colorSplit, controlLineWidth } = token;
+  const { componentCls, sizePaddingEdgeHorizontal, colorSplit, lineWidth } = token;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
-      borderBlockStart: `${controlLineWidth}px solid ${colorSplit}`,
+      borderBlockStart: `${lineWidth}px solid ${colorSplit}`,
 
       // vertical
       '&-vertical': {
@@ -32,7 +32,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         margin: `0 ${token.dividerVerticalGutterMargin}px`,
         verticalAlign: 'middle',
         borderTop: 0,
-        borderInlineStart: `${controlLineWidth}px solid ${colorSplit}`,
+        borderInlineStart: `${lineWidth}px solid ${colorSplit}`,
       },
 
       '&-horizontal': {
@@ -57,7 +57,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           position: 'relative',
           top: '50%',
           width: '50%',
-          borderBlockStart: `${controlLineWidth}px solid transparent`,
+          borderBlockStart: `${lineWidth}px solid transparent`,
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,
@@ -99,7 +99,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         background: 'none',
         borderColor: colorSplit,
         borderStyle: 'dashed',
-        borderWidth: `${controlLineWidth}px 0 0`,
+        borderWidth: `${lineWidth}px 0 0`,
       },
 
       '&-horizontal&-with-text&-dashed': {
@@ -109,7 +109,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-vertical&-dashed': {
-        borderInlineStart: controlLineWidth,
+        borderInlineStart: lineWidth,
         borderInlineEnd: 0,
         borderBlockStart: 0,
         borderBlockEnd: 0,

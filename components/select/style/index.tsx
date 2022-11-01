@@ -23,7 +23,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   return {
     position: 'relative',
     backgroundColor: token.colorBgContainer,
-    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
     transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
     input: {

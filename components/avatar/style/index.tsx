@@ -33,9 +33,9 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
     avatarFontSizeBase,
     avatarFontSizeLG,
     avatarFontSizeSM,
-    controlRadius,
-    controlRadiusLG,
-    controlRadiusSM,
+    borderRadius,
+    borderRadiusLG,
+    borderRadiusSM,
     lineWidth,
     lineType,
   } = token;
@@ -89,14 +89,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase, controlRadius),
+      ...avatarSizeStyle(avatarSizeBase, avatarFontSizeBase, borderRadius),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG, controlRadiusLG),
+        ...avatarSizeStyle(avatarSizeLG, avatarFontSizeLG, borderRadiusLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM, controlRadiusSM),
+        ...avatarSizeStyle(avatarSizeSM, avatarFontSizeSM, borderRadiusSM),
       },
 
       '> img': {

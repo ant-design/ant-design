@@ -156,13 +156,12 @@ export interface SeedToken extends PresetColorType {
   colorError: string;
   colorInfo: string;
   colorTextBase: string;
-  colorTextLightSolid: string;
   /** Base component background color. Will derivative container background color with this */
   colorBgBase: string;
 
   // Font
   fontFamily: string;
-  fontSizeBase: number;
+  fontSize: number;
 
   // Line
   /** Border width of base components */
@@ -181,11 +180,11 @@ export interface SeedToken extends PresetColorType {
   motionEaseOut: string;
 
   // Radius
-  radiusBase: number;
+  borderRadius: number;
 
   // Size
   sizeUnit: number;
-  sizeBaseStep: number;
+  sizeStep: number;
   sizePopupArrow: number;
 
   // Control Base
@@ -295,6 +294,7 @@ export interface ColorMapToken extends NeutralColorMapToken {
   colorInfoTextActive: string; // 10
 
   colorBgMask: string;
+  colorWhite: string;
 }
 
 export interface SizeMapToken {
@@ -303,12 +303,20 @@ export interface SizeMapToken {
   sizeXL: number;
   sizeLG: number;
   sizeMD: number;
-  /** Same as size by default, but can be larger in compact mode */
+  /** Same as size by default, but could be larger in compact mode */
   sizeMS: number;
   size: number;
   sizeSM: number;
   sizeXS: number;
   sizeXXS: number;
+}
+
+export interface HeightMapToken {
+  // Control
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
 }
 
 export interface CommonMapToken {
@@ -325,16 +333,10 @@ export interface CommonMapToken {
   motionDurationSlow: string;
 
   // Radius
-  radiusXS: number;
-  radiusSM: number;
-  radiusLG: number;
-  radiusOuter: number;
-
-  // Control
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
+  borderRadiusXS: number;
+  borderRadiusSM: number;
+  borderRadiusLG: number;
+  borderRadiusOuter: number;
 }
 
 // ======================================================================
@@ -346,6 +348,7 @@ export interface MapToken
     ColorPalettes,
     ColorMapToken,
     SizeMapToken,
+    HeightMapToken,
     CommonMapToken {}
 
 // ======================================================================
@@ -369,6 +372,7 @@ export interface AliasToken extends MapToken {
   colorTextHeading: string;
   colorTextLabel: string;
   colorTextDescription: string;
+  colorTextLightSolid: string;
   colorBgTextHover: string;
   colorBgTextActive: string;
 
@@ -416,12 +420,6 @@ export interface AliasToken extends MapToken {
   lineHeightHeading5: number;
 
   // Control
-  controlLineWidth: number;
-  controlLineType: string;
-  controlRadius: number;
-  controlRadiusXS: number;
-  controlRadiusSM: number;
-  controlRadiusLG: number;
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color

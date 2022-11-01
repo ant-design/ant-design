@@ -29,7 +29,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       textAlign: 'center',
       backgroundImage: 'none',
       backgroundColor: 'transparent',
-      border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
+      border: `${token.lineWidth}px ${token.lineType} transparent`,
       cursor: 'pointer',
       transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
       userSelect: 'none',
@@ -68,11 +68,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
           '&:after': {
             position: 'absolute',
-            top: -token.controlLineWidth,
-            insetInlineStart: -token.controlLineWidth,
+            top: -token.lineWidth,
+            insetInlineStart: -token.lineWidth,
             display: 'inline-block',
-            width: token.controlLineWidth,
-            height: `calc(100% + ${token.controlLineWidth * 2}px)`,
+            width: token.lineWidth,
+            height: `calc(100% + ${token.lineWidth * 2}px)`,
             backgroundColor: token.colorPrimaryBorder,
             content: '""',
           },
@@ -86,11 +86,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
             '&:after': {
               position: 'absolute',
-              top: -token.controlLineWidth,
-              insetInlineStart: -token.controlLineWidth,
+              top: -token.lineWidth,
+              insetInlineStart: -token.lineWidth,
               display: 'inline-block',
-              width: `calc(100% + ${token.controlLineWidth * 2}px)`,
-              height: token.controlLineWidth,
+              width: `calc(100% + ${token.lineWidth * 2}px)`,
+              height: token.lineWidth,
               backgroundColor: token.colorPrimaryBorder,
               content: '""',
             },
@@ -389,9 +389,9 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 
   const paddingVertical = Math.max(
     0,
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.controlLineWidth,
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.lineWidth,
   );
-  const paddingHorizontal = token.buttonPaddingHorizontal - token.controlLineWidth;
+  const paddingHorizontal = token.buttonPaddingHorizontal - token.lineWidth;
 
   const iconOnlyCls = `${componentCls}-icon-only`;
 
@@ -402,7 +402,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
         fontSize: token.fontSize,
         height: token.controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
-        borderRadius: token.controlRadius,
+        borderRadius: token.borderRadius,
 
         [`&${iconOnlyCls}`]: {
           width: token.controlHeight,
@@ -447,7 +447,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: 8, // Fixed padding
-    controlRadius: token.controlRadiusSM,
+    borderRadius: token.borderRadiusSM,
   });
 
   return genSizeButtonStyle(smallToken, `${token.componentCls}-sm`);
@@ -457,7 +457,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.fontSizeLG,
-    controlRadius: token.controlRadiusLG,
+    borderRadius: token.borderRadiusLG,
   });
 
   return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);

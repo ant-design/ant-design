@@ -6,7 +6,7 @@ function compactItemVerticalBorder(token: DerivativeToken): CSSObject {
   return {
     // border collapse
     '&-item:not(&-last-item)': {
-      marginBottom: -token.controlLineWidth,
+      marginBottom: -token.lineWidth,
     },
 
     '&-item': {

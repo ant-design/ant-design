@@ -106,7 +106,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
     [`&${componentCls}-navigation${componentCls}-vertical`]: {
       [`> ${componentCls}-item`]: {
-        marginInlineEnd: '0 !important',
+        marginInlineEnd: 0,
 
         '&::before': {
           display: 'none',

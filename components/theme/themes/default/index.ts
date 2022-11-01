@@ -1,4 +1,5 @@
 import { generate } from '@ant-design/colors';
+import genControlHeight from '../shared/genControlHeight';
 import genSizeMapToken from '../shared/genSizeMapToken';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
@@ -34,6 +35,8 @@ export default function derivative(token: SeedToken): MapToken {
     }),
     // Size
     ...genSizeMapToken(token),
+    // Height
+    ...genControlHeight(token),
     // Others
     ...genCommonMapToken(token),
   };

@@ -83,8 +83,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     lineWidth,
     iconCls,
     zIndexPopup,
-    radiusBase,
-    radiusLG,
+    borderRadius,
+    borderRadiusLG,
     radiusSubMenuItem,
     menuArrowSize,
     controlHeightSM,
@@ -287,7 +287,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             position: 'absolute',
             zIndex: zIndexPopup,
             background: 'transparent',
-            borderRadius: radiusLG,
+            borderRadius: borderRadiusLG,
             boxShadow: 'none',
             transformOrigin: '0 0',
 
@@ -310,7 +310,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           },
 
           [`> ${componentCls}`]: {
-            borderRadius: radiusLG,
+            borderRadius: borderRadiusLG,
 
             [`> ${componentCls}-item`]: {
               borderRadius: radiusSubMenuItem,
@@ -340,7 +340,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
               width: menuArrowSize * 0.6,
               height: menuArrowSize * 0.15,
               backgroundColor: 'currentcolor',
-              borderRadius: radiusBase,
+              borderRadius,
               transition: [
                 `background ${motionDurationSlow} ${motionEaseInOut}`,
                 `transform ${motionDurationSlow} ${motionEaseInOut}`,
@@ -502,8 +502,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       return {
         dropdownWidth: 160,
         zIndexPopup: token.zIndexPopupBase + 50,
-        radiusItem: token.radiusLG,
-        radiusSubMenuItem: token.radiusSM,
+        radiusItem: token.borderRadiusLG,
+        radiusSubMenuItem: token.borderRadiusSM,
         colorItemText: colorText,
         colorItemTextHover: colorText,
         colorItemTextHoverHorizontal: colorPrimary,
