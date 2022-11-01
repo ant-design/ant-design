@@ -148,7 +148,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       lineHeight: `${token.stepsIconSize}px`,
       textAlign: 'center',
       borderRadius: token.stepsIconSize,
-      border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
+      border: `${token.lineWidth}px ${token.lineType} transparent`,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
         position: 'relative',

@@ -11,7 +11,7 @@ function compactItemBorder(
   const childCombinator = borderedItemCls ? '> *' : '';
   return {
     '&-item:not(&-last-item)': {
-      marginInlineEnd: -token.controlLineWidth,
+      marginInlineEnd: -token.lineWidth,
     },
 
     '&-item': {

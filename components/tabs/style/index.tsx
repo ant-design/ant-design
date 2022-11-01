@@ -38,7 +38,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           margin: 0,
           padding: tabsCardHorizontalPadding,
           background: tabsCardHeadBackground,
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${colorSplit}`,
+          border: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
@@ -245,7 +245,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
             _skip_check_: true,
             value: 0,
           },
-          borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${colorSplit}`,
+          borderBottom: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
           content: "''",
         },
 
@@ -404,11 +404,11 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
       [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
         marginLeft: {
           _skip_check_: true,
-          value: `-${token.controlLineWidth}px`,
+          value: `-${token.lineWidth}px`,
         },
         borderLeft: {
           _skip_check_: true,
-          value: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+          value: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         },
 
         [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
@@ -436,11 +436,11 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         order: 0,
         marginRight: {
           _skip_check_: true,
-          value: -token.controlLineWidth,
+          value: -token.lineWidth,
         },
         borderRight: {
           _skip_check_: true,
-          value: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+          value: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         },
 
         [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
@@ -798,7 +798,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
           padding: `0 ${token.paddingXS}px`,
           background: 'transparent',
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${colorSplit}`,
+          border: `${token.lineWidth}px ${token.lineType} ${colorSplit}`,
           borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
           outline: 'none',
           cursor: 'pointer',
@@ -873,8 +873,7 @@ export default genComponentStyleHook(
       tabsActiveColor: token.colorPrimaryActive,
 
       tabsCardHorizontalPadding: `${
-        (tabsCardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 -
-        token.controlLineWidth
+        (tabsCardHeight - Math.round(token.fontSize * token.lineHeight)) / 2 - token.lineWidth
       }px ${token.padding}px`,
       tabsCardHeight,
       tabsCardGutter: token.marginXXS / 2,

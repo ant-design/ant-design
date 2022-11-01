@@ -51,7 +51,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       padding: token.segmentedContainerPadding,
       color: token.labelColor,
       backgroundColor: token.bgColor,
-      borderRadius: token.controlRadius,
+      borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
       [`${componentCls}-group`]: {
@@ -83,7 +83,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         textAlign: 'center',
         cursor: 'pointer',
         transition: `color ${token.motionDurationFast} ${token.motionEaseInOut}`,
-        borderRadius: token.controlRadiusSM,
+        borderRadius: token.borderRadiusSM,
 
         '&-selected': {
           ...getSegmentedItemSelectedStyle(token),
@@ -97,7 +97,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           height: '100%',
           top: 0,
           insetInlineStart: 0,
-          borderRadius: token.controlRadiusSM,
+          borderRadius: token.borderRadiusSM,
           transition: `background-color ${token.motionDurationFast}`,
         },
 
@@ -134,7 +134,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // size styles
       '&&-lg': {
-        borderRadius: token.controlRadiusLG,
+        borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
           lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
@@ -142,19 +142,19 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           fontSize: token.fontSizeLG,
         },
         [`${componentCls}-item-selected`]: {
-          borderRadius: token.controlRadius,
+          borderRadius: token.borderRadius,
         },
       },
 
       '&&-sm': {
-        borderRadius: token.controlRadiusSM,
+        borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
           minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
           lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
         },
         [`${componentCls}-item-selected`]: {
-          borderRadius: token.controlRadiusXS,
+          borderRadius: token.borderRadiusXS,
         },
       },
 
@@ -172,7 +172,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         width: 0,
         height: '100%',
         padding: `${token.paddingXXS}px 0`,
-        borderRadius: token.controlRadiusSM,
+        borderRadius: token.borderRadiusSM,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {
@@ -193,7 +193,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook('Segmented', token => {
   const {
     lineWidthBold,
-    controlLineWidth,
+    lineWidth,
     colorTextLabel,
     colorText,
     colorFillSecondary,
@@ -201,8 +201,8 @@ export default genComponentStyleHook('Segmented', token => {
   } = token;
 
   const segmentedToken = mergeToken<SegmentedToken>(token, {
-    segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
-    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
+    segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
+    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
     segmentedContainerPadding: lineWidthBold,
     labelColor: colorTextLabel,
     labelColorHover: colorText,

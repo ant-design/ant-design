@@ -75,8 +75,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     fontWeightStrong,
     tablePaddingVertical,
     tablePaddingHorizontal,
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     tableBorderColor,
     tableFontSize,
     tableBg,
@@ -93,7 +93,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     paddingContentVerticalLG,
     wireframe,
   } = token;
-  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
+  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',

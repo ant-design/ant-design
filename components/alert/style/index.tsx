@@ -18,7 +18,7 @@ const genAlertTypeStyle = (
   alertCls: string,
 ): CSSObject => ({
   backgroundColor: bgColor,
-  border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColor}`,
+  border: `${token.lineWidth}px ${token.lineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },

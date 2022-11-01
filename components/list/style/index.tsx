@@ -297,7 +297,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     },
 
     [`${componentCls}-split ${componentCls}-item`]: {
-      borderBlockEnd: `${token.lineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+      borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
 
       [`&:last-child`]: {
         borderBlockEnd: 'none',

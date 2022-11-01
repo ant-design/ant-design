@@ -9,9 +9,9 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     antCls,
     controlInteractiveSize: checkboxSize,
     motionDurationSlow,
-    controlLineWidth,
+    lineWidth,
     paddingXS,
-    controlLineType,
+    lineType,
     tableBorderColor,
     tableExpandIconBg,
     tableExpandColumnWidth,
@@ -19,17 +19,16 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     fontSize,
     fontSizeSM,
     lineHeight,
-    lineWidth,
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
     paddingXXS,
   } = token;
-  const halfInnerSize = checkboxSize / 2 - controlLineWidth;
+  const halfInnerSize = checkboxSize / 2 - lineWidth;
   // must be odd number, unless it cannot align center
-  const expandIconSize = halfInnerSize * 2 + controlLineWidth * 3;
-  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
-  const expandIconLineOffset = paddingXXS - controlLineWidth;
+  const expandIconSize = halfInnerSize * 2 + lineWidth * 3;
+  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
+  const expandIconLineOffset = paddingXXS - lineWidth;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -83,14 +82,14 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
           top: halfInnerSize,
           insetInlineEnd: expandIconLineOffset,
           insetInlineStart: expandIconLineOffset,
-          height: controlLineWidth,
+          height: lineWidth,
         },
 
         '&::after': {
           top: expandIconLineOffset,
           bottom: expandIconLineOffset,
           insetInlineStart: halfInnerSize,
-          width: controlLineWidth,
+          width: lineWidth,
           transform: 'rotate(90deg)',
         },
 

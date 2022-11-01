@@ -265,7 +265,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           listStyleType: 'none',
           backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
-          borderRadius: token.controlRadiusLG,
+          borderRadius: token.borderRadiusLG,
           outline: 'none',
           boxShadow: token.boxShadowSecondary,
           ...genFocusStyle(token),

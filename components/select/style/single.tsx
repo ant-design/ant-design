@@ -4,9 +4,9 @@ import type { SelectToken } from '.';
 import { mergeToken } from '../../theme';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, inputPaddingHorizontalBase, controlRadius } = token;
+  const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
 
-  const selectHeightWithoutBorder = token.controlHeight - token.controlLineWidth * 2;
+  const selectHeightWithoutBorder = token.controlHeight - token.lineWidth * 2;
 
   const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
 
@@ -21,7 +21,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         ...resetComponent(token),
 
         display: 'flex',
-        borderRadius: controlRadius,
+        borderRadius,
 
         [`${componentCls}-selection-search`]: {
           position: 'absolute',
@@ -135,7 +135,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 export default function genSingleStyle(token: SelectToken): CSSInterpolation {
   const { componentCls } = token;
 
-  const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.controlLineWidth;
+  const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.lineWidth;
 
   return [
     genSizeStyle(token),
@@ -145,7 +145,7 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     genSizeStyle(
       mergeToken<any>(token, {
         controlHeight: token.controlHeightSM,
-        controlRadius: token.controlRadiusSM,
+        borderRadius: token.borderRadiusSM,
       }),
       'sm',
     ),
@@ -185,7 +185,7 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
       mergeToken<any>(token, {
         controlHeight: token.controlHeightLG,
         fontSize: token.fontSizeLG,
-        controlRadius: token.controlRadiusLG,
+        borderRadius: token.borderRadiusLG,
       }),
       'lg',
     ),

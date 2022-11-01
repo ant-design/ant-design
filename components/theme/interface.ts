@@ -418,12 +418,6 @@ export interface AliasToken extends MapToken {
   lineHeightHeading5: number;
 
   // Control
-  controlLineWidth: number;
-  controlLineType: string;
-  controlRadius: number;
-  controlRadiusXS: number;
-  controlRadiusSM: number;
-  controlRadiusLG: number;
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color

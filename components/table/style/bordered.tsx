@@ -4,7 +4,7 @@ import type { TableToken } from './index';
 
 const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls } = token;
-  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
 
   const getSizeBorderStyle = (
     size: 'small' | 'middle',
@@ -16,7 +16,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         [`> ${componentCls}-content, > ${componentCls}-body`]: {
           '> table > tbody > tr > td': {
             [`> ${componentCls}-expanded-row-fixed`]: {
-              margin: `-${paddingVertical}px -${paddingHorizontal + token.controlLineWidth}px`,
+              margin: `-${paddingVertical}px -${paddingHorizontal + token.lineWidth}px`,
             },
           },
         },
@@ -80,13 +80,13 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
               '> table > tbody > tr > td': {
                 [`> ${componentCls}-expanded-row-fixed`]: {
                   margin: `-${token.tablePaddingVertical}px -${
-                    token.tablePaddingHorizontal + token.controlLineWidth
+                    token.tablePaddingHorizontal + token.lineWidth
                   }px`,
 
                   '&::after': {
                     position: 'absolute',
                     top: 0,
-                    insetInlineEnd: token.controlLineWidth,
+                    insetInlineEnd: token.lineWidth,
                     bottom: 0,
                     borderInlineEnd: tableBorder,
                     content: '""',
@@ -149,7 +149,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
         // https://github.com/ant-design/ant-design/issues/35577
         '&-scrollbar:not([rowspan])': {
-          boxShadow: `0 ${token.controlLineWidth}px 0 ${token.controlLineWidth}px ${token.tableHeaderBg}`,
+          boxShadow: `0 ${token.lineWidth}px 0 ${token.lineWidth}px ${token.tableHeaderBg}`,
         },
       },
     },

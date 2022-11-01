@@ -19,7 +19,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
     fontSize: token.fontSizeLG,
     lineHeight: 'inherit',
     border: 0,
-    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
   },
 
   label: {

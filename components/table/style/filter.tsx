@@ -11,10 +11,9 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
     tableFilterDropdownSearchWidth,
     paddingXXS,
     paddingXS,
-    lineWidth,
     colorText,
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     tableBorderColor,
     tableHeaderIconColor,
     fontSizeSM,
@@ -34,7 +33,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
   const treePrefixCls = `${antCls}-tree`;
-  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
+  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
 
   return [
     {
