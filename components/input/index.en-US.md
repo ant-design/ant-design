@@ -85,7 +85,14 @@ Supports all props of `Input`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| visibilityToggle | Whether show toggle button | boolean | true |  |
+| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#VisibilityToggle) | true |  |
+
+#### VisibilityToggle
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| visible | Whether the password is show or hide | boolean | false | 4.24.0 |
+| onVisibleChange | Callback executed when visibility of the password is changed | boolean | - | 4.24.0 |
 
 #### Input Methods
 

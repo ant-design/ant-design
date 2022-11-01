@@ -19,8 +19,38 @@ import { Radio, TreeSelect } from 'antd';
 import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 import React, { useState } from 'react';
 
-const { TreeNode } = TreeSelect;
-
+const treeData = [
+  {
+    value: 'parent 1',
+    title: 'parent 1',
+    children: [
+      {
+        value: 'parent 1-0',
+        title: 'parent 1-0',
+        children: [
+          {
+            value: 'leaf1',
+            title: 'leaf1',
+          },
+          {
+            value: 'leaf2',
+            title: 'leaf2',
+          },
+        ],
+      },
+      {
+        value: 'parent 1-1',
+        title: 'parent 1-1',
+        children: [
+          {
+            value: 'leaf3',
+            title: <b style={{ color: '#08c' }}>leaf3</b>,
+          },
+        ],
+      },
+    ],
+  },
+];
 const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
@@ -47,17 +77,8 @@ const App: React.FC = () => {
         placement={placement}
         allowClear
         treeDefaultExpandAll
-      >
-        <TreeNode value="parent 1" title="parent 1">
-          <TreeNode value="parent 1-0" title="parent 1-0">
-            <TreeNode value="leaf1" title="leaf1" />
-            <TreeNode value="leaf2" title="leaf2" />
-          </TreeNode>
-          <TreeNode value="parent 1-1" title="parent 1-1">
-            <TreeNode value="leaf3" title={<b style={{ color: '#08c' }}>leaf3</b>} />
-          </TreeNode>
-        </TreeNode>
-      </TreeSelect>
+        treeData={treeData}
+      />
     </>
   );
 };

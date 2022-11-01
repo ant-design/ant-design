@@ -64,7 +64,7 @@ const localeValues: Locale = {
     downloadFile: 'Download file',
   },
   Empty: {
-    description: 'No Data',
+    description: 'No data',
   },
   Icon: {
     icon: 'icon',

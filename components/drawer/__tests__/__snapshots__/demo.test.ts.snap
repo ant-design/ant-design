@@ -311,23 +311,95 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
       </span>
     </button>
   </div>
+</div>
+`;
+
+exports[`renders ./components/drawer/demo/scroll-debug.md correctly 1`] = `
+<div
+  style="position:relative;z-index:999999"
+>
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-inline"
-    style="position:absolute"
-    tabindex="-1"
+    class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
-      tabindex="0"
-    />
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Drawer
+        </span>
+      </button>
+    </div>
     <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width:0;height:0;overflow:hidden;outline:none;position:absolute"
-      tabindex="0"
-    />
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Drawer2
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="false"
+        class="ant-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        />
+        <span
+          class="ant-switch-inner"
+        >
+          Modal2
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -15,8 +15,11 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 
 - 适合行内元素的水平间距。
 - 可以设置各种水平对齐方式。
+- 需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact（自 antd@4.24.0 版本开始提供该组件。）。
 
 ## API
+
+### Space
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -29,3 +32,24 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 ### Size
 
 `'small' | 'middle' | 'large' | number`
+
+### Space.Compact
+
+> 自 antd@4.24.0 版本开始提供该组件。
+
+需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact。支持的组件有：
+
+- Button
+- AutoComplete
+- Cascader
+- DatePicker
+- Input/Input.Search
+- Select
+- TimePicker
+- TreeSelect
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
+| direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |

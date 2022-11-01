@@ -14,17 +14,16 @@ title:
 Search with remote data.
 
 ```tsx
+import React, { useState } from 'react';
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
-import React, { useState } from 'react';
-
-const { Option } = Select;
+import type { SelectProps } from 'antd';
 
 let timeout: ReturnType<typeof setTimeout> | null;
 let currentValue: string;
 
-const fetch = (value: string, callback: (data: { value: string; text: string }[]) => void) => {
+const fetch = (value: string, callback: Function) => {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
@@ -54,7 +53,7 @@ const fetch = (value: string, callback: (data: { value: string; text: string }[]
 };
 
 const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }> = props => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<SelectProps['options']>([]);
   const [value, setValue] = useState<string>();
 
   const handleSearch = (newValue: string) => {
@@ -69,8 +68,6 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
     setValue(newValue);
   };
 
-  const options = data.map(d => <Option key={d.value}>{d.text}</Option>);
-
   return (
     <Select
       showSearch
@@ -83,9 +80,11 @@ const SearchInput: React.FC<{ placeholder: string; style: React.CSSProperties }>
       onSearch={handleSearch}
       onChange={handleChange}
       notFoundContent={null}
-    >
-      {options}
-    </Select>
+      options={(data || []).map(d => ({
+        value: d.value,
+        label: d.text,
+      }))}
+    />
   );
 };
 

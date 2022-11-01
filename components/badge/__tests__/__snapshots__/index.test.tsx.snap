@@ -3,7 +3,7 @@
 exports[`Badge render Badge status/color when contains children 1`] = `
 <div>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup
@@ -24,7 +24,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup
@@ -45,7 +45,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-status"
+    class="ant-badge"
   >
     <a />
     <sup

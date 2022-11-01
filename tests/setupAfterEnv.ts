@@ -11,6 +11,7 @@ function formatHTML(nodes: any) {
   const filtered = htmlContent
     .split(/[\n\r]+/)
     .filter(line => line.trim())
+    .map(line => line.replace(/\s+$/, ''))
     .join('\n');
 
   return filtered;

@@ -190,7 +190,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>

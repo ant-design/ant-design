@@ -279,19 +279,7 @@ describe('ConfigProvider', () => {
     testPair('Drawer', props => <Drawer {...props} open getContainer={false} />);
 
     // Dropdown
-    testPair('Dropdown', props => {
-      const menu = (
-        <Menu {...props}>
-          <Menu.Item {...props}>Bamboo</Menu.Item>
-        </Menu>
-      );
-
-      return (
-        <Dropdown.Button {...props} overlay={menu}>
-          Light
-        </Dropdown.Button>
-      );
-    });
+    testPair('Dropdown', props => <Dropdown.Button {...props}>Light</Dropdown.Button>);
 
     // Form
     testPair('Form', props => (
@@ -489,9 +477,15 @@ describe('ConfigProvider', () => {
         myProps.iconPrefix = 'prefixIcon';
       }
       return (
-        <Steps {...props}>
-          <Steps.Step title="Bamboo" description="Little Light" />
-        </Steps>
+        <Steps
+          {...props}
+          items={[
+            {
+              title: 'Bamboo',
+              description: 'Little Light',
+            },
+          ]}
+        />
       );
     });
 

@@ -157,6 +157,86 @@ exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/dropdown/demo/custom-dropdown.md correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`renders ./components/dropdown/demo/deprecated.md correctly 1`] = `
+<a
+  class="ant-dropdown-trigger"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right:8px"
+    >
+      Hover me
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>
+`;
+
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -167,10 +247,10 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -178,7 +258,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -208,10 +288,10 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -219,7 +299,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -249,10 +329,10 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         disabled=""
         type="button"
       >
@@ -261,7 +341,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         disabled=""
         type="button"
       >
@@ -292,10 +372,10 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -303,7 +383,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -380,10 +460,10 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
     style="padding-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-dangerous"
+        class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -391,7 +471,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-dangerous ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-dangerous ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -508,10 +588,10 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span
@@ -542,7 +622,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -572,10 +652,10 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-btn-group-sm ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span
@@ -606,7 +686,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -636,10 +716,10 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -647,7 +727,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -676,10 +756,10 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-btn-group ant-dropdown-button"
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
         type="button"
       >
         <span>
@@ -687,7 +767,7 @@ exports[`renders ./components/dropdown/demo/loading.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
         type="button"
       >
         <span

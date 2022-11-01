@@ -44,7 +44,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >
@@ -87,7 +87,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
   <div
     class="ant-typography"
   >
-    Press 
+    Press
     <span
       class="ant-typography"
     >
@@ -1141,6 +1141,133 @@ Array [
     </div>
   </div>,
   <div
+    aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+  >
+    This is a loooooooooooooooooooooooooooooooong editable text
+    <!-- -->
+    with suffix.
+    <div
+      aria-label="Edit"
+      class="ant-typography-edit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <span
+        aria-label="edit"
+        class="anticon anticon-edit"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="edit"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Edit
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ...
+      </span>
+      with suffix.
+      <div
+        aria-label="Edit"
+        class="ant-typography-edit"
+        role="button"
+        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+        tabindex="0"
+      >
+        <span
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div>
+        <div
+          class="ant-tooltip"
+          style="opacity:0"
+        >
+          <div
+            class="ant-tooltip-content"
+          >
+            <div
+              class="ant-tooltip-arrow"
+            >
+              <span
+                class="ant-tooltip-arrow-content"
+              />
+            </div>
+            <div
+              class="ant-tooltip-inner"
+              role="tooltip"
+            >
+              Edit
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>,
+  <div
     class="ant-typography"
   >
     Custom Edit icon and replace tooltip text.
@@ -1196,9 +1323,7 @@ Array [
       </div>
     </div>
   </div>,
-  Trigger edit with:,
-  <!-- -->,
-   ,
+  Trigger edit with: ,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -2094,7 +2219,7 @@ Array [
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >

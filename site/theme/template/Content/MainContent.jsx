@@ -297,17 +297,15 @@ class MainContent extends Component {
     const {
       intl: { formatMessage },
     } = this.props;
-    return (
-      <Menu onClick={({ key }) => this.changeThemeMode(key)} selectedKeys={[theme]}>
-        {[
-          { type: 'default', text: formatMessage({ id: 'app.theme.switch.default' }) },
-          { type: 'dark', text: formatMessage({ id: 'app.theme.switch.dark' }) },
-          { type: 'compact', text: formatMessage({ id: 'app.theme.switch.compact' }) },
-        ].map(({ type, text }) => (
-          <Menu.Item key={type}>{text}</Menu.Item>
-        ))}
-      </Menu>
-    );
+    return {
+      onClick: ({ key }) => this.changeThemeMode(key),
+      selectedKeys: [theme],
+      items: [
+        { key: 'default', label: formatMessage({ id: 'app.theme.switch.default' }) },
+        { key: 'dark', label: formatMessage({ id: 'app.theme.switch.dark' }) },
+        { key: 'compact', label: formatMessage({ id: 'app.theme.switch.compact' }) },
+      ],
+    };
   }
 
   flattenMenu(menu) {
@@ -553,7 +551,7 @@ class MainContent extends Component {
             </section>
             {componentPage && (
               <div className="fixed-widgets">
-                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
+                <Dropdown menu={this.getThemeSwitchMenu()} placement="top">
                   <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
                 </Dropdown>
               </div>

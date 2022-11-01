@@ -4,7 +4,7 @@ import React from 'react';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
@@ -97,15 +97,18 @@ describe('Statistic', () => {
     });
 
     it('time going', async () => {
+      jest.useFakeTimers();
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
 
       const { unmount } = render(<Statistic.Countdown value={now} onFinish={onFinish} />);
 
-      await sleep(10);
+      await waitFakeTimer(10);
 
       unmount();
       expect(onFinish).not.toHaveBeenCalled();
+      jest.clearAllTimers();
+      jest.useRealTimers();
     });
 
     it('responses hover events', () => {
@@ -134,6 +137,7 @@ describe('Statistic', () => {
 
     describe('time onchange', () => {
       it("called if time has't passed", async () => {
+        jest.useFakeTimers();
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
@@ -142,8 +146,10 @@ describe('Statistic', () => {
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);
         // container.update();
-        await sleep(100);
+        await waitFakeTimer(100);
         expect(remainingTime).toBeGreaterThan(0);
+        jest.clearAllTimers();
+        jest.useRealTimers();
       });
     });
 
@@ -157,12 +163,14 @@ describe('Statistic', () => {
       });
 
       it('called if finished', async () => {
+        jest.useFakeTimers();
         const now = Date.now() + 10;
         const onFinish = jest.fn();
         render(<Statistic.Countdown value={now} onFinish={onFinish} />);
-        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
-        await sleep(100);
+        await waitFakeTimer();
         expect(onFinish).toHaveBeenCalled();
+        jest.clearAllTimers();
+        jest.useRealTimers();
       });
     });
   });

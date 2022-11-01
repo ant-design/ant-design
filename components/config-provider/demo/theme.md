@@ -312,21 +312,19 @@ const App: React.FC = () => {
 
             {/* Dropdown */}
             <Dropdown
-              overlay={
-                <Menu
-                  items={[
-                    {
-                      key: '1',
-                      label: '1st menu item',
-                    },
-                    {
-                      key: '2',
-                      label: 'a danger item',
-                      danger: true,
-                    },
-                  ]}
-                />
-              }
+              menu={{
+                items: [
+                  {
+                    key: '1',
+                    label: '1st menu item',
+                  },
+                  {
+                    key: '2',
+                    label: 'a danger item',
+                    danger: true,
+                  },
+                ],
+              }}
             >
               <a onClick={e => e.preventDefault()}>
                 <Space>
@@ -369,23 +367,50 @@ const App: React.FC = () => {
           <Pagination showQuickJumper defaultCurrent={2} total={500} />
 
           {/* Steps */}
-          <Steps current={1} percent={60}>
-            <Steps.Step title="Finished" description="This is a description." />
-            <Steps.Step
-              title="In Progress"
-              subTitle="Left 00:00:08"
-              description="This is a description."
-            />
-            <Steps.Step title="Waiting" description="This is a description." />
-          </Steps>
+          <Steps
+            current={1}
+            percent={60}
+            items={[
+              {
+                title: 'Finished',
+                description: 'This is a description.',
+              },
+              {
+                title: 'In Progress',
+                subTitle: 'Left 00:00:08',
+                description: 'This is a description.',
+              },
+              {
+                title: 'Waiting',
+                description: 'This is a description.',
+              },
+            ]}
+          />
 
           {/* Steps - dot */}
-          <Steps current={2} status="error" progressDot>
-            <Steps.Step title="Finished" description="You can hover on the dot." />
-            <Steps.Step title="In Progress" description="You can hover on the dot." />
-            <Steps.Step title="Error" description="You can hover on the dot." />
-            <Steps.Step title="Waiting" description="You can hover on the dot." />
-          </Steps>
+          <Steps
+            current={2}
+            status="error"
+            progressDot
+            items={[
+              {
+                title: 'Finished',
+                description: 'You can hover on the dot.',
+              },
+              {
+                title: 'In Progress',
+                description: 'You can hover on the dot.',
+              },
+              {
+                title: 'Error',
+                description: 'You can hover on the dot.',
+              },
+              {
+                title: 'Waiting',
+                description: 'You can hover on the dot.',
+              },
+            ]}
+          />
 
           {/* Form - Input */}
           <Form>
