@@ -10,7 +10,6 @@ interface TourToken extends FullToken<'Tour'> {
   sliderWidth: number;
   sliderHeight: number;
   marginMD: number;
-  tourRadiusOuter: number;
   tourBorderRadius: number;
 }
 
@@ -22,8 +21,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     padding,
     fontSizeLG,
     lineHeightLG,
-    controlRadius,
-    radiusXS,
+    borderRadius,
+    borderRadiusXS,
     paddingXL,
     colorPrimary,
     colorText,
@@ -40,9 +39,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     marginXXS,
     marginXS,
     colorTextLightSolid,
-    radiusBase,
     tourBorderRadius,
-    tourRadiusOuter,
   } = token;
 
   return [
@@ -71,7 +68,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         [`${componentCls}-inner`]: {
           textAlign: 'start',
           textDecoration: 'none',
-          borderRadius: controlRadius,
+          borderRadius,
           boxShadow,
           position: 'relative',
           backgroundColor: colorBgContainer,
@@ -121,7 +118,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           [`${componentCls}-footer`]: {
             padding,
             textAlign: 'end',
-            borderRadius: `0 0 ${radiusXS}px ${radiusXS}px`,
+            borderRadius: `0 0 ${borderRadiusXS}px ${borderRadiusXS}px`,
             display: 'flex',
             justifyContent: 'space-between',
 
@@ -155,7 +152,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             textAlign: 'start',
             textDecoration: 'none',
             backgroundColor: colorPrimary,
-            borderRadius: radiusBase,
+            borderRadius,
             boxShadow,
 
             [`${componentCls}-close`]: {
@@ -195,29 +192,23 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
       },
     },
     // Arrow Style
-    getArrowStyle<TourToken>(
-      mergeToken<TourToken>(token, {
-        radiusOuter: tourRadiusOuter,
-      }),
-      {
-        colorBg: 'var(--antd-arrow-background-color)',
-        showArrowCls: '',
-        contentRadius: tourBorderRadius,
-        limitVerticalRadius: true,
-      },
-    ),
+    getArrowStyle<TourToken>(token, {
+      colorBg: 'var(--antd-arrow-background-color)',
+      showArrowCls: '',
+      contentRadius: tourBorderRadius,
+      limitVerticalRadius: true,
+    }),
   ];
 };
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tour', token => {
-  const { radiusBase, radiusOuter } = token;
+  const { borderRadius } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,
     sliderWidth: 8,
     sliderHeight: 8,
-    tourRadiusOuter: radiusOuter > 4 ? 4 : radiusOuter,
-    tourBorderRadius: radiusBase,
+    tourBorderRadius: borderRadius,
   });
   return [genBaseStyle(TourToken)];
 });
