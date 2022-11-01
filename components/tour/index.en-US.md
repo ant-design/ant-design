@@ -3,7 +3,7 @@ category: Components
 subtitle: Walk Through
 type: Data Entry
 title: Tour
-cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
 ---
 
 Guide the user to recognize what function a certain part or parts of a web page has.
