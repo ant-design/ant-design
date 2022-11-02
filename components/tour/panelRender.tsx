@@ -97,12 +97,25 @@ const panelRender: (
             <div className={`${prefixCls}-sliders`}>{slickNode}</div>
             <div className={`${prefixCls}-buttons`}>
               {current !== 0 ? (
-                <Button {...secondaryBtnProps} {...prevButtonProps} onClick={prevBtnClick}>
-                  {contextLocale.Previous}
+                <Button
+                  {...secondaryBtnProps}
+                  {...prevButtonProps}
+                  onClick={prevBtnClick}
+                  size="small"
+                  className={`${prefixCls}-prev-btn`}
+                >
+                  {prevButtonProps?.children ?? contextLocale.Previous}
                 </Button>
               ) : null}
-              <Button type={mainBtnType} {...nextButtonProps} onClick={nextBtnClick}>
-                {isLastStep ? contextLocale.Finish : contextLocale.Next}
+              <Button
+                type={mainBtnType}
+                {...nextButtonProps}
+                onClick={nextBtnClick}
+                size="small"
+                className={`${prefixCls}-next-btn`}
+              >
+                {nextButtonProps?.children ??
+                  (isLastStep ? contextLocale.Finish : contextLocale.Next)}
               </Button>
             </div>
           </div>

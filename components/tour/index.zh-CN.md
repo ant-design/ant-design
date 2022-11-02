@@ -6,11 +6,11 @@ title: Tour
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
 ---
 
-引导用户认识网页中的某个或某些部分具有什么样的功能。
+用于分步引导用户了解产品功能的气泡组件。自 `5.0.0` 版本开始提供该组件。
 
 ## 何时使用
 
-常用于用户第一次进入网站，或某个页面或者推出新功能或改版的网站。
+常用于引导用户了解产品功能。
 
 ## API
 
@@ -34,9 +34,9 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388
 | cover | 展示的图片或者视频 | `ReactNode` | - |  |
 | title | 标题 | `ReactNode` | - |  |
 | description | 主要描述部分 | `ReactNode` | - |  |
-| placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `bottom` |  |
+| placement | 引导卡片相对于目标元素的位置 | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` `bottom` |  |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | mask | 是否启用蒙层，默认跟随 Tour 的 `mask` 属性 | `boolean` | `true` |  |
 | type | 类型，影响底色与文字颜色 | `default` \| `primary` | `default` |  |
-| nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '下一步' }` |  |
-| prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | `{ children: '上一步' }` |  |
+| nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
+| prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |

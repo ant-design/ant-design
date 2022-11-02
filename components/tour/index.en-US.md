@@ -6,11 +6,11 @@ title: Tour
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
 ---
 
-Guide the user to recognize what function a certain part or parts of a web page has.
+A popup component for guiding users through a product. Available since `5.0.0`.
 
 ## When To Use
 
-Often used when a user enters a website or a page for the first time,or a page or a website with a new feature or a revamp.
+Use when you want to guide users through a product.
 
 ## API
 
@@ -37,5 +37,5 @@ Often used when a user enters a website or a page for the first time,or a page o
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking, the default follows the `mask` property of Tour | `boolean` | `true` |  |
 | type | Type, affects the background color and text color | `default` `primary` | `default` |  |
-| nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | `{ children: 'next' }` |  |
-| prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | `{ children: 'pre' }` |  |
+| nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
+| prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |

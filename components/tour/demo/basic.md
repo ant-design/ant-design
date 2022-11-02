@@ -27,26 +27,25 @@ const App: React.FC = () => {
 
   const steps: TourProps['steps'] = [
     {
-      title: 'Show in Center',
-      description: 'Here is the content of Tour.',
-      target: null,
-    },
-    {
-      title: 'With Cover',
-      description: 'Here is the content of Tour.',
-      target: () => coverBtnRef.current,
+      title: 'Upload File',
+      description: 'Put your files here.',
       cover: (
         <img
           alt="tour.png"
           src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
       ),
+      target: () => ref1.current,
     },
     {
-      title: 'Adjust Placement',
-      description: 'Here is the content of Tour which show on the right.',
-      placement: 'right',
-      target: () => placementBtnRef.current,
+      title: 'Save',
+      description: 'Save your changes.',
+      target: () => ref2.current,
+    },
+    {
+      title: 'Other Actions',
+      description: 'Click to see other actions.',
+      target: () => ref3.current,
     },
   ];
 
@@ -66,33 +65,7 @@ const App: React.FC = () => {
         <Button ref={ref3} icon={<EllipsisOutlined />} />
       </Space>
 
-      <Tour
-        open={open}
-        onClose={() => setOpen(false)}
-        steps={[
-          {
-            title: 'Upload File',
-            description: 'Put your files here.',
-            cover: (
-              <img
-                alt="tour.png"
-                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
-              />
-            ),
-            target: () => ref1.current,
-          },
-          {
-            title: 'Save',
-            description: 'Save your changes.',
-            target: () => ref2.current,
-          },
-          {
-            title: 'Other Actions',
-            description: 'Click to see other actions.',
-            target: () => ref3.current,
-          },
-        ]}
-      />
+      <Tour open={open} onClose={() => setOpen(false)} steps={steps} />
     </>
   );
 };

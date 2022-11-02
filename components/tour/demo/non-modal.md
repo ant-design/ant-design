@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title:
   zh-CN: 非模态
   en-US: Non-modal
@@ -15,7 +15,8 @@ Use `mask={false}` to make Tour non-modal. At the meantime it is recommended to 
 
 ```tsx
 import React, { useRef, useState, useEffect } from 'react';
-import { Button, Space, Tour } from 'antd';
+import { Button, Divider, Space, Tour, TourProps } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
   const ref1 = useRef(null);
@@ -24,59 +25,47 @@ const App: React.FC = () => {
 
   const [open, setOpen] = useState<boolean>(false);
 
+  const steps: TourProps['steps'] = [
+    {
+      title: 'Upload File',
+      description: 'Put your files here.',
+      cover: (
+        <img
+          alt="tour.png"
+          src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+        />
+      ),
+      target: () => ref1.current,
+    },
+    {
+      title: 'Save',
+      description: 'Save your changes.',
+      target: () => ref2.current,
+    },
+    {
+      title: 'Other Actions',
+      description: 'Click to see other actions.',
+      target: () => ref3.current,
+    },
+  ];
+
   return (
     <>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Begin non-modal Tour
+      </Button>
+
+      <Divider />
+
       <Space>
-        <Button
-          type="primary"
-          onClick={() => {
-            setOpen(true);
-          }}
-        >
-          Show
+        <Button ref={ref1}> Upload</Button>
+        <Button ref={ref2} type="primary">
+          Save
         </Button>
-        <Button disabled ref={ref1}>
-          Step 1
-        </Button>
-        <Button disabled ref={ref2}>
-          Step 2
-        </Button>
-        <Button disabled ref={ref3}>
-          Step 3
-        </Button>
+        <Button ref={ref3} icon={<EllipsisOutlined />} />
       </Space>
 
-      <Tour
-        open={open}
-        onClose={() => setOpen(false)}
-        mask={false}
-        type="primary"
-        steps={[
-          {
-            title: 'Step 1',
-            description: 'Here is the content of Tour.',
-            target: () => ref1.current,
-            cover: (
-              <img
-                alt="tour.png"
-                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
-              />
-            ),
-          },
-          {
-            title: 'Step 2',
-            description: 'Here is the content of Tour',
-            placement: 'top',
-            target: () => ref2.current,
-          },
-          {
-            title: 'Step 3',
-            description: 'Here is the content of Tour',
-            placement: 'left',
-            target: () => ref3.current,
-          },
-        ]}
-      />
+      <Tour open={open} onClose={() => setOpen(false)} mask={false} type="primary" steps={steps} />
     </>
   );
 };
