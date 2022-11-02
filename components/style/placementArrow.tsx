@@ -56,7 +56,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     borderRadiusOuter,
     limitVerticalRadius,
   });
-  const dropdownArrowDistance = sizePopupArrow + marginXXS;
+  const dropdownArrowDistance = sizePopupArrow / 2 + marginXXS;
 
   return {
     [componentCls]: {
