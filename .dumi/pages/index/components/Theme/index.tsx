@@ -132,14 +132,28 @@ const useStyle = () => {
       align-items: center;
       column-gap: ${token.padding}px;
 
-      img {
-        height: 30px;
-      }
-
       h1 {
         font-weight: 400;
         font-size: 16px;
         line-height: 1.5;
+      }
+    `,
+
+    logoImg: css`
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+
+      img {
+        width: 30px;
+        height: 30px;
+        vertical-align: top;
+      }
+    `,
+
+    logoImgPureColor: css`
+      img {
+        transform: translateX(-30px);
       }
     `,
 
@@ -282,23 +296,30 @@ export default function Theme() {
   const closestColor = getClosetColor(themeData.colorPrimary);
 
   const [backgroundColor, avatarColor] = React.useMemo(() => {
-    if (themeType === 'dark') {
-      return '#393F4A';
-    }
-
-    if (closestColor === DEFAULT_COLOR) {
-      return '#F5F8FF';
-    }
+    let bgColor = 'transparent';
 
     const mapToken = theme.defaultAlgorithm({
       ...theme.defaultConfig.token,
       colorPrimary: themeData.colorPrimary,
     });
 
-    //
+    if (themeType === 'dark') {
+      bgColor = '#393F4A';
+    } else if (closestColor === DEFAULT_COLOR) {
+      bgColor = '#F5F8FF';
+    } else {
+      bgColor = mapToken.colorPrimaryHover;
+    }
 
-    return [mapToken.colorPrimaryHover, mapToken.colorPrimaryBgHover];
+    return [bgColor, mapToken.colorPrimaryBgHover];
   }, [themeType, closestColor, themeData.colorPrimary]);
+
+  const logoColor = React.useMemo(() => {
+    const hsl = new TinyColor(themeData.colorPrimary).toHsl();
+    hsl.l = Math.min(hsl.l, 0.7);
+
+    return new TinyColor(hsl).toHexString();
+  }, [themeData.colorPrimary]);
 
   // ================================ Render ================================
   const themeNode = (
@@ -341,7 +362,17 @@ export default function Theme() {
           <Header css={style.header}>
             {/* Logo */}
             <div css={style.logo}>
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+              <div css={[style.logoImg, closestColor !== DEFAULT_COLOR && style.logoImgPureColor]}>
+                <img
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                  style={{
+                    filter:
+                      closestColor === DEFAULT_COLOR
+                        ? undefined
+                        : `drop-shadow(30px 0 0 ${logoColor})`,
+                  }}
+                />
+              </div>
               <h1>Ant Design 5.0</h1>
             </div>
 
