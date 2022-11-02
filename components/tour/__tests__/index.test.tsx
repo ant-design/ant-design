@@ -251,7 +251,7 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Next' }));
     expect(getByText('Adjust Placement')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
-    expect(document.querySelector('.rc-tour')).toBeFalsy();
+    expect(document.querySelector('.ant-tour')).toBeFalsy();
     expect(container.firstChild).toMatchSnapshot();
   });
 });
