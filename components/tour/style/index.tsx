@@ -10,8 +10,8 @@ interface TourToken extends FullToken<'Tour'> {
   tourZIndexPopup: number;
   sliderWidth: number;
   sliderHeight: number;
-  marginMD: number;
   tourBorderRadius: number;
+  tourCloseSize: number;
 }
 
 // =============================== Base ===============================
@@ -22,7 +22,6 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     padding,
     paddingXS,
     borderRadius,
-    borderRadiusLG,
     borderRadiusXS,
     colorPrimary,
     colorText,
@@ -37,6 +36,9 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     marginXS,
     colorTextLightSolid,
     tourBorderRadius,
+    colorWhite,
+    colorBgTextHover,
+    tourCloseSize,
   } = token;
 
   return [
@@ -65,7 +67,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         [`${componentCls}-inner`]: {
           textAlign: 'start',
           textDecoration: 'none',
-          borderRadius: borderRadiusLG,
+          borderRadius: tourBorderRadius,
           boxShadow,
           position: 'relative',
           backgroundColor: colorBgContainer,
@@ -78,8 +80,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             insetInlineEnd: padding,
             color: token.colorIcon,
             outline: 'none',
-            width: fontSize * lineHeight,
-            height: fontSize * lineHeight,
+            width: tourCloseSize,
+            height: tourCloseSize,
             borderRadius: token.borderRadiusSM,
             transition: `background-color ${token.motionDurationFast}, color ${token.motionDurationFast}`,
             display: 'flex',
@@ -94,7 +96,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
           [`${componentCls}-cover`]: {
             textAlign: 'center',
-            padding: `${padding + fontSize * lineHeight + paddingXS}px ${padding}px 0`,
+            padding: `${padding + tourCloseSize + paddingXS}px ${padding}px 0`,
             img: {
               width: '100%',
             },
@@ -172,11 +174,21 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             [`${componentCls}-prev-btn`]: {
               color: colorTextLightSolid,
               borderColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+
+              '&:hover': {
+                backgroundColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+                borderColor: 'transparent',
+              },
             },
 
             [`${componentCls}-next-btn`]: {
               color: colorPrimary,
-              borderColor: colorTextLightSolid,
+              borderColor: 'transparent',
+              background: colorWhite,
+
+              '&:hover': {
+                background: new TinyColor(colorBgTextHover).onBackground(colorWhite).toRgbString(),
+              },
             },
           },
         },
@@ -211,12 +223,13 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tour', token => {
-  const { borderRadius } = token;
+  const { borderRadiusLG, fontSize, lineHeight } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,
     sliderWidth: 6,
     sliderHeight: 6,
-    tourBorderRadius: borderRadius,
+    tourBorderRadius: borderRadiusLG,
+    tourCloseSize: fontSize * lineHeight,
   });
   return [genBaseStyle(TourToken)];
 });

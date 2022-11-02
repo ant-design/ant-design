@@ -15,7 +15,8 @@ Change the placement of the guide relative to the target, there are 12 placement
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { Button, Tour, TourProps } from 'antd';
+import { Button, Tour } from 'antd';
+import type { TourProps } from 'antd';
 
 const App: React.FC = () => {
   const ref = useRef(null);

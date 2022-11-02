@@ -15,7 +15,8 @@ The most basic usage.
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { Button, Divider, Space, Tour, TourProps } from 'antd';
+import { Button, Divider, Space, Tour } from 'antd';
+import type { TourProps } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
