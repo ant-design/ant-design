@@ -1,6 +1,6 @@
 import * as React from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
-import { COLOR_IMAGES, getClosetColor } from './colorUtil';
+import { COLOR_IMAGES, DEFAULT_COLOR, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
   colorPrimary?: string;
@@ -11,6 +11,15 @@ export default function BackgroundImage({ colorPrimary, isLight }: BackgroundIma
   const { token } = useSiteToken();
 
   const activeColor = React.useMemo(() => getClosetColor(colorPrimary), [colorPrimary]);
+
+  const sharedStyle: React.CSSProperties = {
+    transition: `all ${token.motionDurationSlow}`,
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    height: '100%',
+    width: '100%',
+  };
 
   return (
     <>
@@ -23,20 +32,23 @@ export default function BackgroundImage({ colorPrimary, isLight }: BackgroundIma
           <img
             key={color}
             style={{
-              transition: `all ${token.motionDurationSlow}`,
+              ...sharedStyle,
               opacity: isLight && activeColor === color ? 1 : 0,
               objectFit: 'cover',
               objectPosition: 'right top',
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              height: '100%',
-              width: '100%',
             }}
             src={url}
           />
         );
       })}
+
+      {/* <div
+        style={{
+          ...sharedStyle,
+          opacity: isLight || !activeColor || activeColor === DEFAULT_COLOR ? 0 : 1,
+          background: 'rgba(0,0,0,0.79)',
+        }}
+      /> */}
     </>
   );
 }

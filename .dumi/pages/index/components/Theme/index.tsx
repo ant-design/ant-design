@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { css } from '@emotion/react';
+import { TinyColor } from '@ctrl/tinycolor';
 import {
   HomeOutlined,
   FolderOutlined,
@@ -28,7 +29,7 @@ import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
-import { PRESET_COLORS, getClosetColor } from './colorUtil';
+import { PRESET_COLORS, getClosetColor, DEFAULT_COLOR, getAvatarURL } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
@@ -191,20 +192,22 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
-function getTitleColor(isLight?: boolean, colorPrimary?: string) {
+function getTitleColor(colorPrimary: string, isLight?: boolean) {
   if (!isLight) {
     return '#FFF';
   }
 
-  const color = getClosetColor(colorPrimary);
+  const color = new TinyColor(colorPrimary);
+  const closestColor = getClosetColor(colorPrimary);
 
-  switch (color) {
+  switch (closestColor) {
+    case DEFAULT_COLOR:
     case '#FB7299':
     case '#F2BD27':
       return undefined;
 
     default:
-      return '#FFF';
+      return color.toHsl().l < 0.7 ? '#FFF' : undefined;
   }
 }
 
@@ -235,13 +238,6 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
     colorPrimary: '#fb7299',
     borderRadius: 16,
   },
-};
-
-const ThemeBackground: Record<THEME, string> = {
-  default: '#F5F8FF',
-  dark: '#393F4A',
-  lark: 'transparent',
-  comic: 'transparent',
 };
 
 export default function Theme() {
@@ -282,9 +278,29 @@ export default function Theme() {
     form.setFieldsValue(mergedData);
   }, [themeType]);
 
-  // ================================ Render ================================
+  // ================================ Tokens ================================
   const closestColor = getClosetColor(themeData.colorPrimary);
 
+  const [backgroundColor, avatarColor] = React.useMemo(() => {
+    if (themeType === 'dark') {
+      return '#393F4A';
+    }
+
+    if (closestColor === DEFAULT_COLOR) {
+      return '#F5F8FF';
+    }
+
+    const mapToken = theme.defaultAlgorithm({
+      ...theme.defaultConfig.token,
+      colorPrimary: themeData.colorPrimary,
+    });
+
+    //
+
+    return [mapToken.colorPrimaryHover, mapToken.colorPrimaryBgHover];
+  }, [themeType, closestColor, themeData.colorPrimary]);
+
+  // ================================ Render ================================
   const themeNode = (
     <ConfigProvider
       theme={{
@@ -316,7 +332,7 @@ export default function Theme() {
       <div
         css={[
           style.demo,
-          isLight && closestColor !== '#1677FF' && style.otherDemo,
+          isLight && closestColor !== DEFAULT_COLOR && style.otherDemo,
           !isLight && style.darkDemo,
         ]}
         style={{ borderRadius: themeData.borderRadius }}
@@ -332,7 +348,15 @@ export default function Theme() {
             <Space css={style.menu} size="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
-              <div css={[style.avatar, themeType === 'dark' && style.avatarDark]} />
+              <div
+                css={[style.avatar, themeType === 'dark' && style.avatarDark]}
+                style={{
+                  backgroundColor: avatarColor,
+                  backgroundImage: `url(${getAvatarURL(closestColor)})`,
+                  backgroundSize: 'cover',
+                  boxShadow: `0 0 2px rgba(0, 0, 0, 0.2)`,
+                }}
+              />
             </Space>
           </Header>
           <Layout>
@@ -398,10 +422,10 @@ export default function Theme() {
   return (
     <Group
       title={locale.themeTitle}
-      titleColor={getTitleColor(isLight, themeData.colorPrimary)}
+      titleColor={getTitleColor(themeData.colorPrimary, isLight)}
       description={locale.themeDesc}
       id="flexible"
-      background={ThemeBackground[themeType]}
+      background={backgroundColor}
       decoration={
         // =========================== Theme Background ===========================
         <>
@@ -409,7 +433,7 @@ export default function Theme() {
           <div
             style={{
               transition: `all ${token.motionDurationSlow}`,
-              opacity: themeType === 'default' ? 1 : 0,
+              opacity: isLight && closestColor === DEFAULT_COLOR ? 1 : 0,
             }}
           >
             {/* Image Left Top */}
@@ -440,7 +464,7 @@ export default function Theme() {
           <div
             style={{
               transition: `all ${token.motionDurationSlow}`,
-              opacity: themeType === 'dark' ? 1 : 0,
+              opacity: !isLight || !closestColor ? 1 : 0,
             }}
           >
             {/* Image Left Top */}

@@ -1,8 +1,10 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
+export const DEFAULT_COLOR = '#1677FF';
+
 export const COLOR_IMAGES = [
   {
-    color: '#1677FF',
+    color: DEFAULT_COLOR,
     // url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QEAoSL8uVi4AAAAAAAAAAAAAARQnAQ',
     url: null,
   },
@@ -39,7 +41,11 @@ export const COLOR_IMAGES = [
 export const PRESET_COLORS = COLOR_IMAGES.map(({ color }) => color);
 
 const DISTANCE = 33;
-export function getClosetColor(colorPrimary?: string) {
+export function getClosetColor(colorPrimary?: string | null) {
+  if (!colorPrimary) {
+    return null;
+  }
+
   const colorPrimaryRGB = new TinyColor(colorPrimary).toRgb();
 
   const distance = COLOR_IMAGES.map(({ color }) => {
@@ -56,4 +62,17 @@ export function getClosetColor(colorPrimary?: string) {
   const firstMatch = distance.sort((a, b) => a.dist - b.dist)[0];
 
   return firstMatch.dist <= DISTANCE ? firstMatch.color : null;
+}
+
+export function getAvatarURL(color?: string | null) {
+  const closestColor = getClosetColor(color);
+
+  if (!closestColor) {
+    return null;
+  }
+
+  return (
+    COLOR_IMAGES.find(obj => obj.color === closestColor)?.url ||
+    'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QEAoSL8uVi4AAAAAAAAAAAAAARQnAQ'
+  );
 }
