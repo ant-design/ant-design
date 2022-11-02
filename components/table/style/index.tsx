@@ -75,8 +75,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     fontWeightStrong,
     tablePaddingVertical,
     tablePaddingHorizontal,
-    controlLineWidth,
-    controlLineType,
+    lineWidth,
+    lineType,
     tableBorderColor,
     tableFontSize,
     tableBg,
@@ -93,7 +93,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
     paddingContentVerticalLG,
     wireframe,
   } = token;
-  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
+  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
@@ -283,7 +283,7 @@ export default genComponentStyleHook('Table', token => {
     opacityLoading,
     colorBgContainer,
     colorFillSecondary,
-    radiusLG,
+    borderRadiusLG,
     colorFillContent,
     controlInteractiveSize: checkboxSize,
   } = token;
@@ -301,7 +301,7 @@ export default genComponentStyleHook('Table', token => {
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
     tableBg: colorBgContainer,
-    tableRadius: radiusLG,
+    tableRadius: borderRadiusLG,
 
     tablePaddingVertical: padding,
     tablePaddingHorizontal: padding,

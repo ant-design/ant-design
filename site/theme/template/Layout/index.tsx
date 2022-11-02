@@ -255,10 +255,6 @@ export default class Layout extends React.Component<LayoutPropsType, LayoutState
     switch (this.state.v5theme) {
       case 'dark':
         return antdTheme.darkAlgorithm;
-      case 'defaultV4':
-        return antdTheme.defaultAlgorithmV4;
-      case 'darkV4':
-        return antdTheme.darkAlgorithmV4;
       case 'default':
       default:
         return antdTheme.defaultAlgorithm;

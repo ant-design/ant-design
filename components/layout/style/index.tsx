@@ -36,8 +36,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
     layoutZeroTriggerSize,
     motionDurationMid,
     motionDurationSlow,
-    fontSizeBase,
-    radiusBase,
+    fontSize,
+    borderRadius,
   } = token;
 
   return {
@@ -82,7 +82,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
       [`${componentCls}-footer`]: {
         padding: layoutFooterPadding,
         color: colorText,
-        fontSize: fontSizeBase,
+        fontSize,
         background: colorBgBody,
       },
 
@@ -154,8 +154,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
             justifyContent: 'center',
             background: colorBgHeader,
             borderStartStartRadius: 0,
-            borderStartEndRadius: radiusBase,
-            borderEndEndRadius: radiusBase,
+            borderStartEndRadius: borderRadius,
+            borderEndEndRadius: borderRadius,
             borderEndStartRadius: 0,
 
             cursor: 'pointer',
@@ -176,10 +176,10 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
 
             '&-right': {
               insetInlineStart: -layoutZeroTriggerSize,
-              borderStartStartRadius: radiusBase,
+              borderStartStartRadius: borderRadius,
               borderStartEndRadius: 0,
               borderEndEndRadius: 0,
-              borderEndStartRadius: radiusBase,
+              borderEndStartRadius: borderRadius,
             },
           },
         },

@@ -19,7 +19,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
     fontSize: token.fontSizeLG,
     lineHeight: 'inherit',
     border: 0,
-    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
   },
 
   label: {
@@ -68,15 +68,21 @@ const resetForm = (token: AliasToken): CSSObject => ({
   },
 });
 
-const genFormSize = (token: FormToken, height: number): CSSObject => ({
-  [`${token.formItemCls}-label > label`]: {
-    height,
-  },
+const genFormSize = (token: FormToken, height: number): CSSObject => {
+  const { formItemCls } = token;
 
-  [`${token.formItemCls}-control-input`]: {
-    minHeight: height,
-  },
-});
+  return {
+    [formItemCls]: {
+      [`${formItemCls}-label > label`]: {
+        height,
+      },
+
+      [`${formItemCls}-control-input`]: {
+        minHeight: height,
+      },
+    },
+  };
+};
 
 const genFormStyle: GenerateStyle<FormToken> = token => {
   const { componentCls } = token;

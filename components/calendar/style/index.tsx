@@ -54,7 +54,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
     [`${calendarCls} ${componentCls}-panel`]: {
       background: calendarFullPanelBg,
       border: 0,
-      borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+      borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       borderRadius: 0,
       [`${componentCls}-month-panel, ${componentCls}-date-panel`]: {
         width: 'auto',
@@ -67,13 +67,13 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`${calendarCls}-mini`]: {
-      borderRadius: token.controlRadiusLG,
+      borderRadius: token.borderRadiusLG,
       [`${calendarCls}-header`]: {
         paddingInlineEnd: token.paddingXS,
         paddingInlineStart: token.paddingXS,
       },
       [`${componentCls}-panel`]: {
-        borderRadius: `0 0 ${token.controlRadiusLG}px ${token.controlRadiusLG}px`,
+        borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
       },
       [`${componentCls}-content`]: {
         height: token.miniContentHeight,

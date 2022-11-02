@@ -88,7 +88,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     componentCls,
     colorBorder,
     colorSplit,
-    controlLineWidth,
+    lineWidth,
     transferItemHeight,
     transferHeaderHeight,
     transferHeaderVerticalPadding,
@@ -102,7 +102,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     fontSizeIcon,
     marginXS,
     paddingSM,
-    controlLineType,
+    lineType,
     iconCls,
     motionDurationSlow,
   } = token;
@@ -112,8 +112,8 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     flexDirection: 'column',
     width: listWidth,
     height: listHeight,
-    border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-    borderRadius: token.controlRadiusLG,
+    border: `${lineWidth}px ${lineType} ${colorBorder}`,
+    borderRadius: token.borderRadiusLG,
 
     '&-with-pagination': {
       width: listWidthLG,
@@ -133,12 +133,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       height: transferHeaderHeight,
       // border-top is on the transfer dom. We should minus 1px for this
       padding: `${
-        transferHeaderVerticalPadding - controlLineWidth
+        transferHeaderVerticalPadding - lineWidth
       }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
       color: token.colorText,
       background: token.colorBgContainer,
-      borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
-      borderRadius: `${token.controlRadiusLG}px ${token.controlRadiusLG}px 0 0`,
+      borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+      borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
 
       '> *:not(:last-child)': {
         marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
@@ -172,7 +172,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       flex: 'auto',
       flexDirection: 'column',
       overflow: 'hidden',
-      fontSize: token.fontSizeBase,
+      fontSize: token.fontSize,
 
       '&-search-wrapper': {
         position: 'relative',
@@ -257,7 +257,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     '&-pagination': {
       padding: `${token.paddingXS}px 0`,
       textAlign: 'end',
-      borderTop: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+      borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
     },
 
     '&-body-not-found': {
@@ -269,7 +269,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     },
 
     '&-footer': {
-      borderTop: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
+      borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
     },
   };
 };
@@ -344,7 +344,7 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
 export default genComponentStyleHook(
   'Transfer',
   token => {
-    const { fontSize, lineHeight, controlLineWidth, controlHeightLG, controlHeight } = token;
+    const { fontSize, lineHeight, lineWidth, controlHeightLG, controlHeight } = token;
 
     const fontHeight = Math.round(fontSize * lineHeight);
     const transferHeaderHeight = controlHeightLG;
@@ -353,9 +353,7 @@ export default genComponentStyleHook(
     const transferToken = mergeToken<TransferToken>(token, {
       transferItemHeight,
       transferHeaderHeight,
-      transferHeaderVerticalPadding: Math.ceil(
-        (transferHeaderHeight - controlLineWidth - fontHeight) / 2,
-      ),
+      transferHeaderVerticalPadding: Math.ceil((transferHeaderHeight - lineWidth - fontHeight) / 2),
       transferItemPaddingVertical: (transferItemHeight - fontHeight) / 2,
     });
 

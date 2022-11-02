@@ -57,14 +57,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${componentCls}-rail`]: {
         position: 'absolute',
         backgroundColor: token.colorFillTertiary,
-        borderRadius: token.controlRadiusXS,
+        borderRadius: token.borderRadiusXS,
         transition: `background-color ${token.motionDurationFast}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimaryBorder,
-        borderRadius: token.controlRadiusXS,
+        borderRadius: token.borderRadiusXS,
         transition: `background-color ${token.motionDurationFast}`,
       },
 

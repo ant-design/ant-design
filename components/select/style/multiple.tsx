@@ -8,7 +8,7 @@ const FIXED_ITEM_MARGIN = 2;
 function getSelectItemStyle({
   controlHeightSM,
   controlHeight,
-  controlLineWidth: borderWidth,
+  lineWidth: borderWidth,
 }: SelectToken) {
   const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
@@ -56,7 +56,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
-        borderRadius: token.controlRadius,
+        borderRadius: token.borderRadius,
 
         [`${componentCls}-show-search&`]: {
           cursor: 'text',
@@ -93,10 +93,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         height: selectItemHeight,
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
+        lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
         background: token.colorFillSecondary,
-        border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
-        borderRadius: token.controlRadiusSM,
+        border: `${token.lineWidth}px solid ${token.colorSplit}`,
+        borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         userSelect: 'none',
@@ -197,8 +197,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
   const smallToken = mergeToken<SelectToken>(token, {
     controlHeight: token.controlHeightSM,
     controlHeightSM: token.controlHeightXS,
-    controlRadius: token.controlRadiusSM,
-    controlRadiusSM: token.controlRadiusXS,
+    borderRadius: token.borderRadiusSM,
+    borderRadiusSM: token.borderRadiusXS,
   });
   const [, smSelectItemMargin] = getSelectItemStyle(token);
 
@@ -212,7 +212,7 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     {
       [`${componentCls}-multiple${componentCls}-sm`]: {
         [`${componentCls}-selection-placeholder`]: {
-          insetInlineStart: token.controlPaddingHorizontalSM - token.controlLineWidth,
+          insetInlineStart: token.controlPaddingHorizontalSM - token.lineWidth,
           insetInlineEnd: 'auto',
         },
 
@@ -230,8 +230,8 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
         fontSize: token.fontSizeLG,
         controlHeight: token.controlHeightLG,
         controlHeightSM: token.controlHeight,
-        controlRadius: token.controlRadiusLG,
-        controlRadiusSM: token.controlRadius,
+        borderRadius: token.borderRadiusLG,
+        borderRadiusSM: token.borderRadius,
       }),
       'lg',
     ),

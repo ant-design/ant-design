@@ -1,4 +1,4 @@
-import type { NeutralColorMapToken } from 'antd/es/theme/interface';
+import type { NeutralColorMapToken } from '../interface';
 
 export interface ColorMap {
   1: string;

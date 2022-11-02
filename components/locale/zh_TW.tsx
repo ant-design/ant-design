@@ -37,6 +37,11 @@ const localeValues: Locale = {
     cancelText: '取消',
     justOkText: '知道了',
   },
+  Tour: {
+    Next: '下一步',
+    Previous: '上一步',
+    Finish: '結束導覽',
+  },
   Popconfirm: {
     okText: '確定',
     cancelText: '取消',

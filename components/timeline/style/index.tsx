@@ -194,8 +194,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         [`${componentCls}-item-label`]: {
           position: 'absolute',
           insetBlockStart:
-            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) +
-            token.timeLineItemTailWidth,
+            -(token.fontSize * token.lineHeight - token.fontSize) + token.timeLineItemTailWidth,
           width: `calc(50% - ${token.marginSM}px)`,
           textAlign: 'end',
         },

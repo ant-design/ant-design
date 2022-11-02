@@ -24,7 +24,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
-  const { componentCls, floatButtonSize, margin, radiusBase, motionDurationSlow } = token;
+  const { componentCls, floatButtonSize, margin, borderRadius, motionDurationSlow } = token;
   const groupPrefixCls = `${componentCls}-group`;
   const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
     '0%': {
@@ -66,7 +66,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
       backgroundColor: token.colorBgContainer,
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
 
       [`${groupPrefixCls}-wrap`]: {
         zIndex: -1,
@@ -95,12 +95,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         borderRadius: 0,
         padding: 0,
         '&:first-child': {
-          borderStartStartRadius: radiusBase,
-          borderStartEndRadius: radiusBase,
+          borderStartStartRadius: borderRadius,
+          borderStartEndRadius: borderRadius,
         },
         '&:last-child': {
-          borderEndStartRadius: radiusBase,
-          borderEndEndRadius: radiusBase,
+          borderEndStartRadius: borderRadius,
+          borderEndEndRadius: borderRadius,
         },
         '&:not(:last-child)': {
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
@@ -108,7 +108,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       },
       [`${groupPrefixCls}-wrap`]: {
         display: 'block',
-        borderRadius: radiusBase,
+        borderRadius,
         boxShadow: token.boxShadowSecondary,
         overflow: 'hidden',
         [`${componentCls}-square`]: {
@@ -117,12 +117,12 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
           borderRadius: 0,
           padding: token.paddingXXS,
           '&:first-child': {
-            borderStartStartRadius: radiusBase,
-            borderStartEndRadius: radiusBase,
+            borderStartStartRadius: borderRadius,
+            borderStartEndRadius: borderRadius,
           },
           '&:last-child': {
-            borderEndStartRadius: radiusBase,
-            borderEndEndRadius: radiusBase,
+            borderEndStartRadius: borderRadius,
+            borderEndEndRadius: borderRadius,
           },
           '&:not(:last-child)': {
             borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
@@ -227,10 +227,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
     [`${componentCls}-square`]: {
       height: 'auto',
       minHeight: floatButtonSize,
-      borderRadius: token.radiusBase,
+      borderRadius: token.borderRadius,
       [`${componentCls}-body`]: {
         height: 'auto',
-        borderRadius: token.radiusSM,
+        borderRadius: token.borderRadiusSM,
       },
     },
     [`${componentCls}-default`]: {

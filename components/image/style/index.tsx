@@ -252,9 +252,10 @@ export default genComponentStyleHook(
   'Image',
   token => {
     const imagePreviewOperationColor = new TinyColor(token.colorTextLightSolid);
+    const previewCls = `${token.componentCls}-preview`;
 
     const imageToken = mergeToken<ImageToken>(token, {
-      previewCls: `${token.componentCls}-preview`,
+      previewCls,
       imagePreviewOperationColor: imagePreviewOperationColor.toRgbString(),
       imagePreviewOperationDisabledColor: new TinyColor(imagePreviewOperationColor)
         .setAlpha(0.25)
@@ -267,7 +268,7 @@ export default genComponentStyleHook(
     return [
       genImageStyle(imageToken),
       genImagePreviewStyle(imageToken),
-      genModalMaskStyle(imageToken),
+      genModalMaskStyle(mergeToken<ImageToken>(imageToken, { componentCls: previewCls })),
       genPreviewMotion(imageToken),
     ];
   },

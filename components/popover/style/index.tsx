@@ -25,7 +25,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     popoverPadding,
     boxShadowSecondary,
     colorTextHeading,
-    radiusLG: borderRadius,
+    borderRadiusLG: borderRadius,
     zIndexPopup,
     marginXS,
   } = token;
