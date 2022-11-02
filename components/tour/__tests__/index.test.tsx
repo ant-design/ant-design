@@ -86,7 +86,7 @@ describe('Tour', () => {
                 prevButtonProps: {
                   onClick: onClickMock,
                 },
-                finishButtonProps: {
+                nextButtonProps: {
                   onClick: onClickMock,
                 },
               },
@@ -132,7 +132,7 @@ describe('Tour', () => {
                 prevButtonProps: {
                   onClick: () => steBtnName('prevButton'),
                 },
-                finishButtonProps: {
+                nextButtonProps: {
                   onClick: () => steBtnName('finishButton'),
                 },
               },

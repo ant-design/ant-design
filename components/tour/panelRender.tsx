@@ -15,7 +15,7 @@ const panelRender: (
 ) => ReactNode = (props: TourStepProps, current: number, type) => {
   const {
     prefixCls,
-    total,
+    total = 1,
     title,
     onClose,
     onPrev,
@@ -25,9 +25,10 @@ const panelRender: (
     description,
     nextButtonProps,
     prevButtonProps,
-    finishButtonProps,
     stepRender,
   } = props;
+
+  const isLastStep = current === total - 1;
 
   const prevBtnClick = () => {
     onPrev?.();
@@ -38,15 +39,11 @@ const panelRender: (
 
   const nextBtnClick = () => {
     onNext?.();
+    if (isLastStep) {
+      onFinish?.();
+    }
     if (typeof nextButtonProps?.onClick === 'function') {
       nextButtonProps?.onClick();
-    }
-  };
-
-  const finishBtnClick = () => {
-    onFinish?.();
-    if (typeof finishButtonProps?.onClick === 'function') {
-      finishButtonProps?.onClick();
     }
   };
 
@@ -70,8 +67,8 @@ const panelRender: (
   }
 
   const mergedSlickNode =
-    (typeof stepRender === 'function' && stepRender(current, total!)) ||
-    [...Array.from({ length: total! }).keys()].map((stepItem, index) => (
+    (typeof stepRender === 'function' && stepRender(current, total)) ||
+    [...Array.from({ length: total }).keys()].map((stepItem, index) => (
       <span
         key={stepItem}
         className={classNames(
@@ -80,7 +77,7 @@ const panelRender: (
         )}
       />
     ));
-  const slickNode: ReactNode = total! > 1 ? mergedSlickNode : null;
+  const slickNode: ReactNode = total > 1 ? mergedSlickNode : null;
 
   const mainBtnType = type === 'primary' ? 'default' : 'primary';
   const secondaryBtnProps: ButtonProps = {
@@ -104,15 +101,9 @@ const panelRender: (
                   {contextLocale.Previous}
                 </Button>
               ) : null}
-              {current === total! - 1 ? (
-                <Button type={mainBtnType} {...finishButtonProps} onClick={finishBtnClick}>
-                  {contextLocale.Finish}
-                </Button>
-              ) : (
-                <Button type={mainBtnType} {...nextButtonProps} onClick={nextBtnClick}>
-                  {contextLocale.Next}
-                </Button>
-              )}
+              <Button type={mainBtnType} {...nextButtonProps} onClick={nextBtnClick}>
+                {isLastStep ? contextLocale.Finish : contextLocale.Next}
+              </Button>
             </div>
           </div>
         </>

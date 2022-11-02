@@ -21,13 +21,7 @@ const App: React.FC = () => {
   const coverBtnRef = useRef(null);
   const placementBtnRef = useRef(null);
 
-  const [show, setShow] = useState<boolean | undefined>();
-
-  useEffect(() => {
-    if (show === false) {
-      setShow(true);
-    }
-  }, [show]);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -35,7 +29,7 @@ const App: React.FC = () => {
         <Button
           type="primary"
           onClick={() => {
-            setShow(false);
+            setOpen(true);
           }}
         >
           Show
@@ -48,34 +42,34 @@ const App: React.FC = () => {
         </Button>
       </Space>
 
-      {show && (
-        <Tour
-          steps={[
-            {
-              title: 'Show in Center',
-              description: 'Here is the content of Tour.',
-              target: null,
-            },
-            {
-              title: 'With Cover',
-              description: 'Here is the content of Tour.',
-              target: () => coverBtnRef.current,
-              cover: (
-                <img
-                  alt="tour.png"
-                  src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
-                />
-              ),
-            },
-            {
-              title: 'Adjust Placement',
-              description: 'Here is the content of Tour which show on the right.',
-              placement: 'right',
-              target: () => placementBtnRef.current,
-            },
-          ]}
-        />
-      )}
+      <Tour
+        open={open}
+        onClose={() => setOpen(false)}
+        steps={[
+          {
+            title: 'Show in Center',
+            description: 'Here is the content of Tour.',
+            target: null,
+          },
+          {
+            title: 'With Cover',
+            description: 'Here is the content of Tour.',
+            target: () => coverBtnRef.current,
+            cover: (
+              <img
+                alt="tour.png"
+                src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
+              />
+            ),
+          },
+          {
+            title: 'Adjust Placement',
+            description: 'Here is the content of Tour which show on the right.',
+            placement: 'right',
+            target: () => placementBtnRef.current,
+          },
+        ]}
+      />
     </>
   );
 };
