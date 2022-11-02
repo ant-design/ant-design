@@ -30,7 +30,8 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   ...props
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
+  const prefixCls = getPrefixCls('image', customizePrefixCls);
+  const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -52,7 +53,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   return wrapSSR(
     <RcImage.PreviewGroup
       preview={mergedPreview}
-      previewPrefixCls={prefixCls}
+      previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...props}
     />,
