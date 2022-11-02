@@ -79,7 +79,7 @@ const useStyle = () => {
   return {
     card: css`
       padding: ${token.paddingSM}px;
-      border-radius: ${token.radiusBase * 2}px;
+      border-radius: ${token.borderRadius * 2}px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
         0 2px 4px rgba(0, 0, 0, 0.02);
@@ -87,13 +87,13 @@ const useStyle = () => {
       img {
         width: 100%;
         vertical-align: top;
-        border-radius: ${token.radiusBase}px;
+        border-radius: ${token.borderRadius}px;
       }
     `,
 
     cardMini: css`
       display: block;
-      border-radius: ${token.radiusBase * 2}px;
+      border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
       background: rgba(0, 0, 0, 0.02);
       border: 1px solid rgba(0, 0, 0, 0.06);

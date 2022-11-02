@@ -4,17 +4,7 @@ import { SketchPicker } from 'react-color';
 import React from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
-
-const PRESET_COLORS = [
-  '#1677FF',
-  '#5A54F9',
-  '#9E339F',
-  '#FB7299',
-  '#E0282E',
-  '#F4801A',
-  '#F2BD27',
-  '#00B96B',
-];
+import { PRESET_COLORS } from './colorUtil';
 
 const useStyle = () => {
   const { token } = useSiteToken();

@@ -28,6 +28,7 @@ import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
+import { PRESET_COLORS, getClosetColor } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
@@ -81,6 +82,11 @@ const useStyle = () => {
       backdrop-filter: blur(50px);
       box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
       transition: all ${token.motionDurationSlow};
+    `,
+
+    otherDemo: css`
+      backdrop-filter: blur(10px);
+      background: rgba(247, 247, 247, 0.5);
     `,
 
     darkDemo: css`
@@ -185,6 +191,23 @@ const sideMenuItems: MenuProps['items'] = [
 
 // ============================= Theme =============================
 
+function getTitleColor(isLight?: boolean, colorPrimary?: string) {
+  if (!isLight) {
+    return '#FFF';
+  }
+
+  const color = getClosetColor(colorPrimary);
+
+  switch (color) {
+    case '#FB7299':
+    case '#F2BD27':
+      return undefined;
+
+    default:
+      return '#FFF';
+  }
+}
+
 interface ThemeData {
   themeType: THEME;
   colorPrimary: string;
@@ -260,6 +283,8 @@ export default function Theme() {
   }, [themeType]);
 
   // ================================ Render ================================
+  const closestColor = getClosetColor(themeData.colorPrimary);
+
   const themeNode = (
     <ConfigProvider
       theme={{
@@ -291,9 +316,8 @@ export default function Theme() {
       <div
         css={[
           style.demo,
+          isLight && closestColor !== '#1677FF' && style.otherDemo,
           !isLight && style.darkDemo,
-          themeType === 'lark' && style.larkDemo,
-          themeType === 'comic' && style.comicDemo,
         ]}
         style={{ borderRadius: themeData.borderRadius }}
       >
@@ -374,7 +398,7 @@ export default function Theme() {
   return (
     <Group
       title={locale.themeTitle}
-      titleColor={themeType === 'default' ? undefined : '#fff'}
+      titleColor={getTitleColor(isLight, themeData.colorPrimary)}
       description={locale.themeDesc}
       id="flexible"
       background={ThemeBackground[themeType]}
@@ -432,7 +456,7 @@ export default function Theme() {
           </div>
 
           {/* >>>>>> Background Image <<<<<< */}
-          <BackgroundImage colorPrimary={themeData.colorPrimary} />
+          <BackgroundImage isLight={isLight} colorPrimary={themeData.colorPrimary} />
         </>
       }
     >

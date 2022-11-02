@@ -85,7 +85,7 @@ const useStyle = () => {
 
   return {
     card: css`
-      border-radius: ${token.radiusBase}px;
+      border-radius: ${token.borderRadius}px;
       background: #f5f8ff;
       padding: ${token.paddingXL}px;
       flex: none;
