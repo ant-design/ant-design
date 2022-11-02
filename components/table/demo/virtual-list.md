@@ -15,7 +15,7 @@ Integrate virtual scroll with `react-window` to achieve a high performance table
 
 ```tsx
 import { Table  } from 'antd';
-import type { TableProps } from 'antd'
+import type { TableProps } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useEffect, useRef, useState } from 'react';
