@@ -38,9 +38,10 @@ const panelRender: (
   };
 
   const nextBtnClick = () => {
-    onNext?.();
     if (isLastStep) {
       onFinish?.();
+    } else {
+      onNext?.();
     }
     if (typeof nextButtonProps?.onClick === 'function') {
       nextButtonProps?.onClick();
