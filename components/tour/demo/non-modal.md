@@ -14,7 +14,7 @@ title:
 Use `mask={false}` to make Tour non-modal. At the meantime it is recommended to use with `type="primary"` to emphasize the guide itself.
 
 ```tsx
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Divider, Space, Tour, TourProps } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 

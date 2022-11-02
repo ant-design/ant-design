@@ -14,9 +14,8 @@ title:
 Change the placement of the guide relative to the target, there are 12 placements available. When `target={null}` the guide will show in the center.
 
 ```tsx
-import React, { useRef, useState, useEffect } from 'react';
-import { Button, Divider, Space, Tour, TourProps } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
+import React, { useRef, useState } from 'react';
+import { Button, Tour, TourProps } from 'antd';
 
 const App: React.FC = () => {
   const ref = useRef(null);

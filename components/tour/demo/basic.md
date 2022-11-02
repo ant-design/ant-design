@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```tsx
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Divider, Space, Tour, TourProps } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 
