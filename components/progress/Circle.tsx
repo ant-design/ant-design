@@ -42,9 +42,6 @@ const Circle: React.FC<CircleProps> = props => {
     if (!strokeWidth) {
       return Math.max(getMinPercent(circleSize), 6);
     }
-    if (strokeWidth * 0.01 * circleSize <= CIRCLE_MIN_STROKE_WIDTH) {
-      return getMinPercent(circleSize);
-    }
     return strokeWidth;
   }, [circleSize, strokeWidth]);
 
