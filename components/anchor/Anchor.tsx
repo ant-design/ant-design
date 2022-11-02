@@ -229,7 +229,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
 
   const inkClass = classNames(
     {
-      [`ink-ball-visible`]: activeLink,
+      [`${prefixCls}-ink-ball-visible`]: activeLink,
     },
     `${prefixCls}-ink-ball`,
   );
