@@ -226,6 +226,15 @@ exports[`renders ./components/tour/demo/render-panel.md extend context correctly
             <span
               class="ant-tour-slider"
             />
+            <span
+              class="ant-tour-slider"
+            />
+            <span
+              class="ant-tour-slider"
+            />
+            <span
+              class="ant-tour-slider"
+            />
           </div>
           <div
             class="ant-tour-buttons"

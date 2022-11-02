@@ -31,7 +31,7 @@ export default () => (
       padding: 8,
     }}
   >
-    <InternalPanel title="Hello World!" description="Hello World?!" current={0} total={3} />
+    <InternalPanel title="Hello World!" description="Hello World?!" />
     <InternalPanel
       title="Hello World!"
       description="Hello World?!"
