@@ -64,12 +64,13 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const anchorItems = useMemo(() => {
     return meta.toc.reduce<AnchorItem[]>((result, item) => {
       if (item.depth === 2) {
-        result.push(item);
+        result.push({ ...item });
       } else if (item.depth === 3) {
         const parent = result[result.length - 1];
+        console.log(parent);
         if (parent) {
           parent.children = parent.children || [];
-          parent.children.push(item);
+          parent.children.push({ ...item });
         }
       }
       return result;
