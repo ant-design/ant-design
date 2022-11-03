@@ -1,6 +1,17 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
-import { Button, Space, Typography, Tour, Tag, TimePicker, Alert, Modal, FloatButton } from 'antd';
+import {
+  Button,
+  Space,
+  Typography,
+  Tour,
+  Tag,
+  DatePicker,
+  Alert,
+  Modal,
+  FloatButton,
+  Progress,
+} from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
@@ -8,7 +19,7 @@ import { css } from '@emotion/react';
 const PLACEHOLDER_WIDTH = 400;
 
 const SAMPLE_CONTENT =
-  'WOW! This component preview is design out of screen. Seems you have a large screen or view the HTML element. Whish you like Ant Design and have a nice day!~';
+  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
 const COMPONENTS: {
   title: React.ReactNode;
@@ -24,50 +35,101 @@ const COMPONENTS: {
       </Modal._InternalPanelDoNotUseOrYouWillBeFired>
     ),
   },
+
+  {
+    title: 'DatePicker',
+    type: 'update',
+    node: (
+      <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
+        showToday={false}
+        presets={[
+          { label: 'Yesterday', value: dayjs().add(-1, 'd') },
+          { label: 'Last Week', value: dayjs().add(-7, 'd') },
+          { label: 'Last Month', value: dayjs().add(-1, 'month') },
+          { label: 'Last Year', value: dayjs().add(-1, 'year') },
+        ]}
+        value={dayjs('2022-11-18 14:00:00')}
+      />
+    ),
+  },
+
+  {
+    title: 'Progress',
+    type: 'update',
+    node: (
+      <Space direction="vertical">
+        <Space>
+          <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
+          In Progress
+        </Space>
+        <Space>
+          <Progress type="circle" percent={100} width={14} />
+          Success
+        </Space>
+        <Space>
+          <Progress type="circle" status="exception" percent={88} width={14} />
+          Task Failed
+        </Space>
+      </Space>
+    ),
+  },
+
   {
     title: 'Tour',
     type: 'new',
     node: (
-      <Tour._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" style={{ width: 400 }} />
+      <Tour._InternalPanelDoNotUseOrYouWillBeFired
+        title="Ant Design 5.0"
+        description="A quick guide for new come user about how to use app."
+        style={{ width: 350 }}
+        current={3}
+        total={9}
+      />
     ),
   },
   {
     title: 'FloatButton',
     type: 'new',
     node: (
-      <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-        shape="square"
-        items={[
-          {
-            icon: <QuestionCircleOutlined />,
-          },
-          {
-            icon: <CustomerServiceOutlined />,
-          },
-          {
-            icon: <SyncOutlined />,
-          },
-        ]}
-      />
+      <Space size="large">
+        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+          shape="square"
+          items={[
+            {
+              icon: <QuestionCircleOutlined />,
+            },
+            {
+              icon: <CustomerServiceOutlined />,
+            },
+            {
+              icon: <SyncOutlined />,
+            },
+          ]}
+        />
+        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
+        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+          items={[
+            {
+              icon: <QuestionCircleOutlined />,
+            },
+            {
+              icon: <CustomerServiceOutlined />,
+            },
+            {
+              icon: <SyncOutlined />,
+            },
+          ]}
+        />
+      </Space>
     ),
   },
-  // {
-  //   title: 'DatePicker',
-  //   type: 'update',
-  //   node: (
-  //     <TimePicker._InternalPanelDoNotUseOrYouWillBeFired value={dayjs('2022-11-18 14:00:00')} />
-  //   ),
-  // },
+
   // {
   //   title: 'Steps',
   //   type: 'update',
   //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
   // },
-  // {
-  //   title: 'Progress',
-  //   type: 'update',
-  //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
-  // },
+
   {
     title: 'Alert',
     type: 'update',

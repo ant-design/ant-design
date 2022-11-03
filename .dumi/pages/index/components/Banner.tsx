@@ -35,6 +35,7 @@ export default function Banner({ children }: BannerProps) {
           background: '#77C6FF',
           display: 'flex',
           flexWrap: 'nowrap',
+          justifyContent: 'center',
         }}
       >
         <div
