@@ -6550,6 +6550,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -7399,6 +7400,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
