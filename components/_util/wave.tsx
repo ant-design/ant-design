@@ -100,8 +100,10 @@ class Wave extends React.Component<WaveProps> {
     // Not white or transparent or grey
     if (
       waveColor &&
+      waveColor !== '#fff' &&
       waveColor !== '#ffffff' &&
       waveColor !== 'rgb(255, 255, 255)' &&
+      waveColor !== 'rgba(255, 255, 255, 1)' &&
       isNotGrey(waveColor) &&
       !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'

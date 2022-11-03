@@ -463,6 +463,7 @@ export default function useSelection<RecordType>(
               }
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
+              aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
               skipGroup
             />
             {customizeSelections}

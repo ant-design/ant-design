@@ -15,6 +15,53 @@ timeline: true
 
 ---
 
+## 4.24.0
+
+`2022-11-01`
+
+- 🔥 Add new component Space.Compact used to replace Input.Group and Button.Group. [#37652](https://github.com/ant-design/ant-design/pull/37652) [@foryuki](https://github.com/foryuki)
+- 🆕 The `disabled` property on components inside a Form will now take precedence over the `disabled` property of the Form. [#37628](https://github.com/ant-design/ant-design/pull/37628) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Add `text` config for editable Typograph, support enabling ellipsis and editable at the same time. [#37761](https://github.com/ant-design/ant-design/pull/37761) [@zheeeng](https://github.com/zheeeng)
+- 🆕 Row `align` and `justify` support reponsive value. [#37860](https://github.com/ant-design/ant-design/pull/37860) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Image add `preview.scaleStep` prop to adjust the magnitude of zoom in and out and set the default `scaleOffset` to 0.5. [#37340](https://github.com/ant-design/ant-design/pull/37340) [@coldice945](https://github.com/coldice945)
+- 🆕 Steps support `items`. [#37531](https://github.com/ant-design/ant-design/pull/37531) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Collapse supports `collapsible="icon"` to collapse by clicking icon. [#37566](https://github.com/ant-design/ant-design/pull/37566) [@Sheepeer](https://github.com/Sheepeer)
+- 🆕 Input.Password supports `visibilityToggle={{ visible, onVisibleChange }}` so that you can manually control password display and hide. [#38216](https://github.com/ant-design/ant-design/pull/38216) [@MrHeer](https://github.com/MrHeer)
+- 🆕 Breadcrumb added the `menu` property. [#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
+- 🆕 Dropdown added the `menu` `dropdownRender` property, and deprecated the `overlay` property. [#37885](https://github.com/ant-design/ant-design/pull/37885) [@JarvisArt](https://github.com/JarvisArt)
+- Table
+  - 🆕 Table `filterDropdown` add close in argument to `close` filter dropdown only. [#37745](https://github.com/ant-design/ant-design/pull/37745) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Fix Table `aria-label` contains `[object Object]`. [#38160](https://github.com/ant-design/ant-design/pull/38160) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Tabs component not reading the `getPopupContainer` property of ConfigProvider. [#38238](https://github.com/ant-design/ant-design/pull/38238) [@ZH-seven](https://github.com/ZH-seven)
+- 🐞 Fix Tooltip is broken when used in a disabled Menu.Item. [#38273](https://github.com/ant-design/ant-design/pull/38273)
+- 🐞 Fix the issue of miscalculated transform-origin for Tooltip with `placement` values like `topRight` or `bottomLeft`. [#38159](https://github.com/ant-design/ant-design/pull/38159) [@strear](https://github.com/strear)
+- 🐞 TimePicker remove redundant warning about using `popupClassName`. [#38190](https://github.com/ant-design/ant-design/pull/38190) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix nest Drawer with default `open` append document order issue. [#37767](https://github.com/ant-design/ant-design/pull/37767) [#37790](https://github.com/ant-design/ant-design/pull/37790)
+- 🐞 Fix issue where numbers were not displayed when Badge set both `color` and `count`. [#37609](https://github.com/ant-design/ant-design/pull/37609) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Progress zoom behavior in Safari. [#38301](https://github.com/ant-design/ant-design/pull/38301)
+- Modal
+  - 🐞 Fix Modal animation flush issue in React 18. [#38275](https://github.com/ant-design/ant-design/pull/38275)
+  - 🐞 Fix Modal.method() not focus trigger after close. [#38275](https://github.com/ant-design/ant-design/pull/38275)
+- Transfer
+  - 🐞 Fix Transfer titles is undefined. [#38182](https://github.com/ant-design/ant-design/pull/38182) [@kiner-tang](https://github.com/kiner-tang)
+  - 🛠 Remove Transfer `defaultprops` spelling. [#38164](https://github.com/ant-design/ant-design/pull/38164) [#38154](https://github.com/ant-design/ant-design/pull/38154) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Refactor Anchor to Function Component, some methods of obtaining `ref` and calling internal instance methods will invalid.. [#38265](https://github.com/ant-design/ant-design/pull/38265) [#37957](https://github.com/ant-design/ant-design/pull/37957) [@li-jia-nan](https://github.com/li-jia-nan) [@RexSkz](https://github.com/RexSkz)
+- 🛠 The layout of the Dropdown.Button component is implemented using Space.Compact instead. [#38090](https://github.com/ant-design/ant-design/pull/38090) [@foryuki](https://github.com/foryuki)
+- 🛠 Optimize the internal implementation of DirectoryTree Typography component. [#38184](https://github.com/ant-design/ant-design/pull/38184) [#38181](https://github.com/ant-design/ant-design/pull/38181) [@holazz](https://github.com/holazz) [#37716](https://github.com/ant-design/ant-design/pull/37716) [@zheeeng](https://github.com/zheeeng)
+- 💄 Fix TextArea custom border style not working when allowClear is enable. [#38101](https://github.com/ant-design/ant-design/pull/38101)
+- 💄 Fix Popconfirm style issue when icon={null}, now an additional span tag will be wrapped around the icon element. [#37384](https://github.com/ant-design/ant-design/pull/37384) [@edc-hui](https://github.com/edc-hui)
+- 💄 Fix Menu highlight style in compact mode. [#38223](https://github.com/ant-design/ant-design/pull/38223) [@messaooudi](https://github.com/messaooudi)
+- Carousel
+  - 💄 Enlarge Carousel dots hover area for better experience. [#38257](https://github.com/ant-design/ant-design/pull/38257)
+  - 💄 Fix Carousel dots margin style not being reset. [#38100](https://github.com/ant-design/ant-design/pull/38100)
+- TypeScript
+  - 🤖 Mentions additionally exports MentionsRef. [#38028](https://github.com/ant-design/ant-design/pull/38028) [@simonwong](https://github.com/simonwong)
+- 🌐 Localization
+  - Add Transfer `titles` property internationalization configuration. [#38168](https://github.com/ant-design/ant-design/pull/38168) [@kiner-tang](https://github.com/kiner-tang)
+  - Fix default Empty description text. [#38127](https://github.com/ant-design/ant-design/pull/38127) [@HelloBojack](https://github.com/HelloBojack)
+  - 🇮🇹 Add missing `it_IT` locale. [#38108](https://github.com/ant-design/ant-design/pull/38108) [@ernestfolch](https://github.com/ernestfolch)
+  - 🇫🇷 Add missing `fr_FR` locale. [#38072](https://github.com/ant-design/ant-design/pull/38072) [@smwhr](https://github.com/smwhr)
+
 ## 4.23.6
 
 `2022-10-17`
