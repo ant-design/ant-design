@@ -6,8 +6,11 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import type { TourProps, TourStepProps } from './interface';
+import PurePanel from './PurePanel';
 
-const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props => {
+const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+} = props => {
   const {
     prefixCls: customizePrefixCls,
     steps,
@@ -49,5 +52,7 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> = props =>
 if (process.env.NODE_ENV !== 'production') {
   Tour.displayName = 'Tour';
 }
+
+Tour._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Tour;

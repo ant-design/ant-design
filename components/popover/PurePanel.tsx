@@ -25,21 +25,19 @@ export interface PurePanelProps extends Omit<PopoverProps, 'children'> {
   children?: React.ReactNode;
 }
 
-export default function PurePanel(props: any) {
+export function RawPurePanel(props: any) {
   const {
-    prefixCls: customizePrefixCls,
+    hashId,
+    prefixCls,
     className,
+    style,
     placement = 'top',
     title,
     content,
     children,
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-
-  return wrapSSR(
+  return (
     <div
       className={classNames(
         hashId,
@@ -48,10 +46,21 @@ export default function PurePanel(props: any) {
         `${prefixCls}-placement-${placement}`,
         className,
       )}
+      style={style}
     >
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
         {children || getOverlay(prefixCls, title, content)}
       </Popup>
-    </div>,
+    </div>
   );
+}
+
+export default function PurePanel(props: any) {
+  const { prefixCls: customizePrefixCls, ...restProps } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const prefixCls = getPrefixCls('popover', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
 }

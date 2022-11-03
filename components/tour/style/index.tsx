@@ -56,6 +56,11 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         width: 520,
         '--antd-arrow-background-color': colorBgContainer,
 
+        '&-pure': {
+          maxWidth: '100%',
+          position: 'relative',
+        },
+
         [`&${componentCls}-hidden`]: {
           display: 'none',
         },
