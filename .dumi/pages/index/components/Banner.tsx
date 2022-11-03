@@ -33,12 +33,34 @@ export default function Banner({ children }: BannerProps) {
         style={{
           height: 360,
           background: '#77C6FF',
-          backgroundImage:
-            'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*XmkgT4UK6dsAAAAAAAAAAAAAARQnAQ)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          display: 'flex',
+          flexWrap: 'nowrap',
         }}
-      />
+      >
+        <div
+          style={{
+            backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6d50SboraPIAAAAAAAAAAAAAARQnAQ)`,
+            flex: 'auto',
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: '100% 0',
+            backgroundSize: 'auto 100%',
+          }}
+        />
+        <img
+          alt="banner"
+          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HzJITpzj_9QAAAAAAAAAAAAAARQnAQ"
+          style={{ height: '100%', flex: 'none' }}
+        />
+        <div
+          style={{
+            backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ)`,
+            flex: 'auto',
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: '0 0',
+            backgroundSize: 'auto 100%',
+          }}
+        />
+      </div>
 
       {/* Logo */}
       <div style={{ position: 'relative' }}>
