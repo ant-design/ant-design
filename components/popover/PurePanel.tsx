@@ -26,7 +26,16 @@ export interface PurePanelProps extends Omit<PopoverProps, 'children'> {
 }
 
 export function RawPurePanel(props: any) {
-  const { hashId, prefixCls, className, placement = 'top', title, content, children } = props;
+  const {
+    hashId,
+    prefixCls,
+    className,
+    style,
+    placement = 'top',
+    title,
+    content,
+    children,
+  } = props;
 
   return (
     <div
@@ -37,6 +46,7 @@ export function RawPurePanel(props: any) {
         `${prefixCls}-placement-${placement}`,
         className,
       )}
+      style={style}
     >
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
         {children || getOverlay(prefixCls, title, content)}

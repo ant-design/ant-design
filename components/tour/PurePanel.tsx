@@ -38,7 +38,7 @@ export default function PurePanel(props: PurePanelProps) {
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, `${prefixCls}-pure`, `${prefixCls}-${type}`)}
+      className={classNames(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`)}
       style={style}
     >
       {node}
