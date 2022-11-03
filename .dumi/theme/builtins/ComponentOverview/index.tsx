@@ -7,8 +7,11 @@ import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getLocalizedPathname, getThemeConfig, getMenuItems } from '../../utils';
 import cnProComponentsList from './ProComponentsList';
+import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {
+  const { token } = useSiteToken();
+
   return {
     componentsOverview: css`
       padding: 0;
@@ -19,7 +22,7 @@ const useStyle = () => {
     `,
     componentsOverviewTitle: css`
       overflow: hidden;
-      color: '#000000d9';
+      color: ${token.colorTextHeading};
       text-overflow: ellipsis;
     `,
     componentsOverviewImg: css`
@@ -33,6 +36,24 @@ const useStyle = () => {
       transition: all 0.5s;
       &:hover {
         box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
+      }
+    `,
+    componentsOverviewSearch: css`
+      &${token.antCls}-input-affix-wrapper {
+        width: 100%;
+        padding: 0;
+        font-size: 20px;
+        border: 0;
+        box-shadow: none;
+
+        input {
+          color: rgba(0, 0, 0, 0.85);
+          font-size: 20px;
+        }
+
+        .anticon {
+          color: #bbb;
+        }
       }
     `,
   };
@@ -107,12 +128,11 @@ const Overview: React.FC = () => {
         <title>{documentTitle}</title>
         <meta property="og:title" content={documentTitle} />
       </Helmet>
-      <h1>Components Overview</h1>
       <Divider />
       <Input
         value={search}
         placeholder={formatMessage({ id: 'app.components.overview.search' })}
-        className="components-overview-search"
+        css={style.componentsOverviewSearch}
         onChange={e => {
           setSearch(e.target.value);
           reportSearch(e.target.value);
