@@ -65,7 +65,6 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
       minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       insetBlockEnd: token.floatButtonInsetBlockEnd,
-      backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
 
       [`${groupPrefixCls}-wrap`]: {
