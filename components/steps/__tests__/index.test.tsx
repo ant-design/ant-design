@@ -41,16 +41,36 @@ describe('Steps', () => {
       {
         title: '进行中',
       },
+      {
+        title: '待运行',
+        description: 'Hello World!',
+      },
+      {
+        title: '待运行',
+      },
     ];
-
-    let current = 0;
-    const onChange = (val: number) => {
-      current = val;
+    const ControlSteps = () => {
+      const [current, setCurrent] = React.useState(0);
+      return (
+        <Steps
+          current={current}
+          onChange={(val: number) => {
+            // eslint-disable-next-line no-console
+            console.log('Change:', val);
+            setCurrent(val);
+          }}
+          items={items}
+        />
+      );
     };
-    render(<Steps current={current} onChange={onChange} items={items} key={current} />);
-
+    const { container } = render(<ControlSteps />);
+    expect(
+      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
+    ).toBe(false);
     fireEvent.click(screen.getByText(/进行中/i));
-    expect(screen.getByText(/进行中/i)).toHaveClass('rc-steps-item-process');
+    expect(
+      container.querySelectorAll('.ant-steps-item')[1].classList.contains('ant-steps-item-process'),
+    ).toBe(true);
   });
 
   it('should render correct when use Step', () => {
