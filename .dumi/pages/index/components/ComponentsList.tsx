@@ -1,6 +1,6 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
-import { Button, Space, Typography, Tag, TimePicker, Alert, Modal, FloatButton } from 'antd';
+import { Button, Space, Typography, Tour, Tag, TimePicker, Alert, Modal, FloatButton } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
@@ -27,7 +27,9 @@ const COMPONENTS: {
   {
     title: 'Tour',
     type: 'new',
-    node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
+    node: (
+      <Tour._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" style={{ width: 400 }} />
+    ),
   },
   {
     title: 'FloatButton',
