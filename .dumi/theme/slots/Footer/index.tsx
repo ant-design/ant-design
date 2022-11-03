@@ -21,6 +21,15 @@ import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 
+const locales = {
+  cn: {
+    owner: '蚂蚁体验技术部 & 蚂蚁企业级应用设计',
+  },
+  en: {
+    owner: 'Ant Financial Experience & Ant Enterprise-application Design',
+  },
+};
+
 const useStyle = () => {
   const { token } = useSiteToken();
   const background = '#f0f3fa';
@@ -63,13 +72,10 @@ const useStyle = () => {
 
 const Footer = () => {
   const location = useLocation();
-  const [, lang] = useLocale();
+  const [locale, lang] = useLocale(locales);
   const style = useStyle();
 
-  const { getLink, pathname } = location;
-  const cutPath = pathname.replace(/\/$/, '').replace(/-cn$/, '');
-  const isHome = cutPath === '/index' || !cutPath;
-  console.log('~~~>', isHome);
+  const { getLink } = location;
 
   const getColumns = React.useMemo<FooterColumn[]>(() => {
     const isZhCN = lang === 'cn';
@@ -343,18 +349,15 @@ const Footer = () => {
   }, [lang, location.search]);
 
   return (
-    <div css={style.holder} style={{ position: 'relative', overflow: 'hidden', height: 630 }}>
-      <RcFooter
-        columns={getColumns}
-        css={style.footer}
-        bottom={
-          <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by 蚂蚁体验技术部 &
-            蚂蚁企业级应用设计
-          </>
-        }
-      />
-    </div>
+    <RcFooter
+      columns={getColumns}
+      css={style.footer}
+      bottom={
+        <>
+          Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
+        </>
+      }
+    />
   );
 };
 
