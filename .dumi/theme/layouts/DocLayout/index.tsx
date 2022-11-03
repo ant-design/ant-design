@@ -13,6 +13,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import useLocale from '../../../hooks/useLocale';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import ResourceLayout from '../ResourceLayout';
 
 const styleCache = createCache();
 if (typeof global !== 'undefined') {
@@ -94,12 +95,27 @@ const DocLayout: FC = () => {
     setSearchParams(searchParams);
   };
 
-  const selfRender = useMemo(() => {
-    return (
+  const content = useMemo(() => {
+    if (
       ['', '/'].some(path => path === pathname) ||
-      ['/index', '/resource'].some(path => pathname.startsWith(path))
+      ['/index'].some(path => pathname.startsWith(path))
+    ) {
+      return (
+        <>
+          {outlet}
+          <Footer />
+        </>
+      );
+    } else if (pathname.startsWith('/docs/resource')) {
+      return <ResourceLayout>{outlet}</ResourceLayout>;
+    }
+    return (
+      <main style={{ display: 'flex', marginTop: 40 }}>
+        <Sidebar />
+        <Content>{outlet}</Content>
+      </main>
     );
-  }, [pathname]);
+  }, [pathname, outlet]);
 
   return (
     <StyleProvider cache={styleCache}>
@@ -126,17 +142,7 @@ const DocLayout: FC = () => {
           </Helmet>
           <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
             <Header changeDirection={changeDirection} />
-            {selfRender ? (
-              <>
-                {outlet}
-                <Footer />
-              </>
-            ) : (
-              <main style={{ display: 'flex', marginTop: 40 }}>
-                <Sidebar />
-                <Content>{outlet}</Content>
-              </main>
-            )}
+            {content}
           </ConfigProvider>
         </HelmetProvider>
       </SiteContext.Provider>

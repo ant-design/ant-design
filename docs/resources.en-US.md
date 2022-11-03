@@ -1,11 +1,8 @@
 ---
 order: 1
 title: Resources
+description: Here list all the resources that related with Ant Design.
 toc: false
----
-
-Here list all the resources that related with Ant Design.
-
 ---
 
 ## Design Resources
@@ -96,11 +93,7 @@ Please find below some of the design resources and tools about Ant Design that w
 
 Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
-```__react
-import Articles from '../site/theme/template/Resources/Articles';
-
-ReactDOM.render(<Articles />, mountNode);
-```
+<ResourceArticles></ResourceArticles>
 
 ## Reference
 
