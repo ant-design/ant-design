@@ -1,4 +1,4 @@
-import React, { type FC, useEffect, useRef } from 'react';
+import React, { type FC, useEffect, useMemo, useRef } from 'react';
 import { useOutlet, useSearchParams, history } from 'dumi';
 import Header from 'dumi/theme/slots/Header';
 import Content from 'dumi/theme/slots/Content';
@@ -94,7 +94,12 @@ const DocLayout: FC = () => {
     setSearchParams(searchParams);
   };
 
-  const selfRender = ['', '/', '/index', '/resource'].some(path => pathname.includes(path));
+  const selfRender = useMemo(() => {
+    return (
+      ['', '/'].some(path => path === pathname) ||
+      ['/index', '/resource'].some(path => pathname.startsWith(path))
+    );
+  }, [pathname]);
 
   return (
     <StyleProvider cache={styleCache}>
@@ -127,7 +132,7 @@ const DocLayout: FC = () => {
                 <Footer />
               </>
             ) : (
-              <main style={{ display: 'flex' }}>
+              <main style={{ display: 'flex', marginTop: 40 }}>
                 <Sidebar />
                 <Content>{outlet}</Content>
               </main>
