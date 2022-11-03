@@ -48,13 +48,6 @@ type AnchorItem = {
 };
 
 const Content: FC<{ children: ReactNode }> = ({ children }) => {
-  // TODO: implement content
-  // from: https://github.com/ant-design/ant-design/blob/2a754bd5cad7fd4892a065a8e044fb402f51f426/site/theme/template/Content/MainContent.jsx
-  //  1. Title & edit link --- Need filename
-  //  2. TOC --- Done
-  //  3. Contributors list --- Need filename
-  //  4. Prev & next page --- Done
-
   console.log('route meta', useRouteMeta());
   const meta = useRouteMeta();
   const { pathname } = useLocation();
@@ -97,14 +90,14 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
           {!pathname.startsWith('/components/overview') && (
             <EditButton
               title={<FormattedMessage id="app.content.edit-page" />}
-              // filename={filename}
+              filename={meta.frontmatter.filename}
             />
           )}
         </Typography.Title>
         {children}
         <ContributorsList
           css={styles.contributorsList}
-          fileName="components/button/index.zh-CN.md"
+          fileName={meta.frontmatter.filename ?? ''}
           renderItem={(item, loading) =>
             loading ? (
               <Avatar style={{ opacity: 0.3 }} />

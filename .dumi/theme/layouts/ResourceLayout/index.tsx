@@ -5,9 +5,8 @@ import { useRouteMeta } from 'dumi';
 import { css } from '@emotion/react';
 import EditButton from '../../common/EditButton';
 import { FormattedMessage } from 'react-intl';
-import { Typography } from 'antd';
+import { Layout, Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
-import ResourceCards from '../../builtins/ResourceCards';
 
 export type ResourceLayoutProps = PropsWithChildren<{}>;
 
@@ -36,6 +35,7 @@ const useStyle = () => {
       padding: 0 ${resourcePadding}px;
       max-width: ${articleMaxWidth}px;
       margin: 0 auto;
+      box-sizing: content-box;
 
       > .markdown {
         > p {
@@ -70,10 +70,6 @@ const useStyle = () => {
         & {
           article {
             padding: 0 ${resourcePaddingXS}px;
-
-            // Title
-            .title-region {
-            }
           }
 
           ${antCls}-col {
@@ -84,13 +80,13 @@ const useStyle = () => {
       }
     `,
     banner: css`
-      margin: 0 -${resourcePadding}px;
       padding: 0 ${resourcePadding}px;
       overflow: hidden;
       background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');
       background-size: cover;
 
       h1 {
+        box-sizing: content-box;
         max-width: ${articleMaxWidth}px;
         margin: 56px auto 16px;
       }
@@ -114,26 +110,27 @@ const useStyle = () => {
 };
 
 const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
-  console.log('route meta', useRouteMeta());
   const styles = useStyle();
   const meta = useRouteMeta();
 
   return (
-    <div id="resources-page" css={styles.resourcePage}>
-      <AffixTabs />
-      <div css={styles.banner}>
-        <Typography.Title>
-          {meta.frontmatter.title}
-          <EditButton
-            title={<FormattedMessage id="app.content.edit-page" />}
-            // filename={filename}
-          />
-        </Typography.Title>
-        <section>{meta.frontmatter.description}</section>
+    <Layout>
+      <div id="resources-page" css={styles.resourcePage}>
+        <AffixTabs />
+        <div css={styles.banner}>
+          <Typography.Title>
+            {meta.frontmatter.title}
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={meta.frontmatter.filename}
+            />
+          </Typography.Title>
+          <section>{meta.frontmatter.description}</section>
+        </div>
+        <div css={styles.resourceContent}>{children}</div>
+        <Footer />
       </div>
-      <div css={styles.resourceContent}>{children}</div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

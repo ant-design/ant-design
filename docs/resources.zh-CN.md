@@ -11,6 +11,7 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
@@ -84,6 +85,7 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
   - mac 用户可使用 Raycast 快速打开 Ant Design 组件
   - https://www.raycast.com/crazyair/antd-open-browser
+</ResourceCards>
 
 ## 文章
 
@@ -97,6 +99,7 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - About Face 4 #E1E8B7
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KKZWRozT8D8AAAAAAAAAAABkARQnAQ
   - 一本数字产品和系统的交互设计指南
@@ -125,6 +128,7 @@ toc: false
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vXfQS7sStNYAAAAAAAAAAABkARQnAQ
   - 表单设计的真谛
   - http://book.douban.com/subject/4886100/
+</ResourceCards>
 
 ## 加入我们
 

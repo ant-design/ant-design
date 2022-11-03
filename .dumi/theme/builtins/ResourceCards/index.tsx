@@ -18,7 +18,6 @@ const useStyle = () => {
       border: 1px solid #e6e6e6;
       border-radius: 2px;
       cursor: pointer;
-      margin: -12px -12px 0 -12px;
       transition: box-shadow 0.3s;
 
       &:hover {
