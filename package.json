@@ -176,7 +176,7 @@
     "@types/jest-image-snapshot": "^5.1.0",
     "@types/jquery": "^3.5.14",
     "@types/lodash": "^4.14.139",
-    "@types/puppeteer": "^5.4.0",
+    "@types/puppeteer": "^7.0.4",
     "@types/qs": "^6.9.7",
     "@types/react": "^18.0.0",
     "@types/react-color": "^3.0.1",
