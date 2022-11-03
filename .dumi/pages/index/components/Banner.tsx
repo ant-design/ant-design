@@ -49,7 +49,7 @@ export default function Banner({ children }: BannerProps) {
         />
         <img
           alt="banner"
-          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HzJITpzj_9QAAAAAAAAAAAAAARQnAQ"
+          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I9a5ToqP4x8AAAAAAAAAAAAAARQnAQ"
           style={{ height: '100%', flex: 'none' }}
         />
         <div
