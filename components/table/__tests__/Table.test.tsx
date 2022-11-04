@@ -333,6 +333,7 @@ describe('Table', () => {
     const { container } = render(<Table columns={columns} />);
     expect(container).toMatchSnapshot();
   });
+
   it('title should support ReactNode', () => {
     const { container } = render(
       <Table
