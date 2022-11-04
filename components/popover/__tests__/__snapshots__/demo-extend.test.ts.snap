@@ -946,6 +946,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    style="width:250px"
   >
     <div
       class="ant-popover-content"
