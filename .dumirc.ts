@@ -32,6 +32,7 @@ export default defineConfig({
   extraRehypePlugins: [rehypeAntd],
   extraBabelPresets: ['@emotion/babel-preset-css-prop'],
   mfsu: false,
+  exportStatic: {},
   headScripts: [
     `
     (function () {
