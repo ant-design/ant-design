@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * iframe: 360
- */
-
 import { FloatButton, Radio } from 'antd';
 import type { RadioChangeEvent, FloatButtonProps } from 'antd';
 import { CustomerServiceOutlined } from '@ant-design/icons';

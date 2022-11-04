@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.17.0
- */
-
 import { Button, Popconfirm } from 'antd';
 
 const App: React.FC = () => {

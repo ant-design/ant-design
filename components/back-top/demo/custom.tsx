@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * iframe: 400
- */
-
 import { BackTop } from 'antd';
 
 const style: React.CSSProperties = {

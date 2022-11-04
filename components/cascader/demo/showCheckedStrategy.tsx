@@ -1,7 +1,4 @@
-import React from 'react';/*
- * version: 4.20.0
- */
-
+import React from 'react';
 import { Cascader } from 'antd';
 
 const { SHOW_CHILD } = Cascader;
@@ -79,4 +76,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

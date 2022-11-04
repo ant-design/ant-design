@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.19.0
- */
-
 import { DatePicker, Space } from 'antd';
 
 const App: React.FC = () => (

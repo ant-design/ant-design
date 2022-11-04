@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * iframe: 360
- */
-
 import { FloatButton } from 'antd';
 import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons';
 

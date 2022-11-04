@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * iframe: 250
- */
-
 import { Alert } from 'antd';
 
 const App: React.FC = () => (

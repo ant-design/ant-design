@@ -17,7 +17,7 @@ group: Other
 ## Examples
 
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/custom.tsx">Custom style</code>
+<code src="./demo/custom.tsx" iframe>Custom style</code>
 
 ## API
 
@@ -25,9 +25,9 @@ group: Other
 >
 > If you decide to use custom styles, please note the size limit: no more than `40px * 40px`.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 | 4.4.0 |
-| target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
-| visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
-| onClick | A callback function, which can be executed when you click the button | function | - |  |
+| Property         | Description                                                                 | Type              | Default      | Version |
+| ---------------- | --------------------------------------------------------------------------- | ----------------- | ------------ | ------- |
+| duration         | Time to return to top（ms）                                                 | number            | 450          | 4.4.0   |
+| target           | Specifies the scrollable area dom node                                      | () => HTMLElement | () => window |         |
+| visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number            | 400          |         |
+| onClick          | A callback function, which can be executed when you click the button        | function          | -            |         |

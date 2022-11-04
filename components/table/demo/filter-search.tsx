@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.19.0
- */
-
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
 

@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * iframe: 360
- */
-
 import { FloatButton } from 'antd';
 import { QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 

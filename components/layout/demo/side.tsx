@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * iframe: 360
- */
-
 import {
   DesktopOutlined,
   FileOutlined,

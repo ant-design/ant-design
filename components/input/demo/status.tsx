@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.19.0
- */
-
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import { Input, Space } from 'antd';
 

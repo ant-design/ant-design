@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.24.0
- */
-
 import { SettingOutlined, CopyOutlined, DownloadOutlined } from '@ant-design/icons';
 import { Cascader, Input, Select, Space, Button, Tooltip } from 'antd';
 

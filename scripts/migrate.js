@@ -120,12 +120,12 @@ components.forEach(component => {
         name,
         meta,
         html: {
-          'zh-CN': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
-            meta.title['zh-CN']
-          }</code>`,
-          'en-US': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}>${
-            meta.title['en-US']
-          }</code>`,
+          'zh-CN': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}${
+            meta.iframe ? ' iframe' : ''
+          }>${meta.title['zh-CN']}</code>`,
+          'en-US': `<code src="./demo/${name}.tsx"${meta.debug ? ' debug' : ''}${
+            meta.iframe ? ' iframe' : ''
+          }>${meta.title['en-US']}</code>`,
         },
         md: content + extra,
         code: code.replace(/^```(tsx|jsx)\n|```$/g, ''),
@@ -134,16 +134,16 @@ components.forEach(component => {
     .sort((a, b) => a.meta.order - b.meta.order);
   const zhPath = path.join(componentsPath, component, 'index.zh-CN.md');
   const enPath = path.join(componentsPath, component, 'index.en-US.md');
-  let zh = fs.readFileSync(zhPath, 'utf-8');
-  let en = fs.readFileSync(enPath, 'utf-8');
+  const zh = fs.readFileSync(zhPath, 'utf-8');
+  const en = fs.readFileSync(enPath, 'utf-8');
 
-  if (!/cols: /.test(zh)) {
-    zh = zh.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
-  }
-
-  if (!/cols: /.test(en)) {
-    en = en.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
-  }
+  // if (!/cols: /.test(zh)) {
+  //   zh = zh.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
+  // }
+  //
+  // if (!/cols: /.test(en)) {
+  //   en = en.replace(/(\n---)/, '\ndemo:\n  cols: 2$1');
+  // }
 
   logOffset(0);
   log();
@@ -186,12 +186,12 @@ $1`,
       key => !['title', 'order', 'debug'].includes(key),
     );
 
-    if (extraMeta.length) {
-      log('写入额外的 meta', code.meta);
-      code.code = `/*\n${extraMeta.map(key => ` * ${key}: ${code.meta[key]}`).join('\n')}\n */\n\n${
-        code.code
-      }`;
-    }
+    // if (extraMeta.length) {
+    //   log('写入额外的 meta', code.meta);
+    //   code.code = `/*\n${extraMeta.map(key => ` * ${key}: ${code.meta[key]}`).join('\n')}\n */\n\n${
+    //     code.code
+    //   }`;
+    // }
 
     let importReactContent = "import React from 'react';";
 

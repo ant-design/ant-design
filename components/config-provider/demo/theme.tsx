@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * version: 4.17.0
- */
-
 import {
   ClockCircleOutlined,
   DownOutlined,

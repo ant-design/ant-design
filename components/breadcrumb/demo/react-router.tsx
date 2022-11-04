@@ -1,9 +1,4 @@
 import React from 'react';
-/*
- * iframe: 200
- * reactRouter: react-router-dom
- */
-
 import { Alert, Breadcrumb } from 'antd';
 import { HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
 

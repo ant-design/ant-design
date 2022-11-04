@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * version: 4.21.0
- */
-
 import { PlusOutlined } from '@ant-design/icons';
 import {
   Form,

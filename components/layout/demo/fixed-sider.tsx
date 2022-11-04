@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * iframe: 360
- */
-
 import {
   AppstoreOutlined,
   BarChartOutlined,

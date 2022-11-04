@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.17.0
- */
-
 import { Button, Form, Input, message, Space } from 'antd';
 
 const App: React.FC = () => {

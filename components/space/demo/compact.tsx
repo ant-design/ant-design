@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.24.0
- */
-
 import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,

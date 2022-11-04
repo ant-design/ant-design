@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-/*
- * version: 4.19.0
- */
-
 import { AutoComplete, Space } from 'antd';
 
 const mockVal = (str: string, repeat = 1) => ({

@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: < 4.23.0
- */
-
 import { Tabs } from 'antd';
 
 const App: React.FC = () => (

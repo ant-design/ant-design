@@ -1,8 +1,4 @@
 import React from 'react';
-/*
- * version: 4.24.0
- */
-
 import { CopyOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Cascader, Input, InputNumber, Space, Select, TimePicker } from 'antd';
 

@@ -4,6 +4,8 @@ subtitle: 漫游式引导
 group: 数据展示
 title: Tour
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+demo:
+  cols: 2
 ---
 
 用于分步引导用户了解产品功能的气泡组件。自 `5.0.0` 版本开始提供该组件。
@@ -11,6 +13,13 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388
 ## 何时使用
 
 常用于引导用户了解产品功能。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/non-modal.tsx">非模态</code>
+<code src="./demo/placement.tsx">位置</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

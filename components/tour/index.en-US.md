@@ -3,6 +3,8 @@ category: Components
 group: Data Display
 title: Tour
 cover: https://gw.alipayobjects.com/zos/bmw-prod/cc3fcbfa-bf5b-4c8c-8a3d-c3f8388c75e8.svg
+demo:
+  cols: 2
 ---
 
 A popup component for guiding users through a product. Available since `5.0.0`.
@@ -10,6 +12,13 @@ A popup component for guiding users through a product. Available since `5.0.0`.
 ## When To Use
 
 Use when you want to guide users through a product.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/non-modal.tsx">Non-modal</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

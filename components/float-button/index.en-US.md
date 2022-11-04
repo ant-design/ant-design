@@ -16,14 +16,14 @@ FloatButton. Available since `5.0.0`.
 
 ## Examples
 
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/type.tsx">Type</code>
-<code src="./demo/shape.tsx">Shape</code>
-<code src="./demo/description.tsx">Description</code>
-<code src="./demo/tooltip.tsx">FloatButton with tooltip</code>
-<code src="./demo/group.tsx">FloatButton Group</code>
-<code src="./demo/group-menu.tsx">Menu mode</code>
-<code src="./demo/back-top.tsx">BackTop</code>
+<code src="./demo/basic.tsx" iframe>Basic</code>
+<code src="./demo/type.tsx" iframe>Type</code>
+<code src="./demo/shape.tsx" iframe>Shape</code>
+<code src="./demo/description.tsx" iframe>Description</code>
+<code src="./demo/tooltip.tsx" iframe>FloatButton with tooltip</code>
+<code src="./demo/group.tsx" iframe>FloatButton Group</code>
+<code src="./demo/group-menu.tsx" iframe>Menu mode</code>
+<code src="./demo/back-top.tsx" iframe>BackTop</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
