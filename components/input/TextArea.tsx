@@ -94,7 +94,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
-    const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [compositing, setCompositing] = React.useState(false);
     const oldCompositionValueRef = React.useRef<string>();
@@ -220,7 +219,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         value={val}
         element={textArea}
         handleReset={handleReset}
-        ref={clearableInputRef}
         bordered={bordered}
         status={customStatus}
         style={showCount ? undefined : style}

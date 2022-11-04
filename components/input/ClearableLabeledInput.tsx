@@ -46,9 +46,24 @@ export interface ClearableInputProps extends BasicProps {
   status?: InputStatus;
 }
 
-class ClearableLabeledInput extends React.Component<ClearableInputProps> {
-  renderClearIcon(prefixCls: string) {
-    const { value, disabled, readOnly, handleReset, suffix } = this.props;
+const ClearableLabeledInput: React.FC<ClearableInputProps> = props => {
+  const {
+    prefixCls,
+    inputType,
+    element,
+    value,
+    allowClear,
+    style,
+    direction,
+    bordered,
+    hidden,
+    disabled,
+    readOnly,
+    suffix,
+    status: customStatus,
+    handleReset,
+  } = props;
+  const renderClearIcon = () => {
     const needClear = !disabled && !readOnly && value;
     const className = `${prefixCls}-clear-icon`;
     return (
@@ -67,30 +82,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         role="button"
       />
     );
-  }
-
-  renderTextAreaWithClearIcon(
-    prefixCls: string,
-    element: React.ReactElement,
-    statusContext: FormItemStatusContextProps,
-  ) {
-    const {
-      value,
-      allowClear,
-      className,
-      style,
-      direction,
-      bordered,
-      hidden,
-      status: customStatus,
-    } = this.props;
-
+  };
+  const renderTextAreaWithClearIcon = (statusContext: FormItemStatusContextProps) => {
     const { status: contextStatus, hasFeedback } = statusContext;
-
     if (!allowClear) {
-      return cloneElement(element, {
-        value,
-      });
+      return cloneElement(element, { value });
     }
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
@@ -104,32 +100,26 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
+        [`${props.className}`]: !hasAddon(props) && props.className,
       },
     );
     return (
       <span className={affixWrapperCls} style={style} hidden={hidden}>
-        {cloneElement(element, {
-          style: null,
-          value,
-        })}
-        {this.renderClearIcon(prefixCls)}
+        {cloneElement(element, { style: null, value })}
+        {renderClearIcon()}
       </span>
     );
-  }
+  };
 
-  render() {
-    return (
-      <FormItemInputContext.Consumer>
-        {statusContext => {
-          const { prefixCls, inputType, element } = this.props;
-          if (inputType === ClearableInputType[0]) {
-            return this.renderTextAreaWithClearIcon(prefixCls, element, statusContext);
-          }
-        }}
-      </FormItemInputContext.Consumer>
-    );
-  }
-}
+  return (
+    <FormItemInputContext.Consumer>
+      {statusContext => {
+        if (inputType === ClearableInputType[0]) {
+          return renderTextAreaWithClearIcon(statusContext);
+        }
+      }}
+    </FormItemInputContext.Consumer>
+  );
+};
 
 export default ClearableLabeledInput;
