@@ -14,6 +14,7 @@ import useLocale from '../../../hooks/useLocale';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import ResourceLayout from '../ResourceLayout';
+import GlobalStyles from '../../common/GlobalStyles';
 
 const styleCache = createCache();
 if (typeof global !== 'undefined') {
@@ -141,6 +142,7 @@ const DocLayout: FC = () => {
             />
           </Helmet>
           <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
+            <GlobalStyles />
             <Header changeDirection={changeDirection} />
             {content}
           </ConfigProvider>

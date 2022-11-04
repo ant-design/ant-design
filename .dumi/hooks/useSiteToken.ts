@@ -26,6 +26,7 @@ const useSiteToken = () => {
       marginFarSM: (token.marginXXL / 3) * 5,
       /** 96 */
       marginFar: token.marginXXL * 2,
+      codeFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
     },
   };
 };
