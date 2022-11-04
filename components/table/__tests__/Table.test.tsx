@@ -300,6 +300,14 @@ describe('Table', () => {
         key: 'name',
       },
       {
+        title: (
+          <div>
+            <i />
+          </div>
+        ),
+        key: 'name',
+      },
+      {
         title: () => (
           <div>
             <span>name</span>

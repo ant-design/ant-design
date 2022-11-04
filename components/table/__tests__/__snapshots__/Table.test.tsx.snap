@@ -249,6 +249,13 @@ exports[`Table should render title 1`] = `
                       class="ant-table-cell"
                     >
                       <div>
+                        <i />
+                      </div>
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                    >
+                      <div>
                         <span>
                           name
                         </span>
@@ -267,7 +274,7 @@ exports[`Table should render title 1`] = `
                   >
                     <td
                       class="ant-table-cell"
-                      colspan="2"
+                      colspan="3"
                     >
                       <div
                         class="ant-empty ant-empty-normal"
