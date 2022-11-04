@@ -23,12 +23,9 @@ import warning from '../../_util/warning';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
-): PickerComponentClass<RangePickerProps<DateType>> {
+) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
-
-  const RangePicker = forwardRef<
-    InternalRangePickerProps | CommonPickerMethods,
-    RangePickerProps<DateType> & {
+  type DateRangePickerProps = RangePickerProps<DateType> & {
       /**
        * @deprecated `dropdownClassName` is deprecated which will be removed in next major
        *   version.Please use `popupClassName` instead.
@@ -36,6 +33,10 @@ export default function generateRangePicker<DateType>(
       dropdownClassName: string;
       popupClassName?: string;
     }
+
+  const RangePicker = forwardRef<
+    InternalRangePickerProps | CommonPickerMethods,
+    DateRangePickerProps
   >((props, ref) => {
     const {
       prefixCls: customizePrefixCls,
@@ -149,5 +150,5 @@ export default function generateRangePicker<DateType>(
     );
   });
 
-  return RangePicker as unknown as PickerComponentClass<RangePickerProps<DateType>>;
+  return RangePicker as unknown as PickerComponentClass<DateRangePickerProps>;
 }
