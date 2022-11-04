@@ -36,12 +36,13 @@ function getElementFirstTextContent(node: React.ReactElement): string {
 export function renderColumnTitle<RecordType>(
   title: ColumnTitle<RecordType>,
   props: ColumnTitleProps<RecordType>,
+  onlyGetFirstTextContent = false,
 ) {
   if (typeof title === 'function') {
     return title(props);
   }
   // fix: #38155
-  if (React.isValidElement(title)) {
+  if (React.isValidElement(title) && onlyGetFirstTextContent) {
     // if title is a React Element, we should get first text content as result,
     // if there has not text content in React Element, return origin title
     return getElementFirstTextContent(title) || title;

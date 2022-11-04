@@ -209,12 +209,12 @@ function injectSorter<RecordType>(
           if (sorterOrder) {
             cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
           } else {
-            cell['aria-label'] = `${renderColumnTitle(column.title, {})} sortable`;
+            cell['aria-label'] = `${renderColumnTitle(column.title, {}, true)} sortable`;
           }
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
           if (column.ellipsis) {
-            cell.title = (renderColumnTitle(column.title, {}) ?? '').toString();
+            cell.title = (renderColumnTitle(column.title, {}, true) ?? '').toString();
           }
           return cell;
         },
