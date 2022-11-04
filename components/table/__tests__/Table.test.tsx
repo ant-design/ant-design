@@ -286,4 +286,30 @@ describe('Table', () => {
     render(<Wrapper />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
+
+  // https://github.com/ant-design/ant-design/issues/38371
+  it('should render title', () => {
+    const columns = [
+      {
+        title: (
+          <div>
+            <span>name</span>
+            <span>Jason</span>
+          </div>
+        ),
+        key: 'name',
+      },
+      {
+        title: () => (
+          <div>
+            <span>name</span>
+            <span>Red</span>
+          </div>
+        ),
+        key: 'name',
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+    expect(container).toMatchSnapshot();
+  });
 });
