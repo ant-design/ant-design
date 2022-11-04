@@ -3,7 +3,7 @@ import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, fireEvent, render } from '../../../tests/utils';
+import { waitFakeTimer, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Switch', () => {
@@ -12,10 +12,13 @@ describe('Switch', () => {
   rtlTest(Switch);
 
   it('should has click wave effect', async () => {
+    jest.useFakeTimers();
     const { container } = render(<Switch />);
     fireEvent.click(container.querySelector('.ant-switch')!);
-    await sleep(0);
+    await waitFakeTimer();
     expect(container.querySelector('button')!.getAttribute('ant-click-animating')).toBe('true');
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('warning if set `value`', () => {

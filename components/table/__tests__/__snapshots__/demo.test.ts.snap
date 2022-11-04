@@ -193,7 +193,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -2767,6 +2767,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -14433,6 +14434,7 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -16384,6 +16386,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -16735,6 +16738,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -17334,6 +17338,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -17959,6 +17964,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -20602,6 +20608,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -20902,6 +20909,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />

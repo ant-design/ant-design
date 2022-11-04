@@ -190,7 +190,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -203,4 +203,19 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
     </div>
   </div>
 </div>
+`;
+
+exports[`Table title should support ReactNode 1`] = `
+<th
+  class="ant-table-cell"
+>
+  <div>
+    <strong>
+      Current
+    </strong>
+    <span>
+      User
+    </span>
+  </div>
+</th>
 `;

@@ -179,15 +179,15 @@ describe('Form', () => {
       const { container } = render(<Demo />);
 
       await changeValue(0, '1');
-      await waitFakeTimer(2000);
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
 
       await changeValue(0, '2');
-      await waitFakeTimer(2000);
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('ccc');
 
       await changeValue(0, '1');
-      await waitFakeTimer(2000);
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
     });
   });

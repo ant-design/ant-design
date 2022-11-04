@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, triggerResize } from '../../../tests/utils';
 import PageHeader from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -121,10 +121,7 @@ describe('PageHeader', () => {
     jest.useFakeTimers();
     const { container } = render(<PageHeader title="Page Title" extra="extra" />);
     triggerResize(container.firstChild as HTMLDivElement);
-    await act(async () => {
-      await jest.runAllTimers();
-      await sleep();
-    });
+    await waitFakeTimer();
     expect(container.querySelector('div.ant-page-header')).toHaveClass('ant-page-header-compact');
     jest.useRealTimers();
   });
