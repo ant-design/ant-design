@@ -21,18 +21,16 @@ import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 import warning from '../../_util/warning';
 
-export default function generateRangePicker<DateType>(
-  generateConfig: GenerateConfig<DateType>,
-) {
+export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
   type DateRangePickerProps = RangePickerProps<DateType> & {
-      /**
-       * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-       *   version.Please use `popupClassName` instead.
-       */
-      dropdownClassName: string;
-      popupClassName?: string;
-    }
+    /**
+     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+     *   version.Please use `popupClassName` instead.
+     */
+    dropdownClassName?: string;
+    popupClassName?: string;
+  };
 
   const RangePicker = forwardRef<
     InternalRangePickerProps | CommonPickerMethods,

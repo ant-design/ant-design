@@ -8,7 +8,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import { useCompactItemContext } from '../../space/Compact';
-import type { PickerDateProps, PickerProps, PickerTimeProps } from '.';
+import type { PickerProps, PickerTimeProps } from '.';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
