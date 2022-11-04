@@ -288,7 +288,7 @@ describe('Table', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/38371
-  it('should render title', () => {
+  it('should render column title', () => {
     const columns = [
       {
         title: (

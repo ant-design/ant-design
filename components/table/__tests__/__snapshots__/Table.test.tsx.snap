@@ -205,7 +205,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
 </div>
 `;
 
-exports[`Table should render title 1`] = `
+exports[`Table should render column title 1`] = `
 <div>
   <div
     class="ant-table-wrapper"

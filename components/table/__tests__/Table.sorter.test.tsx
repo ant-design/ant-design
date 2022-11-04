@@ -3,7 +3,7 @@ import React from 'react';
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
-import type { ColumnsType, SortOrder } from '../interface';
+import type { ColumnsType, ColumnTitle, SortOrder } from '../interface';
 
 describe('Table.sorter', () => {
   const sorterFn: ColumnType<any>['sorter'] = (a, b) =>
@@ -1076,5 +1076,47 @@ describe('Table.sorter', () => {
       ]),
       expect.anything(),
     );
+  });
+
+  describe('Table.Column aria-label', () => {
+    const createTableSimple = (title: ColumnTitle<any>) =>
+      createTable(
+        { sortDirections: ['descend', 'ascend'] },
+        { title, defaultSortOrder: 'descend' },
+      );
+
+    const checkSorterLabel = (
+      container: HTMLElement,
+      firstAttribute: any,
+      secondAttribute: any,
+    ) => {
+      const getNameColumn = () => container.querySelector('th');
+      fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+      expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
+      expect(getNameColumn()?.getAttribute('aria-label')).toEqual(firstAttribute);
+      fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+      expect(getNameColumn()?.getAttribute('aria-label')).toEqual(secondAttribute);
+    };
+
+    it(`aria-label should be displayed`, () => {
+      const { container } = render(createTableSimple('Name'));
+      checkSorterLabel(container, null, 'Name sortable');
+    });
+
+    it('aria label is not displayed when title is ReactElement', () => {
+      const { container } = render(createTableSimple(<span>name</span>));
+      checkSorterLabel(container, null, null);
+    });
+
+    it('aria-label should be displayed when title is function', () => {
+      const { container } = render(createTableSimple(() => 'Name'));
+      checkSorterLabel(container, null, 'Name sortable');
+    });
+
+    it('aria label can be set through function parameter `onlyAria`', () => {
+      const title: ColumnTitle<any> = ({ onlyAria }) => (onlyAria ? 'Name' : <span>name</span>);
+      const { container } = render(createTableSimple(title));
+      checkSorterLabel(container, null, 'Name sortable');
+    });
   });
 });
