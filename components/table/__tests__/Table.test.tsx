@@ -298,6 +298,7 @@ describe('Table', () => {
           </div>
         ),
         key: 'name',
+        sorter: true,
       },
       {
         title: (
@@ -306,6 +307,7 @@ describe('Table', () => {
           </div>
         ),
         key: 'name',
+        sorter: true,
       },
       {
         title: () => (
@@ -315,6 +317,7 @@ describe('Table', () => {
           </div>
         ),
         key: 'name',
+        sorter: true,
       },
     ];
     const { container } = render(<Table columns={columns} />);
