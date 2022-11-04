@@ -64,6 +64,7 @@ export interface ColumnTitleProps<RecordType> {
   sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
 
   filters?: Record<string, FilterValue>;
+  onlyAria?: boolean;
 }
 
 export type ColumnTitle<RecordType> =
