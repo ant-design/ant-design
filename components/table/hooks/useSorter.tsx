@@ -206,12 +206,15 @@ function injectSorter<RecordType>(
           };
 
           const renderTitle = safeColumnTitle(column.title, {});
+          const displayTitle = renderTitle?.toString();
 
           // Inform the screen-reader so it can tell the visually impaired user which column is sorted
           if (sorterOrder) {
             cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
           } else {
-            cell['aria-label'] = `${renderTitle} sortable`;
+            cell['aria-label'] = `${
+              displayTitle ? `this column's title is ${displayTitle},` : ''
+            }this column is sortable`;
           }
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
