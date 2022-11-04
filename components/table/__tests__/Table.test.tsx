@@ -286,4 +286,24 @@ describe('Table', () => {
     render(<Wrapper />);
     expect(warnSpy).not.toHaveBeenCalled();
   });
+
+  it('title should support ReactNode', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: (
+              <div>
+                <strong>Current</strong> <span>User</span>
+              </div>
+            ),
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    expect(container.querySelector('thead th')).toMatchSnapshot();
+  });
 });
