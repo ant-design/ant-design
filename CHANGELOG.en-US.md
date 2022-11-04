@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-04`
 
-- 🐞 Fix Table render `column.title` not as expect. [#38383](https://github.com/ant-design/ant-design/pull/38383)
+- 🐞 Revert [#38160](https://github.com/ant-design/ant-design/pull/38160) to fix Table render `column.title` not as expect. [#38383](https://github.com/ant-design/ant-design/pull/38383)
 - 💄 Alert add `@alert-padding-vertical` & `@alert-padding-horizontal` less variables. [#38369](https://github.com/ant-design/ant-design/pull/38369) [@imoctopus](https://github.com/imoctopus)
 - 🐞 Fix Steps with customize Step `status` not work. [#38319](https://github.com/ant-design/ant-design/pull/38319) [@heiyu4585](https://github.com/heiyu4585)
 - 🐞 Fix Popconfirm icon color get polluted. [#38355](https://github.com/ant-design/ant-design/pull/38355)
