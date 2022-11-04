@@ -135,7 +135,7 @@ const App: React.FC = () => {
     <div>
       <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={onChange} />
       <Tree
-        onExpand={onExpand}
+        onExpand={() => onExpand}
         expandedKeys={expandedKeys}
         autoExpandParent={autoExpandParent}
         treeData={treeData}
