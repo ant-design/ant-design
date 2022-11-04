@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.24.0",
+  "version": "4.24.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -234,7 +234,7 @@
     "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.0.3",
-    "jest-axe": "^6.0.0",
+    "jest-axe": "^7.0.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
     "jest-image-snapshot": "^5.1.0",

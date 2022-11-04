@@ -624,3 +624,18 @@ exports[`Table should render title 1`] = `
   </div>
 </div>
 `;
+
+exports[`Table title should support ReactNode 1`] = `
+<th
+  class="ant-table-cell"
+>
+  <div>
+    <strong>
+      Current
+    </strong>
+    <span>
+      User
+    </span>
+  </div>
+</th>
+`;

@@ -333,4 +333,23 @@ describe('Table', () => {
     const { container } = render(<Table columns={columns} />);
     expect(container).toMatchSnapshot();
   });
+  it('title should support ReactNode', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: (
+              <div>
+                <strong>Current</strong> <span>User</span>
+              </div>
+            ),
+            dataIndex: 'name',
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+
+    expect(container.querySelector('thead th')).toMatchSnapshot();
+  });
 });
