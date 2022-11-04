@@ -81,7 +81,7 @@ const App: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
   const [autoExpandParent, setAutoExpandParent] = useState(true);
 
-  const onExpand = (newExpandedKeys: string[]) => {
+  const onExpand = (newExpandedKeys: React.Key[]) => {
     setExpandedKeys(newExpandedKeys);
     setAutoExpandParent(false);
   };
@@ -135,7 +135,7 @@ const App: React.FC = () => {
     <div>
       <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={onChange} />
       <Tree
-        onExpand={() => onExpand}
+        onExpand={onExpand}
         expandedKeys={expandedKeys}
         autoExpandParent={autoExpandParent}
         treeData={treeData}
