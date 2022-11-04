@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.1
+
+`2022-11-04`
+
+- 🐞 Revert [#38160](https://github.com/ant-design/ant-design/pull/38160) to fix Table render `column.title` not as expect. [#38383](https://github.com/ant-design/ant-design/pull/38383)
+- 💄 Alert add `@alert-padding-vertical` & `@alert-padding-horizontal` less variables. [#38369](https://github.com/ant-design/ant-design/pull/38369) [@imoctopus](https://github.com/imoctopus)
+- 🐞 Fix Steps with customize Step `status` not work. [#38319](https://github.com/ant-design/ant-design/pull/38319) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 Fix Popconfirm icon color get polluted. [#38355](https://github.com/ant-design/ant-design/pull/38355)
+- 🐞 Fix Anchor missing dot style. [#38338](https://github.com/ant-design/ant-design/pull/38338) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix DatePicker missing `popupClassName` definition. [#38325](https://github.com/ant-design/ant-design/pull/38325) [@Cedong.Lee](https://github.com/Cedong.Lee)
+
 ## 4.24.0
 
 `2022-11-01`

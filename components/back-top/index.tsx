@@ -56,7 +56,7 @@ const BackTop: React.FC<BackTopProps> = props => {
   });
 
   const ref = React.createRef<HTMLDivElement>();
-  const scrollEvent = React.useRef<any>();
+  const scrollEvent = React.useRef<ReturnType<typeof addEventListener>>(null);
 
   const getDefaultTarget = () =>
     ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
