@@ -63,7 +63,7 @@ const Compact: React.FC<SpaceCompactProps> = props => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
-    size = 'middle',
+    size,
     direction,
     block,
     prefixCls: customizePrefixCls,
