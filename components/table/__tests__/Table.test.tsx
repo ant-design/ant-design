@@ -312,10 +312,20 @@ describe('Table', () => {
       {
         title: () => (
           <div>
-            <span>name</span>
-            <span>Red</span>
+            <span>age</span>
+            <span>20</span>
           </div>
         ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: () => 'color',
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: 'sex',
         key: 'name',
         sorter: true,
       },
