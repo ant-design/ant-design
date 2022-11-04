@@ -122,7 +122,7 @@ class Demo extends React.Component {
   handleIframeReady = () => {
     const { theme, setIframeTheme } = this.props;
     if (this.iframeRef.current) {
-      setIframeTheme(this.iframeRef.current, theme);
+      // setIframeTheme(this.iframeRef.current, theme);
     }
   };
 

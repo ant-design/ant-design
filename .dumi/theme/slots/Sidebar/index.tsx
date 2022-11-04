@@ -142,9 +142,7 @@ const Sidebar: FC = () => {
   );
 
   return isMobile ? (
-    <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
-      {menuChild}
-    </MobileMenu>
+    <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
       <Affix>
