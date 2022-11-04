@@ -28,14 +28,49 @@ const useStyle = () => {
       }
     `,
     toc: css`
-      position: absolute;
-      top: 8px;
-      right: 20px;
-      margin-block: 20px;
-      width: 120px;
-
       ${antCls}-anchor-link-title {
         font-size: 12px;
+      }
+    `,
+    tocWrapper: css`
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 146px;
+      margin: 12px 0;
+      padding: 8px;
+      backdrop-filter: blur(8px);
+      border-radius: ${token.borderRadius}px;
+      overflow: hidden;
+
+      > div {
+        box-sizing: border-box;
+        width: 100%;
+        max-height: calc(100vh - 40px);
+        margin: 0 auto;
+        overflow: auto;
+        padding-inline-end: 4px;
+
+        ::-webkit-scrollbar {
+          width: 8px;
+          background-color: transparent;
+        }
+
+        /* background of the scrollbar except button or resizer */
+        ::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+
+        /* scrollbar itself */
+        ::-webkit-scrollbar-thumb {
+          background-color: ${token.colorFill};
+          border-radius: 8px;
+        }
+
+        /* set button(top and bottom of the scrollbar) */
+        ::-webkit-scrollbar-button {
+          display: none;
+        }
       }
     `,
   };
@@ -72,15 +107,21 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-      <Anchor css={styles.toc}>
-        {anchorItems.map(item => (
-          <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
-            {item.children?.map(child => (
-              <Anchor.Link href={`#${child.id}`} title={child.title} key={child.id} />
-            ))}
-          </Anchor.Link>
-        ))}
-      </Anchor>
+      <Affix>
+        <div css={styles.tocWrapper}>
+          <div>
+            <Anchor css={styles.toc} affix={false}>
+              {anchorItems.map(item => (
+                <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
+                  {item.children?.map(child => (
+                    <Anchor.Link href={`#${child.id}`} title={child.title} key={child.id} />
+                  ))}
+                </Anchor.Link>
+              ))}
+            </Anchor>
+          </div>
+        </div>
+      </Affix>
       <div style={{ padding: '0 170px 32px 64px' }}>
         <Typography.Title level={2}>
           {meta.frontmatter.title}

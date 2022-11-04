@@ -1,12 +1,13 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useAppData, useLocation, useRouteMeta, useIntl } from 'dumi';
+import { Link, useAppData, useLocation, useRouteMeta, useIntl, useSidebarData } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getLocalizedPathname, getThemeConfig, getMenuItems } from '../../utils';
-import cnProComponentsList from './ProComponentsList';
+import proComponentsList from './ProComponentsList';
+import type { Component } from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
 
 const useStyle = () => {
@@ -83,34 +84,10 @@ const Overview: React.FC = () => {
   const style = useStyle();
   const meta = useRouteMeta();
   const location = useLocation();
-  const { routes } = useAppData();
-  const componentsList: any[] = [];
-  Object.values(routes).forEach(component => {
-    if ((component as any)?.meta?.frontmatter?.category === 'Components') {
-      componentsList.push(component);
-    }
-  });
-
-  // const enList = componentsList.filter(item => item?.id?.endsWith('.en-US'));
-
-  const cnList = componentsList.filter(item => item?.id?.endsWith('.zh-CN'));
-
-  const cnComponentsData = cnList.map(({ meta, path }) => {
-    const { frontmatter = {} } = meta;
-    const { group, title, cover, subtitle = '', category } = frontmatter;
-    const type = typeof group === 'string' ? group : group?.title;
-    return { meta: { category, subtitle, type, title, cover, path } };
-  });
+  const data = useSidebarData();
 
   const { locale, formatMessage } = useIntl();
   const documentTitle = `${meta.frontmatter.title} - Ant Design`;
-  const { categoryOrder, typeOrder } = getThemeConfig();
-  const menuItems = getMenuItems(
-    [...cnComponentsData, ...cnProComponentsList],
-    locale,
-    categoryOrder,
-    typeOrder,
-  );
 
   const [search, setSearch] = useState<string>('');
 
@@ -121,6 +98,26 @@ const Overview: React.FC = () => {
       sectionRef.current?.querySelector<HTMLElement>('.components-overview-card')?.click();
     }
   };
+
+  const groups = useMemo<{ title: string; children: Component[] }[]>(() => {
+    return data
+      .filter(item => item.title)
+      .map(item => {
+        return {
+          ...item,
+          children: item.children.map(child => ({
+            ...child.frontmatter,
+            link: child.link,
+          })),
+        };
+      })
+      .concat([
+        {
+          title: locale === 'zh-CN' ? '重型组件' : 'Others',
+          children: proComponentsList,
+        },
+      ]);
+  }, [data, locale]);
 
   return (
     <section className="markdown" ref={sectionRef}>
@@ -142,8 +139,8 @@ const Overview: React.FC = () => {
         suffix={<SearchOutlined />}
       />
       <Divider />
-      {menuItems
-        .filter(i => i.order! > -1 && i.type !== 'category')
+      {groups
+        .filter(i => i.title)
         .map(group => {
           const components = group?.children?.filter(
             component =>
@@ -160,52 +157,48 @@ const Overview: React.FC = () => {
                 </Space>
               </Title>
               <Row gutter={[24, 24]}>
-                {components
-                  .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                  .map(component => {
-                    const url = `${component.path
-                      ?.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
-                      ?.toLowerCase()}/`;
+                {components.map(component => {
+                  const url = `${component.link}/`;
 
-                    // 如果是 https 就不用处理了
-                    const href = url.startsWith('http')
-                      ? url
-                      : getLocalizedPathname(url, locale === 'zh-CN', location.pathname);
+                  // 如果是 https 就不用处理了
+                  const href = url.startsWith('http')
+                    ? url
+                    : getLocalizedPathname(url, locale === 'zh-CN', location.pathname);
 
-                    /** Link 不能跳转到外链 */
-                    const ComponentLink = !url.startsWith('http') ? Link : 'a';
+                  /** Link 不能跳转到外链 */
+                  const ComponentLink = !url.startsWith('http') ? Link : 'a';
 
-                    const linkHref = typeof href === 'string' ? href : href.pathname;
+                  const linkHref = typeof href === 'string' ? href : href.pathname;
 
-                    return (
-                      <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
-                        <ComponentLink
-                          to={linkHref}
-                          href={linkHref}
-                          onClick={() => onClickCard(linkHref)}
-                        >
-                          <Card
-                            bodyStyle={{
-                              backgroundRepeat: 'no-repeat',
-                              backgroundPosition: 'bottom right',
-                              backgroundImage: `url(${component?.tag || ''})`,
-                            }}
-                            size="small"
-                            css={style.componentsOverviewCard}
-                            title={
-                              <div css={style.componentsOverviewTitle}>
-                                {component.title} {component?.subtitle}
-                              </div>
-                            }
-                          >
-                            <div css={style.componentsOverviewImg}>
-                              <img src={component.cover} alt={component.title} />
+                  return (
+                    <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+                      <ComponentLink
+                        to={linkHref}
+                        href={linkHref}
+                        onClick={() => onClickCard(linkHref)}
+                      >
+                        <Card
+                          bodyStyle={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'bottom right',
+                            backgroundImage: `url(${component?.tag || ''})`,
+                          }}
+                          size="small"
+                          css={style.componentsOverviewCard}
+                          title={
+                            <div css={style.componentsOverviewTitle}>
+                              {component.title} {component.subtitle}
                             </div>
-                          </Card>
-                        </ComponentLink>
-                      </Col>
-                    );
-                  })}
+                          }
+                        >
+                          <div css={style.componentsOverviewImg}>
+                            <img src={component.cover} alt={component.title} />
+                          </div>
+                        </Card>
+                      </ComponentLink>
+                    </Col>
+                  );
+                })}
               </Row>
             </div>
           ) : null;

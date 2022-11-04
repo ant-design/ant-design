@@ -13,8 +13,8 @@ const useStyle = () => {
 
   return {
     prevNextNav: css`
-      width: calc(100% - 128px);
-      margin-inline-end: 64px;
+      width: calc(100% - 234px);
+      margin-inline-end: 170px;
       margin-inline-start: 64px;
       overflow: hidden;
       font-size: 14px;
