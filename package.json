@@ -237,7 +237,7 @@
     "jest-axe": "^7.0.0",
     "jest-environment-jsdom": "^29.0.1",
     "jest-environment-node": "^29.0.0",
-    "jest-image-snapshot": "^5.1.0",
+    "jest-image-snapshot": "^6.0.0",
     "jest-puppeteer": "^6.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^20.0.0",
