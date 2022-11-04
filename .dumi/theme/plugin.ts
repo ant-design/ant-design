@@ -61,6 +61,11 @@ const RoutesPlugin = (api: IApi) => {
 
     return routes;
   });
+
+  // exclude dynamic route path, to avoid deploy failed by `:id` directory
+  api.modifyExportHTMLFiles(files => {
+    return files.filter(f => !f.path.includes(':'));
+  });
 };
 
 export default RoutesPlugin;
