@@ -6,7 +6,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
-      aria-label="Name sortable"
+      aria-label="this column's title is Name,this column is sortable"
       class="ant-table-cell ant-table-column-has-sorters"
       tabindex="0"
     >
