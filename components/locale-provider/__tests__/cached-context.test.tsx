@@ -28,11 +28,13 @@ const CacheOuter: React.FC = memo(() => (
     </LocaleProvider>
   </>
 ));
+
 it("Rendering on LocaleProvider won't trigger rendering on child component.", () => {
-  const { container } = pureRender(<CacheOuter />);
+  const { container, unmount } = pureRender(<CacheOuter />);
   expect(outerCount).toBe(0);
   expect(innerCount).toBe(1);
   fireEvent.click(container.querySelector('#parent_btn')!);
   expect(outerCount).toBe(1);
   expect(innerCount).toBe(1);
+  unmount();
 });
