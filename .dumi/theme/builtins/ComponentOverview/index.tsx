@@ -102,11 +102,13 @@ const Overview: React.FC = () => {
   const groups = useMemo<{ title: string; children: Component[] }[]>(() => {
     return data
       .filter(item => item.title)
-      .map(item => {
+      .map<{ title: string; children: Component[] }>(item => {
         return {
-          ...item,
+          title: item.title!,
           children: item.children.map(child => ({
-            ...child.frontmatter,
+            title: child.frontmatter.title,
+            subtitle: child.frontmatter.subtitle,
+            cover: child.frontmatter.cover,
             link: child.link,
           })),
         };
