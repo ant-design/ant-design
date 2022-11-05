@@ -125,15 +125,13 @@ const App: React.FC = () => {
       setColumns(newColumns);
     };
 
-  const mergeColumns: ColumnsType<DataType> = columns.map<ColumnsType<DataType>[number]>(
-    (col, index) => ({
-      ...col,
-      onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
-        width: column.width,
-        onResize: handleResize(index) as React.ReactEventHandler<any>,
-      }),
+  const mergeColumns: ColumnsType<DataType> = columns.map((col, index) => ({
+    ...col,
+    onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
+      width: column.width,
+      onResize: handleResize(index) as React.ReactEventHandler<any>,
     }),
-  );
+  }));
 
   return (
     <Table
