@@ -11,7 +11,7 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
-const defaultIconRender = (visible: boolean) =>
+const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
 
 type VisibilityToggle = {
