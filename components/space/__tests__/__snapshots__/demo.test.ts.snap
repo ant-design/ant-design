@@ -504,7 +504,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
       style="width:30%"
     >
       <span
@@ -546,7 +546,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
       style="width:50%"
     >
       <span
@@ -621,7 +621,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-last-item"
       style="width:20%"
     >
       <span
@@ -818,7 +818,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-compact-item ant-picker-compact-last-item"
       style="width:50%"
     >
       <div
@@ -863,7 +863,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
       style="width:70%"
     >
       <div
@@ -970,7 +970,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-last-item"
       style="width:70%"
     >
       <div
@@ -1361,7 +1361,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
       style="width:70%"
     >
       <div
@@ -1467,7 +1467,7 @@ exports[`renders ./components/space/demo/compact.md correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -2468,7 +2468,7 @@ exports[`renders ./components/space/demo/compact-debug.md correctly 1`] = `
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -2509,7 +2509,7 @@ exports[`renders ./components/space/demo/compact-debug.md correctly 1`] = `
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -3007,7 +3007,7 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+          class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
           style="width:110px"
         >
           <span
@@ -3101,7 +3101,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
       >
         <div
           class="ant-picker-input"
@@ -3399,7 +3399,7 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+      />
   </button>,
   <div
     style="box-shadow:0 0 5px green"
