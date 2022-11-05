@@ -103,7 +103,8 @@
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13"
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13",
+    "fix-memory-limit": "cross-env LIMIT=10240 increase-memory-limit"
   },
   "browserslist": [
     "> 0.5%",
@@ -230,6 +231,7 @@
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
+    "increase-memory-limit": "^1.0.7",
     "inquirer": "^9.1.2",
     "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
