@@ -3,6 +3,7 @@ import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import panelRender from '../panelRender';
 
 describe('Tour', () => {
   mountTest(Tour);
@@ -10,19 +11,18 @@ describe('Tour', () => {
 
   it('single', () => {
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>();
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
           <button disabled ref={coverBtnRef} type="button">
             Cover
           </button>
-
           <Tour
             steps={[
               {
                 title: 'cover title',
                 description: 'cover description.',
-                target: () => coverBtnRef.current,
+                target: () => coverBtnRef.current!,
               },
             ]}
           />
@@ -37,7 +37,7 @@ describe('Tour', () => {
 
   it('steps is empty', () => {
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>();
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
           <button disabled ref={coverBtnRef} type="button">
@@ -56,7 +56,7 @@ describe('Tour', () => {
     const onClickMock = jest.fn();
     const stepRenderMock = jest.fn();
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>();
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
           <button disabled ref={coverBtnRef} type="button">
@@ -107,7 +107,7 @@ describe('Tour', () => {
 
   it('button props onClick', () => {
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>();
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
       const [btnName, steBtnName] = React.useState<string>('defaultBtn');
       return (
         <>
@@ -121,14 +121,14 @@ describe('Tour', () => {
               {
                 title: '',
                 description: '',
-                target: () => coverBtnRef.current,
+                target: () => coverBtnRef.current!,
                 nextButtonProps: {
                   onClick: () => steBtnName('nextButton'),
                 },
               },
               {
                 title: '',
-                target: () => coverBtnRef.current,
+                target: () => coverBtnRef.current!,
                 prevButtonProps: {
                   onClick: () => steBtnName('prevButton'),
                 },
@@ -154,7 +154,7 @@ describe('Tour', () => {
 
   it('Primary', () => {
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>();
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
       return (
         <>
           <button disabled ref={coverBtnRef} type="button">
@@ -167,7 +167,7 @@ describe('Tour', () => {
               {
                 title: 'primary title',
                 description: 'primary description.',
-                target: () => coverBtnRef.current,
+                target: () => coverBtnRef.current!,
               },
             ]}
           />
@@ -182,10 +182,10 @@ describe('Tour', () => {
 
   it('basic', () => {
     const App: React.FC = () => {
-      const coverBtnRef = useRef<any>(null);
-      const placementBtnRef = useRef<any>(null);
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
+      const placementBtnRef = useRef<HTMLButtonElement>(null);
 
-      const [show, setShow] = React.useState<boolean | undefined>();
+      const [show, setShow] = React.useState<boolean>();
 
       useEffect(() => {
         if (show === false) {
@@ -223,7 +223,7 @@ describe('Tour', () => {
                 {
                   title: 'With Cover',
                   description: 'Here is the content of Tour.',
-                  target: () => coverBtnRef.current,
+                  target: () => coverBtnRef.current!,
                   cover: (
                     <img
                       alt="tour.png"
@@ -235,7 +235,7 @@ describe('Tour', () => {
                   title: 'Adjust Placement',
                   description: 'Here is the content of Tour which show on the right.',
                   placement: 'right',
-                  target: () => placementBtnRef.current,
+                  target: () => placementBtnRef.current!,
                 },
               ]}
             />
@@ -253,5 +253,10 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(container.querySelector('.ant-tour')).toBeFalsy();
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it('panelRender should correct render when total is undefined', () => {
+    expect(() => {
+      panelRender({ total: undefined, title: <div>test</div> }, 0, 'default');
+    }).not.toThrow();
   });
 });
