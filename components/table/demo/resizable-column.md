@@ -16,7 +16,7 @@ Implement resizable column by integrate with [react-resizable](https://github.co
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType, ColumnType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
@@ -125,13 +125,15 @@ const App: React.FC = () => {
       setColumns(newColumns);
     };
 
-  const mergeColumns: ColumnsType<DataType> = columns.map<ColumnType<DataType>>((col, index) => ({
-    ...col,
-    onHeaderCell: (column: ColumnType<DataType>) => ({
-      width: column.width,
-      onResize: handleResize(index),
+  const mergeColumns: ColumnsType<DataType> = columns.map<ColumnsType<DataType>[number]>(
+    (col, index) => ({
+      ...col,
+      onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
+        width: column.width,
+        onResize: handleResize(index),
+      }),
     }),
-  }));
+  );
 
   return (
     <Table
