@@ -17,7 +17,7 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
+import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -205,16 +205,21 @@ function injectSorter<RecordType>(
             }
           };
 
+          const renderTitle = safeColumnTitle(column.title, {});
+          const displayTitle = renderTitle?.toString();
+
           // Inform the screen-reader so it can tell the visually impaired user which column is sorted
           if (sorterOrder) {
             cell['aria-sort'] = sorterOrder === 'ascend' ? 'ascending' : 'descending';
           } else {
-            cell['aria-label'] = `${renderColumnTitle(column.title, {})} sortable`;
+            cell['aria-label'] = `${
+              displayTitle ? `this column's title is ${displayTitle},` : ''
+            }this column is sortable`;
           }
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
           if (column.ellipsis) {
-            cell.title = (renderColumnTitle(column.title, {}) ?? '').toString();
+            cell.title = (renderTitle ?? '').toString();
           }
           return cell;
         },

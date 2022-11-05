@@ -287,6 +287,53 @@ describe('Table', () => {
     expect(warnSpy).not.toHaveBeenCalled();
   });
 
+  // https://github.com/ant-design/ant-design/issues/38371
+  it('should render title', () => {
+    const columns = [
+      {
+        title: (
+          <div>
+            <span>name</span>
+            <span>Jason</span>
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: (
+          <div>
+            <i />
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: () => (
+          <div>
+            <span>age</span>
+            <span>20</span>
+          </div>
+        ),
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: () => 'color',
+        key: 'name',
+        sorter: true,
+      },
+      {
+        title: 'sex',
+        key: 'name',
+        sorter: true,
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('title should support ReactNode', () => {
     const { container } = render(
       <Table
