@@ -130,7 +130,7 @@ const App: React.FC = () => {
       ...col,
       onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
         width: column.width,
-        onResize: handleResize(index),
+        onResize: handleResize(index) as React.ReactEventHandler<any>,
       }),
     }),
   );
