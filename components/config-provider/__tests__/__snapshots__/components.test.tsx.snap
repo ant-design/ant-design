@@ -26954,7 +26954,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27260,7 +27260,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27568,7 +27568,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27874,7 +27874,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28180,7 +28180,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28486,7 +28486,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28792,7 +28792,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
                     tabindex="0"
                   >
