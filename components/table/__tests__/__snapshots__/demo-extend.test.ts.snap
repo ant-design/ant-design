@@ -35,7 +35,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -1549,7 +1549,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                     </div>
                   </th>
                   <th
-                    aria-label="Address sortable"
+                    aria-label="this column's title is Address,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -3314,7 +3314,7 @@ Array [
                       Name
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -3625,7 +3625,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Action sortable"
+                      aria-label="this column's title is Action,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -7589,7 +7589,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -8410,7 +8410,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -12254,7 +12254,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                 </tr>
                 <tr>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
                     tabindex="0"
@@ -13354,7 +13354,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14707,7 +14707,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     Name
                   </th>
                   <th
-                    aria-label="Chinese Score sortable"
+                    aria-label="this column's title is Chinese Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14792,7 +14792,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
-                    aria-label="Math Score sortable"
+                    aria-label="this column's title is Math Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14877,7 +14877,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
-                    aria-label="English Score sortable"
+                    aria-label="this column's title is English Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -20374,7 +20374,7 @@ Array [
                 >
                   <tr>
                     <th
-                      aria-label="Name sortable"
+                      aria-label="this column's title is Name,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Name"
@@ -20681,7 +20681,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Age"
@@ -20767,7 +20767,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Address sortable"
+                      aria-label="this column's title is Address,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Address"
@@ -21310,7 +21310,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                     />
                   </th>
                   <th
-                    aria-label="Amount sortable"
+                    aria-label="this column's title is Amount,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     tabindex="0"
                   >
