@@ -1,0 +1,19 @@
+// @import '../mixins/motion'; This has moved to theme/xxx inside.
+@import "motion/fade";
+@import "motion/move";
+@import "motion/other";
+@import "motion/slide";
+@import "motion/zoom";
+// For common/openAnimation
+.ant-motion-collapse-legacy {
+  overflow: hidden;
+  &-active {
+    transition: height $animation-duration-base $ease-in-out,
+      opacity $animation-duration-base $ease-in-out;
+  }
+}
+.ant-motion-collapse {
+  overflow: hidden;
+  transition: height $animation-duration-base $ease-in-out,
+    opacity $animation-duration-base $ease-in-out;
+}

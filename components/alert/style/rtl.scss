@@ -1,0 +1,35 @@
+.#{$alert-prefix-cls} {
+  &#{&}-rtl {
+    direction: rtl;
+  }
+  &-icon {
+    @at-root .#{$alert-prefix-cls}-rtl & {
+      margin-right: auto;
+      margin-left: $margin-xs;
+    }
+  }
+  &-action {
+    @at-root .#{$alert-prefix-cls}-rtl & {
+      margin-right: $margin-xs;
+      margin-left: auto;
+    }
+  }
+  &-close-icon {
+    @at-root .#{$alert-prefix-cls}-rtl & {
+      margin-right: $margin-xs;
+      margin-left: auto;
+    }
+  }
+  &-with-description {
+    @at-root .#{$alert-prefix-cls}-rtl#{&} {
+      padding-right: $alert-with-description-icon-size;
+      padding-left: $alert-with-description-padding-vertical;
+    }
+    .#{$alert-prefix-cls}-icon {
+      @at-root .#{$alert-prefix-cls}-rtl#{&} {
+        margin-right: auto;
+        margin-left: $alert-with-description-padding-vertical;
+      }
+    }
+  }
+}

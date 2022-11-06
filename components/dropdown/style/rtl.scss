@@ -1,0 +1,77 @@
+@import "../../style/themes/index";
+@import "../../style/mixins/index";
+$dropdown-prefix-cls: "#{$ant-prefix}-dropdown";
+.#{$dropdown-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+  &::before {
+    @at-root .#{$dropdown-prefix-cls}-rtl#{&} {
+      right: -7px;
+      left: 0;
+    }
+  }
+  &-menu {
+    &#{&}-rtl {
+      direction: rtl;
+      text-align: right;
+    }
+    &-item-group-title {
+      @at-root .#{$dropdown-prefix-cls}-rtl &,
+        .#{$dropdown-prefix-cls}-menu-submenu-rtl & {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+    &-submenu-popup {
+      &.#{$dropdown-prefix-cls}-menu-submenu-rtl {
+        transform-origin: 100% 0;
+      }
+      ul,
+      li {
+        @at-root .#{$dropdown-prefix-cls}-rtl & {
+          text-align: right;
+        }
+      }
+    }
+    &-item,
+    &-submenu-title {
+      @at-root .#{$dropdown-prefix-cls}-rtl & {
+        text-align: right;
+      }
+      > .#{$iconfont-css-prefix}:first-child,
+      > span > .#{$iconfont-css-prefix}:first-child {
+        @at-root .#{$dropdown-prefix-cls}-rtl & {
+          margin-right: 0;
+          margin-left: 8px;
+        }
+      }
+      .#{$dropdown-prefix-cls}-menu-submenu-expand-icon {
+        @at-root .#{$dropdown-prefix-cls}-rtl & {
+          right: auto;
+          left: $padding-xs;
+        }
+        .#{$dropdown-prefix-cls}-menu-submenu-arrow-icon {
+          @at-root .#{$dropdown-prefix-cls}-rtl & {
+            margin-left: 0 !important;
+            transform: scaleX(-1);
+          }
+        }
+      }
+    }
+    &-submenu-title {
+      @at-root .#{$dropdown-prefix-cls}-rtl & {
+        padding-right: $control-padding-horizontal;
+        padding-left: $control-padding-horizontal + $font-size-sm;
+      }
+    }
+    &-submenu-vertical > & {
+      @at-root .#{$dropdown-prefix-cls}-rtl & {
+        right: 100%;
+        left: 0;
+        margin-right: 4px;
+        margin-left: 0;
+      }
+    }
+  }
+}

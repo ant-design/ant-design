@@ -1,0 +1,24 @@
+@import "../../input/style/mixin";
+$transfer-prefix-cls: "#{$ant-prefix}-transfer";
+@mixin transfer-status-color($color) {
+  .#{$transfer-prefix-cls}-list {
+    border-color: $color;
+    &-search:not([disabled]) {
+      border-color: $input-border-color;
+      &:hover {
+        @include hover;
+      }
+      &:focus {
+        @include active;
+      }
+    }
+  }
+}
+.#{$transfer-prefix-cls} {
+  &-status-error {
+    @include transfer-status-color($error-color);
+  }
+  &-status-warning {
+    @include transfer-status-color($warning-color);
+  }
+}

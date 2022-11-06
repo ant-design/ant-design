@@ -1,0 +1,5 @@
+@import "../../style/themes/index";
+.#{$ant-prefix}-affix {
+  position: fixed;
+  z-index: $zindex-affix;
+}

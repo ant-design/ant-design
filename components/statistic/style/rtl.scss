@@ -1,0 +1,19 @@
+.#{$statistic-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+  &-content {
+    &-prefix {
+      @at-root .#{$statistic-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 4px;
+      }
+    }
+    &-suffix {
+      @at-root .#{$statistic-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
+    }
+  }
+}

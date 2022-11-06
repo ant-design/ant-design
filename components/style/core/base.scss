@@ -1,0 +1,9 @@
+// Config global less under antd
+:^=(class),: * =(class) {
+  // remove the clear button of a text input control in IE10+
+  &::-ms-clear,
+  input::-ms-clear,
+  input::-ms-reveal {
+    display: none;
+  }
+}

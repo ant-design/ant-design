@@ -1,0 +1,62 @@
+// =============== Common ===============
+@mixin typography-paragraph {
+  margin-bottom: 1em;
+}
+@mixin typography-title(
+  $fontSize,
+  $fontWeight,
+  $lineHeight,
+  $headingColor,
+  $headingMarginBottom
+) {
+  margin-bottom: $headingMarginBottom;
+  color: $headingColor;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+@mixin typography-title-1 {
+  @include typography-title(
+    $heading-1-size,
+    $typography-title-font-weight,
+    1.23,
+    $heading-color,
+    $typography-title-margin-bottom
+  );
+}
+@mixin typography-title-2 {
+  @include typography-title(
+    $heading-2-size,
+    $typography-title-font-weight,
+    1.35,
+    $heading-color,
+    $typography-title-margin-bottom
+  );
+}
+@mixin typography-title-3 {
+  @include typography-title(
+    $heading-3-size,
+    $typography-title-font-weight,
+    1.35,
+    $heading-color,
+    $typography-title-margin-bottom
+  );
+}
+@mixin typography-title-4 {
+  @include typography-title(
+    $heading-4-size,
+    $typography-title-font-weight,
+    1.4,
+    $heading-color,
+    $typography-title-margin-bottom
+  );
+}
+@mixin typography-title-5 {
+  @include typography-title(
+    $heading-5-size,
+    $typography-title-font-weight,
+    1.5,
+    $heading-color,
+    $typography-title-margin-bottom
+  );
+}

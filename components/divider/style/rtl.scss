@@ -1,0 +1,32 @@
+@import "../../style/themes/index";
+@import "../../style/mixins/index";
+$divider-prefix-cls: "#{$ant-prefix}-divider";
+.#{$divider-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+  &-horizontal#{&}-with-text-left {
+    &::before {
+      @at-root .#{$divider-prefix-cls}-rtl#{&} {
+        width: 100% - $divider-orientation-margin;
+      }
+    }
+    &::after {
+      @at-root .#{$divider-prefix-cls}-rtl#{&} {
+        width: $divider-orientation-margin;
+      }
+    }
+  }
+  &-horizontal#{&}-with-text-right {
+    &::before {
+      @at-root .#{$divider-prefix-cls}-rtl#{&} {
+        width: $divider-orientation-margin;
+      }
+    }
+    &::after {
+      @at-root .#{$divider-prefix-cls}-rtl#{&} {
+        width: 100% - $divider-orientation-margin;
+      }
+    }
+  }
+}

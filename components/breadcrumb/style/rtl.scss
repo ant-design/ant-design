@@ -1,0 +1,26 @@
+.#{$breadcrumb-prefix-cls} {
+  &-rtl {
+    @include clearfix;
+    direction: rtl;
+    > span {
+      float: right;
+    }
+  }
+  &-link {
+    > .#{$iconfont-css-prefix} + span,
+    > .#{$iconfont-css-prefix} + a {
+      @at-root .#{$breadcrumb-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
+    }
+  }
+  &-overlay-link {
+    > .#{$iconfont-css-prefix} {
+      @at-root .#{$breadcrumb-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
+    }
+  }
+}

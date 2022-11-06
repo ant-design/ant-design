@@ -1,0 +1,118 @@
+@import "../../style/themes/index";
+$drawer-prefix-cls: "#{$ant-prefix}-drawer";
+.panel-motion {
+  &-enter,
+  &-appear,
+  &-leave {
+    &-start {
+      transition: none;
+    }
+    &-active {
+      transition: all $animation-duration-slow;
+    }
+  }
+}
+.#{$drawer-prefix-cls} {
+  // ======================== Mask ========================
+  &-mask-motion {
+    &-enter,
+    &-appear,
+    &-leave {
+      &-active {
+        transition: all $animation-duration-slow;
+      }
+    }
+    &-enter,
+    &-appear {
+      opacity: 0;
+      &-active {
+        opacity: 1;
+      }
+    }
+    &-leave {
+      opacity: 1;
+      &-active {
+        opacity: 0;
+      }
+    }
+  }
+  // ======================= Panel ========================
+  &-panel-motion {
+    // Left
+    &-left {
+      @include panel-motion;
+      &-enter,
+      &-appear {
+        &-start {
+          transform: translateX(-100%);
+        }
+        &-active {
+          transform: translateX(0);
+        }
+      }
+      &-leave {
+        transform: translateX(0);
+        &-active {
+          transform: translateX(-100%);
+        }
+      }
+    }
+    // Right
+    &-right {
+      @include panel-motion;
+      &-enter,
+      &-appear {
+        &-start {
+          transform: translateX(100%);
+        }
+        &-active {
+          transform: translateX(0);
+        }
+      }
+      &-leave {
+        transform: translateX(0);
+        &-active {
+          transform: translateX(100%);
+        }
+      }
+    }
+    // Top
+    &-top {
+      @include panel-motion;
+      &-enter,
+      &-appear {
+        &-start {
+          transform: translateY(-100%);
+        }
+        &-active {
+          transform: translateY(0);
+        }
+      }
+      &-leave {
+        transform: translateY(0);
+        &-active {
+          transform: translateY(-100%);
+        }
+      }
+    }
+    // Bottom
+    &-bottom {
+      @include panel-motion;
+      &-enter,
+      &-appear {
+        &-start {
+          transform: translateY(100%);
+        }
+        &-active {
+          transform: translateY(0);
+        }
+      }
+      &-leave {
+        transform: translateY(0);
+        &-active {
+          transform: translateY(100%);
+        }
+      }
+    }
+  }
+}

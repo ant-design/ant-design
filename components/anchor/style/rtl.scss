@@ -1,0 +1,31 @@
+.#{$ant-prefix}-anchor {
+  &-rtl {
+    direction: rtl;
+  }
+  &-wrapper {
+    @at-root .#{$ant-prefix}-anchor-rtl#{&} {
+      margin-right: -4px;
+      margin-left: 0;
+      padding-right: 4px;
+      padding-left: 0;
+    }
+  }
+  &-ink {
+    @at-root .#{$ant-prefix}-anchor-rtl & {
+      right: 0;
+      left: auto;
+    }
+    &-ball {
+      @at-root .#{$ant-prefix}-anchor-rtl & {
+        right: 50%;
+        left: 0;
+        transform: translateX(50%);
+      }
+    }
+  }
+  &-link {
+    @at-root .#{$ant-prefix}-anchor-rtl & {
+      padding: $anchor-link-top $anchor-link-left $anchor-link-top 0;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../style/themes/index";
+@import "../../style/mixins/index";
+$slider-prefix-cls: "#{$ant-prefix}-slider";
+.#{$slider-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+  &-mark {
+    @at-root .#{$slider-prefix-cls}-rtl & {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+@mixin vertical {
+  &-vertical {
+    .#{$slider-prefix-cls}-handle {
+      @at-root .#{$slider-prefix-cls}-rtl#{&} {
+        margin-right: -5px;
+        margin-left: 0;
+      }
+    }
+    .#{$slider-prefix-cls}-mark {
+      @at-root .#{$slider-prefix-cls}-rtl#{&} {
+        right: 12px;
+        left: auto;
+      }
+    }
+    .#{$slider-prefix-cls}-mark-text {
+      @at-root .#{$slider-prefix-cls}-rtl#{&} {
+        right: 4px;
+        left: auto;
+      }
+    }
+    .#{$slider-prefix-cls}-dot {
+      @at-root .#{$slider-prefix-cls}-rtl#{&} {
+        right: 2px;
+        left: auto;
+      }
+    }
+  }
+}
