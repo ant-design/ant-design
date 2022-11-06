@@ -177,7 +177,17 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
 const MenuFC: React.ForwardRefRenderFunction<MenuRef, MenuProps> = (props, ref) => {
   const menuRef = React.useRef<MenuRef>(null);
-  React.useImperativeHandle<MenuRef, MenuRef>(ref, () => menuRef.current!, [menuRef.current]);
+
+  React.useImperativeHandle<MenuRef, MenuRef>(
+    ref,
+    () => ({
+      list: menuRef.current?.list!,
+      focus() {
+        menuRef.current?.focus();
+      },
+    }),
+    [menuRef.current],
+  );
 
   return (
     <SiderContext.Consumer>

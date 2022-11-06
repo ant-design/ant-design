@@ -977,7 +977,7 @@ describe('Menu', () => {
     expect(container.querySelectorAll('li.ant-menu-item-divider-dashed').length).toBe(1);
   });
 
-  it('should support ref', async () => {
+  it('should support ref', () => {
     const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
