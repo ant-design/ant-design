@@ -14,6 +14,7 @@ import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import type { MenuContextProps } from './MenuContext';
 import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import Item, { MenuItemProps } from './MenuItem';
@@ -135,7 +136,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   }
 
   // ======================== Context ==========================
-  const contextValue = React.useMemo(
+  const contextValue = React.useMemo<MenuContextProps>(
     () => ({
       prefixCls,
       inlineCollapsed: mergedInlineCollapsed || false,
@@ -174,37 +175,25 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 });
 
-// We should keep this as ref-able
-class Menu extends React.Component<MenuProps, {}> {
-  static Divider = MenuDivider;
-
-  static Item = Item;
-
-  static SubMenu = SubMenu;
-
-  static ItemGroup = ItemGroup;
-
-  menu: MenuRef | null;
-
-  focus = (options?: FocusOptions) => {
-    this.menu?.focus(options);
-  };
-
-  render() {
-    return (
-      <SiderContext.Consumer>
-        {(context: SiderContextProps) => (
-          <InternalMenu
-            ref={node => {
-              this.menu = node;
-            }}
-            {...this.props}
-            {...context}
-          />
-        )}
-      </SiderContext.Consumer>
-    );
-  }
+interface CompoundedMenuComponent {
+  Item: typeof Item;
+  SubMenu: typeof SubMenu;
+  Divider: typeof MenuDivider;
+  ItemGroup: typeof ItemGroup;
 }
+
+const Menu: React.FC<MenuProps> & CompoundedMenuComponent = props => {
+  const menuRef = React.useRef<MenuRef>(null);
+  return (
+    <SiderContext.Consumer>
+      {context => <InternalMenu ref={menuRef} {...props} {...context} />}
+    </SiderContext.Consumer>
+  );
+};
+
+Menu.Item = Item;
+Menu.SubMenu = SubMenu;
+Menu.Divider = MenuDivider;
+Menu.ItemGroup = ItemGroup;
 
 export default Menu;
