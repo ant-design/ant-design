@@ -110,7 +110,7 @@ export default function focusTest(
         expect(blurred).toBeTruthy();
 
         fireEvent.blur(getElement(container));
-        await sleep(0);
+        await sleep(110);
         expect(onBlur).toHaveBeenCalled();
       });
 
