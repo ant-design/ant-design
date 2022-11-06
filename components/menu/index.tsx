@@ -182,8 +182,8 @@ const MenuFC: React.ForwardRefRenderFunction<MenuRef, MenuProps> = (props, ref) 
     ref,
     () => ({
       list: menuRef.current?.list!,
-      focus() {
-        menuRef.current?.focus();
+      focus(options?: FocusOptions) {
+        menuRef.current?.focus(options);
       },
     }),
     [menuRef.current],
