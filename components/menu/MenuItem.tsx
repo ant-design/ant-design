@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { omit } from 'lodash';
 import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
