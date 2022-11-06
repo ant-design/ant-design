@@ -5,7 +5,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuMode } from 'rc-menu/lib/interface';
+import type { MenuMode, MenuRef } from 'rc-menu/lib/interface';
 import React, { useState, useMemo } from 'react';
 import type { MenuProps } from '..';
 import Menu from '..';
@@ -977,14 +977,14 @@ describe('Menu', () => {
     expect(container.querySelectorAll('li.ant-menu-item-divider-dashed').length).toBe(1);
   });
 
-  it('should support ref', async () => {
-    const ref = React.createRef<Menu>();
+  it('should support ref', () => {
+    const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
         <Menu.Item key="1">Option 1</Menu.Item>
       </Menu>,
     );
-    expect(ref.current?.menu?.list).toBe(container.querySelector('ul'));
+    expect(ref.current?.list).toBe(container.querySelector('ul'));
     ref.current?.focus();
     expect(document.activeElement).toBe(container.querySelector('li'));
   });

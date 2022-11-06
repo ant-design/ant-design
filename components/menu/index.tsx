@@ -175,20 +175,23 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 });
 
-interface CompoundedMenuComponent {
-  Item: typeof Item;
-  SubMenu: typeof SubMenu;
-  Divider: typeof MenuDivider;
-  ItemGroup: typeof ItemGroup;
-}
-
-const Menu: React.FC<MenuProps> & CompoundedMenuComponent = props => {
+const MenuFC: React.ForwardRefRenderFunction<MenuRef, MenuProps> = (props, ref) => {
   const menuRef = React.useRef<MenuRef>(null);
+  React.useImperativeHandle<MenuRef, MenuRef>(ref, () => menuRef.current!);
   return (
     <SiderContext.Consumer>
       {context => <InternalMenu ref={menuRef} {...props} {...context} />}
     </SiderContext.Consumer>
   );
+};
+
+const Menu = React.forwardRef<MenuRef, MenuProps>(
+  MenuFC,
+) as unknown as React.ForwardRefExoticComponent<MenuProps & React.RefAttributes<MenuRef>> & {
+  Item: typeof Item;
+  SubMenu: typeof SubMenu;
+  Divider: typeof MenuDivider;
+  ItemGroup: typeof ItemGroup;
 };
 
 Menu.Item = Item;
