@@ -36,12 +36,12 @@ const useStyle = () => {
       position: absolute;
       top: 8px;
       right: 0;
-      width: 146px;
+      width: 160px;
       margin: 12px 0;
-      padding: 8px;
+      padding: 8px 8px 8px 4px;
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
-      overflow: hidden;
+      box-sizing: border-box;
 
       > div {
         box-sizing: border-box;
@@ -49,7 +49,7 @@ const useStyle = () => {
         max-height: calc(100vh - 40px);
         margin: 0 auto;
         overflow: auto;
-        padding-inline-end: 4px;
+        padding-inline: 4px;
 
         ::-webkit-scrollbar {
           width: 8px;
