@@ -25,7 +25,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
+    <Form name="dynamic_form_no_style" onFinish={onFinish} autoComplete="off">
       <Form.Item label="Users">
         <Form.List name="users">
           {(fields, { add, remove }) => (
