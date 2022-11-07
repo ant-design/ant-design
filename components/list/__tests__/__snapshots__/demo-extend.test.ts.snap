@@ -1085,7 +1085,7 @@ exports[`renders ./components/list/demo/infinite-load.md extend context correctl
                 <div
                   class="ant-empty-description"
                 >
-                  No Data
+                  No data
                 </div>
               </div>
             </div>
@@ -2150,7 +2150,6 @@ exports[`renders ./components/list/demo/vertical.md extend context correctly 1`]
   >
     <ul
       class="ant-pagination"
-      unselectable="unselectable"
     >
       <li
         aria-disabled="true"

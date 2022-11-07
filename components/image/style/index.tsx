@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { genModalMaskStyle } from '../../modal/style';
-import { initZoomMotion } from '../../style/motion';
+import { initZoomMotion, initFadeMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import { resetComponent, textEllipsis } from '../../style';
@@ -51,78 +51,124 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
 };
 
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
-  const { modalMaskBg, paddingSM, imagePreviewOperationDisabledColor } = token;
+  const {
+    previewCls,
+    modalMaskBg,
+    paddingSM,
+    imagePreviewOperationDisabledColor,
+    zIndexPopup,
+    motionDurationSlow,
+  } = token;
+
+  const operationBg = new TinyColor(modalMaskBg).setAlpha(0.1);
+  const operationBgHover = operationBg.clone().setAlpha(0.2);
 
   return {
-    ...resetComponent(token),
-    position: 'absolute',
-    insetBlockStart: 0,
-    insetInlineEnd: 0,
-    zIndex: 1,
-    display: 'flex',
-    flexDirection: 'row-reverse',
-    alignItems: 'center',
-    width: '100%',
-    color: token.imagePreviewOperationColor,
-    listStyle: 'none',
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
-    pointerEvents: 'auto',
+    [`${previewCls}-operations`]: {
+      ...resetComponent(token),
+      position: 'fixed',
+      insetBlockStart: 0,
+      insetInlineEnd: 0,
+      zIndex: zIndexPopup + 1,
+      display: 'flex',
+      flexDirection: 'row-reverse',
+      alignItems: 'center',
+      width: '100%',
+      color: token.imagePreviewOperationColor,
+      listStyle: 'none',
+      background: operationBg.toRgbString(),
+      pointerEvents: 'auto',
 
-    [`&-operation`]: {
-      marginInlineStart: paddingSM,
-      padding: paddingSM,
-      cursor: 'pointer',
+      '&-operation': {
+        marginInlineStart: paddingSM,
+        padding: paddingSM,
+        cursor: 'pointer',
+        transition: `all ${motionDurationSlow}`,
 
-      '&-disabled': {
-        color: imagePreviewOperationDisabledColor,
-        pointerEvents: 'none',
+        '&:hover': {
+          background: operationBgHover.toRgbString(),
+        },
+
+        '&-disabled': {
+          color: imagePreviewOperationDisabledColor,
+          pointerEvents: 'none',
+        },
+
+        '&:last-of-type': {
+          marginInlineStart: 0,
+        },
       },
 
-      '&:last-of-type': {
-        marginInlineStart: 0,
+      '&-progress': {
+        position: 'absolute',
+        left: { _skip_check_: true, value: '50%' },
+        transform: 'translateX(-50%)',
       },
-    },
 
-    [`&-progress`]: {
-      position: 'absolute',
-      left: { _skip_check_: true, value: '50%' },
-      transform: 'translateX(-50%)',
-    },
-
-    [`&-icon`]: {
-      fontSize: token.imagePreviewOperationSize,
+      '&-icon': {
+        fontSize: token.imagePreviewOperationSize,
+      },
     },
   };
 };
 
 export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
-  const { modalMaskBg, iconCls, imagePreviewOperationDisabledColor, previewCls } = token;
+  const {
+    modalMaskBg,
+    iconCls,
+    imagePreviewOperationDisabledColor,
+    previewCls,
+    zIndexPopup,
+    motionDurationSlow,
+  } = token;
+
+  const operationBg = new TinyColor(modalMaskBg).setAlpha(0.1);
+  const operationBgHover = operationBg.clone().setAlpha(0.2);
 
   return {
-    position: 'absolute',
-    insetBlockStart: '50%',
-    zIndex: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: token.imagePreviewSwitchSize,
-    height: token.imagePreviewSwitchSize,
-    marginTop: -token.imagePreviewSwitchSize / 2,
-    color: token.imagePreviewOperationColor,
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
-    borderRadius: '50%',
-    cursor: 'pointer',
-    pointerEvents: 'auto',
+    [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
+      position: 'fixed',
+      insetBlockStart: '50%',
+      zIndex: zIndexPopup + 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: token.imagePreviewSwitchSize,
+      height: token.imagePreviewSwitchSize,
+      marginTop: -token.imagePreviewSwitchSize / 2,
+      color: token.imagePreviewOperationColor,
+      background: operationBg.toRgbString(),
+      borderRadius: '50%',
+      transform: `translateY(-50%)`,
+      cursor: 'pointer',
+      transition: `all ${motionDurationSlow}`,
+      pointerEvents: 'auto',
 
-    [`${previewCls}-disabled`]: {
-      color: imagePreviewOperationDisabledColor,
-      cursor: 'not-allowed',
+      '&:hover': {
+        background: operationBgHover.toRgbString(),
+      },
+
+      [`&-disabled`]: {
+        '&, &:hover': {
+          color: imagePreviewOperationDisabledColor,
+          background: 'transparent',
+          cursor: 'not-allowed',
+          [`> ${iconCls}`]: {
+            cursor: 'not-allowed',
+          },
+        },
+      },
       [`> ${iconCls}`]: {
-        cursor: 'not-allowed',
+        fontSize: token.imagePreviewOperationSize,
       },
     },
-    [`> ${iconCls}`]: {
-      fontSize: token.imagePreviewOperationSize,
+
+    [`${previewCls}-switch-left`]: {
+      insetInlineStart: token.marginSM,
+    },
+
+    [`${previewCls}-switch-right`]: {
+      insetInlineEnd: token.marginSM,
     },
   };
 };
@@ -177,22 +223,6 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
             },
           },
         },
-
-        [`${previewCls}-operations`]: {
-          ...genPreviewOperationsStyle(token),
-        },
-
-        [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
-          ...genPreviewSwitchStyle(token),
-        },
-
-        [`${previewCls}-switch-left`]: {
-          insetInlineStart: token.marginSM,
-        },
-
-        [`${previewCls}-switch-right`]: {
-          insetInlineEnd: token.marginSM,
-        },
       },
     },
     // Override
@@ -202,6 +232,11 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
           zIndex: token.zIndexPopup,
         },
       },
+    },
+
+    // Preview operations & switch
+    {
+      '&': [genPreviewOperationsStyle(token), genPreviewSwitchStyle(token)],
     },
   ];
 };
@@ -244,6 +279,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = token => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
+    '&': initFadeMotion(token),
   };
 };
 

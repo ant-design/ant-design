@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useEffect, useRef, useState, useMemo } from 'react';
 import type { WrappedComponentProps } from 'react-intl';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import moment from 'moment';
 import classNames from 'classnames';
 import { Select, Row, Col, Drawer, Button, Modal } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -71,14 +72,22 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
   });
 }
 
-const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+const ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL_UNTIL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL_UNTIL';
 
 function disableAntdMirrorModal() {
-  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
+  window.localStorage.setItem(
+    ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL_UNTIL,
+    moment().add(7, 'days').toString(),
+  );
 }
 
 function shouldOpenAntdMirrorModal() {
-  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
+  const until = window.localStorage.getItem(ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL_UNTIL);
+  const deadline = moment(until);
+  if (!until || !deadline.isValid()) {
+    return true;
+  }
+  return deadline.diff(moment()) < 0;
 }
 
 interface HeaderState {
@@ -125,8 +134,9 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
         setHeaderState(prev => ({ ...prev, showTechUIButton: true }));
         if (
           process.env.NODE_ENV === 'production' &&
+          shouldOpenAntdMirrorModal() &&
           window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
+          window.location.host.indexOf('surge.sh') === -1
         ) {
           Modal.confirm({
             title: '提示',
@@ -135,7 +145,7 @@ const Header: React.FC<HeaderProps & WrappedComponentProps<'intl'>> = props => {
             cancelText: '不再弹出',
             closable: true,
             onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
+              window.location.href = 'https://ant-design.antgroup.com';
               disableAntdMirrorModal();
             },
             onCancel() {

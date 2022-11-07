@@ -15,8 +15,17 @@ interface CarouselToken extends FullToken<'Carousel'> {
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
-  const { componentCls, antCls, carouselArrowSize, carouselDotOffset, carouselDotInline } = token;
+  const {
+    componentCls,
+    antCls,
+    carouselArrowSize,
+    carouselDotOffset,
+    marginXXS,
+    carouselDotInline,
+  } = token;
   const arrowOffset = -carouselArrowSize * 1.25;
+
+  const carouselDotMargin = marginXXS;
 
   return {
     [componentCls]: {
@@ -196,7 +205,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
           boxSizing: 'content-box',
           width: token.dotWidth,
           height: token.dotHeight,
-          marginInline: carouselDotInline,
+          marginInline: carouselDotMargin,
           padding: 0,
           textAlign: 'center',
           textIndent: -999,
@@ -204,6 +213,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
           transition: `all ${token.motionDurationSlow}`,
 
           button: {
+            position: 'relative',
             display: 'block',
             width: '100%',
             height: token.dotHeight,
@@ -220,6 +230,12 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
 
             '&: hover, &:focus': {
               opacity: 0.75,
+            },
+
+            '&::after': {
+              position: 'absolute',
+              inset: -carouselDotMargin,
+              content: '""',
             },
           },
 
@@ -242,7 +258,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
 };
 
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = token => {
-  const { componentCls, carouselDotOffset } = token;
+  const { componentCls, carouselDotOffset, marginXXS } = token;
 
   const reverseSizeOfDot = {
     width: token.dotHeight,
@@ -273,7 +289,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = token => {
         li: {
           // reverse width and height in vertical situation
           ...reverseSizeOfDot,
-          margin: '4px 2px',
+          margin: `${marginXXS}px 0`,
           verticalAlign: 'baseline',
 
           button: reverseSizeOfDot,

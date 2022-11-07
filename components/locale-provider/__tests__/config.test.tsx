@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { act } from 'react-dom/test-utils';
 import { Modal } from '../..';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
@@ -46,16 +45,10 @@ describe('Locale Provider demo', () => {
     const { container } = render(<BasicExample />);
 
     fireEvent.click(container.querySelector('.about')!);
-    await act(async () => {
-      jest.runAllTimers();
-      await sleep();
-    });
+    await waitFakeTimer();
 
     fireEvent.click(container.querySelector('.dashboard')!);
-    await act(async () => {
-      jest.runAllTimers();
-      await sleep();
-    });
+    await waitFakeTimer();
 
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0]?.textContent).toBe('确 定');
     Modal.destroyAll();

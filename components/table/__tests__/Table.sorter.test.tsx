@@ -105,33 +105,9 @@ describe('Table.sorter', () => {
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
-  });
-
-  it('aria-label should be use the first text content in element when title is ReactElement', () => {
-    const { container } = render(
-      createTable(
-        {
-          sortDirections: ['descend', 'ascend'],
-        },
-        {
-          title: (
-            <span>
-              <em>Name</em>
-              <b>kiner</b>
-            </span>
-          ),
-          defaultSortOrder: 'descend',
-        },
-      ),
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(
+      "this column's title is Name,this column is sortable",
     );
-
-    const getNameColumn = () => container.querySelector('th');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
-    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name sortable');
   });
 
   it('sort records', () => {

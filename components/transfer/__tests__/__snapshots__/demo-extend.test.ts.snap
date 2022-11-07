@@ -300,7 +300,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -675,7 +675,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1876,7 +1876,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -2166,7 +2166,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -3134,7 +3134,7 @@ Array [
             <div
               class="ant-empty-description"
             >
-              No Data
+              No data
             </div>
           </div>
         </div>
@@ -3463,7 +3463,7 @@ Array [
             <div
               class="ant-empty-description"
             >
-              No Data
+              No data
             </div>
           </div>
         </div>
@@ -4753,7 +4753,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -5108,7 +5108,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -5357,7 +5357,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -5646,7 +5646,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -5955,7 +5955,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -6310,7 +6310,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
               <div
                 class="ant-empty-description"
               >
-                No Data
+                No data
               </div>
             </div>
           </div>
@@ -6556,6 +6556,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -7026,7 +7027,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
@@ -7405,6 +7405,7 @@ Array [
                                     class="ant-checkbox"
                                   >
                                     <input
+                                      aria-label="Select all"
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
@@ -7607,7 +7608,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
@@ -8116,7 +8116,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md extend context corr
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

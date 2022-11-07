@@ -4,7 +4,7 @@ import type { TooltipPlacement } from '..';
 import Tooltip from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep, waitFor, act } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, waitFor, act } from '../../../tests/utils';
 import Button from '../../button';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
@@ -240,6 +240,7 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
+    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
 
@@ -253,19 +254,22 @@ describe('Tooltip', () => {
     const picker = container.getElementsByClassName('ant-picker')[0];
 
     fireEvent.mouseEnter(picker);
-    await sleep(100);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(ref.current?.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(picker);
-    await sleep(100);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
     expect(ref.current?.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('should works for input group', async () => {
+    jest.useFakeTimers();
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();
     const { container } = render(
@@ -280,16 +284,18 @@ describe('Tooltip', () => {
     expect(container.getElementsByClassName('ant-input-group')).toHaveLength(1);
     const inputGroup = container.getElementsByClassName('ant-input-group')[0];
     fireEvent.mouseEnter(inputGroup);
-    await sleep(100);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
     fireEvent.mouseLeave(inputGroup);
-    await sleep(100);
+    await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
@@ -321,6 +327,17 @@ describe('Tooltip', () => {
   });
 
   describe('support other placement when mouse enter', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
+    afterEach(() => {
+      jest.clearAllTimers();
+    });
     const placementList = [
       'top',
       'left',
@@ -345,7 +362,7 @@ describe('Tooltip', () => {
         expect(container.getElementsByTagName('span')).toHaveLength(1);
         const element = container.getElementsByTagName('span')[0];
         fireEvent.mouseEnter(element);
-        await sleep(500);
+        await waitFakeTimer();
         await waitFor(() => {
           expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
         });
@@ -369,7 +386,7 @@ describe('Tooltip', () => {
     );
     const button = container.getElementsByTagName('span')[0];
     fireEvent.mouseEnter(button);
-    await sleep(600);
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 

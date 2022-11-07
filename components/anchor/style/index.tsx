@@ -65,7 +65,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           transform: 'translateX(-50%)',
           transition: `top ${token.motionDurationSlow} ease-in-out`,
 
-          '&.visible': {
+          [`&.${componentCls}-anchor-ink-ball-visible`]: {
             display: 'inline-block',
           },
         },

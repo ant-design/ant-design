@@ -47,3 +47,51 @@ exports[`Dropdown rtl render component should be rendered correctly in RTL direc
   class="ant-dropdown-trigger ant-dropdown-rtl"
 />
 `;
+
+exports[`Dropdown should render custom dropdown correctly 1`] = `
+Array [
+  <button
+    class="ant-dropdown-trigger ant-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0;"
+    >
+      <div>
+        <ul
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+          data-menu-list="true"
+          role="menu"
+          tabindex="0"
+        >
+          <li
+            class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+            data-menu-id="rc-menu-uuid-test-1"
+            role="menuitem"
+            tabindex="-1"
+          >
+            <span
+              class="ant-dropdown-menu-title-content"
+            >
+              foo
+            </span>
+          </li>
+        </ul>
+        <div
+          aria-hidden="true"
+          style="display: none;"
+        />
+        <div
+          class="dropdown-custom-node"
+        >
+          CUSTOM NODE
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

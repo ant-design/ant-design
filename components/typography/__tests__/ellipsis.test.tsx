@@ -1,7 +1,7 @@
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { fireEvent, render, sleep, triggerResize, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, triggerResize, waitFor } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
 // eslint-disable-next-line no-unused-vars
@@ -20,6 +20,7 @@ describe('Typography.Ellipsis', () => {
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
 
   beforeAll(() => {
+    jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       offsetHeight: {
         get() {
@@ -54,6 +55,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   afterAll(() => {
+    jest.useRealTimers();
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
     computeSpy.mockRestore();
@@ -72,7 +74,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(container.firstChild?.textContent).toEqual('Bamboo is Little ...');
     expect(onEllipsis).toHaveBeenCalledWith(true);
@@ -135,7 +137,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.firstChild?.textContent).toEqual('Ant Design, a des...');
     const ellipsisSpans = wrapper.querySelectorAll('span[aria-hidden]');
@@ -155,7 +157,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is...--suffix');
     unmount();
@@ -175,7 +177,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual(
       '...--The information is very important',
@@ -215,7 +217,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.textContent).toEqual('Bamboo is Little...');
   });
@@ -327,7 +329,7 @@ describe('Typography.Ellipsis', () => {
         </Base>,
       );
       triggerResize(ref.current);
-      await sleep(20);
+      await waitFakeTimer();
       return wrapper;
     }
 
@@ -424,7 +426,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     fireEvent.mouseEnter(container.firstChild!);
     await waitFor(() => {

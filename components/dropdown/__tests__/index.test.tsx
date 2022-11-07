@@ -25,14 +25,21 @@ jest.mock('rc-trigger', () => {
 });
 
 describe('Dropdown', () => {
+  const items = [
+    {
+      label: 'foo',
+      key: '1',
+    },
+  ];
+
   mountTest(() => (
-    <Dropdown overlay={<Menu />}>
+    <Dropdown menu={{ items }}>
       <span />
     </Dropdown>
   ));
 
   rtlTest(() => (
-    <Dropdown overlay={<Menu />}>
+    <Dropdown menu={{ items }}>
       <span />
     </Dropdown>
   ));
@@ -55,17 +62,46 @@ describe('Dropdown', () => {
     expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
   });
 
+  it('should render custom dropdown correctly', () => {
+    const { asFragment } = render(
+      <Dropdown
+        open
+        menu={{ items }}
+        dropdownRender={menu => (
+          <div>
+            {menu}
+            <div className="dropdown-custom-node">CUSTOM NODE</div>
+          </div>
+        )}
+      >
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
+  });
+
   it('support Menu expandIcon', async () => {
     jest.useFakeTimers();
     const props: DropDownProps = {
-      overlay: (
-        <Menu expandIcon={<span id="customExpandIcon" />}>
-          <Menu.Item key="1">foo</Menu.Item>
-          <Menu.SubMenu title="SubMenu">
-            <Menu.Item key="1">foo</Menu.Item>
-          </Menu.SubMenu>
-        </Menu>
-      ),
+      menu: {
+        items: [
+          {
+            label: 'foo',
+            key: '1',
+          },
+          {
+            label: 'SubMenu',
+            key: 'submenu',
+            children: [
+              {
+                label: 'foo',
+                key: '1',
+              },
+            ],
+          },
+        ],
+        expandIcon: <span id="customExpandIcon" />,
+      },
       open: true,
       getPopupContainer: node => node,
     };
@@ -84,10 +120,10 @@ describe('Dropdown', () => {
     const error = jest.spyOn(console, 'error');
     render(
       <div>
-        <Dropdown overlay={'123' as any} placement="bottomCenter">
+        <Dropdown menu={{ items }} placement="bottomCenter">
           <button type="button">bottomCenter</button>
         </Dropdown>
-        <Dropdown overlay={'123' as any} placement="topCenter">
+        <Dropdown menu={{ items }} placement="topCenter">
           <button type="button">topCenter</button>
         </Dropdown>
       </div>,
@@ -104,7 +140,7 @@ describe('Dropdown', () => {
   // zombieJ: when replaced with react test lib, it may be mock fully content
   it('dropdown should support auto adjust placement', () => {
     render(
-      <Dropdown overlay={<div>menu</div>} open>
+      <Dropdown menu={{ items }} open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -126,22 +162,20 @@ describe('Dropdown', () => {
     const { container } = render(
       <Dropdown
         trigger={['click']}
-        overlay={
-          <Menu
-            items={[
-              {
-                label: 'grp',
-                type: 'group',
-                children: [
-                  {
-                    label: '1',
-                    key: 1,
-                  },
-                ],
-              },
-            ]}
-          />
-        }
+        menu={{
+          items: [
+            {
+              label: 'grp',
+              type: 'group',
+              children: [
+                {
+                  label: '1',
+                  key: 1,
+                },
+              ],
+            },
+          ],
+        }}
       >
         <a />
       </Dropdown>,
@@ -177,13 +211,20 @@ describe('Dropdown', () => {
     const onOpenChange = jest.fn();
     const onVisibleChange = jest.fn();
 
-    const { container } = render(
+    const { container, rerender } = render(
       <Dropdown
         visible
         onOpenChange={onOpenChange}
         onVisibleChange={onVisibleChange}
         trigger={['click']}
-        overlay={<div className="bamboo" />}
+        menu={{
+          items: [
+            {
+              label: <div className="bamboo" />,
+              key: 'bamboo',
+            },
+          ],
+        }}
       >
         <a className="little" />
       </Dropdown>,
@@ -200,6 +241,15 @@ describe('Dropdown', () => {
     fireEvent.click(container.querySelector('.little')!);
     expect(onOpenChange).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenCalled();
+
+    rerender(
+      <Dropdown overlay={<div>menu</div>}>
+        <a className="little" />
+      </Dropdown>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
+    );
 
     errorSpy.mockRestore();
   });
