@@ -8,11 +8,11 @@ import Button from '../button';
 import type { ButtonProps } from '../button';
 import defaultLocale from '../locale/en_US';
 
-const panelRender: (
-  step: TourStepProps,
+const panelRender = (
+  props: TourStepProps,
   current: number,
   type: TourStepProps['type'],
-) => ReactNode = (props: TourStepProps, current: number, type) => {
+): ReactNode => {
   const {
     prefixCls,
     total = 1,

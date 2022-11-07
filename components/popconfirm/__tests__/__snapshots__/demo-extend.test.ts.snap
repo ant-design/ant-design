@@ -1710,6 +1710,7 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm"
+    style="width:250px"
   >
     <div
       class="ant-popover-content"

@@ -8,7 +8,7 @@ import useStyle from './style';
 
 export interface PurePanelProps extends TourStepProps {}
 
-export default function PurePanel(props: PurePanelProps) {
+const PurePanel: React.FC<PurePanelProps> = props => {
   const {
     prefixCls: customizePrefixCls,
     current = 0,
@@ -46,4 +46,6 @@ export default function PurePanel(props: PurePanelProps) {
   );
 
   // return node as React.ReactElement;
-}
+};
+
+export default PurePanel;

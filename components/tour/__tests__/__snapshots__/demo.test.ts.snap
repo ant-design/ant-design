@@ -166,7 +166,7 @@ exports[`renders ./components/tour/demo/render-panel.md correctly 1`] = `
   style="display:flex;flex-direction:column;row-gap:16px;background:rgba(50,0,0,0.65);padding:8px"
 >
   <div
-    class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure ant-tour-undefined"
+    class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure"
   >
     <div
       class="ant-tour-content"
@@ -253,7 +253,7 @@ exports[`renders ./components/tour/demo/render-panel.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure ant-tour-undefined"
+    class="ant-tour ant-tour-pure ant-tour-placement-top ant-tour-pure"
   >
     <div
       class="ant-tour-content"
