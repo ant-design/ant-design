@@ -98,7 +98,7 @@ const GlobalStyles = () => {
           body {
             overflow-x: hidden;
             color: ${token.colorText};
-            font-size: ${token.fontSize};
+            font-size: ${token.fontSize}px;
             font-family: ${token.fontFamily};
             background: ${token.colorBgContainer};
             transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -652,7 +652,7 @@ const GlobalStyles = () => {
             display: block;
             padding: 16px 32px;
             color: ${token.colorText};
-            font-size: ${token.fontSize};
+            font-size: ${token.fontSize}px;
             font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             line-height: 2;
             white-space: pre;

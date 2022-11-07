@@ -1,11 +1,10 @@
 import React, { useState, memo, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useAppData, useLocation, useRouteMeta, useIntl, useSidebarData } from 'dumi';
+import { Link, useRouteMeta, useIntl, useSidebarData } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { getLocalizedPathname, getThemeConfig, getMenuItems } from '../../utils';
 import proComponentsList from './ProComponentsList';
 import type { Component } from './ProComponentsList';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -83,7 +82,6 @@ const { Title } = Typography;
 const Overview: React.FC = () => {
   const style = useStyle();
   const meta = useRouteMeta();
-  const location = useLocation();
   const data = useSidebarData();
 
   const { locale, formatMessage } = useIntl();
@@ -123,10 +121,6 @@ const Overview: React.FC = () => {
 
   return (
     <section className="markdown" ref={sectionRef}>
-      <Helmet encodeSpecialCharacters={false}>
-        <title>{documentTitle}</title>
-        <meta property="og:title" content={documentTitle} />
-      </Helmet>
       <Divider />
       <Input
         value={search}

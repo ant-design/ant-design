@@ -7,6 +7,7 @@ import EditButton from '../../common/EditButton';
 import { FormattedMessage } from 'react-intl';
 import { Layout, Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
+import CommonHelmet from '../../common/CommonHelmet';
 
 export type ResourceLayoutProps = PropsWithChildren<{}>;
 
@@ -115,6 +116,7 @@ const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
 
   return (
     <Layout>
+      <CommonHelmet />
       <div id="resources-page" css={styles.resourcePage}>
         <AffixTabs />
         <div css={styles.banner}>
