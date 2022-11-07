@@ -11,13 +11,18 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
-const defaultIconRender = (visible: boolean) =>
+const defaultIconRender = (visible: boolean): React.ReactNode =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
+
+type VisibilityToggle = {
+  visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
+};
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: string;
-  visibilityToggle?: boolean;
+  visibilityToggle?: boolean | VisibilityToggle;
   iconRender?: (visible: boolean) => React.ReactNode;
 }
 
@@ -27,8 +32,19 @@ const ActionMap: Record<string, string> = {
 };
 
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
-  const [visible, setVisible] = useState(false);
+  const { visibilityToggle = true } = props;
+  const visibilityControlled =
+    typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
+  const [visible, setVisible] = useState(() =>
+    visibilityControlled ? visibilityToggle.visible! : false,
+  );
   const inputRef = useRef<InputRef>(null);
+
+  React.useEffect(() => {
+    if (visibilityControlled) {
+      setVisible(visibilityToggle.visible!);
+    }
+  }, [visibilityControlled, visibilityToggle]);
 
   // Remove Password value
   const removePasswordTimeout = useRemovePasswordTimeout(inputRef);
@@ -41,7 +57,13 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     if (visible) {
       removePasswordTimeout();
     }
-    setVisible(prevState => !prevState);
+    setVisible(prevState => {
+      const newState = !prevState;
+      if (typeof visibilityToggle === 'object') {
+        visibilityToggle.onVisibleChange?.(newState);
+      }
+      return newState;
+    });
   };
 
   const getIcon = (prefixCls: string) => {
@@ -72,7 +94,6 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
       size,
-      visibilityToggle = true,
       ...restProps
     } = props;
 
@@ -85,7 +106,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     });
 
     const omittedProps: InputProps = {
-      ...omit(restProps, ['suffix', 'iconRender']),
+      ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
       type: visible ? 'text' : 'password',
       className: inputClassName,
       prefixCls: inputPrefixCls,

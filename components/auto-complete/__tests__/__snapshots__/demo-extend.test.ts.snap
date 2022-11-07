@@ -701,7 +701,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                         <div
                           class="ant-empty-description"
                         >
-                          No Data
+                          No data
                         </div>
                       </div>
                     </div>
@@ -849,7 +849,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                           <div
                             class="ant-empty-description"
                           >
-                            No Data
+                            No data
                           </div>
                         </div>
                       </div>
@@ -1137,7 +1137,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                           <div
                             class="ant-empty-description"
                           >
-                            No Data
+                            No data
                           </div>
                         </div>
                       </div>
@@ -1354,7 +1354,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                           <div
                             class="ant-empty-description"
                           >
-                            No Data
+                            No data
                           </div>
                         </div>
                       </div>
@@ -1580,7 +1580,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                           <div
                             class="ant-empty-description"
                           >
-                            No Data
+                            No data
                           </div>
                         </div>
                       </div>

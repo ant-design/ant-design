@@ -15,6 +15,7 @@ class AffixMounter extends React.Component<{
   onTestUpdatePosition?(): void;
   onChange?: () => void;
   getInstance?: (inst: InternalAffixClass) => void;
+  style?: React.CSSProperties;
 }> {
   private container: HTMLDivElement;
 
@@ -201,6 +202,7 @@ describe('Affix Render', () => {
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(window);
     });
+
     it('check position change before measure', async () => {
       const { container } = render(
         <>
@@ -215,6 +217,35 @@ describe('Affix Render', () => {
       await waitFakeTimer();
       await movePlaceholder(1000);
       expect(container.querySelector('.ant-affix')).toBeTruthy();
+    });
+
+    it('do not measure when hidden', async () => {
+      let affixInstance: InternalAffixClass | null = null;
+
+      const { rerender } = render(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+        />,
+      );
+      await waitFakeTimer();
+      const firstAffixStyle = affixInstance!.state.affixStyle;
+
+      rerender(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+          style={{ display: 'none' }}
+        />,
+      );
+      await waitFakeTimer();
+      const secondAffixStyle = affixInstance!.state.affixStyle;
+
+      expect(firstAffixStyle).toEqual(secondAffixStyle);
     });
   });
 

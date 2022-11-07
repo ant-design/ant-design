@@ -312,21 +312,19 @@ const App: React.FC = () => {
 
             {/* Dropdown */}
             <Dropdown
-              overlay={
-                <Menu
-                  items={[
-                    {
-                      key: '1',
-                      label: '1st menu item',
-                    },
-                    {
-                      key: '2',
-                      label: 'a danger item',
-                      danger: true,
-                    },
-                  ]}
-                />
-              }
+              menu={{
+                items: [
+                  {
+                    key: '1',
+                    label: '1st menu item',
+                  },
+                  {
+                    key: '2',
+                    label: 'a danger item',
+                    danger: true,
+                  },
+                ],
+              }}
             >
               <a onClick={e => e.preventDefault()}>
                 <Space>

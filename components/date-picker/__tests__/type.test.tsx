@@ -58,4 +58,11 @@ describe('DatePicker.typescript', () => {
     );
     expect(datePicker).toBeTruthy();
   });
+
+  it('DatePicker and RangePicker supports popupClassName', () => {
+    const datePicker = <DatePicker popupClassName="popupClassName" />;
+    expect(datePicker).toBeTruthy();
+    const rangePicker = <DatePicker.RangePicker popupClassName="popupClassName" />;
+    expect(rangePicker).toBeTruthy();
+  });
 });

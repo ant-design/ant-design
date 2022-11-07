@@ -33,6 +33,19 @@ describe('Breadcrumb', () => {
     );
   });
 
+  it('overlay deprecation warning', () => {
+    render(
+      <Breadcrumb>
+        <Breadcrumb.Item overlay={<div>menu</div>}>
+          <a href="">General</a>
+        </Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+    );
+  });
+
   // https://github.com/ant-design/ant-design/issues/5015
   it('should allow Breadcrumb.Item is null or undefined', () => {
     const { asFragment } = render(

@@ -114,7 +114,7 @@ const App: React.FC = () => {
     },
   ];
 
-  const handleResize =
+  const handleResize: Function =
     (index: number) =>
     (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columns];

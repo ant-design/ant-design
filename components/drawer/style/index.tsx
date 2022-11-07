@@ -153,7 +153,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       },
 
       [`${componentCls}-extra`]: {
-        flex: 0,
+        flex: 'none',
       },
 
       [`${componentCls}-close`]: {

@@ -12,6 +12,10 @@ Hyperlinks to scroll on one page.
 
 For displaying anchor hyperlinks on page and jumping between them.
 
+> Notes for developers
+>
+> After version `4.24.0`, we rewrite Anchor use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+
 ## API
 
 ### Anchor Props

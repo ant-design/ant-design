@@ -284,27 +284,31 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
-          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/#form-deps.",
         );
         if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          warning(
+            false,
+            'Form.Item',
+            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/#complex-form-item.',
+          );
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
-            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
+            'A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
           );
           warning(
             !hasName,
             'Form.Item',
-            "Do not use `name` with `children` of render props since it's not a field.",
+            'A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
           );
         } else if (dependencies && !isRenderProps && !hasName) {
           warning(
             false,
             'Form.Item',
-            'Must set `name` or use render props when `dependencies` is set.',
+            'Must set `name` or use a render function when `dependencies` is set.',
           );
         } else if (isValidElement(children)) {
           warning(

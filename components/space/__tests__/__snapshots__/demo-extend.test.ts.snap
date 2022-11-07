@@ -10371,7 +10371,7 @@ exports[`renders ./components/space/demo/compact-debug.md extend context correct
                               <div
                                 class="ant-empty-description"
                               >
-                                No Data
+                                No data
                               </div>
                             </div>
                           </div>

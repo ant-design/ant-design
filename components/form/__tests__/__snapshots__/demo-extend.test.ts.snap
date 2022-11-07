@@ -5900,7 +5900,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
-  id="dynamic_form_nest_item"
+  id="dynamic_form_complex"
 >
   <div
     class="ant-form-item"
@@ -5913,7 +5913,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
       >
         <label
           class="ant-form-item-required"
-          for="dynamic_form_nest_item_area"
+          for="dynamic_form_complex_area"
           title="Area"
         >
           Area
@@ -5939,15 +5939,15 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="dynamic_form_nest_item_area_list_0"
+                    aria-activedescendant="dynamic_form_complex_area_list_0"
                     aria-autocomplete="list"
-                    aria-controls="dynamic_form_nest_item_area_list"
+                    aria-controls="dynamic_form_complex_area_list"
                     aria-haspopup="listbox"
-                    aria-owns="dynamic_form_nest_item_area_list"
+                    aria-owns="dynamic_form_complex_area_list"
                     aria-required="true"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="dynamic_form_nest_item_area"
+                    id="dynamic_form_complex_area"
                     readonly=""
                     role="combobox"
                     style="opacity:0"
@@ -5967,14 +5967,14 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                 >
                   <div>
                     <div
-                      id="dynamic_form_nest_item_area_list"
+                      id="dynamic_form_complex_area_list"
                       role="listbox"
                       style="height:0;width:0;overflow:hidden"
                     >
                       <div
                         aria-label="Beijing"
                         aria-selected="false"
-                        id="dynamic_form_nest_item_area_list_0"
+                        id="dynamic_form_complex_area_list_0"
                         role="option"
                       >
                         Beijing
@@ -5982,7 +5982,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
                       <div
                         aria-label="Shanghai"
                         aria-selected="false"
-                        id="dynamic_form_nest_item_area_list_1"
+                        id="dynamic_form_complex_area_list_1"
                         role="option"
                       >
                         Shanghai
@@ -6162,7 +6162,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md extend co
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
-  id="dynamic_form_nest_item"
+  id="dynamic_form_no_style"
 >
   <div
     class="ant-form-item"

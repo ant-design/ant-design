@@ -35,7 +35,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -192,7 +192,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -449,7 +449,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -666,7 +665,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -946,7 +944,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -1140,7 +1137,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </div>
                   </th>
                   <th
-                    aria-label="Address sortable"
+                    aria-label="this column's title is Address,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -1325,7 +1322,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -1525,7 +1521,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -2836,6 +2831,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -2852,7 +2848,7 @@ Array [
                       Name
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -2951,7 +2947,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Action sortable"
+                      aria-label="this column's title is Action,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -4068,7 +4064,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -4289,7 +4284,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -4732,7 +4726,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -5177,7 +5170,6 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -5475,7 +5467,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md correctly 1`
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -5772,7 +5763,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -5929,7 +5919,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -6119,7 +6109,6 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -6276,7 +6265,7 @@ exports[`renders ./components/table/demo/filter-search.md correctly 1`] = `
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -6466,7 +6455,6 @@ exports[`renders ./components/table/demo/filter-search.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -6889,7 +6877,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -7856,7 +7843,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -9200,7 +9186,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -9450,7 +9435,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
                     tabindex="0"
@@ -10140,7 +10125,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -10410,7 +10394,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -10675,7 +10659,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -11026,7 +11009,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -11142,7 +11124,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     Name
                   </th>
                   <th
-                    aria-label="Chinese Score sortable"
+                    aria-label="this column's title is Chinese Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -11203,7 +11185,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     </div>
                   </th>
                   <th
-                    aria-label="Math Score sortable"
+                    aria-label="this column's title is Math Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -11264,7 +11246,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     </div>
                   </th>
                   <th
-                    aria-label="English Score sortable"
+                    aria-label="this column's title is English Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -11436,7 +11418,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -11776,7 +11757,6 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="false"
@@ -12421,7 +12401,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -13074,7 +13053,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -13722,7 +13700,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -14370,7 +14347,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -14516,6 +14492,7 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -14739,7 +14716,6 @@ exports[`renders ./components/table/demo/order-column.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -15001,7 +14977,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
       >
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-left"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -15317,7 +15292,6 @@ exports[`renders ./components/table/demo/pagination.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -15473,7 +15447,7 @@ Array [
                 >
                   <tr>
                     <th
-                      aria-label="Name sortable"
+                      aria-label="this column's title is Name,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Name"
@@ -15568,7 +15542,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Age"
@@ -15630,7 +15604,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Address sortable"
+                      aria-label="this column's title is Address,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Address"
@@ -15828,7 +15802,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -15961,7 +15934,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
-                    aria-label="Amount sortable"
+                    aria-label="this column's title is Amount,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     tabindex="0"
                   >
@@ -16153,7 +16126,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -16292,7 +16264,6 @@ exports[`renders ./components/table/demo/responsive.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -16467,6 +16438,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -16673,7 +16645,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -16818,6 +16789,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -17245,7 +17217,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -17417,6 +17388,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -17871,7 +17843,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -18042,6 +18013,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -18284,7 +18256,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md correctly
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -18529,7 +18500,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -18726,7 +18696,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -19752,7 +19721,6 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -20701,6 +20669,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -20836,7 +20805,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -21008,6 +20976,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -21555,7 +21524,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"

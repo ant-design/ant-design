@@ -261,7 +261,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
 
           a: {
             color: 'inherit !important',
-            pointerEvents: 'none',
           },
 
           [`> ${componentCls}-submenu-title`]: {
