@@ -1,4 +1,4 @@
-import React, { ReactNode, type FC, useMemo } from 'react';
+import React, { ReactNode, type FC, useMemo, useState, useLayoutEffect } from 'react';
 import { useIntl, useRouteMeta } from 'dumi';
 import Footer from 'dumi/theme/slots/Footer';
 import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
@@ -9,6 +9,8 @@ import ContributorsList from '@qixian.cs/github-contributors-list';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { css } from '@emotion/react';
 import PrevAndNext from '../../common/PrevAndNext';
+import DemoContext, { DemoContextProps } from '../DemoContext';
+import classNames from 'classnames';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -42,6 +44,14 @@ const useStyle = () => {
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
+
+      .toc-debug {
+        color: ${token['purple-6']};
+
+        &:hover {
+          color: ${token['purple-5']};
+        }
+      }
 
       > div {
         box-sizing: border-box;
@@ -88,13 +98,24 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const { formatMessage } = useIntl();
   const styles = useStyle();
 
+  const [showDebug, setShowDebug] = useState(false);
+  const [debugDemos, setDebugDemos] = useState<string[]>([]);
+
+  useLayoutEffect(() => {
+    setShowDebug(process.env.NODE_ENV === 'development');
+  }, []);
+
+  const contextValue = useMemo<DemoContextProps>(
+    () => ({ showDebug, setShowDebug, debugDemos, setDebugDemos }),
+    [showDebug, debugDemos],
+  );
+
   const anchorItems = useMemo(() => {
     return meta.toc.reduce<AnchorItem[]>((result, item) => {
       if (item.depth === 2) {
         result.push({ ...item });
       } else if (item.depth === 3) {
         const parent = result[result.length - 1];
-        console.log(parent);
         if (parent) {
           parent.children = parent.children || [];
           parent.children.push({ ...item });
@@ -105,66 +126,80 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   }, [meta.toc]);
 
   return (
-    <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-      <Affix>
-        <div css={styles.tocWrapper}>
-          <div>
-            <Anchor css={styles.toc} affix={false} showInkInFixed>
-              {anchorItems.map(item => (
-                <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
-                  {item.children?.map(child => (
-                    <Anchor.Link href={`#${child.id}`} title={child.title} key={child.id} />
-                  ))}
-                </Anchor.Link>
-              ))}
-            </Anchor>
+    <DemoContext.Provider value={contextValue}>
+      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+        <Affix>
+          <div css={styles.tocWrapper}>
+            <div>
+              <Anchor css={styles.toc} affix={false} showInkInFixed>
+                {anchorItems.map(item => (
+                  <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
+                    {item.children
+                      ?.filter(child => showDebug || !debugDemos.includes(child.id))
+                      .map(child => (
+                        <Anchor.Link
+                          href={`#${child.id}`}
+                          title={
+                            <span
+                              className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
+                            >
+                              {child.title}
+                            </span>
+                          }
+                          key={child.id}
+                        />
+                      ))}
+                  </Anchor.Link>
+                ))}
+              </Anchor>
+            </div>
           </div>
-        </div>
-      </Affix>
-      <div style={{ padding: '0 170px 32px 64px' }}>
-        <Typography.Title level={2}>
-          {meta.frontmatter.title}
-          {meta.frontmatter.subtitle && (
-            <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
-          )}
-          {!pathname.startsWith('/components/overview') && (
-            <EditButton
-              title={<FormattedMessage id="app.content.edit-page" />}
-              filename={meta.frontmatter.filename}
-            />
-          )}
-        </Typography.Title>
-        {children}
-        <ContributorsList
-          css={styles.contributorsList}
-          fileName={meta.frontmatter.filename ?? ''}
-          renderItem={(item, loading) =>
-            loading ? (
-              <Avatar style={{ opacity: 0.3 }} />
-            ) : (
-              item && (
-                <Tooltip
-                  title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                  key={item.username}
-                >
-                  <a
-                    href={`https://github.com/${item.username}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+        </Affix>
+        <div style={{ padding: '0 170px 32px 64px' }}>
+          <Typography.Title level={2}>
+            {meta.frontmatter.title}
+            {meta.frontmatter.subtitle && (
+              <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
+            )}
+            {!pathname.startsWith('/components/overview') && (
+              <EditButton
+                title={<FormattedMessage id="app.content.edit-page" />}
+                filename={meta.frontmatter.filename}
+              />
+            )}
+          </Typography.Title>
+          {children}
+          <ContributorsList
+            css={styles.contributorsList}
+            fileName={meta.frontmatter.filename ?? ''}
+            renderItem={(item, loading) =>
+              loading ? (
+                <Avatar style={{ opacity: 0.3 }} />
+              ) : (
+                item && (
+                  <Tooltip
+                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
+                    key={item.username}
                   >
-                    <Avatar src={item.url}>{item.username}</Avatar>
-                  </a>
-                </Tooltip>
+                    <a
+                      href={`https://github.com/${item.username}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Avatar src={item.url}>{item.username}</Avatar>
+                    </a>
+                  </Tooltip>
+                )
               )
-            )
-          }
-          repo="ant-design"
-          owner="ant-design"
-        />
-      </div>
-      <PrevAndNext />
-      <Footer />
-    </Col>
+            }
+            repo="ant-design"
+            owner="ant-design"
+          />
+        </div>
+        <PrevAndNext />
+        <Footer />
+      </Col>
+    </DemoContext.Provider>
   );
 };
 
