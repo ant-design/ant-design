@@ -32,6 +32,7 @@ export default function Banner({ children }: BannerProps) {
       <div
         style={{
           height: 360,
+          // height: 200,
           background: '#77C6FF',
           display: 'flex',
           flexWrap: 'nowrap',
@@ -47,11 +48,19 @@ export default function Banner({ children }: BannerProps) {
             backgroundSize: 'auto 100%',
           }}
         />
-        <img
+        {/* <img
           alt="banner"
           src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I9a5ToqP4x8AAAAAAAAAAAAAARQnAQ"
           style={{ height: '100%', flex: 'none' }}
+        /> */}
+        <video
+          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
+          style={{ height: '100%', objectFit: 'contain' }}
+          autoPlay
+          muted
+          loop
         />
+
         <div
           style={{
             backgroundImage: `url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8ILtRrQlVDMAAAAAAAAAAAAAARQnAQ)`,
