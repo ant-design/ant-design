@@ -1,4 +1,5 @@
-import React from 'react';import { useState } from 'react';
+// @ts-nocheck
+import React, { useState } from 'react';
 import {
   Modal,
   DatePicker,
@@ -560,4 +561,3 @@ export default () => {
     </>
   );
 };
-

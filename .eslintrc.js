@@ -87,9 +87,15 @@ module.exports = {
       },
     },
     {
-      files: ['**/demo/*.tsx'],
+      files: ['components/**/demo/*.tsx'],
       rules: {
         'import/no-extraneous-dependencies': 0,
+        'no-console': 0,
+        'compat/compat': 0,
+        'react/no-unstable-nested-components': 0,
+        'jsx-a11y/control-has-associated-label': 0,
+        'class-methods-use-this': 0,
+        'react/no-access-state-in-setstate': 0,
       },
     },
   ],

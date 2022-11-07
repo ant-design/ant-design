@@ -25,6 +25,8 @@ class App extends React.Component {
         return;
       case 'other':
         this.formRef.current!.setFieldsValue({ note: 'Hi there!' });
+        break;
+      default:
     }
   };
 

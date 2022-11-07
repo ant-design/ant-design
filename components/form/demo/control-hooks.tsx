@@ -24,6 +24,8 @@ const App: React.FC = () => {
         return;
       case 'other':
         form.setFieldsValue({ note: 'Hi there!' });
+        break;
+      default:
     }
   };
 

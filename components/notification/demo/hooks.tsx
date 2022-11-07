@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
@@ -21,8 +21,10 @@ const App: React.FC = () => {
     });
   };
 
+  const contextValue = useMemo(() => ({ name: 'Ant Design' }), []);
+
   return (
-    <Context.Provider value={{ name: 'Ant Design' }}>
+    <Context.Provider value={contextValue}>
       {contextHolder}
       <Space>
         <Button type="primary" onClick={() => openNotification('topLeft')}>

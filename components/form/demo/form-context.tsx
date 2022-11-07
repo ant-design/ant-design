@@ -100,8 +100,8 @@ const App: React.FC = () => {
             const users: UserType[] = getFieldValue('users') || [];
             return users.length ? (
               <ul>
-                {users.map((user, index) => (
-                  <li key={index} className="user">
+                {users.map(user => (
+                  <li key={user.name} className="user">
                     <Avatar icon={<UserOutlined />} />
                     {user.name} - {user.age}
                   </li>

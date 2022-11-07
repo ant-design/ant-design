@@ -182,9 +182,9 @@ $1`,
 
   log('写入', component, 'demo & demo md...');
   codes.forEach(code => {
-    const extraMeta = Object.keys(code.meta).filter(
-      key => !['title', 'order', 'debug'].includes(key),
-    );
+    // const extraMeta = Object.keys(code.meta).filter(
+    //   key => !['title', 'order', 'debug'].includes(key),
+    // );
 
     // if (extraMeta.length) {
     //   log('写入额外的 meta', code.meta);
