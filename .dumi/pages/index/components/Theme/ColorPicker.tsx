@@ -15,12 +15,12 @@ const useStyle = () => {
       height: ${token.controlHeightLG / 2}px;
       border-radius: 100%;
       cursor: pointer;
-      outline-offset: 1px;
       transition: all ${token.motionDurationFast};
     `,
 
     colorActive: css`
-      outline: ${token.controlOutlineWidth * 2}px solid ${token.colorPrimary};
+      box-shadow: 0 0 0 1px ${token.colorBgContainer},
+        0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
     `,
   };
 };

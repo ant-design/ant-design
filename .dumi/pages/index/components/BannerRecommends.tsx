@@ -10,7 +10,7 @@ const useStyle = () => {
   return {
     card: css`
       border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
-      border-radius: ${token.radiusLG}px;
+      border-radius: ${token.borderRadiusLG}px;
       padding-block: ${token.paddingMD}px;
       padding-inline: ${token.paddingLG}px;
       flex: 1 1 0;

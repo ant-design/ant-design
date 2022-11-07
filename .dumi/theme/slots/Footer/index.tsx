@@ -64,6 +64,7 @@ const useStyle = () => {
       }
 
       .rc-footer-bottom {
+        font-size: ${token.fontSize}px;
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
       }
     `,

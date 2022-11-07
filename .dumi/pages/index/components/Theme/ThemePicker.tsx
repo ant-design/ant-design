@@ -35,10 +35,14 @@ const useStyle = () => {
     themeCard: css`
       border-radius: ${token.borderRadius}px;
       cursor: pointer;
-      outline-offset: 1px;
       transition: all ${token.motionDurationSlow};
-      box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+
+      img {
+        vertical-align: top;
+        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+          0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      }
 
       &:hover {
         transform: scale(1.04);
@@ -46,7 +50,8 @@ const useStyle = () => {
     `,
 
     themeCardActive: css`
-      outline: ${token.controlOutlineWidth * 2}px solid ${token.colorPrimary};
+      box-shadow: 0 0 0 1px ${token.colorBgContainer},
+        0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
 
       &,
       &:hover {
@@ -74,14 +79,15 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
 
         return (
           <Space direction="vertical" align="center">
-            <img
-              key={theme}
-              src={url}
-              css={[style.themeCard, value === theme && style.themeCardActive]}
-              onClick={() => {
-                onChange?.(theme);
-              }}
-            />
+            <div css={[style.themeCard, value === theme && style.themeCardActive]}>
+              <img
+                key={theme}
+                src={url}
+                onClick={() => {
+                  onChange?.(theme);
+                }}
+              />
+            </div>
             <span>{locale[theme as keyof typeof locale]}</span>
           </Space>
         );
