@@ -39,7 +39,7 @@ export default () => (
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/direction.tsx">方向</code>
 <code src="./demo/size.tsx">组件尺寸</code>
-<code src="./demo/theme.tsx">全局样式</code>
+<code src="./demo/theme.tsx">主题</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
 
 ## API
@@ -58,10 +58,10 @@ export default () => (
 | iconPrefixCls            | 设置图标统一样式前缀。注意：需要配合 `less` 变量 [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106) 使用 | string                                                                                                                              | `anticon`           | 4.11.0                             |
 | input                    | 设置 Input 组件的通用属性                                                                                                                                                                                      | { autoComplete?: string }                                                                                                           | -                   | 4.2.0                              |
 | locale                   | 语言包配置，语言包可到 [antd/locale](http://unpkg.com/antd/locale/) 目录下寻找                                                                                                                                 | object                                                                                                                              | -                   |                                    |
-| pageHeader               | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header)                                                                                                                                       | { ghost: boolean }                                                                                                                  | true                |                                    |
 | prefixCls                | 设置统一样式前缀。注意：需要配合 `less` 变量 [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7) 使用                | string                                                                                                                              | `ant`               |                                    |
 | renderEmpty              | 自定义组件空状态。参考 [空状态](/components/empty/)                                                                                                                                                            | function(componentName: string): ReactNode                                                                                          | -                   |                                    |
 | space                    | 设置 Space 的 `size`，参考 [Space](/components/space)                                                                                                                                                          | { size: `small` \| `middle` \| `large` \| `number` }                                                                                | -                   | 4.1.0                              |
+| theme                    | 设置主题，参考 [定制主题](/docs/react/customize-theme-v5-cn)                                                                                                                                                   | -                                                                                                                                   | -                   | 5.0.0                              |
 | virtual                  | 设置 `false` 时关闭虚拟滚动                                                                                                                                                                                    | boolean                                                                                                                             | -                   | 4.3.0                              |
 
 ### ConfigProvider.config() `4.13.0+`

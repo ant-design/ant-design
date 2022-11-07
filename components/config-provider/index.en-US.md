@@ -38,7 +38,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/locale.tsx">Locale</code>
 <code src="./demo/direction.tsx">Direction</code>
 <code src="./demo/size.tsx">Component size</code>
-<code src="./demo/theme.tsx">Global Theme</code>
+<code src="./demo/theme.tsx">Theme</code>
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 
 ## API
@@ -57,10 +57,10 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | iconPrefixCls            | Set icon prefix className (cooperated with [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106))   | string                                                                                                              | `anticon`           | 4.11.0              |
 | input                    | Set Input common props                                                                                                                                                                                 | { autoComplete?: string }                                                                                           | -                   | 4.2.0               |
 | locale                   | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/)                                                                                                    | object                                                                                                              | -                   |                     |
-| pageHeader               | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header)                                                                                                                               | { ghost: boolean }                                                                                                  | true                |                     |
 | prefixCls                | Set prefix className (cooperated with [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7))                   | string                                                                                                              | `ant`               |                     |
 | renderEmpty              | Set empty content of components. Ref [Empty](/components/empty/)                                                                                                                                       | function(componentName: string): ReactNode                                                                          | -                   |                     |
 | space                    | Set Space `size`, ref [Space](/components/space)                                                                                                                                                       | { size: `small` \| `middle` \| `large` \| `number` }                                                                | -                   | 4.1.0               |
+| theme                    | Set theme, ref [Customize Theme](/docs/react/customize-theme-v5)                                                                                                                                       | -                                                                                                                   | -                   | 5.0.0               |
 | virtual                  | Disable virtual scroll when set to `false`                                                                                                                                                             | boolean                                                                                                             | -                   | 4.3.0               |
 
 ### ConfigProvider.config() `4.13.0+`
