@@ -38,7 +38,7 @@ export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow
 
 export default function getPlacements(config: PlacementsConfig) {
   const {
-    arrowWidth = 4,
+    arrowWidth = 5,
     horizontalArrowShift = 16,
     verticalArrowShift = 8,
     autoAdjustOverflow,
