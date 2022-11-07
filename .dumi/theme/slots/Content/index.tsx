@@ -110,7 +110,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
       <Affix>
         <div css={styles.tocWrapper}>
           <div>
-            <Anchor css={styles.toc} affix={false}>
+            <Anchor css={styles.toc} affix={false} showInkInFixed>
               {anchorItems.map(item => (
                 <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
                   {item.children?.map(child => (
