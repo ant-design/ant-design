@@ -5,7 +5,6 @@ import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import Menu from '../../menu';
 import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;

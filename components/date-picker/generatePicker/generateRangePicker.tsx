@@ -23,9 +23,7 @@ import warning from '../../_util/warning';
 
 import useStyle from '../style';
 
-export default function generateRangePicker<DateType>(
-  generateConfig: GenerateConfig<DateType>,
-): PickerComponentClass<RangePickerProps<DateType>> {
+export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
   type DateRangePickerProps = RangePickerProps<DateType> & {
     /**
