@@ -1,10 +1,10 @@
 import useSiteToken from '../../../../hooks/useSiteToken';
 import { Input, Space, Popover } from 'antd';
-import { SketchPicker } from 'react-color';
-import React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import { TinyColor } from '@ctrl/tinycolor';
 import { PRESET_COLORS } from './colorUtil';
+import ColorPanel, { ColorPanelProps } from 'antd-token-previewer/es/ColorPanel';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -23,6 +23,19 @@ const useStyle = () => {
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
     `,
   };
+};
+
+const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
+  const [value, setValue] = useState(color);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      onChange?.(value);
+    }, 200);
+    return () => clearTimeout(timeout);
+  }, [value]);
+
+  return <ColorPanel color={value} onChange={setValue} />;
 };
 
 export interface RadiusPickerProps {
@@ -92,14 +105,7 @@ export default function ColorPicker({ value, onChange }: RadiusPickerProps) {
                 key={color}
                 overlayInnerStyle={{ padding: 0 }}
                 content={
-                  <SketchPicker
-                    color={value}
-                    presetColors={PRESET_COLORS}
-                    disableAlpha
-                    onChangeComplete={color => {
-                      onChange?.(color.hex);
-                    }}
-                  />
+                  <DebouncedColorPanel color={value || ''} onChange={color => onChange?.(color)} />
                 }
                 trigger="click"
                 showArrow={false}
