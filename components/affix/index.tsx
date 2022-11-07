@@ -169,6 +169,15 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
     const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
 
+    if (
+      placeholderReact.top === 0 &&
+      placeholderReact.left === 0 &&
+      placeholderReact.width === 0 &&
+      placeholderReact.height === 0
+    ) {
+      return;
+    }
+
     if (fixedTop !== undefined) {
       newState.affixStyle = {
         position: 'fixed',
