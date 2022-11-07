@@ -7,39 +7,39 @@ title:
 
 ## zh-CN
 
-也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `options`。
+可以返回自定义的 `Option` label
 
 ## en-US
 
-You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `options`。
+You could set custom `Option` label
 
 ```tsx
 import { AutoComplete } from 'antd';
 import React, { useState } from 'react';
 
-const { Option } = AutoComplete;
-
 const App: React.FC = () => {
-  const [result, setResult] = useState<string[]>([]);
+  const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
 
   const handleSearch = (value: string) => {
-    let res: string[] = [];
+    let res: { value: string; label: string }[] = [];
     if (!value || value.indexOf('@') >= 0) {
       res = [];
     } else {
-      res = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
+      res = ['gmail.com', '163.com', 'qq.com'].map(domain => ({
+        value,
+        label: `${value}@${domain}`,
+      }));
     }
-    setResult(res);
+    setOptions(res);
   };
 
   return (
-    <AutoComplete style={{ width: 200 }} onSearch={handleSearch} placeholder="input here">
-      {result.map((email: string) => (
-        <Option key={email} value={email}>
-          {email}
-        </Option>
-      ))}
-    </AutoComplete>
+    <AutoComplete
+      style={{ width: 200 }}
+      onSearch={handleSearch}
+      placeholder="input here"
+      options={options}
+    />
   );
 };
 

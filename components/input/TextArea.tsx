@@ -83,7 +83,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     const {
       status: contextStatus,

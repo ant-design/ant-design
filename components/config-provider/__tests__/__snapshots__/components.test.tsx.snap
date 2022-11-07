@@ -14977,10 +14977,10 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -14988,7 +14988,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -15016,10 +15016,10 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     disabled=""
     type="button"
   >
@@ -15028,7 +15028,7 @@ exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`]
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     disabled=""
     type="button"
   >
@@ -15057,10 +15057,10 @@ exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Dropdown configProvider componentSize large 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default config-btn-lg"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -15068,7 +15068,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -15096,10 +15096,10 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
 
 exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
 <div
-  class="config-btn-group config-dropdown-button"
+  class="config-space-compact config-space-compact-block config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-default config-btn-compact-item config-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -15107,7 +15107,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
     type="button"
   >
     <span
@@ -15135,10 +15135,10 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
 
 exports[`ConfigProvider components Dropdown configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-btn-group ant-dropdown-button"
+  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -15146,7 +15146,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -15174,10 +15174,10 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
 
 exports[`ConfigProvider components Dropdown normal 1`] = `
 <div
-  class="ant-btn-group ant-dropdown-button"
+  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -15185,7 +15185,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -15213,10 +15213,10 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-btn-group prefix-Dropdown"
+  class="ant-space-compact ant-space-compact-block prefix-Dropdown"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
     type="button"
   >
     <span>
@@ -15224,7 +15224,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -15320,7 +15320,7 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15395,7 +15395,7 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15470,7 +15470,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15545,7 +15545,7 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
   <div
     class="config-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15620,7 +15620,7 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15695,7 +15695,7 @@ exports[`ConfigProvider components Empty normal 1`] = `
   <div
     class="ant-empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -15770,7 +15770,7 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
   <div
     class="prefix-Empty-description"
   >
-    No Data
+    No data
   </div>
 </div>
 `;
@@ -19255,7 +19255,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19402,7 +19401,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19554,7 +19552,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19702,7 +19699,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19855,7 +19851,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20002,7 +19997,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20154,7 +20148,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20301,7 +20294,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20453,7 +20445,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20600,7 +20591,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20752,7 +20742,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20899,7 +20888,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21051,7 +21039,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
     class="prefix-Pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21198,7 +21185,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
   </ul>
   <ul
     class="prefix-Pagination prefix-Pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21379,23 +21365,27 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popover-message-title"
@@ -21462,23 +21452,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popover-message-title"
@@ -21547,23 +21541,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popover-message-title"
@@ -21630,23 +21628,27 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               class="config-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="config-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="config-popover-message-title"
@@ -21713,23 +21715,27 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               class="ant-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popover-message-title"
@@ -21796,23 +21802,27 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               class="ant-popover-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="ant-popover-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="ant-popover-message-title"
@@ -21879,23 +21889,27 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               class="prefix-Popconfirm-message"
             >
               <span
-                aria-label="exclamation-circle"
-                class="anticon anticon-exclamation-circle"
-                role="img"
+                class="prefix-Popconfirm-message-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="exclamation-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
               </span>
               <div
                 class="prefix-Popconfirm-message-title"
@@ -26926,7 +26940,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27189,7 +27203,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -27232,7 +27246,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27497,7 +27511,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -27540,7 +27554,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27803,7 +27817,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -27846,7 +27860,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28109,7 +28123,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <div
                         class="config-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28152,7 +28166,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28415,7 +28429,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28458,7 +28472,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28721,7 +28735,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -28764,7 +28778,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
                     tabindex="0"
                   >
@@ -29027,7 +29041,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -38780,7 +38794,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -38940,7 +38954,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39054,7 +39068,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39215,7 +39229,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39328,7 +39342,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39488,7 +39502,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39601,7 +39615,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39761,7 +39775,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           <div
             class="config-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -39874,7 +39888,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40034,7 +40048,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40147,7 +40161,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40307,7 +40321,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40420,7 +40434,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -40580,7 +40594,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

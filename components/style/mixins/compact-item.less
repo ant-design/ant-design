@@ -1,0 +1,133 @@
+.compact-item-border-radius(@prefix-cls, @bordered-item-cls: null) {
+  & when (@bordered-item-cls = null) {
+    // border-radius
+    &-item:not(&-first-item):not(&-last-item).@{prefix-cls} {
+      border-radius: 0;
+    }
+
+    &-item.@{prefix-cls}&-first-item:not(&-item-rtl) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &-item.@{prefix-cls}&-last-item:not(&-item-rtl) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    // ----------rtl for first item----------
+    &-item.@{prefix-cls}&-item-rtl&-first-item {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    // ----------rtl for last item----------
+    &-item.@{prefix-cls}&-item-rtl&-last-item {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  & when (not (@bordered-item-cls = null)) {
+    // border-radius
+    &-item:not(&-first-item):not(&-last-item).@{prefix-cls} > .@{bordered-item-cls} {
+      border-radius: 0;
+    }
+
+    &-item&-first-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &-item&-last-item.@{prefix-cls}:not(&-item-rtl) > .@{bordered-item-cls} {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    // ----------rtl for first item----------
+    &-item.@{prefix-cls}&-first-item&-item-rtl > .@{bordered-item-cls} {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    // ----------rtl for last item----------
+    &-item.@{prefix-cls}&-last-item&-item-rtl > .@{bordered-item-cls} {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+.compact-item-border(@prefix-cls, @bordered-item-cls: null, @special-open-cls) {
+  & when (@bordered-item-cls = null) {
+    // border collapse
+    &-item:not(&-last-item):not(&-item-rtl) {
+      margin-right: -@border-width-base;
+    }
+
+    // rtl border collapse
+    &-item:not(&-last-item)&-item-rtl {
+      margin-left: -@border-width-base;
+    }
+
+    &-item {
+      &:hover,
+      &:focus,
+      &:active {
+        z-index: 2;
+      }
+
+      // Select has an extra focus className
+      & when (not (@special-item-cls = null)) {
+        &.@{special-item-cls} {
+          z-index: 2;
+        }
+      }
+
+      &[disabled] {
+        z-index: 0;
+      }
+    }
+  }
+
+  & when (not (@bordered-item-cls = null)) {
+    // border collapse
+    &-item:not(&-last-item) {
+      margin-right: -@border-width-base;
+
+      &.@{prefix-cls}-compact-item-rtl {
+        margin-right: 0;
+        margin-left: -@border-width-base;
+      }
+    }
+
+    &-item {
+      &:hover,
+      &:focus,
+      &:active {
+        > * {
+          z-index: 2;
+        }
+      }
+
+      // Select has an special focus-item
+      & when (not (@special-item-cls = null)) {
+        &.@{special-item-cls} > * {
+          z-index: 2;
+        }
+      }
+
+      &[disabled] > * {
+        z-index: 0;
+      }
+    }
+  }
+}
+
+.compact-item(@prefix-cls, @bordered-item-cls: null, @special-item-cls: null) {
+  &-compact {
+    .compact-item-border(@prefix-cls, @bordered-item-cls, @special-item-cls);
+
+    .compact-item-border-radius(@prefix-cls, @bordered-item-cls);
+  }
+}

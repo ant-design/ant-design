@@ -492,12 +492,12 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
       <span>
         Zhejiang
         <!-- -->
-         / 
+         /
       </span>
       <span>
         Hangzhou
         <!-- -->
-         / 
+         /
       </span>
       <span>
         West Lake
@@ -2994,7 +2994,7 @@ exports[`renders ./components/cascader/demo/status.md extend context correctly 1
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </div>
@@ -3145,7 +3145,7 @@ exports[`renders ./components/cascader/demo/status.md extend context correctly 1
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </div>

@@ -13,6 +13,7 @@ import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import { useCompactItemContext } from '../../space/Compact';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import enUS from '../locale/en_US';
@@ -20,21 +21,20 @@ import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 import warning from '../../_util/warning';
 
-export default function generateRangePicker<DateType>(
-  generateConfig: GenerateConfig<DateType>,
-): PickerComponentClass<RangePickerProps<DateType>> {
+export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
+  type DateRangePickerProps = RangePickerProps<DateType> & {
+    /**
+     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+     *   version.Please use `popupClassName` instead.
+     */
+    dropdownClassName?: string;
+    popupClassName?: string;
+  };
 
   const RangePicker = forwardRef<
     InternalRangePickerProps | CommonPickerMethods,
-    RangePickerProps<DateType> & {
-      /**
-       * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-       *   version.Please use `popupClassName` instead.
-       */
-      dropdownClassName: string;
-      popupClassName?: string;
-    }
+    DateRangePickerProps
   >((props, ref) => {
     const {
       prefixCls: customizePrefixCls,
@@ -54,6 +54,7 @@ export default function generateRangePicker<DateType>(
     const innerRef = React.useRef<RCRangePicker<DateType>>(null);
     const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
+    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
@@ -72,11 +73,11 @@ export default function generateRangePicker<DateType>(
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
-    const mergedSize = customizeSize || size;
+    const mergedSize = compactSize || customizeSize || size;
 
     // ===================== Disabled =====================
     const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled || disabled;
+    const mergedDisabled = customDisabled ?? disabled;
 
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
@@ -131,6 +132,7 @@ export default function generateRangePicker<DateType>(
                   getMergedStatus(contextStatus, customStatus),
                   hasFeedback,
                 ),
+                compactItemClassnames,
                 className,
               )}
               locale={locale!.lang}
@@ -146,5 +148,5 @@ export default function generateRangePicker<DateType>(
     );
   });
 
-  return RangePicker as unknown as PickerComponentClass<RangePickerProps<DateType>>;
+  return RangePicker as unknown as PickerComponentClass<DateRangePickerProps>;
 }

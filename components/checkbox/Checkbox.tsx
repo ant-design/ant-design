@@ -66,7 +66,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const checkboxGroup = React.useContext(GroupContext);
     const { isFormItemInput } = useContext(FormItemInputContext);
     const contextDisabled = useContext(DisabledContext);
-    const mergedDisabled = disabled || checkboxGroup?.disabled || contextDisabled;
+    const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
     const prevValue = React.useRef(restProps.value);
 

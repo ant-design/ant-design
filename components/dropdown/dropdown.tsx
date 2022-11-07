@@ -4,6 +4,8 @@ import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import Menu from '../menu';
+import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
 import getPlacements from '../_util/placements';
@@ -45,21 +47,12 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
+  menu?: MenuProps;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactElement | OverlayFunc;
-  /**
-   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
-   *   use `onOpenChange` instead.
-   */
-  onVisibleChange?: (visible: boolean) => void;
+  dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean) => void;
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: boolean;
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
@@ -76,6 +69,14 @@ export interface DropdownProps {
   mouseLeaveDelay?: number;
   openClassName?: string;
   children?: React.ReactNode;
+
+  // Deprecated
+  /** @deprecated Please use `menu` instead */
+  overlay?: React.ReactElement | OverlayFunc;
+  /** @deprecated Please use `open` instead */
+  visible?: boolean;
+  /** @deprecated Please use `onOpenChange` instead */
+  onVisibleChange?: (open: boolean) => void;
 }
 
 interface DropdownInterface extends React.FC<DropdownProps> {
@@ -101,6 +102,12 @@ const Dropdown: DropdownInterface = props => {
         `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
       );
     });
+
+    warning(
+      !('overlay' in props),
+      'Dropdown',
+      '`overlay` is deprecated. Please use `menu` instead.',
+    );
   }
 
   const getTransitionName = () => {
@@ -135,11 +142,13 @@ const Dropdown: DropdownInterface = props => {
   };
 
   const {
+    menu,
     arrow,
     prefixCls: customizePrefixCls,
     children,
     trigger,
     disabled,
+    dropdownRender,
     getPopupContainer,
     overlayClassName,
     visible,
@@ -201,10 +210,15 @@ const Dropdown: DropdownInterface = props => {
     const { overlay } = props;
 
     let overlayNode: React.ReactNode;
-    if (typeof overlay === 'function') {
-      overlayNode = overlay();
+    if (menu?.items) {
+      overlayNode = <Menu {...menu} />;
+    } else if (typeof overlay === 'function') {
+      overlayNode = (overlay as OverlayFunc)();
     } else {
       overlayNode = overlay;
+    }
+    if (dropdownRender) {
+      overlayNode = dropdownRender(overlayNode);
     }
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,

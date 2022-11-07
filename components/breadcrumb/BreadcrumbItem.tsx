@@ -1,6 +1,7 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
 
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
@@ -9,30 +10,47 @@ export interface BreadcrumbItemProps {
   prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
-  overlay?: DropdownProps['overlay'];
+  menu?: DropdownProps['menu'];
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   children?: React.ReactNode;
+
+  // Deprecated
+  /** @deprecated Please use `menu` instead */
+  overlay?: DropdownProps['overlay'];
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
 }
-const BreadcrumbItem: BreadcrumbItemInterface = ({
-  prefixCls: customizePrefixCls,
-  separator = '/',
-  children,
-  overlay,
-  dropdownProps,
-  ...restProps
-}) => {
+const BreadcrumbItem: BreadcrumbItemInterface = props => {
+  const {
+    prefixCls: customizePrefixCls,
+    separator = '/',
+    children,
+    menu,
+    overlay,
+    dropdownProps,
+    ...restProps
+  } = props;
+
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
+
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('overlay' in props),
+      'Breadcrumb.Item',
+      '`overlay` is deprecated. Please use `menu` instead.',
+    );
+  }
+
   /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
-    if (overlay) {
+    if (menu || overlay) {
       return (
-        <Dropdown overlay={overlay} placement="bottom" {...dropdownProps}>
+        <Dropdown menu={menu} overlay={overlay} placement="bottom" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
