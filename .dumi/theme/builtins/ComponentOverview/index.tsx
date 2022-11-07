@@ -162,23 +162,12 @@ const Overview: React.FC = () => {
                 {components.map(component => {
                   const url = `${component.link}/`;
 
-                  // 如果是 https 就不用处理了
-                  const href = url.startsWith('http')
-                    ? url
-                    : getLocalizedPathname(url, locale === 'zh-CN', location.pathname);
-
                   /** Link 不能跳转到外链 */
                   const ComponentLink = !url.startsWith('http') ? Link : 'a';
 
-                  const linkHref = typeof href === 'string' ? href : href.pathname;
-
                   return (
                     <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
-                      <ComponentLink
-                        to={linkHref}
-                        href={linkHref}
-                        onClick={() => onClickCard(linkHref)}
-                      >
+                      <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
                         <Card
                           bodyStyle={{
                             backgroundRepeat: 'no-repeat',

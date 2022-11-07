@@ -266,6 +266,7 @@ const GlobalStyles = () => {
             font-weight: 500;
           }
 
+          .markdown .dumi-default-table-content > table,
           .markdown > table {
             width: 100%;
             margin: 8px 0 16px;
@@ -276,18 +277,24 @@ const GlobalStyles = () => {
             border-spacing: 0;
           }
 
-          .markdown > table th {
-            color: #5c6b77;
-            font-weight: 500;
-            white-space: nowrap;
-            background: rgba(0, 0, 0, 0.02);
+          .markdown .dumi-default-table-content,
+          .markdown {
+            > table th {
+              color: #5c6b77;
+              font-weight: 500;
+              white-space: nowrap;
+              background: rgba(0, 0, 0, 0.02);
+            }
           }
 
-          .markdown > table th,
-          .markdown > table td {
-            padding: 16px 24px;
-            text-align: left;
-            border: 1px solid ${token.colorSplit};
+          .markdown .dumi-default-table-content,
+          .markdown {
+            > table th,
+            > table td {
+              padding: 16px 24px;
+              text-align: left;
+              border: 1px solid ${token.colorSplit};
+            }
           }
 
           .markdown table td > a:not(:last-child) {
@@ -371,7 +378,7 @@ const GlobalStyles = () => {
             clear: both;
           }
 
-          .markdown.api-container {
+          .markdown .dumi-default-table {
             table {
               display: block;
               margin: 2em 0;
