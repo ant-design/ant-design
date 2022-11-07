@@ -1,8 +1,6 @@
 import React, { type FC, useEffect, useMemo, useRef } from 'react';
-import { useOutlet, useSearchParams, history } from 'dumi';
+import { useOutlet, useSearchParams } from 'dumi';
 import Header from 'dumi/theme/slots/Header';
-import Content from 'dumi/theme/slots/Content';
-import Sidebar from 'dumi/theme/slots/Sidebar';
 import Footer from 'dumi/theme/slots/Footer';
 import '../../static/style';
 import useLocation from '../../../hooks/useLocation';
@@ -15,6 +13,7 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
+import SidebarLayout from '../SidebarLayout';
 
 const styleCache = createCache();
 if (typeof global !== 'undefined') {
@@ -110,12 +109,7 @@ const DocLayout: FC = () => {
     } else if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
     }
-    return (
-      <main style={{ display: 'flex', marginTop: 40 }}>
-        <Sidebar />
-        <Content>{outlet}</Content>
-      </main>
-    );
+    return <SidebarLayout>{outlet}</SidebarLayout>;
   }, [pathname, outlet]);
 
   return (

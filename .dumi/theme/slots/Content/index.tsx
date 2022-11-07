@@ -83,7 +83,6 @@ type AnchorItem = {
 };
 
 const Content: FC<{ children: ReactNode }> = ({ children }) => {
-  console.log('route meta', useRouteMeta());
   const meta = useRouteMeta();
   const { pathname } = useLocation();
   const { formatMessage } = useIntl();
