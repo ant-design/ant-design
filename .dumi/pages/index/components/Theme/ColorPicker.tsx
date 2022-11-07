@@ -35,6 +35,10 @@ const DebouncedColorPanel: FC<ColorPanelProps> = ({ color, onChange }) => {
     return () => clearTimeout(timeout);
   }, [value]);
 
+  useEffect(() => {
+    setValue(color);
+  }, [color]);
+
   return <ColorPanel color={value} onChange={setValue} />;
 };
 
