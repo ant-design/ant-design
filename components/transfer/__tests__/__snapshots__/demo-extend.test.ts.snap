@@ -7021,7 +7021,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"
@@ -7603,7 +7602,6 @@ Array [
                 </div>
                 <ul
                   class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-                  unselectable="unselectable"
                 >
                   <li
                     aria-disabled="true"

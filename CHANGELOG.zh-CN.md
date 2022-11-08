@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.24.1
+
+`2022-11-04`
+
+- 🐞 回滚 [#38160](https://github.com/ant-design/ant-design/pull/38160) 以修复 Table 的 `column.title` 渲染不正确的问题。[#38383](https://github.com/ant-design/ant-design/pull/38383)
+- 💄 Alert 增加 `@alert-padding-vertical` 和 `@alert-padding-horizontal` 变量。[#38369](https://github.com/ant-design/ant-design/pull/38369) [@imoctopus](https://github.com/imoctopus)
+- 🐞 修复 Steps 中 用户配置的 Step `status` 优先级被覆盖的问题。[#38319](https://github.com/ant-design/ant-design/pull/38319) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 Popconfirm 图标颜色会被污染的问题。[#38355](https://github.com/ant-design/ant-design/pull/38355)
+- 🐞 修复 Anchor 组件圆点样式丢失的问题。[#38338](https://github.com/ant-design/ant-design/pull/38338) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 DatePicker `popupClassName` 定义丢失的问题。[#38325](https://github.com/ant-design/ant-design/pull/38325) [@Cedong.Lee](https://github.com/Cedong.Lee)
+
 ## 4.24.0
 
 `2022-11-01`
