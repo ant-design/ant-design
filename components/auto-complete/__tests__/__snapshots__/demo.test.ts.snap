@@ -339,7 +339,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -425,7 +425,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   />
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -540,7 +540,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -653,7 +653,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   />
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -684,7 +684,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -806,7 +806,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   />
                 </div>
               </div>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -837,7 +837,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
           <div
             class="ant-form-item-control-input-content"
           >
-            <span
+            <div
               class="ant-input-group ant-input-group-compact"
             >
               <div
@@ -986,7 +986,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   Search
                 </span>
               </button>
-            </span>
+            </div>
           </div>
         </div>
       </div>
