@@ -45,3 +45,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## FAQ
+
+### Why doesn't setting the size property of the child component alone in Space.Compact take effect?
+
+We hope that the height of Space.Compact sub-components remains the same, and the size of sub-components is uniformly controlled by Space.Compact, so the size property of sub-components will be overridden.

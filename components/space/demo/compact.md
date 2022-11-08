@@ -15,7 +15,7 @@ title:
 Compact Mode for form component.
 
 ```tsx
-import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+import { CopyOutlined } from '@ant-design/icons';
 import {
   AutoComplete,
   Button,
@@ -39,16 +39,6 @@ const App: React.FC = () => (
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
-    </Space.Compact>
-    <br />
-    <Space.Compact block>
-      <Input
-        readOnly
-        allowClear
-        value="fileName"
-        suffix={<Button icon={<DeleteOutlined />} type="text" />}
-      />
-      <Button>...</Button>
     </Space.Compact>
     <br />
     <Space.Compact block size="small">

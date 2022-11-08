@@ -53,3 +53,9 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+## FAQ
+
+### 为什么在 Space.Compact 中单独设置子组件的 size 属性不生效？
+
+我们希望 Space.Compact 子组件高度保持一致，子组件的 size 由 Space.Compact 统一控制，所以子组件的 size 属性会被覆盖。
