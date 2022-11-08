@@ -51,9 +51,20 @@ return <Steps items={items} />;
 | responsive | 当屏幕宽度小于 `532px` 时自动变为垂直模式 | boolean | true |  |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | `default` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
-| type | 步骤条类型，有 `default` 和 `navigation` 两种 | string | `default` |  |
+| type | 步骤条类型，可选 `default` `navigation` `inline` | string | `default` | inline: 5.0 |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
 | items | 配置选项卡内容 | [StepItem](#StepItem) | [] | 4.24.0 |
+
+### `type="inline"`
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| className | 步骤条类名 | string | - |  |
+| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |  |
+| initial | 起始序号，从 0 开始记数 | number | 0 |  |
+| status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
+| onChange | 点击切换步骤时触发 | (current) => void | - |  |
+| items | 配置选项卡内容，不支持 `icon` `subtitle` | [StepItem](#StepItem) | [] | 4.24.0 |
 
 ### StepItem
 
