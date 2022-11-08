@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @carousel-prefix-cls: ~'@{ant-prefix}-carousel';
+@carousel-dot-margin: 4px;
 
 .@{carousel-prefix-cls} {
   .reset-component();
@@ -180,6 +181,7 @@
     display: flex !important;
     justify-content: center;
     margin-right: 15%;
+    margin-bottom: 0;
     margin-left: 15%;
     padding-left: 0;
     list-style: none;
@@ -200,9 +202,7 @@
       box-sizing: content-box;
       width: @carousel-dot-width;
       height: @carousel-dot-height;
-      margin: 0 2px;
-      margin-right: 3px;
-      margin-left: 3px;
+      margin: 0 @carousel-dot-margin;
       padding: 0;
       text-align: center;
       text-indent: -999px;
@@ -210,6 +210,7 @@
       transition: all 0.5s;
 
       button {
+        position: relative;
         display: block;
         width: 100%;
         height: @carousel-dot-height;
@@ -227,6 +228,15 @@
         &:hover,
         &:focus {
           opacity: 0.75;
+        }
+
+        &::after {
+          position: absolute;
+          top: -@carousel-dot-margin;
+          right: -@carousel-dot-margin;
+          bottom: -@carousel-dot-margin;
+          left: -@carousel-dot-margin;
+          content: '';
         }
       }
 
@@ -270,7 +280,7 @@
     li {
       width: @carousel-dot-height;
       height: @carousel-dot-width;
-      margin: 4px 2px;
+      margin: @carousel-dot-margin 0;
       vertical-align: baseline;
 
       button {

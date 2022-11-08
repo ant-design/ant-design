@@ -2499,4 +2499,34 @@ describe('Table.filter', () => {
       }),
     );
   });
+  it('should be hidden and not commit when call close()', () => {
+    const onFilterDropdownOpenChange = jest.fn();
+    const onFilter = jest.fn();
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filteredValue: name as unknown as FilterValue,
+            filterDropdown: ({ close }) => (
+              <button id="close-only" type="button" onClick={() => close()}>
+                close
+              </button>
+            ),
+            onFilterDropdownOpenChange,
+            onFilter,
+          },
+        ],
+      }),
+    );
+
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(1);
+
+    fireEvent.click(container.querySelector('#close-only')!);
+    expect(onFilterDropdownOpenChange).toHaveBeenCalledTimes(2);
+    expect(onFilter).toHaveBeenCalledTimes(0);
+  });
 });

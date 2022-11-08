@@ -26,3 +26,20 @@ export function renderColumnTitle<RecordType>(
 
   return title;
 }
+
+/**
+ * Safe get column title
+ *
+ * Should filter [object Object]
+ *
+ * @param title
+ * @returns
+ */
+export function safeColumnTitle<RecordType>(
+  title: ColumnTitle<RecordType>,
+  props: ColumnTitleProps<RecordType>,
+) {
+  const res = renderColumnTitle(title, props);
+  if (Object.prototype.toString.call(res) === '[object Object]') return '';
+  return res;
+}

@@ -10,7 +10,8 @@ Set components spacing.
 
 ## When To Use
 
-Avoid components clinging together and set a unified space.
+- Avoid components clinging together and set a unified space.
+- Use Space.Compact when child form components are compactly connected and the border is collapsed.
 
 ## API
 
@@ -25,3 +26,22 @@ Avoid components clinging together and set a unified space.
 ### Size
 
 `'small' | 'middle' | 'large' | number`
+
+### Space.Compact
+
+Use Space.Compact when child form components are compactly connected and the border is collapsed. The supported components are：
+
+- Button
+- AutoComplete
+- Cascader
+- DatePicker
+- Input/Input.Search
+- Select
+- TimePicker
+- TreeSelect
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
+| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |

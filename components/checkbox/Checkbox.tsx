@@ -65,7 +65,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = useContext(FormItemInputContext);
   const contextDisabled = useContext(DisabledContext);
-  const mergedDisabled = disabled || checkboxGroup?.disabled || contextDisabled;
+  const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
   const prevValue = React.useRef(restProps.value);
 
@@ -102,7 +102,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       }
     };
     checkboxProps.name = checkboxGroup.name;
-    checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
+    checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
   const classString = classNames(
     {

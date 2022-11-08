@@ -200,6 +200,8 @@ const logo = [
   'Yahoo',
   'Reddit',
   'Sketch',
+  'WhatsApp',
+  'Dingtalk',
 ];
 
 const datum = [...direction, ...suggestion, ...editor, ...data, ...logo];

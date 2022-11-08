@@ -1,7 +1,7 @@
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { fireEvent, render, sleep, triggerResize, waitFor } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer, triggerResize, waitFor } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
 // eslint-disable-next-line no-unused-vars
@@ -20,6 +20,7 @@ describe('Typography.Ellipsis', () => {
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
 
   beforeAll(() => {
+    jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       offsetHeight: {
         get() {
@@ -54,6 +55,7 @@ describe('Typography.Ellipsis', () => {
   });
 
   afterAll(() => {
+    jest.useRealTimers();
     errorSpy.mockRestore();
     mockRectSpy.mockRestore();
     computeSpy.mockRestore();
@@ -72,7 +74,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(container.firstChild?.textContent).toEqual('Bamboo is Little ...');
     expect(onEllipsis).toHaveBeenCalledWith(true);
@@ -135,7 +137,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.firstChild?.textContent).toEqual('Ant Design, a des...');
     const ellipsisSpans = wrapper.querySelectorAll('span[aria-hidden]');
@@ -155,7 +157,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is...--suffix');
     unmount();
@@ -175,7 +177,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual(
       '...--The information is very important',
@@ -215,7 +217,7 @@ describe('Typography.Ellipsis', () => {
     );
 
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     expect(wrapper.textContent).toEqual('Bamboo is Little...');
   });
@@ -327,7 +329,7 @@ describe('Typography.Ellipsis', () => {
         </Base>,
       );
       triggerResize(ref.current);
-      await sleep(20);
+      await waitFakeTimer();
       return wrapper;
     }
 
@@ -382,21 +384,14 @@ describe('Typography.Ellipsis', () => {
 
   it('js ellipsis should show aria-label', () => {
     const { container: titleWrapper } = render(
-      <Base
-        component={undefined as unknown as string}
-        title="bamboo"
-        ellipsis={{ expandable: true }}
-      />,
+      <Base component={undefined} title="bamboo" ellipsis={{ expandable: true }} />,
     );
     expect(titleWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
       'bamboo',
     );
 
     const { container: tooltipWrapper } = render(
-      <Base
-        component={undefined as unknown as string}
-        ellipsis={{ expandable: true, tooltip: 'little' }}
-      />,
+      <Base component={undefined} ellipsis={{ expandable: true, tooltip: 'little' }} />,
     );
     expect(tooltipWrapper.querySelector('.ant-typography')?.getAttribute('aria-label')).toEqual(
       'little',
@@ -426,16 +421,12 @@ describe('Typography.Ellipsis', () => {
 
     const ref = React.createRef<any>();
     const { container, baseElement } = render(
-      <Base
-        component={undefined as unknown as string}
-        ellipsis={{ tooltip: 'This is tooltip', rows: 2 }}
-        ref={ref}
-      >
+      <Base component={undefined} ellipsis={{ tooltip: 'This is tooltip', rows: 2 }} ref={ref}>
         Ant Design, a design language for background applications, is refined by Ant UED Team.
       </Base>,
     );
     triggerResize(ref.current);
-    await sleep(20);
+    await waitFakeTimer();
 
     fireEvent.mouseEnter(container.firstChild!);
     await waitFor(() => {

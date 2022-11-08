@@ -19,8 +19,6 @@ import { Divider, Input, Select, Space, Button } from 'antd';
 import type { InputRef } from 'antd';
 import React, { useState, useRef } from 'react';
 
-const { Option } = Select;
-
 let index = 0;
 
 const App: React.FC = () => {
@@ -62,11 +60,8 @@ const App: React.FC = () => {
           </Space>
         </>
       )}
-    >
-      {items.map(item => (
-        <Option key={item}>{item}</Option>
-      ))}
-    </Select>
+      options={items.map(item => ({ label: item, value: item }))}
+    />
   );
 };
 

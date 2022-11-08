@@ -43,6 +43,7 @@ const localeValues: Locale = {
     cancelText: 'Batal',
   },
   Transfer: {
+    titles: ['', ''],
     notFoundContent: 'Tidak dijumpai',
     searchPlaceholder: 'Carian di sini',
     itemUnit: 'item',

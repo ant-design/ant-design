@@ -83,8 +83,8 @@ const App: React.FC = () => {
   };
 
   const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<DataType> => ({
-    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
-      <div style={{ padding: 8 }}>
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+      <div style={{ padding: 8 }} onKeyDown={e => e.stopPropagation()}>
         <Input
           ref={searchInput}
           placeholder={`Search ${dataIndex}`}
@@ -120,6 +120,15 @@ const App: React.FC = () => {
             }}
           >
             Filter
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              close();
+            }}
+          >
+            close
           </Button>
         </Space>
       </div>

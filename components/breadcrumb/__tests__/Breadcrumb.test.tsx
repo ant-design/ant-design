@@ -33,6 +33,19 @@ describe('Breadcrumb', () => {
     );
   });
 
+  it('overlay deprecation warning', () => {
+    render(
+      <Breadcrumb>
+        <Breadcrumb.Item overlay={<div>menu</div>}>
+          <a href="">General</a>
+        </Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
+    );
+  });
+
   // https://github.com/ant-design/ant-design/issues/5015
   it('should allow Breadcrumb.Item is null or undefined', () => {
     const { asFragment } = render(
@@ -156,5 +169,16 @@ describe('Breadcrumb', () => {
       </Breadcrumb>,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
+  });
+  it('should support string `0` and number `0`', () => {
+    const { container } = render(
+      <Breadcrumb>
+        <Breadcrumb.Item>{0}</Breadcrumb.Item>
+        <Breadcrumb.Item>0</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[0].textContent).toBe('0');
+    expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

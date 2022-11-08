@@ -19,6 +19,8 @@ import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import { useCompactItemContext } from '../space/Compact';
+
 import { FormItemInputContext } from '../form/context';
 import getIcons from '../select/utils/iconUtil';
 import type { SelectCommonPlacement } from '../_util/motion';
@@ -187,7 +189,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
-
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   // =================== Dropdown ====================
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -219,11 +221,11 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
 
   // ===================== Size ======================
   const size = React.useContext(SizeContext);
-  const mergedSize = customizeSize || size;
+  const mergedSize = compactSize || customizeSize || size;
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
@@ -278,6 +280,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
           [`${prefixCls}-in-form-item`]: isFormItemInput,
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+        compactItemClassnames,
         className,
       )}
       disabled={mergedDisabled}

@@ -122,7 +122,7 @@ exports[`Table renders empty table 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -486,7 +486,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                         <div
                           class="ant-empty-description"
                         >
-                          No Data
+                          No data
                         </div>
                       </div>
                     </div>
@@ -648,7 +648,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>

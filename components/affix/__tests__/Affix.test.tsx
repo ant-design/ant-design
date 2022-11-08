@@ -1,11 +1,11 @@
 import React from 'react';
-import type { AffixProps, InternalAffixClass } from '..';
+import type { InternalAffixClass } from '..';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import { getObserverEntities } from '../utils';
+import { addObserveTarget, getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -15,6 +15,7 @@ class AffixMounter extends React.Component<{
   onTestUpdatePosition?(): void;
   onChange?: () => void;
   getInstance?: (inst: InternalAffixClass) => void;
+  style?: React.CSSProperties;
 }> {
   private container: HTMLDivElement;
 
@@ -120,9 +121,8 @@ describe('Affix Render', () => {
   });
 
   it('Anchor correct render when target is null', async () => {
-    expect(() => {
-      render(<Affix target={null as unknown as AffixProps['target']}>test</Affix>);
-    }).not.toThrow();
+    render(<Affix target={() => null}>test</Affix>);
+    await waitFakeTimer();
   });
 
   it('support offsetBottom', async () => {
@@ -202,6 +202,51 @@ describe('Affix Render', () => {
       expect(getObserverEntities()).toHaveLength(1);
       expect(getObserverEntities()[0].target).toBe(window);
     });
+
+    it('check position change before measure', async () => {
+      const { container } = render(
+        <>
+          <Affix offsetTop={10}>
+            <Button>top</Button>
+          </Affix>
+          <Affix offsetBottom={10}>
+            <Button>bottom</Button>
+          </Affix>
+        </>,
+      );
+      await waitFakeTimer();
+      await movePlaceholder(1000);
+      expect(container.querySelector('.ant-affix')).toBeTruthy();
+    });
+
+    it('do not measure when hidden', async () => {
+      let affixInstance: InternalAffixClass | null = null;
+
+      const { rerender } = render(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+        />,
+      );
+      await waitFakeTimer();
+      const firstAffixStyle = affixInstance!.state.affixStyle;
+
+      rerender(
+        <AffixMounter
+          getInstance={inst => {
+            affixInstance = inst;
+          }}
+          offsetBottom={0}
+          style={{ display: 'none' }}
+        />,
+      );
+      await waitFakeTimer();
+      const secondAffixStyle = affixInstance!.state.affixStyle;
+
+      expect(firstAffixStyle).toEqual(secondAffixStyle);
+    });
   });
 
   describe('updatePosition when size changed', () => {
@@ -247,6 +292,12 @@ describe('Affix Render', () => {
 
         expect(updateCalled).toHaveBeenCalled();
       });
+    });
+
+    it('addObserveTarget should not Throw Error when target is null', () => {
+      expect(() => {
+        addObserveTarget(null);
+      }).not.toThrow();
     });
   });
 });

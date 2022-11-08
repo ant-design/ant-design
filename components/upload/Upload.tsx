@@ -30,7 +30,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onChange,
     onDrop,
     previewFile,
-    disabled: customDisabled = false,
+    disabled: customDisabled,
     locale: propLocale,
     iconRender,
     isImageUrl,
@@ -51,7 +51,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled || disabled;
+  const mergedDisabled = customDisabled ?? disabled;
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
@@ -60,7 +60,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [dragState, setDragState] = React.useState<string>('drop');
 
-  const upload = React.useRef<any>();
+  const upload = React.useRef<RcUpload>(null);
 
   warning(
     'fileList' in props || !('value' in props),
@@ -276,7 +276,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             item.status = 'removed';
           }
         });
-        upload.current?.abort(currentFile);
+        upload.current?.abort(currentFile as RcFile);
 
         onInternalChange(currentFile, removedFileList);
       }

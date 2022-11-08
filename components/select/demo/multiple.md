@@ -16,12 +16,14 @@ Multiple selection, selecting from existing items.
 ```tsx
 import { Select } from 'antd';
 import React from 'react';
+import type { SelectProps } from 'antd';
 
-const { Option } = Select;
-
-const children: React.ReactNode[] = [];
+const options: SelectProps['options'] = [];
 for (let i = 10; i < 36; i++) {
-  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
+  options.push({
+    label: i.toString(36) + i,
+    value: i.toString(36) + i,
+  });
 }
 
 const handleChange = (value: string[]) => {
@@ -37,9 +39,8 @@ const App: React.FC = () => (
       placeholder="Please select"
       defaultValue={['a10', 'c12']}
       onChange={handleChange}
-    >
-      {children}
-    </Select>
+      options={options}
+    />
     <br />
     <Select
       mode="multiple"
@@ -48,9 +49,8 @@ const App: React.FC = () => (
       placeholder="Please select"
       defaultValue={['a10', 'c12']}
       onChange={handleChange}
-    >
-      {children}
-    </Select>
+      options={options}
+    />
   </>
 );
 
