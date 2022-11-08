@@ -16177,7 +16177,7 @@ exports[`ConfigProvider components Grid prefixCls 1`] = `
 
 exports[`ConfigProvider components Input configProvider 1`] = `
 <div>
-  <span
+  <div
     class="config-input-group"
   >
     <input
@@ -16226,7 +16226,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="config-input-affix-wrapper config-input-password"
   >
@@ -16271,7 +16271,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
 
 exports[`ConfigProvider components Input configProvider componentDisabled 1`] = `
 <div>
-  <span
+  <div
     class="config-input-group"
   >
     <input
@@ -16323,7 +16323,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password"
   >
@@ -16370,7 +16370,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Input configProvider componentSize large 1`] = `
 <div>
-  <span
+  <div
     class="config-input-group"
   >
     <input
@@ -16419,7 +16419,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
@@ -16464,7 +16464,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
 
 exports[`ConfigProvider components Input configProvider componentSize middle 1`] = `
 <div>
-  <span
+  <div
     class="config-input-group"
   >
     <input
@@ -16513,7 +16513,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="config-input-affix-wrapper config-input-password"
   >
@@ -16558,7 +16558,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
 
 exports[`ConfigProvider components Input configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
-  <span
+  <div
     class="ant-input-group"
   >
     <input
@@ -16607,7 +16607,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="ant-input-affix-wrapper ant-input-password"
   >
@@ -16652,7 +16652,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
 
 exports[`ConfigProvider components Input normal 1`] = `
 <div>
-  <span
+  <div
     class="ant-input-group"
   >
     <input
@@ -16701,7 +16701,7 @@ exports[`ConfigProvider components Input normal 1`] = `
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="ant-input-affix-wrapper ant-input-password"
   >
@@ -16746,7 +16746,7 @@ exports[`ConfigProvider components Input normal 1`] = `
 
 exports[`ConfigProvider components Input prefixCls 1`] = `
 <div>
-  <span
+  <div
     class="prefix-Input"
   >
     <input
@@ -16795,7 +16795,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <span
     class="ant-input-affix-wrapper prefix-Input"
   >
