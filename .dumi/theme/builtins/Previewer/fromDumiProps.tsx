@@ -8,6 +8,7 @@ import Prism from 'prismjs';
 import { useLocation } from 'dumi';
 import { useIntl, type IPreviewerProps } from 'dumi';
 import { ping } from '../../utils';
+import sylvanas from 'sylvanas';
 
 let pingDeferrer: PromiseLike<boolean>;
 
@@ -80,8 +81,7 @@ export default function fromDumiProps<P extends object>(
       intl: { locale: intl.locale },
       showRiddleButton,
       highlightedCodes: {
-        // FIXME: real jsx code in plugin.ts
-        jsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
+        jsx: Prism.highlight(meta.jsx, Prism.languages.javascript, 'jsx'),
         tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'tsx'),
       },
       style: meta.style,
