@@ -16,6 +16,7 @@ import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { TooltipProps } from '../../tooltip';
+import type { PopoverProps } from '../../popover';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
 import useMergedConfig from '../hooks/useMergedConfig';
@@ -50,15 +51,24 @@ interface EditConfig {
   enterIcon?: React.ReactNode;
 }
 
-export interface EllipsisConfig {
+export interface BaseEllipsisConfig {
   rows?: number;
   expandable?: boolean;
   suffix?: string;
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
+}
+
+interface TooltipEllipsisConfig extends BaseEllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
+
+interface PopoverEllipsisConfig extends BaseEllipsisConfig {
+  popover?: React.ReactNode | PopoverProps;
+}
+
+export type EllipsisConfig = TooltipEllipsisConfig | PopoverEllipsisConfig;
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
   extends TypographyProps<C> {
@@ -337,17 +347,31 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     };
   }, [cssEllipsis, mergedEnableEllipsis]);
 
-  // ========================== Tooltip ===========================
+  // ========================== Tooltip And Popover ===========================
   let tooltipProps: TooltipProps = {};
-  if (ellipsisConfig.tooltip === true) {
+  const ellipsisConfigTooltipType = (ellipsisConfig as TooltipEllipsisConfig).tooltip;
+  if (ellipsisConfigTooltipType === true) {
     tooltipProps = { title: editConfig.text ?? children };
-  } else if (React.isValidElement(ellipsisConfig.tooltip)) {
-    tooltipProps = { title: ellipsisConfig.tooltip };
-  } else if (typeof ellipsisConfig.tooltip === 'object') {
-    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfig.tooltip };
+  } else if (React.isValidElement(ellipsisConfigTooltipType)) {
+    tooltipProps = { title: ellipsisConfigTooltipType };
+  } else if (typeof ellipsisConfigTooltipType === 'object') {
+    tooltipProps = { title: editConfig.text ?? children, ...ellipsisConfigTooltipType };
   } else {
-    tooltipProps = { title: ellipsisConfig.tooltip };
+    tooltipProps = { title: ellipsisConfigTooltipType };
   }
+
+  let popoverProps: PopoverProps = {};
+  const ellipsisConfigPopoverType = (ellipsisConfig as PopoverEllipsisConfig).popover;
+  if (ellipsisConfigPopoverType === true) {
+    popoverProps = { content: editConfig.text ?? children };
+  } else if (React.isValidElement(ellipsisConfigPopoverType)) {
+    popoverProps = { content: ellipsisConfigPopoverType };
+  } else if (typeof ellipsisConfigPopoverType === 'object') {
+    popoverProps = { content: editConfig.text ?? children, ...ellipsisConfigPopoverType };
+  } else {
+    popoverProps = { content: ellipsisConfigPopoverType };
+  }
+
   const topAriaLabel = React.useMemo(() => {
     const isValid = (val: any): val is string | number => ['string', 'number'].includes(typeof val);
 
@@ -371,8 +395,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return tooltipProps.title;
     }
 
+    if (isValid(popoverProps.content)) {
+      return tooltipProps.title;
+    }
+
     return undefined;
-  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
+  }, [
+    enableEllipsis,
+    cssEllipsis,
+    title,
+    tooltipProps.title,
+    popoverProps.content,
+    isMergedEllipsis,
+  ]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -495,6 +530,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
           tooltipProps={tooltipProps}
+          popoverProps={popoverProps}
           enabledEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
         >
