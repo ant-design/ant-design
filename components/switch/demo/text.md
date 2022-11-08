@@ -20,7 +20,7 @@ import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
+    <Switch checkedChildren="启用中" unCheckedChildren="已停用" defaultChecked />
     <br />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
