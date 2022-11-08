@@ -4,6 +4,11 @@ import rehypeAntd from './.dumi/rehypeAntd';
 import { version } from './package.json';
 
 export default defineConfig({
+  conventionRoutes: {
+    // to avoid generate routes for .dumi/pages/index/components/xx
+    exclude: [new RegExp('index/components/')],
+  },
+  ssr: {},
   hash: true,
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],

@@ -142,6 +142,7 @@ const Header: React.FC<HeaderProps> = props => {
   const intl = useIntl();
   const { changeDirection } = props;
   const [, lang] = useLocale();
+  const [isClient, setIsClient] = React.useState(false);
 
   const themeConfig = getThemeConfig();
   const [headerState, setHeaderState] = useState<HeaderState>({
@@ -182,6 +183,7 @@ const Header: React.FC<HeaderProps> = props => {
   }, [location]);
 
   useEffect(() => {
+    setIsClient(typeof window !== 'undefined');
     initDocSearch({ isZhCN: lang === 'cn', navigate });
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
@@ -287,6 +289,7 @@ const Header: React.FC<HeaderProps> = props => {
   const sharedProps = {
     isZhCN,
     isRTL,
+    isClient,
   };
 
   const navigationNode = (

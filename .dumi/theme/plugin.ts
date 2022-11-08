@@ -1,5 +1,6 @@
 import fs from 'fs';
 import type { IApi, IRoute } from 'dumi';
+import { extractStyle } from '@ant-design/cssinjs';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
 
@@ -39,6 +40,8 @@ class AntdReactTechStack extends ReactTechStack {
 const resolve = (path: string): string => require.resolve(path);
 
 const RoutesPlugin = (api: IApi) => {
+  const ssrCssFileName = `ssr-${Date.now()}.css`;
+
   api.registerTechStack(() => new AntdReactTechStack());
 
   api.modifyRoutes(routes => {
@@ -68,9 +71,45 @@ const RoutesPlugin = (api: IApi) => {
     return routes;
   });
 
-  // exclude dynamic route path, to avoid deploy failed by `:id` directory
-  api.modifyExportHTMLFiles(files => {
-    return files.filter(f => !f.path.includes(':'));
+  api.modifyExportHTMLFiles(files =>
+    files
+      // exclude dynamic route path, to avoid deploy failed by `:id` directory
+      .filter(f => !f.path.includes(':'))
+      // FIXME: workaround to make emotion support react 18 pipeableStream
+      // ref: https://github.com/emotion-js/emotion/issues/2800#issuecomment-1221296308
+      .map(file => {
+        let styles = '';
+
+        // extract all emotion style tags from body
+        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, s => {
+          styles += s;
+
+          return '';
+        });
+
+        // insert emotion style tags to head
+        file.content = file.content.replace('</head>', `${styles}</head>`);
+
+        return file;
+      }),
+  );
+
+  // add ssr css file to html
+  api.modifyConfig(memo => {
+    memo.styles ??= [];
+    memo.styles.push(`/${ssrCssFileName}`);
+
+    return memo;
+  });
+
+  // generate ssr css file
+  api.onBuildHtmlComplete(() => {
+    const styleText = extractStyle((global as any).styleCache);
+    const styleTextWithoutStyleTag = styleText
+      .replace(/<style\s[^>]*>/g, '')
+      .replace(/<\/style>/g, '');
+
+    fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
   });
 };
 
