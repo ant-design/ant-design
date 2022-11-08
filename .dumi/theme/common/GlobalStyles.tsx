@@ -266,6 +266,10 @@ const GlobalStyles = () => {
             font-weight: 500;
           }
 
+          .markdown .dumi-default-source-code {
+            background-color: ${token.siteMarkdownCodeBg};
+          }
+
           .markdown .dumi-default-table-content > table,
           .markdown > table {
             width: 100%;

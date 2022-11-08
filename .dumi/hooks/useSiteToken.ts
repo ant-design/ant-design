@@ -9,6 +9,7 @@ const useSiteToken = () => {
   const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
   const { token } = result;
+  const siteMarkdownCodeBg = token.colorFillTertiary;
 
   return {
     ...result,
@@ -17,7 +18,7 @@ const useSiteToken = () => {
       headerHeight: 64,
       menuItemBorder: 2,
       mobileMaxWidth: 767.99,
-      siteMarkdownCodeBg: '#f2f4f5',
+      siteMarkdownCodeBg,
       antCls: `.${rootPrefixCls}`,
       iconCls: `.${iconPrefixCls}`,
       /** 56 */
