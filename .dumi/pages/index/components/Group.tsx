@@ -61,7 +61,16 @@ export default function Group(props: GroupProps) {
   let childNode = (
     <>
       <div style={{ textAlign: 'center' }}>
-        <Typography.Title id={id} level={1} style={{ fontWeight: 400, color: titleColor }}>
+        <Typography.Title
+          id={id}
+          level={1}
+          style={{
+            fontWeight: 900,
+            color: titleColor,
+            // Special for the title
+            fontFamily: `AliPuHui, ${token.fontFamily}`,
+          }}
+        >
           {title}
         </Typography.Title>
         <Typography.Paragraph style={{ marginBottom: token.marginFarXS, color: titleColor }}>

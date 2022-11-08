@@ -78,10 +78,9 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
         const url = THEMES[theme as THEME];
 
         return (
-          <Space direction="vertical" align="center">
+          <Space key={theme} direction="vertical" align="center">
             <div css={[style.themeCard, value === theme && style.themeCardActive]}>
               <img
-                key={theme}
                 src={url}
                 onClick={() => {
                   onChange?.(theme);

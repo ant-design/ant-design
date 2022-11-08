@@ -101,9 +101,10 @@ export default function Banner({ children }: BannerProps) {
           <Typography.Title
             level={1}
             style={{
+              fontFamily: `AliPuHui, ${token.fontFamily}`,
               fontSize: token.fontSizes[9],
               lineHeight: token.lineHeights[9],
-              fontWeight: 'normal',
+              fontWeight: 900,
               marginBottom: token.marginMD,
             }}
           >

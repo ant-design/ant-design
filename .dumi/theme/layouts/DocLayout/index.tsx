@@ -9,7 +9,7 @@ import ConfigProvider, { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import useLocale from '../../../hooks/useLocale';
-import zhCN from 'antd/lib/locale/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import ResourceLayout from '../ResourceLayout';
 import GlobalStyles from '../../common/GlobalStyles';
