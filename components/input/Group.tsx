@@ -5,29 +5,28 @@ import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 
-export interface GroupProps {
-  className?: string;
+export interface GroupProps extends React.HTMLAttributes<HTMLElement> {
   size?: 'large' | 'small' | 'default';
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
-  onMouseEnter?: React.MouseEventHandler<HTMLSpanElement>;
-  onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>;
-  onFocus?: React.FocusEventHandler<HTMLSpanElement>;
-  onBlur?: React.FocusEventHandler<HTMLSpanElement>;
   prefixCls?: string;
   compact?: boolean;
 }
 
-const Group: React.FC<GroupProps> = props => {
+const Group: React.FC<GroupProps> = ({
+  prefixCls: customizePrefixCls,
+  size,
+  compact,
+  className,
+  children,
+  ...htmlAttributes
+}) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const cls = classNames(
     prefixCls,
     {
-      [`${prefixCls}-lg`]: props.size === 'large',
-      [`${prefixCls}-sm`]: props.size === 'small',
-      [`${prefixCls}-compact`]: props.compact,
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-compact`]: compact,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -44,18 +43,11 @@ const Group: React.FC<GroupProps> = props => {
   );
 
   return (
-    <span
-      className={cls}
-      style={props.style}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
+    <div className={cls} {...htmlAttributes}>
       <FormItemInputContext.Provider value={groupFormItemContext}>
-        {props.children}
+        {children}
       </FormItemInputContext.Provider>
-    </span>
+    </div>
   );
 };
 
