@@ -2,7 +2,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { fireEvent, render, waitFakeTimer, triggerResize, waitFor } from '../../../tests/utils';
-import type { EllipsisConfig } from '../Base';
+import type { TooltipEllipsisConfig, PopoverEllipsisConfig } from '../Base';
 import Base from '../Base';
 // eslint-disable-next-line no-unused-vars
 
@@ -303,7 +303,7 @@ describe('Typography.Ellipsis', () => {
     });
   });
 
-  describe('should tooltip support', () => {
+  describe('should tooltip and popover support', () => {
     let domSpy: ReturnType<typeof spyElementPrototypes>;
 
     beforeAll(() => {
@@ -321,37 +321,72 @@ describe('Typography.Ellipsis', () => {
       domSpy.mockRestore();
     });
 
-    async function getWrapper(tooltip?: EllipsisConfig['tooltip']) {
+    async function getWrapper({
+      tooltip,
+      popover,
+    }: {
+      tooltip?: TooltipEllipsisConfig['tooltip'];
+      popover?: PopoverEllipsisConfig['popover'];
+    }) {
       const ref = React.createRef<any>();
-      const wrapper = render(
-        <Base ellipsis={{ tooltip }} component="p" ref={ref}>
-          {fullStr}
-        </Base>,
-      );
+      let wrapper: any;
+      if (tooltip) {
+        wrapper = render(
+          <Base ellipsis={{ tooltip }} component="p" ref={ref}>
+            {fullStr}
+          </Base>,
+        );
+      }
+      if (popover) {
+        wrapper = render(
+          <Base ellipsis={{ popover }} component="p" ref={ref}>
+            {fullStr}
+          </Base>,
+        );
+      }
       triggerResize(ref.current);
       await waitFakeTimer();
       return wrapper;
     }
 
-    it('boolean', async () => {
-      const { container, baseElement } = await getWrapper(true);
+    it('tooltip boolean', async () => {
+      const { container, baseElement } = await getWrapper({ tooltip: true });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
 
-    it('customize', async () => {
-      const { container, baseElement } = await getWrapper('Bamboo is Light');
+    it('popover boolean', async () => {
+      const { container, baseElement } = await getWrapper({ popover: true });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+
+    it('tooltip customize', async () => {
+      const { container, baseElement } = await getWrapper({ tooltip: 'Bamboo is Light' });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    it('popover customize', async () => {
+      const { container, baseElement } = await getWrapper({ popover: 'Bamboo is Light' });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+
     it('tooltip props', async () => {
       const { container, baseElement } = await getWrapper({
-        title: 'This is tooltip',
-        className: 'tooltip-class-name',
+        tooltip: {
+          title: 'This is tooltip',
+          className: 'tooltip-class-name',
+        },
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -359,10 +394,27 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    it('popover props', async () => {
+      const { container, baseElement } = await getWrapper({
+        popover: {
+          content: 'This is popover',
+          className: 'popover-class-name',
+        },
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+
     it('tooltip title true', async () => {
       const { container, baseElement } = await getWrapper({
-        title: true,
-        className: 'tooltip-class-name',
+        tooltip: {
+          title: true,
+          className: 'tooltip-class-name',
+        },
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -370,14 +422,40 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    it('popover content true', async () => {
+      const { container, baseElement } = await getWrapper({
+        popover: {
+          content: true,
+          className: 'popover-class-name',
+        },
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
+      });
+    });
+
     it('tooltip element', async () => {
-      const { container, baseElement } = await getWrapper(
-        <div className="tooltip-class-name">title</div>,
-      );
+      const { container, baseElement } = await getWrapper({
+        tooltip: <div className="tooltip-class-name">title</div>,
+      });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+    });
+
+    it('popover element', async () => {
+      const { container, baseElement } = await getWrapper({
+        popover: <div className="popover-class-name">content</div>,
+      });
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(container.querySelector('.popover-class-name')).toBeTruthy();
+        expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
       });
     });
   });

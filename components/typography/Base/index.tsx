@@ -60,11 +60,11 @@ export interface BaseEllipsisConfig {
   onEllipsis?: (ellipsis: boolean) => void;
 }
 
-interface TooltipEllipsisConfig extends BaseEllipsisConfig {
+export interface TooltipEllipsisConfig extends BaseEllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-interface PopoverEllipsisConfig extends BaseEllipsisConfig {
+export interface PopoverEllipsisConfig extends BaseEllipsisConfig {
   popover?: React.ReactNode | PopoverProps;
 }
 
