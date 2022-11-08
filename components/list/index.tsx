@@ -104,8 +104,6 @@ function List<T>({
     total: 0,
   };
 
-  const listItemsKeys: { [index: number]: React.Key } = {};
-
   const triggerPaginationEvent = (eventName: string) => (page: number, pageSize: number) => {
     setPaginationCurrent(page);
     setPaginationSize(pageSize);
@@ -134,8 +132,6 @@ function List<T>({
     if (!key) {
       key = `list-item-${index}`;
     }
-
-    listItemsKeys[index] = key;
 
     return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
   };
@@ -249,8 +245,8 @@ function List<T>({
   let childrenContent = isLoading && <div style={{ minHeight: 53 }} />;
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
-    const childrenList = React.Children.map(items, (child: React.ReactNode, index: number) => (
-      <div key={listItemsKeys[index]} style={colStyle}>
+    const childrenList = React.Children.map(items, child => (
+      <div key={child?.key} style={colStyle}>
         {child}
       </div>
     ));
