@@ -50,6 +50,9 @@ const DropdownButton: DropdownButtonInterface = props => {
     htmlType,
     children,
     className,
+    menu,
+    arrow,
+    autoFocus,
     overlay,
     trigger,
     align,
@@ -74,6 +77,9 @@ const DropdownButton: DropdownButtonInterface = props => {
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const dropdownProps: DropdownProps = {
+    menu,
+    arrow,
+    autoFocus,
     align,
     overlay,
     disabled,
@@ -85,7 +91,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-  } as DropdownProps;
+  };
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const classes = classNames(buttonPrefixCls, compactItemClassnames, className, hashId);

@@ -103,7 +103,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -262,7 +262,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1025,7 +1025,7 @@ exports[`Transfer should support render value and label in item 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>
@@ -1274,7 +1274,7 @@ exports[`immutable data dataSource is frozen 1`] = `
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

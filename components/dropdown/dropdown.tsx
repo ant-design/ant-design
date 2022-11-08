@@ -4,6 +4,8 @@ import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
+import Menu from '../menu';
+import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
 import genPurePanel from '../_util/PurePanel';
@@ -47,10 +49,11 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
+  menu?: MenuProps;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactElement | OverlayFunc;
+  dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean) => void;
   open?: boolean;
   disabled?: boolean;
@@ -70,6 +73,8 @@ export interface DropdownProps {
   children?: React.ReactNode;
 
   // Deprecated
+  /** @deprecated Please use `menu` instead */
+  overlay?: React.ReactElement | OverlayFunc;
   /** @deprecated Please use `open` instead */
   visible?: boolean;
   /** @deprecated Please use `onOpenChange` instead */
@@ -87,6 +92,26 @@ const Dropdown: DropdownInterface = props => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
+
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Dropdown',
+        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
+      );
+    });
+
+    warning(
+      !('overlay' in props),
+      'Dropdown',
+      '`overlay` is deprecated. Please use `menu` instead.',
+    );
+  }
 
   const getTransitionName = () => {
     const rootPrefixCls = getPrefixCls();
@@ -120,11 +145,13 @@ const Dropdown: DropdownInterface = props => {
   };
 
   const {
+    menu,
     arrow,
     prefixCls: customizePrefixCls,
     children,
     trigger,
     disabled,
+    dropdownRender,
     getPopupContainer,
     overlayClassName,
     open,
@@ -203,10 +230,15 @@ const Dropdown: DropdownInterface = props => {
     const { overlay } = props;
 
     let overlayNode: React.ReactNode;
-    if (typeof overlay === 'function') {
-      overlayNode = overlay();
+    if (menu?.items) {
+      overlayNode = <Menu {...menu} />;
+    } else if (typeof overlay === 'function') {
+      overlayNode = (overlay as OverlayFunc)();
     } else {
       overlayNode = overlay;
+    }
+    if (dropdownRender) {
+      overlayNode = dropdownRender(overlayNode);
     }
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,

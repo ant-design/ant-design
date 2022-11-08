@@ -11,7 +11,6 @@ import { useCallback, useMemo, useState } from 'react';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
-import Menu from '../../menu';
 import Radio from '../../radio';
 import warning from '../../_util/warning';
 import type {
@@ -410,25 +409,23 @@ export default function useSelection<RecordType>(
       if (selectionType !== 'radio') {
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
-          const menu = (
-            <Menu
-              getPopupContainer={getPopupContainer}
-              items={mergedSelections.map((selection, index) => {
-                const { key, text, onSelect: onSelectionClick } = selection;
+          const menu = {
+            getPopupContainer,
+            items: mergedSelections.map((selection, index) => {
+              const { key, text, onSelect: onSelectionClick } = selection;
 
-                return {
-                  key: key || index,
-                  onClick: () => {
-                    onSelectionClick?.(recordKeys);
-                  },
-                  label: text,
-                };
-              })}
-            />
-          );
+              return {
+                key: key || index,
+                onClick: () => {
+                  onSelectionClick?.(recordKeys);
+                },
+                label: text,
+              };
+            }),
+          };
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
-              <Dropdown overlay={menu} getPopupContainer={getPopupContainer}>
+              <Dropdown menu={menu} getPopupContainer={getPopupContainer}>
                 <span>
                   <DownOutlined />
                 </span>
@@ -466,6 +463,7 @@ export default function useSelection<RecordType>(
               }
               onChange={onSelectAllChange}
               disabled={flattedData.length === 0 || allDisabled}
+              aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
               skipGroup
             />
             {customizeSelections}

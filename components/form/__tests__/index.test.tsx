@@ -179,27 +179,27 @@ describe('Form', () => {
       const { container } = render(<Demo />);
 
       await changeValue(0, '1');
-      await waitFakeTimer();
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
 
       await changeValue(0, '2');
-      await waitFakeTimer();
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('ccc');
 
       await changeValue(0, '1');
-      await waitFakeTimer();
+      await waitFakeTimer(2000, 2000);
       expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('aaa');
     });
   });
 
-  it('`shouldUpdate` should work with render props', () => {
+  it('render functions require either `shouldUpdate` or `dependencies`', () => {
     render(
       <Form>
         <Form.Item>{() => null}</Form.Item>
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate` or `dependencies`.',
+      'Warning: [antd: Form.Item] A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
     );
   });
 
@@ -212,7 +212,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/#form-deps.",
     );
   });
 
@@ -225,11 +225,11 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
+      'Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
     );
   });
 
-  it('children is array has name props', () => {
+  it('multiple children with a name prop', () => {
     render(
       <Form>
         <Form.Item name="test">
@@ -239,7 +239,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+      'Warning: [antd: Form.Item] A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/#complex-form-item.',
     );
   });
 
@@ -619,7 +619,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] Must set `name` or use render props when `dependencies` is set.',
+      'Warning: [antd: Form.Item] Must set `name` or use a render function when `dependencies` is set.',
     );
   });
 

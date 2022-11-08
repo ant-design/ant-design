@@ -55,7 +55,7 @@ exports[`List rtl render component should be rendered correctly in RTL direction
           <div
             class="ant-empty-description"
           >
-            No Data
+            No data
           </div>
         </div>
       </div>

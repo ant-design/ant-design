@@ -348,6 +348,11 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
     [`${confirmComponentCls}-success ${confirmComponentCls}-body > ${token.iconCls}`]: {
       color: token.colorSuccess,
     },
+
+    // https://github.com/ant-design/ant-design/issues/37329
+    [`${componentCls}-zoom-leave ${componentCls}-btns`]: {
+      pointerEvents: 'none',
+    },
   };
 };
 

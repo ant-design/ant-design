@@ -8,7 +8,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import { useCompactItemContext } from '../../space/Compact';
-import type { PickerDateProps, PickerProps, PickerTimeProps } from '.';
+import type { PickerProps, PickerTimeProps } from '.';
 import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -25,13 +25,14 @@ import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './i
 import useStyle from '../style';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
-  type DatePickerProps = PickerProps<DateType> & {
+  type CustomPickerProps = {
     status?: InputStatus;
     hashId?: string;
     popupClassName?: string;
-    /** @deprecated Please use `popupClassName` instead */
-    dropdownClassName?: string;
   };
+  type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
+  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
+
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
     displayName?: string,
@@ -178,14 +179,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   }
 
   const DatePicker = getPicker<DatePickerProps>();
-  const WeekPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('week', 'WeekPicker');
-  const MonthPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('month', 'MonthPicker');
-  const YearPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('year', 'YearPicker');
-  const TimePicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>(
-    'quarter',
-    'QuarterPicker',
-  );
+  const WeekPicker = getPicker<Omit<DatePickerProps, 'picker'>>('week', 'WeekPicker');
+  const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
+  const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
+  const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
+  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }
