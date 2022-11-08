@@ -21,6 +21,27 @@ import Alert from '../alert';
 ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Steps items={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
 ```
 
+## 代码演示
+
+<code src="./demo/deprecated.tsx">Basic (deprecated syntactic sugar)</code>
+<code src="./demo/simple.tsx">Basic</code>
+<code src="./demo/small-size.tsx">Mini version</code>
+<code src="./demo/icon.tsx">With icon</code>
+<code src="./demo/step-next.tsx">Switch Step</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/vertical-small.tsx">Vertical mini version</code>
+<code src="./demo/error.tsx">Error status</code>
+<code src="./demo/progress-dot.tsx">Dot Style</code>
+<code src="./demo/customized-progress-dot.tsx">Customized Dot Style</code>
+<code src="./demo/progress-dot-small.tsx" debug>Dot Style Size Small</code>
+<code src="./demo/clickable.tsx">Clickable</code>
+<code src="./demo/nav.tsx">Navigation Steps</code>
+<code src="./demo/progress.tsx">Steps with progress</code>
+<code src="./demo/label-placement.tsx">Label Placement</code>
+<code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
+<code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
+<code src="./demo/inline.tsx">Inline Steps</code>
+
 ```jsx
 // >=4.24.0 可用，推荐的写法 ✅
 const items = [{ title: '第一步' }, { title: '第二步' }, { title: '第三步' }];

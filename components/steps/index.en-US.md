@@ -39,6 +39,7 @@ ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage
 <code src="./demo/label-placement.tsx">Label Placement</code>
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
+<code src="./demo/inline.tsx">Inline Steps</code>
 
 ## API
 
