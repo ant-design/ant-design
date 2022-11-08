@@ -1,8 +1,8 @@
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { composeRef, supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import raf from './raf';
 import { cloneElement } from './reactNode';
 
@@ -41,61 +41,73 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-class Wave extends React.Component<WaveProps> {
-  static contextType = ConfigContext;
-
-  private instance?: {
+const Wave: React.FC<WaveProps> = ({ insertExtraNode, disabled, children }) => {
+  const { csp, getPrefixCls } = React.useContext(ConfigContext);
+  const destroyedRef = React.useRef(false);
+  const clickWaveTimeoutTimerRef = React.useRef<number>();
+  const animationStartTimerRef = React.useRef<number>();
+  const animationStartRef = React.useRef(false);
+  const instanceRef = React.useRef<{
     cancel: () => void;
-  };
+  }>();
+  const containerRef = React.useRef<HTMLDivElement>();
+  const extraNodeRef = React.useRef<HTMLDivElement>();
+  const attributeName = React.useMemo(
+    () =>
+      insertExtraNode
+        ? `${getPrefixCls('')}-click-animating`
+        : `${getPrefixCls('')}-click-animating-without-extra-node`,
+    [insertExtraNode, getPrefixCls],
+  );
 
-  private containerRef = React.createRef<HTMLDivElement>();
-
-  private extraNode: HTMLDivElement;
-
-  private clickWaveTimeoutId: number;
-
-  private animationStartId: number;
-
-  private animationStart: boolean = false;
-
-  private destroyed: boolean = false;
-
-  private csp?: CSPConfig;
-
-  context: ConfigConsumerProps;
-
-  componentDidMount() {
-    this.destroyed = false;
-    const node = this.containerRef.current as HTMLDivElement;
-    if (!node || node.nodeType !== 1) {
+  const onTransitionStartRef = React.useRef((e: AnimationEvent) => {
+    if (destroyedRef.current) {
       return;
     }
-    this.instance = this.bindAnimationEvent(node);
-  }
 
-  componentWillUnmount() {
-    if (this.instance) {
-      this.instance.cancel();
+    const node = containerRef.current;
+    if (!e || e.target !== node || animationStartTimerRef.current) {
+      return;
     }
-    if (this.clickWaveTimeoutId) {
-      clearTimeout(this.clickWaveTimeoutId);
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    resetEffect.current(node);
+  });
+
+  const onTransitionEndRef = React.useRef((e: AnimationEvent) => {
+    if (!e || e.animationName !== 'fadeEffect') {
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    resetEffect.current(e.target as HTMLElement);
+  });
+
+  const resetEffect = React.useRef((node: HTMLElement) => {
+    if (!node || node === extraNodeRef.current || !(node instanceof Element)) {
+      return;
+    }
+    node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
+
+    if (styleForPseudo) {
+      styleForPseudo.innerHTML = '';
     }
 
-    this.destroyed = true;
-  }
+    if (insertExtraNode && extraNodeRef.current && node.contains(extraNodeRef.current)) {
+      node.removeChild(extraNodeRef.current);
+    }
+    ['transition', 'animation'].forEach(name => {
+      node.removeEventListener(`${name}start`, onTransitionStartRef.current);
+      node.removeEventListener(`${name}end`, onTransitionEndRef.current);
+    });
+  });
 
-  onClick = (node: HTMLElement, waveColor: string) => {
-    const { insertExtraNode, disabled } = this.props;
-
+  const handleClick = React.useRef((node: HTMLElement, waveColor: string) => {
     if (disabled || !node || isHidden(node) || node.className.includes('-leave')) {
       return;
     }
 
-    this.extraNode = document.createElement('div');
-    const { extraNode } = this;
-    const { getPrefixCls } = this.context;
+    const extraNode = document.createElement('div');
+    extraNodeRef.current = extraNode;
     extraNode.className = `${getPrefixCls('')}-click-animating-node`;
-    const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
     // Not white or transparent or grey
     if (
@@ -121,46 +133,20 @@ class Wave extends React.Component<WaveProps> {
         --antd-wave-shadow-color: ${waveColor};
       }`,
         'antd-wave',
-        { csp: this.csp, attachTo: nodeBody },
+        { csp, attachTo: nodeBody },
       );
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
+
     ['transition', 'animation'].forEach(name => {
-      node.addEventListener(`${name}start`, this.onTransitionStart);
-      node.addEventListener(`${name}end`, this.onTransitionEnd);
+      node.addEventListener(`${name}start`, onTransitionStartRef.current);
+      node.addEventListener(`${name}end`, onTransitionEndRef.current);
     });
-  };
+  });
 
-  onTransitionStart = (e: AnimationEvent) => {
-    if (this.destroyed) {
-      return;
-    }
-
-    const node = this.containerRef.current as HTMLDivElement;
-    if (!e || e.target !== node || this.animationStart) {
-      return;
-    }
-    this.resetEffect(node);
-  };
-
-  onTransitionEnd = (e: AnimationEvent) => {
-    if (!e || e.animationName !== 'fadeEffect') {
-      return;
-    }
-    this.resetEffect(e.target as HTMLElement);
-  };
-
-  getAttributeName() {
-    const { getPrefixCls } = this.context;
-    const { insertExtraNode } = this.props;
-    return insertExtraNode
-      ? `${getPrefixCls('')}-click-animating`
-      : `${getPrefixCls('')}-click-animating-without-extra-node`;
-  }
-
-  bindAnimationEvent = (node: HTMLElement) => {
+  const bindAnimationEvent = React.useRef((node: HTMLElement) => {
     if (
       !node ||
       !node.getAttribute ||
@@ -169,25 +155,29 @@ class Wave extends React.Component<WaveProps> {
     ) {
       return;
     }
+
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
       if ((e.target as HTMLElement).tagName === 'INPUT' || isHidden(e.target as HTMLElement)) {
         return;
       }
-      this.resetEffect(node);
+      resetEffect.current(node);
       // Get wave color from target
       const waveColor =
         getComputedStyle(node).getPropertyValue('border-top-color') || // Firefox Compatible
         getComputedStyle(node).getPropertyValue('border-color') ||
         getComputedStyle(node).getPropertyValue('background-color');
-      this.clickWaveTimeoutId = window.setTimeout(() => this.onClick(node, waveColor), 0);
+      clickWaveTimeoutTimerRef.current = window.setTimeout(
+        () => handleClick.current(node, waveColor),
+        0,
+      );
 
-      raf.cancel(this.animationStartId);
-      this.animationStart = true;
+      raf.cancel(animationStartTimerRef.current);
+      animationStartRef.current = true;
 
       // Render to trigger transition event cost 3 frames. Let's delay 10 frames to reset this.
-      this.animationStartId = raf(() => {
-        this.animationStart = false;
+      animationStartTimerRef.current = raf(() => {
+        animationStartRef.current = false;
       }, 10);
     };
     node.addEventListener('click', onClick, true);
@@ -196,46 +186,33 @@ class Wave extends React.Component<WaveProps> {
         node.removeEventListener('click', onClick, true);
       },
     };
-  };
+  });
 
-  resetEffect(node: HTMLElement) {
-    if (!node || node === this.extraNode || !(node instanceof Element)) {
+  useIsomorphicLayoutEffect(() => {
+    const node = containerRef.current;
+    if (!node || node.nodeType !== 1) {
       return;
     }
-    const { insertExtraNode } = this.props;
-    const attributeName = this.getAttributeName();
-    node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
+    instanceRef.current = bindAnimationEvent.current(node);
 
-    if (styleForPseudo) {
-      styleForPseudo.innerHTML = '';
-    }
+    return () => {
+      if (instanceRef.current) {
+        instanceRef.current.cancel();
+      }
+      window.clearTimeout(clickWaveTimeoutTimerRef.current);
 
-    if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
-      node.removeChild(this.extraNode);
-    }
-    ['transition', 'animation'].forEach(name => {
-      node.removeEventListener(`${name}start`, this.onTransitionStart);
-      node.removeEventListener(`${name}end`, this.onTransitionEnd);
-    });
+      destroyedRef.current = true;
+    };
+  }, []);
+
+  if (!React.isValidElement(children)) {
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    return <>{children}</>;
   }
 
-  renderWave = ({ csp }: ConfigConsumerProps) => {
-    const { children } = this.props;
-    this.csp = csp;
+  const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
 
-    if (!React.isValidElement(children)) return children;
-
-    let ref: React.Ref<any> = this.containerRef;
-    if (supportRef(children)) {
-      ref = composeRef((children as any).ref, this.containerRef as any);
-    }
-
-    return cloneElement(children, { ref });
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
-  }
-}
+  return <>{cloneElement(children, { ref })}</>;
+};
 
 export default Wave;
