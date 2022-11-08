@@ -172,7 +172,13 @@ function isAppleDevice() {
  * - [@docusaurus-theme-search-algolia](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
  * - [DocSearchModal Docs](https://autocomplete-experimental.netlify.app/docs/DocSearchModal)
  */
-const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }: SearchBarProps) => {
+const SearchBar = ({
+  isZhCN,
+  isClient,
+  responsive,
+  onTriggerFocus,
+  algoliaConfig,
+}: SearchBarProps) => {
   const [isInputFocus, setInputFocus] = React.useState(false);
   const [inputSearch, setInputSearch] = React.useState('');
 
@@ -276,7 +282,7 @@ const SearchBar = ({ isZhCN, responsive, onTriggerFocus, algoliaConfig }: Search
         }}
         prefix={<SearchOutlined />}
         suffix={
-          typeof window !== 'undefined' && (
+          isClient && (
             <Tooltip placement="right" title={isZhCN ? '唤起搜索窗' : 'Search in doc modal'}>
               <span
                 css={style.keybindings}

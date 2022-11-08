@@ -80,6 +80,7 @@ const useStyle = () => {
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
+  isClient: boolean;
   responsive: null | 'narrow' | 'crowded';
   directionText: string;
   showTechUIButton: boolean;
@@ -89,6 +90,7 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
+  isClient,
   isMobile,
   responsive,
   directionText,
@@ -198,7 +200,7 @@ export default ({
         }
       : null,
     isZhCN &&
-    typeof window !== 'undefined' &&
+    isClient &&
     window.location.host !== 'ant-design.antgroup.com' &&
     window.location.host !== 'ant-design.gitee.io'
       ? {

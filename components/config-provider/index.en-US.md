@@ -78,7 +78,7 @@ ConfigProvider.config({
 
 #### How to contribute a new language?
 
-See [<Adding new language>](/docs/react/i18n#Adding-newplanguage).
+See [&lt;Adding new language&gt;](/docs/react/i18n#Adding-newplanguage).
 
 #### Date-related components locale is not working?
 
