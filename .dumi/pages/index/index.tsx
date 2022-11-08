@@ -5,12 +5,12 @@ import useLocale from '../../hooks/useLocale';
 import Banner from './components/Banner';
 import Group from './components/Group';
 import { useSiteData } from './components/util';
-import Recommends from './components/RecommendsOld';
 import useSiteToken from '../../hooks/useSiteToken';
 import Theme from './components/Theme';
 import BannerRecommends from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
+import { ConfigProvider } from 'antd';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -48,41 +48,46 @@ const Homepage: FC = () => {
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
 
   const [siteData, loading] = useSiteData();
-  console.log('siteData:', siteData);
 
   const style = useStyle();
 
-  // TODO: implement homepage
-  // from: https://github.com/ant-design/ant-design/blob/2804cb843a1f6d8b46e44e13c2552f34c487b797/site/theme/template/Home/index.tsx
   return (
-    <section>
-      <Banner>
-        <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
-      </Banner>
+    <ConfigProvider theme={{ algorithm: undefined }}>
+      <section>
+        <Banner>
+          <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
+        </Banner>
 
-      <div css={style.container}>
-        <Theme />
-        <Group collapse title={locale.assetsTitle} description={locale.assetsDesc} id="design">
-          <ComponentsList />
-        </Group>
-        <Group
-          title={locale.designTitle}
-          description={locale.designDesc}
-          background="#F5F8FF"
-          decoration={
-            <>
-              {/* Image Left Top */}
-              <img
-                style={{ position: 'absolute', left: 0, top: -50, height: 160 }}
-                src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-              />
-            </>
-          }
-        >
-          <DesignFramework />
-        </Group>
-      </div>
-    </section>
+        <div css={style.container}>
+          <Theme />
+          <Group
+            background="#fff"
+            collapse
+            title={locale.assetsTitle}
+            description={locale.assetsDesc}
+            id="design"
+          >
+            <ComponentsList />
+          </Group>
+          <Group
+            title={locale.designTitle}
+            description={locale.designDesc}
+            background="#F5F8FF"
+            decoration={
+              <>
+                {/* Image Left Top */}
+                <img
+                  style={{ position: 'absolute', left: 0, top: -50, height: 160 }}
+                  src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+                />
+              </>
+            }
+          >
+            <DesignFramework />
+          </Group>
+        </div>
+      </section>
+    </ConfigProvider>
   );
 };
 

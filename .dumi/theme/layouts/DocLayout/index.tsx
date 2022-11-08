@@ -108,6 +108,8 @@ const DocLayout: FC = () => {
       );
     } else if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
+    } else if (pathname.startsWith('/theme-editor')) {
+      return <>{outlet}</>;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
   }, [pathname, outlet]);

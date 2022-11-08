@@ -20,6 +20,8 @@ import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
+import { TinyColor } from '@ctrl/tinycolor';
+import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 
 const locales = {
   cn: {
@@ -32,7 +34,9 @@ const locales = {
 
 const useStyle = () => {
   const { token } = useSiteToken();
-  const background = '#f0f3fa';
+  const background = new TinyColor(getAlphaColor('#f0f3fa', '#fff'))
+    .onBackground(token.colorBgContainer)
+    .toHexString();
 
   return {
     holder: css`
@@ -338,10 +342,7 @@ const Footer = () => {
         {
           icon: <BgColorsOutlined />,
           title: <FormattedMessage id="app.footer.theme" />,
-          url: getLink('/components/config-provider/', {
-            cn: 'components-config-provider-demo-theme',
-            en: 'components-config-provider-demo-theme',
-          }),
+          url: getLink('/theme-editor'),
           LinkComponent: Link,
         },
       ],

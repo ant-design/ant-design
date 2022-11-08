@@ -73,7 +73,7 @@ export default function Banner({ children }: BannerProps) {
       </div>
 
       {/* Logo */}
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', background: '#fff' }}>
         {/* Image Bottom Right */}
         <img
           style={{ position: 'absolute', right: 0, top: 240, width: 240 }}

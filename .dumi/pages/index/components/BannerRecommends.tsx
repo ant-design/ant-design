@@ -38,7 +38,6 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
   const style = useStyle();
   const first3 = extras.slice(0, 3);
   const { token } = useSiteToken();
-  console.log('token:', token);
 
   return (
     <div
