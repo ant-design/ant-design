@@ -1577,7 +1577,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
-  <span
+  <div
     class="ant-input-group ant-input-group-lg"
   >
     <div
@@ -1605,9 +1605,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         />
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <input
@@ -1622,9 +1622,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       type="text"
       value="26888888"
     />
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <input
@@ -1641,9 +1641,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         Submit
       </span>
     </button>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <input
@@ -1676,9 +1676,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </svg>
       </span>
     </button>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -1746,9 +1746,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       type="text"
       value="Xihu District, Hangzhou"
     />
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <span
@@ -1901,9 +1901,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </span>
     </span>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -2044,9 +2044,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         />
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <input
@@ -2095,9 +2095,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <input
@@ -2188,9 +2188,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -2311,9 +2311,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -2397,9 +2397,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       type="text"
       value=""
     />
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -2492,9 +2492,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </div>
     </div>
-  </span>
+  </div>
   <br />
-  <span
+  <div
     class="ant-input-group ant-input-group-compact"
   >
     <div
@@ -2615,7 +2615,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </span>
     </div>
-  </span>
+  </div>
 </div>
 `;
 
