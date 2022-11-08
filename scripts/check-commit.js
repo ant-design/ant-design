@@ -24,7 +24,12 @@ async function checkVersion() {
 }
 
 async function checkBranch({ current }) {
-  if (version.includes('-alpha.') || version.includes('-experimental.')) {
+  if (
+    version.includes('-alpha.') ||
+    version.includes('-beta.') ||
+    version.includes('-rc.') ||
+    version.includes('-experimental.')
+  ) {
     console.log(chalk.cyan('😃 Alpha version. Skip branch check.'));
   } else if (current !== 'master' && current !== '4.0-prepare') {
     console.log(chalk.yellow('🤔 You are not in the master branch!'));
