@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 const fs = require('fs-extra');
-const glob = require('glob');
+// const glob = require('glob');
 const chalk = require('chalk');
 const path = require('path');
 const yaml = require('dumi/node_modules/js-yaml');
 
 // 检查 ~demo 文件夹是否存在，存在则说明是来自 next 的合并
-const tmpFolder = `~demo`;
+// const tmpFolder = `~demo`;
 
 // ==============================================================================
 // Log 先记录，flush 后才打印，以免打印过多无用信息
