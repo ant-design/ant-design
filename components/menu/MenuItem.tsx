@@ -36,7 +36,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     }
 
     return title;
-  }, []);
+  }, [title, firstLevel, children]);
 
   const tooltipProps = React.useMemo(
     () =>
@@ -50,10 +50,10 @@ const MenuItem: React.FC<MenuItemProps> = ({
         : {
             title: tooltipTitle,
           },
-    [],
+    [siderCollapsed, inlineCollapsed, tooltipTitle],
   );
 
-  const childrenLength = React.useMemo(() => toArray(children).length, []);
+  const childrenLength = React.useMemo(() => toArray(children).length, [children]);
 
   const returnNode = (
     <Item
