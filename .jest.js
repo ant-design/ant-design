@@ -48,4 +48,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: 'http://localhost',
   },
+  bail: true,
 };
