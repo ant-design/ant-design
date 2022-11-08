@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppstoreOutlined, DownOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Dropdown, Menu, Space } from 'antd';
+import { Dropdown, Space } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -48,10 +48,14 @@ const items: MenuItem[] = [
   null as any,
 ];
 
-const menu = <Menu selectedKeys={['1']} openKeys={['sub1']} items={items} />;
-
 const App: React.FC = () => (
-  <Dropdown overlay={menu}>
+  <Dropdown
+    menu={{
+      items,
+      selectedKeys: ['1'],
+      openKeys: ['sub1'],
+    }}
+  >
     <a onClick={e => e.preventDefault()}>
       <Space>
         Hover to check menu style

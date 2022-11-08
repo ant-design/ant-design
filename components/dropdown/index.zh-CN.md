@@ -52,6 +52,7 @@ return (
 
 ## 代码演示
 
+<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
@@ -60,6 +61,7 @@ return (
 <code src="./demo/trigger.tsx">触发方式</code>
 <code src="./demo/event.tsx">触发事件</code>
 <code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
+<code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/sub-menu.tsx">多级菜单</code>
 <code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
 <code src="./demo/context-menu.tsx">右键菜单</code>

@@ -48,6 +48,7 @@ return (
 
 ## Examples
 
+<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
@@ -56,6 +57,7 @@ return (
 <code src="./demo/trigger.tsx">Trigger mode</code>
 <code src="./demo/event.tsx">Click event</code>
 <code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
+<code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/sub-menu.tsx">Cascading menu</code>
 <code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
 <code src="./demo/context-menu.tsx">Context Menu</code>

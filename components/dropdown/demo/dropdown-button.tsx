@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Dropdown, Menu, message, Space, Tooltip } from 'antd';
+import { Button, Dropdown, message, Space, Tooltip } from 'antd';
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   message.info('Click on left button.');
@@ -13,42 +13,42 @@ const handleMenuClick: MenuProps['onClick'] = e => {
   console.log('click', e);
 };
 
-const menu = (
-  <Menu
-    onClick={handleMenuClick}
-    items={[
-      {
-        label: '1st menu item',
-        key: '1',
-        icon: <UserOutlined />,
-      },
-      {
-        label: '2nd menu item',
-        key: '2',
-        icon: <UserOutlined />,
-      },
-      {
-        label: '3rd menu item',
-        key: '3',
-        icon: <UserOutlined />,
-      },
-    ]}
-  />
-);
+const items: MenuProps['items'] = [
+  {
+    label: '1st menu item',
+    key: '1',
+    icon: <UserOutlined />,
+  },
+  {
+    label: '2nd menu item',
+    key: '2',
+    icon: <UserOutlined />,
+  },
+  {
+    label: '3rd menu item',
+    key: '3',
+    icon: <UserOutlined />,
+  },
+];
+
+const menuProps = {
+  items,
+  onClick: handleMenuClick,
+};
 
 const App: React.FC = () => (
   <Space wrap>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
+    <Dropdown.Button menu={menuProps} onClick={handleButtonClick}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} placement="bottom" icon={<UserOutlined />}>
+    <Dropdown.Button menu={menuProps} placement="bottom" icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
+    <Dropdown.Button menu={menuProps} onClick={handleButtonClick} disabled>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button
-      overlay={menu}
+      menu={menuProps}
       buttonsRender={([leftButton, rightButton]) => [
         <Tooltip title="tooltip" key="leftButton">
           {leftButton}
@@ -58,7 +58,7 @@ const App: React.FC = () => (
     >
       With Tooltip
     </Dropdown.Button>
-    <Dropdown overlay={menu}>
+    <Dropdown menu={menuProps}>
       <Button>
         <Space>
           Button
@@ -66,7 +66,7 @@ const App: React.FC = () => (
         </Space>
       </Button>
     </Dropdown>
-    <Dropdown.Button danger onClick={handleButtonClick} overlay={menu}>
+    <Dropdown.Button menu={menuProps} onClick={handleButtonClick} danger>
       Danger
     </Dropdown.Button>
   </Space>

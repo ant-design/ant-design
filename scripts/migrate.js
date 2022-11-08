@@ -46,50 +46,50 @@ function logOffset(offset) {
 
 // ==============================================================================
 // 执行迁移
-if (fs.existsSync(tmpFolder)) {
-  let demoFileCount = 0;
-  let apiFileCount = 0;
-
-  const files = glob
-    .sync(path.join(tmpFolder, `components/**`))
-    .filter(file => file.endsWith('.md'));
-  log('存在 ~demo 文件夹，先做迁移', files.length, '个文件');
-
-  files.forEach(file => {
-    const filePath = file.split(path.sep).splice(1).join(path.sep);
-    if (fs.statSync(filePath).isDirectory()) {
-      return;
-    }
-
-    if (!filePath.startsWith('components')) {
-      throw new Error('Tmp demo path not correct');
-    }
-
-    fs.ensureDirSync(path.dirname(filePath));
-    if (filePath.startsWith('components/overview')) {
-      // overview 文件不需要迁移
-      return;
-    }
-
-    if (filePath.endsWith('.en-US.md') || filePath.endsWith('.zh-CN.md')) {
-      // 保留 meta 信息
-      const md = fs.readFileSync(filePath, 'utf-8');
-      const [, frontmatter] = md.match(/^(---[^]+?\n---)/);
-      const legacyMD = fs.readFileSync(file, 'utf-8');
-      fs.writeFileSync(filePath, legacyMD.replace(/^(---[^]+?\n---)/, frontmatter));
-    } else {
-      fs.copyFileSync(file, filePath);
-    }
-
-    if (filePath.includes('demo')) {
-      demoFileCount += 1;
-    } else {
-      apiFileCount += 1;
-    }
-  });
-
-  log('迁移完成，共迁移文件数：', apiFileCount, '个介绍文档', demoFileCount, '个 demo');
-}
+// if (fs.existsSync(tmpFolder)) {
+//   let demoFileCount = 0;
+//   let apiFileCount = 0;
+//
+//   const files = glob
+//     .sync(path.join(tmpFolder, `components/**`))
+//     .filter(file => file.endsWith('.md'));
+//   log('存在 ~demo 文件夹，先做迁移', files.length, '个文件');
+//
+//   files.forEach(file => {
+//     const filePath = file.split(path.sep).splice(1).join(path.sep);
+//     if (fs.statSync(filePath).isDirectory()) {
+//       return;
+//     }
+//
+//     if (!filePath.startsWith('components')) {
+//       throw new Error('Tmp demo path not correct');
+//     }
+//
+//     fs.ensureDirSync(path.dirname(filePath));
+//     if (filePath.startsWith('components/overview')) {
+//       // overview 文件不需要迁移
+//       return;
+//     }
+//
+//     if (filePath.endsWith('.en-US.md') || filePath.endsWith('.zh-CN.md')) {
+//       // 保留 meta 信息
+//       const md = fs.readFileSync(filePath, 'utf-8');
+//       const [, frontmatter] = md.match(/^(---[^]+?\n---)/);
+//       const legacyMD = fs.readFileSync(file, 'utf-8');
+//       fs.writeFileSync(filePath, legacyMD.replace(/^(---[^]+?\n---)/, frontmatter));
+//     } else {
+//       fs.copyFileSync(file, filePath);
+//     }
+//
+//     if (filePath.includes('demo')) {
+//       demoFileCount += 1;
+//     } else {
+//       apiFileCount += 1;
+//     }
+//   });
+//
+//   log('迁移完成，共迁移文件数：', apiFileCount, '个介绍文档', demoFileCount, '个 demo');
+// }
 
 // ==============================================================================
 // 有一部分转换需要 hardcode，这里就不做分析简单替换了
@@ -107,6 +107,11 @@ components.forEach(component => {
   const demoPath = path.join(componentsPath, component, 'demo');
   const demos = fs.readdirSync(demoPath).filter(demo => demo.endsWith('.md'));
   const codes = demos
+    .filter(demo => {
+      const mdPath = path.join(demoPath, demo);
+      const md = fs.readFileSync(mdPath, 'utf-8');
+      return md.match(/^(---[^]+?\n---)\s+([^]+?)?\s+(```(?:tsx|jsx)[^]+?\n```)([^]*)$/);
+    })
     .map(demo => {
       const mdPath = path.join(demoPath, demo);
       const md = fs.readFileSync(mdPath, 'utf-8');
@@ -152,14 +157,7 @@ components.forEach(component => {
 
   // 中文
   const zhContent = zh
-    .replace(
-      /(\n## api)/i,
-      `
-## 代码演示
-
-${codes.map(code => code.html['zh-CN']).join('\n')}
-$1`,
-    )
+    .replace(/(\n## api)/i, `${codes.map(code => code.html['zh-CN']).join('\n')}$1`)
     .replace(/\ncols: 2(.*?)(\n---)/, '$1\ndemo:\n  cols: 2$2')
     .replace(/\ncols: 1/, '');
 
@@ -167,14 +165,7 @@ $1`,
 
   // 英文
   const enContent = en
-    .replace(
-      /(\n## api)/i,
-      `
-## Examples
-
-${codes.map(code => code.html['en-US']).join('\n')}
-$1`,
-    )
+    .replace(/(\n## api)/i, `${codes.map(code => code.html['en-US']).join('\n')}$1`)
     .replace(/\ncols: 2(.*?)(\n---)/, '$1\ndemo:\n  cols: 2$2')
     .replace(/\ncols: 1/, '');
 

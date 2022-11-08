@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Table } from 'antd';
+import type { TableProps } from 'antd';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { VariableSizeGrid as Grid } from 'react-window';
 
-const VirtualTable = (props: Parameters<typeof Table>[0]) => {
+const VirtualTable = <RecordType extends object>(props: TableProps<RecordType>) => {
   const { columns, scroll } = props;
   const [tableWidth, setTableWidth] = useState(0);
 

@@ -22,7 +22,7 @@ ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage
 
 ## Examples
 
-<code src="./demo/deprecated.tsx">Basic</code>
+<code src="./demo/deprecated.tsx">Basic (deprecated syntactic sugar)</code>
 <code src="./demo/simple.tsx">Basic</code>
 <code src="./demo/small-size.tsx">Mini version</code>
 <code src="./demo/icon.tsx">With icon</code>
