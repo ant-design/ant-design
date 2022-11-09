@@ -347,7 +347,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     };
   }, [cssEllipsis, mergedEnableEllipsis]);
 
-  // ========================== Tooltip And Popover ===========================
+  // ========================== Tooltip Or Popover ===========================
   let tooltipProps: TooltipProps = {};
   const ellipsisConfigTooltipType = (ellipsisConfig as TooltipEllipsisConfig).tooltip;
   if (ellipsisConfigTooltipType === true) {
@@ -396,7 +396,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     }
 
     if (isValid(popoverProps.content)) {
-      return tooltipProps.title;
+      return popoverProps.content;
     }
 
     return undefined;

@@ -126,6 +126,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       suffix: string,
       symbol: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
+      popover: boolean | ReactNode | PopoverProps,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
     }

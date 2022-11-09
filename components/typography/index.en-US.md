@@ -125,6 +125,7 @@ Basic text writing, including headings, body text, lists, and more.
       suffix: string,
       symbol: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
+      popover: boolean | ReactNode | PopoverProps,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
     }
