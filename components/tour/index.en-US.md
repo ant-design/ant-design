@@ -30,7 +30,7 @@ Use when you want to guide users through a product.
 | placement | Position of the guide card relative to the target element                                           | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom`  |         |
 | onClose   | Callback function on shutdown                                                                       | `Function`                                                                                                                    | -         |         |
 | mask      | Whether to enable masking                                                                           | `boolean`                                                                                                                     | `true`    |         |
-| animated  | Whether to turn on target mask animation                                                            | `boolean\|{ pointAtCenter: boolean}`                                                                                          | `true`    |         |
+| animated  | Whether to turn on target mask animation                                                            | ``boolean`\|`{ pointAtCenter: boolean}`                                                                                       | `false`   |         |
 | type      | Type, affects the background color and text color                                                   | `default` `primary`                                                                                                           | `default` |         |
 
 ### TourStep
