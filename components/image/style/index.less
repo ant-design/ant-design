@@ -105,16 +105,19 @@
       z-index: @zindex-image;
     }
 
-    &-operations {
-      .reset-component();
+    &-operations-wrapper {
       position: fixed;
       top: 0;
       right: 0;
       z-index: @zindex-image + 1;
+      width: 100%;
+    }
+
+    &-operations {
+      .reset-component();
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
-      width: 100%;
       color: @image-preview-operation-color;
       list-style: none;
       background: fade(@modal-mask-bg, 10%);
