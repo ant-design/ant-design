@@ -91,7 +91,7 @@ const useStyle = () => {
     `,
 
     darkDemo: css`
-      // background: green;
+      background: rgba(41, 41, 41, 0.5);
     `,
 
     larkDemo: css`
@@ -106,6 +106,8 @@ const useStyle = () => {
     menu: css`
       margin-left: auto;
     `,
+
+    darkSideMenu: css``,
 
     header: css`
       display: flex;
@@ -157,7 +159,9 @@ const useStyle = () => {
       }
     `,
 
-    side: css``,
+    transBg: css`
+      background: transparent !important;
+    `,
 
     form: css`
       width: 800px;
@@ -345,7 +349,11 @@ export default function Theme() {
                 colorSubItemBg: 'transparent',
                 colorActiveBarWidth: 0,
               }
-            : {},
+            : {
+                colorItemBg: 'transparent',
+                colorSubItemBg: 'transparent',
+                colorItemBgActive: 'rgba(255,255,255,0.2)',
+              },
         },
       }}
     >
@@ -358,8 +366,8 @@ export default function Theme() {
         ]}
         style={{ borderRadius: themeData.borderRadius }}
       >
-        <Layout>
-          <Header css={style.header}>
+        <Layout css={style.transBg}>
+          <Header css={[style.header, style.transBg]}>
             {/* Logo */}
             <div css={style.logo}>
               <div css={[style.logoImg, closestColor !== DEFAULT_COLOR && style.logoImgPureColor]}>
@@ -390,18 +398,18 @@ export default function Theme() {
               />
             </Space>
           </Header>
-          <Layout>
-            <Sider width={200} className="site-layout-background">
+          <Layout css={style.transBg}>
+            <Sider css={style.transBg} width={200} className="site-layout-background">
               <Menu
                 mode="inline"
-                css={style.side}
+                css={[style.transBg, !isLight && style.darkSideMenu]}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
                 items={sideMenuItems}
               />
             </Sider>
-            <Layout style={{ padding: '0 24px 24px' }}>
+            <Layout css={style.transBg} style={{ padding: '0 24px 24px' }}>
               <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>
                   <HomeOutlined />
