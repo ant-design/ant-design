@@ -24,9 +24,9 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           margin: `0 ${token.marginXXS / 2}px`,
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
+          transition: `background-color ${token.motionDurationFast}`,
           '&:hover': {
             background: token.controlItemBgHover,
-            transition: `background-color ${token.motionDurationFast}`,
           },
           [`&[role='button']:hover`]: {
             opacity: 1,
