@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Tree image', () => {
-  imageDemoTest('tree', { skip: ['virtual-scroll.md', 'big-data.md'] });
+  imageDemoTest('tree', { skip: ['virtual-scroll.tsx', 'big-data.tsx'] });
 });

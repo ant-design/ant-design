@@ -1,10 +1,12 @@
 ---
 category: Components
 subtitle: 图标
-type: 通用
+group: 通用
 title: Icon
 toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+demo:
+  cols: 2
 ---
 
 语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
@@ -19,10 +21,15 @@ npm install --save @ant-design/icons
 
 ## 图标列表
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/two-tone.tsx">多色图标</code>
+<code src="./demo/custom.tsx">自定义图标</code>
+<code src="./demo/iconfont.tsx">使用 iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">使用 iconfont.cn 的多个资源</code>
 
 ## API
 

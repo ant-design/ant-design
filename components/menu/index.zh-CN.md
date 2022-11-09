@@ -1,10 +1,11 @@
 ---
 category: Components
-cols: 1
-type: 导航
+group: 导航
 title: Menu
 subtitle: 导航菜单
 cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
+demo:
+  cols: 2
 ---
 
 为页面和功能提供导航的菜单列表。
@@ -51,6 +52,20 @@ return <Menu items={items} />;
 ```
 
 `<4.20.0` 版本的 JSX 演示写法可以参考 [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo)。
+
+## 代码演示
+
+<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
+<code src="./demo/horizontal.tsx">顶部导航</code>
+<code src="./demo/inline.tsx">内嵌菜单</code>
+<code src="./demo/inline-collapsed.tsx">缩起内嵌菜单</code>
+<code src="./demo/sider-current.tsx">只展开当前父级菜单</code>
+<code src="./demo/vertical.tsx">垂直菜单</code>
+<code src="./demo/theme.tsx">主题</code>
+<code src="./demo/submenu-theme.tsx">子菜单主题</code>
+<code src="./demo/switch-mode.tsx">切换菜单类型</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>v4 版本 Menu</code>
 
 ## API
 

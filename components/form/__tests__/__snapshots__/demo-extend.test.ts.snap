@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/form/demo/advanced-search.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 <div>
   <form
     class="ant-form ant-form-horizontal ant-advanced-search-form"
@@ -606,7 +606,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/form/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/basic.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -790,7 +790,7 @@ exports[`renders ./components/form/demo/basic.md extend context correctly 1`] = 
 </form>
 `;
 
-exports[`renders ./components/form/demo/col-24-debug.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/col-24-debug.tsx extend context correctly 1`] = `
 Array [
   <form
     autocomplete="off"
@@ -1578,7 +1578,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/control-hooks.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/control-hooks.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="control-hooks"
@@ -1859,7 +1859,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
 </form>
 `;
 
-exports[`renders ./components/form/demo/control-ref.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/control-ref.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="control-ref"
@@ -2140,7 +2140,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
 </form>
 `;
 
-exports[`renders ./components/form/demo/customized-form-controls.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
   id="customized_form_controls"
@@ -2357,7 +2357,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
 </form>
 `;
 
-exports[`renders ./components/form/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -5173,7 +5173,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/disabled-input-debug.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -5682,7 +5682,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md extend context c
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-item.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-form-item.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_form_item"
@@ -5806,7 +5806,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md extend context corr
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-form-items.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -5896,7 +5896,7 @@ exports[`renders ./components/form/demo/dynamic-form-items.md extend context cor
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-form-items-complex.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -6158,7 +6158,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-form-items-no-style.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-form-items-no-style.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-horizontal"
@@ -6278,7 +6278,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-no-style.md extend co
 </form>
 `;
 
-exports[`renders ./components/form/demo/dynamic-rule.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/dynamic-rule.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="dynamic_rule"
@@ -6429,7 +6429,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md extend context correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/form-context.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/form-context.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="basicForm"
@@ -6567,7 +6567,7 @@ exports[`renders ./components/form/demo/form-context.md extend context correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/form-in-modal.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -6580,7 +6580,7 @@ exports[`renders ./components/form/demo/form-in-modal.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/form/demo/global-state.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/global-state.tsx extend context correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline"
@@ -6640,7 +6640,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/inline-login.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/inline-login.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
   id="horizontal_login"
@@ -6786,7 +6786,7 @@ exports[`renders ./components/form/demo/inline-login.md extend context correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/label-debug.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/label-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="label-ellipsis"
@@ -6941,7 +6941,7 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
 </form>
 `;
 
-exports[`renders ./components/form/demo/layout.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/layout.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -7142,7 +7142,7 @@ exports[`renders ./components/form/demo/layout.md extend context correctly 1`] =
 </form>
 `;
 
-exports[`renders ./components/form/demo/layout-can-wrap.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/layout-can-wrap.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="wrap"
@@ -7269,7 +7269,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md extend context correc
 </form>
 `;
 
-exports[`renders ./components/form/demo/nest-messages.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="nest-messages"
@@ -7557,7 +7557,7 @@ exports[`renders ./components/form/demo/nest-messages.md extend context correctl
 </form>
 `;
 
-exports[`renders ./components/form/demo/normal-login.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/normal-login.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal login-form"
   id="normal_login"
@@ -7755,7 +7755,7 @@ exports[`renders ./components/form/demo/normal-login.md extend context correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/ref-item.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -7841,7 +7841,7 @@ exports[`renders ./components/form/demo/ref-item.md extend context correctly 1`]
 </form>
 `;
 
-exports[`renders ./components/form/demo/register.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/register.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="register"
@@ -9217,7 +9217,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
 </form>
 `;
 
-exports[`renders ./components/form/demo/required-mark.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/required-mark.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -9524,7 +9524,7 @@ exports[`renders ./components/form/demo/required-mark.md extend context correctl
 </form>
 `;
 
-exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/size.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
 >
@@ -10942,7 +10942,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/form/demo/time-related-controls.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/time-related-controls.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="time_related_controls"
@@ -18548,7 +18548,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
 </form>
 `;
 
-exports[`renders ./components/form/demo/useWatch.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/useWatch.tsx extend context correctly 1`] = `
 Array [
   <form
     autocomplete="off"
@@ -18707,7 +18707,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/form/demo/validate-other.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/validate-other.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   id="validate_other"
@@ -20302,7 +20302,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
 </form>
 `;
 
-exports[`renders ./components/form/demo/validate-static.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -26436,7 +26436,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
 </form>
 `;
 
-exports[`renders ./components/form/demo/warning-only.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
   class="ant-form ant-form-vertical"
@@ -26532,7 +26532,7 @@ exports[`renders ./components/form/demo/warning-only.md extend context correctly
 </form>
 `;
 
-exports[`renders ./components/form/demo/without-form-create.md extend context correctly 1`] = `
+exports[`renders ./components/form/demo/without-form-create.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >

@@ -1,10 +1,11 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 title: Result
-cols: 1
 subtitle: 结果
 cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
+demo:
+  cols: 2
 ---
 
 用于反馈一系列操作任务的处理结果。
@@ -12,6 +13,17 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
 ## 何时使用
 
 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。
+
+## 代码演示
+
+<code src="./demo/success.tsx">Success</code>
+<code src="./demo/info.tsx">Info</code>
+<code src="./demo/warning.tsx">Warning</code>
+<code src="./demo/403.tsx">403</code>
+<code src="./demo/404.tsx">404</code>
+<code src="./demo/500.tsx">500</code>
+<code src="./demo/error.tsx">Error</code>
+<code src="./demo/customIcon.tsx">自定义 icon</code>
 
 ## API
 

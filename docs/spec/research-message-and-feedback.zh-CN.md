@@ -1,5 +1,5 @@
 ---
-category: 设计模式 - 探索
+group: 设计模式 - 探索
 type: 全局规则
 order: 2
 title: 消息与反馈

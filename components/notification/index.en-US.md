@@ -1,9 +1,11 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 noinstant: true
 title: Notification
 cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+demo:
+  cols: 2
 ---
 
 Display a notification message globally.
@@ -15,6 +17,19 @@ To display a notification message at any of the four corners of the viewport. Ty
 - A notification with complex content.
 - A notification providing a feedback based on the user interaction. Or it may show some details about upcoming steps the user may have to follow.
 - A notification that is pushed by the application.
+
+## Examples
+
+<code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/duration.tsx">Duration after which the notification box is closed</code>
+<code src="./demo/with-icon.tsx">Notification with icon</code>
+<code src="./demo/with-btn.tsx">Custom close button</code>
+<code src="./demo/custom-icon.tsx">Customized Icon</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/custom-style.tsx">Customized style</code>
+<code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

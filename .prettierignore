@@ -4,8 +4,8 @@ CODEOWNERS
 .dockerignore
 Dockerfile.ui-test
 package.json
-.umi
-.umi-production
+.dumi/tmp
+.dumi/tmp-production
 AUTHORS.txt
 lib/
 es/

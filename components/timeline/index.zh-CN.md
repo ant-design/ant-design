@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 时间轴
-type: 数据展示
+group: 数据展示
 title: Timeline
 cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
+demo:
+  cols: 2
 ---
 
 垂直展示的时间流信息。
@@ -12,6 +14,16 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 
 - 当有一系列信息需按时间排列时，可正序和倒序。
 - 需要有一条时间轴进行视觉上的串联时。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/color.tsx">圆圈颜色</code>
+<code src="./demo/pending.tsx">最后一个及排序</code>
+<code src="./demo/alternate.tsx">交替展现</code>
+<code src="./demo/custom.tsx">自定义时间轴点</code>
+<code src="./demo/right.tsx">右侧时间轴点</code>
+<code src="./demo/label.tsx">标签</code>
 
 ## API
 

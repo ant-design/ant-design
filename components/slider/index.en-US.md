@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Slider
 cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
+demo:
+  cols: 2
 ---
 
 A Slider component for displaying current value and intervals in range.
@@ -10,6 +12,19 @@ A Slider component for displaying current value and intervals in range.
 ## When To Use
 
 To input a value in a range.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/input-number.tsx">Slider with InputNumber</code>
+<code src="./demo/icon-slider.tsx">Slider with icon</code>
+<code src="./demo/tip-formatter.tsx">Customize tooltip</code>
+<code src="./demo/event.tsx">Event</code>
+<code src="./demo/mark.tsx">Graduated slider</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
+<code src="./demo/reverse.tsx">Reverse</code>
+<code src="./demo/dragableTrack.tsx">Draggable track</code>
 
 ## API
 

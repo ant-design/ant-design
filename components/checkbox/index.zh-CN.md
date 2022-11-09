@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 多选框
-type: 数据录入
+group: 数据录入
 title: Checkbox
 cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
+demo:
+  cols: 2
 ---
 
 多选框。
@@ -12,6 +14,16 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
 
 - 在一组可选项中进行多项选择时；
 - 单独使用可以表示两种状态之间的切换，和 `switch` 类似。区别在于切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/controller.tsx">受控的 Checkbox</code>
+<code src="./demo/group.tsx">Checkbox 组</code>
+<code src="./demo/check-all.tsx">全选</code>
+<code src="./demo/layout.tsx">布局</code>
+<code src="./demo/debug-line.tsx" debug>同行布局</code>
 
 ## API
 

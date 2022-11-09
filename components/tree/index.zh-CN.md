@@ -1,9 +1,11 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Tree
 subtitle: 树形控件
 cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
+demo:
+  cols: 2
 ---
 
 多层次的结构列表。
@@ -11,6 +13,21 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
 ## 何时使用
 
 文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 `树控件` 可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/basic-controlled.tsx">受控操作示例</code>
+<code src="./demo/draggable.tsx">拖动示例</code>
+<code src="./demo/dynamic.tsx">异步数据加载</code>
+<code src="./demo/search.tsx">可搜索</code>
+<code src="./demo/line.tsx">连接线</code>
+<code src="./demo/customized-icon.tsx">自定义图标</code>
+<code src="./demo/directory.tsx">目录</code>
+<code src="./demo/switcher-icon.tsx">自定义展开/折叠图标</code>
+<code src="./demo/virtual-scroll.tsx">虚拟滚动</code>
+<code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
+<code src="./demo/big-data.tsx" debug>大数据</code>
 
 ## API
 

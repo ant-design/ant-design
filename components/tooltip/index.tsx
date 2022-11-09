@@ -8,7 +8,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import getPlacements from '../_util/placements';
 import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
@@ -17,7 +18,7 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
 
-export { AdjustOverflow, PlacementsConfig };
+export type { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
   | 'top'

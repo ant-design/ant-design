@@ -1,10 +1,14 @@
-import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
+import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
 import { FormProvider } from './context';
-import ErrorList, { ErrorListProps } from './ErrorList';
-import InternalForm, { FormInstance, FormProps, useForm, useWatch } from './Form';
-import Item, { FormItemProps } from './FormItem';
-import List, { FormListFieldData, FormListOperation, FormListProps } from './FormList';
+import ErrorList, { type ErrorListProps } from './ErrorList';
+import InternalForm, { type FormInstance, type FormProps, useForm, useWatch } from './Form';
+import Item, { type FormItemProps } from './FormItem';
+import List, {
+  type FormListFieldData,
+  type FormListOperation,
+  type FormListProps,
+} from './FormList';
 import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;
@@ -39,7 +43,7 @@ Form.create = () => {
   );
 };
 
-export {
+export type {
   FormInstance,
   FormProps,
   FormItemProps,

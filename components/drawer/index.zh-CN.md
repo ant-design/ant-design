@@ -1,9 +1,11 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer
 cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
+demo:
+  cols: 2
 ---
 
 屏幕边缘滑出的浮层面板。
@@ -14,6 +16,21 @@ cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!600000000168
 
 - 当需要一个附加的面板来控制父窗体内容，这个面板在需要时呼出。比如，控制界面展示样式，往界面中添加内容。
 - 当需要在当前任务流中插入临时任务，创建或预览附加内容。比如展示协议条款，创建子对象。
+
+## 代码演示
+
+<code src="./demo/basic-right.tsx">基础抽屉</code>
+<code src="./demo/placement.tsx">自定义位置</code>
+<code src="./demo/extra.tsx">额外操作</code>
+<code src="./demo/render-in-current.tsx">渲染在当前 DOM</code>
+<code src="./demo/form-in-drawer.tsx">抽屉表单</code>
+<code src="./demo/user-profile.tsx">信息预览抽屉</code>
+<code src="./demo/multi-level-drawer.tsx">多层抽屉</code>
+<code src="./demo/size.tsx">预设宽度</code>
+<code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
+<code src="./demo/no-mask.tsx" debug>无遮罩</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/scroll-debug.tsx" debug>滚动锁定调试</code>
 
 ## API
 

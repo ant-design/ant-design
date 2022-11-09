@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -191,7 +191,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle-dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -305,7 +305,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-micro.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle-micro.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-inline-circle ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -360,7 +360,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
+exports[`renders ./components/progress/demo/circle-mini.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -551,7 +551,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
+exports[`renders ./components/progress/demo/dashboard.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -657,7 +657,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
+exports[`renders ./components/progress/demo/dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -742,7 +742,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/format.md correctly 1`] = `
+exports[`renders ./components/progress/demo/format.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -848,7 +848,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
+exports[`renders ./components/progress/demo/gradient-line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1053,7 +1053,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line.md correctly 1`] = `
+exports[`renders ./components/progress/demo/line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1196,7 +1196,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
+exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
 <div
   style="width:170px"
 >
@@ -1325,7 +1325,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
+exports[`renders ./components/progress/demo/linecap.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1454,7 +1454,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
+exports[`renders ./components/progress/demo/segment.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
@@ -1586,7 +1586,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
+exports[`renders ./components/progress/demo/steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"

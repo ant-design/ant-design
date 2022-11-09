@@ -1,8 +1,12 @@
 ---
 category: Components
-type: Layout
 title: Divider
 cover: https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg
+demo:
+  cols: 2
+group:
+  title: Layout
+  order: 2
 ---
 
 A divider line separates different content.
@@ -11,6 +15,14 @@ A divider line separates different content.
 
 - Divide sections of article.
 - Divide inline text and links such as the operation column of table.
+
+## Examples
+
+<code src="./demo/horizontal.tsx">Horizontal</code>
+<code src="./demo/with-text.tsx">Divider with title</code>
+<code src="./demo/plain.tsx">Text without heading style</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/customize-style.tsx" debug>Style Customization</code>
 
 ## API
 

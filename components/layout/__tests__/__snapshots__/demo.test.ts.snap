@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
+exports[`renders ./components/layout/demo/basic.tsx correctly 1`] = `
 Array [
   <section
     class="ant-layout"
@@ -123,7 +123,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
+exports[`renders ./components/layout/demo/custom-trigger.tsx correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -281,7 +281,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
+exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -440,7 +440,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
+exports[`renders ./components/layout/demo/fixed-sider.tsx correctly 1`] = `
 <section
   class="ant-layout ant-layout-has-sider"
 >
@@ -946,7 +946,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
+exports[`renders ./components/layout/demo/responsive.tsx correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -1125,7 +1125,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/side.md correctly 1`] = `
+exports[`renders ./components/layout/demo/side.tsx correctly 1`] = `
 <section
   class="ant-layout"
   style="min-height:100vh"
@@ -1411,7 +1411,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/top.md correctly 1`] = `
+exports[`renders ./components/layout/demo/top.tsx correctly 1`] = `
 <section
   class="ant-layout layout"
 >
@@ -1712,7 +1712,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
+exports[`renders ./components/layout/demo/top-side.tsx correctly 1`] = `
 <section
   class="ant-layout"
 >
@@ -2072,7 +2072,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
 </section>
 `;
 
-exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
+exports[`renders ./components/layout/demo/top-side-2.tsx correctly 1`] = `
 <section
   class="ant-layout"
 >

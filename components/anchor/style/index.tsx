@@ -65,7 +65,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           transform: 'translateX(-50%)',
           transition: `top ${token.motionDurationSlow} ease-in-out`,
 
-          [`&.${componentCls}-anchor-ink-ball-visible`]: {
+          [`&${componentCls}-anchor-ink-ball-visible`]: {
             display: 'inline-block',
           },
         },
@@ -107,18 +107,12 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Anchor', token => {
-  const { fontSize, lineHeight, fontSizeLG, padding, paddingXXS } = token;
-
-  const fontHeight = Math.round(fontSize * lineHeight);
-
-  // Still a magic number: 36 & 26
-  const titleHeight = (fontSize / 14) * 36;
-  const subTitleHeight = (fontSize / 14) * 26;
+  const { fontSize, fontSizeLG, padding, paddingXXS } = token;
 
   const anchorToken = mergeToken<AnchorToken>(token, {
     holderOffsetBlock: paddingXXS,
-    anchorPaddingBlock: (titleHeight - fontHeight) / 2,
-    anchorPaddingBlockSecondary: (subTitleHeight - fontHeight) / 2,
+    anchorPaddingBlock: paddingXXS,
+    anchorPaddingBlockSecondary: paddingXXS / 2,
     anchorPaddingInline: padding,
     anchorTitleBlock: (fontSize / 14) * 3,
     anchorBallSize: fontSizeLG / 2,

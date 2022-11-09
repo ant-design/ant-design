@@ -1,9 +1,11 @@
 ---
-type: Feedback
+group: Feedback
 category: Components
 subtitle:
 title: Drawer
 cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
+demo:
+  cols: 2
 ---
 
 A panel which slides in from the edge of the screen.
@@ -15,6 +17,21 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 - Use a Form to create or edit a set of information.
 - Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
 - When the same Form is needed in multiple places.
+
+## Examples
+
+<code src="./demo/basic-right.tsx">Basic</code>
+<code src="./demo/placement.tsx">Custom Placement</code>
+<code src="./demo/extra.tsx">Extra Actions</code>
+<code src="./demo/render-in-current.tsx">Render in current dom</code>
+<code src="./demo/form-in-drawer.tsx">Submit form in drawer</code>
+<code src="./demo/user-profile.tsx">Preview drawer</code>
+<code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
+<code src="./demo/size.tsx">Presetted size</code>
+<code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
+<code src="./demo/no-mask.tsx" debug>No mask</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/scroll-debug.tsx" debug>Scroll Debug</code>
 
 ## API
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/button/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -46,7 +46,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/block.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/block.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-block"
@@ -83,7 +83,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/chinese-chars-loading.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/chinese-chars-loading.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default ant-btn-loading"
@@ -268,7 +268,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/danger.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/danger.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary ant-btn-dangerous"
@@ -313,7 +313,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -482,7 +482,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/ghost.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/ghost.tsx extend context correctly 1`] = `
 <div
   class="site-button-ghost-wrapper"
 >
@@ -521,7 +521,7 @@ exports[`renders ./components/button/demo/ghost.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/button/demo/icon.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
@@ -1194,7 +1194,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/legacy-group.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/legacy-group.tsx extend context correctly 1`] = `
 Array [
   <div>
     <div
@@ -1576,7 +1576,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/loading.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/loading.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1768,7 +1768,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/multiple.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/multiple.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -2009,7 +2009,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/button/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/button/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"

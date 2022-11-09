@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -21,7 +21,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] = `
 <div
   style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
 >
@@ -45,13 +45,13 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/basic.tsx correctly 1`] = `
 <span>
   Tooltip will show on mouse enter.
 </span>
 `;
 
-exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -216,13 +216,13 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
 <span>
   Tooltip will destroy when hidden.
 </span>
 `;
 
-exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
 <div
   class="demo"
 >
@@ -341,7 +341,7 @@ exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/render-panel.md correctly 1`] = `
+exports[`renders ./components/tooltip/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"

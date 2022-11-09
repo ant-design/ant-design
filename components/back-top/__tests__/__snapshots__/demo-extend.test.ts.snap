@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/back-top/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/back-top/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-back-top"
@@ -15,7 +15,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/back-top/demo/custom.md extend context correctly 1`] = `
+exports[`renders ./components/back-top/demo/custom.tsx extend context correctly 1`] = `
 <div
   style="height:600vh;padding:8px"
 >

@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Statistic
 cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
+demo:
+  cols: 2
 ---
 
 Display statistic number.
@@ -11,6 +13,13 @@ Display statistic number.
 
 - When want to highlight some data.
 - When want to display statistic data with description.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/unit.tsx">Unit</code>
+<code src="./demo/card.tsx">In Card</code>
+<code src="./demo/countdown.tsx">Countdown</code>
 
 ## API
 

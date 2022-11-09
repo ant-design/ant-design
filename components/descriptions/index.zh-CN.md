@@ -1,10 +1,11 @@
 ---
 category: Components
 subtitle: 描述列表
-type: 数据展示
+group: 数据展示
 title: Descriptions
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
+demo:
+  cols: 2
 ---
 
 成组展示多个只读字段。
@@ -12,6 +13,17 @@ cover: https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg
 ## 何时使用
 
 常见于详情页的信息展示。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/border.tsx">带边框的</code>
+<code src="./demo/text.tsx" debug>复杂文本的情况</code>
+<code src="./demo/size.tsx">自定义尺寸</code>
+<code src="./demo/responsive.tsx">响应式</code>
+<code src="./demo/vertical.tsx">垂直</code>
+<code src="./demo/vertical-border.tsx">垂直带边框的</code>
+<code src="./demo/style.tsx" debug>自定义 label & wrapper 样式</code>
 
 ## API
 

@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 面包屑
-type: 导航
+group: 导航
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+demo:
+  cols: 2
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -47,16 +49,25 @@ return (
 );
 ```
 
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/withIcon.tsx">带有图标的</code>
+<code src="./demo/react-router.tsx" iframe>react-router V6</code>
+<code src="./demo/separator.tsx">分隔符</code>
+<code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
+<code src="./demo/separator-component.tsx">分隔符</code>
+
 ## API
 
 ### Breadcrumb
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
-| params | 路由的参数 | object | - |  |
-| routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
-| separator | 分隔符自定义 | ReactNode | `/` |  |
+| 参数       | 说明                                     | 类型                                        | 默认值 | 版本 |
+| ---------- | ---------------------------------------- | ------------------------------------------- | ------ | ---- |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | -      |      |
+| params     | 路由的参数                               | object                                      | -      |      |
+| routes     | router 的路由栈信息                      | [routes\[\]](#routes)                       | -      |      |
+| separator  | 分隔符自定义                             | ReactNode                                   | `/`    |      |
 
 ### Breadcrumb.Item
 

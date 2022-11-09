@@ -2,8 +2,8 @@
 
 import classNames from 'classnames';
 import type { SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { BaseSelectRef, OptGroup, Option } from 'rc-select';
-import { OptionProps } from 'rc-select/lib/Option';
+import RcSelect, { type BaseSelectRef, OptGroup, Option } from 'rc-select';
+import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
@@ -27,7 +27,7 @@ import { useCompactItemContext } from '../space/Compact';
 
 type RawValue = string | number;
 
-export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
+export type { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
 
 export interface LabeledValue {
   key?: string;

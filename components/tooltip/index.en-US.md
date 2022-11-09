@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tooltip
 cover: https://gw.alipayobjects.com/zos/alicdn/Vyyeu8jq2/Tooltp.svg
+demo:
+  cols: 2
 ---
 
 A simple text popup tip.
@@ -11,6 +13,16 @@ A simple text popup tip.
 
 - The tip is shown on mouse enter, and is hidden on mouse leave. The Tooltip doesn't support complex text or operations.
 - To provide an explanation of a `button/text/operation`. It's often used instead of the html `title` attribute.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/arrow-point-at-center.tsx">Arrow pointing at the center</code>
+<code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
+<code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
+<code src="./demo/colorful.tsx">Colorful Tooltip</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

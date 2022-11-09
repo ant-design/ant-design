@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+demo:
+  cols: 2
 ---
 
 A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -46,26 +48,35 @@ return (
 );
 ```
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/withIcon.tsx">With an Icon</code>
+<code src="./demo/react-router.tsx" iframe>react-router V6</code>
+<code src="./demo/separator.tsx">Configuring the Separator</code>
+<code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
+<code src="./demo/separator-component.tsx">Configuring the Separator</code>
+
 ## API
 
 ### Breadcrumb
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
-| params | Routing parameters | object | - |  |
-| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
-| separator | Custom separator | ReactNode | `/` |  |
+| Property   | Description                             | Type                                        | Default | Version |
+| ---------- | --------------------------------------- | ------------------------------------------- | ------- | ------- |
+| itemRender | Custom item renderer                    | (route, params, routes, paths) => ReactNode | -       |         |
+| params     | Routing parameters                      | object                                      | -       |         |
+| routes     | The routing stack information of router | [routes\[\]](#routes)                       | -       |         |
+| separator  | Custom separator                        | ReactNode                                   | `/`     |         |
 
 ### Breadcrumb.Item
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The additional css class | string | - |  |
-| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
-| href | Target of hyperlink | string | - |  |
-| menu | The menu props | [MenuProps](/components/menu/#API) | - | 4.24.0 |
-| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
+| Property      | Description                           | Type                               | Default | Version |
+| ------------- | ------------------------------------- | ---------------------------------- | ------- | ------- |
+| className     | The additional css class              | string                             | -       |         |
+| dropdownProps | The dropdown props                    | [Dropdown](/components/dropdown)   | -       |         |
+| href          | Target of hyperlink                   | string                             | -       |         |
+| menu          | The menu props                        | [MenuProps](/components/menu/#API) | -       | 4.24.0  |
+| onClick       | Set the handler to handle click event | (e:MouseEvent) => void             | -       |         |
 
 ### Breadcrumb.Separator
 

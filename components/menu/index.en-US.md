@@ -1,9 +1,10 @@
 ---
 category: Components
-cols: 1
-type: Navigation
+group: Navigation
 title: Menu
 cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
+demo:
+  cols: 2
 ---
 
 A versatile menu for navigation.
@@ -50,6 +51,20 @@ return <Menu items={items} />;
 ```
 
 The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+
+## Examples
+
+<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
+<code src="./demo/horizontal.tsx">Top Navigation</code>
+<code src="./demo/inline.tsx">Inline menu</code>
+<code src="./demo/inline-collapsed.tsx">Collapsed inline menu</code>
+<code src="./demo/sider-current.tsx">Open current submenu only</code>
+<code src="./demo/vertical.tsx">Vertical menu</code>
+<code src="./demo/theme.tsx">Menu Themes</code>
+<code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
+<code src="./demo/switch-mode.tsx">Switch the menu type</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 
 ## API
 

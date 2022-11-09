@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 模板文档
 order: 3
 title: 详情页

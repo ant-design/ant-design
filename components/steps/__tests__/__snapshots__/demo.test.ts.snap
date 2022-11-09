@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
+exports[`renders ./components/steps/demo/clickable.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
@@ -233,7 +233,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`] = `
+exports[`renders ./components/steps/demo/customized-progress-dot.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
 >
@@ -384,7 +384,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md correctly 1`
 </div>
 `;
 
-exports[`renders ./components/steps/demo/deprecated.md correctly 1`] = `
+exports[`renders ./components/steps/demo/deprecated.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -517,7 +517,7 @@ exports[`renders ./components/steps/demo/deprecated.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/error.md correctly 1`] = `
+exports[`renders ./components/steps/demo/error.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -662,7 +662,7 @@ exports[`renders ./components/steps/demo/error.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
+exports[`renders ./components/steps/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -857,7 +857,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/inline.md correctly 1`] = `
+exports[`renders ./components/steps/demo/inline.tsx correctly 1`] = `
 <div>
   <div
     class="ant-list ant-list-split"
@@ -1478,7 +1478,7 @@ exports[`renders ./components/steps/demo/inline.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/label-placement.md correctly 1`] = `
+exports[`renders ./components/steps/demo/label-placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-vertical"
@@ -1908,7 +1908,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
+exports[`renders ./components/steps/demo/nav.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
@@ -2369,7 +2369,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
+exports[`renders ./components/steps/demo/progress.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
 >
@@ -2553,7 +2553,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/progress-debug.md correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-debug.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -3338,7 +3338,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress-dot.md correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-dot.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
@@ -3643,7 +3643,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress-dot-small.md correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-dot-small.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-vertical ant-steps-dot"
@@ -3948,7 +3948,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
+exports[`renders ./components/steps/demo/simple.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -4081,7 +4081,7 @@ exports[`renders ./components/steps/demo/simple.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
+exports[`renders ./components/steps/demo/small-size.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
 >
@@ -4193,7 +4193,7 @@ exports[`renders ./components/steps/demo/small-size.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/step-next.md correctly 1`] = `
+exports[`renders ./components/steps/demo/step-next.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
@@ -4306,7 +4306,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/steps-in-steps.md correctly 1`] = `
+exports[`renders ./components/steps/demo/steps-in-steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -4574,7 +4574,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
+exports[`renders ./components/steps/demo/vertical.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -4701,7 +4701,7 @@ exports[`renders ./components/steps/demo/vertical.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/steps/demo/vertical-small.md correctly 1`] = `
+exports[`renders ./components/steps/demo/vertical-small.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
 >

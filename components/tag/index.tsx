@@ -12,7 +12,7 @@ import CheckableTag from './CheckableTag';
 
 import useStyle from './style';
 
-export { CheckableTagProps } from './CheckableTag';
+export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;

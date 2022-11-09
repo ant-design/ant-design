@@ -48,12 +48,13 @@ import type {
   TableCurrentDataSource,
   TableLocale,
   TableRowSelection,
+  ColumnsType,
+  TablePaginationConfig,
 } from './interface';
-import { ColumnsType, TablePaginationConfig } from './interface';
 
 import useStyle from './style';
 
-export { ColumnsType, TablePaginationConfig };
+export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 

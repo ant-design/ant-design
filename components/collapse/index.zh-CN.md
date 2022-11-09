@@ -1,10 +1,11 @@
 ---
 category: Components
-type: 数据展示
+group: 数据展示
 title: Collapse
 subtitle: 折叠面板
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
+demo:
+  cols: 2
 ---
 
 可以折叠/展开的内容区域。
@@ -13,6 +14,18 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - `手风琴` 是一种特殊的折叠面板，只允许单个内容区域展开。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">折叠面板</code>
+<code src="./demo/accordion.tsx">手风琴</code>
+<code src="./demo/mix.tsx">面板嵌套</code>
+<code src="./demo/borderless.tsx">简洁风格</code>
+<code src="./demo/custom.tsx">自定义面板</code>
+<code src="./demo/noarrow.tsx">隐藏箭头</code>
+<code src="./demo/extra.tsx">额外节点</code>
+<code src="./demo/ghost.tsx">幽灵折叠面板</code>
+<code src="./demo/collapsible.tsx">可折叠触发区域</code>
 
 ## API
 

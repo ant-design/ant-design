@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tree-select/demo/async.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
   style="width:100%"
@@ -224,7 +224,7 @@ exports[`renders ./components/tree-select/demo/async.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width:100%"
@@ -567,7 +567,7 @@ exports[`renders ./components/tree-select/demo/basic.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/checkable.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-show-search"
   style="width:100%"
@@ -807,7 +807,7 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/multiple.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
   style="width:100%"
@@ -1142,7 +1142,7 @@ exports[`renders ./components/tree-select/demo/multiple.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/placement.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1569,7 +1569,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tree-select/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -1756,7 +1756,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1996,7 +1996,7 @@ exports[`renders ./components/tree-select/demo/status.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/suffix.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width:100%"
@@ -2339,7 +2339,7 @@ exports[`renders ./components/tree-select/demo/suffix.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/treeData.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
   style="width:100%"
@@ -2574,7 +2574,7 @@ exports[`renders ./components/tree-select/demo/treeData.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/tree-select/demo/treeLine.md extend context correctly 1`] = `
+exports[`renders ./components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >

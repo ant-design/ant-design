@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/input/demo/addon.md correctly 1`] = `
+exports[`renders ./components/input/demo/addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -331,7 +331,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/align.md correctly 1`] = `
+exports[`renders ./components/input/demo/align.tsx correctly 1`] = `
 Array [
   <div
     class="ant-mentions"
@@ -1059,7 +1059,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
+exports[`renders ./components/input/demo/allowClear.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -1133,7 +1133,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
+exports[`renders ./components/input/demo/autosize-textarea.tsx correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -1156,7 +1156,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/basic.md correctly 1`] = `
+exports[`renders ./components/input/demo/basic.tsx correctly 1`] = `
 <input
   class="ant-input"
   placeholder="Basic usage"
@@ -1165,7 +1165,7 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 />
 `;
 
-exports[`renders ./components/input/demo/borderless.md correctly 1`] = `
+exports[`renders ./components/input/demo/borderless.tsx correctly 1`] = `
 <input
   class="ant-input ant-input-borderless"
   placeholder="Borderless"
@@ -1174,7 +1174,7 @@ exports[`renders ./components/input/demo/borderless.md correctly 1`] = `
 />
 `;
 
-exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
+exports[`renders ./components/input/demo/borderless-debug.tsx correctly 1`] = `
 <div
   style="background-color:rgba(0, 0, 128, .2)"
 >
@@ -1331,7 +1331,7 @@ exports[`renders ./components/input/demo/borderless-debug.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/debug-addon.md correctly 1`] = `
+exports[`renders ./components/input/demo/debug-addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1467,7 +1467,7 @@ exports[`renders ./components/input/demo/debug-addon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/focus.md correctly 1`] = `
+exports[`renders ./components/input/demo/focus.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1582,7 +1582,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/group.md correctly 1`] = `
+exports[`renders ./components/input/demo/group.tsx correctly 1`] = `
 <div
   class="site-input-group-wrapper"
 >
@@ -2628,7 +2628,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
+exports[`renders ./components/input/demo/password-input.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2782,7 +2782,7 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
+exports[`renders ./components/input/demo/presuffix.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -2890,7 +2890,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
+exports[`renders ./components/input/demo/search-input.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -3281,7 +3281,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] = `
+exports[`renders ./components/input/demo/search-input-loading.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-group-wrapper ant-input-search"
@@ -3431,7 +3431,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/show-count.md correctly 1`] = `
+exports[`renders ./components/input/demo/show-count.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper"
@@ -3465,7 +3465,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/size.md correctly 1`] = `
+exports[`renders ./components/input/demo/size.tsx correctly 1`] = `
 Array [
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
@@ -3573,7 +3573,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/status.md correctly 1`] = `
+exports[`renders ./components/input/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -3684,7 +3684,7 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
+exports[`renders ./components/input/demo/textarea.tsx correctly 1`] = `
 Array [
   <textarea
     class="ant-input"
@@ -3700,7 +3700,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
+exports[`renders ./components/input/demo/textarea-resize.tsx correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -3748,7 +3748,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/textarea-show-count.md correctly 1`] = `
+exports[`renders ./components/input/demo/textarea-show-count.tsx correctly 1`] = `
 Array [
   <div
     class="ant-input-textarea ant-input-textarea-show-count"
@@ -3774,7 +3774,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/input/demo/tooltip.md correctly 1`] = `
+exports[`renders ./components/input/demo/tooltip.tsx correctly 1`] = `
 <input
   class="ant-input"
   maxlength="16"

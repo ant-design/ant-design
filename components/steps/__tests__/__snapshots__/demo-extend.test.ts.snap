@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/steps/demo/clickable.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/clickable.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
@@ -233,7 +233,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/customized-progress-dot.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/customized-progress-dot.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
 >
@@ -528,7 +528,7 @@ exports[`renders ./components/steps/demo/customized-progress-dot.md extend conte
 </div>
 `;
 
-exports[`renders ./components/steps/demo/deprecated.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/deprecated.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -661,7 +661,7 @@ exports[`renders ./components/steps/demo/deprecated.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/error.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/error.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -806,7 +806,7 @@ exports[`renders ./components/steps/demo/error.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/steps/demo/icon.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -1001,7 +1001,7 @@ exports[`renders ./components/steps/demo/icon.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/inline.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/inline.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-list ant-list-split"
@@ -1910,7 +1910,7 @@ exports[`renders ./components/steps/demo/inline.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/label-placement.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/label-placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-vertical"
@@ -2340,7 +2340,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/nav.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/nav.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
@@ -2801,7 +2801,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/progress.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-with-progress ant-steps-label-horizontal"
 >
@@ -2985,7 +2985,7 @@ exports[`renders ./components/steps/demo/progress.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/steps/demo/progress-debug.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-debug.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -3770,7 +3770,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress-dot.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-vertical ant-steps-dot"
@@ -4075,7 +4075,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/progress-dot-small.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/progress-dot-small.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-vertical ant-steps-dot"
@@ -4380,7 +4380,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/simple.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
@@ -4513,7 +4513,7 @@ exports[`renders ./components/steps/demo/simple.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/small-size.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/small-size.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal"
 >
@@ -4625,7 +4625,7 @@ exports[`renders ./components/steps/demo/small-size.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/steps/demo/step-next.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/step-next.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
@@ -4738,7 +4738,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/steps-in-steps.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -5006,7 +5006,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/steps/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
 >
@@ -5133,7 +5133,7 @@ exports[`renders ./components/steps/demo/vertical.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/steps/demo/vertical-small.md extend context correctly 1`] = `
+exports[`renders ./components/steps/demo/vertical-small.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
 >

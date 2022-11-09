@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/statistic/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -101,7 +101,7 @@ exports[`renders ./components/statistic/demo/basic.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/card.md extend context correctly 1`] = `
+exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1`] = `
 <div
   class="site-statistic-demo-card"
 >
@@ -251,7 +251,7 @@ exports[`renders ./components/statistic/demo/card.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/countdown.md extend context correctly 1`] = `
+exports[`renders ./components/statistic/demo/countdown.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -351,7 +351,7 @@ exports[`renders ./components/statistic/demo/countdown.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/unit.md extend context correctly 1`] = `
+exports[`renders ./components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"

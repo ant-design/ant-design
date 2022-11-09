@@ -1,7 +1,6 @@
 ---
 category: Components
-type: Layout
-cols: 1
+group: Layout
 title: Layout
 cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 ---
@@ -56,6 +55,19 @@ Style of a navigation should conform to its level.
 
 > Based on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic Structure</code>
+<code src="./demo/top.tsx">Header-Content-Footer</code>
+<code src="./demo/top-side-2.tsx">Header Sider 2</code>
+<code src="./demo/top-side.tsx">Header-Sider</code>
+<code src="./demo/side.tsx" iframe>Sider</code>
+<code src="./demo/custom-trigger.tsx">Custom trigger</code>
+<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/fixed.tsx" iframe>Fixed Header</code>
+<code src="./demo/fixed-sider.tsx" iframe>Fixed Sider</code>
+<code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
+
 ## API
 
 ```jsx
@@ -74,32 +86,32 @@ Style of a navigation should conform to its level.
 
 The wrapper.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| className | Container className | string | - |
-| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
-| style | To customize the styles | CSSProperties | - |
+| Property  | Description                                                                                               | Type          | Default |
+| --------- | --------------------------------------------------------------------------------------------------------- | ------------- | ------- |
+| className | Container className                                                                                       | string        | -       |
+| hasSider  | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean       | -       |
+| style     | To customize the styles                                                                                   | CSSProperties | -       |
 
 ### Layout.Sider
 
 The sidebar.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
-| className | Container className | string | - |
-| collapsed | To set the current status | boolean | - |
-| collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
-| collapsible | Whether can be collapsed | boolean | false |
-| defaultCollapsed | To set the initial status | boolean | false |
-| reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |
-| style | To customize the styles | CSSProperties | - |
-| theme | Color theme of the sidebar | `light` \| `dark` | `dark` |
-| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |
-| width | Width of the sidebar | number \| string | 200 |
-| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |
-| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#API) changed | (broken) => {} | - |
-| onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
+| Property              | Description                                                                                 | Type                                          | Default |
+| --------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------- | ------- |
+| breakpoint            | [Breakpoints](/components/grid/#Col) of the responsive layout                               | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | -       |
+| className             | Container className                                                                         | string                                        | -       |
+| collapsed             | To set the current status                                                                   | boolean                                       | -       |
+| collapsedWidth        | Width of the collapsed sidebar, by setting to 0 a special trigger will appear               | number                                        | 80      |
+| collapsible           | Whether can be collapsed                                                                    | boolean                                       | false   |
+| defaultCollapsed      | To set the initial status                                                                   | boolean                                       | false   |
+| reverseArrow          | Reverse direction of arrow, for a sider that expands from the right                         | boolean                                       | false   |
+| style                 | To customize the styles                                                                     | CSSProperties                                 | -       |
+| theme                 | Color theme of the sidebar                                                                  | `light` \| `dark`                             | `dark`  |
+| trigger               | Specify the customized trigger, set to null to hide the trigger                             | ReactNode                                     | -       |
+| width                 | Width of the sidebar                                                                        | number \| string                              | 200     |
+| zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0      | object                                        | -       |
+| onBreakpoint          | The callback function, executed when [breakpoints](/components/grid/#API) changed           | (broken) => {}                                | -       |
+| onCollapse            | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {}                       | -       |
 
 #### breakpoint width
 

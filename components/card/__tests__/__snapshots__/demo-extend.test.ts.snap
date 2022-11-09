@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/card/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-card ant-card-bordered"
@@ -85,7 +85,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/card/demo/border-less.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/border-less.tsx extend context correctly 1`] = `
 <div
   class="site-card-border-less-wrapper"
 >
@@ -123,7 +123,7 @@ exports[`renders ./components/card/demo/border-less.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/card/demo/flexible-content.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
   style="width:240px"
@@ -161,7 +161,7 @@ exports[`renders ./components/card/demo/flexible-content.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/card/demo/grid-card.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/grid-card.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-contain-grid"
 >
@@ -227,7 +227,7 @@ exports[`renders ./components/card/demo/grid-card.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/card/demo/in-column.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
   class="site-card-wrapper"
 >
@@ -320,7 +320,7 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/card/demo/inner.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/inner.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
 >
@@ -407,7 +407,7 @@ exports[`renders ./components/card/demo/inner.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/card/demo/loading.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/loading.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -572,7 +572,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/meta.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
   style="width:300px"
@@ -700,7 +700,7 @@ exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/card/demo/simple.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
   style="width:300px"
@@ -721,7 +721,7 @@ exports[`renders ./components/card/demo/simple.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/card/demo/tabs.md extend context correctly 1`] = `
+exports[`renders ./components/card/demo/tabs.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"

@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 单选框
-type: 数据录入
+group: 数据录入
 title: Radio
 cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
+demo:
+  cols: 2
 ---
 
 单选框。
@@ -12,6 +14,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/8cYb5seNB/Radio.svg
 
 - 用于在多个备选项中选中单个状态。
 - 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/radiogroup.tsx">单选组合</code>
+<code src="./demo/radiogroup-more.tsx">Radio.Group 垂直</code>
+<code src="./demo/radiogroup-options.tsx">Radio.Group 组合 - 配置方式</code>
+<code src="./demo/radiobutton.tsx">按钮样式</code>
+<code src="./demo/radiogroup-with-name.tsx">单选组合 - 配合 name 使用</code>
+<code src="./demo/size.tsx">大小</code>
+<code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
+<code src="./demo/badge.tsx" debug>Badge style</code>
 
 ## API
 

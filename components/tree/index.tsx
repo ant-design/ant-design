@@ -7,10 +7,13 @@ import type { TreeProps } from './Tree';
 import TreePure from './Tree';
 import DirectoryTree from './DirectoryTree';
 
-export { DataNode };
-export { EventDataNode } from 'rc-tree/lib/interface';
-export { DirectoryTreeProps, ExpandAction as DirectoryTreeExpandAction } from './DirectoryTree';
-export {
+export type { DataNode };
+export type { EventDataNode } from 'rc-tree/lib/interface';
+export type {
+  DirectoryTreeProps,
+  ExpandAction as DirectoryTreeExpandAction,
+} from './DirectoryTree';
+export type {
   AntdTreeNodeAttribute,
   AntTreeNode,
   AntTreeNodeCheckedEvent,

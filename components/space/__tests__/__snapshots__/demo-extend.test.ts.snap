@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/space/demo/align.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/align.tsx extend context correctly 1`] = `
 <div
   class="space-align-container"
 >
@@ -151,7 +151,7 @@ exports[`renders ./components/space/demo/align.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/space/demo/base.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/base.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -322,7 +322,7 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/space/demo/compact.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/compact.tsx extend context correctly 1`] = `
 <div
   class="site-space-compact-wrapper"
 >
@@ -8302,7 +8302,7 @@ exports[`renders ./components/space/demo/compact.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/space/demo/compact-button-vertical.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/compact-button-vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -8407,7 +8407,7 @@ exports[`renders ./components/space/demo/compact-button-vertical.md extend conte
 </div>
 `;
 
-exports[`renders ./components/space/demo/compact-buttons.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/compact-buttons.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-space-compact ant-space-compact-block"
@@ -9466,7 +9466,7 @@ exports[`renders ./components/space/demo/compact-buttons.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/space/demo/compact-debug.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/compact-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -10429,7 +10429,7 @@ exports[`renders ./components/space/demo/compact-debug.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/space/demo/compact-nested.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/compact-nested.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space-compact ant-space-compact-block"
@@ -12383,7 +12383,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/space/demo/customize.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/customize.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -12493,7 +12493,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/space/demo/debug.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -12727,7 +12727,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/space/demo/gap-in-line.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/gap-in-line.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="false"
@@ -12793,7 +12793,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/space/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -12917,7 +12917,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/space/demo/split.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/split.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -12971,7 +12971,7 @@ exports[`renders ./components/space/demo/split.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/space/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="display:flex"
@@ -13074,7 +13074,7 @@ exports[`renders ./components/space/demo/vertical.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = `
+exports[`renders ./components/space/demo/wrap.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-16px"

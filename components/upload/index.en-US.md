@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Upload
 cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
+demo:
+  cols: 2
 ---
 
 Upload file by selecting or dragging.
@@ -14,6 +16,28 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 - When you need to upload one or more files.
 - When you need to show the process of uploading.
 - When you need to upload files by dragging and dropping.
+
+## Examples
+
+<code src="./demo/basic.tsx">Upload by clicking</code>
+<code src="./demo/avatar.tsx">Avatar</code>
+<code src="./demo/defaultFileList.tsx">Default Files</code>
+<code src="./demo/picture-card.tsx">Pictures Wall</code>
+<code src="./demo/fileList.tsx">Complete control over file list</code>
+<code src="./demo/drag.tsx">Drag and Drop</code>
+<code src="./demo/directory.tsx">Upload directory</code>
+<code src="./demo/upload-manually.tsx">Upload manually</code>
+<code src="./demo/upload-png-only.tsx">Upload png file only</code>
+<code src="./demo/picture-style.tsx">Pictures with list style</code>
+<code src="./demo/preview-file.tsx">Customize preview file</code>
+<code src="./demo/max-count.tsx">Max Count</code>
+<code src="./demo/transform-file.tsx">Transform file before request</code>
+<code src="./demo/upload-with-aliyun-oss.tsx">Aliyun OSS</code>
+<code src="./demo/file-type.tsx" debug>custom show icon</code>
+<code src="./demo/upload-custom-action-icon.tsx">custom action icon</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting of uploadList</code>
+<code src="./demo/crop-image.tsx">Crop image before uploading</code>
+<code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
 
 ## API
 

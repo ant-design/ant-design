@@ -1,9 +1,11 @@
 ---
 category: Components
-type: General
+group: General
 title: Icon
 toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+demo:
+  cols: 2
 ---
 
 Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
@@ -14,10 +16,15 @@ npm install --save @ant-design/icons
 
 ## List of icons
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/two-tone.tsx">Two-tone icon and colorful icon</code>
+<code src="./demo/custom.tsx">Custom Icon</code>
+<code src="./demo/iconfont.tsx">Use iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">Multiple resources from iconfont.cn</code>
 
 ## API
 

@@ -17,7 +17,7 @@ import Item from './Item';
 // CSSINJS
 import useStyle from './style';
 
-export { ListItemMetaProps, ListItemProps } from './Item';
+export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 

@@ -51,7 +51,9 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.md`);
+  const files = glob.sync(`./components/${component}/demo/*.tsx`);
+
+  let cssinjsTest = false;
 
   files.forEach(file => {
     let testMethod = options.skip === true ? test.skip : test;
@@ -59,8 +61,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       testMethod = test.skip;
     }
 
-    if (!doInject) {
-      testMethod(`cssinjs should not warn in ${file}`, () => {
+    if (!doInject && !cssinjsTest && testMethod !== test.skip) {
+      cssinjsTest = true;
+      testMethod(`cssinjs should not warn in ${component}`, () => {
         const errSpy = excludeWarning();
 
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require

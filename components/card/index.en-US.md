@@ -1,9 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Card
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
+demo:
+  cols: 2
 ---
 
 Simple rectangular container.
@@ -11,6 +12,19 @@ Simple rectangular container.
 ## When To Use
 
 A card can be used to display content related to a single subject. The content can consist of multiple elements of varying types and sizes.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic card</code>
+<code src="./demo/border-less.tsx">No border</code>
+<code src="./demo/simple.tsx">Simple card</code>
+<code src="./demo/flexible-content.tsx">Customized content</code>
+<code src="./demo/in-column.tsx">Card in column</code>
+<code src="./demo/loading.tsx">Loading card</code>
+<code src="./demo/grid-card.tsx">Grid card</code>
+<code src="./demo/inner.tsx">Inner card</code>
+<code src="./demo/tabs.tsx">With tabs</code>
+<code src="./demo/meta.tsx">Support more content configuration</code>
 
 ## API
 

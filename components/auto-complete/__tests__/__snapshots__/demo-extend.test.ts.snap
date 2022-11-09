@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/auto-complete/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -95,7 +95,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/auto-complete/demo/certain-category.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:250px"
@@ -474,7 +474,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/custom.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:200px"
@@ -520,7 +520,7 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/form-debug.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="margin:0 auto"
@@ -1727,7 +1727,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
 </form>
 `;
 
-exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1857,7 +1857,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/options.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1904,7 +1904,7 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="display:flex"
@@ -2087,7 +2087,7 @@ exports[`renders ./components/auto-complete/demo/render-panel.md extend context 
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -2188,7 +2188,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/uncertain-category.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:300px"

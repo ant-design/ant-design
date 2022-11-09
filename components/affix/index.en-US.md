@@ -1,8 +1,12 @@
 ---
 category: Components
-type: Navigation
 title: Affix
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+demo:
+  cols: 2
+group:
+  title: Navigation
+  order: 3
 ---
 
 Wrap Affix around another component to make it stick the viewport.
@@ -12,6 +16,13 @@ Wrap Affix around another component to make it stick the viewport.
 On longer web pages, it's helpful to stick component into the viewport. This is common for menus and actions.
 
 Please note that Affix should not cover other content on the page, especially when the size of the viewport is small.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/on-change.tsx">Callback</code>
+<code src="./demo/target.tsx">Container to scroll.</code>
+<code src="./demo/debug.tsx" debug>debug</code>
 
 ## API
 

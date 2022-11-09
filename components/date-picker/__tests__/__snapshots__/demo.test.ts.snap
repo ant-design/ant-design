@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -226,7 +226,7 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/bordered.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -752,7 +752,7 @@ exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/date-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -888,7 +888,7 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1182,7 +1182,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/disabled-date.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1448,7 +1448,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/extra-footer.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1758,7 +1758,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/format.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2213,7 +2213,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/mode.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2349,7 +2349,7 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/placement.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -2559,7 +2559,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/presetted-ranges.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2781,7 +2781,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/range-picker.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -3303,7 +3303,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/render-panel.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -3350,7 +3350,7 @@ exports[`renders ./components/date-picker/demo/render-panel.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/select-in-range.tsx correctly 1`] = `
 <div
   class="ant-picker ant-picker-range"
 >
@@ -3434,7 +3434,7 @@ exports[`renders ./components/date-picker/demo/select-in-range.md correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/size.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -3725,7 +3725,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/start-end.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -3819,7 +3819,7 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/status.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -4090,7 +4090,7 @@ exports[`renders ./components/date-picker/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/suffix.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -4460,7 +4460,7 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/switchable.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -4577,7 +4577,7 @@ exports[`renders ./components/date-picker/demo/switchable.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
+exports[`renders ./components/date-picker/demo/time.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >

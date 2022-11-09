@@ -1,7 +1,27 @@
+const compileModules = [
+  'array-move',
+  'react-dnd',
+  'react-dnd-html5-backend',
+  '@react-dnd',
+  'dnd-core',
+  'tween-one',
+  '@babel',
+  '@ant-design',
+];
+
+const ignoreList = [];
+
+// cnpm use `_` as prefix
+['', '_'].forEach(prefix => {
+  compileModules.forEach(module => {
+    ignoreList.push(`${prefix}${module}`);
+  });
+});
+
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  '/node_modules/(?!array-move|react-dnd|react-dnd-html5-backend|@react-dnd|dnd-core|tween-one|@babel|@ant-design)[^/]+?/(?!(es)/)',
+  `/node_modules/(?!${ignoreList.join('|')})[^/]+?/(?!(es)/)`,
 ];
 
 function getTestRegex(libDir) {
@@ -20,6 +40,8 @@ module.exports = {
   modulePathIgnorePatterns: ['/_site/'],
   moduleNameMapper: {
     '/\\.(css|less)$/': 'identity-obj-proxy',
+    '^antd$': '<rootDir>/components/index',
+    '^antd/es/(.*)$': '<rootDir>/components/$1',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
@@ -38,6 +60,7 @@ module.exports = {
     '!components/**/*/interface.{ts,tsx}',
     '!components/*/__tests__/image.test.{ts,tsx}',
     '!components/__tests__/node.test.tsx',
+    '!components/*/demo/*.tsx',
   ],
   transformIgnorePatterns,
   globals: {

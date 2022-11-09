@@ -1,9 +1,11 @@
 ---
-type: 反馈
+group: 反馈
 category: Components
 subtitle: 对话框
 title: Modal
 cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+demo:
+  cols: 2
 ---
 
 模态对话框。
@@ -13,6 +15,24 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
 
 另外当需要一个简洁的确认框询问用户时，可以使用 `Modal.confirm()` 等语法糖方法。
+
+## 代码演示
+
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/async.tsx">异步关闭</code>
+<code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/confirm.tsx">确认对话框</code>
+<code src="./demo/info.tsx">信息提示</code>
+<code src="./demo/locale.tsx">国际化</code>
+<code src="./demo/manual.tsx">手动更新和移除</code>
+<code src="./demo/position.tsx">自定义位置</code>
+<code src="./demo/confirm-router.tsx">销毁确认对话框</code>
+<code src="./demo/dark.tsx" debug>暗背景</code>
+<code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
+<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
+<code src="./demo/modal-render.tsx">自定义渲染对话框</code>
+<code src="./demo/width.tsx">自定义模态的宽度</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

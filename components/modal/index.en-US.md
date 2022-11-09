@@ -1,8 +1,10 @@
 ---
-type: Feedback
+group: Feedback
 category: Components
 title: Modal
 cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
+demo:
+  cols: 2
 ---
 
 Modal dialogs.
@@ -10,6 +12,24 @@ Modal dialogs.
 ## When To Use
 
 When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information. Additionally, if you need show a simple confirmation dialog, you can use `antd.Modal.confirm()`, and so on.
+
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/async.tsx">Asynchronously close</code>
+<code src="./demo/footer.tsx">Customized Footer</code>
+<code src="./demo/confirm.tsx">Confirmation modal dialog</code>
+<code src="./demo/info.tsx">Information modal dialog</code>
+<code src="./demo/locale.tsx">Internationalization</code>
+<code src="./demo/manual.tsx">Manual to update destroy</code>
+<code src="./demo/position.tsx">To customize the position of modal</code>
+<code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
+<code src="./demo/dark.tsx" debug>Dark Bg</code>
+<code src="./demo/button-props.tsx">Customize footer buttons props</code>
+<code src="./demo/hooks.tsx">Use hooks to get context</code>
+<code src="./demo/modal-render.tsx">Custom modal content render</code>
+<code src="./demo/width.tsx">To customize the width of modal</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

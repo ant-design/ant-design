@@ -1,5 +1,5 @@
 import demoTest from '../../../tests/shared/demoTest';
 
 demoTest('select', {
-  skip: ['render-panel.md'],
+  skip: ['render-panel.tsx'],
 });
