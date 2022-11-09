@@ -50,7 +50,14 @@ const App: React.FC = () => {
         <Button ref={ref3} icon={<EllipsisOutlined />} />
       </Space>
 
-      <Tour open={open} onClose={() => setOpen(false)} mask={false} type="primary" steps={steps} />
+      <Tour
+        open={open}
+        animated={true}
+        onClose={() => setOpen(false)}
+        mask={false}
+        type="primary"
+        steps={steps}
+      />
     </>
   );
 };
