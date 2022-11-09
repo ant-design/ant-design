@@ -205,7 +205,7 @@
     "dekko": "^0.2.1",
     "docsearch-react-fork": "^0.0.0-alpha.0",
     "docsearch.js": "^2.6.3",
-    "dumi": "^2.0.0-alpha.5",
+    "dumi": "^2.0.0-rc.3",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "enquire-js": "^0.2.1",
     "esbuild-loader": "^2.13.1",

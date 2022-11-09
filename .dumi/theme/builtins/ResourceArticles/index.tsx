@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
 import dayjs from 'dayjs';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'dumi';
 import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
 import { useSiteData } from '../../../pages/index/components/util';
 import type { Article, Authors } from '../../../pages/index/components/util';
