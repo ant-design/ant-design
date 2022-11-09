@@ -22170,6 +22170,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22195,6 +22196,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22220,6 +22222,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22245,6 +22248,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22270,6 +22274,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 exports[`ConfigProvider components Progress configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22295,6 +22300,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22320,6 +22326,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
+  role="progressbar"
 >
   <div
     class="prefix-Progress-outer"
