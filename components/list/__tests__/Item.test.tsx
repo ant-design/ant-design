@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import List from '..';
-import { render } from '../../../tests/utils';
+import { pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('List Item Layout', () => {
@@ -225,7 +225,7 @@ describe('List Item Layout', () => {
         )}
       />
     );
-    const { rerender } = render(getDom(1));
+    const { rerender } = pureRender(getDom(1));
     rerender(getDom(3));
     rerender(getDom(5));
     expect(loadId).toEqual([1, 3, 5]);
