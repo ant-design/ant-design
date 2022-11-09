@@ -8,7 +8,7 @@ export default defineConfig({
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
   },
-  ssr: {},
+  ssr: process.env.NODE_ENV === 'production' ? {} : false,
   hash: true,
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
