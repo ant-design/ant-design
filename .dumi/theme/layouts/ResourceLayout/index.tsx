@@ -120,7 +120,7 @@ const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
       <div id="resources-page" css={styles.resourcePage}>
         <AffixTabs />
         <div css={styles.banner}>
-          <Typography.Title>
+          <Typography.Title style={{ fontSize: 30 }}>
             {meta.frontmatter.title}
             <EditButton
               title={<FormattedMessage id="app.content.edit-page" />}

@@ -168,7 +168,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
           </div>
         </Affix>
         <div style={{ padding: '0 170px 32px 64px' }}>
-          <Typography.Title level={2}>
+          <Typography.Title style={{ fontSize: 30 }}>
             {meta.frontmatter.title}
             {meta.frontmatter.subtitle && (
               <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
