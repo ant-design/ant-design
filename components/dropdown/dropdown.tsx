@@ -213,7 +213,7 @@ const Dropdown: DropdownInterface = props => {
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
     } else if (typeof overlay === 'function') {
-      overlayNode = (overlay as OverlayFunc)();
+      overlayNode = overlay();
     } else {
       overlayNode = overlay;
     }
