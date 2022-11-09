@@ -1,8 +1,8 @@
 import InternalLayout, { Content, Footer, Header } from './layout';
 import Sider from './Sider';
 
-export { BasicProps as LayoutProps } from './layout';
-export { SiderProps } from './Sider';
+export type { BasicProps as LayoutProps } from './layout';
+export type { SiderProps } from './Sider';
 
 type InternalLayoutType = typeof InternalLayout;
 

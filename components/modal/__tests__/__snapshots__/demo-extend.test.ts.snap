@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/modal/demo/async.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/async.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -11,7 +11,7 @@ exports[`renders ./components/modal/demo/async.md extend context correctly 1`] =
 </button>
 `;
 
-exports[`renders ./components/modal/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -22,7 +22,7 @@ exports[`renders ./components/modal/demo/basic.md extend context correctly 1`] =
 </button>
 `;
 
-exports[`renders ./components/modal/demo/button-props.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/button-props.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -33,7 +33,7 @@ exports[`renders ./components/modal/demo/button-props.md extend context correctl
 </button>
 `;
 
-exports[`renders ./components/modal/demo/confirm.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/confirm.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -93,7 +93,7 @@ exports[`renders ./components/modal/demo/confirm.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/modal/demo/confirm-router.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/confirm-router.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -104,7 +104,7 @@ exports[`renders ./components/modal/demo/confirm-router.md extend context correc
 </button>
 `;
 
-exports[`renders ./components/modal/demo/dark.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/dark.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -115,7 +115,7 @@ exports[`renders ./components/modal/demo/dark.md extend context correctly 1`] = 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/footer.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/footer.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -126,7 +126,7 @@ exports[`renders ./components/modal/demo/footer.md extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/hooks.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/hooks.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -184,7 +184,7 @@ exports[`renders ./components/modal/demo/hooks.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/modal/demo/info.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/info.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
   style="flex-wrap:wrap;margin-bottom:-8px"
@@ -244,7 +244,7 @@ exports[`renders ./components/modal/demo/info.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/modal/demo/locale.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -276,7 +276,7 @@ exports[`renders ./components/modal/demo/locale.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/modal/demo/manual.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/manual.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -287,7 +287,7 @@ exports[`renders ./components/modal/demo/manual.md extend context correctly 1`] 
 </button>
 `;
 
-exports[`renders ./components/modal/demo/modal-render.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default"
   type="button"
@@ -298,7 +298,7 @@ exports[`renders ./components/modal/demo/modal-render.md extend context correctl
 </button>
 `;
 
-exports[`renders ./components/modal/demo/position.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -321,7 +321,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/modal/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
 >
@@ -563,7 +563,7 @@ exports[`renders ./components/modal/demo/render-panel.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/modal/demo/width.md extend context correctly 1`] = `
+exports[`renders ./components/modal/demo/width.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"

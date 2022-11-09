@@ -1,9 +1,11 @@
 ---
 category: Components
-type: 其他
+group: 其他
 subtitle: 悬浮按钮
 title: FloatButton
 cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b2993662611.svg
+demo:
+  cols: 2
 ---
 
 悬浮按钮。自 `5.0.0` 版本开始提供该组件。
@@ -13,20 +15,32 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/9b1b62fe-e677-4afc-b9fe-1b29936
 - 用于网站上的全局功能；
 - 无论浏览到何处都可以看见的按钮。
 
+## 代码演示
+
+<code src="./demo/basic.tsx" iframe>基本</code>
+<code src="./demo/type.tsx" iframe>类型</code>
+<code src="./demo/shape.tsx" iframe>形状</code>
+<code src="./demo/description.tsx" iframe>描述</code>
+<code src="./demo/tooltip.tsx" iframe>含有气泡卡片的悬浮按钮</code>
+<code src="./demo/group.tsx" iframe>浮动按钮组</code>
+<code src="./demo/group-menu.tsx" iframe>菜单模式</code>
+<code src="./demo/back-top.tsx" iframe>回到顶部</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 ### 共同的 API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| icon | 自定义图标 | ReactNode | - |  |
-| description | 文字及其它内容 | ReactNode | - |  |
-| tooltip | 气泡卡片的内容 | ReactNode \| () => ReactNode | - |  |
-| type | 设置按钮类型 | `default` \| `primary` | `default` |  |
-| shape | 设置按钮形状 | `circle` \| `square` | `circle` |  |
-| onClick | 点击按钮时的回调 | (event) => void | - |  |
-| href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
-| target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - |  |
+| 参数        | 说明                                                  | 类型                         | 默认值    | 版本 |
+| ----------- | ----------------------------------------------------- | ---------------------------- | --------- | ---- |
+| icon        | 自定义图标                                            | ReactNode                    | -         |      |
+| description | 文字及其它内容                                        | ReactNode                    | -         |      |
+| tooltip     | 气泡卡片的内容                                        | ReactNode \| () => ReactNode | -         |      |
+| type        | 设置按钮类型                                          | `default` \| `primary`       | `default` |      |
+| shape       | 设置按钮形状                                          | `circle` \| `square`         | `circle`  |      |
+| onClick     | 点击按钮时的回调                                      | (event) => void              | -         |      |
+| href        | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string                       | -         |      |
+| target      | 相当于 a 标签的 target 属性，href 存在时生效          | string                       | -         |      |
 
 ### FloatButton.Group
 

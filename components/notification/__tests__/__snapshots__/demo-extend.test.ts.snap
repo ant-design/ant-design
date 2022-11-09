@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/notification/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/basic.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -11,7 +11,7 @@ exports[`renders ./components/notification/demo/basic.md extend context correctl
 </button>
 `;
 
-exports[`renders ./components/notification/demo/custom-icon.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/custom-icon.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -22,7 +22,7 @@ exports[`renders ./components/notification/demo/custom-icon.md extend context co
 </button>
 `;
 
-exports[`renders ./components/notification/demo/custom-style.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/custom-style.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -33,7 +33,7 @@ exports[`renders ./components/notification/demo/custom-style.md extend context c
 </button>
 `;
 
-exports[`renders ./components/notification/demo/duration.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/duration.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -44,7 +44,7 @@ exports[`renders ./components/notification/demo/duration.md extend context corre
 </button>
 `;
 
-exports[`renders ./components/notification/demo/hooks.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/hooks.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -187,7 +187,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/notification/demo/placement.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -401,7 +401,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/notification/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-notification-notice ant-notification-notice-pure-panel ant-notification-notice-closable"
 >
@@ -486,7 +486,7 @@ exports[`renders ./components/notification/demo/render-panel.md extend context c
 </div>
 `;
 
-exports[`renders ./components/notification/demo/update.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/update.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -497,7 +497,7 @@ exports[`renders ./components/notification/demo/update.md extend context correct
 </button>
 `;
 
-exports[`renders ./components/notification/demo/with-btn.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/with-btn.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"
   type="button"
@@ -508,7 +508,7 @@ exports[`renders ./components/notification/demo/with-btn.md extend context corre
 </button>
 `;
 
-exports[`renders ./components/notification/demo/with-icon.md extend context correctly 1`] = `
+exports[`renders ./components/notification/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >

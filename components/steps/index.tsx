@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import RcSteps from 'rc-steps';
 import type { ProgressDotRender } from 'rc-steps/lib/Steps';
 import * as React from 'react';
+import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
@@ -23,7 +24,7 @@ export interface StepProps {
 }
 
 export interface StepsProps {
-  type?: 'default' | 'navigation';
+  type?: 'default' | 'navigation' | 'inline';
   className?: string;
   current?: number;
   direction?: 'horizontal' | 'vertical';
@@ -70,13 +71,15 @@ const Steps: StepsType = props => {
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const isInline = props.type === 'inline';
   const iconPrefix = getPrefixCls('', props.iconPrefix);
   const mergedItems = useLegacyItems(items, children);
+  const mergedPercent = isInline ? undefined : percent;
 
   const stepsClassName = classNames(
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
-      [`${prefixCls}-with-progress`]: percent !== undefined,
+      [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
     },
     className,
     hashId,
@@ -96,7 +99,7 @@ const Steps: StepsType = props => {
     title: string | React.ReactNode;
     description: string | React.ReactNode;
   }) => {
-    if (status === 'process' && percent !== undefined) {
+    if (status === 'process' && mergedPercent !== undefined) {
       // currently it's hard-coded, since we can't easily read the actually width of icon
       const progressWidth = size === 'small' ? 32 : 40;
       // iconWithProgress
@@ -104,7 +107,7 @@ const Steps: StepsType = props => {
         <div className={`${prefixCls}-progress-icon`}>
           <Progress
             type="circle"
-            percent={percent}
+            percent={mergedPercent}
             width={progressWidth}
             strokeWidth={4}
             format={() => null}
@@ -116,6 +119,12 @@ const Steps: StepsType = props => {
     return node;
   };
 
+  let itemRender;
+  if (isInline) {
+    itemRender = (item: StepProps, stepItem: React.ReactNode) =>
+      item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
+  }
+
   return wrapSSR(
     <RcSteps
       icons={icons}
@@ -123,6 +132,7 @@ const Steps: StepsType = props => {
       current={current}
       size={size}
       items={mergedItems}
+      itemRender={itemRender}
       direction={getDirection()}
       stepIcon={stepIconRender}
       prefixCls={prefixCls}

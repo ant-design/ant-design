@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 原则
 order: 3
 title: 对比

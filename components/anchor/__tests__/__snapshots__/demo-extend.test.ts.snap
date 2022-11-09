@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/anchor/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`] = `
 <div>
   <div
     class=""
@@ -80,7 +80,7 @@ exports[`renders ./components/anchor/demo/basic.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/customizeHighlight.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -154,7 +154,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md extend context c
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onChange.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/onChange.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -228,7 +228,7 @@ exports[`renders ./components/anchor/demo/onChange.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onClick.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/onClick.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -302,7 +302,7 @@ exports[`renders ./components/anchor/demo/onClick.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/static.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/static.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -376,7 +376,7 @@ exports[`renders ./components/anchor/demo/static.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/targetOffset.md extend context correctly 1`] = `
+exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
 <div>
   <div
     class=""

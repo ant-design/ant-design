@@ -1,6 +1,6 @@
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import RcImage, { ImageProps } from 'rc-image';
+import RcImage, { type ImageProps } from 'rc-image';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';

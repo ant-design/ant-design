@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/rate/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -299,7 +299,7 @@ exports[`renders ./components/rate/demo/basic.md extend context correctly 1`] = 
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/character.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/character.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -835,7 +835,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/character-function.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/character-function.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1253,7 +1253,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/clear.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/clear.tsx extend context correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1861,7 +1861,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
   role="radiogroup"
@@ -2160,7 +2160,7 @@ exports[`renders ./components/rate/demo/disabled.md extend context correctly 1`]
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/half.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -2459,7 +2459,7 @@ exports[`renders ./components/rate/demo/half.md extend context correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
+exports[`renders ./components/rate/demo/text.tsx extend context correctly 1`] = `
 <span>
   <ul
     class="ant-rate"

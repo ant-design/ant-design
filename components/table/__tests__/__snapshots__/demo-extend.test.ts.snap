@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/ajax.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -35,7 +35,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -404,7 +404,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                       <div
                         class="ant-empty-description"
                       >
-                        No Data
+                        No data
                       </div>
                     </div>
                   </td>
@@ -419,7 +419,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/table/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -661,7 +661,6 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -744,7 +743,7 @@ exports[`renders ./components/table/demo/basic.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/table/demo/bordered.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -878,7 +877,6 @@ exports[`renders ./components/table/demo/bordered.md extend context correctly 1`
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -961,7 +959,7 @@ exports[`renders ./components/table/demo/bordered.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/table/demo/colspan-rowspan.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/colspan-rowspan.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1158,7 +1156,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md extend context corre
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -1241,7 +1238,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/table/demo/custom-filter-panel.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/custom-filter-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -1548,7 +1545,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                     </div>
                   </th>
                   <th
-                    aria-label="Address sortable"
+                    aria-label="this column's title is Address,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -1855,7 +1852,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -1938,7 +1934,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/drag-sorting.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -2055,7 +2051,6 @@ exports[`renders ./components/table/demo/drag-sorting.md extend context correctl
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -2138,202 +2133,7 @@ exports[`renders ./components/table/demo/drag-sorting.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/table/demo/drag-sorting-handler.md extend context correctly 1`] = `
-<div
-  class="ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout:auto"
-            >
-              <colgroup>
-                <col
-                  style="width:30px"
-                />
-              </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell drag-visible"
-                  >
-                    Sort
-                  </th>
-                  <th
-                    class="ant-table-cell drag-visible"
-                  >
-                    Name
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    Age
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    Address
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  data-row-key="0"
-                >
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    <span
-                      aria-label="menu"
-                      class="anticon anticon-menu"
-                      role="img"
-                      style="cursor:grab;color:#999"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="menu"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </td>
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    John Brown
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    New York No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    <span
-                      aria-label="menu"
-                      class="anticon anticon-menu"
-                      role="img"
-                      style="cursor:grab;color:#999"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="menu"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </td>
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    Jim Green
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    42
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    <span
-                      aria-label="menu"
-                      class="anticon anticon-menu"
-                      role="img"
-                      style="cursor:grab;color:#999"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="menu"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </td>
-                  <td
-                    class="ant-table-cell drag-visible"
-                  >
-                    Joe Black
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Sidney No. 1 Lake Park
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/table/demo/dynamic-settings.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/dynamic-settings.tsx extend context correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -3366,6 +3166,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -3382,7 +3183,7 @@ Array [
                       Name
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -3693,7 +3494,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Action sortable"
+                      aria-label="this column's title is Action,this column is sortable"
                       class="ant-table-cell ant-table-column-has-sorters"
                       tabindex="0"
                     >
@@ -4834,7 +4635,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -4918,7 +4718,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/edit-cell.tsx extend context correctly 1`] = `
 <div>
   <button
     class="ant-btn ant-btn-primary"
@@ -5213,7 +5013,6 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -5297,7 +5096,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/edit-row.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -5656,7 +5455,6 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -6014,7 +5812,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/ellipsis.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6217,7 +6015,6 @@ exports[`renders ./components/table/demo/ellipsis.md extend context correctly 1`
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -6300,7 +6097,7 @@ exports[`renders ./components/table/demo/ellipsis.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/ellipsis-custom-tooltip.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -6803,7 +6600,6 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -6886,7 +6682,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
 </div>
 `;
 
-exports[`renders ./components/table/demo/expand.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/expand.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -7100,7 +6896,6 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -7183,7 +6978,7 @@ exports[`renders ./components/table/demo/expand.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-in-tree.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/filter-in-tree.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -7657,7 +7452,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -8097,7 +7892,6 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -8180,7 +7974,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/table/demo/filter-search.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/filter-search.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -8478,7 +8272,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                     </div>
                   </th>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -8918,7 +8712,6 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -9001,7 +8794,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/fixed-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -9341,7 +9134,6 @@ exports[`renders ./components/table/demo/fixed-columns.md extend context correct
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -9424,7 +9216,7 @@ exports[`renders ./components/table/demo/fixed-columns.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-columns-header.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/fixed-columns-header.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -10308,7 +10100,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -10666,7 +10457,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
 </div>
 `;
 
-exports[`renders ./components/table/demo/fixed-header.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -11768,7 +11559,6 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -12044,7 +11834,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/table/demo/grouping-columns.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/grouping-columns.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -12322,7 +12112,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                 </tr>
                 <tr>
                   <th
-                    aria-label="Age sortable"
+                    aria-label="this column's title is Age,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
                     tabindex="0"
@@ -13036,7 +12826,6 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
       </div>
       <ul
         class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -13394,7 +13183,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
 </div>
 `;
 
-exports[`renders ./components/table/demo/head.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/head.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -13422,7 +13211,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14308,7 +14097,6 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -14391,7 +14179,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/jsx.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -14659,7 +14447,6 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -14742,7 +14529,7 @@ exports[`renders ./components/table/demo/jsx.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/table/demo/multiple-sorter.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/multiple-sorter.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -14775,7 +14562,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     Name
                   </th>
                   <th
-                    aria-label="Chinese Score sortable"
+                    aria-label="this column's title is Chinese Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14860,7 +14647,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
-                    aria-label="Math Score sortable"
+                    aria-label="this column's title is Math Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -14945,7 +14732,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     </div>
                   </th>
                   <th
-                    aria-label="English Score sortable"
+                    aria-label="this column's title is English Score,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -15141,7 +14928,6 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -15224,7 +15010,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/narrow.tsx extend context correctly 1`] = `
 <div
   style="width:300px"
 >
@@ -15481,7 +15267,6 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="false"
@@ -15889,7 +15674,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/nest-table-border-debug.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
   <form
     class="ant-form ant-form-inline components-table-demo-control-bar"
@@ -16242,7 +16027,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -16326,7 +16110,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/nested-table.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/nested-table.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -17282,7 +17066,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -18317,7 +18100,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -19352,7 +19134,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -19436,7 +19217,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/order-column.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/order-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -19498,6 +19279,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -19721,7 +19503,6 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -19804,7 +19585,7 @@ exports[`renders ./components/table/demo/order-column.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/table/demo/pagination.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/pagination.tsx extend context correctly 1`] = `
 <div>
   <div>
     <div
@@ -19983,7 +19764,6 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
       >
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-left"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -20299,7 +20079,6 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -20383,7 +20162,7 @@ exports[`renders ./components/table/demo/pagination.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/table/demo/reset-filter.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/reset-filter.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -20455,7 +20234,7 @@ Array [
                 >
                   <tr>
                     <th
-                      aria-label="Name sortable"
+                      aria-label="this column's title is Name,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Name"
@@ -20762,7 +20541,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Age sortable"
+                      aria-label="this column's title is Age,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Age"
@@ -20848,7 +20627,7 @@ Array [
                       </div>
                     </th>
                     <th
-                      aria-label="Address sortable"
+                      aria-label="this column's title is Address,this column is sortable"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       tabindex="0"
                       title="Address"
@@ -21258,7 +21037,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -21342,7 +21120,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/resizable-column.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/resizable-column.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -21391,7 +21169,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                     />
                   </th>
                   <th
-                    aria-label="Amount sortable"
+                    aria-label="this column's title is Amount,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
                     tabindex="0"
                   >
@@ -21607,7 +21385,6 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -21690,7 +21467,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
 </div>
 `;
 
-exports[`renders ./components/table/demo/responsive.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -21746,7 +21523,6 @@ exports[`renders ./components/table/demo/responsive.md extend context correctly 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -21829,7 +21605,7 @@ exports[`renders ./components/table/demo/responsive.md extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/row-selection.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -21921,6 +21697,7 @@ exports[`renders ./components/table/demo/row-selection.md extend context correct
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -22127,7 +21904,6 @@ exports[`renders ./components/table/demo/row-selection.md extend context correct
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -22211,7 +21987,7 @@ exports[`renders ./components/table/demo/row-selection.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-and-operation.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/row-selection-and-operation.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -22272,6 +22048,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md extend c
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -22699,7 +22476,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md extend c
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -22827,7 +22603,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md extend c
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/row-selection-custom.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -22871,6 +22647,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -23619,7 +23396,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -23746,7 +23522,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
 </div>
 `;
 
-exports[`renders ./components/table/demo/row-selection-custom-debug.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/row-selection-custom-debug.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -23790,6 +23566,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
                           class="ant-checkbox"
                         >
                           <input
+                            aria-label="Select all"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -24032,7 +23809,6 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -24159,7 +23935,7 @@ exports[`renders ./components/table/demo/row-selection-custom-debug.md extend co
 </div>
 `;
 
-exports[`renders ./components/table/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/size.tsx extend context correctly 1`] = `
 <div>
   <h4>
     Middle size table
@@ -24277,7 +24053,6 @@ exports[`renders ./components/table/demo/size.md extend context correctly 1`] = 
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -24474,7 +24249,6 @@ exports[`renders ./components/table/demo/size.md extend context correctly 1`] = 
         </div>
         <ul
           class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -24558,7 +24332,7 @@ exports[`renders ./components/table/demo/size.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/sticky.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -25500,7 +25274,6 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
       </div>
       <ul
         class="ant-pagination ant-table-pagination ant-table-pagination-right"
-        unselectable="unselectable"
       >
         <li
           aria-disabled="true"
@@ -25858,7 +25631,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/table/demo/summary.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/summary.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-table-wrapper"
@@ -26478,7 +26251,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-data.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/tree-data.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -26565,6 +26338,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -26700,7 +26474,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -26784,7 +26557,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/tree-table-ellipsis.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/tree-table-ellipsis.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -26872,6 +26645,7 @@ Array [
                             class="ant-checkbox"
                           >
                             <input
+                              aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
@@ -27419,7 +27193,6 @@ Array [
         </div>
         <ul
           class="ant-pagination ant-table-pagination ant-table-pagination-right"
-          unselectable="unselectable"
         >
           <li
             aria-disabled="true"
@@ -27503,7 +27276,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/table/demo/virtual-list.md extend context correctly 1`] = `
+exports[`renders ./components/table/demo/virtual-list.tsx extend context correctly 1`] = `
 <div
   class="ant-table-wrapper virtual-table"
 >

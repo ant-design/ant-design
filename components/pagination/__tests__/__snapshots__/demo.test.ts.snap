@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/all.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     class="ant-pagination-total-text"
@@ -258,10 +257,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/basic.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="true"
@@ -385,11 +383,10 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/changer.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="false"
@@ -629,7 +626,6 @@ Array [
   <br />,
   <ul
     class="ant-pagination ant-pagination-disabled"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="false"
@@ -870,10 +866,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/controlled.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="false"
@@ -997,10 +992,9 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/itemRender.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="true"
@@ -1196,11 +1190,10 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/jump.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="false"
@@ -1451,7 +1444,6 @@ Array [
   <br />,
   <ul
     class="ant-pagination ant-pagination-disabled"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="false"
@@ -1704,11 +1696,10 @@ Array [
 ]
 `;
 
-exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/mini.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -1832,7 +1823,6 @@ Array [
   </ul>,
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -2033,7 +2023,6 @@ Array [
   </ul>,
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       class="ant-pagination-total-text"
@@ -2162,7 +2151,6 @@ Array [
   </ul>,
   <ul
     class="ant-pagination ant-pagination-mini ant-pagination-disabled"
-    unselectable="unselectable"
   >
     <li
       class="ant-pagination-total-text"
@@ -2371,10 +2359,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/more.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="false"
@@ -2662,7 +2649,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/simple.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-pagination ant-pagination-simple"
@@ -2837,11 +2824,10 @@ Array [
 ]
 `;
 
-exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
+exports[`renders ./components/pagination/demo/total.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       class="ant-pagination-total-text"
@@ -3037,7 +3023,6 @@ Array [
   <br />,
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       class="ant-pagination-total-text"

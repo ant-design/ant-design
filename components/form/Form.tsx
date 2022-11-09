@@ -12,7 +12,7 @@ import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
 import { FormContext } from './context';
-import useForm, { FormInstance } from './hooks/useForm';
+import useForm, { type FormInstance } from './hooks/useForm';
 import type { FormLabelAlign } from './interface';
 
 import useStyle from './style';
@@ -155,6 +155,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, FormInstance, useWatch };
+export { useForm, List, type FormInstance, useWatch };
 
 export default Form;

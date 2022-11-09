@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/drawer/demo/basic-right.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/basic-right.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -99,7 +99,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/config-provider.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/config-provider.tsx extend context correctly 1`] = `
 <div
   class="site-drawer-render-in-current-wrapper"
 >
@@ -201,7 +201,7 @@ exports[`renders ./components/drawer/demo/config-provider.md extend context corr
 </div>
 `;
 
-exports[`renders ./components/drawer/demo/extra.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -427,7 +427,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/form-in-drawer.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/form-in-drawer.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -2510,7 +2510,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/multi-level-drawer.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -2636,7 +2636,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/no-mask.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/no-mask.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -2732,7 +2732,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/placement.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2900,7 +2900,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/render-in-current.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
   class="site-drawer-render-in-current-wrapper"
 >
@@ -2975,7 +2975,7 @@ exports[`renders ./components/drawer/demo/render-in-current.md extend context co
 </div>
 `;
 
-exports[`renders ./components/drawer/demo/render-panel.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding:32px;background:#e6e6e6"
 >
@@ -3039,7 +3039,7 @@ exports[`renders ./components/drawer/demo/render-panel.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/drawer/demo/scroll-debug.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/scroll-debug.tsx extend context correctly 1`] = `
 <div
   style="position:relative;z-index:999999"
 >
@@ -3399,7 +3399,7 @@ exports[`renders ./components/drawer/demo/scroll-debug.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/drawer/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3552,7 +3552,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/drawer/demo/user-profile.md extend context correctly 1`] = `
+exports[`renders ./components/drawer/demo/user-profile.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-list ant-list-split ant-list-bordered"

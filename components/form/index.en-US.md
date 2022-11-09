@@ -1,9 +1,10 @@
 ---
 category: Components
-type: Data Entry
-cols: 1
+group: Data Entry
 title: Form
 cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
+demo:
+  cols: 2
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.
@@ -13,34 +14,71 @@ High performance Form component with data scope management. Including data colle
 - When you need to create an instance or collect information.
 - When you need to validate fields in certain rules.
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/control-hooks.tsx">Form methods</code>
+<code src="./demo/control-ref.tsx">Form methods (Class component)</code>
+<code src="./demo/layout.tsx">Form Layout</code>
+<code src="./demo/disabled.tsx">Form disabled</code>
+<code src="./demo/required-mark.tsx">Required style</code>
+<code src="./demo/size.tsx">Form size</code>
+<code src="./demo/layout-can-wrap.tsx">label can wrap</code>
+<code src="./demo/warning-only.tsx">No block rule</code>
+<code src="./demo/useWatch.tsx">Watch Hooks</code>
+<code src="./demo/dynamic-form-item.tsx">Dynamic Form Item</code>
+<code src="./demo/dynamic-form-items.tsx">Dynamic Form nest Items</code>
+<code src="./demo/dynamic-form-items-no-style.tsx" debug>Dynamic Form nest pure Items</code>
+<code src="./demo/dynamic-form-items-complex.tsx">Complex Dynamic Form Item</code>
+<code src="./demo/nest-messages.tsx">Nest</code>
+<code src="./demo/complex-form-control.tsx">complex form control</code>
+<code src="./demo/customized-form-controls.tsx">Customized Form Controls</code>
+<code src="./demo/global-state.tsx">Store Form Data into Upper Component</code>
+<code src="./demo/form-context.tsx">Control between forms</code>
+<code src="./demo/inline-login.tsx">Inline Login Form</code>
+<code src="./demo/normal-login.tsx">Login Form</code>
+<code src="./demo/register.tsx">Registration</code>
+<code src="./demo/advanced-search.tsx">Advanced search</code>
+<code src="./demo/form-in-modal.tsx">Form in Modal to Create</code>
+<code src="./demo/time-related-controls.tsx">Time-related Controls</code>
+<code src="./demo/without-form-create.tsx">Handle Form Data Manually</code>
+<code src="./demo/validate-static.tsx">Customized Validation</code>
+<code src="./demo/dynamic-rule.tsx">Dynamic Rules</code>
+<code src="./demo/validate-other.tsx">Other Form Controls</code>
+<code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
+<code src="./demo/dep-debug.tsx" debug>Dep Debug</code>
+<code src="./demo/label-debug.tsx" debug>label ellipsis</code>
+<code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
+<code src="./demo/ref-item.tsx" debug>Ref item</code>
+
 ## API
 
 ### Form
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
-| disabled | Set form component disable, only available for antd components | boolean | false | 4.21.0 |
-| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
-| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |  |
-| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
-| initialValues | Set value by Form initialization or reset | object | - |  |
-| labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
-| labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
-| labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
-| name | Form name. Will be the prefix of Field `id` | string | - |  |
-| preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
-| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` | true | 4.6.0 |
-| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
-| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
-| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |  |
-| validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
-| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#Col) | - |  |
-| onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
-| onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | function({ values, errorFields, outOfDate }) | - |  |
-| onValuesChange | Trigger when value updated | function(changedValues, allValues) | - |  |
+| Property           | Description                                                                                                                                                    | Type                                                                                                                              | Default      | Version |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------- |
+| colon              | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean                                                                                                                           | true         |         |
+| disabled           | Set form component disable, only available for antd components                                                                                                 | boolean                                                                                                                           | false        | 4.21.0  |
+| component          | Set the Form rendering element. Do not create a DOM node for `false`                                                                                           | ComponentType \| false                                                                                                            | form         |         |
+| fields             | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state)     | [FieldData](#FieldData)\[]                                                                                                        | -            |         |
+| form               | Form control instance created by `Form.useForm()`. Automatically created when not provided                                                                     | [FormInstance](#FormInstance)                                                                                                     | -            |         |
+| initialValues      | Set value by Form initialization or reset                                                                                                                      | object                                                                                                                            | -            |         |
+| labelAlign         | The text align of label of all items                                                                                                                           | `left` \| `right`                                                                                                                 | `right`      |         |
+| labelWrap          | whether label can be wrap                                                                                                                                      | boolean                                                                                                                           | false        | 4.18.0  |
+| labelCol           | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}`                                    | [object](/components/grid/#Col)                                                                                                   | -            |         |
+| layout             | Form layout                                                                                                                                                    | `horizontal` \| `vertical` \| `inline`                                                                                            | `horizontal` |         |
+| name               | Form name. Will be the prefix of Field `id`                                                                                                                    | string                                                                                                                            | -            |         |
+| preserve           | Keep field value even when field removed                                                                                                                       | boolean                                                                                                                           | true         | 4.4.0   |
+| requiredMark       | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config                          | boolean \| `optional`                                                                                                             | true         | 4.6.0   |
+| scrollToFirstError | Auto scroll to first failed field when submit                                                                                                                  | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false        |         |
+| size               | Set field component size (antd components only)                                                                                                                | `small` \| `middle` \| `large`                                                                                                    | -            |         |
+| validateMessages   | Validation prompt template, description [see below](#validateMessages)                                                                                         | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts)                               | -            |         |
+| validateTrigger    | Config field validate trigger                                                                                                                                  | string \| string\[]                                                                                                               | `onChange`   | 4.3.0   |
+| wrapperCol         | The layout for input controls, same as `labelCol`                                                                                                              | [object](/components/grid/#Col)                                                                                                   | -            |         |
+| onFieldsChange     | Trigger when field updated                                                                                                                                     | function(changedFields, allFields)                                                                                                | -            |         |
+| onFinish           | Trigger after submitting the form and verifying data successfully                                                                                              | function(values)                                                                                                                  | -            |         |
+| onFinishFailed     | Trigger after submitting the form and verifying data failed                                                                                                    | function({ values, errorFields, outOfDate })                                                                                      | -            |         |
+| onValuesChange     | Trigger when value updated                                                                                                                                     | function(changedValues, allValues)                                                                                                | -            |         |
 
 ### validateMessages
 
@@ -72,36 +110,36 @@ const validateMessages = {
 
 Form field component for data bidirectional binding, validation, layout, and so on.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| colon | Used with `label`, whether to display `:` after label text. | boolean | true |  |
-| dependencies | Set the dependency field. See [below](#dependencies) | [NamePath](#NamePath)\[] | - |  |
-| extra | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time | ReactNode | - |  |
-| getValueFromEvent | Specify how to get value from event or other onChange arguments | (..args: any\[]) => any | - |  |
-| getValueProps | Additional props with sub component | (value: any) => any | - | 4.2.0 |
-| hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input` | boolean | false |  |
-| help | The prompt message. If not provided, the prompt message will be generated by the validation rule. | ReactNode | - |  |
-| hidden | Whether to hide Form.Item (still collect and validate value) | boolean | false | 4.4.0 |
-| htmlFor | Set sub label `htmlFor` | string | - |  |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | string | - | 4.2.0 |
-| label | Label text | ReactNode | - |  |
-| labelAlign | The text align of label | `left` \| `right` | `right` |  |
-| labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
-| messageVariables | The default validate field info | Record&lt;string, string> | - | 4.7.0 |
-| name | Field name, support array | [NamePath](#NamePath) | - |  |
-| normalize | Normalize value from component value before passing to Form instance. Do not support async | (value, prevValue, prevValues) => any | - |  |
-| noStyle | No style for `true`, used as a pure field control | boolean | false |  |
-| preserve | Keep field value even when field removed | boolean | true | 4.4.0 |
-| required | Display required style. It will be generated by the validation rule | boolean | false |  |
-| rules | Rules for field validation. Click [here](#components-form-demo-basic) to see an example | [Rule](#Rule)\[] | - |  |
-| shouldUpdate | Custom field update logic. See [below](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |  |
-| tooltip | Config tooltip info | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | - | 4.7.0 |
-| trigger | When to collect the value of children node. Click [here](#components-form-demo-customized-form-controls) to see an example | string | `onChange` |  |
-| validateFirst | Whether stop validate on first rule of error for this field. Will parallel validate when `parallel` cofigured | boolean \| `parallel` | false | `parallel`: 4.5.0 |
-| validateStatus | The validation status. If not provided, it will be generated by validation rule. options: `success` `warning` `error` `validating` | string | - |  |
-| validateTrigger | When to validate the value of children node | string \| string\[] | `onChange` |  |
-| valuePropName | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
-| wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#Col) | - |  |
+| Property          | Description                                                                                                                                                                                                                                    | Type                                                                       | Default    | Version           |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------- | ----------------- |
+| colon             | Used with `label`, whether to display `:` after label text.                                                                                                                                                                                    | boolean                                                                    | true       |                   |
+| dependencies      | Set the dependency field. See [below](#dependencies)                                                                                                                                                                                           | [NamePath](#NamePath)\[]                                                   | -          |                   |
+| extra             | The extra prompt message. It is similar to help. Usage example: to display error message and prompt message at the same time                                                                                                                   | ReactNode                                                                  | -          |                   |
+| getValueFromEvent | Specify how to get value from event or other onChange arguments                                                                                                                                                                                | (..args: any\[]) => any                                                    | -          |                   |
+| getValueProps     | Additional props with sub component                                                                                                                                                                                                            | (value: any) => any                                                        | -          | 4.2.0             |
+| hasFeedback       | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input`                                                                                                                         | boolean                                                                    | false      |                   |
+| help              | The prompt message. If not provided, the prompt message will be generated by the validation rule.                                                                                                                                              | ReactNode                                                                  | -          |                   |
+| hidden            | Whether to hide Form.Item (still collect and validate value)                                                                                                                                                                                   | boolean                                                                    | false      | 4.4.0             |
+| htmlFor           | Set sub label `htmlFor`                                                                                                                                                                                                                        | string                                                                     | -          |                   |
+| initialValue      | Config sub default value. Form `initialValues` get higher priority when conflict                                                                                                                                                               | string                                                                     | -          | 4.2.0             |
+| label             | Label text                                                                                                                                                                                                                                     | ReactNode                                                                  | -          |                   |
+| labelAlign        | The text align of label                                                                                                                                                                                                                        | `left` \| `right`                                                          | `right`    |                   |
+| labelCol          | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#Col)                                            | -          |                   |
+| messageVariables  | The default validate field info                                                                                                                                                                                                                | Record&lt;string, string>                                                  | -          | 4.7.0             |
+| name              | Field name, support array                                                                                                                                                                                                                      | [NamePath](#NamePath)                                                      | -          |                   |
+| normalize         | Normalize value from component value before passing to Form instance. Do not support async                                                                                                                                                     | (value, prevValue, prevValues) => any                                      | -          |                   |
+| noStyle           | No style for `true`, used as a pure field control                                                                                                                                                                                              | boolean                                                                    | false      |                   |
+| preserve          | Keep field value even when field removed                                                                                                                                                                                                       | boolean                                                                    | true       | 4.4.0             |
+| required          | Display required style. It will be generated by the validation rule                                                                                                                                                                            | boolean                                                                    | false      |                   |
+| rules             | Rules for field validation. Click [here](#components-form-demo-basic) to see an example                                                                                                                                                        | [Rule](#Rule)\[]                                                           | -          |                   |
+| shouldUpdate      | Custom field update logic. See [below](#shouldUpdate)                                                                                                                                                                                          | boolean \| (prevValue, curValue) => boolean                                | false      |                   |
+| tooltip           | Config tooltip info                                                                                                                                                                                                                            | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip#API) | -          | 4.7.0             |
+| trigger           | When to collect the value of children node. Click [here](#components-form-demo-customized-form-controls) to see an example                                                                                                                     | string                                                                     | `onChange` |                   |
+| validateFirst     | Whether stop validate on first rule of error for this field. Will parallel validate when `parallel` cofigured                                                                                                                                  | boolean \| `parallel`                                                      | false      | `parallel`: 4.5.0 |
+| validateStatus    | The validation status. If not provided, it will be generated by validation rule. options: `success` `warning` `error` `validating`                                                                                                             | string                                                                     | -          |                   |
+| validateTrigger   | When to validate the value of children node                                                                                                                                                                                                    | string \| string\[]                                                        | `onChange` |                   |
+| valuePropName     | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps`                                                                | string                                                                     | `value`    |                   |
+| wrapperCol        | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form which will not affect nest Item. If both exists, use Item first                                                                                            | [object](/components/grid/#Col)                                            | -          |                   |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
@@ -168,12 +206,12 @@ You can modify the default verification information of Form.Item through `messag
 
 Provides array management for fields.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| children | Render function | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | - |  |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict | any\[] | - | 4.9.0 |
-| name | Field name, support array | [NamePath](#NamePath) | - |  |
-| rules | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[] | - | 4.7.0 |
+| Property     | Description                                                                                     | Type                                                                                      | Default | Version |
+| ------------ | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------- | ------- |
+| children     | Render function                                                                                 | (fields: Field\[], operation: { add, remove, move }, meta: { errors }) => React.ReactNode | -       |         |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict                | any\[]                                                                                    | -       | 4.9.0   |
+| name         | Field name, support array                                                                       | [NamePath](#NamePath)                                                                     | -       |         |
+| rules        | Validate rules, only support customize validator. Should work with [ErrorList](#Form.ErrorList) | { validator, message }\[]                                                                 | -       | 4.7.0   |
 
 ```tsx
 <Form.List>
@@ -195,11 +233,11 @@ Note: You should not configure Form.Item `initialValue` under Form.List. It alwa
 
 Some operator functions in render form of Form.List.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0 |
-| move | move form item | (from: number, to: number) => void | - |  |
-| remove | remove form item | (index: number \| number\[]) => void | number\[] | 4.5.0 |
+| Property | Description      | Type                                               | Default     | Version |
+| -------- | ---------------- | -------------------------------------------------- | ----------- | ------- |
+| add      | add form item    | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0   |
+| move     | move form item   | (from: number, to: number) => void                 | -           |         |
+| remove   | remove form item | (index: number \| number\[]) => void               | number\[]   | 4.5.0   |
 
 ## Form.ErrorList
 
@@ -213,10 +251,10 @@ New in 4.7.0. Show error messages, should only work with `rules` of Form.List. S
 
 Provide linkage between forms. If a sub form with `name` prop update, it will auto trigger Provider related events. See [example](#components-form-demo-form-context).
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| onFormChange | Triggered when a sub form field updates | function(formName: string, info: { changedFields, forms }) | - |
-| onFormFinish | Triggered when a sub form submits | function(formName: string, info: { values, forms }) | - |
+| Property     | Description                             | Type                                                       | Default |
+| ------------ | --------------------------------------- | ---------------------------------------------------------- | ------- |
+| onFormChange | Triggered when a sub form field updates | function(formName: string, info: { changedFields, forms }) | -       |
+| onFormFinish | Triggered when a sub form submits       | function(formName: string, info: { values, forms })        | -       |
 
 ```jsx
 <Form.Provider
@@ -233,23 +271,23 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 
 ### FormInstance
 
-| Name | Description | Type | Version |
-| --- | --- | --- | --- |
-| getFieldError | Get the error messages by the field name | (name: [NamePath](#NamePath)) => string\[] |  |
-| getFieldInstance | Get field instance | (name: [NamePath](#NamePath)) => any | 4.4.0 |
-| getFieldsError | Get the error messages by the fields name. Return as an array | (nameList?: [NamePath](#NamePath)\[]) => FieldError\[] |  |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |  |
-| getFieldValue | Get the value by the field name | (name: [NamePath](#NamePath)) => any |  |
-| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
-| isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
-| isFieldValidating | Check field if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
-| scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
-| setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (name: [NamePath](#NamePath), value: any) => void | 4.22.0 |
-| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
-| submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
+| Name              | Description                                                                                                                                                                                          | Type                                                                                                                                                                            | Version |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| getFieldError     | Get the error messages by the field name                                                                                                                                                             | (name: [NamePath](#NamePath)) => string\[]                                                                                                                                      |         |
+| getFieldInstance  | Get field instance                                                                                                                                                                                   | (name: [NamePath](#NamePath)) => any                                                                                                                                            | 4.4.0   |
+| getFieldsError    | Get the error messages by the fields name. Return as an array                                                                                                                                        | (nameList?: [NamePath](#NamePath)\[]) => FieldError\[]                                                                                                                          |         |
+| getFieldsValue    | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values                    | (nameList?: [NamePath](#NamePath)\[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any                                                         |         |
+| getFieldValue     | Get the value by the field name                                                                                                                                                                      | (name: [NamePath](#NamePath)) => any                                                                                                                                            |         |
+| isFieldsTouched   | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true`                                                                                                       | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean                                                                                                          |         |
+| isFieldTouched    | Check if a field has been operated                                                                                                                                                                   | (name: [NamePath](#NamePath)) => boolean                                                                                                                                        |         |
+| isFieldValidating | Check field if is in validating                                                                                                                                                                      | (name: [NamePath](#NamePath)) => boolean                                                                                                                                        |         |
+| resetFields       | Reset fields to `initialValues`                                                                                                                                                                      | (fields?: [NamePath](#NamePath)\[]) => void                                                                                                                                     |         |
+| scrollToField     | Scroll to field position                                                                                                                                                                             | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |         |
+| setFields         | Set fields status                                                                                                                                                                                    | (fields: [FieldData](#FieldData)\[]) => void                                                                                                                                    |         |
+| setFieldValue     | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first)                                                                                   | (name: [NamePath](#NamePath), value: any) => void                                                                                                                               | 4.22.0  |
+| setFieldsValue    | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void                                                                                                                                                                |         |
+| submit            | Submit the form. It's same as click `submit` button                                                                                                                                                  | () => void                                                                                                                                                                      |         |
+| validateFields    | Validate fields                                                                                                                                                                                      | (nameList?: [NamePath](#NamePath)\[]) => Promise                                                                                                                                |         |
 
 #### validateFields return sample
 
@@ -385,23 +423,23 @@ Rule supports a config object, or a function returning config object:
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| Name | Description | Type | Version |
-| --- | --- | --- | --- |
-| defaultField | Validate rule for all array elements, valid when `type` is `array` | [rule](#Rule) |  |
-| enum | Match enum value. You need to set `type` to `enum` to enable this | any\[] |  |
-| fields | Validate rule for child elements, valid when `type` is `array` or `object` | Record&lt;string, [rule](#Rule)> |  |
-| len | Length of string, number, array | number |  |
-| max | `type` required: max length of `string`, `number`, `array` | number |  |
-| message | Error message. Will auto generate by [template](#validateMessages) if not provided | string |  |
-| min | `type` required: min length of `string`, `number`, `array` | number |  |
-| pattern | Regex pattern | RegExp |  |
-| required | Required field | boolean |  |
-| transform | Transform value to the rule before validation | (value) => any |  |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string |  |
-| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
-| validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |  |
-| warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
-| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
+| Name            | Description                                                                                                                            | Type                              | Version |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ------- |
+| defaultField    | Validate rule for all array elements, valid when `type` is `array`                                                                     | [rule](#Rule)                     |         |
+| enum            | Match enum value. You need to set `type` to `enum` to enable this                                                                      | any\[]                            |         |
+| fields          | Validate rule for child elements, valid when `type` is `array` or `object`                                                             | Record&lt;string, [rule](#Rule)>  |         |
+| len             | Length of string, number, array                                                                                                        | number                            |         |
+| max             | `type` required: max length of `string`, `number`, `array`                                                                             | number                            |         |
+| message         | Error message. Will auto generate by [template](#validateMessages) if not provided                                                     | string                            |         |
+| min             | `type` required: min length of `string`, `number`, `array`                                                                             | number                            |         |
+| pattern         | Regex pattern                                                                                                                          | RegExp                            |         |
+| required        | Required field                                                                                                                         | boolean                           |         |
+| transform       | Transform value to the rule before validation                                                                                          | (value) => any                    |         |
+| type            | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | string                            |         |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item                                                      | string \| string\[]               |         |
+| validator       | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register)                                     | ([rule](#Rule), value) => Promise |         |
+| warningOnly     | Warning only. Not block form submit                                                                                                    | boolean                           | 4.17.0  |
+| whitespace      | Failed if only has whitespace, only work with `type: 'string'` rule                                                                    | boolean                           |         |
 
 ## Migrate to v4
 

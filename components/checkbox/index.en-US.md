@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Checkbox
 cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
+demo:
+  cols: 2
 ---
 
 Checkbox component.
@@ -12,31 +14,41 @@ Checkbox component.
 - Used for selecting multiple values from several options.
 - If you use only one checkbox, it is the same as using Switch to toggle between two states. The difference is that Switch will trigger the state change directly, but Checkbox just marks the state as changed and this needs to be submitted.
 
+## Examples
+
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/controller.tsx">Controlled Checkbox</code>
+<code src="./demo/group.tsx">Checkbox Group</code>
+<code src="./demo/check-all.tsx">Check all</code>
+<code src="./demo/layout.tsx">Use with Grid</code>
+<code src="./demo/debug-line.tsx" debug>Same line</code>
+
 ## API
 
 ### Props
 
 #### Checkbox
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| autoFocus | If get focus when component mounted | boolean | false |  |
-| checked | Specifies whether the checkbox is selected | boolean | false |  |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean | false |  |
-| disabled | If disable checkbox | boolean | false |  |
-| indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
-| onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
+| Property       | Description                                                          | Type              | Default | Version |
+| -------------- | -------------------------------------------------------------------- | ----------------- | ------- | ------- |
+| autoFocus      | If get focus when component mounted                                  | boolean           | false   |         |
+| checked        | Specifies whether the checkbox is selected                           | boolean           | false   |         |
+| defaultChecked | Specifies the initial state: whether or not the checkbox is selected | boolean           | false   |         |
+| disabled       | If disable checkbox                                                  | boolean           | false   |         |
+| indeterminate  | The indeterminate checked state of checkbox                          | boolean           | false   |         |
+| onChange       | The callback function that is triggered when the state changes       | function(e:Event) | -       |         |
 
 #### Checkbox Group
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| defaultValue | Default selected value | string\[] | \[] |  |
-| disabled | If disable all checkboxes | boolean | false |  |
-| name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
-| options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
-| value | Used for setting the currently selected value | string\[] | \[] |  |
-| onChange | The callback function that is triggered when the state changes | function(checkedValue) | - |  |
+| Property     | Description                                                    | Type                                | Default | Version |
+| ------------ | -------------------------------------------------------------- | ----------------------------------- | ------- | ------- |
+| defaultValue | Default selected value                                         | string\[]                           | \[]     |         |
+| disabled     | If disable all checkboxes                                      | boolean                             | false   |         |
+| name         | The `name` property of all `input[type="checkbox"]` children   | string                              | -       |         |
+| options      | Specifies options                                              | string\[] \| number\[] \| Option\[] | \[]     |         |
+| value        | Used for setting the currently selected value                  | string\[]                           | \[]     |         |
+| onChange     | The callback function that is triggered when the state changes | function(checkedValue)              | -       |         |
 
 ### Methods
 

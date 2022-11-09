@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/12hours.tsx correctly 1`] = `
 Array [
   <div
     class="ant-picker"
@@ -132,7 +132,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/addon.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -177,7 +177,7 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -222,7 +222,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/bordered.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/bordered.tsx correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-borderless"
@@ -353,7 +353,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/colored-popup.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/colored-popup.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -398,7 +398,7 @@ exports[`renders ./components/time-picker/demo/colored-popup.md correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-picker ant-picker-disabled"
 >
@@ -444,7 +444,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/hide-column.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -513,7 +513,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/interval-options.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -558,7 +558,7 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/range-picker.tsx correctly 1`] = `
 <div
   class="ant-picker ant-picker-range"
 >
@@ -645,7 +645,7 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/render-panel.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -695,7 +695,7 @@ exports[`renders ./components/time-picker/demo/render-panel.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-picker ant-picker-large"
@@ -898,7 +898,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1176,7 +1176,7 @@ exports[`renders ./components/time-picker/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/suffix.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >
@@ -1218,7 +1218,7 @@ exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
+exports[`renders ./components/time-picker/demo/value.tsx correctly 1`] = `
 <div
   class="ant-picker"
 >

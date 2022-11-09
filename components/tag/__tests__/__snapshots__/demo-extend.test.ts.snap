@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tag/demo/animation.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/animation.tsx extend context correctly 1`] = `
 Array [
   <div
     style="margin-bottom:16px"
@@ -128,7 +128,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-tag"
@@ -197,7 +197,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/checkable.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/checkable.tsx extend context correctly 1`] = `
 Array [
   <span
     style="margin-right:8px"
@@ -227,7 +227,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/colorful.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/colorful.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -335,7 +335,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/colorful-inverse.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/colorful-inverse.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -407,7 +407,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/control.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/control.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-tag edit-tag"
@@ -503,7 +503,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/customize.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/customize.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-tag"
@@ -549,7 +549,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/icon.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-tag ant-tag-has-color"
@@ -662,7 +662,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tag/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"

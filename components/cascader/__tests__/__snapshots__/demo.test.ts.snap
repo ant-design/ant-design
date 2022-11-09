@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -60,7 +60,7 @@ exports[`renders ./components/cascader/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/change-on-select.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -118,7 +118,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/custom-dropdown.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/custom-dropdown.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -178,7 +178,7 @@ exports[`renders ./components/cascader/demo/custom-dropdown.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/custom-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
   style="width:100%"
@@ -283,7 +283,7 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/custom-trigger.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/custom-trigger.tsx correctly 1`] = `
 <span>
   Unselect
   <!-- -->
@@ -295,7 +295,7 @@ exports[`renders ./components/cascader/demo/custom-trigger.md correctly 1`] = `
 </span>
 `;
 
-exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/default-value.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -382,7 +382,7 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/disabled-option.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -440,7 +440,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/fields-name.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -500,7 +500,7 @@ exports[`renders ./components/cascader/demo/fields-name.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/hover.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -558,7 +558,7 @@ exports[`renders ./components/cascader/demo/hover.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/lazy.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
@@ -616,7 +616,7 @@ exports[`renders ./components/cascader/demo/lazy.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/multiple.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/multiple.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear"
   style="width:100%"
@@ -664,7 +664,7 @@ exports[`renders ./components/cascader/demo/multiple.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/placement.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -809,7 +809,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/cascader/demo/render-panel.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/render-panel.tsx correctly 1`] = `
 <div
   style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
 >
@@ -875,7 +875,7 @@ exports[`renders ./components/cascader/demo/render-panel.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/search.tsx correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
@@ -932,7 +932,7 @@ exports[`renders ./components/cascader/demo/search.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/showCheckedStrategy.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/showCheckedStrategy.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear"
@@ -1107,7 +1107,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/cascader/demo/size.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-lg ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -1283,7 +1283,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -1402,7 +1402,7 @@ exports[`renders ./components/cascader/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/cascader/demo/suffix.md correctly 1`] = `
+exports[`renders ./components/cascader/demo/suffix.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"

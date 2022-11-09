@@ -9,6 +9,7 @@ import genStepsProgressDotStyle from './progress-dot';
 import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
+import genStepsInlineStyle from './inline';
 import { resetComponent } from '../../style';
 
 export interface ComponentToken {
@@ -60,6 +61,10 @@ export interface StepsToken extends FullToken<'Steps'> {
   errorDotColor: string;
   stepsNavActiveColor: string;
   stepsProgressSize: number;
+  // Steps inline variable
+  inlineDotSize: number;
+  inlineTitleColor: string;
+  inlineTailColor: string;
 }
 
 enum StepItemStatusEnum {
@@ -311,6 +316,8 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       ...genStepsRTLStyle(token),
       // progress
       ...genStepsProgressStyle(token),
+      // inline
+      ...genStepsInlineStyle(token),
     },
   };
 };
@@ -331,10 +338,12 @@ export default genComponentStyleHook(
       colorPrimary,
       colorTextLabel,
       colorTextDescription,
+      colorTextQuaternary,
       colorFillContent,
       controlItemBgActive,
       colorError,
       colorBgContainer,
+      colorBorderSecondary,
     } = token;
 
     const stepsIconSize = token.controlHeight;
@@ -385,6 +394,10 @@ export default genComponentStyleHook(
       errorDotColor: colorError,
       stepsNavActiveColor: colorPrimary,
       stepsProgressSize: controlHeightLG,
+      // Steps inline variable
+      inlineDotSize: 6,
+      inlineTitleColor: colorTextQuaternary,
+      inlineTailColor: colorBorderSecondary,
     });
 
     return [genStepsStyle(stepsToken)];

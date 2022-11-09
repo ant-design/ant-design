@@ -9,6 +9,11 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`&${componentCls}-with-progress`]: {
       [`${componentCls}-item`]: {
         paddingTop: token.paddingXXS,
+
+        [`&-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon`]:
+          {
+            color: token.processIconColor,
+          },
       },
 
       [`&${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:

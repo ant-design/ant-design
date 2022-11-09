@@ -1,10 +1,3 @@
----
-order: 3
-title:
-  zh-CN: 步骤切换
-  en-US: Switch Step
----
-
 ## zh-CN
 
 通常配合内容及按钮使用，表示一个流程的处理进度。
@@ -12,65 +5,6 @@ title:
 ## en-US
 
 Cooperate with the content and buttons, to represent the progress of a process.
-
-```tsx
-import { Button, message, Steps } from 'antd';
-import React, { useState } from 'react';
-
-const steps = [
-  {
-    title: 'First',
-    content: 'First-content',
-  },
-  {
-    title: 'Second',
-    content: 'Second-content',
-  },
-  {
-    title: 'Last',
-    content: 'Last-content',
-  },
-];
-
-const App: React.FC = () => {
-  const [current, setCurrent] = useState(0);
-
-  const next = () => {
-    setCurrent(current + 1);
-  };
-
-  const prev = () => {
-    setCurrent(current - 1);
-  };
-  const items = steps.map(item => ({ key: item.title, title: item.title }));
-
-  return (
-    <>
-      <Steps current={current} items={items} />
-      <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
-      </div>
-    </>
-  );
-};
-
-export default App;
-```
 
 ```css
 .steps-content {

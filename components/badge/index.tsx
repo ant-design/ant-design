@@ -11,7 +11,7 @@ import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 import { isPresetColor } from './utils';
 
-export { ScrollNumberProps } from './ScrollNumber';
+export type { ScrollNumberProps } from './ScrollNumber';
 
 interface CompoundedComponent extends React.FC<BadgeProps> {
   Ribbon: typeof Ribbon;
@@ -69,7 +69,7 @@ const Badge: CompoundedComponent = ({
 
   const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
 
-  const ignoreCount = count === null || (count !== null && isZero);
+  const ignoreCount = count === null || isZero;
 
   const hasStatus =
     ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&

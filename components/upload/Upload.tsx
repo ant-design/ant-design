@@ -62,7 +62,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const [dragState, setDragState] = React.useState<string>('drop');
 
-  const upload = React.useRef<any>();
+  const upload = React.useRef<RcUpload>(null);
 
   warning(
     'fileList' in props || !('value' in props),
@@ -278,7 +278,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             item.status = 'removed';
           }
         });
-        upload.current?.abort(currentFile);
+        upload.current?.abort(currentFile as RcFile);
 
         onInternalChange(currentFile, removedFileList);
       }

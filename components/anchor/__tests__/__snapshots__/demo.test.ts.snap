@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/basic.tsx correctly 1`] = `
 <div>
   <div
     class=""
@@ -80,7 +80,7 @@ exports[`renders ./components/anchor/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/customizeHighlight.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -154,7 +154,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onChange.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/onChange.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -228,7 +228,7 @@ exports[`renders ./components/anchor/demo/onChange.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onClick.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/onClick.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -302,7 +302,7 @@ exports[`renders ./components/anchor/demo/onClick.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/static.tsx correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
   style="max-height:100vh"
@@ -376,7 +376,7 @@ exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/targetOffset.md correctly 1`] = `
+exports[`renders ./components/anchor/demo/targetOffset.tsx correctly 1`] = `
 <div>
   <div
     class=""

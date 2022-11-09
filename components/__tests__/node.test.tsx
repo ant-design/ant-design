@@ -26,7 +26,7 @@ describe('node', () => {
 
     // Test for ssr
     describe(componentName, () => {
-      const demoList = glob.sync(`./components/${componentName}/demo/*.md`);
+      const demoList = glob.sync(`./components/${componentName}/demo/*.tsx`);
 
       // Use mock to get config
       require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require

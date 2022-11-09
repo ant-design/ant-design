@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/result/demo/403.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/403.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-403"
 >
@@ -313,7 +313,7 @@ exports[`renders ./components/result/demo/403.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/result/demo/404.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/404.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-404"
 >
@@ -644,7 +644,7 @@ exports[`renders ./components/result/demo/404.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/result/demo/500.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/500.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-500"
 >
@@ -1022,7 +1022,7 @@ exports[`renders ./components/result/demo/500.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/result/demo/customIcon.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/customIcon.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-info"
 >
@@ -1069,7 +1069,7 @@ exports[`renders ./components/result/demo/customIcon.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/result/demo/error.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/error.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-error"
 >
@@ -1209,7 +1209,7 @@ exports[`renders ./components/result/demo/error.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/result/demo/info.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/info.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-info"
 >
@@ -1256,7 +1256,7 @@ exports[`renders ./components/result/demo/info.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/result/demo/success.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/success.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-success"
 >
@@ -1316,7 +1316,7 @@ exports[`renders ./components/result/demo/success.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/result/demo/warning.md extend context correctly 1`] = `
+exports[`renders ./components/result/demo/warning.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-warning"
 >

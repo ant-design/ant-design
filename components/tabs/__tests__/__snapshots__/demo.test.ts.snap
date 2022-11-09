@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/animated.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/animated.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -175,7 +175,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -286,7 +286,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/card.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
 >
@@ -397,7 +397,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/card-top.tsx correctly 1`] = `
 <div
   class="card-container"
 >
@@ -526,7 +526,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/centered.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
 >
@@ -637,7 +637,7 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-add-trigger.tsx correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -802,7 +802,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-tab-bar.tsx correctly 1`] = `
 <div>
   <div
     class="ant-tabs ant-tabs-top"
@@ -919,7 +919,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1045,7 +1045,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/deprecated.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/deprecated.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1156,7 +1156,7 @@ exports[`renders ./components/tabs/demo/deprecated.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1267,7 +1267,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/editable-card.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
 >
@@ -1492,7 +1492,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/extra.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
@@ -1805,7 +1805,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1950,7 +1950,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/nest.tsx correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -2591,7 +2591,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/position.tsx correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2800,7 +2800,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/size.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -3085,7 +3085,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
+exports[`renders ./components/tabs/demo/slide.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"

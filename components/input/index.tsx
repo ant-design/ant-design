@@ -6,11 +6,11 @@ import Password from './Password';
 import Search from './Search';
 import TextArea from './TextArea';
 
-export { GroupProps } from './Group';
-export { InputProps, InputRef } from './Input';
-export { PasswordProps } from './Password';
-export { SearchProps } from './Search';
-export { TextAreaProps } from './TextArea';
+export type { GroupProps } from './Group';
+export type { InputProps, InputRef } from './Input';
+export type { PasswordProps } from './Password';
+export type { SearchProps } from './Search';
+export type { TextAreaProps } from './TextArea';
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<InputProps & React.RefAttributes<InputRef>> {

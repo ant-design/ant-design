@@ -1,5 +1,5 @@
 ---
-category: 全局样式
+group: 全局样式
 order: 5
 title: 图标
 ---

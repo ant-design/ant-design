@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 原则
 order: 5
 title: 直截了当

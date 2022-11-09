@@ -23,5 +23,5 @@
     "skipLibCheck": true,
     "stripInternal": true
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "exclude": ["node_modules", "lib", "es", "components/*/demo"]
 }

@@ -1,5 +1,5 @@
 ---
-category: Ant Design
+group: Ant Design
 order: 1
 title: Design Values
 ---
