@@ -25,15 +25,15 @@ demo:
 
 ### Tour
 
-| 属性      | 说明                                     | 类型                                                                                                                          | 默认值                 | 版本    |
-| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------- | --- |
-| arrow     | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}`                                                                                      | `true`                 |         |
-| placement | 引导卡片相对于目标元素的位置             | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom`               |         |
-| onClose   | 关闭引导时的回调函数                     | `Function`                                                                                                                    | -                      |         |
-| onFinish  | 引导完成时的回调                         | `Function`                                                                                                                    | -                      |         |
-| mask      | 是否启用蒙层                             | `boolean`                                                                                                                     | `true`                 |         |
-| animated  | 是否目标蒙层动画                         | `boolean                                                                                                                      | { placeholder: true }` | `false` |     |
-| type      | 类型，影响底色与文字颜色                 | `default` \| `primary`                                                                                                        | `default`              |         |
+| 属性      | 说明                                     | 类型                                                                                                                          | 默认值    | 版本 |
+| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------- | ---- |
+| arrow     | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}`                                                                                      | `true`    |      |
+| placement | 引导卡片相对于目标元素的位置             | `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom`  |      |
+| onClose   | 关闭引导时的回调函数                     | `Function`                                                                                                                    | -         |      |
+| onFinish  | 引导完成时的回调                         | `Function`                                                                                                                    | -         |      |
+| mask      | 是否启用蒙层                             | `boolean`                                                                                                                     | `true`    |      |
+| animated  | 是否目标蒙层动画                         | `boolean \| { placeholder: boolean }`                                                                                         | `false`   |      |
+| type      | 类型，影响底色与文字颜色                 | `default` \| `primary`                                                                                                        | `default` |      |
 
 ### TourStep 引导步骤卡片
 
