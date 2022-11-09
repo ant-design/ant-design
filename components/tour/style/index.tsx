@@ -198,7 +198,11 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           },
         },
       },
-
+      [`${componentCls}-mask`]: {
+        [`${componentCls}-placeholder-animated`]: {
+          transition: 'all 0.15s',
+        },
+      },
       // Limit left and right placement radius
       [[
         `&-placement-left`,
