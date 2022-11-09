@@ -75,7 +75,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
       className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }
-  return React.createElement(component as any, newProps, numberNodes);
+  return React.createElement(component, newProps, numberNodes);
 };
 
 export default ScrollNumber;
