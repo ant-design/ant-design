@@ -14,10 +14,8 @@ jobs:
       - name: Codeball
         uses: sturdy-dev/codeball-action@v2
         with:
-          # Settings for "Codeball Suggester"
-          codeSuggestionsFromComments: "true"
           # Settings for "Codeball Approver"
           approvePullRequests: "true"
           labelPullRequestsWhenApproved: "true"
-          labelPullRequestsWhenReviewNeeded: "false"
+          labelPullRequestsWhenReviewNeeded: "true"
           failJobsWhenReviewNeeded: "false"
