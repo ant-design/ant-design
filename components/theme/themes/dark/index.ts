@@ -28,6 +28,7 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
 
   return {
     ...mergedMapToken,
+
     // Dark tokens
     ...colorPalettes,
     // Colors
