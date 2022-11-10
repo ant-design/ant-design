@@ -49,7 +49,12 @@ export function getTimeProps<DateType, DisabledTime>(
     if (!firstFormat.includes('m') && showMinute === undefined) {
       showTimeObj.showMinute = false;
     }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
+    if (
+      !firstFormat.includes('H') &&
+      !firstFormat.includes('h') &&
+      !firstFormat.includes('k') &&
+      showHour === undefined
+    ) {
       showTimeObj.showHour = false;
     }
 
