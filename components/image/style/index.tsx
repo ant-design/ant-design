@@ -279,7 +279,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = token => {
 
   return {
     [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
-    '&': initFadeMotion(token),
+    [`&`]: initFadeMotion(token, true),
   };
 };
 
