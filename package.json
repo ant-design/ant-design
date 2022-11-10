@@ -318,7 +318,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "377 kB"
+      "maxSize": "377.5 kB"
     }
   ]
 }
