@@ -18,6 +18,9 @@ export default {
   /** @private Test Usage. Do not use in production. */
   defaultConfig,
 
+  /** Default seedToken */
+  defaultSeed: defaultConfig.token,
+
   useToken,
   defaultAlgorithm,
   darkAlgorithm,
