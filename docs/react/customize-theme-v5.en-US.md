@@ -39,7 +39,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-You will get a theme with primary color <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`. And we can see the change in Button:
+You will get a theme with primary color <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`. And we can see the change in Button:
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
