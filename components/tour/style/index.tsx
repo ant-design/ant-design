@@ -41,7 +41,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     tourCloseSize,
     motionDurationSlow,
   } = token;
-  console.log('motionDurationSlow', motionDurationSlow);
+
   return [
     {
       [componentCls]: {
