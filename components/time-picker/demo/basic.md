@@ -17,10 +17,7 @@ const onChange = (time: Moment, timeString: string) => {
 };
 
 const App: React.FC = () => (
-  <>
-    {moment('2022-02-02 24:00:00').format('kk:mm')}
-    <TimePicker format="kk:mm" onChange={onChange} defaultOpenValue={moment()} />
-  </>
+  <TimePicker format="kk:mm" onChange={onChange} defaultOpenValue={moment()} />
 );
 
 export default App;
