@@ -321,13 +321,10 @@ describe('Typography.Ellipsis', () => {
       domSpy.mockRestore();
     });
 
-    async function getWrapper({
-      tooltip,
-      popover,
-    }: {
-      tooltip?: TooltipEllipsisConfig['tooltip'];
-      popover?: PopoverEllipsisConfig['popover'];
-    }) {
+    async function getWrapper(
+      tooltip?: TooltipEllipsisConfig['tooltip'],
+      popover?: PopoverEllipsisConfig['popover'],
+    ) {
       const ref = React.createRef<any>();
       let wrapper: any;
       if (tooltip) {
@@ -350,7 +347,7 @@ describe('Typography.Ellipsis', () => {
     }
 
     it('tooltip boolean', async () => {
-      const { container, baseElement } = await getWrapper({ tooltip: true });
+      const { container, baseElement } = await getWrapper(true);
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
@@ -358,7 +355,7 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('popover boolean', async () => {
-      const { container, baseElement } = await getWrapper({ popover: true });
+      const { container, baseElement } = await getWrapper(undefined, true);
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
@@ -366,7 +363,7 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('tooltip customize', async () => {
-      const { container, baseElement } = await getWrapper({ tooltip: 'Bamboo is Light' });
+      const { container, baseElement } = await getWrapper('Bamboo is Light');
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
@@ -374,7 +371,7 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('popover customize', async () => {
-      const { container, baseElement } = await getWrapper({ popover: 'Bamboo is Light' });
+      const { container, baseElement } = await getWrapper(undefined, 'Bamboo is Light');
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(baseElement.querySelector('.ant-popover-open')).not.toBeNull();
@@ -383,10 +380,8 @@ describe('Typography.Ellipsis', () => {
 
     it('tooltip props', async () => {
       const { container, baseElement } = await getWrapper({
-        tooltip: {
-          title: 'This is tooltip',
-          className: 'tooltip-class-name',
-        },
+        title: 'This is tooltip',
+        className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -396,11 +391,9 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('popover props', async () => {
-      const { container, baseElement } = await getWrapper({
-        popover: {
-          content: 'This is popover',
-          className: 'popover-class-name',
-        },
+      const { container, baseElement } = await getWrapper(undefined, {
+        content: 'This is popover',
+        className: 'popover-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -411,10 +404,8 @@ describe('Typography.Ellipsis', () => {
 
     it('tooltip title true', async () => {
       const { container, baseElement } = await getWrapper({
-        tooltip: {
-          title: true,
-          className: 'tooltip-class-name',
-        },
+        title: true,
+        className: 'tooltip-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -424,11 +415,9 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('popover content true', async () => {
-      const { container, baseElement } = await getWrapper({
-        popover: {
-          content: true,
-          className: 'popover-class-name',
-        },
+      const { container, baseElement } = await getWrapper(undefined, {
+        content: true,
+        className: 'popover-class-name',
       });
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
@@ -438,9 +427,9 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('tooltip element', async () => {
-      const { container, baseElement } = await getWrapper({
-        tooltip: <div className="tooltip-class-name">title</div>,
-      });
+      const { container, baseElement } = await getWrapper(
+        <div className="tooltip-class-name">title</div>,
+      );
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
@@ -449,9 +438,10 @@ describe('Typography.Ellipsis', () => {
     });
 
     it('popover element', async () => {
-      const { container, baseElement } = await getWrapper({
-        popover: <div className="popover-class-name">content</div>,
-      });
+      const { container, baseElement } = await getWrapper(
+        undefined,
+        <div className="popover-class-name">content</div>,
+      );
       fireEvent.mouseEnter(container.firstChild!);
       await waitFor(() => {
         expect(container.querySelector('.popover-class-name')).toBeTruthy();
