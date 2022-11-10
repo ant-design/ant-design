@@ -3,21 +3,8 @@ import { Col, Row, Typography } from 'antd';
 import React from 'react';
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
-
-const MAINLY_LIST = [
-  {
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/36a89a46-4224-46e2-b838-00817f5eb364.svg',
-    key: 'values',
-  },
-  {
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/8379430b-e328-428e-8a67-666d1dd47f7d.svg',
-    key: 'guide',
-  },
-  {
-    img: 'https://gw.alipayobjects.com/zos/bmw-prod/1c363c0b-17c6-4b00-881a-bc774df1ebeb.svg',
-    key: 'lib',
-  },
-];
+import { Link, useLocation } from 'dumi';
+import * as utils from '../../../theme/utils';
 
 const SECONDARY_LIST = [
   {
@@ -109,28 +96,50 @@ export default function DesignFramework() {
   const [locale] = useLocale(locales);
   const { token } = useSiteToken();
   const style = useStyle();
+  const { pathname, search } = useLocation();
+  const isZhCN = utils.isZhCN(pathname);
+
+  const MAINLY_LIST = [
+    {
+      img: 'https://gw.alipayobjects.com/zos/bmw-prod/36a89a46-4224-46e2-b838-00817f5eb364.svg',
+      key: 'values',
+      path: utils.getLocalizedPathname('/docs/spec/values/', isZhCN, search),
+    },
+    {
+      img: 'https://gw.alipayobjects.com/zos/bmw-prod/8379430b-e328-428e-8a67-666d1dd47f7d.svg',
+      key: 'guide',
+      path: utils.getLocalizedPathname('/docs/spec/colors/', isZhCN, search),
+    },
+    {
+      img: 'https://gw.alipayobjects.com/zos/bmw-prod/1c363c0b-17c6-4b00-881a-bc774df1ebeb.svg',
+      key: 'lib',
+      path: utils.getLocalizedPathname('/docs/react/introduce/', isZhCN, search),
+    },
+  ];
 
   return (
     <Row gutter={[token.marginXL, token.marginXL]}>
-      {MAINLY_LIST.map(({ img, key }, index) => {
+      {MAINLY_LIST.map(({ img, key, path }, index) => {
         const title = locale[key as keyof typeof locale];
         const desc = locale[`${key}Desc` as keyof typeof locale];
 
         return (
           <Col key={index} span={8}>
-            <div css={style.card}>
-              <img alt={title} src={img} />
+            <Link to={path}>
+              <div css={style.card}>
+                <img alt={title} src={img} />
 
-              <Typography.Title
-                level={4}
-                style={{ marginTop: token.margin, marginBottom: token.marginXS }}
-              >
-                {title}
-              </Typography.Title>
-              <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
-                {desc}
-              </Typography.Paragraph>
-            </div>
+                <Typography.Title
+                  level={4}
+                  style={{ marginTop: token.margin, marginBottom: token.marginXS }}
+                >
+                  {title}
+                </Typography.Title>
+                <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
+                  {desc}
+                </Typography.Paragraph>
+              </div>
+            </Link>
           </Col>
         );
       })}
