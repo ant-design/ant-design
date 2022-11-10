@@ -68,6 +68,28 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         transition: `background-color ${token.motionDurationFast}`,
       },
 
+      '&:hover': {
+        [`${componentCls}-rail`]: {
+          backgroundColor: token.colorFillSecondary,
+        },
+
+        [`${componentCls}-track`]: {
+          backgroundColor: token.colorPrimaryBorderHover,
+        },
+
+        [`${componentCls}-dot`]: {
+          borderColor: colorFillContentHover,
+        },
+
+        [`${componentCls}-handle::after`]: {
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.colorPrimaryBorderHover}`,
+        },
+
+        [`${componentCls}-dot-active`]: {
+          borderColor: token.colorPrimary,
+        },
+      },
+
       [`${componentCls}-handle`]: {
         position: 'absolute',
         width: token.handleSize,
@@ -76,6 +98,17 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
         [`${componentCls}-dragging`]: {
           zIndex: 1,
+        },
+
+        // 扩大选区
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          insetInlineStart: -token.handleLineWidth,
+          insetBlockStart: -token.handleLineWidth,
+          width: token.handleSize + token.handleLineWidth * 2,
+          height: token.handleSize + token.handleLineWidth * 2,
+          backgroundColor: 'transparent',
         },
 
         '&::after': {
@@ -99,39 +132,26 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:hover, &:active, &:focus': {
+          '&::before': {
+            insetInlineStart: -(
+              (token.handleSizeHover - token.handleSize) / 2 +
+              token.handleLineWidthHover
+            ),
+            insetBlockStart: -(
+              (token.handleSizeHover - token.handleSize) / 2 +
+              token.handleLineWidthHover
+            ),
+            width: token.handleSizeHover + token.handleLineWidthHover * 2,
+            height: token.handleSizeHover + token.handleLineWidthHover * 2,
+          },
+
           '&::after': {
-            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
+            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimaryHover}`,
             width: token.handleSizeHover,
             height: token.handleSizeHover,
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
             insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
           },
-        },
-      },
-
-      '&:hover': {
-        [`${componentCls}-rail`]: {
-          backgroundColor: token.colorFillSecondary,
-        },
-
-        [`${componentCls}-track`]: {
-          backgroundColor: token.colorPrimaryBorderHover,
-        },
-
-        [`${componentCls}-dot`]: {
-          borderColor: colorFillContentHover,
-        },
-
-        [`${componentCls}-handle${antCls}-tooltip-open::after`]: {
-          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
-        },
-
-        [`${componentCls}-handle::after`]: {
-          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
-        },
-
-        [`${componentCls}-dot-active`]: {
-          borderColor: token.colorPrimary,
         },
       },
 
