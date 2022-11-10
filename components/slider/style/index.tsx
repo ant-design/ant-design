@@ -77,17 +77,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           zIndex: 1,
         },
 
-        // 扩大选区
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          insetInlineStart: 0,
-          insetBlockStart: 0,
-          width: token.handleSize + token.handleLineWidth * 2,
-          height: token.handleSize + token.handleLineWidth * 2,
-          backgroundColor: 'transparent',
-        },
-
         '&::after': {
           content: '""',
           position: 'absolute',
@@ -109,13 +98,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:hover, &:active, &:focus-visible': {
-          '&::before': {
-            insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
-            insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
-            width: token.handleSizeHover + token.handleLineWidthHover * 2,
-            height: token.handleSizeHover + token.handleLineWidthHover * 2,
-          },
-
           '&::after': {
             boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
             width: token.handleSizeHover,
