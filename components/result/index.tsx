@@ -73,9 +73,14 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
       </div>
     );
   }
+
   const iconNode = React.createElement(
     IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
   );
+
+  if (icon === null || icon === false) {
+    return null;
+  }
 
   return <div className={className}>{icon || iconNode}</div>;
 };
