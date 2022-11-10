@@ -41,7 +41,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     tourCloseSize,
     motionDurationSlow,
   } = token;
-
+  console.log('motionDurationSlow', motionDurationSlow);
   return [
     {
       [componentCls]: {
@@ -224,7 +224,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         },
       },
     },
-    // Arrow Style
+
+    // ============================= Arrow ===========================
     getArrowStyle<TourToken>(token, {
       colorBg: 'var(--antd-arrow-background-color)',
       showArrowCls: '',
