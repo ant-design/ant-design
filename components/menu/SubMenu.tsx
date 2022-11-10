@@ -71,6 +71,7 @@ function SubMenu(props: SubMenuProps) {
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
+        popupOffset={[10, 0]}
         {...omit(props, ['icon'])}
         title={titleNode}
         popupClassName={classNames(

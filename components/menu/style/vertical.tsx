@@ -29,14 +29,10 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       textOverflow: 'ellipsis',
     },
 
-    [`${componentCls}-item`]: {
+    [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       marginInline: itemMarginInline,
       marginBlock: menuItemMarginInline,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
-    },
-
-    [`${componentCls}-submenu-title`]: {
-      marginBlock: menuItemMarginInline,
     },
 
     // disable margin collapsed
