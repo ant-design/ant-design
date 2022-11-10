@@ -1,6 +1,6 @@
 import type { HeightMapToken, SeedToken } from '../../interface';
 
-const genControlHeight = (token: SeedToken): HeightMapToken => {
+const genControlHeight = (token: Pick<SeedToken, 'controlHeight'>): HeightMapToken => {
   const { controlHeight } = token;
 
   return {
