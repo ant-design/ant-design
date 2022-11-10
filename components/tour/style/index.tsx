@@ -39,6 +39,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorWhite,
     colorBgTextHover,
     tourCloseSize,
+    motionDurationSlow,
   } = token;
 
   return [
@@ -198,12 +199,15 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           },
         },
       },
+
+      // ============================= mask ===========================
       [`${componentCls}-mask`]: {
         [`${componentCls}-placeholder-animated`]: {
-          transition: 'all 0.15s',
+          transition: `all ${motionDurationSlow}`,
         },
       },
-      // Limit left and right placement radius
+
+      // =========== Limit left and right placement radius ==============
       [[
         `&-placement-left`,
         `&-placement-leftTop`,

@@ -44,6 +44,7 @@ const Tour: React.ForwardRefRenderFunction<HTMLDivElement, TourProps> & {
       prefixCls={prefixCls}
       steps={steps}
       current={current}
+      animated
       renderPanel={mergedRenderPanel}
     />,
   );
