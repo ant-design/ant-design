@@ -50,7 +50,7 @@ const App: React.FC = () => {
         <Button ref={ref3} icon={<EllipsisOutlined />} />
       </Space>
 
-      <Tour open={open} animated={true} onClose={() => setOpen(false)} steps={steps} />
+      <Tour open={open} animated onClose={() => setOpen(false)} steps={steps} />
     </>
   );
 };
