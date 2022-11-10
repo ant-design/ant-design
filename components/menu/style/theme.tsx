@@ -24,12 +24,10 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     motionEaseInOut,
     motionEaseOut,
     menuItemPaddingInline,
-    itemMarginInline,
     motionDurationFast,
     colorItemTextHover,
     lineType,
     colorSplit,
-    colorItemBgActive,
 
     // Disabled
     colorItemTextDisabled,
@@ -40,8 +38,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     colorDangerItemTextSelected,
     colorDangerItemBgActive,
     colorDangerItemBgSelected,
-
-    radiusItem,
 
     colorItemBgHover,
   } = token;
@@ -84,46 +80,17 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             backgroundColor: colorItemBgHover,
           },
 
-          '&:active::before': {
-            content: '""',
-            position: 'absolute',
-            insetInlineStart: 0,
-            top: 0,
-            width: `100%`,
-            height: '100%',
-            flex: 1,
-            borderRadius: radiusItem,
-            backgroundColor: colorItemBgActive,
-            transition: `background-color ${motionDurationFast}`,
+          '&:active': {
+            backgroundColor: colorItemBgSelected,
           },
         },
         [`${componentCls}-submenu-title`]: {
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            insetInlineStart: itemMarginInline,
-            top: 0,
-            width: `calc(100% - ${itemMarginInline * 2}px)`,
-            height: '100%',
-            borderRadius: radiusItem,
-            backgroundColor: 'transparent',
-            transition: `background-color ${motionDurationFast}`,
-          },
-
-          '&:hover::before': {
+          '&:hover': {
             backgroundColor: colorItemBgHover,
           },
 
-          '&:active::after': {
-            content: '""',
-            position: 'absolute',
-            insetInlineStart: itemMarginInline,
-            top: 0,
-            width: `calc(100% - ${itemMarginInline * 2}px)`,
-            height: '100%',
-            borderRadius: radiusItem,
-            backgroundColor: colorItemBgActive,
-            transition: `background-color ${motionDurationFast}`,
+          '&:active': {
+            backgroundColor: colorItemBgSelected,
           },
         },
       },

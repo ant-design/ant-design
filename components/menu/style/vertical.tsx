@@ -36,7 +36,9 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     },
 
     [`${componentCls}-submenu-title`]: {
+      marginInline: itemMarginInline,
       marginBlock: menuItemMarginInline,
+      width: `calc(100% - ${itemMarginInline * 2}px)`,
     },
 
     // disable margin collapsed
