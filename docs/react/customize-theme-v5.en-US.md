@@ -207,7 +207,7 @@ const theme = {
 ### SeedToken
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | colorPrimary | 品牌主色 | `string` | `#1677ff` |
 | colorSuccess | 成功色 | `string` | `#52c41a` |
 | colorWarning | 警戒色 | `string` | `#faad14` |
