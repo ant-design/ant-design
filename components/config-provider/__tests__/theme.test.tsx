@@ -160,17 +160,17 @@ describe('ConfigProvider.Theme', () => {
       b: {},
     };
     const Token: React.FC<{ type: 'a' | 'b' }> = ({ type }) => {
-      const [_, token] = useToken();
+      const [, token] = useToken();
       tokens[type] = token;
       return null;
     };
     render(
       <>
         <ConfigProvider theme={{ algorithm: [darkAlgorithm, compactAlgorithm] }}>
-          <Token type="a"></Token>
+          <Token type="a" />
         </ConfigProvider>
         <ConfigProvider theme={{ algorithm: [compactAlgorithm, darkAlgorithm] }}>
-          <Token type="b"></Token>
+          <Token type="b" />
         </ConfigProvider>
       </>,
     );
