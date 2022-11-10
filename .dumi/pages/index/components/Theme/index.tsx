@@ -19,22 +19,23 @@ import {
   ConfigProvider,
   Card,
   Form,
-  Input,
-  InputNumber,
   Radio,
   theme,
+  Button,
 } from 'antd';
 import ThemePicker, { THEME } from './ThemePicker';
 import ColorPicker from './ColorPicker';
 import RadiusPicker from './RadiusPicker';
 import Group from '../Group';
 import BackgroundImage from './BackgroundImage';
-import { PRESET_COLORS, getClosetColor, DEFAULT_COLOR, getAvatarURL } from './colorUtil';
+import { getClosetColor, DEFAULT_COLOR, getAvatarURL, PINK_COLOR } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker = () => {
-  console.log('Demo Token:', theme.useToken());
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('Demo Token:', theme.useToken());
+  }
   return null;
 };
 
@@ -54,6 +55,8 @@ const locales = {
     titleTheme: '主题',
     light: '亮色',
     dark: '暗黑',
+    toDef: '深度定制',
+    toUse: '去使用',
   },
   en: {
     themeTitle: 'Flexible theme customization',
@@ -69,6 +72,8 @@ const locales = {
     compact: 'Compact',
     light: 'Light',
     dark: 'Dark',
+    toDef: 'More',
+    toUse: 'Apply',
   },
 };
 
@@ -91,7 +96,7 @@ const useStyle = () => {
     `,
 
     darkDemo: css`
-      background: rgba(41, 41, 41, 0.5);
+      background: #000;
     `,
 
     larkDemo: css`
@@ -116,6 +121,10 @@ const useStyle = () => {
       padding-inline: ${token.paddingLG}px !important;
       height: ${token.controlHeightLG * 1.2}px;
       line-height: ${token.controlHeightLG * 1.2}px;
+    `,
+
+    headerDark: css`
+      border-bottom-color: rgba(255, 255, 255, 0.1);
     `,
 
     avatar: css`
@@ -220,7 +229,7 @@ function getTitleColor(colorPrimary: string, isLight?: boolean) {
 
   switch (closestColor) {
     case DEFAULT_COLOR:
-    case '#FB7299':
+    case PINK_COLOR:
     case '#F2BD27':
       return undefined;
 
@@ -253,7 +262,7 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
     borderRadius: 4,
   },
   comic: {
-    colorPrimary: '#fb7299',
+    colorPrimary: PINK_COLOR,
     borderRadius: 16,
   },
 };
@@ -331,10 +340,24 @@ export default function Theme() {
       theme={{
         token: {
           ...themeToken,
+          ...(isLight
+            ? {}
+            : {
+                // colorBgContainer: '#474C56',
+                // colorBorderSecondary: 'rgba(255,255,255,0.06)',
+              }),
         },
         hashed: true,
         algorithm: algorithmFn,
         components: {
+          Slider: {
+            // 1677FF
+          },
+          Card: isLight
+            ? {}
+            : {
+                // colorBgContainer: '#474C56',
+              },
           Layout: isLight
             ? {
                 colorBgHeader: 'transparent',
@@ -350,9 +373,10 @@ export default function Theme() {
                 colorActiveBarWidth: 0,
               }
             : {
-                colorItemBg: 'transparent',
-                colorSubItemBg: 'transparent',
-                colorItemBgActive: 'rgba(255,255,255,0.2)',
+                // colorItemBg: 'transparent',
+                // colorSubItemBg: 'transparent',
+                // colorItemBgActive: 'rgba(255,255,255,0.2)',
+                // colorItemBgSelected: 'rgba(255,255,255,0.2)',
               },
         },
       }}
@@ -367,7 +391,7 @@ export default function Theme() {
         style={{ borderRadius: themeData.borderRadius }}
       >
         <Layout css={style.transBg}>
-          <Header css={[style.header, style.transBg]}>
+          <Header css={[style.header, style.transBg, !isLight && style.headerDark]}>
             {/* Logo */}
             <div css={style.logo}>
               <div css={[style.logoImg, closestColor !== DEFAULT_COLOR && style.logoImgPureColor]}>
@@ -419,7 +443,15 @@ export default function Theme() {
               </Breadcrumb>
               <Content>
                 <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
-                <Card title={locale.myTheme}>
+                <Card
+                  title={locale.myTheme}
+                  extra={
+                    <Space>
+                      <Button type="default">{locale.toDef}</Button>
+                      <Button type="primary">{locale.toUse}</Button>
+                    </Space>
+                  }
+                >
                   <Form
                     form={form}
                     initialValues={themeData}
