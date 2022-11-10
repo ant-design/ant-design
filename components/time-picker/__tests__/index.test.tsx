@@ -112,4 +112,19 @@ describe('TimePicker', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should support kk:mm', () => {
+    const { container } = render(<TimePicker className="custom-class" format="kk:mm" open />);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell')?.[23],
+    ).toHaveTextContent('24');
+  });
 });
