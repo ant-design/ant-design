@@ -5,3 +5,23 @@
 ## en-US
 
 Click `TimePicker`, and then we could select or input a time in panel.
+
+```tsx
+import { TimePicker } from 'antd';
+import type { Moment } from 'moment';
+import moment from 'moment';
+import React from 'react';
+
+const onChange = (time: Moment, timeString: string) => {
+  console.log(time, timeString);
+};
+
+const App: React.FC = () => (
+  <>
+    {moment('2022-02-02 24:00:00').format('kk:mm')}
+    <TimePicker format="kk:mm" onChange={onChange} defaultOpenValue={moment()} />
+  </>
+);
+
+export default App;
+```
