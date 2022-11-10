@@ -72,6 +72,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
+        outline: 'none',
 
         [`${componentCls}-dragging`]: {
           zIndex: 1,
@@ -97,7 +98,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           `,
         },
 
-        '&:hover, &:active, &:focus-visible': {
+        '&:hover, &:active, &:focus': {
           '&::after': {
             boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
             width: token.handleSizeHover,
