@@ -36,7 +36,7 @@ const locales = {
 
     // Secondary
     mobile: 'Ant Design Mobile',
-    mobileDesc: '基于 Preact / React / React Native 的 UI 组件库',
+    mobileDesc: 'Ant Design 移动端 UI 组件库',
     antv: 'AntV',
     antvDesc: '全新一代数据可视化解决方案',
     kitchen: 'Kitchen',

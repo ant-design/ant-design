@@ -18,13 +18,13 @@ const locales = {
     default: '默认',
     dark: '暗黑',
     lark: '知识协作',
-    comic: '二次元',
+    comic: '桃花缘',
   },
   en: {
     default: 'Default',
     dark: 'Dark',
     lark: 'Document',
-    comic: 'Comic',
+    comic: 'Blossom',
   },
 };
 

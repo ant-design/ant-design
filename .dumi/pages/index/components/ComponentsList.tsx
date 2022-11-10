@@ -187,7 +187,7 @@ export default function ComponentsList() {
           const tagText = type === 'new' ? 'New' : 'Update';
 
           return (
-            <div key={index} css={styles.card}>
+            <div key={index} css={styles.card} style={{ pointerEvents: 'none' }}>
               {/* Decorator */}
               <div
                 css={styles.cardCircle}

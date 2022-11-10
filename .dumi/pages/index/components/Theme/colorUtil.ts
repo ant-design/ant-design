@@ -1,6 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
 export const DEFAULT_COLOR = '#1677FF';
+export const PINK_COLOR = '#ED4192';
 
 export const COLOR_IMAGES = [
   {
@@ -17,8 +18,8 @@ export const COLOR_IMAGES = [
     url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FMluR4vJhaQAAAAAAAAAAAAAARQnAQ',
   },
   {
-    color: '#FB7299',
-    url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xJOWQZDpSjkAAAAAAAAAAAAAARQnAQ',
+    color: PINK_COLOR,
+    url: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DGZXS4YOGp0AAAAAAAAAAAAAARQnAQ',
   },
   {
     color: '#E0282E',
