@@ -3,7 +3,7 @@ import { useIntl, useRouteMeta } from 'dumi';
 import Footer from 'dumi/theme/slots/Footer';
 import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
 import EditButton from '../../common/EditButton';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'dumi';
 import useLocation from '../../../hooks/useLocation';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import useSiteToken from '../../../hooks/useSiteToken';
