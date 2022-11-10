@@ -106,11 +106,5 @@ describe('TimePicker', () => {
         .querySelectorAll('.ant-picker-time-panel-column')?.[0]
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(24);
-
-    expect(
-      container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
-        .querySelectorAll('.ant-picker-time-panel-cell')?.[23],
-    ).toHaveTextContent('24');
   });
 });
