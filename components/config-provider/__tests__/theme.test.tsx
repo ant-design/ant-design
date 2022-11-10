@@ -153,4 +153,27 @@ describe('ConfigProvider.Theme', () => {
 
     theme.defaultConfig.hashed = false;
   });
+
+  it('The order does not affect the result', () => {
+    const tokens = {
+      a: {},
+      b: {},
+    };
+    const Token: React.FC<{ type: 'a' | 'b' }> = ({ type }) => {
+      const [, token] = useToken();
+      tokens[type] = token;
+      return null;
+    };
+    render(
+      <>
+        <ConfigProvider theme={{ algorithm: [darkAlgorithm, compactAlgorithm] }}>
+          <Token type="a" />
+        </ConfigProvider>
+        <ConfigProvider theme={{ algorithm: [compactAlgorithm, darkAlgorithm] }}>
+          <Token type="b" />
+        </ConfigProvider>
+      </>,
+    );
+    expect(tokens.a).toMatchObject(tokens.b);
+  });
 });
