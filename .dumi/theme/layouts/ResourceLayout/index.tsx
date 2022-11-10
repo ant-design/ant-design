@@ -4,7 +4,7 @@ import AffixTabs from './AffixTabs';
 import { useRouteMeta } from 'dumi';
 import { css } from '@emotion/react';
 import EditButton from '../../common/EditButton';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'dumi';
 import { Layout, Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
 import CommonHelmet from '../../common/CommonHelmet';
