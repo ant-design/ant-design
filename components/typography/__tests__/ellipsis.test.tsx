@@ -65,7 +65,7 @@ describe('Typography.Ellipsis', () => {
     'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
 
   it('should trigger update', async () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const onEllipsis = jest.fn();
     const { container, rerender, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
@@ -73,7 +73,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     expect(container.firstChild?.textContent).toEqual('Bamboo is Little ...');
@@ -128,7 +128,7 @@ describe('Typography.Ellipsis', () => {
         design language for background applications, is refined by Ant UED Team.
         Ant Design, a design language for background applications, is refined by
         Ant UED Team.`;
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const onEllipsis = jest.fn();
     const { container: wrapper, unmount } = render(
       <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
@@ -136,7 +136,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     expect(wrapper.firstChild?.textContent).toEqual('Ant Design, a des...');
@@ -149,14 +149,14 @@ describe('Typography.Ellipsis', () => {
 
   it('should middle ellipsis', async () => {
     const suffix = '--suffix';
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const { container: wrapper, unmount } = render(
       <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual('Bamboo is...--suffix');
@@ -165,7 +165,7 @@ describe('Typography.Ellipsis', () => {
 
   it('should front or middle ellipsis', async () => {
     const suffix = '--The information is very important';
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const {
       container: wrapper,
       rerender,
@@ -176,7 +176,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     expect(wrapper.querySelector('p')?.textContent).toEqual(
@@ -206,7 +206,7 @@ describe('Typography.Ellipsis', () => {
     const bamboo = 'Bamboo';
     const is = ' is ';
 
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const { container: wrapper } = render(
       <Base ellipsis component="p" editable ref={ref}>
         {bamboo}
@@ -216,7 +216,7 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     expect(wrapper.textContent).toEqual('Bamboo is Little...');
@@ -322,13 +322,13 @@ describe('Typography.Ellipsis', () => {
     });
 
     async function getWrapper(tooltip?: EllipsisConfig['tooltip']) {
-      const ref = React.createRef<any>();
+      const ref = React.createRef<HTMLElement>();
       const wrapper = render(
         <Base ellipsis={{ tooltip }} component="p" ref={ref}>
           {fullStr}
         </Base>,
       );
-      triggerResize(ref.current);
+      triggerResize(ref.current!);
       await waitFakeTimer();
       return wrapper;
     }
@@ -419,13 +419,13 @@ describe('Typography.Ellipsis', () => {
       },
     });
 
-    const ref = React.createRef<any>();
+    const ref = React.createRef<HTMLElement>();
     const { container, baseElement } = render(
       <Base component={undefined} ellipsis={{ tooltip: 'This is tooltip', rows: 2 }} ref={ref}>
         Ant Design, a design language for background applications, is refined by Ant UED Team.
       </Base>,
     );
-    triggerResize(ref.current);
+    triggerResize(ref.current!);
     await waitFakeTimer();
 
     fireEvent.mouseEnter(container.firstChild!);

@@ -152,7 +152,7 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const ref = React.createRef<any>();
+      const ref = React.createRef<HTMLDivElement>();
       render(<TransButton ref={ref}>TransButton</TransButton>);
       expect(typeof ref.current?.focus).toBe('function');
       expect(typeof ref.current?.blur).toBe('function');

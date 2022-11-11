@@ -2,6 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
+import type { FormInstance } from '../../form';
 import Form from '../../form';
 import zhCN from '../../locale/zh_CN';
 
@@ -16,7 +17,7 @@ describe('ConfigProvider.Form', () => {
 
   describe('form validateMessages', () => {
     const renderComponent = ({ validateMessages }: { validateMessages?: any }) => {
-      const formRef = React.createRef<any>();
+      const formRef = React.createRef<FormInstance>();
       const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>

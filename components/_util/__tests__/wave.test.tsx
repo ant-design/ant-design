@@ -174,7 +174,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent should return when node is null', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<Wave>();
     render(
       <Wave ref={ref}>
         <button type="button" disabled>
@@ -186,7 +186,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent.onClick should return when children is hidden', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<Wave>();
     render(
       <Wave ref={ref}>
         <button type="button" style={{ display: 'none' }}>
@@ -198,7 +198,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent.onClick should return when children is input', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<Wave>();
     render(
       <Wave ref={ref}>
         <input />
