@@ -956,7 +956,7 @@ describe('Upload List', () => {
           originFileObj: renderInstance(),
         };
         delete file.thumbUrl;
-        const ref = React.createRef();
+        const ref = React.createRef<any>();
         const { container: wrapper, unmount } = render(
           <Upload
             ref={ref}
