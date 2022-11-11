@@ -81,7 +81,7 @@
     "lint:style": "stylelint '{site,components}/**/*.less'",
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write **/*",
-    "pretty-quick": "pretty-quick",
+    "rome:format": "rome format --write .",
     "pub": "npm run version && antd-tools run pub",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
@@ -103,7 +103,8 @@
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13"
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13",
+    "fix-memory-limit": "cross-env LIMIT=10240 increase-memory-limit"
   },
   "browserslist": [
     "> 0.5%",
@@ -130,14 +131,14 @@
     "rc-drawer": "~6.0.0",
     "rc-dropdown": "~4.0.0",
     "rc-field-form": "~1.27.0",
-    "rc-image": "~5.9.0",
+    "rc-image": "~5.11.0",
     "rc-input": "~0.1.4",
     "rc-input-number": "~7.3.9",
     "rc-mentions": "~1.10.0",
     "rc-menu": "~9.6.3",
     "rc-motion": "^2.6.1",
     "rc-notification": "~4.6.0",
-    "rc-pagination": "~3.1.17",
+    "rc-pagination": "~3.2.0",
     "rc-picker": "~2.6.11",
     "rc-progress": "~3.4.1",
     "rc-rate": "~2.9.0",
@@ -230,6 +231,7 @@
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
+    "increase-memory-limit": "^1.0.7",
     "inquirer": "^9.1.2",
     "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
@@ -243,6 +245,7 @@
     "jsdom": "^20.0.0",
     "jsonml.js": "^0.1.0",
     "less-vars-to-js": "^1.3.0",
+    "lint-staged": "^13.0.3",
     "lz-string": "^1.4.4",
     "mini-css-extract-plugin": "^1.6.2",
     "mockdate": "^3.0.0",
@@ -250,7 +253,6 @@
     "prettier": "^2.3.2",
     "prettier-plugin-jsdoc": "^0.4.2",
     "pretty-format": "^29.0.0",
-    "pretty-quick": "^3.0.0",
     "qs": "^6.10.1",
     "rc-footer": "^0.6.6",
     "rc-tween-one": "^3.0.3",
@@ -279,6 +281,7 @@
     "remark-preset-lint-recommended": "^6.0.0",
     "remove-files-webpack-plugin": "1.5.0",
     "rimraf": "^3.0.0",
+    "rome": "^10.0.1",
     "scrollama": "^3.0.0",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
@@ -286,7 +289,7 @@
     "stylelint": "^14.9.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard": "^29.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",
@@ -348,5 +351,8 @@
   ],
   "tnpm": {
     "mode": "npm"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,less,md}": "rome format --write"
   }
 }

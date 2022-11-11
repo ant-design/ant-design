@@ -105,16 +105,19 @@
       z-index: @zindex-image;
     }
 
-    &-operations {
-      .reset-component();
-      position: absolute;
+    &-operations-wrapper {
+      position: fixed;
       top: 0;
       right: 0;
-      z-index: 1;
+      z-index: @zindex-image + 1;
+      width: 100%;
+    }
+
+    &-operations {
+      .reset-component();
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
-      width: 100%;
       color: @image-preview-operation-color;
       list-style: none;
       background: fade(@modal-mask-bg, 10%);
@@ -124,6 +127,11 @@
         margin-left: @control-padding-horizontal;
         padding: @control-padding-horizontal;
         cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background: fade(@modal-mask-bg, 20%);
+        }
 
         &-disabled {
           color: @image-preview-operation-disabled-color;
@@ -148,40 +156,48 @@
 
     &-switch-left,
     &-switch-right {
-      position: absolute;
+      position: fixed;
       top: 50%;
-      right: 10px;
-      z-index: 1;
+      right: 8px;
+      z-index: @zindex-image + 1;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 44px;
       height: 44px;
-      margin-top: -22px;
       color: @image-preview-operation-color;
       background: fade(@modal-mask-bg, 10%);
       border-radius: 50%;
+      transform: translateY(-50%);
       cursor: pointer;
+      transition: all 0.3s;
       pointer-events: auto;
 
-      &-disabled {
+      &:hover {
+        background: fade(@modal-mask-bg, 20%);
+      }
+
+      &-disabled,
+      &-disabled:hover {
         color: @image-preview-operation-disabled-color;
+        background: fade(@modal-mask-bg, 10%);
         cursor: not-allowed;
         > .@{iconfont-css-prefix} {
           cursor: not-allowed;
         }
       }
+
       > .@{iconfont-css-prefix} {
         font-size: 18px;
       }
     }
 
     &-switch-left {
-      left: 10px;
+      left: 8px;
     }
 
     &-switch-right {
-      right: 10px;
+      right: 8px;
     }
   }
 }

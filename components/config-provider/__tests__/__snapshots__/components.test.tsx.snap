@@ -19255,7 +19255,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19402,7 +19401,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19554,7 +19552,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19702,7 +19699,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -19855,7 +19851,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20002,7 +19997,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20154,7 +20148,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 <div>
   <ul
     class="config-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20301,7 +20294,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
   </ul>
   <ul
     class="config-pagination config-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20453,7 +20445,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20600,7 +20591,6 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20752,7 +20742,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
 <div>
   <ul
     class="ant-pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -20899,7 +20888,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
   </ul>
   <ul
     class="ant-pagination ant-pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21051,7 +21039,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
 <div>
   <ul
     class="prefix-Pagination"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -21198,7 +21185,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
   </ul>
   <ul
     class="prefix-Pagination prefix-Pagination-mini"
-    unselectable="unselectable"
   >
     <li
       aria-disabled="true"
@@ -22184,6 +22170,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22209,6 +22196,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 exports[`ConfigProvider components Progress configProvider componentDisabled 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22234,6 +22222,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
 exports[`ConfigProvider components Progress configProvider componentSize large 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22259,6 +22248,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
+  role="progressbar"
 >
   <div
     class="config-progress-outer"
@@ -22284,6 +22274,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
 exports[`ConfigProvider components Progress configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22309,6 +22300,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  role="progressbar"
 >
   <div
     class="ant-progress-outer"
@@ -22334,6 +22326,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
+  role="progressbar"
 >
   <div
     class="prefix-Progress-outer"
@@ -26954,7 +26947,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27260,7 +27253,7 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27568,7 +27561,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -27874,7 +27867,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="config-table-cell config-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28180,7 +28173,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28486,7 +28479,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="ant-table-cell ant-table-column-has-sorters"
                     tabindex="0"
                   >
@@ -28792,7 +28785,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    aria-label="Name sortable"
+                    aria-label="this column's title is Name,this column is sortable"
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
                     tabindex="0"
                   >
