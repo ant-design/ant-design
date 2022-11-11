@@ -23,6 +23,12 @@ const Placements = tuple(
   'bottomRight',
   'top',
   'bottom',
+  'left',
+  'leftTop',
+  'leftBottom',
+  'right',
+  'rightTop',
+  'rightBottom',
 );
 
 type Placement = typeof Placements[number];
