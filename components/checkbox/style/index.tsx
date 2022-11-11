@@ -122,7 +122,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
             opacity: 0,
-            transition: `all ${token.motionDurationFast} cubic-bezier(.71,-.46,.88,.6), opacity ${token.motionDurationFast}`,
+            transition: `transform ${token.motionDurationSlow} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
             content: '""',
           },
         },
@@ -188,7 +188,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
           },
         },
 
