@@ -146,7 +146,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           },
 
           '&::after': {
-            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimaryHover}`,
+            boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
             width: token.handleSizeHover,
             height: token.handleSizeHover,
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
