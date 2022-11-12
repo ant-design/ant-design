@@ -39,6 +39,8 @@ const items: MenuProps['items'] = [
     getItem('Option 11', '11'),
     getItem('Option 12', '12'),
   ]),
+
+  getItem('Group', 'grp', null, [getItem('Option 13', '13'), getItem('Option 14', '14')], 'group'),
 ];
 
 const App: React.FC = () => {

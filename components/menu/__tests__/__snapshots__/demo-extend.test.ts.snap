@@ -1482,11 +1482,137 @@ Array [
         </div>
       </div>
     </li>
+    <li
+      class="ant-menu-item-group"
+    >
+      <div
+        class="ant-menu-item-group-title"
+        title="Group"
+      >
+        Group
+      </div>
+      <ul
+        class="ant-menu-item-group-list"
+      >
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          role="menuitem"
+          style="padding-left:24px"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 13
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          role="menuitem"
+          style="padding-left:24px"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 14
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+            style="opacity:0"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+    </li>
   </ul>,
   <div
     aria-hidden="true"
     style="display:none"
   >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="ant-tooltip ant-menu-inline-collapsed-tooltip"
