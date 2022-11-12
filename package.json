@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.24.1",
+  "version": "4.24.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -131,15 +131,15 @@
     "rc-drawer": "~6.0.0",
     "rc-dropdown": "~4.0.0",
     "rc-field-form": "~1.27.0",
-    "rc-image": "~5.11.0",
+    "rc-image": "~5.12.0",
     "rc-input": "~0.1.4",
     "rc-input-number": "~7.3.9",
-    "rc-mentions": "~1.10.0",
-    "rc-menu": "~9.6.3",
+    "rc-mentions": "~1.11.0",
+    "rc-menu": "~9.7.2",
     "rc-motion": "^2.6.1",
     "rc-notification": "~4.6.0",
     "rc-pagination": "~3.2.0",
-    "rc-picker": "~2.6.11",
+    "rc-picker": "~2.7.0",
     "rc-progress": "~3.4.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
@@ -149,7 +149,7 @@
     "rc-steps": "~5.0.0-alpha.2",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.26.0",
-    "rc-tabs": "~12.2.0",
+    "rc-tabs": "~12.3.0",
     "rc-textarea": "~0.4.5",
     "rc-tooltip": "~5.2.0",
     "rc-tree": "~5.7.0",
@@ -353,6 +353,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,json,less,md}": "rome format --write"
+    "*.{ts,tsx,js,json,less}": "rome format --write",
+    "*.{md}": "prettier --ignore-unknown --write"
   }
 }

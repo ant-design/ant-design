@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 4.24.2
+
+`2022-11-12`
+
+- Image
+  - 💄 Image preview controls enter animation should not be zooming out. [#36456](https://github.com/ant-design/ant-design/pull/36456)
+  - 🐞 Fix Image preview not showing error images. [#38112](https://github.com/ant-design/ant-design/pull/38112)
+- Typography
+  - 🐞 Fix Typography.Text `tooltip` do not display in List. [#38431](https://github.com/ant-design/ant-design/pull/38431) [@crazyair](https://github.com/crazyair)
+  - 🐞 Fix Typography.Paragraph flash issue in some situations. [#38439](https://github.com/ant-design/ant-design/pull/38439) [@tinyfind](https://github.com/tinyfind)
+- 🐞 Fix Menu SubMenu flick when collapse it. [#36636](https://github.com/ant-design/ant-design/issues/36636) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 Fix RangePicker that `onBlur` gets triggered when selecting dates. [#38411](https://github.com/ant-design/ant-design/pull/38411) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Result should hide icon when it is falsy. [#38488](https://github.com/ant-design/ant-design/pull/38488)
+- 🐞 Fix Dropdown.Button throws `overlay is deprecated` warning. [#38446](https://github.com/ant-design/ant-design/pull/38446) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛎 Improve error message about multiple Form.Item children. [#38038](https://github.com/ant-design/ant-design/pull/38038) [@cincodenada](https://github.com/cincodenada)
+- 🛠 Resolve Tree circular import issue. [#38421](https://github.com/ant-design/ant-design/pull/38421) [@KotoriK](https://github.com/KotoriK)
+- 🐞 Fix Affix shake issue when switching visible. [#38410](https://github.com/ant-design/ant-design/pull/38410) [@imoctopus](https://github.com/imoctopus)
+- 🐞 Fix Pagination `simple` mode should support `showTotal` property. [#38399](https://github.com/ant-design/ant-design/pull/38399)
+- 🐞 Fix Modal.confirm buttons should not be interactive when modal is hiding. [#38400](https://github.com/ant-design/ant-design/pull/38400)
+- 🐞 Fix Radio.Group style problem using in Drawer `extra`. [#38385](https://github.com/ant-design/ant-design/pull/38385)
+- ⌨️ Fix Table `aria-label` contains `[object Object]`. [#38389](https://github.com/ant-design/ant-design/pull/38389) [@kiner-tang](https://github.com/kiner-tang)
+- ⌨️ Adds role progressbar to Progress component. [#38447](https://github.com/ant-design/ant-design/pull/38447) [@kpustakhod](https://github.com/kpustakhod)
+
 ## 4.24.1
 
 `2022-11-04`
