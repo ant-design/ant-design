@@ -70,7 +70,7 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-class InternalWave extends React.Component<WaveProps> {
+export class InternalWave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
