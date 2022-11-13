@@ -54,7 +54,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-const Progress: React.FC<ProgressProps> = props => {
+const Progress: React.FC<ProgressProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -94,7 +94,7 @@ const Progress: React.FC<ProgressProps> = props => {
     }
     const successPercent = getSuccessPercent(props);
     let text: React.ReactNode;
-    const textFormatter = format || (number => `${number}%`);
+    const textFormatter = format || ((number) => `${number}%`);
     const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
@@ -167,6 +167,7 @@ const Progress: React.FC<ProgressProps> = props => {
   return wrapSSR(
     <div
       className={classString}
+      role="progressbar"
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',

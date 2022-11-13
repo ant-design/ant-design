@@ -4,7 +4,11 @@ exports[`renders ./components/progress/demo/circle.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-right:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -55,6 +59,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -122,7 +127,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -195,7 +204,11 @@ exports[`renders ./components/progress/demo/circle-dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-right:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -364,7 +377,11 @@ exports[`renders ./components/progress/demo/circle-mini.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-right:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -415,6 +432,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -482,7 +500,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -555,7 +577,11 @@ exports[`renders ./components/progress/demo/dashboard.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-right:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -606,6 +632,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -661,6 +688,7 @@ exports[`renders ./components/progress/demo/dynamic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -746,6 +774,7 @@ exports[`renders ./components/progress/demo/format.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -796,7 +825,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -852,6 +885,7 @@ exports[`renders ./components/progress/demo/gradient-line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -874,6 +908,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -896,6 +931,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
@@ -965,7 +1001,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
@@ -1057,6 +1097,7 @@ exports[`renders ./components/progress/demo/line.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1079,6 +1120,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1101,6 +1143,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1140,6 +1183,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1179,6 +1223,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1202,6 +1247,7 @@ exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
 >
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1224,6 +1270,7 @@ exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1246,6 +1293,7 @@ exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1285,6 +1333,7 @@ exports[`renders ./components/progress/demo/line-mini.tsx correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1329,6 +1378,7 @@ exports[`renders ./components/progress/demo/linecap.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1352,6 +1402,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -1402,7 +1453,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -1458,6 +1513,7 @@ exports[`renders ./components/progress/demo/segment.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-outer"
@@ -1484,6 +1540,7 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-inner"
@@ -1534,7 +1591,11 @@ Array [
   </div>,
   <div
     class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+<<<<<<< HEAD
     style="margin-left:8px"
+=======
+    role="progressbar"
+>>>>>>> origin/master
   >
     <div
       class="ant-progress-inner"
@@ -1590,6 +1651,7 @@ exports[`renders ./components/progress/demo/steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-steps-outer"
@@ -1617,6 +1679,7 @@ Array [
   <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-steps-outer"
@@ -1652,6 +1715,7 @@ Array [
   <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
+    role="progressbar"
   >
     <div
       class="ant-progress-steps-outer"
@@ -1704,6 +1768,7 @@ Array [
   <br />,
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
   >
     <div
       class="ant-progress-steps-outer"

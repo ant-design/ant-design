@@ -18,13 +18,13 @@ export interface ComponentToken {
 
 export type TypographyToken = FullToken<'Typography'>;
 
-const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
+const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
   const { componentCls, sizeMarginHeadingVerticalStart } = token;
 
   return {
     [componentCls]: {
       color: token.colorText,
-      overflowWrap: 'break-word',
+      wordBreak: 'break-word',
       lineHeight: token.lineHeight,
       '&&-secondary': {
         color: token.colorTextDescription,
@@ -122,7 +122,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Typography', token => [genTypographyStyle(token)], {
+export default genComponentStyleHook('Typography', (token) => [genTypographyStyle(token)], {
   sizeMarginHeadingVerticalStart: '1.2em',
   sizeMarginHeadingVerticalEnd: '0.5em',
 });

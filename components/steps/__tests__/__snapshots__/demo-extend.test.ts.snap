@@ -2109,6 +2109,7 @@ Array [
           >
             <div
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              role="progressbar"
             >
               <div
                 class="ant-progress-inner"
@@ -2874,6 +2875,7 @@ exports[`renders ./components/steps/demo/progress.tsx extend context correctly 1
         >
           <div
             class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+            role="progressbar"
           >
             <div
               class="ant-progress-inner"
@@ -3115,6 +3117,7 @@ Array [
           >
             <div
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              role="progressbar"
             >
               <div
                 class="ant-progress-inner"
@@ -3296,6 +3299,7 @@ Array [
           >
             <div
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              role="progressbar"
             >
               <div
                 class="ant-progress-inner"
@@ -3477,6 +3481,7 @@ Array [
           >
             <div
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              role="progressbar"
             >
               <div
                 class="ant-progress-inner"
@@ -3658,6 +3663,7 @@ Array [
           >
             <div
               class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+              role="progressbar"
             >
               <div
                 class="ant-progress-inner"

@@ -86,7 +86,7 @@ interface DropdownInterface extends React.FC<DropdownProps> {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 }
 
-const Dropdown: DropdownInterface = props => {
+const Dropdown: DropdownInterface = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -233,7 +233,7 @@ const Dropdown: DropdownInterface = props => {
     if (menu?.items) {
       overlayNode = <Menu {...menu} />;
     } else if (typeof overlay === 'function') {
-      overlayNode = (overlay as OverlayFunc)();
+      overlayNode = overlay();
     } else {
       overlayNode = overlay;
     }
@@ -296,7 +296,7 @@ const Dropdown: DropdownInterface = props => {
 Dropdown.Button = DropdownButton;
 
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', prefixCls => prefixCls);
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
 
 /* istanbul ignore next */
 const WrapPurePanel = (props: DropdownProps) => (
