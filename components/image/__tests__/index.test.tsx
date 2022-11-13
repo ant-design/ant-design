@@ -47,6 +47,7 @@ describe('Image', () => {
 
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('ant-fade');
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('ant-zoom');
+    expect(baseElement).toMatchSnapshot();
   });
   it('Customize preview props', () => {
     const { container, baseElement } = render(

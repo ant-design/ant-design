@@ -33,7 +33,7 @@ interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
   __ANT_BUTTON: boolean;
 }
 
-const DropdownButton: DropdownButtonInterface = props => {
+const DropdownButton: DropdownButtonInterface = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -81,7 +81,6 @@ const DropdownButton: DropdownButtonInterface = props => {
     arrow,
     autoFocus,
     align,
-    overlay,
     disabled,
     trigger: disabled ? [] : trigger,
     onOpenChange,
@@ -92,9 +91,14 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayStyle,
     destroyPopupOnHide,
   };
+
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const classes = classNames(buttonPrefixCls, compactItemClassnames, className, hashId);
+
+  if ('overlay' in props) {
+    dropdownProps.overlay = overlay;
+  }
 
   if ('open' in props) {
     dropdownProps.open = open;

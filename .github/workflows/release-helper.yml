@@ -34,7 +34,18 @@ jobs:
           prettier: true
           prerelease-filter: '-, a, b, A, B'
 
-      - name: release bigfish
+      - name: notice next
+        uses: actions-cool/release-helper@v2
+        with:
+          triger: 'tag'
+          dingding-token: ${{ secrets.DINGDING_BOT_V5_PRE_TOKEN }}
+          msg-title: '# Ant Design {{v}} 发布日志'
+          msg-poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'
+          msg-footer: '💬 前往 [**Ant Design Releases**]({{url}}) 查看更新日志'
+          prerelease-filter: '-, a, b, A, B'
+          prerelease-notice: true
+
+      - name: notice bigfish
         uses: actions-cool/release-helper@v2
         with:
           triger: 'tag'

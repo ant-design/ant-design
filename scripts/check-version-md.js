@@ -57,7 +57,6 @@ if (changeLog) {
       console.log(chalk.blue('[check-version-md]: Check Passed'));
       console.log('\n');
       process.exit(0);
-      return;
     }
   }
   console.log('\n');

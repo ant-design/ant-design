@@ -12,8 +12,8 @@ const compileModules = [
 const ignoreList = [];
 
 // cnpm use `_` as prefix
-['', '_'].forEach(prefix => {
-  compileModules.forEach(module => {
+['', '_'].forEach((prefix) => {
+  compileModules.forEach((module) => {
     ignoreList.push(`${prefix}${module}`);
   });
 });
@@ -71,5 +71,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: 'http://localhost',
   },
-  bail: true,
+  // bail: true,
 };

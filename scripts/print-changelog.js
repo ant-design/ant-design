@@ -37,7 +37,7 @@ const MAINTAINERS = [
   'madccc',
   'MadCcc',
   'li-jia-nan',
-].map(author => author.toLowerCase());
+].map((author) => author.toLowerCase());
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
@@ -61,9 +61,11 @@ async function printLog() {
       name: 'fromVersion',
       message: '🏷  Please choose tag to compare with current branch:',
       choices: tags.all
-        .filter(item => !item.includes('experimental'))
+        .filter((item) => !item.includes('experimental'))
+        .filter((item) => !item.includes('alpha'))
+        .filter((item) => !item.includes('resource'))
         .reverse()
-        .slice(0, 10),
+        .slice(0, 50),
     },
   ]);
   let { toVersion } = await inquirer.prompt([
@@ -103,14 +105,14 @@ async function printLog() {
     const text = `${message} ${body}`;
 
     const match = text.match(/#\d+/g);
-    const prs = (match || []).map(pr => pr.slice(1));
+    const prs = (match || []).map((pr) => pr.slice(1));
     const validatePRs = [];
 
     console.log(
       `[${i + 1}/${logs.all.length}]`,
       hash.slice(0, 6),
       '-',
-      prs.length ? prs.map(pr => `#${pr}`).join(',') : '?',
+      prs.length ? prs.map((pr) => `#${pr}`).join(',') : '?',
     );
     for (let j = 0; j < prs.length; j += 1) {
       const pr = prs[j];
@@ -127,13 +129,13 @@ async function printLog() {
               reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
             }, timeout);
             fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
-              .then(response => {
-                response.text().then(htmlRes => {
+              .then((response) => {
+                response.text().then((htmlRes) => {
                   html = htmlRes;
                   resolve(response);
                 });
               })
-              .catch(error => {
+              .catch((error) => {
                 reject(error);
               });
           });
@@ -165,8 +167,8 @@ async function printLog() {
         });
       });
 
-      const english = getDescription(lines.find(line => line.text.includes('🇺🇸 English')));
-      const chinese = getDescription(lines.find(line => line.text.includes('🇨🇳 Chinese')));
+      const english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
+      const chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
       if (english) {
         console.log(`  🇨🇳  ${english}`);
       }
@@ -204,7 +206,7 @@ async function printLog() {
   console.log('\n', chalk.green('Done. Here is the log:'));
 
   function printPR(lang, postLang) {
-    prList.forEach(entity => {
+    prList.forEach((entity) => {
       const { pr, author, hash, title } = entity;
       if (pr) {
         const str = postLang(entity[lang]);
@@ -236,7 +238,7 @@ async function printLog() {
   console.log('\n');
   console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
   console.log('\n');
-  printPR('chinese', chinese =>
+  printPR('chinese', (chinese) =>
     chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
   );
 
@@ -245,7 +247,7 @@ async function printLog() {
   // English
   console.log(chalk.yellow('🇺🇸 English changelog:'));
   console.log('\n');
-  printPR('english', english => {
+  printPR('english', (english) => {
     english = english.trim();
     if (english[english.length - 1] !== '.' || !english) {
       english = `${english}.`;
@@ -270,7 +272,7 @@ async function printLog() {
       shell: true,
     },
   );
-  ls.stdout.on('data', data => {
+  ls.stdout.on('data', (data) => {
     console.log(data.toString());
   });
 
