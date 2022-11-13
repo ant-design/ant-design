@@ -18,7 +18,9 @@ import { Button, message } from 'antd';
 import React from 'react';
 
 const success = () => {
-  const hide = message.loading('Action in progress..', 0);
+  const hide = message.loading('Action in progress..', 0, () => {
+    message.success("loading had closed");
+  });
   // Dismiss manually and asynchronously
   setTimeout(hide, 2500);
 };

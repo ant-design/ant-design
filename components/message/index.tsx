@@ -184,7 +184,6 @@ function notice(args: ArgsProps): MessageType {
       }
       return resolve(true);
     };
-
     getRCNotificationInstance(args, ({ prefixCls, iconPrefixCls, instance }) => {
       instance.notice(
         getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls, iconPrefixCls),
@@ -194,6 +193,7 @@ function notice(args: ArgsProps): MessageType {
   const result: any = () => {
     if (messageInstance) {
       messageInstance.removeNotice(target);
+      args.onClose?.();
     }
   };
   result.then = (filled: ThenableArgument, rejected: ThenableArgument) =>

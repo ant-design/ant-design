@@ -25,7 +25,9 @@ describe('message.typescript', () => {
   });
 
   it('hide', () => {
-    const hide = message.loading('doing...');
+    const onClose = jest.fn();
+    const hide = message.loading('doing...', 0, onClose);
     hide();
+    expect(onClose).toHaveBeenCalled();
   });
 });
