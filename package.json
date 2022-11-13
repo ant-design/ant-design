@@ -322,6 +322,9 @@
       "maxSize": "377.5 kB"
     }
   ],
+  "tnpm": {
+    "mode": "npm"
+  },
   "lint-staged": {
     "*.{ts,tsx,js,json,less}": "rome format --write",
     "*.{md}": "prettier --ignore-unknown --write"
