@@ -17,7 +17,7 @@ const onChange = (
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space direction="vertical" size={14}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
     <RangePicker suffixIcon={smileIcon} onChange={onChange} />
