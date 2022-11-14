@@ -22,6 +22,8 @@ const useStyle = () => {
       letter-spacing: -0.18px;
       white-space: nowrap;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
 
       &:hover {
         color: ${colorTextHeading};
@@ -65,7 +67,7 @@ const Logo = ({ isZhCN }: LogoProps) => {
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, search)} css={logo}>
         <img alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
-        Ant Design
+        <span style={{ lineHeight: '32px' }}>Ant Design</span>
       </Link>
     </h1>
   );

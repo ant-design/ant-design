@@ -4,7 +4,7 @@ import { EditOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import useSiteToken from '../../hooks/useSiteToken';
 
-const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
+const branchUrl = 'https://github.com/ant-design/ant-design/edit/next/';
 
 export interface EditButtonProps {
   title: React.ReactNode;

@@ -61,7 +61,7 @@ const GlobalStyles = () => {
           ol {
             list-style: none;
           }
-          
+
           img {
             vertical-align: middle;
             border-style: none;
@@ -1167,11 +1167,7 @@ const GlobalStyles = () => {
           .all-code-box-controls {
             position: absolute;
             top: -32px;
-            right: 0;
-
-            ${antCls}-row-rtl & {
-              float: left;
-            }
+            inset-inline-end: 0;
           }
 
           ${antCls}-row-rtl {
