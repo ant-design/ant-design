@@ -106,7 +106,7 @@ export default ({
 
   const module = pathname
     .split('/')
-    .filter(path => path)
+    .filter((path) => path)
     .slice(0, -1)
     .join('/');
   let activeMenuItem = module || 'home';
@@ -115,6 +115,8 @@ export default ({
   } else if (pathname.startsWith('/docs/resources')) {
     activeMenuItem = 'docs/resources';
   }
+
+  console.log(activeMenuItem);
 
   let additional: MenuProps['items'];
 
@@ -187,7 +189,7 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       ),
-      key: '/docs/resources',
+      key: 'docs/resources',
     },
     showTechUIButton
       ? {
