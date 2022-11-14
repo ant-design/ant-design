@@ -13,7 +13,7 @@ type CollapseToken = FullToken<'Collapse'> & {
   collapseContentPaddingHorizontal: number;
 };
 
-export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
+export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   const {
     componentCls,
     collapseContentBg,
@@ -173,27 +173,21 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
-const genArrowStyle: GenerateStyle<CollapseToken> = token => {
+const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   const { componentCls } = token;
 
   const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
 
   return {
-    [`${componentCls}-icon-position-end, ${componentCls}-rtl`]: {
+    [`${componentCls}-rtl`]: {
       [fixedSelector]: {
         transform: `rotate(180deg)`,
-      },
-    },
-
-    [`${componentCls}-rtl${componentCls}-icon-position-end`]: {
-      [fixedSelector]: {
-        transform: `rotate(0deg)`,
       },
     },
   };
 };
 
-const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
+const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
   const {
     componentCls,
     collapseHeaderBg,
@@ -234,7 +228,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
-const genGhostStyle: GenerateStyle<CollapseToken> = token => {
+const genGhostStyle: GenerateStyle<CollapseToken> = (token) => {
   const { componentCls, paddingSM } = token;
 
   return {
@@ -255,7 +249,7 @@ const genGhostStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
-export default genComponentStyleHook('Collapse', token => {
+export default genComponentStyleHook('Collapse', (token) => {
   const collapseToken = mergeToken<CollapseToken>(token, {
     collapseContentBg: token.colorBgContainer,
     collapseHeaderBg: token.colorFillAlter,
