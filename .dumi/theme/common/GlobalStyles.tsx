@@ -61,6 +61,11 @@ const GlobalStyles = () => {
           ol {
             list-style: none;
           }
+          
+          img {
+            vertical-align: middle;
+            border-style: none;
+          }
         `}
       />
 

@@ -23,24 +23,24 @@ ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Steps it
 
 ## 代码演示
 
-<code src="./demo/deprecated.tsx">Basic (deprecated syntactic sugar)</code>
-<code src="./demo/simple.tsx">Basic</code>
-<code src="./demo/small-size.tsx">Mini version</code>
-<code src="./demo/icon.tsx">With icon</code>
-<code src="./demo/step-next.tsx">Switch Step</code>
-<code src="./demo/vertical.tsx">Vertical</code>
-<code src="./demo/vertical-small.tsx">Vertical mini version</code>
-<code src="./demo/error.tsx">Error status</code>
-<code src="./demo/progress-dot.tsx">Dot Style</code>
-<code src="./demo/customized-progress-dot.tsx">Customized Dot Style</code>
-<code src="./demo/progress-dot-small.tsx" debug>Dot Style Size Small</code>
-<code src="./demo/clickable.tsx">Clickable</code>
-<code src="./demo/nav.tsx">Navigation Steps</code>
-<code src="./demo/progress.tsx">Steps with progress</code>
-<code src="./demo/label-placement.tsx">Label Placement</code>
+<code src="./demo/deprecated.tsx">基本用法 (废弃的语法糖)</code>
+<code src="./demo/simple.tsx">基本用法</code>
+<code src="./demo/small-size.tsx">迷你版</code>
+<code src="./demo/icon.tsx">带图标的步骤条</code>
+<code src="./demo/step-next.tsx">步骤切换</code>
+<code src="./demo/vertical.tsx">竖直方向的步骤条</code>
+<code src="./demo/vertical-small.tsx">竖直方向的小型步骤条</code>
+<code src="./demo/error.tsx">步骤运行错误</code>
+<code src="./demo/progress-dot.tsx">点状步骤条</code>
+<code src="./demo/customized-progress-dot.tsx">自定义点状步骤条</code>
+<code src="./demo/progress-dot-small.tsx" debug>迷你版点状步骤条</code>
+<code src="./demo/clickable.tsx">可点击</code>
+<code src="./demo/nav.tsx">导航步骤</code>
+<code src="./demo/progress.tsx">带有进度的步骤</code>
+<code src="./demo/label-placement.tsx">标签放置位置</code>
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
-<code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
-<code src="./demo/inline.tsx">Inline Steps</code>
+<code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
+<code src="./demo/inline.tsx">内联步骤</code>
 
 ```jsx
 // >=4.24.0 可用，推荐的写法 ✅

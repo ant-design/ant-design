@@ -39,7 +39,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-You will get a theme with primary color <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`. And we can see the change in Button:
+You will get a theme with primary color <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`. And we can see the change in Button:
 
 ![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
 
@@ -69,7 +69,7 @@ const App: React.FC = () => (
 export default App;
 ```
 
-In this way, we changed the primary color of Radio to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;" /> `#00b96b`, and Checkbox is not affected.
+In this way, we changed the primary color of Radio to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b`, and Checkbox is not affected.
 
 ![component token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EMY0QrHFDjsAAAAAAAAAAAAAARQnAQ)
 
@@ -207,7 +207,7 @@ const theme = {
 ### SeedToken
 
 | 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | colorPrimary | 品牌主色 | `string` | `#1677ff` |
 | colorSuccess | 成功色 | `string` | `#52c41a` |
 | colorWarning | 警戒色 | `string` | `#faad14` |
@@ -220,13 +220,13 @@ const theme = {
 | fontSizeBase | 基础字号 | `number` | `14` |
 | gridUnit | - | `number` | `4` |
 | gridBaseStep | - | `number` | `2` |
-| lineWidth | `number` | `1` | 基础线宽 |
-| lineType | `string` | `solid` | 线条样式 |
-| motionUnit | `number` | `0.1` | 动画时长变化单位 |
-| motionBase | `number` | `0` | 动画基础时长 |
+| lineWidth | 基础线宽 | `number` | `1` |
+| lineType | 线条样式 | `string` | `solid` |
+| motionUnit | 动画时长变化单位 | `number` | `0.1` |
+| motionBase | 动画基础时长 | `number` | `0` |
 | motionEaseOutCirc | - | `string` | `cubic-bezier(0.08, 0.82, 0.17, 1)` |
-| motionEaseInOutCirc | `string` | `cubic-bezier(0.78, 0.14, 0.15, 0.86)` |
-| motionEaseOut | - | `string` | `cubic-bezier(0.215, 0.61, 0.355, 1)` | - |
+| motionEaseInOutCirc | - | `string` | `cubic-bezier(0.78, 0.14, 0.15, 0.86)` |
+| motionEaseOut | - | `string` | `cubic-bezier(0.215, 0.61, 0.355, 1)` |
 | motionEaseInOut | - | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` |
 | motionEaseOutBack | - | `string` | `cubic-bezier(0.12, 0.4, 0.29, 1.46)` |
 | motionEaseInQuint | - | `string` | `cubic-bezier(0.645, 0.045, 0.355, 1)` |

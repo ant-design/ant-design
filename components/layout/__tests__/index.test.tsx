@@ -317,12 +317,12 @@ describe('Sider', () => {
     ).toBeTruthy();
   });
 
-  ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
+  (['Layout', 'Header', 'Footer', 'Sider'] as const).forEach((tag) => {
     const ComponentMap = { Layout, Header, Footer, Sider };
     it(`should get ${tag} element from ref`, () => {
-      const ref = React.createRef<any>();
+      const ref = React.createRef<HTMLDivElement>();
       const onSelect = jest.fn();
-      const Component = ComponentMap[tag as keyof typeof ComponentMap];
+      const Component = ComponentMap[tag];
       render(
         <Component onSelect={onSelect} ref={ref}>
           {tag}

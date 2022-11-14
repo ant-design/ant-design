@@ -29,15 +29,8 @@ interface SliderToken extends FullToken<'Slider'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const {
-    componentCls,
-    controlSize,
-    dotSize,
-    marginFull,
-    marginPart,
-    colorFillContentHover,
-    antCls,
-  } = token;
+  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorFillContentHover } =
+    token;
 
   return {
     [componentCls]: {
@@ -68,10 +61,33 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         transition: `background-color ${token.motionDurationFast}`,
       },
 
+      '&:hover': {
+        [`${componentCls}-rail`]: {
+          backgroundColor: token.colorFillSecondary,
+        },
+
+        [`${componentCls}-track`]: {
+          backgroundColor: token.colorPrimaryBorderHover,
+        },
+
+        [`${componentCls}-dot`]: {
+          borderColor: colorFillContentHover,
+        },
+
+        [`${componentCls}-handle::after`]: {
+          boxShadow: `0 0 0 ${token.handleLineWidth}px ${token.colorPrimaryBorderHover}`,
+        },
+
+        [`${componentCls}-dot-active`]: {
+          borderColor: token.colorPrimary,
+        },
+      },
+
       [`${componentCls}-handle`]: {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
+        outline: 'none',
 
         [`${componentCls}-dragging`]: {
           zIndex: 1,
@@ -81,8 +97,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         '&::before': {
           content: '""',
           position: 'absolute',
-          insetInlineStart: 0,
-          insetBlockStart: 0,
+          insetInlineStart: -token.handleLineWidth,
+          insetBlockStart: -token.handleLineWidth,
           width: token.handleSize + token.handleLineWidth * 2,
           height: token.handleSize + token.handleLineWidth * 2,
           backgroundColor: 'transparent',
@@ -108,10 +124,16 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           `,
         },
 
-        '&:hover, &:active, &:focus-visible': {
+        '&:hover, &:active, &:focus': {
           '&::before': {
-            insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
-            insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
+            insetInlineStart: -(
+              (token.handleSizeHover - token.handleSize) / 2 +
+              token.handleLineWidthHover
+            ),
+            insetBlockStart: -(
+              (token.handleSizeHover - token.handleSize) / 2 +
+              token.handleLineWidthHover
+            ),
             width: token.handleSizeHover + token.handleLineWidthHover * 2,
             height: token.handleSizeHover + token.handleLineWidthHover * 2,
           },
@@ -123,32 +145,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
             insetInlineStart: (token.handleSize - token.handleSizeHover) / 2,
             insetBlockStart: (token.handleSize - token.handleSizeHover) / 2,
           },
-        },
-      },
-
-      '&:hover': {
-        [`${componentCls}-rail`]: {
-          backgroundColor: token.colorFillSecondary,
-        },
-
-        [`${componentCls}-track`]: {
-          backgroundColor: token.colorPrimaryBorderHover,
-        },
-
-        [`${componentCls}-dot`]: {
-          borderColor: colorFillContentHover,
-        },
-
-        [`${componentCls}-handle${antCls}-tooltip-open::after`]: {
-          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
-        },
-
-        [`${componentCls}-handle::after`]: {
-          boxShadow: `0 0 0 ${token.handleLineWidthHover}px ${token.colorPrimary}`,
-        },
-
-        [`${componentCls}-dot-active`]: {
-          borderColor: token.colorPrimary,
         },
       },
 

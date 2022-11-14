@@ -39,6 +39,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorWhite,
     colorBgTextHover,
     tourCloseSize,
+    motionDurationSlow,
   } = token;
 
   return [
@@ -199,7 +200,14 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         },
       },
 
-      // Limit left and right placement radius
+      // ============================= mask ===========================
+      [`${componentCls}-mask`]: {
+        [`${componentCls}-placeholder-animated`]: {
+          transition: `all ${motionDurationSlow}`,
+        },
+      },
+
+      // =========== Limit left and right placement radius ==============
       [[
         `&-placement-left`,
         `&-placement-leftTop`,
@@ -216,7 +224,8 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
         },
       },
     },
-    // Arrow Style
+
+    // ============================= Arrow ===========================
     getArrowStyle<TourToken>(token, {
       colorBg: 'var(--antd-arrow-background-color)',
       showArrowCls: '',

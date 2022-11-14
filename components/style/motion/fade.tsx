@@ -22,22 +22,26 @@ export const fadeOut = new Keyframes('antFadeOut', {
   },
 });
 
-export const initFadeMotion = (token: TokenWithCommonCls<AliasToken>): CSSInterpolation => {
+export const initFadeMotion = (
+  token: TokenWithCommonCls<AliasToken>,
+  sameLevel = false,
+): CSSInterpolation => {
   const { antCls } = token;
   const motionCls = `${antCls}-fade`;
+  const sameLevelPrefix = sameLevel ? '&' : '';
 
   return [
-    initMotion(motionCls, fadeIn, fadeOut, token.motionDurationMid),
+    initMotion(motionCls, fadeIn, fadeOut, token.motionDurationMid, sameLevel),
     {
       [`
-        ${motionCls}-enter,
-        ${motionCls}-appear
+        ${sameLevelPrefix}${motionCls}-enter,
+        ${sameLevelPrefix}${motionCls}-appear
       `]: {
         opacity: 0,
         animationTimingFunction: 'linear',
       },
 
-      [`${motionCls}-leave`]: {
+      [`${sameLevelPrefix}${motionCls}-leave`]: {
         animationTimingFunction: 'linear',
       },
     },

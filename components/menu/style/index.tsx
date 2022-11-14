@@ -140,7 +140,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             flex: 'none',
           },
         },
-        [`${componentCls}-item, ${componentCls}-submenu`]: {
+        [`${componentCls}-item, ${componentCls}-submenu, ${componentCls}-submenu-title`]: {
           borderRadius: token.radiusItem,
         },
 

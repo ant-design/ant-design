@@ -24,7 +24,7 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
   const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
@@ -107,7 +107,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
           borderRadius: token.borderRadiusSM,
           borderCollapse: 'separate',
-          transition: `all ${token.motionDurationFast}`,
+          transition: `all ${token.motionDurationSlow}`,
 
           '&:after': {
             boxSizing: 'border-box',
@@ -122,8 +122,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
             opacity: 0,
-            transition: `all ${token.motionDurationFast} cubic-bezier(.71,-.46,.88,.6), opacity ${token.motionDurationFast}`,
             content: '""',
+            transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
           },
         },
 
@@ -188,7 +188,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
+            transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
           },
         },
 

@@ -24,7 +24,7 @@ function getValidateContainer(nodeRoot: Node): Element {
   }
 
   return Array.from(nodeRoot.childNodes).find(
-    ele => ele?.nodeType === Node.ELEMENT_NODE,
+    (ele) => ele?.nodeType === Node.ELEMENT_NODE,
   ) as Element;
 }
 
@@ -70,7 +70,7 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-class InternalWave extends React.Component<WaveProps> {
+export class InternalWave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -135,9 +135,7 @@ class InternalWave extends React.Component<WaveProps> {
 
       styleForPseudo = updateCSS(
         `
-      [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls(
-          '',
-        )}-click-animating-node {
+      [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls('')}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
       }`,
         'antd-wave',
@@ -147,7 +145,7 @@ class InternalWave extends React.Component<WaveProps> {
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
+    ['transition', 'animation'].forEach((name) => {
       node.addEventListener(`${name}start`, this.onTransitionStart);
       node.addEventListener(`${name}end`, this.onTransitionEnd);
     });
@@ -180,7 +178,7 @@ class InternalWave extends React.Component<WaveProps> {
       : `${getPrefixCls('')}-click-animating-without-extra-node`;
   }
 
-  bindAnimationEvent = (node: HTMLElement) => {
+  bindAnimationEvent = (node?: HTMLElement) => {
     if (
       !node ||
       !node.getAttribute ||
@@ -230,7 +228,7 @@ class InternalWave extends React.Component<WaveProps> {
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
+    ['transition', 'animation'].forEach((name) => {
       node.removeEventListener(`${name}start`, this.onTransitionStart);
       node.removeEventListener(`${name}end`, this.onTransitionEnd);
     });

@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { Space, Button, Typography, theme } from 'antd';
+import { Button, Space, Typography } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { GroupMask } from './Group';
+import { Link, useLocation } from 'dumi';
+import * as utils from '../../../theme/utils';
 
 const locales = {
   cn: {
@@ -23,8 +25,11 @@ export interface BannerProps {
 }
 
 export default function Banner({ children }: BannerProps) {
-  const [locale] = useLocale(locales);
+  const [locale, lang] = useLocale(locales);
+  const { pathname, search } = useLocation();
   const { token } = useSiteToken();
+
+  const isZhCN = utils.isZhCN(pathname);
 
   return (
     <>
@@ -121,10 +126,14 @@ export default function Banner({ children }: BannerProps) {
           </Typography.Paragraph>
 
           <Space size="middle" style={{ marginBottom: token.marginFar }}>
-            <Button size="large" type="primary">
-              {locale.start}
-            </Button>
-            <Button size="large">{locale.designLanguage}</Button>
+            <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
+              <Button size="large" type="primary">
+                {locale.start}
+              </Button>
+            </Link>
+            <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
+              <Button size="large">{locale.designLanguage}</Button>
+            </Link>
           </Space>
 
           {children}

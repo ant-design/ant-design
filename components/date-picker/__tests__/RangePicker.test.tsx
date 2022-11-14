@@ -14,7 +14,7 @@ dayjs.extend(customParseFormat);
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
-  focusTest(RangePicker, { refFocus: true });
+  focusTest(RangePicker, { refFocus: true, blurDelay: 110 });
 
   beforeEach(() => {
     setMockDate();
@@ -66,7 +66,7 @@ describe('RangePicker', () => {
             <RangePicker
               value={this.state.value}
               mode={['month', 'month']}
-              onPanelChange={value => {
+              onPanelChange={(value) => {
                 this.setState({ value });
                 rangePickerValue = value as any;
               }}

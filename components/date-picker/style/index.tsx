@@ -7,7 +7,14 @@ import {
   genHoverStyle,
   initInputToken,
 } from '../../input/style';
-import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
+import {
+  initSlideMotion,
+  initMoveMotion,
+  slideDownIn,
+  slideDownOut,
+  slideUpIn,
+  slideUpOut,
+} from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { GlobalToken } from '../../theme/interface';
@@ -848,7 +855,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
+const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
     colorBgContainer,
@@ -905,7 +912,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
   };
 };
 
-const genPickerStyle: GenerateStyle<PickerToken> = token => {
+const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
     antCls,
@@ -952,428 +959,436 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
     presetsMaxWidth,
   } = token;
 
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-      ...genPikerPadding(token, controlHeight, fontSize, inputPaddingHorizontal),
-      position: 'relative',
-      display: 'inline-flex',
-      alignItems: 'center',
-      background: colorBgContainer,
-      border: `${lineWidth}px ${lineType} ${colorBorder}`,
-      borderRadius,
-      transition: `border ${motionDurationFast}, box-shadow ${motionDurationFast}`,
-
-      // Space.Compact
-      ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
-
-      '&:hover, &-focused': {
-        ...genHoverStyle(token),
-      },
-
-      '&-focused': {
-        ...genActiveStyle(token),
-      },
-
-      '&&-disabled': {
-        background: colorBgContainerDisabled,
-        borderColor: colorBorder,
-        cursor: 'not-allowed',
-
-        [`${componentCls}-suffix`]: {
-          color: colorTextDisabled,
-        },
-      },
-
-      '&&-borderless': {
-        backgroundColor: 'transparent !important',
-        borderColor: 'transparent !important',
-        boxShadow: 'none !important',
-      },
-
-      // ======================== Input =========================
-      [`${componentCls}-input`]: {
+  return [
+    {
+      [componentCls]: {
+        ...resetComponent(token),
+        ...genPikerPadding(token, controlHeight, fontSize, inputPaddingHorizontal),
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
-        width: '100%',
-
-        '> input': {
-          ...genBasicInputStyle(token),
-          flex: 'auto',
-
-          // Fix Firefox flex not correct:
-          // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
-          minWidth: 1,
-          height: 'auto',
-          padding: 0,
-          background: 'transparent',
-          border: 0,
-
-          '&:focus': {
-            boxShadow: 'none',
-          },
-
-          '&[disabled]': {
-            background: 'transparent',
-          },
-        },
-
-        '&:hover': {
-          [`${componentCls}-clear`]: {
-            opacity: 1,
-          },
-        },
-
-        '&-placeholder': {
-          '> input': {
-            color: colorTextPlaceholder,
-          },
-        },
-      },
-
-      // Size
-      '&-large': {
-        ...genPikerPadding(token, controlHeightLG, fontSizeLG, inputPaddingHorizontal),
-
-        [`${componentCls}-input > input`]: {
-          fontSize: fontSizeLG,
-        },
-      },
-
-      '&-small': {
-        ...genPikerPadding(token, controlHeightSM, fontSize, inputPaddingHorizontalSM),
-      },
-
-      [`${componentCls}-suffix`]: {
-        display: 'flex',
-        flex: 'none',
-        alignSelf: 'center',
-        marginInlineStart: paddingXS / 2,
-        color: colorTextDisabled,
-        lineHeight: 1,
-        pointerEvents: 'none',
-
-        '> *': {
-          verticalAlign: 'top',
-
-          '&:not(:last-child)': {
-            marginInlineEnd: marginXS,
-          },
-        },
-      },
-
-      [`${componentCls}-clear`]: {
-        position: 'absolute',
-        top: '50%',
-        insetInlineEnd: 0,
-        color: colorTextDisabled,
-        lineHeight: 1,
         background: colorBgContainer,
-        transform: 'translateY(-50%)',
-        cursor: 'pointer',
-        opacity: 0,
-        transition: `opacity ${motionDurationFast}, color ${motionDurationFast}`,
+        border: `${lineWidth}px ${lineType} ${colorBorder}`,
+        borderRadius,
+        transition: `border ${motionDurationFast}, box-shadow ${motionDurationFast}`,
 
-        '> *': {
-          verticalAlign: 'top',
+        // Space.Compact
+        ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
+
+        '&:hover, &-focused': {
+          ...genHoverStyle(token),
         },
 
-        '&:hover': {
-          color: colorTextDescription,
-        },
-      },
-
-      [`${componentCls}-separator`]: {
-        position: 'relative',
-        display: 'inline-block',
-        width: '1em',
-        height: fontSizeLG,
-        color: colorTextDisabled,
-        fontSize: fontSizeLG,
-        verticalAlign: 'top',
-        cursor: 'default',
-
-        [`${componentCls}-focused &`]: {
-          color: colorTextDescription,
+        '&-focused': {
+          ...genActiveStyle(token),
         },
 
-        [`${componentCls}-range-separator &`]: {
-          [`${componentCls}-disabled &`]: {
-            cursor: 'not-allowed',
-          },
-        },
-      },
+        '&&-disabled': {
+          background: colorBgContainerDisabled,
+          borderColor: colorBorder,
+          cursor: 'not-allowed',
 
-      // ======================== Range =========================
-      '&-range': {
-        position: 'relative',
-        display: 'inline-flex',
-
-        // Clear
-        [`${componentCls}-clear`]: {
-          insetInlineEnd: inputPaddingHorizontal,
-        },
-
-        '&:hover': {
-          [`${componentCls}-clear`]: {
-            opacity: 1,
+          [`${componentCls}-suffix`]: {
+            color: colorTextDisabled,
           },
         },
 
-        // Active bar
-        [`${componentCls}-active-bar`]: {
-          bottom: -lineWidth,
-          height: lineWidthBold,
-          marginInlineStart: inputPaddingHorizontal,
-          background: colorPrimary,
-          opacity: 0,
-          transition: `all ${motionDurationSlow} ease-out`,
-          pointerEvents: 'none',
+        '&&-borderless': {
+          backgroundColor: 'transparent !important',
+          borderColor: 'transparent !important',
+          boxShadow: 'none !important',
         },
 
-        [`&${componentCls}-focused`]: {
-          [`${componentCls}-active-bar`]: {
-            opacity: 1,
-          },
-        },
-
-        [`${componentCls}-range-separator`]: {
+        // ======================== Input =========================
+        [`${componentCls}-input`]: {
+          position: 'relative',
+          display: 'inline-flex',
           alignItems: 'center',
-          padding: `0 ${paddingXS}px`,
+          width: '100%',
+
+          '> input': {
+            ...genBasicInputStyle(token),
+            flex: 'auto',
+
+            // Fix Firefox flex not correct:
+            // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
+            minWidth: 1,
+            height: 'auto',
+            padding: 0,
+            background: 'transparent',
+            border: 0,
+
+            '&:focus': {
+              boxShadow: 'none',
+            },
+
+            '&[disabled]': {
+              background: 'transparent',
+            },
+          },
+
+          '&:hover': {
+            [`${componentCls}-clear`]: {
+              opacity: 1,
+            },
+          },
+
+          '&-placeholder': {
+            '> input': {
+              color: colorTextPlaceholder,
+            },
+          },
+        },
+
+        // Size
+        '&-large': {
+          ...genPikerPadding(token, controlHeightLG, fontSizeLG, inputPaddingHorizontal),
+
+          [`${componentCls}-input > input`]: {
+            fontSize: fontSizeLG,
+          },
+        },
+
+        '&-small': {
+          ...genPikerPadding(token, controlHeightSM, fontSize, inputPaddingHorizontalSM),
+        },
+
+        [`${componentCls}-suffix`]: {
+          display: 'flex',
+          flex: 'none',
+          alignSelf: 'center',
+          marginInlineStart: paddingXS / 2,
+          color: colorTextDisabled,
           lineHeight: 1,
+          pointerEvents: 'none',
+
+          '> *': {
+            verticalAlign: 'top',
+
+            '&:not(:last-child)': {
+              marginInlineEnd: marginXS,
+            },
+          },
         },
 
-        [`&${componentCls}-small`]: {
+        [`${componentCls}-clear`]: {
+          position: 'absolute',
+          top: '50%',
+          insetInlineEnd: 0,
+          color: colorTextDisabled,
+          lineHeight: 1,
+          background: colorBgContainer,
+          transform: 'translateY(-50%)',
+          cursor: 'pointer',
+          opacity: 0,
+          transition: `opacity ${motionDurationFast}, color ${motionDurationFast}`,
+
+          '> *': {
+            verticalAlign: 'top',
+          },
+
+          '&:hover': {
+            color: colorTextDescription,
+          },
+        },
+
+        [`${componentCls}-separator`]: {
+          position: 'relative',
+          display: 'inline-block',
+          width: '1em',
+          height: fontSizeLG,
+          color: colorTextDisabled,
+          fontSize: fontSizeLG,
+          verticalAlign: 'top',
+          cursor: 'default',
+
+          [`${componentCls}-focused &`]: {
+            color: colorTextDescription,
+          },
+
+          [`${componentCls}-range-separator &`]: {
+            [`${componentCls}-disabled &`]: {
+              cursor: 'not-allowed',
+            },
+          },
+        },
+
+        // ======================== Range =========================
+        '&-range': {
+          position: 'relative',
+          display: 'inline-flex',
+
+          // Clear
           [`${componentCls}-clear`]: {
-            insetInlineEnd: inputPaddingHorizontalSM,
+            insetInlineEnd: inputPaddingHorizontal,
           },
 
+          '&:hover': {
+            [`${componentCls}-clear`]: {
+              opacity: 1,
+            },
+          },
+
+          // Active bar
           [`${componentCls}-active-bar`]: {
-            marginInlineStart: inputPaddingHorizontalSM,
+            bottom: -lineWidth,
+            height: lineWidthBold,
+            marginInlineStart: inputPaddingHorizontal,
+            background: colorPrimary,
+            opacity: 0,
+            transition: `all ${motionDurationSlow} ease-out`,
+            pointerEvents: 'none',
           },
-        },
-      },
 
-      // ======================= Dropdown =======================
-      '&-dropdown': {
-        ...resetComponent(token),
-        ...genPanelStyle(token),
-        position: 'absolute',
-        // Fix incorrect position of picker popup
-        // https://github.com/ant-design/ant-design/issues/35590
-        top: -9999,
-        left: {
-          _skip_check_: true,
-          value: -9999,
-        },
-        zIndex: zIndexPopup,
-
-        '&&-hidden': {
-          display: 'none',
-        },
-
-        '&&-placement-bottomLeft': {
-          [`${componentCls}-range-arrow`]: {
-            top: 0,
-            display: 'block',
-            transform: 'translateY(-100%)',
+          [`&${componentCls}-focused`]: {
+            [`${componentCls}-active-bar`]: {
+              opacity: 1,
+            },
           },
-        },
 
-        '&&-placement-topLeft': {
-          [`${componentCls}-range-arrow`]: {
-            bottom: 0,
-            display: 'block',
-            transform: 'translateY(100%) rotate(180deg)',
+          [`${componentCls}-range-separator`]: {
+            alignItems: 'center',
+            padding: `0 ${paddingXS}px`,
+            lineHeight: 1,
+          },
+
+          [`&${componentCls}-small`]: {
+            [`${componentCls}-clear`]: {
+              insetInlineEnd: inputPaddingHorizontalSM,
+            },
+
+            [`${componentCls}-active-bar`]: {
+              marginInlineStart: inputPaddingHorizontalSM,
+            },
           },
         },
 
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
+        // ======================= Dropdown =======================
+        '&-dropdown': {
+          ...resetComponent(token),
+          ...genPanelStyle(token),
+          position: 'absolute',
+          // Fix incorrect position of picker popup
+          // https://github.com/ant-design/ant-design/issues/35590
+          top: -9999,
+          left: {
+            _skip_check_: true,
+            value: -9999,
+          },
+          zIndex: zIndexPopup,
+
+          '&&-hidden': {
+            display: 'none',
+          },
+
+          '&&-placement-bottomLeft': {
+            [`${componentCls}-range-arrow`]: {
+              top: 0,
+              display: 'block',
+              transform: 'translateY(-100%)',
+            },
+          },
+
+          '&&-placement-topLeft': {
+            [`${componentCls}-range-arrow`]: {
+              bottom: 0,
+              display: 'block',
+              transform: 'translateY(100%) rotate(180deg)',
+            },
+          },
+
+          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn,
-        },
+            animationName: slideDownIn,
+          },
 
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
+          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn,
-        },
+            animationName: slideUpIn,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
+          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut,
-        },
+            animationName: slideDownOut,
+          },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft,
+          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut,
-        },
-
-        // Time picker with additional style
-        [`${componentCls}-panel > ${componentCls}-time-panel`]: {
-          paddingTop: paddingXXS,
-        },
-
-        // ======================== Ranges ========================
-        [`${componentCls}-ranges`]: {
-          marginBottom: 0,
-          padding: `${paddingXXS}px ${paddingSM}px`,
-          overflow: 'hidden',
-          lineHeight: `${pickerTextHeight - 2 * lineWidth - paddingXS / 2}px`,
-          textAlign: 'start',
-          listStyle: 'none',
-          display: 'flex',
-          justifyContent: 'space-between',
-
-          '> li': {
-            display: 'inline-block',
+            animationName: slideUpOut,
           },
 
-          // https://github.com/ant-design/ant-design/issues/23687
-          [`${componentCls}-preset > ${antCls}-tag-blue`]: {
-            color: colorPrimary,
-            background: controlItemBgActive,
-            borderColor: colorPrimaryBorder,
-            cursor: 'pointer',
+          // Time picker with additional style
+          [`${componentCls}-panel > ${componentCls}-time-panel`]: {
+            paddingTop: paddingXXS,
           },
 
-          [`${componentCls}-ok`]: {
-            marginInlineStart: 'auto',
-          },
-        },
-
-        [`${componentCls}-range-wrapper`]: {
-          display: 'flex',
-          position: 'relative',
-        },
-
-        [`${componentCls}-range-arrow`]: {
-          position: 'absolute',
-          zIndex: 1,
-          display: 'none',
-          marginInlineStart: inputPaddingHorizontal * 1.5,
-          transition: `left ${motionDurationSlow} ease-out`,
-          ...roundedArrow(
-            sizePopupArrow,
-            borderRadiusXS,
-            borderRadiusOuter,
-            colorBgElevated,
-            boxShadowPopoverArrow,
-          ),
-        },
-
-        [`${componentCls}-panel-container`]: {
-          overflow: 'hidden',
-          verticalAlign: 'top',
-          background: colorBgElevated,
-          borderRadius: borderRadiusLG,
-          boxShadow: boxShadowSecondary,
-          transition: `margin ${motionDurationSlow}`,
-
-          // ======================== Layout ========================
-          [`${componentCls}-panel-layout`]: {
+          // ======================== Ranges ========================
+          [`${componentCls}-ranges`]: {
+            marginBottom: 0,
+            padding: `${paddingXXS}px ${paddingSM}px`,
+            overflow: 'hidden',
+            lineHeight: `${pickerTextHeight - 2 * lineWidth - paddingXS / 2}px`,
+            textAlign: 'start',
+            listStyle: 'none',
             display: 'flex',
-            flexWrap: 'nowrap',
-            alignItems: 'stretch',
-          },
+            justifyContent: 'space-between',
 
-          // ======================== Preset ========================
-          [`${componentCls}-presets`]: {
-            display: 'flex',
-            flexDirection: 'column',
-            minWidth: presetsWidth,
-            maxWidth: presetsMaxWidth,
+            '> li': {
+              display: 'inline-block',
+            },
 
-            ul: {
-              height: 0,
-              flex: 'auto',
-              listStyle: 'none',
-              overflow: 'auto',
-              margin: 0,
-              padding: paddingXS,
-              borderInlineEnd: `${lineWidth}px ${lineType} ${colorSplit}`,
+            // https://github.com/ant-design/ant-design/issues/23687
+            [`${componentCls}-preset > ${antCls}-tag-blue`]: {
+              color: colorPrimary,
+              background: controlItemBgActive,
+              borderColor: colorPrimaryBorder,
+              cursor: 'pointer',
+            },
 
-              li: {
-                ...textEllipsis,
-                borderRadius: borderRadiusSM,
-                paddingInline: paddingXS,
-                paddingBlock: (controlHeightSM - Math.round(fontSize * lineHeight)) / 2,
-                cursor: 'pointer',
-                transition: `all ${motionDurationSlow}`,
-
-                '+ li': {
-                  marginTop: marginXS,
-                },
-
-                '&:hover': {
-                  background: controlItemBgHover,
-                },
-              },
+            [`${componentCls}-ok`]: {
+              marginInlineStart: 'auto',
             },
           },
 
-          // ======================== Panels ========================
-          [`${componentCls}-panels`]: {
-            display: 'inline-flex',
-            flexWrap: 'nowrap',
-            direction: 'ltr',
+          [`${componentCls}-range-wrapper`]: {
+            display: 'flex',
+            position: 'relative',
+          },
+
+          [`${componentCls}-range-arrow`]: {
+            position: 'absolute',
+            zIndex: 1,
+            display: 'none',
+            marginInlineStart: inputPaddingHorizontal * 1.5,
+            transition: `left ${motionDurationSlow} ease-out`,
+            ...roundedArrow(
+              sizePopupArrow,
+              borderRadiusXS,
+              borderRadiusOuter,
+              colorBgElevated,
+              boxShadowPopoverArrow,
+            ),
+          },
+
+          [`${componentCls}-panel-container`]: {
+            overflow: 'hidden',
+            verticalAlign: 'top',
+            background: colorBgElevated,
+            borderRadius: borderRadiusLG,
+            boxShadow: boxShadowSecondary,
+            transition: `margin ${motionDurationSlow}`,
+
+            // ======================== Layout ========================
+            [`${componentCls}-panel-layout`]: {
+              display: 'flex',
+              flexWrap: 'nowrap',
+              alignItems: 'stretch',
+            },
+
+            // ======================== Preset ========================
+            [`${componentCls}-presets`]: {
+              display: 'flex',
+              flexDirection: 'column',
+              minWidth: presetsWidth,
+              maxWidth: presetsMaxWidth,
+
+              ul: {
+                height: 0,
+                flex: 'auto',
+                listStyle: 'none',
+                overflow: 'auto',
+                margin: 0,
+                padding: paddingXS,
+                borderInlineEnd: `${lineWidth}px ${lineType} ${colorSplit}`,
+
+                li: {
+                  ...textEllipsis,
+                  borderRadius: borderRadiusSM,
+                  paddingInline: paddingXS,
+                  paddingBlock: (controlHeightSM - Math.round(fontSize * lineHeight)) / 2,
+                  cursor: 'pointer',
+                  transition: `all ${motionDurationSlow}`,
+
+                  '+ li': {
+                    marginTop: marginXS,
+                  },
+
+                  '&:hover': {
+                    background: controlItemBgHover,
+                  },
+                },
+              },
+            },
+
+            // ======================== Panels ========================
+            [`${componentCls}-panels`]: {
+              display: 'inline-flex',
+              flexWrap: 'nowrap',
+              direction: 'ltr',
+
+              [`${componentCls}-panel`]: {
+                borderWidth: `0 0 ${lineWidth}px`,
+              },
+
+              '&:last-child': {
+                [`${componentCls}-panel`]: {
+                  borderWidth: 0,
+                },
+              },
+            },
 
             [`${componentCls}-panel`]: {
-              borderWidth: `0 0 ${lineWidth}px`,
-            },
+              verticalAlign: 'top',
+              background: 'transparent',
+              borderRadius: 0,
+              borderWidth: 0,
 
-            '&:last-child': {
-              [`${componentCls}-panel`]: {
-                borderWidth: 0,
+              [`${componentCls}-content,
+            table`]: {
+                textAlign: 'center',
+              },
+
+              '&-focused': {
+                borderColor: colorBorder,
               },
             },
           },
+        },
 
-          [`${componentCls}-panel`]: {
-            verticalAlign: 'top',
-            background: 'transparent',
-            borderRadius: 0,
-            borderWidth: 0,
+        '&-dropdown-range': {
+          padding: `${(sizePopupArrow * 2) / 3}px 0`,
 
-            [`${componentCls}-content,
-            table`]: {
-              textAlign: 'center',
-            },
-
-            '&-focused': {
-              borderColor: colorBorder,
-            },
+          '&-hidden': {
+            display: 'none',
           },
         },
-      },
 
-      '&-dropdown-range': {
-        padding: `${(sizePopupArrow * 2) / 3}px 0`,
+        '&-rtl': {
+          direction: 'rtl',
 
-        '&-hidden': {
-          display: 'none',
-        },
-      },
+          [`${componentCls}-separator`]: {
+            transform: 'rotate(180deg)',
+          },
 
-      '&-rtl': {
-        direction: 'rtl',
-
-        [`${componentCls}-separator`]: {
-          transform: 'rotate(180deg)',
-        },
-
-        [`${componentCls}-footer`]: {
-          '&-extra': {
-            direction: 'rtl',
+          [`${componentCls}-footer`]: {
+            '&-extra': {
+              direction: 'rtl',
+            },
           },
         },
       },
     },
-  };
+
+    // Follow code may reuse in other components
+    initSlideMotion(token, 'slide-up'),
+    initSlideMotion(token, 'slide-down'),
+    initMoveMotion(token, 'move-up'),
+    initMoveMotion(token, 'move-down'),
+  ];
 };
 
 export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): PickerPanelToken => {
@@ -1403,14 +1418,14 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'DatePicker',
-  token => {
+  (token) => {
     const pickerToken = mergeToken<PickerToken>(
       initInputToken<FullToken<'DatePicker'>>(token),
       initPickerPanelToken(token),
     );
     return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
   },
-  token => ({
+  (token) => ({
     presetsWidth: 120,
     presetsMaxWidth: 200,
     zIndexPopup: token.zIndexPopupBase + 50,

@@ -15,5 +15,5 @@ module.exports = {
   testRegex: 'node\\.test\\.(j|t)sx$',
   testEnvironment: 'node',
   transformIgnorePatterns,
-  bail: true,
+  // bail: true,
 };

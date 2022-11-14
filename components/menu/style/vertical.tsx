@@ -29,14 +29,10 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       textOverflow: 'ellipsis',
     },
 
-    [`${componentCls}-item`]: {
+    [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       marginInline: itemMarginInline,
       marginBlock: menuItemMarginInline,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
-    },
-
-    [`${componentCls}-submenu-title`]: {
-      marginBlock: menuItemMarginInline,
     },
 
     // disable margin collapsed
@@ -73,6 +69,13 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
     paddingXS,
     boxShadowSecondary,
   } = token;
+
+  const inlineItemStyle: CSSObject = {
+    height: menuItemHeight,
+    lineHeight: `${menuItemHeight}px`,
+    listStylePosition: 'inside',
+    listStyleType: 'disc',
+  };
 
   return [
     {
@@ -148,18 +151,15 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
           borderRadius: 0,
           boxShadow: 'none',
 
-          [`& > ${componentCls}-item,
-             & > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-            height: menuItemHeight,
-            lineHeight: `${menuItemHeight}px`,
-            listStylePosition: 'inside',
-            listStyleType: 'disc',
-          },
+          [`& > ${componentCls}-submenu > ${componentCls}-submenu-title`]: inlineItemStyle,
 
           [`& ${componentCls}-item-group-title`]: {
             paddingInlineStart: paddingXL,
           },
         },
+
+        // >>>>> Item
+        [`${componentCls}-item`]: inlineItemStyle,
       },
     },
 
