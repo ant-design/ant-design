@@ -512,6 +512,44 @@ Array [
         />
       </div>
     </li>
+    <li
+      class="ant-menu-item-group"
+    >
+      <div
+        class="ant-menu-item-group-title"
+        title="Group"
+      >
+        Group
+      </div>
+      <ul
+        class="ant-menu-item-group-list"
+      >
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          role="menuitem"
+          style="padding-left:24px"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 13
+          </span>
+        </li>
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          role="menuitem"
+          style="padding-left:24px"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            Option 14
+          </span>
+        </li>
+      </ul>
+    </li>
   </ul>,
   <div
     aria-hidden="true"

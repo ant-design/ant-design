@@ -26,7 +26,7 @@ interface TimelineType extends React.FC<TimelineProps> {
   Item: React.FC<TimelineItemProps>;
 }
 
-const Timeline: TimelineType = props => {
+const Timeline: TimelineType = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -51,7 +51,7 @@ const Timeline: TimelineType = props => {
   ) : null;
 
   const timeLineItems = React.Children.toArray(children);
-  timeLineItems.push(pendingItem as any);
+  timeLineItems.push(pendingItem!);
   if (reverse) {
     timeLineItems.reverse();
   }
@@ -69,7 +69,7 @@ const Timeline: TimelineType = props => {
   };
 
   // Remove falsy items
-  const truthyItems = timeLineItems.filter(item => !!item);
+  const truthyItems = timeLineItems.filter((item) => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
   const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {

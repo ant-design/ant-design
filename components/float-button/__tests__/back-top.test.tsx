@@ -44,4 +44,10 @@ describe('BackTop', () => {
     fireEvent.click(container.querySelector('.ant-float-btn')!);
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('pass style to float button', () => {
+    const { container } = render(<BackTop style={{ color: 'red' }} visible target={undefined} />);
+    const btn = container.querySelector('.ant-float-btn')!;
+    expect(btn).toHaveAttribute('style', 'color: red;');
+  });
 });

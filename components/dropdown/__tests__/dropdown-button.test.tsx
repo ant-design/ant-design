@@ -14,7 +14,7 @@ jest.mock('../dropdown', () => {
 
   const MockedDropdown: React.FC<DropdownProps> & {
     Button: typeof ActualDropdownComponent.Button;
-  } = props => {
+  } = (props) => {
     dropdownProps = props;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
@@ -130,5 +130,19 @@ describe('DropdownButton', () => {
     expect(container.querySelector('.ant-dropdown-button .ant-btn-loading')?.classList).toContain(
       'ant-btn',
     );
+  });
+  it('should console Error then `overlay` in props', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DropdownButton overlay={<div>test</div>} />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
+    );
+    errSpy.mockRestore();
+  });
+  it('should not console Error then `overlay` not in props', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DropdownButton />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 });

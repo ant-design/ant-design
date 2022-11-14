@@ -70,6 +70,13 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
     boxShadowSecondary,
   } = token;
 
+  const inlineItemStyle: CSSObject = {
+    height: menuItemHeight,
+    lineHeight: `${menuItemHeight}px`,
+    listStylePosition: 'inside',
+    listStyleType: 'disc',
+  };
+
   return [
     {
       [componentCls]: {
@@ -144,18 +151,15 @@ const getVerticalStyle: GenerateStyle<MenuToken> = token => {
           borderRadius: 0,
           boxShadow: 'none',
 
-          [`& > ${componentCls}-item,
-             & > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-            height: menuItemHeight,
-            lineHeight: `${menuItemHeight}px`,
-            listStylePosition: 'inside',
-            listStyleType: 'disc',
-          },
+          [`& > ${componentCls}-submenu > ${componentCls}-submenu-title`]: inlineItemStyle,
 
           [`& ${componentCls}-item-group-title`]: {
             paddingInlineStart: paddingXL,
           },
         },
+
+        // >>>>> Item
+        [`${componentCls}-item`]: inlineItemStyle,
       },
     },
 

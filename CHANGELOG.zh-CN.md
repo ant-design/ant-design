@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 4.24.2
+
+`2022-11-12`
+
+- Image
+  - 💄 优化 Image 预览图片的工具栏显示动画的效果，现在工具条不再用缩放动画进场。[#36456](https://github.com/ant-design/ant-design/pull/36456)
+  - 🐞 修复 Image 预览图片没有展现错误图片的问题。[#38112](https://github.com/ant-design/ant-design/pull/38112)
+- Typography
+  - 🐞 修复 Typography.Paragraph 在宽度较短时可能出现闪动的问题。[#38439](https://github.com/ant-design/ant-design/pull/38439) [@tinyfind](https://github.com/tinyfind)
+  - 🐞 修复一个 Typography.Text 在 List 内 tooltip 不显示的问题。[#38431](https://github.com/ant-design/ant-design/pull/38431) [@crazyair](https://github.com/crazyair)
+- 🐞 修复 Menu 收起时 SubMenu 闪动的问题。[#36636](https://github.com/ant-design/ant-design/issues/36636) [@JarvisArt](https://github.com/JarvisArt)
+- 🐞 修复 RangePicker 选择日期过程中触发 `onBlur` 的问题。[#38411](https://github.com/ant-design/ant-design/pull/38411) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Result `icon` 为 `null` 时图标没有隐藏的问题。[#38488](https://github.com/ant-design/ant-design/pull/38488)
+- 🐞 修复 Dropdown.Button 出现 `overlay is deprecated` 警告的问题。[#38446](https://github.com/ant-design/ant-design/pull/38446) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛎 优化 Form 的相关控制台提示的表述。[#38038](https://github.com/ant-design/ant-design/pull/38038) [@cincodenada](https://github.com/cincodenada)
+- 🛠 修复 Tree 模块循环导入的问题。[#38421](https://github.com/ant-design/ant-design/pull/38421) [@KotoriK](https://github.com/KotoriK)
+- 🐞 修复当 Affix 隐藏切换到显示时会出现抖动。[#38410](https://github.com/ant-design/ant-design/pull/38410) [@imoctopus](https://github.com/imoctopus)
+- 🐞 修复 Pagination `showTotal` 属性在 `simple` 模式下不生效的问题。[#38399](https://github.com/ant-design/ant-design/pull/38399)
+- 🐞 修复 Modal.confirm 关闭中确认按钮依旧可能被触发的问题。[#38400](https://github.com/ant-design/ant-design/pull/38400)
+- 🐞 修复在 Drawer `extra` 中使用 Radio.Group 的样式问题。[#38385](https://github.com/ant-design/ant-design/pull/38385)
+- ⌨️ 修复 Table 组件 `aria-label` 出现 `[object Object]` 的问题。[#38389](https://github.com/ant-design/ant-design/pull/38389) [@kiner-tang](https://github.com/kiner-tang)
+- ⌨️ Progress 组件增加 `role="progressbar"` 。[#38447](https://github.com/ant-design/ant-design/pull/38447) [@kpustakhod](https://github.com/kpustakhod)
+
 ## 4.24.1
 
 `2022-11-04`

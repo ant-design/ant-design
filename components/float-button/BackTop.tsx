@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { memo, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { memo, useContext, useEffect, useRef } from 'react';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -11,7 +11,7 @@ import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 import FloatButtonGroupContext from './context';
-import type { BackTopProps, FloatButtonContentProps, FloatButtonShape } from './interface';
+import type { BackTopProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
 const BackTop: React.FC<BackTopProps> = props => {
@@ -22,10 +22,10 @@ const BackTop: React.FC<BackTopProps> = props => {
     shape = 'circle',
     visibilityHeight = 400,
     icon = <VerticalAlignTopOutlined />,
-    description,
     target,
     onClick,
     duration = 450,
+    ...restProps
   } = props;
 
   const [visible, setVisible] = useMergedState(false, { value: props.visible });
@@ -80,10 +80,7 @@ const BackTop: React.FC<BackTopProps> = props => {
 
   const mergeShape = groupShape || shape;
 
-  const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type, shape: mergeShape }),
-    [prefixCls, description, icon, type, mergeShape],
-  );
+  const contentProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
 
   return wrapSSR(
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>

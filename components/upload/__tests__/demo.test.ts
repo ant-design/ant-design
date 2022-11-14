@@ -1,3 +1,3 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('upload');
+demoTest('upload', { skip: ['crop-image.tsx'] });

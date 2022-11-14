@@ -3,6 +3,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { render, waitFakeTimer, fireEvent, act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
+import type { InternalWave } from '../wave';
 
 describe('Wave component', () => {
   mountTest(Wave);
@@ -194,7 +195,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent should return when node is null', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<InternalWave>();
     render(
       <Wave ref={ref}>
         <button type="button" disabled>
@@ -206,7 +207,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent.onClick should return when children is hidden', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<InternalWave>();
     render(
       <Wave ref={ref}>
         <button type="button" style={{ display: 'none' }}>
@@ -218,7 +219,7 @@ describe('Wave component', () => {
   });
 
   it('bindAnimationEvent.onClick should return when children is input', () => {
-    const ref = React.createRef<any>();
+    const ref = React.createRef<InternalWave>();
     render(
       <Wave ref={ref}>
         <input />
