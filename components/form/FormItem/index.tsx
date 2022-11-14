@@ -276,13 +276,13 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
-          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/#form-deps.",
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/form-deps.",
         );
         if (Array.isArray(children) && hasName) {
           warning(
             false,
             'Form.Item',
-            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/#complex-form-item.',
+            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/complex-form-item.',
           );
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {

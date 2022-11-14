@@ -212,7 +212,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/#form-deps.",
+      "Warning: [antd: Form.Item] `shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/form-deps.",
     );
   });
 
@@ -239,7 +239,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Form.Item] A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/#complex-form-item.',
+      'Warning: [antd: Form.Item] A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/complex-form-item.',
     );
   });
 
