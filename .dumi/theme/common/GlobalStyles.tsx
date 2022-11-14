@@ -1443,15 +1443,6 @@ const GlobalStyles = () => {
           }
 
           @media only screen and (max-width: ${token.screenLG}px) {
-            .main-container {
-              padding-right: 48px;
-              padding-left: 48px;
-
-              .toc-affix {
-                display: none;
-              }
-            }
-
             .code-boxes-col-2-1,
             .code-boxes-col-1-1 {
               float: none;
@@ -1501,8 +1492,7 @@ const GlobalStyles = () => {
               border-right: 0;
             }
 
-            .main-container,
-            .ant-row-rtl .main-container {
+            .ant-row-rtl {
               margin-right: 0;
               margin-left: 0;
               padding-right: 16px;
