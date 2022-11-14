@@ -72,27 +72,6 @@ const useStyle = () => {
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
-
-        ::-webkit-scrollbar {
-          width: 8px;
-          background-color: transparent;
-        }
-
-        /* background of the scrollbar except button or resizer */
-        ::-webkit-scrollbar-track {
-          background-color: transparent;
-        }
-
-        /* scrollbar itself */
-        ::-webkit-scrollbar-thumb {
-          background-color: ${token.colorFill};
-          border-radius: 8px;
-        }
-
-        /* set button(top and bottom of the scrollbar) */
-        ::-webkit-scrollbar-button {
-          display: none;
-        }
       }
     `,
   };
@@ -144,11 +123,11 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
           <div css={styles.tocWrapper}>
             <div>
               <Anchor css={styles.toc} affix={false} showInkInFixed>
-                {anchorItems.map(item => (
+                {anchorItems.map((item) => (
                   <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
                     {item.children
-                      ?.filter(child => showDebug || !debugDemos.includes(child.id))
-                      .map(child => (
+                      ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                      .map((child) => (
                         <Anchor.Link
                           href={`#${child.id}`}
                           title={
