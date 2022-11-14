@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type { HelmetProps } from 'react-helmet-async';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'dumi';
 
+type HelmetProps = Helmet['props'];
 export interface WrapHelmetProps extends HelmetProps {
   children?: React.ReactNode;
 }

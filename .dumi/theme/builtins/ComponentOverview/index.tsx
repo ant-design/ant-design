@@ -1,6 +1,5 @@
 import React, { useState, memo, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link, useRouteMeta, useIntl, useSidebarData } from 'dumi';
+import { Link, useRouteMeta, useIntl, useSidebarData, Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import debounce from 'lodash/debounce';
 import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
