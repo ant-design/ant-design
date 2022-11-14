@@ -67,6 +67,7 @@ const useStyle = () => {
         &${antCls}-menu-inline {
           ${antCls}-menu-item-group-title {
             padding-left: 60px;
+            margin-left: 4px;
 
             ${antCls}-row-rtl & {
               padding-right: 60px;
@@ -137,7 +138,7 @@ const Sidebar: FC = () => {
       css={styles.asideContainer}
       mode="inline"
       selectedKeys={[selectedKey]}
-      defaultOpenKeys={sidebarData?.map(({ title }) => title).filter(item => item) as string[]}
+      defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
     />
   );
 
