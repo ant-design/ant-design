@@ -1,6 +1,5 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
-
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
@@ -23,7 +22,7 @@ export interface BreadcrumbItemProps {
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
 }
-const BreadcrumbItem: BreadcrumbItemInterface = props => {
+const BreadcrumbItem: BreadcrumbItemInterface = (props) => {
   const {
     prefixCls: customizePrefixCls,
     separator = '/',
