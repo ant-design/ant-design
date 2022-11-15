@@ -15,7 +15,9 @@ import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
 import { getConfirmLocale } from './locale';
 
-let mousePosition: { x: number; y: number } | null;
+type MousePosition = { x: number; y: number } | null;
+
+let mousePosition: MousePosition;
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -91,6 +93,7 @@ export interface ModalProps {
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
+  mousePosition?: MousePosition;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -231,7 +234,7 @@ const Modal: React.FC<ModalProps> = props => {
         wrapClassName={wrapClassNameExtended}
         footer={footer === undefined ? defaultFooter : footer}
         visible={open || visible}
-        mousePosition={mousePosition}
+        mousePosition={restProps.mousePosition ?? mousePosition}
         onClose={handleCancel}
         closeIcon={closeIconToRender}
         focusTriggerAfterClose={focusTriggerAfterClose}
