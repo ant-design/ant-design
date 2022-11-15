@@ -42,7 +42,7 @@ const App: React.FC = () => {
         open={isModalOpen} 
         onOk={handleOk} 
         onCancel={handleCancel} 
-        mousePosition={{x: 300, y: 300}}
+        mousePosition={{ x: 300, y: 300 }}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
