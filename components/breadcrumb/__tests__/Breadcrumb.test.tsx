@@ -181,6 +181,7 @@ describe('Breadcrumb', () => {
     expect(container.querySelectorAll('.ant-breadcrumb-link')[1].textContent).toBe('0');
     expect(container.firstChild).toMatchSnapshot();
   });
+
   it('should console Error then `overlay` in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
@@ -193,6 +194,7 @@ describe('Breadcrumb', () => {
     );
     errSpy.mockRestore();
   });
+  
   it('should not console Error then `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Breadcrumb routes={[{ path: '/', breadcrumbName: 'Test' }]} />);
