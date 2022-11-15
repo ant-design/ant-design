@@ -47,6 +47,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
 | onOk | 点击确定回调 | function(e) | - |  |
+| mousePosition | 接收外部传入的坐标信息用于控制弹框缩放起始和目标位置 | { x: number; y: number } | null | - |  |
 
 #### 注意
 
