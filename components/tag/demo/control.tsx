@@ -57,7 +57,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space wrap value={[8,0]}>
+    <Space wrap value={[8, 0]}>
       {tags.map((tag, index) => {
         if (editInputIndex === index) {
           return (

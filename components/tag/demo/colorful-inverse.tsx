@@ -4,7 +4,7 @@ import { Divider, Space, Tag } from 'antd';
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets Inverse</Divider>
-    <Space wrap value={[8,0]}>
+    <Space wrap value={[8, 0]}>
       <Tag color="magenta-inverse">magenta</Tag>
       <Tag color="red-inverse">red</Tag>
       <Tag color="volcano-inverse">volcano</Tag>

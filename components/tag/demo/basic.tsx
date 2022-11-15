@@ -11,7 +11,7 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
 };
 
 const App: React.FC = () => (
-  <Space wrap value={[8,0]}>
+  <Space wrap value={[8, 0]}>
     <Tag>Tag 1</Tag>
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>

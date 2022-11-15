@@ -3,7 +3,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 import { Space, Tag } from 'antd';
 
 const App: React.FC = () => (
-  <Space wrap value={[8,0]}>
+  <Space wrap value={[8, 0]}>
     <Tag closable closeIcon="关 闭">
       Tag1
     </Tag>

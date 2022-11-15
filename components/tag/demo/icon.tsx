@@ -8,7 +8,7 @@ import {
 import { Space, Tag } from 'antd';
 
 const App: React.FC = () => (
-  <Space wrap value={[8,0]}>
+  <Space wrap value={[8, 0]}>
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter
     </Tag>
