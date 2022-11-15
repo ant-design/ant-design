@@ -14,6 +14,7 @@ import CodePenIcon from '../../common/CodePenIcon';
 import CodePreview from '../../common/CodePreview';
 import CodeSandboxIcon from '../../common/CodeSandboxIcon';
 import RiddleIcon from '../../common/RiddleIcon';
+import ExternalLinkIcon from '../../common/ExternalLinkIcon';
 import fromDumiProps from './fromDumiProps';
 
 const { ErrorBoundary } = Alert;
@@ -456,6 +457,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 })}
               </Tooltip>
             </CopyToClipboard>
+            <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
+              <a className="code-box-code-action" target="_blank" rel="noreferer" href={src}>
+                <ExternalLinkIcon className="code-box-separate" />
+              </a>
+            </Tooltip>
+
             <Tooltip
               title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >

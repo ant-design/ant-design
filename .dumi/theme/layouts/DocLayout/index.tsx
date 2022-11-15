@@ -1,5 +1,5 @@
 import React, { type FC, useEffect, useMemo, useRef } from 'react';
-import { useOutlet, useSearchParams } from 'dumi';
+import { useOutlet, useSearchParams, Helmet } from 'dumi';
 import Header from 'dumi/theme/slots/Header';
 import Footer from 'dumi/theme/slots/Footer';
 import '../../static/style';
@@ -7,7 +7,6 @@ import useLocation from '../../../hooks/useLocation';
 import SiteContext from '../../slots/SiteContext';
 import ConfigProvider, { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import useLocale from '../../../hooks/useLocale';
 import zhCN from 'antd/es/locale/zh_CN';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
@@ -117,32 +116,30 @@ const DocLayout: FC = () => {
   return (
     <StyleProvider cache={styleCache}>
       <SiteContext.Provider value={{ isMobile, direction }}>
-        <HelmetProvider context={{}}>
-          <Helmet encodeSpecialCharacters={false}>
-            <html
-              lang={lang}
-              data-direction={direction}
-              className={classNames({ [`rtl`]: direction === 'rtl' })}
-            />
-            <title>{locale.title}</title>
-            <link
-              sizes="144x144"
-              href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-            />
-            <meta name="description" content={locale.description} />
-            <meta property="og:title" content={locale.title} />
-            <meta property="og:type" content="website" />
-            <meta
-              property="og:image"
-              content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-            />
-          </Helmet>
-          <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
-            <GlobalStyles />
-            <Header changeDirection={changeDirection} />
-            {content}
-          </ConfigProvider>
-        </HelmetProvider>
+        <Helmet encodeSpecialCharacters={false}>
+          <html
+            lang={lang}
+            data-direction={direction}
+            className={classNames({ [`rtl`]: direction === 'rtl' })}
+          />
+          <title>{locale.title}</title>
+          <link
+            sizes="144x144"
+            href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+          />
+          <meta name="description" content={locale.description} />
+          <meta property="og:title" content={locale.title} />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:image"
+            content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+          />
+        </Helmet>
+        <ConfigProvider locale={lang === 'cn' ? zhCN : undefined} direction={direction}>
+          <GlobalStyles />
+          <Header changeDirection={changeDirection} />
+          {content}
+        </ConfigProvider>
       </SiteContext.Provider>
     </StyleProvider>
   );

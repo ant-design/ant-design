@@ -1,4 +1,4 @@
-import React, { ReactNode, type FC, useMemo, useState, useLayoutEffect } from 'react';
+import React, { ReactNode, type FC, useMemo, useState, useLayoutEffect, useContext } from 'react';
 import { useIntl, useRouteMeta } from 'dumi';
 import Footer from 'dumi/theme/slots/Footer';
 import { Col, Typography, Avatar, Tooltip, Affix, Anchor } from 'antd';
@@ -11,6 +11,7 @@ import { css } from '@emotion/react';
 import PrevAndNext from '../../common/PrevAndNext';
 import DemoContext, { DemoContextProps } from '../DemoContext';
 import classNames from 'classnames';
+import SiteContext from '../SiteContext';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -72,26 +73,28 @@ const useStyle = () => {
         margin: 0 auto;
         overflow: auto;
         padding-inline: 4px;
+      }
 
-        ::-webkit-scrollbar {
-          width: 8px;
-          background-color: transparent;
-        }
+      &.rtl {
+        right: auto;
+        left: 20px;
+      }
 
-        /* background of the scrollbar except button or resizer */
-        ::-webkit-scrollbar-track {
-          background-color: transparent;
-        }
+      @media only screen and (max-width: ${token.screenLG}px) {
+        display: none;
+      }
+    `,
+    articleWrapper: css`
+      padding: 0 170px 32px 64px;
 
-        /* scrollbar itself */
-        ::-webkit-scrollbar-thumb {
-          background-color: ${token.colorFill};
-          border-radius: 8px;
-        }
+      &.rtl {
+        padding: 0 64px 144px 170px;
+      }
 
-        /* set button(top and bottom of the scrollbar) */
-        ::-webkit-scrollbar-button {
-          display: none;
+      @media only screen and (max-width: ${token.screenLG}px) {
+        &, &.rtl {
+          padding-right: 48px;
+          padding-left: 48px;
         }
       }
     `,
@@ -109,6 +112,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const { pathname } = useLocation();
   const { formatMessage } = useIntl();
   const styles = useStyle();
+  const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
   const [debugDemos, setDebugDemos] = useState<string[]>([]);
@@ -137,37 +141,37 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
     }, []);
   }, [meta.toc]);
 
+  const isRTL = direction === 'rtl';
+
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <Affix>
-          <div css={styles.tocWrapper}>
-            <div>
-              <Anchor css={styles.toc} affix={false} showInkInFixed>
-                {anchorItems.map(item => (
-                  <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
-                    {item.children
-                      ?.filter(child => showDebug || !debugDemos.includes(child.id))
-                      .map(child => (
-                        <Anchor.Link
-                          href={`#${child.id}`}
-                          title={
-                            <span
-                              className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
-                            >
-                              {child.title}
-                            </span>
-                          }
-                          key={child.id}
-                        />
-                      ))}
-                  </Anchor.Link>
-                ))}
-              </Anchor>
-            </div>
-          </div>
+          <section css={styles.tocWrapper} className={classNames({ rtl: isRTL })}>
+            <Anchor css={styles.toc} affix={false} showInkInFixed>
+              {anchorItems.map((item) => (
+                <Anchor.Link href={`#${item.id}`} title={item.title} key={item.id}>
+                  {item.children
+                    ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+                    .map((child) => (
+                      <Anchor.Link
+                        href={`#${child.id}`}
+                        title={
+                          <span
+                            className={classNames(debugDemos.includes(child.id) && 'toc-debug')}
+                          >
+                            {child.title}
+                          </span>
+                        }
+                        key={child.id}
+                      />
+                    ))}
+                </Anchor.Link>
+              ))}
+            </Anchor>
+          </section>
         </Affix>
-        <div style={{ padding: '0 170px 32px 64px' }}>
+        <article css={styles.articleWrapper} className={classNames({ rtl: isRTL })}>
           <Typography.Title style={{ fontSize: 30 }}>
             {meta.frontmatter.title}
             {meta.frontmatter.subtitle && (
@@ -207,7 +211,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
             repo="ant-design"
             owner="ant-design"
           />
-        </div>
+        </article>
         <PrevAndNext />
         <Footer />
       </Col>
