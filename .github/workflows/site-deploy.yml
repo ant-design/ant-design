@@ -10,7 +10,7 @@ permissions:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
+    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false || startsWith(github.event.ref, '4.'))
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -66,5 +66,6 @@ jobs:
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: ${{ secrets.SITE_4X_DEPLOY_KEY }}
+          external_repository: ant-design/4x.ant.design
           publish_dir: ./_site
