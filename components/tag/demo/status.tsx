@@ -12,7 +12,7 @@ import { Divider, Space, Tag } from 'antd';
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
-    <Space wrap value={[8, 0]}>
+    <Space wrap size={[8, 0]}>
       <Tag color="success">success</Tag>
       <Tag color="processing">processing</Tag>
       <Tag color="error">error</Tag>
@@ -20,7 +20,7 @@ const App: React.FC = () => (
       <Tag color="default">default</Tag>
     </Space>
     <Divider orientation="left">With icon</Divider>
-    <Space wrap value={[8, 0]}>
+    <Space wrap size={[8, 0]}>
       <Tag icon={<CheckCircleOutlined />} color="success">
         success
       </Tag>
