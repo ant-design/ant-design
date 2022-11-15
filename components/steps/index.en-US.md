@@ -3,8 +3,6 @@ category: Components
 group: Navigation
 title: Steps
 cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
-demo:
-  cols: 2
 ---
 
 `Steps` is a navigation bar that guides users through the steps of a task.
@@ -15,9 +13,19 @@ When a given task is complicated or has a certain sequence in the series of subt
 
 ### Usage upgrade after 4.24.0
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Steps items={[...]} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+<Alert message="After version 4.24.0, we provide a simpler usage &lt;Steps items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
+
+```jsx
+// works when >=4.24.0, recommended ✅
+const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
+return <Steps items={items} />;
+
+// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
+<Steps>
+  <Step title="first step" />
+  <Step title="second step" />
+  <Step title="third step" />
+</Steps>;
 ```
 
 ## Examples
@@ -40,21 +48,6 @@ ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
-
-## API
-
-```jsx
-// works when >=4.24.0, recommended ✅
-const items = [{ title: 'first step' }, { title: 'second step' }, { title: 'third step' }];
-return <Steps items={items} />;
-
-// works when <4.24.0, deprecated when >=4.24.0 🙅🏻‍♀️
-<Steps>
-  <Step title="first step" />
-  <Step title="second step" />
-  <Step title="third step" />
-</Steps>;
-```
 
 ## API
 

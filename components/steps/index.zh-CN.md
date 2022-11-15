@@ -4,8 +4,6 @@ subtitle: 步骤条
 group: 导航
 title: Steps
 cover: https://gw.alipayobjects.com/zos/antfincdn/UZYqMizXHaj/Steps.svg
-demo:
-  cols: 2
 ---
 
 引导用户按照流程完成任务的导航条。
@@ -16,9 +14,19 @@ demo:
 
 ### 4.24.0 用法升级
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Steps items={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
+<Alert message="在 4.24.0 版本后，我们提供了 &lt;Steps items={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
+
+```jsx
+// >=4.24.0 可用，推荐的写法 ✅
+const items = [{ title: '第一步' }, { title: '第二步' }, { title: '第三步' }];
+return <Steps items={items} />;
+
+// <4.24.0 可用，>=4.24.0 时不推荐 🙅🏻‍♀️
+<Steps>
+  <Step title="第一步" />
+  <Step title="第二步" />
+  <Step title="第三步" />
+</Steps>;
 ```
 
 ## 代码演示
@@ -41,19 +49,6 @@ ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Steps it
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>
-
-```jsx
-// >=4.24.0 可用，推荐的写法 ✅
-const items = [{ title: '第一步' }, { title: '第二步' }, { title: '第三步' }];
-return <Steps items={items} />;
-
-// <4.24.0 可用，>=4.24.0 时不推荐 🙅🏻‍♀️
-<Steps>
-  <Step title="第一步" />
-  <Step title="第二步" />
-  <Step title="第三步" />
-</Steps>;
-```
 
 ## API
 
