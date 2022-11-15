@@ -32,54 +32,13 @@ title: 介绍
 
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
-```__react
-import {
-  ExportOutlined,
-} from '@ant-design/icons';
-
-const LinkIcon = () => (
-  <ExportOutlined className="outside-link-icon" />
-);
-
-const LinksList = () => (
-  <ul>
-    <li>
-      <a href="/docs/react/introduce" target="_blank">Ant Design of React</a>
-      （官方实现）
-    </li>
-    <li>
-      <a href="http://ng.ant.design" target="_blank">
-        NG-ZORRO - Ant Design of Angular
-      </a>
-    </li>
-    <li>
-      <a href="http://ng.mobile.ant.design" target="_blank">
-        NG-ZORRO-MOBILE - Ant Design Mobile of Angular
-      </a>
-    </li>
-    <li>
-      <a href="http://antdv.com" target="_blank">Ant Design of Vue</a>
-    </li>
-    <li>
-      <a href="https://ant-design-blazor.github.io/" target="_blank">
-        Ant Design Blazor
-      </a>
-    </li>
-    <li>
-      <a href="https://ecomfe.github.io/santd" target="_blank">
-        San UI Toolkit for Ant Design
-      </a>
-    </li>
-    <li>
-      <a href="https://github.com/priornix/antizer" target="_blank">
-        antizer (ClojureScript)
-      </a>
-    </li>
-  </ul>
-);
-
-ReactDOM.render(<LinksList />, mountNode);
-```
+- [Ant Design of React](/docs/react/introduce)（官方实现）
+- [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)
+- [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)
+- [Ant Design of Vue](http://antdv.com)
+- [Ant Design Blazor](https://ant-design-blazor.github.io/)
+- [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)
+- [antizer (ClojureScript)](https://github.com/priornix/antizer)
 
 ## 谁在使用
 
