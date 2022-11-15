@@ -61,7 +61,7 @@ const GlobalStyles = () => {
           ol {
             list-style: none;
           }
-
+          
           img {
             vertical-align: middle;
             border-style: none;
@@ -840,9 +840,6 @@ const GlobalStyles = () => {
             &,
             .code-box-demo {
               background-color: ${token.colorBgContainer};
-              .ant-tag {
-                  margin-bottom: 8px;
-              }
             }
 
             .markdown {
