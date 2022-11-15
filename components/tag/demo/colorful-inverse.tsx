@@ -1,10 +1,10 @@
 import React from 'react';
-import { Divider, Tag } from 'antd';
+import { Divider, Space, Tag } from 'antd';
 
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets Inverse</Divider>
-    <div>
+    <Space wrap value={[8,0]}>
       <Tag color="magenta-inverse">magenta</Tag>
       <Tag color="red-inverse">red</Tag>
       <Tag color="volcano-inverse">volcano</Tag>
@@ -16,7 +16,7 @@ const App: React.FC = () => (
       <Tag color="blue-inverse">blue</Tag>
       <Tag color="geekblue-inverse">geekblue</Tag>
       <Tag color="purple-inverse">purple</Tag>
-    </div>
+    </Space>
   </>
 );
 

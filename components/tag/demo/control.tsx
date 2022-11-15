@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Input, Tag, Tooltip } from 'antd';
+import { Input, Space, Tag, Tooltip } from 'antd';
 
 const App: React.FC = () => {
   const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
@@ -57,7 +57,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Space wrap value={[8,0]}>
       {tags.map((tag, index) => {
         if (editInputIndex === index) {
           return (
@@ -121,7 +121,7 @@ const App: React.FC = () => {
           <PlusOutlined /> New Tag
         </Tag>
       )}
-    </>
+    </Space>
   );
 };
 
