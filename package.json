@@ -353,7 +353,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,json}": "rome format --write",
-    "*.{less,md}": "prettier --ignore-unknown --write"
+    "*.{ts,tsx,js}": "rome format --write",
+    "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }
