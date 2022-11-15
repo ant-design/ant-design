@@ -6,7 +6,7 @@
 
 Spin in a container.
 
-<style>
+```css
 .example {
   margin: 20px 0;
   margin-bottom: 20px;
@@ -15,7 +15,7 @@ Spin in a container.
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 }
-</style>
+```
 
 <style>
   .example {

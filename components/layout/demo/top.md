@@ -12,7 +12,7 @@ Generally, the mainnav is placed at the top of the page, and includes the logo, 
 
 Top-bottom structure is conform with the top-bottom viewing habit, it's a classical navigation pattern of websites. This pattern demonstrates efficiency in the main workarea, while using some vertical space. And because the horizontal space of the navigation is limited, this pattern is not suitable for cases when the first level navigation contains many elements or links.
 
-<style>
+```css
 .site-layout-content {
   min-height: 280px;
   padding: 24px;
@@ -29,7 +29,7 @@ Top-bottom structure is conform with the top-bottom viewing habit, it's a classi
   float: right;
   margin: 16px 0 16px 24px;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .site-layout-content {

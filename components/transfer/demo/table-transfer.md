@@ -6,8 +6,8 @@
 
 Customize render list with Table component.
 
-<style>
+```css
 #components-transfer-demo-table-transfer .ant-table td {
   background: transparent;
 }
-</style>
+```

@@ -6,12 +6,12 @@
 
 Display statistic data in Card.
 
-<style>
+```css
 .site-statistic-demo-card {
   padding: 30px;
   background: #ececec;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .site-statistic-demo-card {

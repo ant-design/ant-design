@@ -18,12 +18,12 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
 
 > vertical gutter was supported after `3.24.0`.
 
-<style>
+```css
 .gutter-box {
   padding: 8px 0;
   background: #00a0e9;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .gutter-box {

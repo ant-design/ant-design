@@ -6,12 +6,11 @@
 
 The most basic usage.
 
-<style>
-
+```css
 .site-back-top-basic {
   color: rgba(64, 64, 64, 0.6);
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-back-top-basic {

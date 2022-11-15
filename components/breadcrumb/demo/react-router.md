@@ -6,8 +6,7 @@
 
 Used together with `react-router@6+`.
 
-<style>
-
+```css
 .demo {
   margin: 16px;
 }
@@ -24,7 +23,7 @@ Used together with `react-router@6+`.
 .app-list {
   margin-top: 16px;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .demo-nav {

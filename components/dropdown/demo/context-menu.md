@@ -6,12 +6,12 @@
 
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
-<style>
+```css
 .site-dropdown-context-menu {
   color: #777;
   background: #f7f7f7;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .site-dropdown-context-menu {

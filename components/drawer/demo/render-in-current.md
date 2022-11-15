@@ -6,7 +6,7 @@
 
 Render in current dom. custom container, check `getContainer`.
 
-<style>
+```css
 .site-drawer-render-in-current-wrapper {
   position: relative;
   height: 200px;
@@ -17,7 +17,7 @@ Render in current dom. custom container, check `getContainer`.
   border: 1px solid #ebedf0;
   border-radius: 2px;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-drawer-render-in-current-wrapper {

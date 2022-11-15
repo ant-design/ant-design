@@ -6,7 +6,7 @@
 
 Both the top navigation and the sidebar, commonly used in application site.
 
-<style>
+```css
 #components-layout-demo-top-side-2 .logo {
   float: left;
   width: 120px;
@@ -23,4 +23,4 @@ Both the top navigation and the sidebar, commonly used in application site.
 #components-layout-demo-top-side-2 .site-layout-background {
   background: #fff;
 }
-</style>
+```

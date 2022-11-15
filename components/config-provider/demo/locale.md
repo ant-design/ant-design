@@ -6,7 +6,7 @@
 
 Components which need localization support are listed here, you can toggle the language in the demo.
 
-<style>
+```css
 .site-config-provider-calendar-wrapper {
   width: 319px;
   border: 1px solid #d9d9d9;
@@ -29,7 +29,7 @@ Components which need localization support are listed here, you can toggle the l
 .change-locale {
   margin-bottom: 16px;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .locale-components {

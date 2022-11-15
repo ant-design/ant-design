@@ -6,13 +6,12 @@
 
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
-<style>
-
+```css
 .site-tag-plus {
   background: #fff;
   border-style: dashed;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .site-tag-plus {

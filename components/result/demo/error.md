@@ -6,11 +6,11 @@
 
 Complex error feedback.
 
-<style>
+```css
 .site-result-demo-error-icon {
   color: red;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-result-demo-error-icon {

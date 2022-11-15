@@ -6,8 +6,8 @@
 
 Load more list with `loadMore` property.
 
-<style>
+```css
 .demo-loadmore-list {
   min-height: 350px;
 }
-</style>
+```

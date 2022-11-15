@@ -8,8 +8,8 @@
 
 Child elements depending on the value of the `start`, `center`, `end`, `space-between`, `space-around` and `space-evenly`, which are defined in its parent node typesetting mode.
 
-<style>
+```css
 #components-grid-demo-flex [class~='ant-row'] {
   background: rgba(128, 128, 128, 0.08);
 }
-</style>
+```

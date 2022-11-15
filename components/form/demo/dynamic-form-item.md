@@ -6,7 +6,7 @@
 
 Add or remove form items dynamically. `add` function support config initial value.
 
-<style>
+```css
 .dynamic-delete-button {
   position: relative;
   top: 4px;
@@ -23,7 +23,7 @@ Add or remove form items dynamically. `add` function support config initial valu
   cursor: not-allowed;
   opacity: 0.5;
 }
-</style>
+```
 
 <style>
   [data-theme="dark"] .dynamic-delete-button {

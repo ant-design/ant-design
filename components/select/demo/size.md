@@ -6,7 +6,7 @@
 
 The height of the input field for the select defaults to 32px. If size is set to large, the height will be 40px, and if set to small, 24px.
 
-<style>
+```css
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
 }
@@ -18,4 +18,4 @@ The height of the input field for the select defaults to 32px. If size is set to
 #components-select-demo-search-box .code-box-demo .ant-select {
   margin: 0;
 }
-</style>
+```

@@ -10,7 +10,7 @@ Input.Group example.
 
 Note: You don't need `Col` to control the width in the `compact` mode.
 
-<style>
+```css
 .site-input-group-wrapper .site-input-split {
   background-color: #fff !important;
 }
@@ -32,7 +32,7 @@ Note: You don't need `Col` to control the width in the `compact` mode.
 .site-input-group-wrapper .ant-input-rtl.site-input-right:focus {
   border-right-width: 1px;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-input-group-wrapper .site-input-split {

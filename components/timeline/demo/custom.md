@@ -6,7 +6,7 @@
 
 Set a node as an icon or other custom element.
 
-<style>
+```css
 .timeline-clock-icon {
   font-size: 16px;
 }
@@ -14,4 +14,4 @@ Set a node as an icon or other custom element.
 [data-theme='compact'] .timeline-clock-icon {
   font-size: 14px;
 }
-</style>
+```

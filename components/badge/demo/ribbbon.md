@@ -6,9 +6,8 @@
 
 Use ribbon badge.
 
-<style>
-
+```css
 #components-badge-demo-ribbbon .ant-card {
   margin-bottom: 16px;
 }
-</style>
+```

@@ -6,7 +6,7 @@
 
 The most basic usage.
 
-<style>
+```css
 .code-box-demo {
   overflow-x: auto;
 }
@@ -14,4 +14,4 @@ The most basic usage.
 .code-box-demo .ant-segmented {
   margin-bottom: 10px;
 }
-</style>
+```

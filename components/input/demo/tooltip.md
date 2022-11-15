@@ -6,7 +6,7 @@
 
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
-<style>
+```css
 /* to prevent the arrow overflow the popup container,
 or the height is not enough when content is empty */
 .numeric-input .ant-tooltip-inner {
@@ -17,4 +17,4 @@ or the height is not enough when content is empty */
 .numeric-input .numeric-input-title {
   font-size: 14px;
 }
-</style>
+```

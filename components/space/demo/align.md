@@ -6,7 +6,7 @@
 
 Config item align.
 
-<style>
+```css
 .space-align-container {
   display: flex;
   flex-wrap: wrap;
@@ -23,4 +23,4 @@ Config item align.
   padding: 32px 8px 16px;
   background: rgba(150, 150, 150, 0.2);
 }
-</style>
+```

@@ -6,7 +6,7 @@
 
 Using pre & post tabs example.
 
-<style>
+```css
 .select-before {
   width: 90px;
 }
@@ -22,4 +22,4 @@ Using pre & post tabs example.
 [data-theme='compact'] .select-after {
   width: 65px;
 }
-</style>
+```

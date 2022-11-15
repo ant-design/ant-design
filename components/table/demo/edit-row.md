@@ -8,10 +8,10 @@
 
 Table with editable rows.
 
-<style>
+```css
 .editable-row .ant-form-item-explain {
   position: absolute;
   top: 100%;
   font-size: 12px;
 }
-</style>
+```

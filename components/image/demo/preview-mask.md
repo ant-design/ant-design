@@ -6,7 +6,7 @@
 
 Custom preview mask.
 
-<style>
+```css
 .customize-mask {
   font-size: 20px;
   opacity: 1;
@@ -14,4 +14,4 @@ Custom preview mask.
 .customize-mask .anticon {
   font-size: 32px;
 }
-</style>
+```

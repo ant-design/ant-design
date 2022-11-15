@@ -6,13 +6,13 @@
 
 Navigation steps.
 
-<style>
+```css
 [data-theme='compact'] .site-navigation-steps.ant-steps.ant-steps-navigation,
 .site-navigation-steps.ant-steps.ant-steps-navigation {
   margin-bottom: 60px;
   box-shadow: 0px -1px 0 0 #e8e8e8 inset;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-navigation-steps.ant-steps.ant-steps-navigation {

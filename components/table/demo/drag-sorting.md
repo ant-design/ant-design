@@ -6,7 +6,7 @@
 
 By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
 
-<style>
+```css
 #components-table-demo-drag-sorting tr.drop-over-downward td {
   border-bottom: 2px dashed #1890ff;
 }
@@ -14,4 +14,4 @@ By using `components`, we can integrate table with [react-dnd](https://github.co
 #components-table-demo-drag-sorting tr.drop-over-upward td {
   border-top: 2px dashed #1890ff;
 }
-</style>
+```

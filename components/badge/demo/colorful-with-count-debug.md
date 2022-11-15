@@ -6,9 +6,8 @@
 
 support `count` when use colorful badge
 
-<style>
-
+```css
 .ant-tag {
   margin-bottom: 8px;
 }
-</style>
+```

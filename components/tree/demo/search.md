@@ -6,11 +6,11 @@
 
 Searchable Tree.
 
-<style>
+```css
 .site-tree-search-value {
   color: #f50;
 }
-</style>
+```
 
 <style>
 [data-theme="dark"] .site-tree-search-value {

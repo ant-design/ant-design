@@ -6,7 +6,7 @@
 
 Table with editable cells. When work with `shouldCellUpdate`, please take care of [closure](https://github.com/ant-design/ant-design/issues/29243).
 
-<style>
+```css
 .editable-cell {
   position: relative;
 }
@@ -25,4 +25,4 @@ Table with editable cells. When work with `shouldCellUpdate`, please take care o
 [data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
   border: 1px solid #434343;
 }
-</style>
+```
