@@ -6,7 +6,7 @@
 
 You could display an arrow.
 
-```css
+<style>
 #components-dropdown-demo-arrow .ant-btn {
   margin-right: 8px;
   margin-bottom: 8px;
@@ -16,4 +16,4 @@ You could display an arrow.
   margin-bottom: 8px;
   margin-left: 8px;
 }
-```
+</style>

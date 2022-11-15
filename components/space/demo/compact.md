@@ -6,7 +6,7 @@
 
 Compact Mode for form component.
 
-```css
+<style>
 .site-space-compact-wrapper .site-input-split {
   background-color: #fff;
 }
@@ -28,4 +28,4 @@ Compact Mode for form component.
 .site-space-compact-wrapper .site-input-right.ant-input-rtl:focus {
   border-right-width: 1px;
 }
-```
+</style>

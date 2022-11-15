@@ -6,13 +6,13 @@
 
 Customize Calendar header content.
 
-```css
+<style>
 .site-calendar-customize-header-wrapper {
   width: 300px;
   border: 1px solid #f0f0f0;
   border-radius: 2px;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .site-calendar-customize-header-wrapper {

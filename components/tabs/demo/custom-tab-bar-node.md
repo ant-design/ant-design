@@ -6,9 +6,9 @@
 
 Use `react-dnd@15+` to make tabs draggable.
 
-```css
+<style>
 .dropping {
   background: #fefefe;
   transition: all 0.3s;
 }
-```
+</style>

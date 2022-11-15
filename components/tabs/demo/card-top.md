@@ -6,7 +6,7 @@
 
 Should be used at the top of container, needs to override styles.
 
-```css
+<style>
 .card-container p {
   margin: 0;
 }
@@ -54,4 +54,4 @@ Should be used at the top of container, needs to override styles.
   background: #141414;
   border-color: #141414;
 }
-```
+</style>

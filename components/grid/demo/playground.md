@@ -6,7 +6,7 @@
 
 A simple playground for column count and gutter.
 
-```css
+<style>
 #components-grid-demo-playground [class~='ant-col'] {
   background: transparent;
   border: 0;
@@ -30,7 +30,7 @@ A simple playground for column count and gutter.
 #components-grid-demo-playground .ant-col {
   padding: 0;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] #components-grid-demo-playground [class~='ant-col'] > div {

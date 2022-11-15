@@ -6,7 +6,7 @@
 
 Input addon debug.
 
-```css
+<style>
 .select-before {
   width: 90px;
 }
@@ -22,4 +22,4 @@ Input addon debug.
 [data-theme='compact'] .select-after {
   width: 65px;
 }
-```
+</style>

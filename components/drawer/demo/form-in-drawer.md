@@ -6,7 +6,7 @@
 
 Use a form in Drawer with a submit button.
 
-```css
+<style>
 .site-form-in-drawer-wrapper {
   position: absolute;
   right: 0px;
@@ -17,7 +17,7 @@ Use a form in Drawer with a submit button.
   background: #fff;
   border-top: 1px solid #e9e9e9;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .site-form-in-drawer-wrapper {

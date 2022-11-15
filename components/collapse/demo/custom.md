@@ -6,7 +6,7 @@
 
 Customize the background, border, margin styles and icon for each panel.
 
-```css
+<style>
 [data-theme='compact'] .site-collapse-custom-collapse .site-collapse-custom-panel,
 .site-collapse-custom-collapse .site-collapse-custom-panel {
   margin-bottom: 24px;
@@ -15,7 +15,7 @@ Customize the background, border, margin styles and icon for each panel.
   border: 0px !important;
   border-radius: 2px;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .site-collapse-custom-collapse .site-collapse-custom-panel {

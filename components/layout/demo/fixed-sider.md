@@ -6,7 +6,7 @@
 
 When dealing with long content, a fixed sider can provide a better user experience.
 
-```css
+<style>
 #components-layout-demo-fixed-sider .logo {
   height: 32px;
   margin: 16px;
@@ -15,7 +15,7 @@ When dealing with long content, a fixed sider can provide a better user experien
 #components-layout-demo-fixed-sider .site-layout .site-layout-background {
   background: #fff;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .site-layout .site-layout-background {

@@ -6,8 +6,8 @@
 
 Specify the prop name of Option which will be rendered in select box.
 
-```css
+<style>
 .demo-option-label-item > span {
   margin-right: 6px;
 }
-```
+</style>

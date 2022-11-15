@@ -6,7 +6,7 @@
 
 Nested `Space.Compact`
 
-```css
+<style>
 [data-theme='compact'] .select-before {
   width: 71px;
 }
@@ -14,4 +14,4 @@ Nested `Space.Compact`
 [data-theme='compact'] .select-after {
   width: 65px;
 }
-```
+</style>

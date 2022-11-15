@@ -6,7 +6,7 @@
 
 Cooperate with the content and buttons, to represent the progress of a process.
 
-```css
+<style>
 .steps-content {
   min-height: 200px;
   margin-top: 16px;
@@ -20,7 +20,7 @@ Cooperate with the content and buttons, to represent the progress of a process.
 .steps-action {
   margin-top: 24px;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .steps-content {

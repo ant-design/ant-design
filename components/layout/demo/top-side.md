@@ -6,7 +6,7 @@
 
 Both the top navigation and the sidebar, commonly used in documentation site.
 
-```css
+<style>
 #components-layout-demo-top-side .logo {
   float: left;
   width: 120px;
@@ -23,4 +23,4 @@ Both the top navigation and the sidebar, commonly used in documentation site.
 #components-layout-demo-top-side .site-layout-background {
   background: #fff;
 }
-```
+</style>

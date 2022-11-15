@@ -6,7 +6,7 @@
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
-```css
+<style>
 /* tile uploaded pictures */
 .upload-list-inline .ant-upload-list-item {
   float: left;
@@ -17,4 +17,4 @@ If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not suppor
 .ant-upload-rtl.upload-list-inline .ant-upload-list-item {
   float: right;
 }
-```
+</style>

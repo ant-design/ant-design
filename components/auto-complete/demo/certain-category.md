@@ -6,7 +6,8 @@
 
 Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set options of autocomplete with `options` property.
 
-```css
+<style>
+
 .certain-category-search-dropdown .ant-select-dropdown-menu-item-group-title {
   color: #666;
   font-weight: bold;
@@ -28,4 +29,4 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 .certain-category-search-dropdown .ant-select-dropdown-menu {
   max-height: 300px;
 }
-```
+</style>

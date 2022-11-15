@@ -6,7 +6,7 @@
 
 By using `itemRender`, we can integrate upload with react-dnd to implement drag sorting of uploadList.
 
-```css
+<style>
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item {
   border-top: 2px dashed rgba(0, 0, 0, 0);
   border-bottom: 2px dashed rgba(0, 0, 0, 0);
@@ -17,4 +17,4 @@ By using `itemRender`, we can integrate upload with react-dnd to implement drag 
 #components-upload-demo-drag-sorting .ant-upload-draggable-list-item.drop-over-upward {
   border-top-color: #1890ff;
 }
-```
+</style>

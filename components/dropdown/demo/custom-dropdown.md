@@ -6,7 +6,7 @@
 
 Customize the dropdown menu via `dropdownRender`. If you don't need the Menu content, use the Popover component directly.
 
-```css
+<style>
 .dropdown-content {
   background: #fff;
   box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
@@ -15,7 +15,7 @@ Customize the dropdown menu via `dropdownRender`. If you don't need the Menu con
 .dropdown-content .ant-dropdown-menu {
   box-shadow: none;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .head-example {

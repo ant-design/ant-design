@@ -8,7 +8,7 @@
 
 Normal login form which can contain more elements.
 
-```css
+<style>
 #components-form-demo-normal-login .login-form {
   max-width: 300px;
 }
@@ -21,4 +21,4 @@ Normal login form which can contain more elements.
 #components-form-demo-normal-login .login-form-button {
   width: 100%;
 }
-```
+</style>

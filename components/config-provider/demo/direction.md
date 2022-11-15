@@ -6,7 +6,7 @@
 
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
-```css
+<style>
 .button-demo .ant-btn,
 .button-demo .ant-btn-group {
   margin-right: 8px;
@@ -34,7 +34,7 @@ Components which support rtl direction are listed here, you can toggle the direc
   margin-right: 0;
   margin-left: 20px;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .head-example {

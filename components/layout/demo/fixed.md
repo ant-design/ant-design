@@ -6,7 +6,7 @@
 
 Fixed Header is generally used to fix the top navigation to facilitate page switching.
 
-```css
+<style>
 #components-layout-demo-fixed .logo {
   float: left;
   width: 120px;
@@ -17,7 +17,7 @@ Fixed Header is generally used to fix the top navigation to facilitate page swit
 #components-layout-demo-fixed .site-layout .site-layout-background {
   background: #fff;
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .site-layout .site-layout-background {

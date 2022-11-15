@@ -6,7 +6,7 @@
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
-```css
+<style>
 .events {
   margin: 0;
   padding: 0;
@@ -26,4 +26,4 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
 .notes-month section {
   font-size: 28px;
 }
-```
+</style>

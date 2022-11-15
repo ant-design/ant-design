@@ -6,7 +6,7 @@
 
 You can add an icon beside the slider to make it meaningful.
 
-```css
+<style>
 .icon-wrapper {
   position: relative;
   padding: 0px 30px;
@@ -33,7 +33,7 @@ You can add an icon beside the slider to make it meaningful.
 .icon-wrapper .anticon:last-child {
   right: 0;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .icon-wrapper .anticon {

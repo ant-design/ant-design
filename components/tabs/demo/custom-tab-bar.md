@@ -6,12 +6,12 @@
 
 Use react-sticky.
 
-```css
+<style>
 .site-custom-tab-bar {
   z-index: 1;
   background: #fff;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .site-custom-tab-bar {

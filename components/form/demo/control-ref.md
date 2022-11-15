@@ -6,8 +6,8 @@
 
 We recommend use `Form.useForm` to create data control. If you are using class component, you can get it by `ref`.
 
-```css
+<style>
 #components-form-demo-control-ref .ant-btn {
   margin-right: 8px;
 }
-```
+</style>

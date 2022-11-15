@@ -6,7 +6,7 @@
 
 You can add extra actions to the right or left or even both side of Tabs.
 
-```css
+<style>
 .tabs-extra-demo-button {
   margin-right: 16px;
 }
@@ -15,4 +15,4 @@ You can add extra actions to the right or left or even both side of Tabs.
   margin-right: 0;
   margin-left: 16px;
 }
-```
+</style>

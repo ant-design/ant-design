@@ -6,8 +6,8 @@
 
 Passing custom class to `TimePicker` popup
 
-```css
+<style>
 .myCustomClassName .ant-picker-time-panel-cell-inner {
   color: red !important;
 }
-```
+</style>

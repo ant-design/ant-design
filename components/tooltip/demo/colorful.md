@@ -6,8 +6,8 @@
 
 We preset a series of colorful Tooltip styles for use in different situations.
 
-```css
+<style>
 .ant-tag {
   margin-bottom: 8px;
 }
-```
+</style>

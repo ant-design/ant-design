@@ -6,12 +6,12 @@
 
 A borderless card on a gray background.
 
-```css
+<style>
 .site-card-border-less-wrapper {
   padding: 30px;
   background: #ececec;
 }
-```
+</style>
 
 <style>
   [data-theme="dark"] .site-card-border-less-wrapper {

@@ -6,7 +6,7 @@
 
 Use Drawer to quickly preview details of an object, such as those in a list.
 
-```css
+<style>
 .site-description-item-profile-wrapper {
   margin-bottom: 7px;
   color: rgba(0, 0, 0, 0.65);
@@ -37,7 +37,7 @@ Use Drawer to quickly preview details of an object, such as those in a list.
   margin-right: 8px;
   color: rgba(0, 0, 0, 0.85);
 }
-```
+</style>
 
 <style>
 [data-theme="dark"] .site-description-item-profile-p {

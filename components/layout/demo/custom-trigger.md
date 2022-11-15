@@ -6,7 +6,7 @@
 
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
-```css
+<style>
 #components-layout-demo-custom-trigger .trigger {
   padding: 0 24px;
   font-size: 18px;
@@ -28,4 +28,4 @@ If you want to use a customized trigger, you can hide the default one by setting
 #components-layout-demo-custom-trigger .site-layout .site-layout-background {
   background: #fff;
 }
-```
+</style>

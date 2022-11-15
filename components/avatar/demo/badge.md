@@ -6,7 +6,8 @@
 
 Usually used for reminders and notifications.
 
-```css
+<style>
+
 /* tile uploaded pictures */
 .avatar-item {
   margin-right: 24px;
@@ -16,4 +17,4 @@ Usually used for reminders and notifications.
   margin-right: 0;
   margin-left: 24px;
 }
-```
+</style>

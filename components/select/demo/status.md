@@ -6,8 +6,8 @@
 
 Add status to Select with `status`, which could be `error` or `warning`.
 
-```css
+<style>
 #components-select-demo-status .ant-select {
   margin: 0;
 }
-```
+</style>

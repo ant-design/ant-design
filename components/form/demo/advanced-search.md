@@ -12,7 +12,7 @@ Three columns layout is often used for advanced searching of data table.
 
 Because the width of label is not fixed, you may need to adjust it by customizing its style.
 
-```css
+<style>
 [data-theme='compact'] .ant-advanced-search-form,
 .ant-advanced-search-form {
   padding: 24px !important;
@@ -30,7 +30,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 .ant-advanced-search-form .ant-form-item-control-wrapper {
   flex: 1;
 }
-```
+</style>
 
 <style>
 #components-form-demo-advanced-search .ant-form {
