@@ -68,6 +68,31 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     badgeStatusSize,
     marginXS,
     badgeRibbonOffset,
+    badgeZIndex,
+    badgeHeight,
+    badgeTextColor,
+    badgeFontWeight,
+    badgeFontSize,
+    badgeColor,
+    badgeShadowColor,
+    motionDurationFast,
+    badgeColorHover,
+    badgeFontSizeSm,
+    paddingXS,
+    badgeDotSize,
+    colorSuccess,
+    colorPrimary,
+    badgeProcessingDuration,
+    colorTextPlaceholder,
+    colorError,
+    colorWarning,
+    colorText,
+    fontSize,
+    motionEaseOutBack,
+    borderRadiusSM,
+    colorTextLightSolid,
+    badgeRibbonCornerTransform,
+    badgeRibbonCornerFilter,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
   const ribbonPrefixCls = `${antCls}-ribbon`;
@@ -104,51 +129,51 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       lineHeight: 1,
 
       [`${componentCls}-count`]: {
-        zIndex: token.badgeZIndex,
-        minWidth: token.badgeHeight,
-        height: token.badgeHeight,
-        color: token.badgeTextColor,
-        fontWeight: token.badgeFontWeight,
-        fontSize: token.badgeFontSize,
-        lineHeight: `${token.badgeHeight}px`,
+        zIndex: badgeZIndex,
+        minWidth: badgeHeight,
+        height: badgeHeight,
+        color: badgeTextColor,
+        fontWeight: badgeFontWeight,
+        fontSize: badgeFontSize,
+        lineHeight: `${badgeHeight}px`,
         whiteSpace: 'nowrap',
         textAlign: 'center',
-        background: token.badgeColor,
-        borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
-        transition: `background ${token.motionDurationFast}`,
+        background: badgeColor,
+        borderRadius: badgeHeight / 2,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${badgeShadowColor}`,
+        transition: `background ${motionDurationFast}`,
 
         a: {
-          color: token.badgeTextColor,
+          color: badgeTextColor,
         },
         'a:hover': {
-          color: token.badgeTextColor,
+          color: badgeTextColor,
         },
 
         'a:hover &': {
-          background: token.badgeColorHover,
+          background: badgeColorHover,
         },
       },
       [`${componentCls}-count-sm`]: {
         minWidth: badgeHeightSm,
         height: badgeHeightSm,
-        fontSize: token.badgeFontSizeSm,
+        fontSize: badgeFontSizeSm,
         lineHeight: `${badgeHeightSm}px`,
         borderRadius: badgeHeightSm / 2,
       },
 
       [`${componentCls}-multiple-words`]: {
-        padding: `0 ${token.paddingXS}px`,
+        padding: `0 ${paddingXS}px`,
       },
 
       [`${componentCls}-dot`]: {
-        zIndex: token.badgeZIndex,
-        width: token.badgeDotSize,
-        minWidth: token.badgeDotSize,
-        height: token.badgeDotSize,
-        background: token.badgeColor,
+        zIndex: badgeZIndex,
+        width: badgeDotSize,
+        minWidth: badgeDotSize,
+        height: badgeDotSize,
+        background: badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${badgeShadowColor}`,
       },
       [`${componentCls}-dot${numberPrefixCls}`]: {
         transition: `background ${motionDurationSlow}`,
@@ -161,7 +186,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         transformOrigin: '100% 0%',
         [`${iconCls}-spin`]: {
           animationName: antBadgeLoadingCircle,
-          animationDuration: token.motionDurationFast,
+          animationDuration: motionDurationFast,
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
         },
@@ -181,11 +206,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
 
         [`${componentCls}-status-success`]: {
-          backgroundColor: token.colorSuccess,
+          backgroundColor: colorSuccess,
         },
         [`${componentCls}-status-processing`]: {
           position: 'relative',
-          backgroundColor: token.colorPrimary,
+          backgroundColor: colorPrimary,
 
           '&::after': {
             position: 'absolute',
@@ -193,56 +218,56 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `${badgeShadowSize}px solid ${token.colorPrimary}`,
+            border: `${badgeShadowSize}px solid ${colorPrimary}`,
             borderRadius: '50%',
             animationName: antStatusProcessing,
-            animationDuration: token.badgeProcessingDuration,
+            animationDuration: badgeProcessingDuration,
             animationIterationCount: 'infinite',
             animationTimingFunction: 'ease-in-out',
             content: '""',
           },
         },
         [`${componentCls}-status-default`]: {
-          backgroundColor: token.colorTextPlaceholder,
+          backgroundColor: colorTextPlaceholder,
         },
 
         [`${componentCls}-status-error`]: {
-          backgroundColor: token.colorError,
+          backgroundColor: colorError,
         },
 
         [`${componentCls}-status-warning`]: {
-          backgroundColor: token.colorWarning,
+          backgroundColor: colorWarning,
         },
         ...statusPreset,
         [`${componentCls}-status-text`]: {
           marginInlineStart: marginXS,
-          color: token.colorText,
-          fontSize: token.fontSize,
+          color: colorText,
+          fontSize,
         },
       },
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
         animationName: antZoomBadgeIn,
-        animationDuration: token.motionDurationSlow,
-        animationTimingFunction: token.motionEaseOutBack,
+        animationDuration: motionDurationSlow,
+        animationTimingFunction: motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`${componentCls}-zoom-leave`]: {
         animationName: antZoomBadgeOut,
-        animationDuration: token.motionDurationSlow,
-        animationTimingFunction: token.motionEaseOutBack,
+        animationDuration: motionDurationSlow,
+        animationTimingFunction: motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`&${componentCls}-not-a-wrapper`]: {
         [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
           animationName: antNoWrapperZoomBadgeIn,
-          animationDuration: token.motionDurationSlow,
-          animationTimingFunction: token.motionEaseOutBack,
+          animationDuration: motionDurationSlow,
+          animationTimingFunction: motionEaseOutBack,
         },
 
         [`${componentCls}-zoom-leave`]: {
           animationName: antNoWrapperZoomBadgeOut,
-          animationDuration: token.motionDurationSlow,
-          animationTimingFunction: token.motionEaseOutBack,
+          animationDuration: motionDurationSlow,
+          animationTimingFunction: motionEaseOutBack,
         },
         [`&:not(${componentCls}-status)`]: {
           verticalAlign: 'middle',
@@ -263,12 +288,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         [`${numberPrefixCls}-only`]: {
           position: 'relative',
           display: 'inline-block',
-          height: token.badgeHeight,
-          transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
+          height: badgeHeight,
+          transition: `all ${motionDurationSlow} ${motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p${numberPrefixCls}-only-unit`]: {
-            height: token.badgeHeight,
+            height: badgeHeight,
             margin: 0,
             WebkitTransformStyle: 'preserve-3d',
             WebkitBackfaceVisibility: 'hidden',
@@ -283,13 +308,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       position: 'absolute',
       top: marginXS,
       height: badgeFontHeight,
-      padding: `0 ${token.paddingXS}px`,
-      color: token.colorPrimary,
+      padding: `0 ${paddingXS}px`,
+      color: colorPrimary,
       lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
-      backgroundColor: token.colorPrimary,
-      borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
+      backgroundColor: colorPrimary,
+      borderRadius: borderRadiusSM,
+      [`${ribbonPrefixCls}-text`]: { color: colorTextLightSolid },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
@@ -297,9 +322,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         height: badgeRibbonOffset,
         color: 'currentcolor',
         border: `${badgeRibbonOffset / 2}px solid`,
-        transform: token.badgeRibbonCornerTransform,
+        transform: badgeRibbonCornerTransform,
         transformOrigin: 'top',
-        filter: token.badgeRibbonCornerFilter,
+        filter: badgeRibbonCornerFilter,
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
@@ -323,18 +348,28 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', token => {
-  const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
+export default genComponentStyleHook('Badge', (token) => {
+  const {
+    fontSize,
+    lineHeight,
+    fontSizeSM,
+    lineWidth,
+    marginXS,
+    colorBorderBg,
+    colorBgContainer,
+    colorError,
+    colorErrorHover,
+  } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);
   const badgeShadowSize = lineWidth;
   const badgeZIndex = 'auto';
   const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
-  const badgeTextColor = token.colorBgContainer;
+  const badgeTextColor = colorBgContainer;
   const badgeFontWeight = 'normal';
   const badgeFontSize = fontSizeSM;
-  const badgeColor = token.colorError;
-  const badgeColorHover = token.colorErrorHover;
+  const badgeColor = colorError;
+  const badgeColorHover = colorErrorHover;
   const badgeHeightSm = fontSize;
   const badgeDotSize = fontSizeSM / 2;
   const badgeFontSizeSm = fontSizeSM;

@@ -16,7 +16,21 @@ interface AnchorToken extends FullToken<'Anchor'> {
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls, holderOffsetBlock, anchorBallSize, lineWidthBold } = token;
+  const {
+    componentCls,
+    holderOffsetBlock,
+    anchorBallSize,
+    lineWidthBold,
+    colorSplit,
+    colorBgContainer,
+    colorPrimary,
+    motionDurationSlow,
+    anchorPaddingBlock,
+    anchorPaddingInline,
+    anchorTitleBlock,
+    colorText,
+    anchorPaddingBlockSecondary,
+  } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -45,7 +59,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             width: lineWidthBold,
             height: '100%',
             margin: '0 auto',
-            backgroundColor: token.colorSplit,
+            backgroundColor: colorSplit,
             content: '" "',
           },
         },
@@ -59,11 +73,11 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           display: 'none',
           width: anchorBallSize,
           height: anchorBallSize,
-          backgroundColor: token.colorBgContainer,
-          border: `${lineWidthBold}px solid ${token.colorPrimary}`,
+          backgroundColor: colorBgContainer,
+          border: `${lineWidthBold}px solid ${colorPrimary}`,
           borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',
-          transition: `top ${token.motionDurationSlow} ease-in-out`,
+          transition: `top ${motionDurationSlow} ease-in-out`,
 
           [`&${componentCls}-ink-ball-visible`]: {
             display: 'inline-block',
@@ -71,16 +85,16 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         },
 
         [`${componentCls}-link`]: {
-          paddingBlock: token.anchorPaddingBlock,
-          paddingInline: `${token.anchorPaddingInline}px 0`,
+          paddingBlock: anchorPaddingBlock,
+          paddingInline: `${anchorPaddingInline}px 0`,
 
           '&-title': {
             ...textEllipsis,
             position: 'relative',
             display: 'block',
-            marginBlockEnd: token.anchorTitleBlock,
-            color: token.colorText,
-            transition: `all ${token.motionDurationSlow}`,
+            marginBlockEnd: anchorTitleBlock,
+            color: colorText,
+            transition: `all ${motionDurationSlow}`,
 
             '&:only-child': {
               marginBlockEnd: 0,
@@ -88,12 +102,12 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           },
 
           [`&-active > ${componentCls}-link-title`]: {
-            color: token.colorPrimary,
+            color: colorPrimary,
           },
 
           // link link
           [`${componentCls}-link`]: {
-            paddingBlock: token.anchorPaddingBlockSecondary,
+            paddingBlock: anchorPaddingBlockSecondary,
           },
         },
       },
@@ -106,7 +120,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Anchor', token => {
+export default genComponentStyleHook('Anchor', (token) => {
   const { fontSize, fontSizeLG, padding, paddingXXS } = token;
 
   const anchorToken = mergeToken<AnchorToken>(token, {

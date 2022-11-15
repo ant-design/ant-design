@@ -24,15 +24,26 @@ type BackTopToken = FullToken<'BackTop'> & {
 
 // ============================== Shared ==============================
 const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, backTopFontSize, backTopSize, zIndexPopup } = token;
+  const {
+    componentCls,
+    backTopFontSize,
+    backTopSize,
+    zIndexPopup,
+    backTopInlineEnd,
+    backTopBlockEnd,
+    backTopColor,
+    backTopBackground,
+    motionDurationFast,
+    backTopHoverBackground,
+  } = token;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
 
       position: 'fixed',
-      insetInlineEnd: token.backTopInlineEnd,
-      insetBlockEnd: token.backTopBlockEnd,
+      insetInlineEnd: backTopInlineEnd,
+      insetBlockEnd: backTopBlockEnd,
       zIndex: zIndexPopup,
       width: 40,
       height: 40,
@@ -46,15 +57,15 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
         width: backTopSize,
         height: backTopSize,
         overflow: 'hidden',
-        color: token.backTopColor,
+        color: backTopColor,
         textAlign: 'center',
-        backgroundColor: token.backTopBackground,
+        backgroundColor: backTopBackground,
         borderRadius: backTopSize,
-        transition: `all ${token.motionDurationFast}`,
+        transition: `all ${motionDurationFast}`,
 
         '&:hover': {
-          backgroundColor: token.backTopHoverBackground,
-          transition: `all ${token.motionDurationFast}`,
+          backgroundColor: backTopHoverBackground,
+          transition: `all ${motionDurationFast}`,
         },
       },
 
@@ -68,18 +79,18 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
 };
 
 const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, screenMD, backTopInlineEndMD, screenXS, backTopInlineEndXS } = token;
 
   return {
-    [`@media (max-width: ${token.screenMD}px)`]: {
+    [`@media (max-width: ${screenMD}px)`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndMD,
+        insetInlineEnd: backTopInlineEndMD,
       },
     },
 
-    [`@media (max-width: ${token.screenXS}px)`]: {
+    [`@media (max-width: ${screenXS}px)`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndXS,
+        insetInlineEnd: backTopInlineEndXS,
       },
     },
   };
@@ -89,7 +100,7 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
 export default genComponentStyleHook<'BackTop'>(
   'BackTop',
 
-  token => {
+  (token) => {
     const {
       fontSizeHeading3,
       colorTextDescription,
@@ -112,7 +123,7 @@ export default genComponentStyleHook<'BackTop'>(
     });
     return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexBase + 10,
   }),
 );
