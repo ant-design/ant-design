@@ -277,7 +277,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
-  const onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
+  const onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
     setExpanded(true);
     ellipsisConfig.onExpand?.(e);
   };
@@ -510,6 +510,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               },
               className,
             )}
+            prefixCls={customizePrefixCls}
             style={{
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
