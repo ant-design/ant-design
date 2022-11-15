@@ -116,8 +116,6 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
-  console.log(activeMenuItem);
-
   let additional: MenuProps['items'];
 
   const additionalItems: MenuProps['items'] = [
