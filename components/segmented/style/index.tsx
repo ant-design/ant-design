@@ -190,14 +190,15 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Segmented', token => {
+export default genComponentStyleHook('Segmented', (token) => {
   const {
     lineWidthBold,
     lineWidth,
     colorTextLabel,
     colorText,
     colorFillSecondary,
-    colorBgContainer,
+    colorBgLayout,
+    colorBgElevated,
   } = token;
 
   const segmentedToken = mergeToken<SegmentedToken>(token, {
@@ -206,9 +207,9 @@ export default genComponentStyleHook('Segmented', token => {
     segmentedContainerPadding: lineWidthBold,
     labelColor: colorTextLabel,
     labelColorHover: colorText,
-    bgColor: colorFillSecondary,
+    bgColor: colorBgLayout,
     bgColorHover: colorFillSecondary,
-    bgColorSelected: colorBgContainer,
+    bgColorSelected: colorBgElevated,
   });
   return [genSegmentedStyle(segmentedToken)];
 });
