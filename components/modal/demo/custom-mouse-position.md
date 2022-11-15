@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 控制弹框动画原点
-  en-US: control modal's animation target position
+  en-US: control modal's animation origin position
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-pass `mousePosition` to control modal's animation target position
+pass `mousePosition` to control modal's animation origin position
 
 ```tsx
 import { Button, Modal } from 'antd';
