@@ -14,17 +14,35 @@ interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
   breadcrumbSeparatorColor: string;
 }
 
-const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
-  const { componentCls, iconCls } = token;
+const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) => {
+  const {
+    componentCls,
+    iconCls,
+    breadcrumbBaseColor,
+    breadcrumbFontSize,
+    breadcrumbIconFontSize,
+    breadcrumbLinkColor,
+    motionDurationFast,
+    paddingXXS,
+    borderRadiusSM,
+    lineHeight,
+    fontSize,
+    marginXXS,
+    breadcrumbLinkColorHover,
+    colorBgTextHover,
+    breadcrumbSeparatorMargin,
+    breadcrumbSeparatorColor,
+    fontSizeIcon,
+  } = token;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
-      color: token.breadcrumbBaseColor,
-      fontSize: token.breadcrumbFontSize,
+      color: breadcrumbBaseColor,
+      fontSize: breadcrumbFontSize,
 
       [iconCls]: {
-        fontSize: token.breadcrumbIconFontSize,
+        fontSize: breadcrumbIconFontSize,
       },
 
       ol: {
@@ -36,17 +54,17 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       },
 
       a: {
-        color: token.breadcrumbLinkColor,
-        transition: `color ${token.motionDurationFast}`,
-        padding: `0 ${token.paddingXXS}px`,
-        borderRadius: token.borderRadiusSM,
-        height: token.lineHeight * token.fontSize,
+        color: breadcrumbLinkColor,
+        transition: `color ${motionDurationFast}`,
+        padding: `0 ${paddingXXS}px`,
+        borderRadius: borderRadiusSM,
+        height: lineHeight * fontSize,
         display: 'inline-block',
-        marginInline: -token.marginXXS,
+        marginInline: -marginXXS,
 
         '&:hover': {
-          color: token.breadcrumbLinkColorHover,
-          backgroundColor: token.colorBgTextHover,
+          color: breadcrumbLinkColorHover,
+          backgroundColor: colorBgTextHover,
         },
 
         ...genFocusStyle(token),
@@ -57,8 +75,8 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       },
 
       [`${componentCls}-separator`]: {
-        marginInline: token.breadcrumbSeparatorMargin,
-        color: token.breadcrumbSeparatorColor,
+        marginInline: breadcrumbSeparatorMargin,
+        color: breadcrumbSeparatorColor,
       },
 
       [`${componentCls}-link`]: {
@@ -66,28 +84,28 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
           > ${iconCls} + span,
           > ${iconCls} + a
         `]: {
-          marginInlineStart: token.marginXXS,
+          marginInlineStart: marginXXS,
         },
       },
 
       [`${componentCls}-overlay-link`]: {
-        borderRadius: token.borderRadiusSM,
-        height: token.lineHeight * token.fontSize,
+        borderRadius: borderRadiusSM,
+        height: lineHeight * fontSize,
         display: 'inline-block',
-        padding: `0 ${token.paddingXXS}px`,
-        marginInline: -token.marginXXS,
+        padding: `0 ${paddingXXS}px`,
+        marginInline: -marginXXS,
 
         [`> ${iconCls}`]: {
-          marginInlineStart: token.marginXXS,
-          fontSize: token.fontSizeIcon,
+          marginInlineStart: marginXXS,
+          fontSize: fontSizeIcon,
         },
 
         '&:hover': {
-          color: token.breadcrumbLinkColorHover,
-          backgroundColor: token.colorBgTextHover,
+          color: breadcrumbLinkColorHover,
+          backgroundColor: colorBgTextHover,
 
           a: {
-            color: token.breadcrumbLinkColorHover,
+            color: breadcrumbLinkColorHover,
           },
         },
 
@@ -99,7 +117,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       },
 
       // rtl style
-      [`&${token.componentCls}-rtl`]: {
+      [`&${componentCls}-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -107,7 +125,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Breadcrumb', token => {
+export default genComponentStyleHook('Breadcrumb', (token) => {
   const BreadcrumbToken = mergeToken<BreadcrumbToken>(token, {
     breadcrumbBaseColor: token.colorTextDescription,
     breadcrumbFontSize: token.fontSize,
