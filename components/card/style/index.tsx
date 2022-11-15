@@ -31,18 +31,27 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     cardHeadPadding,
     cardPaddingBase,
     cardHeadTabsMarginBottom,
+    colorTextHeading,
+    fontWeightStrong,
+    fontSizeLG,
+    lineWidth,
+    lineType,
+    colorBorderSecondary,
+    borderRadiusLG,
+    colorText,
+    fontSize,
   } = token;
 
   return {
     minHeight: cardHeadHeight,
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     padding: `0 ${cardPaddingBase}px`,
-    color: token.colorTextHeading,
-    fontWeight: token.fontWeightStrong,
-    fontSize: token.fontSizeLG,
+    color: colorTextHeading,
+    fontWeight: fontWeightStrong,
+    fontSize: fontSizeLG,
     background: 'transparent',
-    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-    borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+    borderBottom: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
+    borderRadius: `${borderRadiusLG}px ${borderRadiusLG}px 0 0`,
 
     ...clearFix(),
 
@@ -70,12 +79,12 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     [`${antCls}-tabs-top`]: {
       clear: 'both',
       marginBottom: cardHeadTabsMarginBottom,
-      color: token.colorText,
+      color: colorText,
       fontWeight: 'normal',
-      fontSize: token.fontSize,
+      fontSize,
 
       '&-bar': {
-        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+        borderBottom: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
       },
     },
   };
@@ -83,7 +92,8 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Grid ==============================
 const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { cardPaddingBase, colorBorderSecondary, cardShadow, lineWidth } = token;
+  const { cardPaddingBase, colorBorderSecondary, cardShadow, lineWidth, motionDurationFast } =
+    token;
   return {
     width: '33.33%',
     padding: cardPaddingBase,
@@ -96,7 +106,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       ${lineWidth}px 0 0 0 ${colorBorderSecondary} inset,
       0 ${lineWidth}px 0 0 ${colorBorderSecondary} inset;
     `,
-    transition: `all ${token.motionDurationFast}`,
+    transition: `all ${motionDurationFast}`,
 
     '&-hoverable:hover': {
       position: 'relative',
@@ -108,93 +118,115 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, colorBorderSecondary } =
-    token;
+  const {
+    componentCls,
+    iconCls,
+    cardActionsLiMargin,
+    cardActionsIconSize,
+    colorBorderSecondary,
+    colorBgContainer,
+    lineWidth,
+    lineType,
+    colorTextDescription,
+    fontSize,
+    lineHeight,
+    colorPrimary,
+    motionDurationFast,
+  } = token;
   return {
     margin: 0,
     padding: 0,
     listStyle: 'none',
-    background: token.colorBgContainer,
-    borderTop: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+    background: colorBgContainer,
+    borderTop: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
     display: 'flex',
     ...clearFix(),
 
     '& > li': {
       margin: cardActionsLiMargin,
-      color: token.colorTextDescription,
+      color: colorTextDescription,
       textAlign: 'center',
 
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: token.cardActionsIconSize * 2,
-        fontSize: token.fontSize,
-        lineHeight: token.lineHeight,
+        minWidth: cardActionsIconSize * 2,
+        fontSize,
+        lineHeight,
         cursor: 'pointer',
 
         '&:hover': {
-          color: token.colorPrimary,
-          transition: `color ${token.motionDurationFast}`,
+          color: colorPrimary,
+          transition: `color ${motionDurationFast}`,
         },
 
         [`a:not(${componentCls}-btn), > ${iconCls}`]: {
           display: 'inline-block',
           width: '100%',
-          color: token.colorTextDescription,
-          lineHeight: `${token.fontSize * token.lineHeight}px`,
-          transition: `color ${token.motionDurationFast}`,
+          color: colorTextDescription,
+          lineHeight: `${fontSize * lineHeight}px`,
+          transition: `color ${motionDurationFast}`,
 
           '&:hover': {
-            color: token.colorPrimary,
+            color: colorPrimary,
           },
         },
 
         [`> ${iconCls}`]: {
           fontSize: cardActionsIconSize,
-          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
+          lineHeight: `${cardActionsIconSize * lineHeight}px`,
         },
       },
 
       '&:not(:last-child)': {
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+        borderInlineEnd: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
       },
     },
   };
 };
 
 // ============================== Meta ==============================
-const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
-  margin: `-${token.marginXXS}px 0`,
+const genCardMetaStyle: GenerateStyle<CardToken> = ({
+  marginXXS,
+  padding,
+  marginXS,
+  colorTextHeading,
+  fontWeightStrong,
+  fontSizeLG,
+  colorTextDescription,
+}): CSSObject => ({
+  margin: `-${marginXXS}px 0`,
   display: 'flex',
   ...clearFix(),
 
   '&-avatar': {
-    paddingInlineEnd: token.padding,
+    paddingInlineEnd: padding,
   },
 
   '&-detail': {
     overflow: 'hidden',
 
     '> div:not(:last-child)': {
-      marginBottom: token.marginXS,
+      marginBottom: marginXS,
     },
   },
 
   '&-title': {
-    color: token.colorTextHeading,
-    fontWeight: token.fontWeightStrong,
-    fontSize: token.fontSizeLG,
+    color: colorTextHeading,
+    fontWeight: fontWeightStrong,
+    fontSize: fontSizeLG,
     ...textEllipsis,
   },
 
   '&-description': {
-    color: token.colorTextDescription,
+    color: colorTextDescription,
   },
 });
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, colorFillAlter, cardInnerHeadPadding } = token;
+  const { componentCls, fontSize, padding, cardPaddingBase, colorFillAlter, cardInnerHeadPadding } =
+    token;
 
   return {
     [`${componentCls}-head`]: {
@@ -203,12 +235,12 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,
-        fontSize: token.fontSize,
+        fontSize,
       },
     },
 
     [`${componentCls}-body`]: {
-      padding: `${token.padding}px ${cardPaddingBase}px`,
+      padding: `${padding}px ${cardPaddingBase}px`,
     },
 
     [`${componentCls}-extra`]: {
@@ -240,6 +272,12 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     colorBorderSecondary,
     boxShadow,
     cardPaddingBase,
+    colorBgContainer,
+    borderRadiusLG,
+    fontSize,
+    lineWidth,
+    lineType,
+    motionDurationFast,
   } = token;
 
   return {
@@ -247,8 +285,8 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       ...resetComponent(token),
 
       position: 'relative',
-      background: token.colorBgContainer,
-      borderRadius: token.borderRadiusLG,
+      background: colorBgContainer,
+      borderRadius: borderRadiusLG,
 
       [`&:not(${componentCls}-bordered)`]: {
         boxShadow,
@@ -262,7 +300,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         padding: '',
         color: '',
         fontWeight: 'normal',
-        fontSize: token.fontSize,
+        fontSize,
       },
 
       [`${componentCls}-body`]: {
@@ -279,7 +317,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         img: {
-          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+          borderRadius: `${borderRadiusLG}px ${borderRadiusLG}px 0 0`,
         },
       },
 
@@ -289,7 +327,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-bordered`]: {
-      border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+      border: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
 
       [`${componentCls}-cover`]: {
         marginTop: -1,
@@ -300,7 +338,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-hoverable`]: {
       cursor: 'pointer',
-      transition: `box-shadow ${token.motionDurationFast}, border-color ${token.motionDurationFast}`,
+      transition: `box-shadow ${motionDurationFast}, border-color ${motionDurationFast}`,
 
       '&:hover': {
         borderColor: 'transparent',
@@ -315,8 +353,8 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`&:not(${componentCls}-loading) ${componentCls}-body`]: {
-        marginBlockStart: -token.lineWidth,
-        marginInlineStart: -token.lineWidth,
+        marginBlockStart: -lineWidth,
+        marginInlineStart: -lineWidth,
         padding: 0,
       },
     },
@@ -354,7 +392,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`> ${componentCls}-head`]: {
         minHeight: cardHeaderHeightSM,
         padding: `0 ${cardPaddingSM}px`,
-        fontSize: token.fontSize,
+        fontSize,
 
         [`> ${componentCls}-head-wrapper`]: {
           [`> ${componentCls}-head-title`]: {
@@ -363,7 +401,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
           [`> ${componentCls}-extra`]: {
             padding: `${cardHeadPaddingSM}px 0`,
-            fontSize: token.fontSize,
+            fontSize,
           },
         },
       },
@@ -376,17 +414,30 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', token => {
+export default genComponentStyleHook('Card', (token) => {
+  const {
+    boxShadowCard,
+    fontSizeLG,
+    lineHeightLG,
+    padding,
+    fontSize,
+    lineHeight,
+    paddingXS,
+    paddingLG,
+    lineWidth,
+    paddingSM,
+  } = token;
+
   const cardToken = mergeToken<CardToken>(token, {
-    cardShadow: token.boxShadowCard,
-    cardHeaderHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
-    cardHeaderHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
-    cardHeadPadding: token.padding,
-    cardPaddingBase: token.paddingLG,
-    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
-    cardInnerHeadPadding: token.paddingSM,
-    cardActionsLiMargin: `${token.paddingSM}px 0`,
-    cardActionsIconSize: token.fontSize,
+    cardShadow: boxShadowCard,
+    cardHeaderHeight: fontSizeLG * lineHeightLG + padding * 2,
+    cardHeaderHeightSM: fontSize * lineHeight + paddingXS * 2,
+    cardHeadPadding: padding,
+    cardPaddingBase: paddingLG,
+    cardHeadTabsMarginBottom: -padding - lineWidth,
+    cardInnerHeadPadding: paddingSM,
+    cardActionsLiMargin: `${paddingSM}px 0`,
+    cardActionsIconSize: fontSize,
     cardPaddingSM: 12, // Fixed padding.
   });
 
