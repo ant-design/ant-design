@@ -182,7 +182,7 @@ describe('Breadcrumb', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should console Error then `overlay` in props', () => {
+  it('should console Error when `overlay` in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <Breadcrumb>
@@ -194,8 +194,8 @@ describe('Breadcrumb', () => {
     );
     errSpy.mockRestore();
   });
-  
-  it('should not console Error then `overlay` not in props', () => {
+
+  it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Breadcrumb routes={[{ path: '/', breadcrumbName: 'Test' }]} />);
     expect(errSpy).not.toHaveBeenCalled();
