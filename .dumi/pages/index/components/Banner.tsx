@@ -36,8 +36,7 @@ export default function Banner({ children }: BannerProps) {
       {/* Banner Placeholder Motion */}
       <div
         style={{
-          height: 360,
-          // height: 200,
+          height: 240,
           background: '#77C6FF',
           display: 'flex',
           flexWrap: 'nowrap',
@@ -53,13 +52,9 @@ export default function Banner({ children }: BannerProps) {
             backgroundSize: 'auto 100%',
           }}
         />
-        {/* <img
-          alt="banner"
-          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I9a5ToqP4x8AAAAAAAAAAAAAARQnAQ"
-          style={{ height: '100%', flex: 'none' }}
-        /> */}
+
         <video
-          src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
+          src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
           style={{ height: '100%', objectFit: 'contain' }}
           autoPlay
           muted
