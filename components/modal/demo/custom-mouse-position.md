@@ -1,8 +1,9 @@
 ---
-order: 0
+order: 999
 title:
   zh-CN: 控制弹框动画原点
   en-US: control modal's animation origin position
+debug: true
 ---
 
 ## zh-CN

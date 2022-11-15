@@ -44,7 +44,6 @@ When requiring users to interact with the application, but without jumping to a 
 | zIndex | The `z-index` of the Modal | number | 1000 |  |
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
-| mousePosition | pass point info to control modal's animation origin position | { x: number; y: number } | null | - |  |
 
 #### Note
 
