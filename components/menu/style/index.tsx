@@ -67,7 +67,7 @@ export interface MenuToken extends FullToken<'Menu'> {
 }
 
 // =============================== Base ===============================
-const getBaseStyle: GenerateStyle<MenuToken> = token => {
+const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     antCls,
     componentCls,
@@ -243,7 +243,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             ...resetIcon(),
           },
 
-          [`&.${componentCls}-item-only-child`]: {
+          [`&${componentCls}-item-only-child`]: {
             [`> ${iconCls}, > ${componentCls}-item-icon`]: {
               marginInlineEnd: 0,
             },
@@ -481,7 +481,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         initZoomMotion(menuToken, 'zoom-big'),
       ];
     },
-    token => {
+    (token) => {
       const {
         colorPrimary,
         colorError,

@@ -3,7 +3,7 @@ import { textEllipsis } from '../../style';
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
+const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     menuItemHeight,
@@ -27,9 +27,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-    },
 
-    [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       marginInline: itemMarginInline,
       marginBlock: menuItemMarginInline,
       width: `calc(100% - ${itemMarginInline * 2}px)`,
@@ -53,7 +51,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = token => {
   };
 };
 
-const getVerticalStyle: GenerateStyle<MenuToken> = token => {
+const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     componentCls,
     iconCls,
