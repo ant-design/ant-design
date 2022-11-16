@@ -616,15 +616,19 @@ Array [
 `;
 
 exports[`renders ./components/badge/demo/colorful-with-count-debug.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+  style="flex-wrap:wrap;margin-bottom:-16px"
+>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         pink
       </div>
@@ -655,15 +659,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         red
       </div>
@@ -694,15 +699,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         yellow
       </div>
@@ -733,15 +739,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         orange
       </div>
@@ -772,15 +779,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         cyan
       </div>
@@ -811,15 +819,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         green
       </div>
@@ -850,15 +859,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         blue
       </div>
@@ -889,15 +899,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         purple
       </div>
@@ -928,15 +939,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         geekblue
       </div>
@@ -967,15 +979,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         magenta
       </div>
@@ -1006,15 +1019,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         volcano
       </div>
@@ -1045,15 +1059,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="margin-right:24px;padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         gold
       </div>
@@ -1084,15 +1099,16 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
+  </div>
   <div
-    style="display:inline-block;vertical-align:middle;margin-right:20px"
+    class="ant-space-item"
+    style="padding-bottom:16px"
   >
     <span
       class="ant-badge"
     >
       <div
-        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center;margin-bottom:10px"
+        style="width:90px;height:90px;line-height:90px;background:#ccc;text-align:center"
       >
         lime
       </div>
@@ -1123,8 +1139,8 @@ Array [
         </span>
       </sup>
     </span>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/badge/demo/dot.tsx correctly 1`] = `
