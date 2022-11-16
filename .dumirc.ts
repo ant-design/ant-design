@@ -24,9 +24,6 @@ export default defineConfig({
   define: {
     antdReproduceVersion: version,
   },
-  theme: {
-    '@root-entry-name': 'default',
-  },
   alias: {
     'antd/lib': path.join(__dirname, 'components'),
     'antd/es': path.join(__dirname, 'components'),
