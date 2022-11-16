@@ -25,10 +25,10 @@ import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
 
 const locales = {
   cn: {
-    owner: '蚂蚁体验技术部 & 蚂蚁企业级应用设计',
+    owner: '蚂蚁集团和 Ant Design 开源社区',
   },
   en: {
-    owner: 'Ant Financial Experience & Ant Enterprise-application Design',
+    owner: 'Ant Group and Ant Design Community',
   },
 };
 
