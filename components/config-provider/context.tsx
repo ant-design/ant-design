@@ -30,7 +30,7 @@ export interface ThemeConfig {
   components?: OverrideToken;
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
-  seperated?: boolean;
+  inherit?: boolean;
 }
 
 export interface ConfigConsumerProps {

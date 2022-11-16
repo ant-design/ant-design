@@ -195,7 +195,7 @@ const theme = {
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | token | Modify Design Token | `AliasToken` | - |
-| seperated | Ignore theme configured in upper ConfigProvider | boolean | - |
+| inherit | Inherit theme configured in upper ConfigProvider | boolean | true |
 | algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
 | components | Modify Component Token and Alias Token applied to components | OverrideToken | - |
 

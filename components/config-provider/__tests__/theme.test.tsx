@@ -186,7 +186,7 @@ describe('ConfigProvider.Theme', () => {
     };
     render(
       <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' } }}>
-        <ConfigProvider theme={{ seperated: true }}>
+        <ConfigProvider theme={{ inherit: false }}>
           <Demo />
         </ConfigProvider>
       </ConfigProvider>,
