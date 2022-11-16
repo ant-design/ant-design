@@ -9,6 +9,7 @@ typings
 es/**/*
 lib/**/*
 locale
+server
 node_modules
 _site
 dist
