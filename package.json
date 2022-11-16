@@ -81,7 +81,7 @@
     "rome:format": "rome format --write .",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
-    "site": "dumi build && cp .surgeignore _site",
+    "site": "npm run fix-memory-limit && dumi build && cp .surgeignore _site",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "dumi dev",
