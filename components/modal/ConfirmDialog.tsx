@@ -38,8 +38,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
+    type,
     bodyStyle,
-    closable = false,
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
@@ -61,19 +61,20 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
   const okType = props.okType || 'primary';
-  const contentPrefixCls = `${prefixCls}-confirm`;
+  const contentPrefixCls = props.type ? `${prefixCls}-confirm` : prefixCls;
   // 默认为 true，保持向下兼容
   const okCancel = 'okCancel' in props ? props.okCancel! : true;
-  const width = props.width || 416;
+  const width = props.width || (props.type ? 416 : 520);
   const style = props.style || {};
   const mask = props.mask === undefined ? true : props.mask;
+  const closable = props.closable === undefined ? !props.type : props.closable;
   // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
+  const maskClosable = props.maskClosable === undefined ? !props.type : props.maskClosable;
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
 
   const classString = classNames(
     contentPrefixCls,
-    `${contentPrefixCls}-${props.type}`,
+    { [`${contentPrefixCls}-${props.type}`]: props.type },
     { [`${contentPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
@@ -90,6 +91,27 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
+  const renderTitle =
+    props.title === undefined ? null : (
+      <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+    );
+
+  const renderFooter = (
+    <>
+      {cancelButton}
+      <ActionButton
+        type={okType}
+        actionFn={onOk}
+        close={close}
+        autoFocus={autoFocusButton === 'ok'}
+        buttonProps={okButtonProps}
+        prefixCls={`${rootPrefixCls}-btn`}
+      >
+        {okText}
+      </ActionButton>
+    </>
+  );
+
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
       <Dialog
@@ -101,8 +123,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         )}
         onCancel={() => close?.({ triggerCancel: true })}
         open={open || visible}
-        title=""
-        footer=""
+        title={type ? '' : props.title}
+        footer={type ? '' : renderFooter}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
         mask={mask}
@@ -121,28 +143,18 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         modalRender={modalRender}
         focusTriggerAfterClose={focusTriggerAfterClose}
       >
-        <div className={`${contentPrefixCls}-body-wrapper`}>
-          <div className={`${contentPrefixCls}-body`}>
-            {icon}
-            {props.title === undefined ? null : (
-              <span className={`${contentPrefixCls}-title`}>{props.title}</span>
-            )}
-            <div className={`${contentPrefixCls}-content`}>{props.content}</div>
+        {props.type ? (
+          <div className={`${contentPrefixCls}-body-wrapper`}>
+            <div className={`${contentPrefixCls}-body`}>
+              {icon}
+              {renderTitle}
+              <div className={`${contentPrefixCls}-content`}>{props.content}</div>
+            </div>
+            <div className={`${contentPrefixCls}-btns`}>{renderFooter}</div>
           </div>
-          <div className={`${contentPrefixCls}-btns`}>
-            {cancelButton}
-            <ActionButton
-              type={okType}
-              actionFn={onOk}
-              close={close}
-              autoFocus={autoFocusButton === 'ok'}
-              buttonProps={okButtonProps}
-              prefixCls={`${rootPrefixCls}-btn`}
-            >
-              {okText}
-            </ActionButton>
-          </div>
-        </div>
+        ) : (
+          props.content
+        )}
       </Dialog>
     </ConfigProvider>
   );

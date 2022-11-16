@@ -1,6 +1,7 @@
 import type { ModalStaticFunctions } from './confirm';
 import confirm, {
   modalGlobalConfig,
+  withDefault,
   withConfirm,
   withError,
   withInfo,
@@ -28,6 +29,16 @@ type ModalType = typeof OriginModal &
 const Modal = OriginModal as ModalType;
 
 Modal.useModal = useModal;
+
+Modal.open = function openFn(props: ModalFuncProps) {
+  if (
+    props.type &&
+    ['info', 'success', 'error', 'warn', 'warning', 'confirm'].includes(props.type)
+  ) {
+    return Modal[props.type](props);
+  }
+  return confirm(withDefault(props));
+};
 
 Modal.info = function infoFn(props: ModalFuncProps) {
   return confirm(withInfo(props));

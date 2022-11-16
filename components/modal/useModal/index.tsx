@@ -1,7 +1,7 @@
 import * as React from 'react';
 import usePatchElement from '../../_util/hooks/usePatchElement';
 import type { ModalStaticFunctions } from '../confirm';
-import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm';
+import { withConfirm, withDefault, withError, withInfo, withSuccess, withWarn } from '../confirm';
 import type { ModalFuncProps } from '../Modal';
 import type { HookModalRef } from './HookModal';
 import HookModal from './HookModal';
@@ -36,7 +36,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
   React.useEffect(() => {
     if (actionQueue.length) {
       const cloneQueue = [...actionQueue];
-      cloneQueue.forEach(action => {
+      cloneQueue.forEach((action) => {
         action();
       });
 
@@ -75,7 +75,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               destroyAction();
             } else {
-              setActionQueue(prev => [...prev, destroyAction]);
+              setActionQueue((prev) => [...prev, destroyAction]);
             }
           },
           update: (newConfig: ModalFuncProps) => {
@@ -86,7 +86,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               updateAction();
             } else {
-              setActionQueue(prev => [...prev, updateAction]);
+              setActionQueue((prev) => [...prev, updateAction]);
             }
           },
         };
@@ -101,6 +101,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
       error: getConfirmFunc(withError),
       warning: getConfirmFunc(withWarn),
       confirm: getConfirmFunc(withConfirm),
+      open: getConfirmFunc(withDefault),
     }),
     [],
   );

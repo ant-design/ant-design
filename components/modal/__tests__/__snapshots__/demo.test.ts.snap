@@ -198,6 +198,19 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
       type="button"
     >
       <span>
+        Open
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px;padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
         Info
       </span>
     </button>
@@ -230,7 +243,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -238,6 +251,19 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
     >
       <span>
         Warning
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+    style="padding-bottom:8px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Trigger Info Modal with Open Method
       </span>
     </button>
   </div>

@@ -17,7 +17,7 @@ jest.mock('rc-motion');
 describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach(key => {
+  Object.keys(MockCSSMotion).forEach((key) => {
     // @ts-ignore
     CSSMotion[key] = MockCSSMotion[key];
   });
@@ -36,7 +36,7 @@ describe('Modal.hook', () => {
               instance = modal.confirm({
                 content: (
                   <Context.Consumer>
-                    {name => <div className="test-hook">{name}</div>}
+                    {(name) => <div className="test-hook">{name}</div>}
                   </Context.Consumer>
                 ),
               });
@@ -138,6 +138,44 @@ describe('Modal.hook', () => {
     expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
   });
 
+  it('modal.open should trigger onCancel', () => {
+    let cancelCount = 0;
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = React.useCallback(() => {
+        modal.open({
+          okType: 'default',
+          maskClosable: true,
+          okCancel: true,
+          onCancel: () => {
+            cancelCount += 1;
+          },
+          content: 'Hello!',
+        });
+      }, [modal]);
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-footer .ant-btn')[0]);
+    expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
+
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
+    expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
+  });
+
   it('update before render', () => {
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
@@ -213,7 +251,7 @@ describe('Modal.hook', () => {
           closable: true,
           keyboard: true,
           maskClosable: true,
-          onCancel: close => mockFn(close),
+          onCancel: (close) => mockFn(close),
         });
       }, [modal]);
 
@@ -283,7 +321,7 @@ describe('Modal.hook', () => {
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
 
-    mockFn.mockImplementation(close => close());
+    mockFn.mockImplementation((close) => close());
 
     // Click the Cancel button to close (valid)
     fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns > .ant-btn')[0]);

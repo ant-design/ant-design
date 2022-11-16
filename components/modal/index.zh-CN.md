@@ -58,6 +58,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 
 包括：
 
+- `Modal.open`
 - `Modal.info`
 - `Modal.success`
 - `Modal.error`

@@ -24,7 +24,7 @@ export type ModalFunc = (props: ModalFuncProps) => {
   update: (configUpdate: ConfigUpdate) => void;
 };
 
-export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type'] | 'open'>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
   const container = document.createDocumentFragment();
@@ -33,7 +33,7 @@ export default function confirm(config: ModalFuncProps) {
   let timeoutId: NodeJS.Timeout;
 
   function destroy(...args: any[]) {
-    const triggerCancel = args.some(param => param && param.triggerCancel);
+    const triggerCancel = args.some((param) => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(() => {}, ...args.slice(1));
     }
@@ -119,6 +119,13 @@ export default function confirm(config: ModalFuncProps) {
   return {
     destroy: close,
     update,
+  };
+}
+
+export function withDefault(props: ModalFuncProps): ModalFuncProps {
+  return {
+    okCancel: true,
+    ...props,
   };
 }
 
