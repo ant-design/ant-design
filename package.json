@@ -81,7 +81,7 @@
     "rome:format": "rome format --write .",
     "prepublishOnly": "antd-tools run guard",
     "postpublish": "node ./scripts/post-script.js",
-    "site": "npm run fix-memory-limit && dumi build && cp .surgeignore _site",
+    "site": "dumi build && cp .surgeignore _site",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "dumi dev",
@@ -96,8 +96,7 @@
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18",
-    "fix-memory-limit": "cross-env LIMIT=10240 increase-memory-limit"
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18"
   },
   "browserslist": [
     "> 0.5%",

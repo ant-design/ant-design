@@ -4,7 +4,7 @@ group: Layout
 title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
 demo:
-  cols: 2
+  cols: 1
 ---
 
 24 Grids System.
@@ -47,7 +47,7 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/responsive-more.tsx">More responsive</code>
 <code src="./demo/playground.tsx">Playground</code>
-<code src="./demo/useBreakpoint.tsx">undefined</code>
+<code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
 
 ## API
 
