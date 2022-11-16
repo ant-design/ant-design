@@ -6,7 +6,7 @@ import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
  */
 function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
-    unistUtilVisit.visit(tree, 'element', node => {
+    unistUtilVisit.visit(tree, 'element', (node) => {
       if (node.tagName === 'DumiDemoGrid') {
         // replace DumiDemoGrid to DemoWrapper, to implement demo toolbar
         node.tagName = 'DemoWrapper';
@@ -52,6 +52,10 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
             ),
           },
         ];
+      } else if (
+        node.tagName === 'img' &&
+        node.properties?.class?.toString().includes('preview-img')
+      ) {
       }
     });
   };
