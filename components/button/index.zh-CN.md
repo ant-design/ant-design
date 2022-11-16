@@ -81,14 +81,11 @@ group:
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="移除两个汉字之间的空格"  />
 
 <style>
-[id^="components-button-demo-"]:not([id^="components-button-demo-legacy-group"]) .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 12px;
+.site-button-ghost-wrapper {
+  padding: 8px;
+  background: rgb(190, 200, 200);
 }
-[id^="components-button-demo-"]:not([id^="components-button-demo-legacy-group"]) .ant-btn-rtl {
-  margin-right: 0;
-  margin-left: 8px;
-}
+
 [data-theme="dark"] .site-button-ghost-wrapper {
   background: rgba(255, 255, 255, 0.2);
 }

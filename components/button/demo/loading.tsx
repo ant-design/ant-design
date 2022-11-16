@@ -6,14 +6,14 @@ const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {
-    setLoadings(prevLoadings => {
+    setLoadings((prevLoadings) => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
       return newLoadings;
     });
 
     setTimeout(() => {
-      setLoadings(prevLoadings => {
+      setLoadings((prevLoadings) => {
         const newLoadings = [...prevLoadings];
         newLoadings[index] = false;
         return newLoadings;
@@ -22,8 +22,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <Space style={{ width: '100%' }}>
+    <Space direction="vertical">
+      <Space wrap>
         <Button type="primary" loading>
           Loading
         </Button>
@@ -33,7 +33,7 @@ const App: React.FC = () => {
         <Button type="primary" icon={<PoweroffOutlined />} loading />
       </Space>
 
-      <Space style={{ width: '100%' }}>
+      <Space wrap>
         <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
           Click me!
         </Button>
@@ -52,7 +52,7 @@ const App: React.FC = () => {
           onClick={() => enterLoading(2)}
         />
       </Space>
-    </>
+    </Space>
   );
 };
 

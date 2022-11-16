@@ -5,10 +5,3 @@
 ## en-US
 
 `ghost` property will make button's background transparent, it is commonly used in colored background.
-
-```css
-.site-button-ghost-wrapper {
-  padding: 26px 16px 16px;
-  background: rgb(190, 200, 200);
-}
-```
