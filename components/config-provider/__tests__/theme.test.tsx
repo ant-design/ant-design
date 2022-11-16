@@ -21,7 +21,7 @@ describe('ConfigProvider.Theme', () => {
 
   const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
 
-  colorList.forEach(colorName => {
+  colorList.forEach((colorName) => {
     it(colorName, () => {
       ConfigProvider.config({
         prefixCls: 'bamboo',
@@ -31,7 +31,7 @@ describe('ConfigProvider.Theme', () => {
       });
 
       const styles: any[] = Array.from(document.querySelectorAll('style'));
-      const themeStyle = styles.find(style =>
+      const themeStyle = styles.find((style) =>
         style.getAttribute('rc-util-key').includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
@@ -123,11 +123,11 @@ describe('ConfigProvider.Theme', () => {
       </ConfigProvider>,
     );
     const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
-      item => item?.innerHTML ?? '',
+      (item) => item?.innerHTML ?? '',
     );
     expect(
       dynamicStyles.some(
-        style => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
+        (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
       ),
     ).toBeTruthy();
   });
@@ -175,5 +175,22 @@ describe('ConfigProvider.Theme', () => {
       </>,
     );
     expect(tokens.a).toMatchObject(tokens.b);
+  });
+
+  it('theme seperated should work', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ token: { colorPrimary: '#1890ff' } }}>
+        <ConfigProvider theme={{ seperated: true }}>
+          <Demo />
+        </ConfigProvider>
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
   });
 });
