@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import DemoContext from '../../slots/DemoContext';
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  const { showDebug, setShowDebug, setDebugDemos } = useContext(DemoContext);
+  const { showDebug, setShowDebug } = useContext(DemoContext);
 
   const [expandAll, setExpandAll] = useState(false);
 
@@ -18,16 +18,12 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
     setShowDebug?.(!showDebug);
   };
 
-  useLayoutEffect(() => {
-    setDebugDemos?.(items.filter(item => item.previewerProps.debug).map(item => item.demo.id));
-  }, []);
-
   const handleExpandToggle = () => {
     setExpandAll(!expandAll);
   };
 
-  const visibleDemos = showDebug ? items : items.filter(item => !item.previewerProps.debug);
-  const filteredItems = visibleDemos.map(item => ({
+  const visibleDemos = showDebug ? items : items.filter((item) => !item.previewerProps.debug);
+  const filteredItems = visibleDemos.map((item) => ({
     ...item,
     previewerProps: { ...item.previewerProps, expand: expandAll },
   }));

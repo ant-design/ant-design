@@ -21,7 +21,7 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/shape.tsx" iframe>Shape</code>
 <code src="./demo/description.tsx" iframe>Description</code>
 <code src="./demo/tooltip.tsx" iframe>FloatButton with tooltip</code>
-<code src="./demo/group.tsx" iframe>FloatButton Group</code>
+<code src="./demo/group.tsx" iframe="300">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe>Menu mode</code>
 <code src="./demo/back-top.tsx" iframe>BackTop</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>

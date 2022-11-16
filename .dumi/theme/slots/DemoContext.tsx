@@ -7,8 +7,6 @@ export type DemoContextProps = {
 const DemoContext = createContext<{
   showDebug?: boolean;
   setShowDebug?: (showDebug: boolean) => void;
-  debugDemos?: string[];
-  setDebugDemos?: (visibleItems: string[]) => void;
 }>({});
 
 export default DemoContext;

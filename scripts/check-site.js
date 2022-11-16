@@ -14,14 +14,14 @@ const components = uniq(
       cwd: join(process.cwd()),
       dot: false,
     })
-    .map(path => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
+    .map((path) => path.replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')),
 );
 
 describe('site test', () => {
   let server;
   const port = 3000;
-  const render = async path => {
-    const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async res => {
+  const render = async (path) => {
+    const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html = await res.text();
       const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
       return {
@@ -33,12 +33,12 @@ describe('site test', () => {
     return resp;
   };
 
-  const handleComponentName = name => {
+  const handleComponentName = (name) => {
     const componentName = name.split('/')[1];
     return componentName.toLowerCase().replace('-', '');
   };
 
-  const expectComponent = async component => {
+  const expectComponent = async (component) => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
     expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
@@ -59,8 +59,7 @@ describe('site test', () => {
     }
   });
 
-  // FIXME: should not skip if helmet is done
-  it.skip('Basic Pages en', async () => {
+  it('Basic Pages en', async () => {
     const { status, $ } = await render('/');
     expect($('title').text()).toEqual(
       `Ant Design - The world's second most popular React UI framework`,
@@ -68,7 +67,7 @@ describe('site test', () => {
     expect(status).toBe(200);
   });
 
-  it.skip('Basic Pages zh', async () => {
+  it('Basic Pages zh', async () => {
     const { status, $ } = await render('/index-cn');
     expect($('title').text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
     expect(status).toBe(200);
