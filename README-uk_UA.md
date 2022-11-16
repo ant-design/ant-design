@@ -91,12 +91,6 @@ const App = () => (
 );
 ```
 
-Та імпортуй стиль вручну:
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
-
 ### TypeScript
 
 `antd` написано на TypeScript із повною типізацією, вибери [Використання у TypeScript](https://ant.design/docs/react/use-in-typescript) щоб розпочати.

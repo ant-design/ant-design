@@ -91,12 +91,6 @@ const App = () => (
 );
 ```
 
-Importe o estilo manualmente:
-
-```jsx
-import 'antd/dist/antd.css'; // ou 'antd/dist/antd.less'
-```
-
 ### TypeScript
 
 Veja [Uso no Typescript](https://ant.design/docs/react/use-in-typescript).
