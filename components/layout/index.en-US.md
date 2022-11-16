@@ -61,11 +61,11 @@ Style of a navigation should conform to its level.
 <code src="./demo/top.tsx">Header-Content-Footer</code>
 <code src="./demo/top-side-2.tsx">Header Sider 2</code>
 <code src="./demo/top-side.tsx">Header-Sider</code>
-<code src="./demo/side.tsx" iframe>Sider</code>
+<code src="./demo/side.tsx" iframe="360">Sider</code>
 <code src="./demo/custom-trigger.tsx">Custom trigger</code>
 <code src="./demo/responsive.tsx">Responsive</code>
-<code src="./demo/fixed.tsx" iframe>Fixed Header</code>
-<code src="./demo/fixed-sider.tsx" iframe>Fixed Sider</code>
+<code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
+<code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
 <code src="./demo/custom-trigger-debug.tsx" debug>Custom trigger debug</code>
 
 ## API

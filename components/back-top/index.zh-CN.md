@@ -18,7 +18,7 @@ group: 其他
 ## 代码演示
 
 <code src="./demo/basic.tsx">基本</code>
-<code src="./demo/custom.tsx" iframe>自定义样式</code>
+<code src="./demo/custom.tsx" iframe="400">自定义样式</code>
 
 ## API
 

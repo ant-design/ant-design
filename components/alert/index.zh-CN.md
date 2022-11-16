@@ -25,7 +25,7 @@ group:
 <code src="./demo/description.tsx">含有辅助性文字介绍</code>
 <code src="./demo/icon.tsx">图标</code>
 <code src="./demo/close-text.tsx">自定义关闭</code>
-<code src="./demo/banner.tsx" iframe>顶部公告</code>
+<code src="./demo/banner.tsx" iframe="250">顶部公告</code>
 <code src="./demo/loop-banner.tsx">轮播的公告</code>
 <code src="./demo/smooth-closed.tsx">平滑地卸载</code>
 <code src="./demo/error-boundary.tsx">React 错误处理</code>

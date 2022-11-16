@@ -17,7 +17,7 @@ group: Other
 ## Examples
 
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/custom.tsx" iframe>Custom style</code>
+<code src="./demo/custom.tsx" iframe="400">Custom style</code>
 
 ## API
 
