@@ -9,7 +9,8 @@ export default function useTheme(
   parentTheme?: ThemeConfig,
 ): ThemeConfig | undefined {
   const themeConfig = theme || {};
-  const parentThemeConfig: ThemeConfig = parentTheme || defaultConfig;
+  const parentThemeConfig: ThemeConfig =
+    themeConfig.seperated || !parentTheme ? defaultConfig : parentTheme;
 
   const mergedTheme = useMemo<ThemeConfig | undefined>(
     () => {
