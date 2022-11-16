@@ -19,8 +19,15 @@ const colors = [
 
 const App: React.FC = () => (
   <>
-    {colors.map(color => (
-      <div key={color} style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+    {colors.map((color) => (
+      <div
+        key={color}
+        style={{
+          display: 'inline-block',
+          verticalAlign: 'middle',
+          marginRight: 20,
+        }}
+      >
         <Badge color={color} count={44}>
           <div
             style={{

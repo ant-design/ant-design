@@ -1,8 +1,8 @@
 import React from 'react';
-import { Avatar, Badge } from 'antd';
+import { Avatar, Badge, Space } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Space size="large">
     <Badge count={99}>
       <Avatar shape="square" size="large" />
     </Badge>
@@ -15,7 +15,7 @@ const App: React.FC = () => (
     <Badge count={1000} overflowCount={999}>
       <Avatar shape="square" size="large" />
     </Badge>
-  </>
+  </Space>
 );
 
 export default App;

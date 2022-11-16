@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Button, Divider, Switch } from 'antd';
+import { Avatar, Badge, Button, Switch, Space } from 'antd';
 
 const ButtonGroup = Button.Group;
 
@@ -30,27 +30,24 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <Badge count={count}>
-        <Avatar shape="square" size="large" />
-      </Badge>
-      <ButtonGroup>
-        <Button onClick={decline}>
-          <MinusOutlined />
-        </Button>
-        <Button onClick={increase}>
-          <PlusOutlined />
-        </Button>
-        <Button onClick={random}>
-          <QuestionOutlined />
-        </Button>
-      </ButtonGroup>
-      <Divider />
-      <Badge dot={show}>
-        <Avatar shape="square" size="large" />
-      </Badge>
-      <Switch onChange={onChange} checked={show} />
-    </>
+    <Space direction="vertical">
+      <Space size="large">
+        <Badge count={count}>
+          <Avatar shape="square" size="large" />
+        </Badge>
+        <ButtonGroup>
+          <Button onClick={decline} icon={<MinusOutlined />} />
+          <Button onClick={increase} icon={<PlusOutlined />} />
+          <Button onClick={random} icon={<QuestionOutlined />} />
+        </ButtonGroup>
+      </Space>
+      <Space size="large">
+        <Badge dot={show}>
+          <Avatar shape="square" size="large" />
+        </Badge>
+        <Switch onChange={onChange} checked={show} />
+      </Space>
+    </Space>
   );
 };
 

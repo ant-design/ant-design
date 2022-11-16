@@ -1,8 +1,8 @@
 import React from 'react';
-import { Avatar, Badge } from 'antd';
+import { Avatar, Badge, Space } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Space size="middle">
     <Badge count={5} status="success">
       <Avatar shape="square" size="large" />
     </Badge>
@@ -27,7 +27,7 @@ const App: React.FC = () => (
     <Badge dot color="#fa541c">
       <Avatar shape="square" size="large" />
     </Badge>
-  </>
+  </Space>
 );
 
 export default App;
