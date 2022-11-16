@@ -2,7 +2,7 @@ import React from 'react';
 import { Alert, Button, Space } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Space direction="vertical" style={{ width: '100%' }}>
     <Alert
       message="Success Tips"
       type="success"
@@ -53,7 +53,7 @@ const App: React.FC = () => (
       }
       closable
     />
-  </>
+  </Space>
 );
 
 export default App;

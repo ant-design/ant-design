@@ -1,12 +1,12 @@
 import React from 'react';
-import { Alert } from 'antd';
+import { Alert, Space } from 'antd';
 
 const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   console.log(e, 'I was closed.');
 };
 
 const App: React.FC = () => (
-  <>
+  <Space direction="vertical" style={{ width: '100%' }}>
     <Alert
       message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
@@ -20,7 +20,7 @@ const App: React.FC = () => (
       closable
       onClose={onClose}
     />
-  </>
+  </Space>
 );
 
 export default App;
