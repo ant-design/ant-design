@@ -34,7 +34,7 @@ export default defineConfig({
   extraRehypePlugins: [rehypeAntd],
   extraBabelPresets: ['@emotion/babel-preset-css-prop'],
   mfsu: false,
-  meta: [{ name: 'theme-color', content: '#1677ff' }],
+  metas: [{ name: 'theme-color', content: '#1677ff' }],
   analytics: {
     ga_v2: 'UA-72788897-1',
   },
