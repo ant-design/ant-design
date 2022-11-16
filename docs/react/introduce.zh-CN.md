@@ -88,12 +88,6 @@ import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-引入样式：
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
-
 ### 按需加载
 
 `antd` 的 JS 代码默认支持基于 ES modules 的 tree shaking。

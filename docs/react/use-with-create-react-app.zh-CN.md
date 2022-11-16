@@ -117,53 +117,24 @@ module.exports = {
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到类似 [less-loader](https://github.com/webpack-contrib/less-loader/) 提供的 less 变量覆盖功能。我们可以引入 [craco-less](https://github.com/DocSpring/craco-less) 来帮助加载 less 样式和修改变量。
+参考 [配置主题](/docs/react/customize-theme-v5)，通过 ConfigProvider 进行主题配置：
 
-首先把 `src/App.css` 文件修改为 `src/App.less`，然后修改样式引用为 less 文件。
+```tsx
+import React from 'react';
+import { ConfigProvider } from 'antd';
 
-```diff
-/* src/App.js */
-- import './App.css';
-+ import './App.less';
-```
-
-```diff
-/* src/App.less */
-- @import '~antd/dist/antd.css';
-+ @import '~antd/dist/antd.less';
-```
-
-然后安装 `craco-less` 并修改 `craco.config.js` 文件如下。
-
-```bash
-$ yarn add craco-less
-```
-
-```js
-const CracoLessPlugin = require('craco-less');
-
-module.exports = {
-  plugins: [
-    {
-      plugin: CracoLessPlugin,
-      options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: { '@primary-color': '#1DA57A' },
-            javascriptEnabled: true,
-          },
-        },
+export default () => (
+  <ConfigProvider
+    theme={{
+      token: {
+        colorPrimary: '#00b96b',
       },
-    },
-  ],
-};
+    }}
+  >
+    <MyApp />
+  </ConfigProvider>
+);
 ```
-
-这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
-
-antd 内建了深色主题和紧凑主题，你可以参照 [使用暗色主题和紧凑主题](/docs/react/customize-theme#使用暗色主题和紧凑主题) 进行接入。
-
-> 同样，你可以使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) 和 [customize-cra](https://github.com/arackaf/customize-cra) 来自定义 create-react-app 的 webpack 配置。
 
 ## eject
 

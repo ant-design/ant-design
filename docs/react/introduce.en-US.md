@@ -88,12 +88,6 @@ import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-And import stylesheets manually:
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
-
 ### Use modularized antd
 
 `antd` supports ES modules tree shaking by default for JS part.

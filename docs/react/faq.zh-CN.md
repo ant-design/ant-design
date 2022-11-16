@@ -7,10 +7,6 @@ title: FAQ
 
 ---
 
-## 你们会提供 Sass/Stylus 等格式的样式文件吗？
-
-暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
-
 ## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
 **有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**

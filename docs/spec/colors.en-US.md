@@ -44,22 +44,7 @@ If the above palettes do not meet your needs, you can choose a main color below,
 
 ### Programmatic Usage
 
-We provide Less and JavaScript usage for developers.
-
-- **Less**
-
-  ```less
-  @import '~antd/es/style/themes/default.less';
-
-  .selector {
-    color: @blue-5;
-    background-color: @gold-2;
-  }
-  ```
-
-  Color less variables: [color.less](https://github.com/ant-design/ant-design/blob/5ab2783ff00d4b1da04bb213c6b12de43e7649eb/components/style/color/colors.less).
-
-  <br />
+We provide JavaScript usage for developers.
 
 - **JavaScript**
 
