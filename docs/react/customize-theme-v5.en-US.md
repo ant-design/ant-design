@@ -194,9 +194,10 @@ const theme = {
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| token | 用于修改 Design Token | `AliasToken` | - |
-| algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
-| components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | OverrideToken | - |
+| token | Modify Design Token | `AliasToken` | - |
+| seperated | Ignore theme configured in upper ConfigProvider | boolean | - |
+| algorithm | Modify the algorithms of theme | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |
+| components | Modify Component Token and Alias Token applied to components | OverrideToken | - |
 
 ### OverrideToken
 
