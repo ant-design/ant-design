@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'dumi';
+import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
 import { Button, Col, Modal, Popover, Row, Select } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -9,13 +10,11 @@ import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import packageJson from '../../../../package.json';
 import Logo from './Logo';
-import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import { AlgoliaConfig } from './algolia-config';
 import { useLocation, useNavigate } from 'dumi';
 import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -30,6 +29,7 @@ const antdVersion: string = packageJson.version;
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const searchIconColor = '#ced4d9';
 
   return {
     header: css`
@@ -41,6 +41,45 @@ const useStyle = () => {
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
+      }
+
+      .dumi-default-search-bar {
+        border-inline-start: 1px solid ${searchIconColor};
+
+        > svg {
+          width: 14px;
+          fill: ${searchIconColor};
+        }
+
+        > input {
+          height: 24px;
+          border: 0;
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          &::placeholder {
+            color: ${searchIconColor};
+          }
+        }
+
+        .dumi-default-search-shortcut {
+          color: ${searchIconColor};
+          background-color: rgba(150, 150, 150, 0.06);
+          border-color: rgba(100, 100, 100, 0.2);
+          border-radius: 4px;
+        }
+
+        .dumi-default-search-popover {
+          inset-inline-start: 11px;
+          inset-inline-end: unset;
+
+          &::before {
+            inset-inline-start: 100px;
+            inset-inline-end: unset;
+          }
+        }
       }
     `,
     menuRow: css`
@@ -95,31 +134,6 @@ const triggerDocSearchImport = () => {
     docsearch = ds.default;
   });
 };
-
-function initDocSearch({ isZhCN, navigate }: { isZhCN: boolean; navigate: any }) {
-  if (!canUseDom()) {
-    return;
-  }
-
-  triggerDocSearchImport().then(() => {
-    docsearch({
-      appId: AlgoliaConfig.appId,
-      apiKey: AlgoliaConfig.apiKey,
-      indexName: AlgoliaConfig.indexName,
-      inputSelector: '#search-box input',
-      algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
-      transformData: AlgoliaConfig.transformData,
-      debug: AlgoliaConfig.debug,
-      // https://docsearch.algolia.com/docs/behavior#handleselected
-      handleSelected(input: any, _$1: unknown, suggestion: any) {
-        navigate(suggestion.url);
-        setTimeout(() => {
-          input.setVal('');
-        });
-      },
-    });
-  });
-}
 
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -184,7 +198,6 @@ const Header: React.FC<HeaderProps> = props => {
 
   useEffect(() => {
     setIsClient(typeof window !== 'undefined');
-    initDocSearch({ isZhCN: lang === 'cn', navigate });
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
     pingTimer.current = ping(status => {
@@ -370,13 +383,7 @@ const Header: React.FC<HeaderProps> = props => {
           <Logo {...sharedProps} location={location} />
         </Col>
         <Col {...colProps[1]} css={style.menuRow}>
-          <SearchBar
-            key="search"
-            {...sharedProps}
-            algoliaConfig={AlgoliaConfig}
-            responsive={responsive}
-            onTriggerFocus={onTriggerSearching}
-          />
+          <DumiSearchBar />
           {!isMobile && menu}
         </Col>
       </Row>
