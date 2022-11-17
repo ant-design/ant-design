@@ -160,7 +160,34 @@ export default {
 
 ## 开始升级
 
-您可以参照上文所述改动手动修改，我们也会在正式版发布后提供 codemod 工具来帮助您自动升级。
+通过 git 保存你的代码，然后按照上述文档进行依赖安装：
+
+```bash
+npm install --save antd@5.x
+```
+
+如果你使用到了 antd 的 less 变量，通过兼容包将 v5 变量转译成 v4 版本，并通过 less-loader 注入：
+
+```jsx
+import { theme } from 'antd';
+import { convertLegacyToken } from '@ant-design/compatible';
+
+
+const { defaultAlgorithm, defaultSeed } = theme;
+
+const mapToken = defaultAlgorithm(defaultSeed);
+const v4Token = convertLegacyToken(mapToken);
+
+// Webpack Config
+{
+  loader: "less-loader",
+  options: {
+    lessOptions: {
+      modifyVars: v4Token,
+    },
+  },
+}
+```
 
 ## 遇到问题
 
