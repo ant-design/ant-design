@@ -11,6 +11,8 @@ lib/
 es/
 dist/
 _site/
+server
+.dumi/tmp
 coverage/
 CNAME
 LICENSE
@@ -29,4 +31,3 @@ components/*/*.jsx
 .eslintignore
 .history
 **/*.yml
-components/style/color/*.less
