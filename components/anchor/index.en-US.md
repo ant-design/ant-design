@@ -1,10 +1,10 @@
 ---
 category: Components
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
+cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg7
 group:
-  title: Other
-  order: 7
+  title: Navigation
+  order: 3
 demo:
   cols: 2
 ---

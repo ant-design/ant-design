@@ -4,11 +4,11 @@ subtitle: 锚点
 cols: 2
 title: Anchor
 cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
-group:
-  title: 其他
-  order: 7
 demo:
   cols: 2
+group:
+  title: 导航
+  order: 3
 ---
 
 用于跳转到页面指定位置。
