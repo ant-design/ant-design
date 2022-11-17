@@ -46,7 +46,7 @@ timeline: true
 - 🐞 修复 Modal.confirm 关闭中确认按钮依旧可能被触发的问题。[#38400](https://github.com/ant-design/ant-design/pull/38400)
 - 🐞 修复在 Drawer `extra` 中使用 Radio.Group 的样式问题。[#38385](https://github.com/ant-design/ant-design/pull/38385)
 - ⌨️ 修复 Table 组件 `aria-label` 出现 `[object Object]` 的问题。[#38389](https://github.com/ant-design/ant-design/pull/38389) [@kiner-tang](https://github.com/kiner-tang)
-- ⌨️ Progress 组件增加 `role="progressbar"` 。[#38447](https://github.com/ant-design/ant-design/pull/38447) [@kpustakhod](https://github.com/kpustakhod)
+- ⌨️ Progress 组件增加 `role="progressbar"`。[#38447](https://github.com/ant-design/ant-design/pull/38447) [@kpustakhod](https://github.com/kpustakhod)
 
 ## 4.24.1
 
