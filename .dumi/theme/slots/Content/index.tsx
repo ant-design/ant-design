@@ -35,16 +35,6 @@ const useStyle = () => {
         ${antCls}-anchor-link-title {
           font-size: 12px;
         }
-
-        ${antCls}-anchor-ink-ball {
-          left: 0;
-          width: ${token.lineWidthBold}px;
-          height: ${token.fontSizeSM * token.lineHeightSM}px;
-          margin-top: ${token.marginXXS}px;
-          background-color: ${token.colorPrimary};
-          border: none;
-          transform: translateY(-50%);
-        }
       }
     `,
     tocWrapper: css`

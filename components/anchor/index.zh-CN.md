@@ -1,14 +1,13 @@
 ---
 category: Components
 subtitle: 锚点
-cols: 2
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
-group:
-  title: 其他
-  order: 7
+cover: https://gw.alipayobjects.com/zos/bmw-prod/669b87c5-7b44-4c99-a5ea-4c38f8004788.svg
 demo:
   cols: 2
+group:
+  title: 导航
+  order: 3
 ---
 
 用于跳转到页面指定位置。

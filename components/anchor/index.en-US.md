@@ -1,10 +1,10 @@
 ---
 category: Components
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/669b87c5-7b44-4c99-a5ea-4c38f8004788.svg
 group:
-  title: Other
-  order: 7
+  title: Navigation
+  order: 3
 demo:
   cols: 2
 ---

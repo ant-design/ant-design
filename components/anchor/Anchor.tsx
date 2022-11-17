@@ -90,7 +90,7 @@ export interface AntAnchor {
   ) => void;
 }
 
-const AnchorContent: React.FC<InternalAnchorProps> = props => {
+const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const {
     rootClassName,
     anchorPrefixCls: prefixCls,
@@ -123,18 +123,18 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
   const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
 
   const registerLink = React.useCallback<AntAnchor['registerLink']>(
-    link => {
+    (link) => {
       if (!links.includes(link)) {
-        setLinks(prev => [...prev, link]);
+        setLinks((prev) => [...prev, link]);
       }
     },
     [dependencyListItem],
   );
 
   const unregisterLink = React.useCallback<AntAnchor['unregisterLink']>(
-    link => {
+    (link) => {
       if (links.includes(link)) {
-        setLinks(prev => prev.filter(i => i !== link));
+        setLinks((prev) => prev.filter((i) => i !== link));
       }
     },
     [dependencyListItem],
@@ -145,14 +145,15 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
       `.${prefixCls}-link-title-active`,
     );
     if (linkNode && spanLinkNode.current) {
-      spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2 - 4.5}px`;
+      spanLinkNode.current.style.top = `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
+      spanLinkNode.current.style.height = `${linkNode.clientHeight}px`;
     }
   };
 
   const getInternalCurrentAnchor = (_links: string[], _offsetTop = 0, _bounds = 5): string => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
-    _links.forEach(link => {
+    _links.forEach((link) => {
       const sharpLinkMatch = sharpMatcherRegx.exec(link?.toString());
       if (!sharpLinkMatch) {
         return;
@@ -204,7 +205,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
   }, [dependencyListItem, targetOffset, offsetTop]);
 
   const handleScrollTo = React.useCallback<(link: string) => void>(
-    link => {
+    (link) => {
       setCurrentActiveLink(link);
       const container = getCurrentContainer();
       const scrollTop = getScroll(container, true);
@@ -310,7 +311,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = props => {
   );
 };
 
-const Anchor: React.FC<AnchorProps> = props => {
+const Anchor: React.FC<AnchorProps> = (props) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);

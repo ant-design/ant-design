@@ -16,7 +16,8 @@ interface AnchorToken extends FullToken<'Anchor'> {
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls, holderOffsetBlock, anchorBallSize, lineWidthBold } = token;
+  const { componentCls, holderOffsetBlock, motionDurationSlow, lineWidthBold, colorPrimary } =
+    token;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -54,16 +55,13 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           position: 'absolute',
           left: {
             _skip_check_: true,
-            value: '50%',
+            value: 0,
           },
           display: 'none',
-          width: anchorBallSize,
-          height: anchorBallSize,
-          backgroundColor: token.colorBgContainer,
-          border: `${lineWidthBold}px solid ${token.colorPrimary}`,
-          borderRadius: anchorBallSize,
-          transform: 'translateX(-50%)',
-          transition: `top ${token.motionDurationSlow} ease-in-out`,
+          transform: 'translateY(-50%)',
+          transition: `top ${motionDurationSlow} ease-in-out`,
+          width: lineWidthBold,
+          backgroundColor: colorPrimary,
 
           [`&${componentCls}-ink-ball-visible`]: {
             display: 'inline-block',
@@ -106,7 +104,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Anchor', token => {
+export default genComponentStyleHook('Anchor', (token) => {
   const { fontSize, fontSizeLG, padding, paddingXXS } = token;
 
   const anchorToken = mergeToken<AnchorToken>(token, {
