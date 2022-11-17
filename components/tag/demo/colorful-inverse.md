@@ -10,4 +10,4 @@ Internal inverse color tag
 .code-box-demo .ant-tag {
   margin-bottom: 8px;
 }
-<style>
+</style>
