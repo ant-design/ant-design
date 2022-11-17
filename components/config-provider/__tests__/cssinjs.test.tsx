@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 import ConfigProvider from '..';
 import Button from '../../button';
 import Divider from '../../divider';
 import { render } from '../../../tests/utils';
-import { SmileOutlined } from '@ant-design/icons';
 
 describe('ConfigProvider.DynamicTheme', () => {
   beforeEach(() => {
