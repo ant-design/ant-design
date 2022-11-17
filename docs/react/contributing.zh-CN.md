@@ -71,15 +71,10 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 4. `npm run compile` 编译 TypeScript 代码到 lib 和 es 目录。
 5. `npm run dist` 构建 antd 的 UMD 版本到 dist 目录。
 
-### 切换主题
+## 配套开发工具
 
-在启动时，设置需要执行的主题：
-
-```bash
-DEV_THEME=dark npm start
-```
-
-访问 [http://127.0.0.1:8001/components/button-cn/?theme=dark](http://127.0.0.1:8001/components/button-cn/?theme=dark)。
+- CSS in JS 样式提示插件：https://marketplace.visualstudio.com/items?itemName=shezhangzhang.antd-design-token
+- 组件属性提示插件：https://github.com/fi3ework/vscode-antd-rush
 
 ## 加入社区
 
