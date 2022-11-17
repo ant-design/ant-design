@@ -11,7 +11,7 @@ const Loading: FC = () => {
     pathname.startsWith('/changelog')
   ) {
     return (
-      <Space direction="vertical" style={{ width: '100%' }} size={40}>
+      <Space direction="vertical" style={{ width: '100%', marginTop: 24 }} size={40}>
         <Skeleton title={false} active paragraph={{ rows: 3 }} />
         <Skeleton active paragraph={{ rows: 3 }} />
       </Space>
