@@ -168,7 +168,7 @@ export default ({
     {
       label: (
         <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, search)}>
-          <FormattedMessage id="app.header.menu.documentation" />
+          <FormattedMessage id="app.header.menu.development" />
         </Link>
       ),
       key: 'docs/react',
