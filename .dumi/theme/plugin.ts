@@ -26,7 +26,7 @@ class AntdReactTechStack extends ReactTechStack {
         const description = md.match(
           new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`),
         )?.[1];
-        const style = md.match(/\n```css\n([^]+?)\n```|\n<style>\n([^]+?)\n<\/style>/)?.[1];
+        const style = md.match(/\n(?:```css|<style>)\n([^]+?)\n(?:```|<\/style>)/)?.[1];
 
         props.description ??= description?.trim();
         props.style ??= style;
