@@ -203,7 +203,7 @@ const GlobalStyles = () => {
           .markdown hr {
             clear: both;
             height: 1px;
-            margin: 56px 0;
+            margin: 24px 0;
             background: ${token.colorSplit};
             border: 0;
           }
