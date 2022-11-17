@@ -10,12 +10,6 @@
       "options": {
         "parser": "json"
       }
-    },
-    {
-      "files": "components/*/index.*.md",
-      "options": {
-        "proseWrap": "preserve"
-      }
     }
   ]
 }
