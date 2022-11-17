@@ -22,6 +22,7 @@ import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
+import InfoNewVersion from './InfoNewVersion';
 
 const locales = {
   cn: {
@@ -351,15 +352,18 @@ const Footer = () => {
   }, [lang, location.search]);
 
   return (
-    <RcFooter
-      columns={getColumns}
-      css={style.footer}
-      bottom={
-        <>
-          Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
-        </>
-      }
-    />
+    <>
+      <RcFooter
+        columns={getColumns}
+        css={style.footer}
+        bottom={
+          <>
+            Made with <span style={{ color: '#fff' }}>❤</span> by {locale.owner}
+          </>
+        }
+      />
+      <InfoNewVersion />
+    </>
   );
 };
 
