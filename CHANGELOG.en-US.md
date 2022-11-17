@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.24.3
+
+`2022-11-17`
+
+- 🐞 Fix Typography config `prefixCls` not working. [#38586](https://github.com/ant-design/ant-design/pull/38586) [@SavelevMatthew](https://github.com/SavelevMatthew)
+- 🐞 Fix Table should not trigger sorter when pressing Enter in filter dropdown. [#38585](https://github.com/ant-design/ant-design/pull/38585)
+- 🆕 Allow Modal pass `mousePosition` to control animation origin position. [#38584](https://github.com/ant-design/ant-design/pull/38584) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Input.Search should not trigger `onSearch` while loading. [#38578](https://github.com/ant-design/ant-design/pull/38578) [@JackLiR8](https://github.com/JackLiR8)
+- 🐞 Fix Breadcrumb throw wrong `overlay` deprecated warning. [#38567](https://github.com/ant-design/ant-design/pull/38567) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 4.24.2
 
 `2022-11-12`

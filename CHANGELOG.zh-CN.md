@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.24.3
+
+`2022-11-17`
+
+- 🐞 修复 Typography 设置 `prefixCls` 不生效的问题。[#38586](https://github.com/ant-design/ant-design/pull/38586) [@SavelevMatthew](https://github.com/SavelevMatthew)
+- 🐞 修复 Table 在筛选菜单里按回车时会触发排序的问题。[#38585](https://github.com/ant-design/ant-design/pull/38585)
+- 🆕 Modal 允许透传 `mousePosition` 来控制弹框动画原点。[#38584](https://github.com/ant-design/ant-design/pull/38584) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Input.Search `loading` 时触发 `onSearch` 的问题。[#38578](https://github.com/ant-design/ant-design/pull/38578) [@JackLiR8](https://github.com/JackLiR8)
+- 🐞 修复 Breadcrumb 报出错误的 `overlay` 警告信息的问题。[#38567](https://github.com/ant-design/ant-design/pull/38567) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 4.24.2
 
 `2022-11-12`
