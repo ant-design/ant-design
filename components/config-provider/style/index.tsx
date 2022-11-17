@@ -7,7 +7,6 @@ const useStyle = (iconPrefixCls: string) => {
   // Generate style for icons
   useStyleRegister({ theme, token, hashId: '', path: ['ant-design-icons', iconPrefixCls] }, () => [
     {
-      // Link
       [`.${iconPrefixCls}`]: resetIcon(),
     },
   ]);
