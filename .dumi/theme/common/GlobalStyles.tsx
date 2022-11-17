@@ -118,7 +118,7 @@ const GlobalStyles = () => {
             color: ${token.colorText};
             font-size: ${token.fontSize}px;
             font-family: ${token.fontFamily};
-            line-height: ${token.lineHeight}px;
+            line-height: ${token.lineHeight};
             background: ${token.colorBgContainer};
             transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
           }
