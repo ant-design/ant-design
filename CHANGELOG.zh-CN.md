@@ -110,7 +110,7 @@ timeline: true
   - 💄 修复 RTL 下 Input.Search 边框样式问题。[#37980](https://github.com/ant-design/ant-design/pull/37980) [@foryuki](https://github.com/foryuki)
 - 🐞 修复 AutoComplete 会报未使用的废弃属性 `dropdownClassName` 的问题。[#37974](https://github.com/ant-design/ant-design/pull/37974) [@heiyu4585](https://github.com/heiyu4585)
 - 🐞 修复 Typography 省略算法在计算一些元素 fontSize 时为空字符串的情况[#37928](https://github.com/ant-design/ant-design/pull/37928) [@zheeeng](https://github.com/zheeeng)
-- 🐞 Fix Tabs 添加按钮在某些边界情况下无法展示的问题。[#37937](https://github.com/ant-design/ant-design/pull/37937)
+- 🐞 修复 Tabs 添加按钮在某些边界情况下无法展示的问题。[#37937](https://github.com/ant-design/ant-design/pull/37937)
 - 🐞 修复 RangePicker 在某些情况下面板会闪烁的问题。[#439](https://github.com/react-component/picker/pull/439)
 - 🛠 重构 Spin 为 Function Component。[#37969](https://github.com/ant-design/ant-design/pull/37969) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 重构 Statistic.Countdown 为 Function Component.[#37938](https://github.com/ant-design/ant-design/pull/37938) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -1463,7 +1463,7 @@ timeline: true
 - Dropdown
   - 🐞 修复 Dropdown 带图标的菜单项禁用样式丢失的问题。[#29433](https://github.com/ant-design/ant-design/pull/29433)
   - 🐞 修复 Dropdown 内 Menu 不支持 `expandIcon` 的问题。[#29338](https://github.com/ant-design/ant-design/pull/29338)
-- 🐞 Fix 在本地开发时会报 tree-shaking 警告信息的问题。[#29378](https://github.com/ant-design/ant-design/pull/29378)
+- 🐞 修复在本地开发时会报 tree-shaking 警告信息的问题。[#29378](https://github.com/ant-design/ant-design/pull/29378)
 - 🇰🇷 修复 TimePicker 本地化。[#29540](https://github.com/ant-design/ant-design/pull/29540)
 - TypeScript
   - 🤖 修复 Form.Item 的泛型定义问题。[#29397](https://github.com/ant-design/ant-design/pull/29397) [@mumiao](https://github.com/mumiao)
@@ -1860,7 +1860,7 @@ timeline: true
 - Modal
   - 🆕 `modal.update()` 支持函数式更新。[#27163](https://github.com/ant-design/ant-design/pull/27163) [@Mongkii](https://github.com/Mongkii)
   - 🆕 Modal method 增加 `bodyStyle` 属性。[#27292](https://github.com/ant-design/ant-design/pull/27292)
-  - 🐞 Fix Modal missing `modalRender` prop。[#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
+  - 🐞 修复 Modal 丢失 `modalRender` 属性 TS 定义。[#27272](https://github.com/ant-design/ant-design/pull/27272) [@jieny](https://github.com/jieny)
   - 🐞 `Modal.config` 中设置的 `rootPrefixCls` 可以对 `title` 和 `content` 下使用的 antd 组件生效。[#27376](https://github.com/ant-design/ant-design/pull/27376) [@Chersquwn](https://github.com/Chersquwn)
 - Input
   - 🆕 Input.Textarea 支持 `size` 属性。[#27110](https://github.com/ant-design/ant-design/pull/27110)
