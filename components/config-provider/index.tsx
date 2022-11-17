@@ -223,8 +223,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     [iconPrefixCls, csp],
   );
 
-  let childNode = children;
-  childNode = shouldWrapSSR ? wrapSSR(childNode as ReactElement) : childNode;
+  let childNode = shouldWrapSSR ? wrapSSR(children as ReactElement) : children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
