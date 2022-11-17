@@ -22,6 +22,18 @@ describe('message.config', () => {
     await awaitPromise();
   });
 
+  it('should be able to global config rootPrefixCls', async () => {
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
+
+    message.info('last');
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
+  });
+
   it('should be able to config top', async () => {
     message.config({
       top: 100,
@@ -80,7 +92,7 @@ describe('message.config', () => {
 
     const noticeWithoutLeaving = Array.from(
       document.querySelectorAll('.ant-message-notice'),
-    ).filter(ele => !ele.classList.contains('ant-message-move-up-leave'));
+    ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(5);
     expect(noticeWithoutLeaving[4].textContent).toEqual('last');
@@ -126,18 +138,6 @@ describe('message.config', () => {
     message.config({
       prefixCls: null,
     });
-  });
-
-  it('should be able to global config rootPrefixCls', async () => {
-    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
-
-    message.info('last');
-    await awaitPromise();
-
-    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
-    expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
-    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
   });
 
   it('should be able to config prefixCls', async () => {
