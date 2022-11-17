@@ -10,6 +10,7 @@ es/**/*
 lib/**/*
 locale
 server
+.dumi/tmp
 node_modules
 _site
 dist
