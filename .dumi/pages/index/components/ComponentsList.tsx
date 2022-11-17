@@ -17,25 +17,40 @@ import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@
 import { css } from '@emotion/react';
 import useLocale from '../../../hooks/useLocale';
 
+const SAMPLE_CONTENT_EN =
+  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
+
+const SAMPLE_CONTENT_CN =
+  'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
+
 const locales = {
   cn: {
     yesterday: '昨天',
     lastWeek: '上周',
     lastMonth: '上月',
     lastYear: '去年',
+    new: '新增',
+    update: '更新',
+    sampleContent: SAMPLE_CONTENT_CN,
+    inProgress: '进行中',
+    success: '成功',
+    taskFailed: '任务失败',
+    tour: '漫游导览帮助用户对新加的功能进行快速了解',
   },
   en: {
     yesterday: 'Yesterday',
     lastWeek: 'Last Week',
     lastMonth: 'Last Month',
     lastYear: 'Last Year',
+    new: 'New',
+    update: 'Update',
+    sampleContent: SAMPLE_CONTENT_EN,
+    inProgress: 'In Progress',
+    success: 'Success',
+    taskFailed: 'Task Failed',
+    tour: 'A quick guide for new come user about how to use app.',
   },
 };
-
-const PLACEHOLDER_WIDTH = 400;
-
-const SAMPLE_CONTENT =
-  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -84,7 +99,7 @@ export default function ComponentsList() {
         type: 'update',
         node: (
           <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
-            {SAMPLE_CONTENT}
+            {locale.sampleContent}
           </Modal._InternalPanelDoNotUseOrYouWillBeFired>
         ),
       },
@@ -113,15 +128,15 @@ export default function ComponentsList() {
           <Space direction="vertical">
             <Space>
               <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
-              In Progress
+              {locale.inProgress}
             </Space>
             <Space>
               <Progress type="circle" percent={100} width={14} />
-              Success
+              {locale.success}
             </Space>
             <Space>
               <Progress type="circle" status="exception" percent={88} width={14} />
-              Task Failed
+              {locale.taskFailed}
             </Space>
           </Space>
         ),
@@ -133,7 +148,7 @@ export default function ComponentsList() {
         node: (
           <Tour._InternalPanelDoNotUseOrYouWillBeFired
             title="Ant Design 5.0"
-            description="A quick guide for new come user about how to use app."
+            description={locale.tour}
             style={{ width: 350 }}
             current={3}
             total={9}
@@ -190,7 +205,7 @@ export default function ComponentsList() {
           <Alert
             style={{ width: 400 }}
             message="Ant Design 5.0"
-            description={SAMPLE_CONTENT}
+            description={locale.sampleContent}
             closable
           />
         ),
@@ -204,7 +219,7 @@ export default function ComponentsList() {
       <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
         {COMPONENTS.map(({ title, node, type }, index) => {
           const tagColor = type === 'new' ? 'processing' : 'warning';
-          const tagText = type === 'new' ? 'New' : 'Update';
+          const tagText = type === 'new' ? locale.new : locale.update;
 
           return (
             <div key={index} css={styles.card} style={{ pointerEvents: 'none' }}>
