@@ -24,7 +24,7 @@ Alert component for feedback.
 <code src="./demo/description.tsx">Description</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/close-text.tsx">Customized Close Text</code>
-<code src="./demo/banner.tsx" iframe>Banner</code>
+<code src="./demo/banner.tsx" iframe="250">Banner</code>
 <code src="./demo/loop-banner.tsx">Loop Banner</code>
 <code src="./demo/smooth-closed.tsx">Smoothly Unmount</code>
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>

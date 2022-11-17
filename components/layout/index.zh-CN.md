@@ -62,11 +62,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
 <code src="./demo/top.tsx">上中下布局</code>
 <code src="./demo/top-side-2.tsx">顶部-侧边布局-通栏</code>
 <code src="./demo/top-side.tsx">顶部-侧边布局</code>
-<code src="./demo/side.tsx" iframe>侧边布局</code>
+<code src="./demo/side.tsx" iframe="360">侧边布局</code>
 <code src="./demo/custom-trigger.tsx">自定义触发器</code>
 <code src="./demo/responsive.tsx">响应式布局</code>
-<code src="./demo/fixed.tsx" iframe>固定头部</code>
-<code src="./demo/fixed-sider.tsx" iframe>固定侧边栏</code>
+<code src="./demo/fixed.tsx" iframe="360">固定头部</code>
+<code src="./demo/fixed-sider.tsx" iframe="360">固定侧边栏</code>
 <code src="./demo/custom-trigger-debug.tsx" debug>自定义触发器 Debug</code>
 
 ## API

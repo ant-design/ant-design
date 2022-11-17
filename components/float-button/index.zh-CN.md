@@ -17,14 +17,14 @@ demo:
 
 ## 代码演示
 
-<code src="./demo/basic.tsx" iframe>基本</code>
-<code src="./demo/type.tsx" iframe>类型</code>
-<code src="./demo/shape.tsx" iframe>形状</code>
-<code src="./demo/description.tsx" iframe>描述</code>
-<code src="./demo/tooltip.tsx" iframe>含有气泡卡片的悬浮按钮</code>
-<code src="./demo/group.tsx" iframe="300">浮动按钮组</code>
-<code src="./demo/group-menu.tsx" iframe>菜单模式</code>
-<code src="./demo/back-top.tsx" iframe>回到顶部</code>
+<code src="./demo/basic.tsx" iframe="360">基本</code>
+<code src="./demo/type.tsx" iframe="360">类型</code>
+<code src="./demo/shape.tsx" iframe="360">形状</code>
+<code src="./demo/description.tsx" iframe="360">描述</code>
+<code src="./demo/tooltip.tsx" iframe="360">含有气泡卡片的悬浮按钮</code>
+<code src="./demo/group.tsx" iframe="360">浮动按钮组</code>
+<code src="./demo/group-menu.tsx" iframe="360">菜单模式</code>
+<code src="./demo/back-top.tsx" iframe="360">回到顶部</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
