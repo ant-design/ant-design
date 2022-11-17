@@ -1525,10 +1525,6 @@ const GlobalStyles = () => {
               }
             }
 
-            #_hj_feedback_container {
-              display: none;
-            }
-
             /** home 区块 **/
             .home-page-wrapper {
               .page {
@@ -1758,25 +1754,6 @@ const GlobalStyles = () => {
                   padding-left: 16px;
                 }
               }
-            }
-          }
-        `}
-      />
-
-      {/* RTL */}
-      <Global
-        styles={css`
-          [data-direction='rtl'] {
-            #_hj_feedback_container {
-              > div {
-                right: auto;
-                left: 32px;
-              }
-            }
-
-            .fixed-widgets {
-              right: auto;
-              left: 32px;
             }
           }
         `}
