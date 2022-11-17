@@ -13,7 +13,7 @@ timeline: true
 - Monthly release: minor version at the end of every month for new features.
 - Major version release is not included in this schedule for breaking change and new features.
 
----## 5.0.0
+## 5.0.0
 
 `2022-11-18`
 
