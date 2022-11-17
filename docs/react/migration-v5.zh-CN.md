@@ -123,12 +123,13 @@ export default {
 
 #### 组件重构与移除
 
-- PageHeader 和 Comment 组件在 ant-design 中移除，移至 [pro-components](https://github.com/ant-design/pro-components) 中维护，如果仍需使用可以从兼容包中引入。
+- 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
+- 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { PageHeader, Comment } from '@ant-design/compatible';
-+ import '@ant-design/compatible/assets/index.css';
++ import { Comment } from '@ant-design/compatible';
++ import { PageHeader } from '@ant-design/pro-layout';
 + import { Input, Button } from 'antd';
 
   const App: React.FC = () => (

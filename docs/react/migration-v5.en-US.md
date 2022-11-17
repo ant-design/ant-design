@@ -122,12 +122,13 @@ export default {
 
 #### Component refactoring and removal
 
-- PageHeader and Comment components are removed in ant-design and moved to [pro-components](https://github.com/ant-design/pro-components) for maintenance. If you still need to use them, you can [import them from the compatible package](/docs/react/migration-v5#Import-the-obsolete-PageHeader-and-Comment-components-via-@ant-design/compatible-package).
+- Move Comment component into `@ant-design/compatible`.
+- Move PageHeader component into `@ant-design/pro-components`.
 
 ```diff
 - import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { PageHeader, Comment } from '@ant-design/compatible';
-+ import '@ant-design/compatible/assets/index.css';
++ import { Comment } from '@ant-design/compatible';
++ import { PageHeader } from '@ant-design/pro-layout';
 + import { Input, Button } from 'antd';
 
   const App: React.FC = () => (
