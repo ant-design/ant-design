@@ -5,11 +5,14 @@ import { useToken } from '../../theme';
 const useStyle = (iconPrefixCls: string) => {
   const [theme, token] = useToken();
   // Generate style for icons
-  useStyleRegister({ theme, token, hashId: '', path: ['ant-design-icons', iconPrefixCls] }, () => [
-    {
-      [`.${iconPrefixCls}`]: resetIcon(),
-    },
-  ]);
+  return useStyleRegister(
+    { theme, token, hashId: '', path: ['ant-design-icons', iconPrefixCls] },
+    () => [
+      {
+        [`.${iconPrefixCls}`]: resetIcon(),
+      },
+    ],
+  );
 };
 
 export default useStyle;

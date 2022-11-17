@@ -175,7 +175,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
-  useStyle(iconPrefixCls);
+  const wrapSSR = useStyle(iconPrefixCls);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
@@ -287,7 +287,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     );
   }
 
-  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
+  return wrapSSR(<ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>);
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
