@@ -9,7 +9,7 @@ const GlobalStyles = () => {
 
   const { antCls, iconCls } = token;
 
-  const demoGridColor = '#0092ff';
+  const demoGridColor = token.colorPrimary;
 
   return (
     <>
@@ -556,7 +556,7 @@ const GlobalStyles = () => {
               background: ${demoGridColor};
 
               &:nth-child(2n + 1) {
-                background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHexString()};
+                background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHex8String()};
               }
             }
 
