@@ -4,8 +4,6 @@ subtitle: 穿梭框
 group: 数据录入
 title: Transfer
 cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
-demo:
-  cols: 2
 ---
 
 双栏穿梭选择框。

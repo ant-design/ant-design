@@ -3,8 +3,6 @@ category: Components
 group: Data Display
 title: Card
 cover: https://gw.alipayobjects.com/zos/alicdn/keNB-R8Y9/Card.svg
-demo:
-  cols: 2
 ---
 
 Simple rectangular container.

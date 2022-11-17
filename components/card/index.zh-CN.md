@@ -4,8 +4,6 @@ group: 数据展示
 title: Card
 subtitle: 卡片
 cover: https://gw.alipayobjects.com/zos/antfincdn/NqXt8DJhky/Card.svg
-demo:
-  cols: 2
 ---
 
 通用卡片容器。

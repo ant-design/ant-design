@@ -4,8 +4,6 @@ category: Components
 title: Result
 subtitle: 结果
 cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
-demo:
-  cols: 2
 ---
 
 用于反馈一系列操作任务的处理结果。

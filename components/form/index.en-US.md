@@ -3,8 +3,6 @@ category: Components
 group: Data Entry
 title: Form
 cover: https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg
-demo:
-  cols: 2
 ---
 
 High performance Form component with data scope management. Including data collection, verification, and styles.

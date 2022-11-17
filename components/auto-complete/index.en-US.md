@@ -1,11 +1,12 @@
 ---
 category: Components
-cols: 2
 title: AutoComplete
 cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 group:
   title: Data Entry
   order: 4
+demo:
+  cols: 2
 ---
 
 Autocomplete function of input field.

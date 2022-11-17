@@ -4,8 +4,6 @@ subtitle: 骨架屏
 group: 反馈
 title: Skeleton
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
-demo:
-  cols: 2
 ---
 
 在需要等待加载内容的位置提供一个占位图形组合。
