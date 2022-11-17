@@ -17,6 +17,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/simple.tsx">选择图片</code>
 <code src="./demo/customize.tsx">自定义</code>

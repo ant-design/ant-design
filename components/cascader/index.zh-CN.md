@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/default-value.tsx">默认值</code>
 <code src="./demo/custom-trigger.tsx">可以自定义显示</code>

@@ -16,6 +16,7 @@ Empty state placeholder.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/simple.tsx">Chose image</code>
 <code src="./demo/customize.tsx">Customize</code>

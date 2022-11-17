@@ -15,6 +15,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/notice-calendar.tsx">Notice Calendar</code>
 <code src="./demo/card.tsx">Card</code>

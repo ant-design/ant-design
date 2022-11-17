@@ -19,6 +19,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">基础抽屉</code>
 <code src="./demo/placement.tsx">自定义位置</code>
 <code src="./demo/extra.tsx">额外操作</code>

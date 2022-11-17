@@ -15,6 +15,7 @@ A list can be used to display content related to a single subject. The content c
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/simple.tsx">Simple list</code>
 <code src="./demo/basic.tsx">Basic list</code>
 <code src="./demo/loadmore.tsx">Load more</code>

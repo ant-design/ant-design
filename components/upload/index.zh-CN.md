@@ -20,6 +20,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">点击上传</code>
 <code src="./demo/avatar.tsx">用户头像</code>
 <code src="./demo/defaultFileList.tsx">已上传的文件列表</code>

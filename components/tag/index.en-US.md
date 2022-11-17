@@ -17,6 +17,7 @@ Tag for categorizing or markup.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/colorful-inverse.tsx" debug>Inverse Colorful Tag</code>

@@ -20,6 +20,7 @@ npm install --save @ant-design/icons
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/two-tone.tsx">Two-tone icon and colorful icon</code>
 <code src="./demo/custom.tsx">Custom Icon</code>

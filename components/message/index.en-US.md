@@ -17,6 +17,7 @@ Display global messages as feedback in response to user operations.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
 <code src="./demo/other.tsx">Other types of message</code>
 <code src="./demo/duration.tsx">Customize duration</code>
@@ -134,4 +135,4 @@ return (
 
 ### How to set static methods prefixCls ？
 
-You can config with [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+)
+You can config with [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>)

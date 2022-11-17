@@ -42,6 +42,7 @@ return <Tabs items={items} />;
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">Disabled</code>
@@ -64,40 +65,40 @@ return <Tabs items={items} />;
 
 ### Tabs
 
-| Property               | Description                                                                             | Type                                                                                   | Default                          | Version       |
-| ---------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------- | ------------- | --- |
-| activeKey              | Current TabPane's key                                                                   | string                                                                                 | -                                |               |
-| addIcon                | Customize add icon                                                                      | ReactNode                                                                              | -                                | 4.4.0         |
-| animated               | Whether to change tabs with animation. Only works while `tabPosition="top"`             | boolean \| { inkBar: boolean, tabPane: boolean }                                       | { inkBar: true, tabPane: false } |               |
-| centered               | Centers tabs                                                                            | boolean                                                                                | false                            | 4.4.0         |
-| defaultActiveKey       | Initial active TabPane's key, if `activeKey` is not set                                 | string                                                                                 | -                                |               |
-| hideAdd                | Hide plus icon or not. Only works while `type="editable-card"`                          | boolean                                                                                | false                            |               |
-| items                  | Configure tab content                                                                   | [TabItem](#TabItem)                                                                    | []                               | 4.23.0        |
-| moreIcon               | The custom icon of ellipsis                                                             | ReactNode                                                                              | &lt;EllipsisOutlined />          | 4.14.0        |
-| popupClassName         | `className` for more dropdown.                                                          | string                                                                                 | -                                | 4.21.0        |
-| renderTabBar           | Replace the TabBar                                                                      | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | -                                |               |
-| size                   | Preset tab bar size                                                                     | `large` \| `middle` \| `small`                                                         | `middle`                         |               |
-| tabBarExtraContent     | Extra content in tab bar                                                                | ReactNode \| {left?: ReactNode, right?: ReactNode}                                     | -                                | object: 4.6.0 |
-| tabBarGutter           | The gap between tabs                                                                    | number                                                                                 | -                                |               |
-| tabBarStyle            | Tab bar style object                                                                    | CSSProperties                                                                          | -                                |               |
-| tabPosition            | Position of tabs                                                                        | `top` \| `right` \| `bottom` \                                                         | `left`                           | `top`         |     |
-| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab                                        | boolean                                                                                | false                            |               |
-| type                   | Basic style of tabs                                                                     | `line` \| `card` \| `editable-card`                                                    | `line`                           |               |
-| onChange               | Callback executed when active tab is changed                                            | function(activeKey) {}                                                                 | -                                |               |
-| onEdit                 | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void                                   | -                                |               |
-| onTabClick             | Callback executed when tab is clicked                                                   | function(key: string, event: MouseEvent)                                               | -                                |               |
-| onTabScroll            | Trigger when tab scroll                                                                 | function({ direction: `left` \| `right` \| `top` \| `bottom` })                        | -                                | 4.3.0         |
-| items                  | TabItem content                                                                         | [TabItemType](#TabItemType)                                                            | []                               | 4.23.0        |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- | --- |
+| activeKey | Current TabPane's key | string | - |  |
+| addIcon | Customize add icon | ReactNode | - | 4.4.0 |
+| animated | Whether to change tabs with animation. Only works while `tabPosition="top"` | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
+| centered | Centers tabs | boolean | false | 4.4.0 |
+| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
+| hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
+| items | Configure tab content | [TabItem](#TabItem) | [] | 4.23.0 |
+| moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
+| popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
+| renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
+| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
+| tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
+| tabBarGutter | The gap between tabs | number | - |  |
+| tabBarStyle | Tab bar style object | CSSProperties | - |  |
+| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \  | `left` | `top` |  |
+| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
+| type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
+| onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
+| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
+| onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
+| onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
+| items | TabItem content | [TabItemType](#TabItemType) | [] | 4.23.0 |
 
 More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 
-| Property    | Description                                                                     | Type      | Default |
-| ----------- | ------------------------------------------------------------------------------- | --------- | ------- |
-| closeIcon   | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | -       |
-| disabled    | Set TabPane disabled                                                            | boolean   | false   |
-| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs        | boolean   | false   |
-| key         | TabPane's key                                                                   | string    | -       |
-| label       | TabPane's head display text                                                     | ReactNode | -       |
-| children    | TabPane's head display content                                                  | ReactNode | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
+| disabled | Set TabPane disabled | boolean | false |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
+| key | TabPane's key | string | - |
+| label | TabPane's head display text | ReactNode | - |
+| children | TabPane's head display content | ReactNode | - |

@@ -22,6 +22,7 @@ The differences with Select are:
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/options.tsx">Customized</code>
 <code src="./demo/custom.tsx">Customize Input Component</code>

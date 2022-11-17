@@ -16,6 +16,7 @@ A simple text popup tip.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow-point-at-center.tsx">Arrow pointing at the center</code>

@@ -19,6 +19,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/complex.tsx">复杂的组合</code>
 <code src="./demo/active.tsx">动画效果</code>

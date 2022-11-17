@@ -15,6 +15,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">basic Usage</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/inside.tsx">Inside a container</code>

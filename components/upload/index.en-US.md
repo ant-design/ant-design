@@ -19,6 +19,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Upload by clicking</code>
 <code src="./demo/avatar.tsx">Avatar</code>
 <code src="./demo/defaultFileList.tsx">Default Files</code>

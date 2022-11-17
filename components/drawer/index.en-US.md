@@ -20,6 +20,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">Basic</code>
 <code src="./demo/placement.tsx">Custom Placement</code>
 <code src="./demo/extra.tsx">Extra Actions</code>

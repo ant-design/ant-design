@@ -15,6 +15,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/basic-controlled.tsx">Controlled Tree</code>
 <code src="./demo/draggable.tsx">draggable</code>

@@ -15,6 +15,7 @@ When you need to mention someone or something.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/form.tsx">With Form</code>

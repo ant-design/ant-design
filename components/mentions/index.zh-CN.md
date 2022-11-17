@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/form.tsx">配合 Form 使用</code>

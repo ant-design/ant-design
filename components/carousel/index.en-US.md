@@ -17,6 +17,7 @@ A carousel component. Scales with its container.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/position.tsx">Position</code>
 <code src="./demo/autoplay.tsx">Scroll automatically</code>

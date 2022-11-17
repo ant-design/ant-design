@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/notice-calendar.tsx">通知事项日历</code>
 <code src="./demo/card.tsx">卡片模式</code>

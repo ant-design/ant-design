@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/value.tsx">受控组件</code>
 <code src="./demo/size.tsx">三种大小</code>

@@ -20,6 +20,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/duration.tsx">Duration after which the notification box is closed</code>

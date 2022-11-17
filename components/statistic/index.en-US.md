@@ -16,6 +16,7 @@ Display statistic number.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/unit.tsx">Unit</code>
 <code src="./demo/card.tsx">In Card</code>

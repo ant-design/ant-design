@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/simple.tsx">简单列表</code>
 <code src="./demo/basic.tsx">基础列表</code>
 <code src="./demo/loadmore.tsx">加载更多</code>

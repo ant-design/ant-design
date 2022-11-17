@@ -15,6 +15,7 @@ Use when important operations need to inform the user to process the results and
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/success.tsx">Success</code>
 <code src="./demo/info.tsx">Info</code>
 <code src="./demo/warning.tsx">Warning</code>

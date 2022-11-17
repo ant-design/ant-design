@@ -17,6 +17,7 @@ group: 其他
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/custom.tsx" iframe="400">自定义样式</code>
 
@@ -26,9 +27,9 @@ group: 其他
 >
 > 自定义样式宽高不大于 40px \* 40px。
 
-| 参数             | 说明                                                          | 类型              | 默认值       | 版本  |
-| ---------------- | ------------------------------------------------------------- | ----------------- | ------------ | ----- |
-| duration         | 回到顶部所需时间（ms）                                        | number            | 450          | 4.4.0 |
-| target           | 设置需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 | () => HTMLElement | () => window |       |
-| visibilityHeight | 滚动高度达到此参数值才出现 BackTop                            | number            | 400          |       |
-| onClick          | 点击按钮的回调函数                                            | function          | -            |       |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| duration | 回到顶部所需时间（ms） | number | 450 | 4.4.0 |
+| target | 设置需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 | () => HTMLElement | () => window |  |
+| visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number | 400 |  |
+| onClick | 点击按钮的回调函数 | function | - |  |

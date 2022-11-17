@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow-point-at-center.tsx">箭头指向</code>

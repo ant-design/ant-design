@@ -15,6 +15,7 @@ When a numeric value needs to be provided.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/size.tsx">Sizes</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>

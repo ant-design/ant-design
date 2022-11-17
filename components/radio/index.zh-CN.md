@@ -17,6 +17,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/radiogroup.tsx">单选组合</code>

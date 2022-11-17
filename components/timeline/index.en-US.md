@@ -16,6 +16,7 @@ Vertical display timeline.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/color.tsx">Color</code>
 <code src="./demo/pending.tsx">Last node and Reversing</code>

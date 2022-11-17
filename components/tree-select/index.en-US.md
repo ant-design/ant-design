@@ -15,6 +15,7 @@ Tree selection control.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/multiple.tsx">Multiple Selection</code>
 <code src="./demo/treeData.tsx">Generate from tree data</code>

@@ -16,6 +16,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>
@@ -42,25 +43,25 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 
 ### Input
 
-| Property     | Description                                                                                                                                                         | Type                                                                                                | Default | Version                   |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------- | ------------------------- |
-| addonAfter   | The label text displayed after (on the right side of) the input field                                                                                               | ReactNode                                                                                           | -       |                           |
-| addonBefore  | The label text displayed before (on the left side of) the input field                                                                                               | ReactNode                                                                                           | -       |                           |
-| allowClear   | If allow to remove input content with clear icon                                                                                                                    | boolean \| { clearIcon: ReactNode }                                                                 | false   |                           |
-| bordered     | Whether has border style                                                                                                                                            | boolean                                                                                             | true    | 4.5.0                     |
-| defaultValue | The initial input content                                                                                                                                           | string                                                                                              | -       |                           |
-| disabled     | Whether the input is disabled                                                                                                                                       | boolean                                                                                             | false   |                           |
-| id           | The ID for input                                                                                                                                                    | string                                                                                              | -       |                           |
-| maxLength    | The max length                                                                                                                                                      | number                                                                                              | -       |                           |
-| showCount    | Whether show text count                                                                                                                                             | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false   | 4.18.0 info.value: 4.23.0 |
-| status       | Set validation status                                                                                                                                               | 'error' \| 'warning'                                                                                | -       | 4.19.0                    |
-| prefix       | The prefix icon for the Input                                                                                                                                       | ReactNode                                                                                           | -       |                           |
-| size         | The size of the input box. Note: in the context of a form, the `middle` size is used                                                                                | `large` \| `middle` \| `small`                                                                      | -       |                           |
-| suffix       | The suffix icon for the Input                                                                                                                                       | ReactNode                                                                                           | -       |                           |
-| type         | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string                                                                                              | `text`  |                           |
-| value        | The input content value                                                                                                                                             | string                                                                                              | -       |                           |
-| onChange     | Callback when user input                                                                                                                                            | function(e)                                                                                         | -       |                           |
-| onPressEnter | The callback function that is triggered when Enter key is pressed                                                                                                   | function(e)                                                                                         | -       |                           |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
+| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
+| allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
+| bordered | Whether has border style | boolean | true | 4.5.0 |
+| defaultValue | The initial input content | string | - |  |
+| disabled | Whether the input is disabled | boolean | false |  |
+| id | The ID for input | string | - |  |
+| maxLength | The max length | number | - |  |
+| showCount | Whether show text count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
+| prefix | The prefix icon for the Input | ReactNode | - |  |
+| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
+| suffix | The suffix icon for the Input | ReactNode | - |  |
+| type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
+| value | The input content value | string | - |  |
+| onChange | Callback when user input | function(e) | - |  |
+| onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
@@ -68,36 +69,36 @@ The rest of the props of Input are exactly the same as the original [input](http
 
 ### Input.TextArea
 
-| Property     | Description                                                                                  | Type                                                                                             | Default | Version                                    |
-| ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------- | ------------------------------------------ |
-| allowClear   | If allow to remove input content with clear icon                                             | boolean                                                                                          | false   |                                            |
-| autoSize     | Height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object                                                                                | false   |                                            |
-| bordered     | Whether has border style                                                                     | boolean                                                                                          | true    | 4.5.0                                      |
-| defaultValue | The initial input content                                                                    | string                                                                                           | -       |                                            |
-| maxLength    | The max length                                                                               | number                                                                                           | -       | 4.7.0                                      |
-| showCount    | Whether show text count                                                                      | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false   | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
-| value        | The input content value                                                                      | string                                                                                           | -       |                                            |
-| onPressEnter | The callback function that is triggered when Enter key is pressed                            | function(e)                                                                                      | -       |                                            |
-| onResize     | The callback function that is triggered when resize                                          | function({ width, height })                                                                      | -       |                                            |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| allowClear | If allow to remove input content with clear icon | boolean | false |  |
+| autoSize | Height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
+| bordered | Whether has border style | boolean | true | 4.5.0 |
+| defaultValue | The initial input content | string | - |  |
+| maxLength | The max length | number | - | 4.7.0 |
+| showCount | Whether show text count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
+| value | The input content value | string | - |  |
+| onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
+| onResize | The callback function that is triggered when resize | function({ width, height }) | - |  |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 #### Input.Search
 
-| Property    | Description                                                                                              | Type                   | Default |
-| ----------- | -------------------------------------------------------------------------------------------------------- | ---------------------- | ------- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property      | boolean \| ReactNode   | false   |
-| loading     | Search box with loading                                                                                  | boolean                | false   |
-| onSearch    | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event) | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | boolean \| ReactNode | false |
+| loading | Search box with loading | boolean | false |
+| onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event) | - |
 
 Supports all props of `Input`.
 
 #### Input.Group
 
-| Property | Description                                                                                                       | Type    | Default   |
-| -------- | ----------------------------------------------------------------------------------------------------------------- | ------- | --------- |
-| compact  | Whether use compact style                                                                                         | boolean | false     |
-| size     | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string  | `default` |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| compact | Whether use compact style | boolean | false |
+| size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
 
 ```jsx
 <Input.Group>
@@ -108,24 +109,24 @@ Supports all props of `Input`.
 
 #### Input.Password
 
-| Property         | Description                                            | Type                                             | Default                                                                   | Version |
-| ---------------- | ------------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------------------------------- | ------- |
-| iconRender       | Custom toggle button                                   | (visible) => ReactNode                           | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0   |
-| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#VisibilityToggle) | true                                                                      |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
+| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#VisibilityToggle) | true |  |
 
 #### VisibilityToggle
 
-| Property        | Description                                                  | Type    | Default | Version |
-| --------------- | ------------------------------------------------------------ | ------- | ------- | ------- |
-| visible         | Whether the password is show or hide                         | boolean | false   | 4.24.0  |
-| onVisibleChange | Callback executed when visibility of the password is changed | boolean | -       | 4.24.0  |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| visible | Whether the password is show or hide | boolean | false | 4.24.0 |
+| onVisibleChange | Callback executed when visibility of the password is changed | boolean | - | 4.24.0 |
 
 #### Input Methods
 
-| Name  | Description  | Parameters                                                                 | Version         |
-| ----- | ------------ | -------------------------------------------------------------------------- | --------------- |
-| blur  | Remove focus | -                                                                          |                 |
-| focus | Get focus    | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+| Name | Description | Parameters | Version |
+| --- | --- | --- | --- |
+| blur | Remove focus | - |  |
+| focus | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
 ## FAQ
 

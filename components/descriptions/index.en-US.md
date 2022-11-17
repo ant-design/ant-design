@@ -15,6 +15,7 @@ Commonly displayed on the details page.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/border.tsx">border</code>
 <code src="./demo/text.tsx" debug>border</code>

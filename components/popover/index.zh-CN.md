@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/triggerType.tsx">三种触发方式</code>
 <code src="./demo/placement.tsx">位置</code>
@@ -28,10 +29,10 @@ demo:
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| content | 卡片内容 | ReactNode \| () => ReactNode | - |  |
-| title | 卡片标题 | ReactNode \| () => ReactNode | - |  |
+| 参数    | 说明     | 类型                         | 默认值 | 版本 |
+| ------- | -------- | ---------------------------- | ------ | ---- |
+| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
+| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
 
 更多属性请参考 [Tooltip](/components/tooltip/#API)。
 

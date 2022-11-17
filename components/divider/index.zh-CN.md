@@ -19,6 +19,7 @@ group:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">水平分割线</code>
 <code src="./demo/with-text.tsx">带文字的分割线</code>
 <code src="./demo/plain.tsx">分割文字使用正文样式</code>

@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>

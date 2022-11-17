@@ -20,6 +20,7 @@ One or more elements can be selected from either column, one click on the proper
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/oneWay.tsx">One Way</code>
 <code src="./demo/search.tsx">Search</code>

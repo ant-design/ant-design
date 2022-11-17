@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/autoplay.tsx">自动切换</code>
@@ -37,11 +38,11 @@ demo:
 
 ## 方法
 
-| 名称 | 描述 |
-| --- | --- |
+| 名称                           | 描述                                              |
+| ------------------------------ | ------------------------------------------------- |
 | goTo(slideNumber, dontAnimate) | 切换到指定面板, dontAnimate = true 时，不使用动画 |
-| next() | 切换到下一面板 |
-| prev() | 切换到上一面板 |
+| next()                         | 切换到下一面板                                    |
+| prev()                         | 切换到上一面板                                    |
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 

@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/success.tsx">Success</code>
 <code src="./demo/info.tsx">Info</code>
 <code src="./demo/warning.tsx">Warning</code>
