@@ -15,6 +15,73 @@ timeline: true
 
 ---
 
+## 5.0.0
+
+`2022-11-18`
+
+- 🔥 新增组件
+  - FloatButton 悬浮按钮。[#37520](https://github.com/ant-design/ant-design/pull/37520) [@li-jia-nan](https://github.com/li-jia-nan)
+  - Tour 漫游式引导。[#37867](https://github.com/ant-design/ant-design/pull/37867) [#38469](https://github.com/ant-design/ant-design/pull/38469) [@heiyu4585](https://github.com/heiyu4585)
+- 🔥 新增组件变体
+  - DatePicker 新增 `presets` 属性用于预设时间范围快捷选择。[#38249](https://github.com/ant-design/ant-design/pull/38249)
+  - Progress `circle` 类型支持小尺寸自适应。[#38231](https://github.com/ant-design/ant-design/pull/38231) [@li-jia-nan](https://github.com/li-jia-nan)
+  - Steps 新增 `inline` 类型。[#38311](https://github.com/ant-design/ant-design/pull/38311) [@JarvisArt](https://github.com/JarvisArt)
+- 💄 设计变化
+  - 调整主色（#1677ff）和阴影。[#37254](https://github.com/ant-design/ant-design/pull/37254)
+  - 基础圆角调整为 `6px`。[#37146](https://github.com/ant-design/ant-design/pull/37146)
+  - 支持梯度圆角。[#37369](https://github.com/ant-design/ant-design/pull/37369)
+  - 调整整体动画速度。[#37438](https://github.com/ant-design/ant-design/pull/37438)
+  - 部分组件内间距变化 & 去线框化。[#37283](https://github.com/ant-design/ant-design/pull/37283)
+    - Pagination 去线框化。[#37441](https://github.com/ant-design/ant-design/pull/37441)
+    - Timeline 样式变化。[#37465](https://github.com/ant-design/ant-design/pull/37465)
+    - Steps 样式变化。[#37473](https://github.com/ant-design/ant-design/pull/37473)
+  - 部分组件修改 focus 样式。[#37483](https://github.com/ant-design/ant-design/pull/37483)
+  - 圆角变化后的样式修改。
+    - Table hover 样式改变。[#37370](https://github.com/ant-design/ant-design/pull/37370)
+    - Segmented hover 样式修改。[#37498](https://github.com/ant-design/ant-design/pull/37498)
+    - Dropdown hover 样式修改。[#37491](https://github.com/ant-design/ant-design/pull/37491)
+    - Modal 等组件关闭按钮样式修改。[#37634](https://github.com/ant-design/ant-design/pull/37634)
+    - Menu 样式修改。[#38009](https://github.com/ant-design/ant-design/pull/38009)
+    - 更多组件 hover 样式改变。[#37433](https://github.com/ant-design/ant-design/pull/37433)
+  - Switch 动画效果修改。[#37658](https://github.com/ant-design/ant-design/pull/37658)
+  - Anchor 样式修改。[#38616](https://github.com/ant-design/ant-design/pull/38616)
+- 🆕 新增导出对象 `theme`，用于获取主题相关属性。[#36302](https://github.com/ant-design/ant-design/pull/36302)
+  - 🆕 新增 `theme.useToken` hook，用于获取当前上下文的主题变量。[#36267](https://github.com/ant-design/ant-design/pull/36267)
+  - 🆕 新增内置算法。
+    - 默认算法 `theme.defaultAlgorithm`。[#36175](https://github.com/ant-design/ant-design/pull/36175)
+    - 暗色算法 `theme.darkAlgorithm`。[#36546](https://github.com/ant-design/ant-design/pull/36546) [#36656](https://github.com/ant-design/ant-design/pull/36656)
+    - 紧凑算法 `theme.compactAlgorithm`。[#38105](https://github.com/ant-design/ant-design/pull/38105)
+- 🆕 ConfigProvider 新增 `theme` 属性，用于更改主题配置，详情：[定制主题](https://ant.design/docs/react/customize-theme-v5-cn)。
+  - 支持多个 `algorithm`。[#37082](https://github.com/ant-design/ant-design/pull/37082)
+  - 支持线框化切换。[#37507](https://github.com/ant-design/ant-design/pull/37507)
+  - 支持修改组件 AliasToken。[#37568](https://github.com/ant-design/ant-design/pull/37568)
+  - 支持使用 `inherit` 隔断主题。[#38608](https://github.com/ant-design/ant-design/pull/38608) [a77f1aa](https://github.com/ant-design/ant-design/commit/a77f1aa8fc96257f01a2dbb38ddf6be4697c8585)
+- 🆕 产物新增 `locale` 目录，内含 cjs 格式的语言文件。[#38194](https://github.com/ant-design/ant-design/pull/38194) [@chunsch](https://github.com/chunsch)
+- 🗑 移除 `lib` 产物。[#36362](https://github.com/ant-design/ant-design/pull/36362)
+  - 🛠 调整 `package.json` 中 `main` 为 `dist/antd.js`。[eb8835f](https://github.com/ant-design/ant-design/commit/eb8835fe29b39767c0f5e310f5c69619a75d5840)
+- 🗑 移除 `dist/antd.css` 产物，新增 `dist/reset.css`，用于重置部分常见样式。[#36224](https://github.com/ant-design/ant-design/pull/36224)
+- 🗑 移除 less 及相关 less 和 css 产物。[#36244](https://github.com/ant-design/ant-design/pull/36244)
+- 🗑 废弃 `visible` 属性，改用 `open`。[@yykoypj](https://github.com/yykoypj)
+  - Tag 废弃 `visible` 属性。[#36671](https://github.com/ant-design/ant-design/pull/36671)
+  - Table `filterDropdownVisible` 调整为 `filterDropdownOpen`。[#36747](https://github.com/ant-design/ant-design/pull/36747)
+  - Drawer。[#36750](https://github.com/ant-design/ant-design/pull/36750)
+  - Modal。[#36774](https://github.com/ant-design/ant-design/pull/36774)
+  - Dropdown。[#36799](https://github.com/ant-design/ant-design/pull/36799)
+  - Tooltip & Popover & Popconfirm。[#36807](https://github.com/ant-design/ant-design/pull/36807)
+  - v5 中移除改为废弃，仍可继续使用 `visible` 属性但不推荐。[#37422](https://github.com/ant-design/ant-design/pull/37422)
+- 🗑 废弃 `dropdownClassName`，统一为 `popupClassName`。 [@heiyu4585](https://github.com/heiyu4585)
+  - AutoComplete。[#37087](https://github.com/ant-design/ant-design/pull/37087)
+  - Mentions。[#37122](https://github.com/ant-design/ant-design/pull/37122)
+  - Cascader。[#37089](https://github.com/ant-design/ant-design/pull/37089)
+  - Select。[#37091](https://github.com/ant-design/ant-design/pull/37091)
+  - TreeSelect。[#37092](https://github.com/ant-design/ant-design/pull/37092)
+  - DatePicker & TimePicker。[#37207](https://github.com/ant-design/ant-design/pull/37207)
+- 🛠 所有组件使用 CSS-in-JS 重构样式。
+- 🛠 内置时间库由 Moment.js 替换为 Day.js，详情：[使用自定义日期库](https://ant.design/docs/react/use-custom-date-library-cn)。[b22815d](https://github.com/ant-design/ant-design/commit/b22815d4d223b80755b472e14d7888beab8dd1da) [@iamkun](https://github.com/iamkun)
+- 🛠 重构 Notification 以支持 React 18 concurrent 模式，并重构 useNotification hook，推荐替代静态方法使用。[#35423](https://github.com/ant-design/ant-design/pull/35423) [#35568](https://github.com/ant-design/ant-design/pull/35568)
+- 🛠 Slider 组件 Tooltip 相关 API 合并至 `tooltip` 属性中。[#37043](https://github.com/ant-design/ant-design/pull/37043) [@yykoypj](https://github.com/yykoypj)
+- 🛠 文档站技术栈迁移 dumi2。[#38328](https://github.com/ant-design/ant-design/pull/38328)
+
 ## 4.24.2
 
 `2022-11-12`
