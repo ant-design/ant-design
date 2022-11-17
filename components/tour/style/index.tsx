@@ -15,7 +15,7 @@ interface TourToken extends FullToken<'Tour'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<TourToken> = token => {
+const genBaseStyle: GenerateStyle<TourToken> = (token) => {
   const {
     componentCls,
     lineHeight,
@@ -89,7 +89,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             width: tourCloseSize,
             height: tourCloseSize,
             borderRadius: token.borderRadiusSM,
-            transition: `background-color ${token.motionDurationFast}, color ${token.motionDurationFast}`,
+            transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -236,7 +236,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tour', token => {
+export default genComponentStyleHook('Tour', (token) => {
   const { borderRadiusLG, fontSize, lineHeight } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,

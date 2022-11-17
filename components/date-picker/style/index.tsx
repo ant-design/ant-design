@@ -75,7 +75,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
     pickerPanelCellHeight,
     motionDurationSlow,
     borderRadiusSM,
-    motionDurationFast,
+    motionDurationMid,
     controlItemBgHover,
     lineWidth,
     lineType,
@@ -113,7 +113,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: pickerPanelCellHeight,
       lineHeight: `${pickerPanelCellHeight}px`,
       borderRadius: borderRadiusSM,
-      transition: `background ${motionDurationFast}, border ${motionDurationFast}`,
+      transition: `background ${motionDurationMid}, border ${motionDurationMid}`,
     },
 
     // >>> Hover
@@ -300,7 +300,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
     pickerControlIconBorderWidth,
     colorIcon,
     pickerTextHeight,
-    motionDurationFast,
+    motionDurationMid,
     colorIconHover,
     fontWeightStrong,
     pickerPanelCellHeight,
@@ -394,7 +394,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           background: 'transparent',
           border: 0,
           cursor: 'pointer',
-          transition: `color ${motionDurationFast}`,
+          transition: `color ${motionDurationMid}`,
         },
 
         '> button': {
@@ -687,7 +687,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
         '&-row': {
           td: {
-            transition: `background ${motionDurationFast}`,
+            transition: `background ${motionDurationMid}`,
 
             '&:first-child': {
               borderStartStartRadius: borderRadiusSM,
@@ -784,7 +784,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           overflowY: 'hidden',
           textAlign: 'start',
           listStyle: 'none',
-          transition: `background ${motionDurationFast}`,
+          transition: `background ${motionDurationMid}`,
           overflowX: 'hidden',
 
           '&::after': {
@@ -827,7 +827,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 lineHeight: `${pickerTimePanelCellHeight}px`,
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
-                transition: `background ${motionDurationFast}`,
+                transition: `background ${motionDurationMid}`,
 
                 '&:hover': {
                   background: controlItemBgHover,
@@ -925,7 +925,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     lineType,
     colorBorder,
     borderRadius,
-    motionDurationFast,
+    motionDurationMid,
     colorBgContainerDisabled,
     colorTextDisabled,
     colorTextPlaceholder,
@@ -970,7 +970,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         background: colorBgContainer,
         border: `${lineWidth}px ${lineType} ${colorBorder}`,
         borderRadius,
-        transition: `border ${motionDurationFast}, box-shadow ${motionDurationFast}`,
+        transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
         // Space.Compact
         ...genCompactItemStyle(token, componentCls, '', `${componentCls}-focused`),
@@ -1081,7 +1081,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
-          transition: `opacity ${motionDurationFast}, color ${motionDurationFast}`,
+          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
 
           '> *': {
             verticalAlign: 'top',

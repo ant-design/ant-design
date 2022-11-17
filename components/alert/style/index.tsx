@@ -178,7 +178,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   const {
     componentCls,
     iconCls,
-    motionDurationFast,
+    motionDurationMid,
     marginXS,
     fontSizeIcon,
     colorIcon,
@@ -204,7 +204,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
         [`${iconCls}-close`]: {
           color: colorIcon,
-          transition: `color ${motionDurationFast}`,
+          transition: `color ${motionDurationMid}`,
           '&:hover': {
             color: colorIconHover,
           },
@@ -213,7 +213,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
       '&-close-text': {
         color: colorIcon,
-        transition: `color ${motionDurationFast}`,
+        transition: `color ${motionDurationMid}`,
         '&:hover': {
           color: colorIconHover,
         },
@@ -228,7 +228,7 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
   genActionStyle(token),
 ];
 
-export default genComponentStyleHook('Alert', token => {
+export default genComponentStyleHook('Alert', (token) => {
   const { fontSizeHeading3 } = token;
 
   const alertToken = mergeToken<AlertToken>(token, {
