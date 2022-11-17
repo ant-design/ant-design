@@ -2,7 +2,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { genCommonStyle, genLinkStyle, resetIcon } from '../../style';
+import { genCommonStyle, genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
@@ -54,17 +54,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         '&': genLinkStyle(token),
       },
     ]);
-
-    // Generate style for icons
-    useStyleRegister(
-      { theme, token, hashId: '', path: ['ant-design-icons', iconPrefixCls] },
-      () => [
-        {
-          // Link
-          [`.${iconPrefixCls}`]: resetIcon(),
-        },
-      ],
-    );
 
     return [
       useStyleRegister(

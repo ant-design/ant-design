@@ -19,6 +19,7 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
+import useStyle from 'antd/es/config-provider/style';
 
 export {
   type RenderEmptyHandler,
@@ -139,7 +140,7 @@ export const globalConfig = () => ({
   },
 });
 
-const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
+const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const {
     children,
     csp: customCsp,
@@ -174,6 +175,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
+  useStyle(iconPrefixCls);
+
   const mergedTheme = useTheme(theme, parentContext.theme);
 
   const config = {
@@ -192,7 +195,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
-  PASSED_PROPS.forEach(propName => {
+  PASSED_PROPS.forEach((propName) => {
     const propValue = props[propName];
     if (propValue) {
       (config as any)[propName] = propValue;
@@ -208,7 +211,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
       const currentKeys = Object.keys(currentConfig) as Array<keyof typeof config>;
       return (
         prevKeys.length !== currentKeys.length ||
-        prevKeys.some(key => prevConfig[key] !== currentConfig[key])
+        prevKeys.some((key) => prevConfig[key] !== currentConfig[key])
       );
     },
   );
@@ -292,11 +295,11 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
-} = props => (
+} = (props) => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
       <ConfigConsumer>
-        {context => (
+        {(context) => (
           <ProviderChildren parentContext={context} legacyLocale={legacyLocale} {...props} />
         )}
       </ConfigConsumer>
