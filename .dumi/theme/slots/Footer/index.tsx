@@ -15,6 +15,7 @@ import {
   TwitterOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
+  YuqueOutlined,
 } from '@ant-design/icons';
 import useLocation from '../../../hooks/useLocation';
 import { css } from '@emotion/react';
@@ -177,6 +178,12 @@ const Footer = () => {
           icon: <TwitterOutlined style={{ color: '#1DA1F2' }} />,
           title: 'Twitter',
           url: 'http://twitter.com/antdesignui',
+          openExternal: true,
+        },
+        {
+          icon: <YuqueOutlined style={{ color: '#00b96b' }} />,
+          title: <FormattedMessage id="app.footer.yuque.repo" />,
+          url: 'https://yuque.com/ant-design/ant-design',
           openExternal: true,
         },
         {
