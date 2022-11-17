@@ -18,7 +18,7 @@ Create `src/components/DatePicker.tsx`.
 For example:
 
 ```tsx
-import { Dayjs } from 'dayjs';
+import { Dayjs } from "rc-picker/node_modules/dayjs";
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 
@@ -34,7 +34,7 @@ Create `src/components/TimePicker.tsx`.
 For example:
 
 ```tsx
-import { Dayjs } from 'dayjs';
+import { Dayjs } from "rc-picker/node_modules/dayjs";
 import * as React from 'react';
 import DatePicker from './DatePicker';
 import { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
@@ -57,7 +57,7 @@ Create `src/components/Calendar.tsx`.
 For example:
 
 ```tsx
-import { Dayjs } from 'dayjs';
+import { Dayjs } from "rc-picker/node_modules/dayjs";
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 
