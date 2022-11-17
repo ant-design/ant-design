@@ -49,17 +49,17 @@ exports[`renders ./components/skeleton/demo/basic.tsx extend context correctly 1
 `;
 
 exports[`renders ./components/skeleton/demo/children.tsx extend context correctly 1`] = `
-<div
-  class="article"
->
-  <div>
-    <h4>
-      Ant Design, a design language
-    </h4>
-    <p>
-      We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-    </p>
-  </div>
+Array [
+  <h4
+    style="margin-bottom:16px"
+  >
+    Ant Design, a design language
+  </h4>,
+  <p
+    style="margin-bottom:16px"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+  </p>,
   <button
     class="ant-btn ant-btn-default"
     type="button"
@@ -67,8 +67,8 @@ exports[`renders ./components/skeleton/demo/children.tsx extend context correctl
     <span>
       Show Skeleton
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/skeleton/demo/complex.tsx extend context correctly 1`] = `

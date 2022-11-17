@@ -5,12 +5,3 @@
 ## en-US
 
 Skeleton contains sub component.
-
-<style>
-.article h4 {
-  margin-bottom: 16px;
-}
-.article button {
-  margin-top: 16px;
-}
-</style>

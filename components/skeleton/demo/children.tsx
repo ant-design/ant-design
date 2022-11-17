@@ -13,21 +13,19 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="article">
+    <>
       <Skeleton loading={loading}>
-        <div>
-          <h4>Ant Design, a design language</h4>
-          <p>
-            We supply a series of design principles, practical patterns and high quality design
-            resources (Sketch and Axure), to help people create their product prototypes beautifully
-            and efficiently.
-          </p>
-        </div>
+        <h4 style={{ marginBottom: 16 }}>Ant Design, a design language</h4>
+        <p style={{ marginBottom: 16 }}>
+          We supply a series of design principles, practical patterns and high quality design
+          resources (Sketch and Axure), to help people create their product prototypes beautifully
+          and efficiently.
+        </p>
       </Skeleton>
       <Button onClick={showSkeleton} disabled={loading}>
         Show Skeleton
       </Button>
-    </div>
+    </>
   );
 };
 
