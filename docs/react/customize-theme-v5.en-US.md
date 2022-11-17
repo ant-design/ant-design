@@ -130,6 +130,33 @@ const App: React.FC = () => {
 export default App;
 ```
 
+### Static consume (e.g. less)
+
+When you need token out of React life cycle, you can use static function to get them:
+
+```jsx
+import { theme } from 'antd';
+
+const { defaultAlgorithm, defaultSeed } = theme;
+
+const mapToken = defaultAlgorithm(defaultSeed);
+```
+
+If you want to use in preprocess style framework like less, use less-loader for injection:
+
+```jsx
+{
+  loader: "less-loader",
+  options: {
+    lessOptions: {
+      modifyVars: mapToken,
+    },
+  },
+}
+```
+
+Compatible package provide convert function to transform to v4 less variable. Read [this](/docs/react/migration-v5) for detail.
+
 ## Advanced
 
 In Design Token, we provide a three-layer structure that is more suitable for the design, and disassemble the Design Token into three parts: Seed Token, Map Token and Alias Token. These three groups of Tokens are not simple groupings, but a three-layer derivation relationship. Map Tokens are derived from Seed Tokens, and Alias Tokens are derived from Map Tokens. In most cases, using Seed Tokens is sufficient for custom themes. But if you need a higher degree of theme customization, you need to understand the life cycle of Design Token in antd.
