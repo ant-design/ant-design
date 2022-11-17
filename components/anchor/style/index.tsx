@@ -16,16 +16,8 @@ interface AnchorToken extends FullToken<'Anchor'> {
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const {
-    componentCls,
-    holderOffsetBlock,
-    motionDurationSlow,
-    lineWidthBold,
-    lineHeight,
-    fontSize,
-    marginXXS,
-    colorPrimary,
-  } = token;
+  const { componentCls, holderOffsetBlock, motionDurationSlow, lineWidthBold, colorPrimary } =
+    token;
 
   return {
     [`${componentCls}-wrapper`]: {
