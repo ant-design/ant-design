@@ -44,7 +44,7 @@ const useStyle = () => {
       }
 
       .dumi-default-search-bar {
-        border-inline-start: 1px solid ${searchIconColor};
+        border-inline-start: 1px solid rgba(0,0,0,.06);
 
         > svg {
           width: 14px;
@@ -52,7 +52,7 @@ const useStyle = () => {
         }
 
         > input {
-          height: 24px;
+          height: 22px;
           border: 0;
 
           &:focus {
@@ -130,7 +130,7 @@ const triggerDocSearchImport = () => {
   }
 
   // @ts-ignore
-  return import('docsearch.js').then(ds => {
+  return import('docsearch.js').then((ds) => {
     docsearch = ds.default;
   });
 };
@@ -152,7 +152,7 @@ interface HeaderState {
   showTechUIButton: boolean;
 }
 
-const Header: React.FC<HeaderProps> = props => {
+const Header: React.FC<HeaderProps> = (props) => {
   const intl = useIntl();
   const { changeDirection } = props;
   const [, lang] = useLocale();
@@ -174,19 +174,19 @@ const Header: React.FC<HeaderProps> = props => {
   const style = useStyle();
 
   const handleHideMenu = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, menuVisible: false }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: false }));
   }, []);
   const onWindowResize = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, windowWidth: window.innerWidth }));
+    setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
   }, []);
   const onTriggerSearching = useCallback((searching: boolean) => {
-    setHeaderState(prev => ({ ...prev, searching }));
+    setHeaderState((prev) => ({ ...prev, searching }));
   }, []);
   const handleShowMenu = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, menuVisible: true }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: true }));
   }, []);
   const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState(prev => ({ ...prev, menuVisible: visible }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = useCallback(() => {
     changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
@@ -200,9 +200,9 @@ const Header: React.FC<HeaderProps> = props => {
     setIsClient(typeof window !== 'undefined');
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    pingTimer.current = ping(status => {
+    pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        setHeaderState(prev => ({ ...prev, showTechUIButton: true }));
+        setHeaderState((prev) => ({ ...prev, showTechUIButton: true }));
         if (
           process.env.NODE_ENV === 'production' &&
           window.location.host !== 'ant-design.antgroup.com' &&
@@ -277,7 +277,7 @@ const Header: React.FC<HeaderProps> = props => {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
   };
-  const versionOptions = Object.keys(docVersions).map(version => (
+  const versionOptions = Object.keys(docVersions).map((version) => (
     <Option value={docVersions[version]} key={version}>
       {version}
     </Option>
@@ -327,7 +327,7 @@ const Header: React.FC<HeaderProps> = props => {
       defaultValue={antdVersion}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      getPopupContainer={trigger => trigger.parentNode}
+      getPopupContainer={(trigger) => trigger.parentNode}
     >
       {versionOptions}
     </Select>,
