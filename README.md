@@ -91,12 +91,6 @@ const App = () => (
 );
 ```
 
-And import style manually:
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
-
 ### TypeScript
 
 `antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.

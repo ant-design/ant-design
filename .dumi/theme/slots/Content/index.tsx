@@ -115,14 +115,17 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const { direction } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useState(false);
-  const [debugDemos, setDebugDemos] = useState<string[]>([]);
+  const debugDemos = useMemo(
+    () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
+    [meta],
+  );
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development');
   }, []);
 
   const contextValue = useMemo<DemoContextProps>(
-    () => ({ showDebug, setShowDebug, debugDemos, setDebugDemos }),
+    () => ({ showDebug, setShowDebug }),
     [showDebug, debugDemos],
   );
 

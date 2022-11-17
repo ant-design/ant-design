@@ -91,12 +91,6 @@ const App = () => (
 );
 ```
 
-引入样式：
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
-
 ### 🌈 定制主题
 
 参考 [定制主题](https://ant.design/docs/react/customize-theme-cn) 文档。

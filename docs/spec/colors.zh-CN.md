@@ -52,22 +52,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 ### 在代码中使用色板
 
-我们为程序员提供了色板的 Less 和 JavaScript 的使用方式。
-
-- **Less**
-
-  ```less
-  @import '~antd/es/style/themes/default.less';
-
-  .selector {
-    color: @blue-5;
-    background-color: @gold-2;
-  }
-  ```
-
-  所有色板变量列表：[color.less](https://github.com/ant-design/ant-design/blob/5ab2783ff00d4b1da04bb213c6b12de43e7649eb/components/style/color/colors.less)。
-
-  <br />
+我们为程序员提供了色板的 JavaScript 的使用方式。
 
 - **JavaScript**
 
