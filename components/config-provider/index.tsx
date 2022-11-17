@@ -19,7 +19,7 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
-import useStyle from 'antd/es/config-provider/style';
+import useStyle from './style';
 
 export {
   type RenderEmptyHandler,
