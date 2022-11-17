@@ -21,7 +21,7 @@ type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 const openNotificationWithIcon = (type: NotificationType) => {
   notification[type]({
-    message: 'Notification Title',
+    title: 'Notification Title',
     description:
       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
   });

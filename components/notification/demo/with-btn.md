@@ -31,7 +31,7 @@ const openNotification = () => {
     </Button>
   );
   notification.open({
-    message: 'Notification Title',
+    title: 'Notification Title',
     description:
       'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
     btn,

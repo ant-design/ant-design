@@ -19,7 +19,7 @@ describe('notification.config', () => {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
         notification.open({
-          message: 'Notification message',
+          title: 'Notification message',
           key: i as unknown as string,
         });
       });
@@ -27,7 +27,7 @@ describe('notification.config', () => {
 
     act(() => {
       notification.open({
-        message: 'Notification last',
+        title: 'Notification last',
         key: '11',
       });
     });

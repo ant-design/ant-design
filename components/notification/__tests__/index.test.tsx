@@ -32,7 +32,7 @@ describe('notification', () => {
     for (let i = 0; i < 5; i += 1) {
       act(() => {
         notification.open({
-          message: 'Notification Title',
+          title: 'Notification Title',
           duration: 0,
           prefixCls: 'additional-holder',
         });
@@ -48,7 +48,7 @@ describe('notification', () => {
   it('should be able to hide manually', async () => {
     act(() => {
       notification.open({
-        message: 'Notification Title 1',
+        title: 'Notification Title 1',
         duration: 0,
         key: '1',
       });
@@ -61,7 +61,7 @@ describe('notification', () => {
 
     act(() => {
       notification.open({
-        message: 'Notification Title 2',
+        title: 'Notification Title 2',
         duration: 0,
         key: '2',
       });
@@ -106,14 +106,14 @@ describe('notification', () => {
   it('should be able to destroy globally', async () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
       });
     });
 
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
       });
     });
@@ -158,7 +158,7 @@ describe('notification', () => {
 
     act(() => {
       notification.open({
-        message: 'whatever',
+        title: 'whatever',
       });
     });
 
@@ -169,7 +169,7 @@ describe('notification', () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
     act(() => {
-      notification.success({ message: 'Notification Title', duration: 0 });
+      notification.success({ title: 'Notification Title', duration: 0 });
     });
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
@@ -185,7 +185,7 @@ describe('notification', () => {
 
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
       });
     });
@@ -204,7 +204,7 @@ describe('notification', () => {
     const openNotificationWithIcon = async (type: NotificationWithIconType) => {
       act(() => {
         notification[type]({
-          message: 'Notification Title',
+          title: 'Notification Title',
           duration: 0,
           description: 'This is the content of the notification.',
         });
@@ -229,7 +229,7 @@ describe('notification', () => {
     const openNotificationWithIcon = async (type: NotificationWithIconType) => {
       act(() => {
         notification[type]({
-          message: 'Notification Title',
+          title: 'Notification Title',
           duration: 0,
           description: 'This is the content of the notification.',
         });
@@ -252,7 +252,7 @@ describe('notification', () => {
   it('trigger onClick', () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
       });
     });
@@ -263,7 +263,7 @@ describe('notification', () => {
   it('support closeIcon', () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         closeIcon: <span className="test-customize-icon" />,
       });
@@ -279,7 +279,7 @@ describe('notification', () => {
 
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         closeIcon: <span className="test-customize-icon" />,
       });
@@ -292,7 +292,7 @@ describe('notification', () => {
     const openNotificationWithCloseIcon = async (type: '1' | '2') => {
       act(() => {
         notification.open({
-          message: 'Notification Title',
+          title: 'Notification Title',
           closeIcon: <span className={`test-customize-icon-${type}`} />,
         });
         jest.runAllTimers();
@@ -318,7 +318,7 @@ describe('notification', () => {
 
     act(() => {
       notification.open({
-        message: 'whatever',
+        title: 'whatever',
       });
     });
 
@@ -328,7 +328,7 @@ describe('notification', () => {
   it('support icon', () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         icon: <UserOutlined />,
       });
@@ -340,7 +340,7 @@ describe('notification', () => {
   it('support props', () => {
     act(() => {
       notification.open({
-        message: 'Notification Title',
+        title: 'Notification Title',
         duration: 0,
         props: { 'data-testid': 'test-notification' },
       });
