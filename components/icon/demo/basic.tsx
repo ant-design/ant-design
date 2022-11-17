@@ -6,19 +6,17 @@ import {
   SmileOutlined,
   SyncOutlined,
 } from '@ant-design/icons';
-import { ConfigProvider, Space } from 'antd';
+import { Space } from 'antd';
 
 const App: React.FC = () => (
-  <ConfigProvider iconPrefixCls="hitu-icon">
-    <Space>
-      <HomeOutlined />
-      <SettingFilled />
-      <SmileOutlined />
-      <SyncOutlined spin />
-      <SmileOutlined rotate={180} />
-      <LoadingOutlined />
-    </Space>
-  </ConfigProvider>
+  <Space>
+    <HomeOutlined />
+    <SettingFilled />
+    <SmileOutlined />
+    <SyncOutlined spin />
+    <SmileOutlined rotate={180} />
+    <LoadingOutlined />
+  </Space>
 );
 
 export default App;
