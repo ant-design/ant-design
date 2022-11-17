@@ -5,7 +5,7 @@ title: Skeleton
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---
 
-Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
 
 ## When To Use
 

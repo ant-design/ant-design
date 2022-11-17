@@ -95,12 +95,20 @@ const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
 };
 
 const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
-  const { controlHeight, skeletonInputCls, controlHeightLG, controlHeightSM, color } = token;
+  const {
+    controlHeight,
+    borderRadiusSM,
+    skeletonInputCls,
+    controlHeightLG,
+    controlHeightSM,
+    color,
+  } = token;
   return {
     [`${skeletonInputCls}`]: {
       display: 'inline-block',
       verticalAlign: 'top',
       background: color,
+      borderRadius: borderRadiusSM,
       ...genSkeletonElementInputSize(controlHeight),
     },
 
@@ -120,7 +128,7 @@ const genSkeletonElementImageSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
-  const { skeletonImageCls, imageSizeBase, color } = token;
+  const { skeletonImageCls, imageSizeBase, color, borderRadiusSM } = token;
   return {
     [`${skeletonImageCls}`]: {
       display: 'flex',
@@ -128,6 +136,7 @@ const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
       justifyContent: 'center',
       verticalAlign: 'top',
       background: color,
+      borderRadius: borderRadiusSM,
       ...genSkeletonElementImageSize(imageSizeBase * 2),
       [`${skeletonImageCls}-path`]: {
         fill: '#bfbfbf',
@@ -347,7 +356,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Skeleton',
-  token => {
+  (token) => {
     const { componentCls } = token;
 
     const skeletonToken = mergeToken<SkeletonToken>(token, {
@@ -368,7 +377,7 @@ export default genComponentStyleHook(
     });
     return [genBaseStyle(skeletonToken)];
   },
-  token => {
+  (token) => {
     const { colorFillContent, colorFill } = token;
 
     return {
