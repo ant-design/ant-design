@@ -173,8 +173,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
-  const shouldWrapSSR =
-    parentContext.iconPrefixCls && iconPrefixCls !== parentContext.iconPrefixCls;
+  const shouldWrapSSR = iconPrefixCls !== parentContext.iconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
   const wrapSSR = useStyle(iconPrefixCls);
