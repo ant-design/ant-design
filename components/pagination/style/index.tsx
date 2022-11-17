@@ -31,7 +31,7 @@ interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationSlashMarginInlineEnd: number;
 }
 
-const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -114,7 +114,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = to
   };
 };
 
-const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -183,7 +183,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
   };
 };
 
-const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -221,7 +221,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         outline: 'none',
-        transition: `border-color ${token.motionDurationFast}`,
+        transition: `border-color ${token.motionDurationMid}`,
 
         '&:hover': {
           borderColor: token.colorPrimary,
@@ -243,7 +243,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
   };
 };
 
-const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -331,7 +331,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       listStyle: 'none',
       borderRadius: token.borderRadius,
       cursor: 'pointer',
-      transition: `all ${token.motionDurationFast}`,
+      transition: `all ${token.motionDurationMid}`,
     },
 
     [`${componentCls}-prev, ${componentCls}-next`]: {
@@ -355,7 +355,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         border: `${token.lineWidth}px ${token.lineType} transparent`,
         borderRadius: token.borderRadius,
         outline: 'none',
-        transition: `border ${token.motionDurationFast}`,
+        transition: `border ${token.motionDurationMid}`,
       },
 
       [`&:focus-visible ${componentCls}-item-link`]: {
@@ -414,7 +414,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
   };
 };
 
-const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -448,7 +448,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
 
       [`&:not(${componentCls}-item-active)`]: {
         '&:hover': {
-          transition: `all ${token.motionDurationFast}`,
+          transition: `all ${token.motionDurationMid}`,
           backgroundColor: token.colorBgTextHover,
         },
 
@@ -482,7 +482,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
   };
 };
 
-const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
+const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -550,7 +550,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
   };
 };
 
-const genBorderedStyle: GenerateStyle<PaginationToken> = token => {
+const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -647,7 +647,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Pagination', token => {
+export default genComponentStyleHook('Pagination', (token) => {
   const paginationToken = mergeToken<PaginationToken>(
     token,
     {

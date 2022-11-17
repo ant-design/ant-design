@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, inlineDotSize, inlineTitleColor, inlineTailColor } = token;
   const containerPaddingTop = token.paddingXS + token.lineWidth;
   const titleStyle = {
@@ -24,7 +24,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           margin: `0 ${token.marginXXS / 2}px`,
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
-          transition: `background-color ${token.motionDurationFast}`,
+          transition: `background-color ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },

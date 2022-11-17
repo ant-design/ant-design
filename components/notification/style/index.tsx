@@ -22,7 +22,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationCloseButtonSize: number;
 }
 
-const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
+const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const {
     iconCls,
     componentCls, // .ant-notification
@@ -230,7 +230,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
           width: token.notificationCloseButtonSize,
           height: token.notificationCloseButtonSize,
           borderRadius: token.borderRadiusSM,
-          transition: `background-color ${token.motionDurationFast}, color ${token.motionDurationFast}`,
+          transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -260,7 +260,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Notification',
-  token => {
+  (token) => {
     const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
 
@@ -280,7 +280,7 @@ export default genComponentStyleHook(
 
     return [genNotificationStyle(notificationToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
     width: 384,
   }),

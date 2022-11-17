@@ -36,7 +36,7 @@ const antRadioEffect = new Keyframes('antRadioEffect', {
 });
 
 // styles from RadioGroup only
-const getGroupRadioStyle: GenerateStyle<RadioToken> = token => {
+const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
   const { componentCls, antCls } = token;
   const groupPrefixCls = `${componentCls}-group`;
 
@@ -63,7 +63,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = token => {
 };
 
 // Styles from radio-wrapper
-const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
+const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
   const {
     componentCls,
     radioWrapperMarginRight,
@@ -71,7 +71,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     radioTop,
     radioSize,
     motionDurationSlow,
-    motionDurationFast,
+    motionDurationMid,
     motionEaseInOut,
     motionEaseInOutCirc,
     radioButtonBg,
@@ -187,7 +187,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
         borderStyle: 'solid',
         borderWidth: lineWidth,
         borderRadius: '50%',
-        transition: `all ${motionDurationFast}`,
+        transition: `all ${motionDurationMid}`,
       },
 
       [`${componentCls}-input`]: {
@@ -255,7 +255,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
 };
 
 // Styles from radio-button
-const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
+const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
   const {
     radioButtonColor,
     controlHeight,
@@ -264,7 +264,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
     lineType,
     colorBorder,
     motionDurationSlow,
-    motionDurationFast,
+    motionDurationMid,
     radioButtonPaddingHorizontal,
     fontSize,
     radioButtonBg,
@@ -305,10 +305,10 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
       borderInlineEndWidth: lineWidth,
       cursor: 'pointer',
       transition: [
-        `color ${motionDurationFast}`,
-        `background ${motionDurationFast}`,
-        `border-color ${motionDurationFast}`,
-        `box-shadow ${motionDurationFast}`,
+        `color ${motionDurationMid}`,
+        `background ${motionDurationMid}`,
+        `border-color ${motionDurationMid}`,
+        `box-shadow ${motionDurationMid}`,
       ].join(','),
 
       a: {
@@ -480,7 +480,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Radio', token => {
+export default genComponentStyleHook('Radio', (token) => {
   const {
     padding,
     lineWidth,

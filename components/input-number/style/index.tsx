@@ -37,12 +37,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorError,
     inputPaddingHorizontalSM,
     colorTextDescription,
-    motionDurationFast,
+    motionDurationMid,
     colorPrimary,
     controlHeight,
     inputPaddingHorizontal,
     colorBgContainer,
-    motionDurationMid,
     colorTextDisabled,
     borderRadiusSM,
     borderRadiusLG,
@@ -154,7 +153,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             border: 0,
             borderRadius,
             outline: 0,
-            transition: `all ${motionDurationFast} linear`,
+            transition: `all ${motionDurationMid} linear`,
             appearance: 'textfield',
             color: token.colorText,
             fontSize: 'inherit',
@@ -195,7 +194,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
-          transition: `opacity ${motionDurationMid} linear ${motionDurationFast}`,
+          transition: `opacity ${motionDurationMid} linear ${motionDurationMid}`,
 
           // Fix input number inside Menu makes icon too large
           // We arise the selector priority by nest selector here
@@ -226,7 +225,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           textAlign: 'center',
           cursor: 'pointer',
           borderInlineStart: `${lineWidth}px ${lineType} ${colorBorder}`,
-          transition: `all ${motionDurationFast} linear`,
+          transition: `all ${motionDurationMid} linear`,
           '&:active': {
             background: token.colorFillAlter,
           },
@@ -247,7 +246,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             ...resetIcon(),
 
             color: colorTextDescription,
-            transition: `all ${motionDurationFast} linear`,
+            transition: `all ${motionDurationMid} linear`,
             userSelect: 'none',
           },
         },
@@ -395,11 +394,11 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'InputNumber',
-  token => {
+  (token) => {
     const inputNumberToken = initInputToken<FullToken<'InputNumber'>>(token);
     return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
   },
-  token => ({
+  (token) => ({
     controlWidth: 90,
     handleWidth: token.controlHeightSM - token.lineWidth * 2,
     handleFontSize: token.fontSize / 2,

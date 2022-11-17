@@ -96,7 +96,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       ${lineWidth}px 0 0 0 ${colorBorderSecondary} inset,
       0 ${lineWidth}px 0 0 ${colorBorderSecondary} inset;
     `,
-    transition: `all ${token.motionDurationFast}`,
+    transition: `all ${token.motionDurationMid}`,
 
     '&-hoverable:hover': {
       position: 'relative',
@@ -134,7 +134,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
         '&:hover': {
           color: token.colorPrimary,
-          transition: `color ${token.motionDurationFast}`,
+          transition: `color ${token.motionDurationMid}`,
         },
 
         [`a:not(${componentCls}-btn), > ${iconCls}`]: {
@@ -142,7 +142,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           width: '100%',
           color: token.colorTextDescription,
           lineHeight: `${token.fontSize * token.lineHeight}px`,
-          transition: `color ${token.motionDurationFast}`,
+          transition: `color ${token.motionDurationMid}`,
 
           '&:hover': {
             color: token.colorPrimary,
@@ -300,7 +300,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-hoverable`]: {
       cursor: 'pointer',
-      transition: `box-shadow ${token.motionDurationFast}, border-color ${token.motionDurationFast}`,
+      transition: `box-shadow ${token.motionDurationMid}, border-color ${token.motionDurationMid}`,
 
       '&:hover': {
         borderColor: 'transparent',
@@ -376,7 +376,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', token => {
+export default genComponentStyleHook('Card', (token) => {
   const cardToken = mergeToken<CardToken>(token, {
     cardShadow: token.boxShadowCard,
     cardHeaderHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,

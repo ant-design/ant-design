@@ -19,7 +19,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
     colorBgMask,
     colorBgElevated,
     motionDurationSlow,
-    motionDurationFast,
+    motionDurationMid,
     padding,
     paddingLG,
     fontSizeLG,
@@ -171,7 +171,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         border: 0,
         outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationFast}`,
+        transition: `color ${motionDurationMid}`,
         textRendering: 'auto',
 
         '&:focus, &:hover': {
@@ -216,7 +216,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Drawer',
-  token => {
+  (token) => {
     const drawerToken = mergeToken<DrawerToken>(token, {
       drawerFooterPaddingVertical: token.paddingXS,
       drawerFooterPaddingHorizontal: token.padding,
@@ -224,7 +224,7 @@ export default genComponentStyleHook(
 
     return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase,
   }),
 );
