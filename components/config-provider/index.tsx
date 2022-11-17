@@ -20,6 +20,7 @@ import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { ReactElement } from 'react';
 
 export {
   type RenderEmptyHandler,
@@ -223,6 +224,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   let childNode = children;
+  childNode = shouldWrapSSR ? wrapSSR(childNode as ReactElement) : childNode;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
@@ -288,9 +290,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     );
   }
 
-  childNode = <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
-
-  return shouldWrapSSR ? wrapSSR(childNode) : childNode;
+  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
