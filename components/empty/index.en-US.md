@@ -3,8 +3,6 @@ category: Components
 group: Data Display
 title: Empty
 cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
-demo:
-  cols: 2
 ---
 
 Empty state placeholder.
@@ -16,11 +14,7 @@ Empty state placeholder.
 
 ## Examples
 
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/simple.tsx">Chose image</code>
-<code src="./demo/customize.tsx">Customize</code>
-<code src="./demo/config-provider.tsx">ConfigProvider</code>
-<code src="./demo/description.tsx">No description</code>
+<code src="./demo/basic.tsx">Basic</code> <code src="./demo/simple.tsx">Chose image</code> <code src="./demo/customize.tsx">Customize</code> <code src="./demo/config-provider.tsx">ConfigProvider</code> <code src="./demo/description.tsx">No description</code>
 
 ## API
 

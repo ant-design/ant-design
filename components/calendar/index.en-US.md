@@ -3,8 +3,6 @@ category: Components
 group: Data Display
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
-demo:
-  cols: 2
 ---
 
 Container for displaying data in calendar form.
@@ -15,11 +13,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## Examples
 
-<code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/notice-calendar.tsx">Notice Calendar</code>
-<code src="./demo/card.tsx">Card</code>
-<code src="./demo/select.tsx">Selectable Calendar</code>
-<code src="./demo/customize-header.tsx">Customize Header</code>
+<code src="./demo/basic.tsx">Basic</code> <code src="./demo/notice-calendar.tsx">Notice Calendar</code> <code src="./demo/card.tsx">Card</code> <code src="./demo/select.tsx">Selectable Calendar</code> <code src="./demo/customize-header.tsx">Customize Header</code>
 
 ## API
 

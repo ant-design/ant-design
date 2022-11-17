@@ -4,8 +4,6 @@ subtitle: 分页
 group: 导航
 title: Pagination
 cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
-demo:
-  cols: 2
 ---
 
 采用分页的形式分隔长列表，每次只加载一个页面。
@@ -17,16 +15,7 @@ demo:
 
 ## 代码演示
 
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/more.tsx">更多</code>
-<code src="./demo/changer.tsx">改变</code>
-<code src="./demo/jump.tsx">跳转</code>
-<code src="./demo/mini.tsx">迷你</code>
-<code src="./demo/simple.tsx">简洁</code>
-<code src="./demo/controlled.tsx">受控</code>
-<code src="./demo/total.tsx">总数</code>
-<code src="./demo/all.tsx">全部展示</code>
-<code src="./demo/itemRender.tsx">上一步和下一步</code>
+<code src="./demo/basic.tsx">基本</code> <code src="./demo/more.tsx">更多</code> <code src="./demo/changer.tsx">改变</code> <code src="./demo/jump.tsx">跳转</code> <code src="./demo/mini.tsx">迷你</code> <code src="./demo/simple.tsx">简洁</code> <code src="./demo/controlled.tsx">受控</code> <code src="./demo/total.tsx">总数</code> <code src="./demo/all.tsx">全部展示</code> <code src="./demo/itemRender.tsx">上一步和下一步</code>
 
 ## API
 

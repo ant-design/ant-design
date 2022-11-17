@@ -4,8 +4,6 @@ group: 数据展示
 subtitle: 日历
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
-demo:
-  cols: 2
 ---
 
 按照日历形式展示数据的容器。
@@ -16,11 +14,7 @@ demo:
 
 ## 代码演示
 
-<code src="./demo/basic.tsx">基本</code>
-<code src="./demo/notice-calendar.tsx">通知事项日历</code>
-<code src="./demo/card.tsx">卡片模式</code>
-<code src="./demo/select.tsx">选择功能</code>
-<code src="./demo/customize-header.tsx">自定义头部</code>
+<code src="./demo/basic.tsx">基本</code> <code src="./demo/notice-calendar.tsx">通知事项日历</code> <code src="./demo/card.tsx">卡片模式</code> <code src="./demo/select.tsx">选择功能</code> <code src="./demo/customize-header.tsx">自定义头部</code>
 
 ## API
 
