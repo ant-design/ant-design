@@ -5,9 +5,3 @@
 ## en-US
 
 There are 4 types of Alert: `success`, `info`, `warning`, `error`.
-
-<style>
-[data-theme="compact"] .code-box-demo .ant-alert {
-  margin-bottom: 8px;
-}
-</style>
