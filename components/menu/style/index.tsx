@@ -98,8 +98,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     {
       '': {
         [`${componentCls}`]: {
-          ...clearFix(),
-
           // Hidden
           [`&-hidden`]: {
             display: 'none',
@@ -113,6 +111,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
+        ...clearFix(),
 
         marginBottom: 0,
         paddingInlineStart: 0, // Override default ul/ol
