@@ -16,6 +16,7 @@ Radio.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">disabled</code>
 <code src="./demo/radiogroup.tsx">Radio Group</code>

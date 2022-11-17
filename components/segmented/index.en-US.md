@@ -16,6 +16,7 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/block.tsx">Block Segmented</code>
 <code src="./demo/disabled.tsx">Basic</code>

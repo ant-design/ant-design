@@ -16,6 +16,7 @@ Switching Selector.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/text.tsx">Text & icon</code>
@@ -40,7 +41,7 @@ Switching Selector.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

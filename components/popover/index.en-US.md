@@ -17,6 +17,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/triggerType.tsx">Three ways to trigger</code>
 <code src="./demo/placement.tsx">Placement</code>
@@ -27,10 +28,10 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 ## API
 
-| Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
-| content | Content of the card | ReactNode \| () => ReactNode | - |  |
-| title | Title of the card | ReactNode \| () => ReactNode | - |  |
+| Param   | Description         | Type                         | Default value | Version |
+| ------- | ------------------- | ---------------------------- | ------------- | ------- |
+| content | Content of the card | ReactNode \| () => ReactNode | -             |         |
+| title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
 
 Consult [Tooltip's documentation](/components/tooltip/#API) to find more APIs.
 

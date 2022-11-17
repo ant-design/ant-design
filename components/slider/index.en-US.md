@@ -15,6 +15,7 @@ To input a value in a range.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/input-number.tsx">Slider with InputNumber</code>
 <code src="./demo/icon-slider.tsx">Slider with icon</code>

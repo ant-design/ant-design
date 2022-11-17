@@ -16,6 +16,7 @@ Checkbox component.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controller.tsx">Controlled Checkbox</code>

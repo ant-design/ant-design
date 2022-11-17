@@ -15,6 +15,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/no-wrapper.tsx">Standalone</code>
 <code src="./demo/overflow.tsx">Overflow Count</code>

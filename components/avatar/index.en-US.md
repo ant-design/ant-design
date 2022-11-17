@@ -13,6 +13,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/type.tsx">Type</code>
 <code src="./demo/dynamic.tsx">Autoset Font Size</code>

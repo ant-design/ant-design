@@ -35,6 +35,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/locale.tsx">Locale</code>
 <code src="./demo/direction.tsx">Direction</code>
 <code src="./demo/size.tsx">Component size</code>
@@ -43,25 +44,25 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 
 ## API
 
-| Property                 | Description                                                                                                                                                                                            | Type                                                                                                                | Default             | Version             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------- |
-| autoInsertSpaceInButton  | Set false to remove space between 2 chinese characters on Button                                                                                                                                       | boolean                                                                                                             | true                |                     |
-| componentDisabled        | Config antd component `disabled`                                                                                                                                                                       | boolean                                                                                                             | -                   | 4.21.0              |
-| componentSize            | Config antd component size                                                                                                                                                                             | `small` \| `middle` \| `large`                                                                                      | -                   |                     |
-| csp                      | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config                                                                                                            | { nonce: string }                                                                                                   | -                   |                     |
-| direction                | Set direction of layout. See [demo](#components-config-provider-demo-direction)                                                                                                                        | `ltr` \| `rtl`                                                                                                      | `ltr`               |                     |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number                                                                                                   | -                   | 4.3.0               |
-| form                     | Set Form common props                                                                                                                                                                                  | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | -                   | requiredMark: 4.8.0 |
-| getPopupContainer        | To set the container of the popup element. The default is to create a `div` element in `body`                                                                                                          | function(triggerNode)                                                                                               | () => document.body |                     |
-| getTargetContainer       | Config Affix, Anchor scroll target container                                                                                                                                                           | () => HTMLElement                                                                                                   | () => window        | 4.2.0               |
-| iconPrefixCls            | Set icon prefix className                                                                                                                                                                              | string                                                                                                              | `anticon`           | 4.11.0              |
-| input                    | Set Input common props                                                                                                                                                                                 | { autoComplete?: string }                                                                                           | -                   | 4.2.0               |
-| locale                   | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/)                                                                                                    | object                                                                                                              | -                   |                     |
-| prefixCls                | Set prefix className                                                                                                                                                                                   | string                                                                                                              | `ant`               |                     |
-| renderEmpty              | Set empty content of components. Ref [Empty](/components/empty/)                                                                                                                                       | function(componentName: string): ReactNode                                                                          | -                   |                     |
-| space                    | Set Space `size`, ref [Space](/components/space)                                                                                                                                                       | { size: `small` \| `middle` \| `large` \| `number` }                                                                | -                   | 4.1.0               |
-| theme                    | Set theme, ref [Customize Theme](/docs/react/customize-theme-v5)                                                                                                                                       | -                                                                                                                   | -                   | 5.0.0               |
-| virtual                  | Disable virtual scroll when set to `false`                                                                                                                                                             | boolean                                                                                                             | -                   | 4.3.0               |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| autoInsertSpaceInButton | Set false to remove space between 2 chinese characters on Button | boolean | true |  |
+| componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
+| componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
+| csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
+| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
+| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
+| getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
+| getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
+| iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
+| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
+| locale | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/) | object | - |  |
+| prefixCls | Set prefix className | string | `ant` |  |
+| renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
+| space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme-v5) | - | - | 5.0.0 |
+| virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 
 ### ConfigProvider.config() `4.13.0+`
 

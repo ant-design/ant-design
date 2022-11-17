@@ -17,6 +17,7 @@ By clicking the input box, you can select a time from a popup panel.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/value.tsx">Under Control</code>
 <code src="./demo/size.tsx">Three Sizes</code>

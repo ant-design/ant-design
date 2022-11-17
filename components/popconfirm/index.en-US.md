@@ -17,6 +17,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/locale.tsx">Locale text</code>
 <code src="./demo/placement.tsx">Placement</code>

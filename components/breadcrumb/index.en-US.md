@@ -47,6 +47,7 @@ return (
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/withIcon.tsx">With an Icon</code>
 <code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
@@ -58,22 +59,22 @@ return (
 
 ### Breadcrumb
 
-| Property   | Description                             | Type                                        | Default | Version |
-| ---------- | --------------------------------------- | ------------------------------------------- | ------- | ------- |
-| itemRender | Custom item renderer                    | (route, params, routes, paths) => ReactNode | -       |         |
-| params     | Routing parameters                      | object                                      | -       |         |
-| routes     | The routing stack information of router | [routes\[\]](#routes)                       | -       |         |
-| separator  | Custom separator                        | ReactNode                                   | `/`     |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
+| params | Routing parameters | object | - |  |
+| routes | The routing stack information of router | [routes\[\]](#routes) | - |  |
+| separator | Custom separator | ReactNode | `/` |  |
 
 ### Breadcrumb.Item
 
-| Property      | Description                           | Type                               | Default | Version |
-| ------------- | ------------------------------------- | ---------------------------------- | ------- | ------- |
-| className     | The additional css class              | string                             | -       |         |
-| dropdownProps | The dropdown props                    | [Dropdown](/components/dropdown)   | -       |         |
-| href          | Target of hyperlink                   | string                             | -       |         |
-| menu          | The menu props                        | [MenuProps](/components/menu/#API) | -       | 4.24.0  |
-| onClick       | Set the handler to handle click event | (e:MouseEvent) => void             | -       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| className | The additional css class | string | - |  |
+| dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
+| href | Target of hyperlink | string | - |  |
+| menu | The menu props | [MenuProps](/components/menu/#API) | - | 4.24.0 |
+| onClick | Set the handler to handle click event | (e:MouseEvent) => void | - |  |
 
 ### Breadcrumb.Separator
 

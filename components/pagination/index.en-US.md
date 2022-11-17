@@ -16,6 +16,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/more.tsx">More</code>
 <code src="./demo/changer.tsx">Changer</code>

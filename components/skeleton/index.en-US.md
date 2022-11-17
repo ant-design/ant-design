@@ -18,6 +18,7 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/complex.tsx">Complex combination</code>
 <code src="./demo/active.tsx">Active Animation</code>

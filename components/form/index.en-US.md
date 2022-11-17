@@ -16,6 +16,7 @@ High performance Form component with data scope management. Including data colle
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
 <code src="./demo/control-ref.tsx">Form methods (Class component)</code>

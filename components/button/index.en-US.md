@@ -32,6 +32,7 @@ And 4 other properties additionally.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Type</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/debug-icon.tsx" debug>Debug Icon</code>

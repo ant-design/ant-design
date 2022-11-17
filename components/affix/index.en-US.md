@@ -19,6 +19,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/on-change.tsx">Callback</code>
 <code src="./demo/target.tsx">Container to scroll.</code>

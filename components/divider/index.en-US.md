@@ -18,6 +18,7 @@ A divider line separates different content.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">Horizontal</code>
 <code src="./demo/with-text.tsx">Divider with title</code>
 <code src="./demo/plain.tsx">Text without heading style</code>

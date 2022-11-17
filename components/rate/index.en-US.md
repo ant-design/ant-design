@@ -16,6 +16,7 @@ Rate component.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/half.tsx">Half star</code>
 <code src="./demo/text.tsx">Show copywriting</code>
@@ -47,7 +48,7 @@ Rate component.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |

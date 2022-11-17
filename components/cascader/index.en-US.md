@@ -17,6 +17,7 @@ Cascade selection box.
 
 ## Examples
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/default-value.tsx">Default value</code>
 <code src="./demo/custom-trigger.tsx">Custom trigger</code>
