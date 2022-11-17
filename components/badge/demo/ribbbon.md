@@ -5,9 +5,3 @@
 ## en-US
 
 Use ribbon badge.
-
-```css
-#components-badge-demo-ribbbon .ant-card {
-  margin-bottom: 16px;
-}
-```

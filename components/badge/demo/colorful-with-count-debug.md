@@ -5,9 +5,3 @@
 ## en-US
 
 support `count` when use colorful badge
-
-```css
-.ant-tag {
-  margin-bottom: 8px;
-}
-```
