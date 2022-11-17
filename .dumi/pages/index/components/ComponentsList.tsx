@@ -1,7 +1,6 @@
 import useSiteToken from '../../../hooks/useSiteToken';
 import React from 'react';
 import {
-  Button,
   Space,
   Typography,
   Tour,
@@ -11,138 +10,32 @@ import {
   Modal,
   FloatButton,
   Progress,
+  ConfigProvider,
 } from 'antd';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
+import useLocale from '../../../hooks/useLocale';
+
+const locales = {
+  cn: {
+    yesterday: '昨天',
+    lastWeek: '上周',
+    lastMonth: '上月',
+    lastYear: '去年',
+  },
+  en: {
+    yesterday: 'Yesterday',
+    lastWeek: 'Last Week',
+    lastMonth: 'Last Month',
+    lastYear: 'Last Year',
+  },
+};
 
 const PLACEHOLDER_WIDTH = 400;
 
 const SAMPLE_CONTENT =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
-
-const COMPONENTS: {
-  title: React.ReactNode;
-  type: 'new' | 'update';
-  node: React.ReactNode;
-}[] = [
-  {
-    title: 'Modal',
-    type: 'update',
-    node: (
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
-        {SAMPLE_CONTENT}
-      </Modal._InternalPanelDoNotUseOrYouWillBeFired>
-    ),
-  },
-
-  {
-    title: 'DatePicker',
-    type: 'update',
-    node: (
-      <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
-        showToday={false}
-        presets={[
-          { label: 'Yesterday', value: dayjs().add(-1, 'd') },
-          { label: 'Last Week', value: dayjs().add(-7, 'd') },
-          { label: 'Last Month', value: dayjs().add(-1, 'month') },
-          { label: 'Last Year', value: dayjs().add(-1, 'year') },
-        ]}
-        value={dayjs('2022-11-18 14:00:00')}
-      />
-    ),
-  },
-
-  {
-    title: 'Progress',
-    type: 'update',
-    node: (
-      <Space direction="vertical">
-        <Space>
-          <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
-          In Progress
-        </Space>
-        <Space>
-          <Progress type="circle" percent={100} width={14} />
-          Success
-        </Space>
-        <Space>
-          <Progress type="circle" status="exception" percent={88} width={14} />
-          Task Failed
-        </Space>
-      </Space>
-    ),
-  },
-
-  {
-    title: 'Tour',
-    type: 'new',
-    node: (
-      <Tour._InternalPanelDoNotUseOrYouWillBeFired
-        title="Ant Design 5.0"
-        description="A quick guide for new come user about how to use app."
-        style={{ width: 350 }}
-        current={3}
-        total={9}
-      />
-    ),
-  },
-  {
-    title: 'FloatButton',
-    type: 'new',
-    node: (
-      <Space size="large">
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-          shape="square"
-          items={[
-            {
-              icon: <QuestionCircleOutlined />,
-            },
-            {
-              icon: <CustomerServiceOutlined />,
-            },
-            {
-              icon: <SyncOutlined />,
-            },
-          ]}
-        />
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
-        <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
-          items={[
-            {
-              icon: <QuestionCircleOutlined />,
-            },
-            {
-              icon: <CustomerServiceOutlined />,
-            },
-            {
-              icon: <SyncOutlined />,
-            },
-          ]}
-        />
-      </Space>
-    ),
-  },
-
-  // {
-  //   title: 'Steps',
-  //   type: 'update',
-  //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
-  // },
-
-  {
-    title: 'Alert',
-    type: 'update',
-    node: (
-      <Alert
-        style={{ width: 400 }}
-        message="Ant Design 5.0"
-        description={SAMPLE_CONTENT}
-        closable
-      />
-    ),
-  },
-];
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -178,6 +71,133 @@ const useStyle = () => {
 export default function ComponentsList() {
   const { token } = useSiteToken();
   const styles = useStyle();
+  const [locale] = useLocale(locales);
+
+  const COMPONENTS: {
+    title: React.ReactNode;
+    type: 'new' | 'update';
+    node: React.ReactNode;
+  }[] = React.useMemo(
+    () => [
+      {
+        title: 'Modal',
+        type: 'update',
+        node: (
+          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+            {SAMPLE_CONTENT}
+          </Modal._InternalPanelDoNotUseOrYouWillBeFired>
+        ),
+      },
+
+      {
+        title: 'DatePicker',
+        type: 'update',
+        node: (
+          <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
+            showToday={false}
+            presets={[
+              { label: locale.yesterday, value: dayjs().add(-1, 'd') },
+              { label: locale.lastWeek, value: dayjs().add(-7, 'd') },
+              { label: locale.lastMonth, value: dayjs().add(-1, 'month') },
+              { label: locale.lastYear, value: dayjs().add(-1, 'year') },
+            ]}
+            value={dayjs('2022-11-18 14:00:00')}
+          />
+        ),
+      },
+
+      {
+        title: 'Progress',
+        type: 'update',
+        node: (
+          <Space direction="vertical">
+            <Space>
+              <Progress type="circle" trailColor="#e6f4ff" percent={60} width={14} />
+              In Progress
+            </Space>
+            <Space>
+              <Progress type="circle" percent={100} width={14} />
+              Success
+            </Space>
+            <Space>
+              <Progress type="circle" status="exception" percent={88} width={14} />
+              Task Failed
+            </Space>
+          </Space>
+        ),
+      },
+
+      {
+        title: 'Tour',
+        type: 'new',
+        node: (
+          <Tour._InternalPanelDoNotUseOrYouWillBeFired
+            title="Ant Design 5.0"
+            description="A quick guide for new come user about how to use app."
+            style={{ width: 350 }}
+            current={3}
+            total={9}
+          />
+        ),
+      },
+      {
+        title: 'FloatButton',
+        type: 'new',
+        node: (
+          <Space size="large">
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+              shape="square"
+              items={[
+                {
+                  icon: <QuestionCircleOutlined />,
+                },
+                {
+                  icon: <CustomerServiceOutlined />,
+                },
+                {
+                  icon: <SyncOutlined />,
+                },
+              ]}
+            />
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
+            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+              items={[
+                {
+                  icon: <QuestionCircleOutlined />,
+                },
+                {
+                  icon: <CustomerServiceOutlined />,
+                },
+                {
+                  icon: <SyncOutlined />,
+                },
+              ]}
+            />
+          </Space>
+        ),
+      },
+
+      // {
+      //   title: 'Steps',
+      //   type: 'update',
+      //   node: <Button style={{ width: PLACEHOLDER_WIDTH }}>Placeholder</Button>,
+      // },
+
+      {
+        title: 'Alert',
+        type: 'update',
+        node: (
+          <Alert
+            style={{ width: 400 }}
+            message="Ant Design 5.0"
+            description={SAMPLE_CONTENT}
+            closable
+          />
+        ),
+      },
+    ],
+    [],
+  );
 
   return (
     <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
