@@ -11,7 +11,9 @@ import warning from '../_util/warning';
 import { renderCloseIcon, renderFooter } from './PurePanel';
 import useStyle from './style';
 
-let mousePosition: { x: number; y: number } | null;
+type MousePosition = { x: number; y: number } | null;
+
+let mousePosition: MousePosition;
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -82,6 +84,7 @@ export interface ModalProps {
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
+  mousePosition?: MousePosition;
 
   // Legacy
   /** @deprecated Please use `open` instead. */
@@ -137,7 +140,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-const Modal: React.FC<ModalProps> = props => {
+const Modal: React.FC<ModalProps> = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -208,7 +211,7 @@ const Modal: React.FC<ModalProps> = props => {
           onCancel: handleCancel,
         })}
         visible={open ?? visible}
-        mousePosition={mousePosition}
+        mousePosition={restProps.mousePosition ?? mousePosition}
         onClose={handleCancel}
         closeIcon={renderCloseIcon(prefixCls, closeIcon)}
         focusTriggerAfterClose={focusTriggerAfterClose}

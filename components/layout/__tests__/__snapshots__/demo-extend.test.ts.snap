@@ -420,7 +420,7 @@ exports[`renders ./components/layout/demo/fixed.tsx extend context correctly 1`]
 >
   <header
     class="ant-layout-header"
-    style="position:fixed;z-index:1;width:100%"
+    style="position:sticky;top:0;z-index:1;width:100%"
   >
     <div
       class="logo"
