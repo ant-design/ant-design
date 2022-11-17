@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 
 const App: React.FC = () => (
-  <div className="site-button-ghost-wrapper">
+  <Space className="site-button-ghost-wrapper" wrap>
     <Button type="primary" ghost>
       Primary
     </Button>
@@ -13,7 +13,7 @@ const App: React.FC = () => (
     <Button type="primary" danger ghost>
       Danger
     </Button>
-  </div>
+  </Space>
 );
 
 export default App;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from 'antd';
+import { Badge, Space } from 'antd';
 
 const colors = [
   'pink',
@@ -18,26 +18,23 @@ const colors = [
 ];
 
 const App: React.FC = () => (
-  <>
-    {colors.map(color => (
-      <div key={color} style={{ display: 'inline-block', verticalAlign: 'middle' }}>
-        <Badge color={color} count={44}>
-          <div
-            style={{
-              width: 90,
-              height: 90,
-              lineHeight: '90px',
-              background: '#ccc',
-              textAlign: 'center',
-              marginBottom: 10,
-            }}
-          >
-            {color}
-          </div>
-        </Badge>
-      </div>
+  <Space wrap size={['large', 'middle']}>
+    {colors.map((color) => (
+      <Badge color={color} count={44} key={color}>
+        <div
+          style={{
+            width: 90,
+            height: 90,
+            lineHeight: '90px',
+            background: '#ccc',
+            textAlign: 'center',
+          }}
+        >
+          {color}
+        </div>
+      </Badge>
     ))}
-  </>
+  </Space>
 );
 
 export default App;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Alert } from 'antd';
+import { Alert, Space } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Space direction="vertical" style={{ width: '100%' }}>
     <Alert message="Success Tips" type="success" showIcon />
     <Alert message="Informational Notes" type="info" showIcon />
     <Alert message="Warning" type="warning" showIcon closable />
@@ -32,7 +32,7 @@ const App: React.FC = () => (
       type="error"
       showIcon
     />
-  </>
+  </Space>
 );
 
 export default App;
