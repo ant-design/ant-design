@@ -3,8 +3,6 @@ category: Components
 group: Data Entry
 title: Transfer
 cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
-demo:
-  cols: 2
 ---
 
 Double column transfer choice box.

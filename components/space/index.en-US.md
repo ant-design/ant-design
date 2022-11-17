@@ -3,8 +3,6 @@ category: Components
 group: Layout
 title: Space
 cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
-demo:
-  cols: 2
 ---
 
 Set components spacing.

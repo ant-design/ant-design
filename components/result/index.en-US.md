@@ -3,8 +3,6 @@ group: Feedback
 category: Components
 title: Result
 cover: https://gw.alipayobjects.com/zos/alicdn/9nepwjaLa/Result.svg
-demo:
-  cols: 2
 ---
 
 Used to feed back the results of a series of operational tasks.

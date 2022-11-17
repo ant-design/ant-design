@@ -4,8 +4,6 @@ subtitle: 栅格
 group: 布局
 title: Grid
 cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
-demo:
-  cols: 2
 ---
 
 24 栅格系统。

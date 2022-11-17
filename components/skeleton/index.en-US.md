@@ -3,8 +3,6 @@ category: Components
 group: Feedback
 title: Skeleton
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
-demo:
-  cols: 2
 ---
 
 Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.

@@ -3,8 +3,6 @@ category: Components
 group: Data Display
 title: Calendar
 cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
-demo:
-  cols: 2
 ---
 
 Container for displaying data in calendar form.

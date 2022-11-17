@@ -4,8 +4,6 @@ subtitle: 分页
 group: 导航
 title: Pagination
 cover: https://gw.alipayobjects.com/zos/alicdn/1vqv2bj68/Pagination.svg
-demo:
-  cols: 2
 ---
 
 采用分页的形式分隔长列表，每次只加载一个页面。

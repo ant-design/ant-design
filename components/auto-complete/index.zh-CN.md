@@ -1,12 +1,13 @@
 ---
 category: Components
 subtitle: 自动完成
-cols: 2
 title: AutoComplete
 cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 group:
   title: 数据录入
   order: 4
+demo:
+  cols: 2
 ---
 
 输入框自动完成功能。
