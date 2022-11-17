@@ -92,6 +92,25 @@ describe('Modal', () => {
     ).toBeTruthy();
   });
 
+  it('custom mouse position', () => {
+    const Demo = () => {
+      const containerRef = React.useRef<HTMLDivElement>(null);
+      return (
+        <div ref={containerRef}>
+          <Modal
+            open
+            getContainer={() => containerRef.current!}
+            mousePosition={{ x: 100, y: 100 }}
+          />
+        </div>
+      );
+    };
+    const { container } = render(<Demo />);
+    expect(
+      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
+    ).toBe('100px 100px');
+  });
+
   it('deprecated warning', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

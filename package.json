@@ -297,7 +297,7 @@
     "sylvanas": "^0.6.1",
     "theme-switcher": "^1.0.2",
     "ts-node": "^10.8.2",
-    "typescript": "~4.8.4",
+    "typescript": "~4.9.3",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
@@ -325,7 +325,7 @@
     "mode": "npm"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,json,less}": "rome format --write",
-    "*.{md}": "prettier --ignore-unknown --write"
+    "*.{ts,tsx,js}": "rome format --write",
+    "*.{json,less,md}": "prettier --ignore-unknown --write"
   }
 }

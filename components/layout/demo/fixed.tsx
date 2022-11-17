@@ -5,7 +5,7 @@ const { Header, Content, Footer } = Layout;
 
 const App: React.FC = () => (
   <Layout>
-    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+    <Header style={{ position: 'sticky', top: 0, zIndex: 1, width: '100%' }}>
       <div className="logo" />
       <Menu
         theme="dark"
