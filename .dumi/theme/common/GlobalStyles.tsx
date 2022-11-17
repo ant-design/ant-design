@@ -203,7 +203,7 @@ const GlobalStyles = () => {
           .markdown hr {
             clear: both;
             height: 1px;
-            margin: 56px 0;
+            margin: 24px 0;
             background: ${token.colorSplit};
             border: 0;
           }
@@ -1067,7 +1067,7 @@ const GlobalStyles = () => {
               width: 16px;
               height: 16px;
               margin-left: 16px;
-              color: ${token.colorText}-secondary;
+              color: ${token.colorTextSecondary};
               cursor: pointer;
               transition: all 0.24s;
 
@@ -1099,7 +1099,7 @@ const GlobalStyles = () => {
               transition: transform 0.24s;
 
               &:hover {
-                transform: scale(1.2);
+                transform: scale(1.1);
               }
 
               &${iconCls}-check {

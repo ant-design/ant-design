@@ -4,7 +4,7 @@ import { EditOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import useSiteToken from '../../hooks/useSiteToken';
 
-const branchUrl = 'https://github.com/ant-design/ant-design/edit/next/';
+const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 
 export interface EditButtonProps {
   title: React.ReactNode;
@@ -21,7 +21,8 @@ const useStyle = () => {
       a& {
         display: inline-block;
         text-decoration: none;
-        margin-inline-start: 8px;
+        margin-inline-start: 4px;
+        vertical-align: -2px;
 
         ${iconCls} {
           display: block;

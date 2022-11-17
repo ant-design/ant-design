@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Extra, Icon } from './util';
 import useSiteToken from '../../../hooks/useSiteToken';
-import { Col, Row, Card, Typography } from 'antd';
+import { Col, Row, Card, Typography, Skeleton } from 'antd';
 import { css } from '@emotion/react';
 
 const useStyle = () => {
@@ -36,7 +36,7 @@ export interface BannerRecommendsProps {
 
 export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
   const style = useStyle();
-  const first3 = extras.slice(0, 3);
+  const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
   const { token } = useSiteToken();
 
   return (
@@ -53,8 +53,10 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
       }}
     >
       {first3.map((extra, index) => {
-        const icon = icons.find(icon => icon.name === extra.source);
-
+        if (!extra) {
+          return <Skeleton />;
+        }
+        const icon = icons.find((icon) => icon.name === extra.source);
         return (
           <a key={index} href={extra.href} target="_blank" css={style.card}>
             <Typography.Title level={5}>{extra.title}</Typography.Title>
