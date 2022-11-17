@@ -1,11 +1,10 @@
 import React, { FC, PropsWithChildren } from 'react';
+import { useRouteMeta, FormattedMessage } from 'dumi';
 import Footer from 'dumi/theme/slots/Footer';
-import AffixTabs from './AffixTabs';
-import { useRouteMeta } from 'dumi';
+import { Layout, Typography, ConfigProvider } from 'antd';
 import { css } from '@emotion/react';
+import AffixTabs from './AffixTabs';
 import EditButton from '../../common/EditButton';
-import { FormattedMessage } from 'dumi';
-import { Layout, Typography } from 'antd';
 import useSiteToken from '../../../hooks/useSiteToken';
 import CommonHelmet from '../../common/CommonHelmet';
 
@@ -115,24 +114,26 @@ const ResourceLayout: FC<ResourceLayoutProps> = ({ children }) => {
   const meta = useRouteMeta();
 
   return (
-    <Layout>
-      <CommonHelmet />
-      <div id="resources-page" css={styles.resourcePage}>
-        <AffixTabs />
-        <div css={styles.banner}>
-          <Typography.Title style={{ fontSize: 30 }}>
-            {meta.frontmatter.title}
-            <EditButton
-              title={<FormattedMessage id="app.content.edit-page" />}
-              filename={meta.frontmatter.filename}
-            />
-          </Typography.Title>
-          <section>{meta.frontmatter.description}</section>
+    <ConfigProvider theme={{ token: { colorBgLayout: '#fff' } }}>
+      <Layout>
+        <CommonHelmet />
+        <div id="resources-page" css={styles.resourcePage}>
+          <AffixTabs />
+          <div css={styles.banner}>
+            <Typography.Title style={{ fontSize: 30 }}>
+              {meta.frontmatter.title}
+              <EditButton
+                title={<FormattedMessage id="app.content.edit-page" />}
+                filename={meta.frontmatter.filename}
+              />
+            </Typography.Title>
+            <section>{meta.frontmatter.description}</section>
+          </div>
+          <div css={styles.resourceContent}>{children}</div>
+          <Footer />
         </div>
-        <div css={styles.resourceContent}>{children}</div>
-        <Footer />
-      </div>
-    </Layout>
+      </Layout>
+    </ConfigProvider>
   );
 };
 
