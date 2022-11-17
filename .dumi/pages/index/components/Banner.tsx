@@ -54,12 +54,20 @@ export default function Banner({ children }: BannerProps) {
         />
 
         <video
-          src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
           style={{ height: '100%', objectFit: 'contain' }}
           autoPlay
           muted
           loop
-        />
+        >
+          <source
+            src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
+            type="video/webm"
+          />
+          <source
+            src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/file/A*XYYNQJ3NbmMAAAAAAAAAAAAAARQnAQ"
+            type="video/mp4"
+          />
+        </video>
 
         <div
           style={{
