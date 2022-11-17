@@ -130,6 +130,33 @@ const App: React.FC = () => {
 export default App;
 ```
 
+### 静态消费（如 less）
+
+当你需要非 React 生命周期消费 Token 变量时，可以通过静态方法将其导出：
+
+```jsx
+import { theme } from 'antd';
+
+const { defaultAlgorithm, defaultSeed } = theme;
+
+const mapToken = defaultAlgorithm(defaultSeed);
+```
+
+如果需要将其应用到静态样式编译框架，如 less 可以通过 less-loader 注入：
+
+```jsx
+{
+  loader: "less-loader",
+  options: {
+    lessOptions: {
+      modifyVars: mapToken,
+    },
+  },
+}
+```
+
+兼容包提供了变量转换方法用于转成 v4 的 less 变量，如需使用[点击此处](/docs/react/migration-v5)查看详情。
+
 ## 进阶使用
 
 在 Design Token 中我们提供了一套更加贴合设计的三层结构，将 Design Token 拆解为 Seed Token、Map Token 和 Alias Token 三部分。这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。在大部分情况下，使用 Seed Token 就可以满足定制主题的需要。但如果您需要更高程度的主题定制，您需要了解 antd 中 Design Token 的生命周期。
