@@ -17,6 +17,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/unit.tsx">单位</code>
 <code src="./demo/card.tsx">在卡片中使用</code>

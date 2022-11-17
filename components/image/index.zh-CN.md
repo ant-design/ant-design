@@ -16,6 +16,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/fallback.tsx">容错处理</code>
 <code src="./demo/placeholder.tsx">渐进加载</code>

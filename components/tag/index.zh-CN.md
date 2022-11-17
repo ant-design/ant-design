@@ -17,6 +17,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/colorful.tsx">多彩标签</code>
 <code src="./demo/colorful-inverse.tsx" debug>反色多彩标签</code>

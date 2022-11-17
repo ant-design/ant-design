@@ -18,6 +18,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
 <code src="./demo/other.tsx">其他提示类型</code>
 <code src="./demo/duration.tsx">修改延时</code>
@@ -39,11 +40,11 @@ demo:
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 提示内容 | ReactNode \| config | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| onClose | 关闭时触发的回调函数 | function | - |
+| 参数     | 说明                                        | 类型                | 默认值 |
+| -------- | ------------------------------------------- | ------------------- | ------ |
+| content  | 提示内容                                    | ReactNode \| config | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number              | 3      |
+| onClose  | 关闭时触发的回调函数                        | function            | -      |
 
 组件同时提供 promise 接口。
 
@@ -135,4 +136,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。

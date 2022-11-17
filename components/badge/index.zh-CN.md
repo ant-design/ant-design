@@ -16,6 +16,7 @@ group: 数据展示
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/no-wrapper.tsx">独立使用</code>
 <code src="./demo/overflow.tsx">封顶数字</code>

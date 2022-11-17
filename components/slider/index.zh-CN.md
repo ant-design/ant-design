@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/input-number.tsx">带输入框的滑块</code>
 <code src="./demo/icon-slider.tsx">带 icon 的滑块</code>

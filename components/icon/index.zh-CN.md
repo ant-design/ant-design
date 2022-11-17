@@ -25,6 +25,7 @@ npm install --save @ant-design/icons
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/two-tone.tsx">多色图标</code>
 <code src="./demo/custom.tsx">自定义图标</code>
@@ -155,10 +156,10 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 计算后的 `svg` 类名 | string | - |  |
-| fill | `svg` 元素填充的颜色 | string | `currentColor` |  |
-| height | `svg` 元素高度 | string \| number | `1em` |  |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  |
-| width | `svg` 元素宽度 | string \| number | `1em` |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
+| height    | `svg` 元素高度          | string \| number | `1em`          |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
+| width     | `svg` 元素宽度          | string \| number | `1em`          |      |

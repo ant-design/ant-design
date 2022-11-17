@@ -18,6 +18,7 @@ group:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/type.tsx">类型</code>
 <code src="./demo/dynamic.tsx">自动调整字符大小</code>

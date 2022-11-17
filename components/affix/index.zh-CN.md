@@ -20,6 +20,7 @@ group:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/on-change.tsx">固定状态改变的回调</code>
 <code src="./demo/target.tsx">滚动容器</code>

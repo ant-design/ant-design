@@ -20,6 +20,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/base.tsx">基本用法</code>
 <code src="./demo/vertical.tsx">垂直间距</code>
 <code src="./demo/size.tsx">间距大小</code>
@@ -39,13 +40,13 @@ demo:
 
 ### Space
 
-| 参数      | 说明                                   | 类型                                     | 默认值       | 版本                  |
-| --------- | -------------------------------------- | ---------------------------------------- | ------------ | --------------------- |
-| align     | 对齐方式                               | `start` \| `end` \|`center` \|`baseline` | -            | 4.2.0                 |
-| direction | 间距方向                               | `vertical` \| `horizontal`               | `horizontal` | 4.1.0                 |
-| size      | 间距大小                               | [Size](#Size) \| [Size\[\]](#Size)       | `small`      | 4.1.0 \| Array: 4.9.0 |
-| split     | 设置拆分                               | ReactNode                                | -            | 4.7.0                 |
-| wrap      | 是否自动换行，仅在 `horizontal` 时有效 | boolean                                  | false        | 4.9.0                 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| size | 间距大小 | [Size](#Size) \| [Size\[\]](#Size) | `small` | 4.1.0 \| Array: 4.9.0 |
+| split | 设置拆分 | ReactNode | - | 4.7.0 |
+| wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 
 ### Size
 
@@ -66,8 +67,8 @@ demo:
 - TimePicker
 - TreeSelect
 
-| 参数      | 说明                         | 类型                           | 默认值       | 版本   |
-| --------- | ---------------------------- | ------------------------------ | ------------ | ------ |
-| block     | 将宽度调整为父元素宽度的选项 | boolean                        | false        | 4.24.0 |
-| direction | 指定排列方向                 | `vertical` \| `horizontal`     | `horizontal` | 4.24.0 |
-| size      | 子组件大小                   | `large` \| `middle` \| `small` | `middle`     | 4.24.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
+| direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |

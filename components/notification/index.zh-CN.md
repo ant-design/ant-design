@@ -21,6 +21,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/duration.tsx">自动关闭的延时</code>

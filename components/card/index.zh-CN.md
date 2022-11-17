@@ -16,6 +16,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">典型卡片</code>
 <code src="./demo/border-less.tsx">无边框</code>
 <code src="./demo/simple.tsx">简洁卡片</code>
@@ -57,18 +58,18 @@ demo:
 
 ### Card.Grid
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 网格容器类名 | string | - |  |
-| hoverable | 鼠标移过时可浮起 | boolean | true |  |
-| style | 定义网格容器类名的样式 | CSSProperties | - |  |
+| 参数      | 说明                   | 类型          | 默认值 | 版本 |
+| --------- | ---------------------- | ------------- | ------ | ---- |
+| className | 网格容器类名           | string        | -      |      |
+| hoverable | 鼠标移过时可浮起       | boolean       | true   |      |
+| style     | 定义网格容器类名的样式 | CSSProperties | -      |      |
 
 ### Card.Meta
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| avatar | 头像/图标 | ReactNode | - |  |
-| className | 容器类名 | string | - |  |
-| description | 描述内容 | ReactNode | - |  |
-| style | 定义容器类名的样式 | CSSProperties | - |  |
-| title | 标题内容 | ReactNode | - |  |
+| 参数        | 说明               | 类型          | 默认值 | 版本 |
+| ----------- | ------------------ | ------------- | ------ | ---- |
+| avatar      | 头像/图标          | ReactNode     | -      |      |
+| className   | 容器类名           | string        | -      |      |
+| description | 描述内容           | ReactNode     | -      |      |
+| style       | 定义容器类名的样式 | CSSProperties | -      |      |
+| title       | 标题内容           | ReactNode     | -      |      |

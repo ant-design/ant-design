@@ -21,6 +21,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/oneWay.tsx">单向样式</code>
 <code src="./demo/search.tsx">带搜索框</code>

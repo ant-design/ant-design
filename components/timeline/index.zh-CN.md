@@ -17,6 +17,7 @@ demo:
 
 ## 代码演示
 
+<!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/color.tsx">圆圈颜色</code>
 <code src="./demo/pending.tsx">最后一个及排序</code>
