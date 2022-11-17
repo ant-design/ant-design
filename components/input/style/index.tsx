@@ -44,7 +44,7 @@ export const genActiveStyle = (token: InputToken) => ({
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,
-  backgroundColor: token.colorBgContainerDisabled,
+  background: token.colorBgContainerDisabled,
   borderColor: token.colorBorder,
   boxShadow: 'none',
   cursor: 'not-allowed',
@@ -143,7 +143,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
-  backgroundColor: token.colorBgContainer,
+  background: token.colorBgContainer,
   backgroundImage: 'none',
   borderWidth: token.lineWidth,
   borderStyle: token.lineType,
@@ -166,7 +166,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 
   '&-borderless': {
     '&, &:hover, &:focus, &-focused, &-disabled, &[disabled]': {
-      backgroundColor: 'transparent',
+      background: 'transparent',
       border: 'none',
       boxShadow: 'none',
     },
@@ -269,7 +269,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorFillAlter,
+        background: token.colorFillAlter,
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -280,7 +280,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
           [`&${antCls}-select-single:not(${antCls}-select-customize-input)`]: {
             [`${antCls}-select-selector`]: {
-              backgroundColor: 'inherit',
+              background: 'inherit',
               border: `${token.lineWidth}px ${token.lineType} transparent`,
               boxShadow: 'none',
             },
@@ -296,7 +296,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         // https://github.com/ant-design/ant-design/issues/31333
         [`${antCls}-cascader-picker`]: {
           margin: `-9px -${token.inputPaddingHorizontal}px`,
-          backgroundColor: 'transparent',
+          background: 'transparent',
           [`${antCls}-cascader-input`]: {
             textAlign: 'start',
             border: 0,
@@ -868,7 +868,7 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
   });
 }
 
-const genTextAreaStyle: GenerateStyle<InputToken> = token => {
+const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   const { componentCls, inputPaddingHorizontal, paddingLG } = token;
   const textareaPrefixCls = `${componentCls}-textarea`;
 
@@ -921,7 +921,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Input', token => {
+export default genComponentStyleHook('Input', (token) => {
   const inputToken = initInputToken<FullToken<'Input'>>(token);
 
   return [

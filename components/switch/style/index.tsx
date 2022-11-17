@@ -26,7 +26,7 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchHandleActiveInset: string;
 }
 
-const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls } = token;
   const switchInnerCls = `${componentCls}-inner`;
 
@@ -106,7 +106,7 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
   };
 };
 
-const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -125,7 +125,7 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
   };
 };
 
-const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls } = token;
   const switchHandleCls = `${componentCls}-handle`;
 
@@ -145,7 +145,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
           insetInlineEnd: 0,
           bottom: 0,
           insetInlineStart: 0,
-          backgroundColor: token.colorWhite,
+          background: token.colorWhite,
           borderRadius: token.switchPinSize / 2,
           boxShadow: token.switchHandleShadow,
           transition: `all ${token.switchDuration} ease-in-out`,
@@ -172,7 +172,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
   };
 };
 
-const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
+const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls } = token;
   const switchInnerCls = `${componentCls}-inner`;
 
@@ -296,7 +296,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Switch', token => {
+export default genComponentStyleHook('Switch', (token) => {
   const switchHeight = token.fontSize * token.lineHeight;
   const switchHeightSM = token.controlHeight / 2;
   const switchPadding = 2; // This is magic

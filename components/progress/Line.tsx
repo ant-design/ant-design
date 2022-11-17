@@ -23,7 +23,7 @@ interface LineProps extends ProgressProps {
  */
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: any[] = [];
-  Object.keys(gradients).forEach(key => {
+  Object.keys(gradients).forEach((key) => {
     const formattedKey = parseFloat(key.replace(/%/g, ''));
     if (!isNaN(formattedKey)) {
       tempArr.push({
@@ -66,7 +66,7 @@ export const handleGradient = (
   return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
 };
 
-const Line: React.FC<LineProps> = props => {
+const Line: React.FC<LineProps> = (props) => {
   const {
     prefixCls,
     direction: directionConfig,
@@ -83,12 +83,12 @@ const Line: React.FC<LineProps> = props => {
   const backgroundProps: React.CSSProperties =
     strokeColor && typeof strokeColor !== 'string'
       ? handleGradient(strokeColor, directionConfig)
-      : { backgroundColor: strokeColor };
+      : { background: strokeColor };
 
   const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
 
   const trailStyle: React.CSSProperties = {
-    backgroundColor: trailColor || undefined,
+    background: trailColor || undefined,
     borderRadius,
   };
 
@@ -105,7 +105,7 @@ const Line: React.FC<LineProps> = props => {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
     borderRadius,
-    backgroundColor: success?.strokeColor,
+    background: success?.strokeColor,
   };
 
   return (

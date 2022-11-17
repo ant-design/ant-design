@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
@@ -41,7 +41,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`table tr th${componentCls}-selection-column::after`]: {
-        backgroundColor: 'transparent !important',
+        background: 'transparent !important',
       },
 
       [`${componentCls}-selection`]: {

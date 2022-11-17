@@ -181,11 +181,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
 
         [`${componentCls}-status-success`]: {
-          backgroundColor: token.colorSuccess,
+          background: token.colorSuccess,
         },
         [`${componentCls}-status-processing`]: {
           position: 'relative',
-          backgroundColor: token.colorPrimary,
+          background: token.colorPrimary,
 
           '&::after': {
             position: 'absolute',
@@ -203,15 +203,15 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
           },
         },
         [`${componentCls}-status-default`]: {
-          backgroundColor: token.colorTextPlaceholder,
+          background: token.colorTextPlaceholder,
         },
 
         [`${componentCls}-status-error`]: {
-          backgroundColor: token.colorError,
+          background: token.colorError,
         },
 
         [`${componentCls}-status-warning`]: {
-          backgroundColor: token.colorWarning,
+          background: token.colorWarning,
         },
         ...statusPreset,
         [`${componentCls}-status-text`]: {
@@ -287,7 +287,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       color: token.colorPrimary,
       lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
-      backgroundColor: token.colorPrimary,
+      background: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
       [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
       [`${ribbonPrefixCls}-corner`]: {
@@ -323,7 +323,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', token => {
+export default genComponentStyleHook('Badge', (token) => {
   const { fontSize, lineHeight, fontSizeSM, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);

@@ -869,7 +869,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
     [componentCls]: {
       '&-status-error&': {
         '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
+          background: colorBgContainer,
           borderColor: colorError,
         },
 
@@ -890,7 +890,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
 
       '&-status-warning&': {
         '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
+          background: colorBgContainer,
           borderColor: colorWarning,
         },
 
@@ -994,7 +994,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         '&&-borderless': {
-          backgroundColor: 'transparent !important',
+          background: 'transparent !important',
           borderColor: 'transparent !important',
           boxShadow: 'none !important',
         },

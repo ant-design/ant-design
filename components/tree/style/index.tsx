@@ -36,7 +36,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
     // it should displayed over the following node
     zIndex: 1,
     height: 2,
-    backgroundColor: token.colorPrimary,
+    background: token.colorPrimary,
     borderRadius: 1,
     pointerEvents: 'none',
 
@@ -46,7 +46,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
       insetInlineStart: -6,
       width: 8,
       height: 8,
-      backgroundColor: 'transparent',
+      background: 'transparent',
       border: `${token.lineWidthBold}px solid ${token.colorPrimary}`,
       borderRadius: '50%',
       content: '""',
@@ -284,11 +284,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transition: `all ${token.motionDurationFast}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
-          backgroundColor: token.controlItemBgHover,
+          background: token.controlItemBgHover,
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.controlOutline,
+          background: token.controlOutline,
         },
 
         // Icon
@@ -308,7 +308,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // https://github.com/ant-design/ant-design/issues/28217
       [`${treeCls}-unselectable ${treeCls}-node-content-wrapper:hover`]: {
-        backgroundColor: 'transparent',
+        background: 'transparent',
       },
 
       // ==================== Draggable =====================

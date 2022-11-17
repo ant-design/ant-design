@@ -70,7 +70,7 @@ export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
   a: {
     color: token.colorLink,
     textDecoration: token.linkDecoration,
-    backgroundColor: 'transparent', // remove the gray background on active links in IE 10.
+    background: 'transparent', // remove the gray background on active links in IE 10.
     outline: 'none',
     cursor: 'pointer',
     transition: `color ${token.motionDurationSlow}`,

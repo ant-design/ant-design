@@ -1,7 +1,7 @@
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
+const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     componentCls,
     motionDurationSlow,
@@ -39,7 +39,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = token => {
       [`> ${componentCls}-item:hover,
         > ${componentCls}-item-active,
         > ${componentCls}-submenu ${componentCls}-submenu-title:hover`]: {
-        backgroundColor: 'transparent',
+        background: 'transparent',
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {

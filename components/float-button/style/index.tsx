@@ -11,8 +11,8 @@ export interface ComponentToken {
 
 type FloatButtonToken = FullToken<'FloatButton'> & {
   floatButtonColor: string;
-  floatButtonBackgroundColor: string;
-  floatButtonHoverBackgroundColor: string;
+  floatButtonbackground: string;
+  floatButtonHoverbackground: string;
   floatButtonFontSize: number;
   floatButtonSize: number;
   floatButtonIconSize: number;
@@ -23,7 +23,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 };
 
 // ============================== Group ==============================
-const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
+const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, floatButtonSize, margin, borderRadius, motionDurationSlow } = token;
   const groupPrefixCls = `${componentCls}-group`;
   const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
@@ -161,7 +161,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
 };
 
 // ============================== Shared ==============================
-const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
+const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
   const { componentCls, floatButtonIconSize, floatButtonSize } = token;
   return {
     [componentCls]: {
@@ -233,13 +233,13 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       },
     },
     [`${componentCls}-default`]: {
-      backgroundColor: token.colorBgContainer,
+      background: token.colorBgContainer,
       transition: `background-color ${token.motionDurationFast}`,
       [`${componentCls}-body`]: {
-        backgroundColor: token.colorBgContainer,
+        background: token.colorBgContainer,
         transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
-          backgroundColor: token.colorFillContent,
+          background: token.colorFillContent,
         },
         [`${componentCls}-content`]: {
           [`${componentCls}-icon`]: {
@@ -256,12 +256,12 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       },
     },
     [`${componentCls}-primary`]: {
-      backgroundColor: token.colorPrimary,
+      background: token.colorPrimary,
       [`${componentCls}-body`]: {
-        backgroundColor: token.colorPrimary,
+        background: token.colorPrimary,
         transition: `background-color ${token.motionDurationFast}`,
         '&:hover': {
-          backgroundColor: token.colorPrimaryHover,
+          background: token.colorPrimaryHover,
         },
         [`${componentCls}-content`]: {
           [`${componentCls}-icon`]: {
@@ -281,7 +281,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
+export default genComponentStyleHook<'FloatButton'>('FloatButton', (token) => {
   const {
     colorTextLightSolid,
     colorBgContainer,
@@ -293,9 +293,9 @@ export default genComponentStyleHook<'FloatButton'>('FloatButton', token => {
     controlItemBgHover,
   } = token;
   const floatButtonToken = mergeToken<FloatButtonToken>(token, {
-    floatButtonBackgroundColor: colorBgContainer,
+    floatButtonbackground: colorBgContainer,
     floatButtonColor: colorTextLightSolid,
-    floatButtonHoverBackgroundColor: controlItemBgHover,
+    floatButtonHoverbackground: controlItemBgHover,
     floatButtonFontSize: fontSize,
     floatButtonIconSize: fontSizeIcon * 1.5,
     floatButtonSize: controlHeightLG,

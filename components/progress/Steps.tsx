@@ -9,7 +9,7 @@ interface ProgressStepsProps extends ProgressProps {
   trailColor?: string;
 }
 
-const Steps: React.FC<ProgressStepsProps> = props => {
+const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
     size,
     steps,
@@ -32,7 +32,7 @@ const Steps: React.FC<ProgressStepsProps> = props => {
           [`${prefixCls}-steps-item-active`]: i <= current - 1,
         })}
         style={{
-          backgroundColor: i <= current - 1 ? color : trailColor,
+          background: i <= current - 1 ? color : trailColor,
           width: stepWidth,
           height: strokeWidth,
         }}

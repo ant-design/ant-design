@@ -27,7 +27,7 @@ export interface DropdownToken extends FullToken<'Dropdown'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DropdownToken> = token => {
+const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   const {
     componentCls,
     menuCls,
@@ -263,7 +263,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         [menuCls]: {
           padding: dropdownEdgeChildPadding,
           listStyleType: 'none',
-          backgroundColor: colorBgElevated,
+          background: colorBgElevated,
           backgroundClip: 'padding-box',
           borderRadius: token.borderRadiusLG,
           outline: 'none',
@@ -334,16 +334,16 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
               : [],
 
             [`&:hover, &-active`]: {
-              backgroundColor: token.controlItemBgHover,
+              background: token.controlItemBgHover,
             },
 
             ...genFocusStyle(token),
 
             '&-selected': {
               color: token.colorPrimary,
-              backgroundColor: token.controlItemBgActive,
+              background: token.controlItemBgActive,
               '&:hover, &-active': {
-                backgroundColor: token.controlItemBgActiveHover,
+                background: token.controlItemBgActiveHover,
               },
             },
 
@@ -353,7 +353,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
               '&:hover': {
                 color: colorTextDisabled,
-                backgroundColor: colorBgElevated,
+                background: colorBgElevated,
                 cursor: 'not-allowed',
               },
 
@@ -367,7 +367,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
               margin: `${token.marginXXS}px 0`,
               overflow: 'hidden',
               lineHeight: 0,
-              backgroundColor: token.colorSplit,
+              background: token.colorSplit,
             },
 
             [`${componentCls}-menu-submenu-expand-icon`]: {
@@ -400,7 +400,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           [`${menuCls}-submenu${menuCls}-submenu-disabled ${componentCls}-menu-submenu-title`]: {
             [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
               color: colorTextDisabled,
-              backgroundColor: colorBgElevated,
+              background: colorBgElevated,
               cursor: 'not-allowed',
             },
           },
@@ -460,7 +460,7 @@ export default genComponentStyleHook(
       genStatusStyle(dropdownToken),
     ];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

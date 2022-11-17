@@ -17,7 +17,7 @@ const genAlertTypeStyle = (
   token: AlertToken,
   alertCls: string,
 ): CSSObject => ({
-  backgroundColor: bgColor,
+  background: bgColor,
   border: `${token.lineWidth}px ${token.lineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
@@ -197,7 +197,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
         overflow: 'hidden',
         fontSize: fontSizeIcon,
         lineHeight: `${fontSizeIcon}px`,
-        backgroundColor: 'transparent',
+        background: 'transparent',
         border: 'none',
         outline: 'none',
         cursor: 'pointer',
@@ -228,7 +228,7 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
   genActionStyle(token),
 ];
 
-export default genComponentStyleHook('Alert', token => {
+export default genComponentStyleHook('Alert', (token) => {
   const { fontSizeHeading3 } = token;
 
   const alertToken = mergeToken<AlertToken>(token, {

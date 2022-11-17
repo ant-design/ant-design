@@ -31,7 +31,7 @@ const antProgressActive = new Keyframes('antProgressActive', {
   },
 });
 
-const genBaseStyle: GenerateStyle<ProgressToken> = token => {
+const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -70,7 +70,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
         width: '100%',
         overflow: 'hidden',
         verticalAlign: 'middle',
-        backgroundColor: token.progressRemainingColor,
+        background: token.progressRemainingColor,
         borderRadius: token.progressLineRadius,
       },
 
@@ -82,7 +82,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
 
       [`&${progressCls}-success-bg, ${progressCls}-bg`]: {
         position: 'relative',
-        backgroundColor: token.colorInfo,
+        background: token.colorInfo,
         borderRadius: token.progressLineRadius,
         transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
       },
@@ -91,7 +91,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
         position: 'absolute',
         insetBlockStart: 0,
         insetInlineStart: 0,
-        backgroundColor: token.colorSuccess,
+        background: token.colorSuccess,
       },
 
       [`${progressCls}-text`]: {
@@ -113,7 +113,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
         [`${progressCls}-bg::before`]: {
           position: 'absolute',
           inset: 0,
-          backgroundColor: token.colorBgContainer,
+          background: token.colorBgContainer,
           borderRadius: token.progressLineRadius,
           opacity: 0,
           animationName: antProgressActive,
@@ -126,7 +126,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
 
       [`&${progressCls}-status-exception`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.colorError,
+          background: token.colorError,
         },
         [`${progressCls}-text`]: {
           color: token.colorError,
@@ -142,7 +142,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
 
       [`&${progressCls}-status-success`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.colorSuccess,
+          background: token.colorSuccess,
         },
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
@@ -158,7 +158,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
   };
 };
 
-const genCircleStyle: GenerateStyle<ProgressToken> = token => {
+const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -170,7 +170,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = token => {
       [`&${progressCls}-circle ${progressCls}-inner`]: {
         position: 'relative',
         lineHeight: 1,
-        backgroundColor: 'transparent',
+        background: 'transparent',
       },
 
       [`&${progressCls}-circle ${progressCls}-text`]: {
@@ -228,11 +228,11 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           flexShrink: 0,
           minWidth: token.progressStepMinWidth,
           marginInlineEnd: token.progressStepMarginInlineEnd,
-          backgroundColor: token.progressRemainingColor,
+          background: token.progressRemainingColor,
           transition: `all ${token.motionDurationSlow}`,
 
           '&-active': {
-            backgroundColor: token.colorInfo,
+            background: token.colorInfo,
           },
         },
       },
@@ -253,7 +253,7 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
-export default genComponentStyleHook('Progress', token => {
+export default genComponentStyleHook('Progress', (token) => {
   const progressStepMarginInlineEnd = token.marginXXS / 2;
 
   const progressToken = mergeToken<ProgressToken>(token, {

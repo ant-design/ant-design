@@ -85,7 +85,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const dotColorKey: keyof StepsToken = `${status}DotColor`;
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: token[iconBgColorKey],
+      background: token[iconBgColorKey],
       borderColor: token[iconBorderColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
@@ -103,19 +103,19 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
       color: token[titleColorKey],
 
       '&::after': {
-        backgroundColor: token[tailColorKey],
+        background: token[tailColorKey],
       },
     },
     [`${prefix}-${status} > ${prefix}-container > ${prefix}-content > ${prefix}-description`]: {
       color: token[descriptionColorKey],
     },
     [`${prefix}-${status} > ${prefix}-container > ${prefix}-tail::after`]: {
-      backgroundColor: token[tailColorKey],
+      background: token[tailColorKey],
     },
   };
 };
 
-const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow } = token;
   const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
 
@@ -225,7 +225,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 };
 
 // ============================= Clickable ===========================
-const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow } = token;
 
   return {
@@ -286,7 +286,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   };
 };
 
-const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls } = token; // .ant-steps
 
   return {
@@ -325,7 +325,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Steps',
-  token => {
+  (token) => {
     const {
       wireframe,
       colorTextDisabled,

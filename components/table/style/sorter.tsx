@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls, marginXXS, fontSizeIcon, tableHeaderIconColor, tableHeaderIconColorHover } =
     token;
   return {
@@ -16,7 +16,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
           background: token.tableHeaderSortHoverBg,
 
           '&::before': {
-            backgroundColor: 'transparent !important',
+            background: 'transparent !important',
           },
         },
 
@@ -37,7 +37,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         background: token.tableHeaderSortBg,
 
         '&::before': {
-          backgroundColor: 'transparent !important',
+          background: 'transparent !important',
         },
       },
 

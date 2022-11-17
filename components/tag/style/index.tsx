@@ -110,13 +110,13 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       [`&-checkable`]: {
-        backgroundColor: 'transparent',
+        background: 'transparent',
         borderColor: 'transparent',
         cursor: 'pointer',
 
         '&:not(&-checked):hover': {
           color: token.colorPrimary,
-          backgroundColor: token.colorFillSecondary,
+          background: token.colorFillSecondary,
         },
 
         '&:active, &-checked': {
@@ -124,14 +124,14 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         },
 
         '&-checked': {
-          backgroundColor: token.colorPrimary,
+          background: token.colorPrimary,
           '&:hover': {
-            backgroundColor: token.colorPrimaryHover,
+            background: token.colorPrimaryHover,
           },
         },
 
         '&:active': {
-          backgroundColor: token.colorPrimaryActive,
+          background: token.colorPrimaryActive,
         },
       },
 
@@ -148,7 +148,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tag', token => {
+export default genComponentStyleHook('Tag', (token) => {
   const { fontSize, lineHeight, lineWidth, fontSizeIcon } = token;
   const tagHeight = Math.round(fontSize * lineHeight);
 

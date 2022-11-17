@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
-const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     opacityLoading,
@@ -40,14 +40,14 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
           // fake scrollbar style of sticky
           '&-bar': {
             height: tableScrollThumbSize,
-            backgroundColor: tableScrollThumbBg,
+            background: tableScrollThumbBg,
             borderRadius: 100,
             transition: `all ${token.motionDurationSlow}, transform none`,
             position: 'absolute',
             bottom: 0,
 
             '&:hover, &-active': {
-              backgroundColor: tableScrollThumbBgHover,
+              background: tableScrollThumbBgHover,
             },
           },
         },

@@ -77,20 +77,20 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
           '&:hover': {
-            backgroundColor: colorItemBgHover,
+            background: colorItemBgHover,
           },
 
           '&:active': {
-            backgroundColor: colorItemBgSelected,
+            background: colorItemBgSelected,
           },
         },
         [`${componentCls}-submenu-title`]: {
           '&:hover': {
-            backgroundColor: colorItemBgHover,
+            background: colorItemBgHover,
           },
 
           '&:active': {
-            backgroundColor: colorItemBgSelected,
+            background: colorItemBgSelected,
           },
         },
       },
@@ -130,11 +130,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
-        backgroundColor: colorItemBgSelected,
+        background: colorItemBgSelected,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
-          backgroundColor: colorDangerItemBgSelected,
+          background: colorDangerItemBgSelected,
         },
       },
 
@@ -145,11 +145,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`&${componentCls}-submenu > ${componentCls}`]: {
-        backgroundColor: colorItemBg,
+        background: colorItemBg,
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
-        backgroundColor: colorItemBg,
+        background: colorItemBg,
       },
 
       // ====================== Horizontal ======================
@@ -178,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
           [`&-selected`]: {
             color: colorItemTextSelectedHorizontal,
-            backgroundColor: colorItemBgSelectedHorizontal,
+            background: colorItemBgSelectedHorizontal,
             '&::after': {
               borderWidth: `${colorActiveBarHeight}px`,
               borderBottomColor: colorItemTextSelectedHorizontal,

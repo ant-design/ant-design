@@ -11,7 +11,7 @@ import {
 import type { GenerateStyle } from '../../theme';
 import { resetComponent, textEllipsis } from '../../style';
 
-const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { controlPaddingHorizontal } = token;
 
   return {
@@ -29,7 +29,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   };
 };
 
-const genSingleStyle: GenerateStyle<SelectToken> = token => {
+const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
@@ -51,7 +51,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
-        backgroundColor: token.colorBgElevated,
+        background: token.colorBgElevated,
         borderRadius: token.borderRadiusLG,
         outline: 'none',
         boxShadow: token.boxShadowSecondary,
@@ -119,13 +119,13 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.controlItemBgHover,
+              background: token.controlItemBgHover,
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
               color: token.colorText,
               fontWeight: token.fontWeightStrong,
-              backgroundColor: token.controlItemBgActive,
+              background: token.controlItemBgActive,
 
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,
@@ -133,7 +133,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
-                backgroundColor: token.colorBgContainerDisabled,
+                background: token.colorBgContainerDisabled,
               },
 
               color: token.colorTextDisabled,

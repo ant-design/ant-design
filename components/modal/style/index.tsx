@@ -46,7 +46,7 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   };
 }
 
-export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = token => {
+export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => {
   const { componentCls } = token;
 
   return [
@@ -65,7 +65,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           ...box('fixed'),
           zIndex: token.zIndexPopupBase,
           height: '100%',
-          backgroundColor: token.colorBgMask,
+          background: token.colorBgMask,
 
           [`${componentCls}-hidden`]: {
             display: 'none',
@@ -84,7 +84,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
   ];
 };
 
-const genModalStyle: GenerateStyle<ModalToken> = token => {
+const genModalStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls } = token;
 
   return [
@@ -159,7 +159,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
         [`${componentCls}-content`]: {
           position: 'relative',
-          backgroundColor: token.modalContentBg,
+          background: token.modalContentBg,
           backgroundClip: 'padding-box',
           border: 0,
           borderRadius: token.borderRadiusLG,
@@ -199,12 +199,12 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
           '&:hover': {
             color: token.modalIconHoverColor,
-            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+            background: token.wireframe ? 'transparent' : token.colorFillContent,
             textDecoration: 'none',
           },
 
           '&:active': {
-            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContentHover,
+            background: token.wireframe ? 'transparent' : token.colorFillContentHover,
           },
 
           ...genFocusStyle(token),
@@ -264,7 +264,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
   ];
 };
 
-const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
+const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
 
@@ -356,7 +356,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
   };
 };
 
-const genRTLStyle: GenerateStyle<ModalToken> = token => {
+const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-root`]: {
@@ -371,7 +371,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
   };
 };
 
-const genWireframeStyle: GenerateStyle<ModalToken> = token => {
+const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls, antCls } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
 
@@ -421,7 +421,7 @@ const genWireframeStyle: GenerateStyle<ModalToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Modal', token => {
+export default genComponentStyleHook('Modal', (token) => {
   const headerPaddingVertical = token.padding;
   const headerFontSize = token.fontSizeHeading5;
   const headerLineHeight = token.lineHeightHeading5;

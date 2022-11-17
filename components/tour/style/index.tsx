@@ -15,7 +15,7 @@ interface TourToken extends FullToken<'Tour'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<TourToken> = token => {
+const genBaseStyle: GenerateStyle<TourToken> = (token) => {
   const {
     componentCls,
     lineHeight,
@@ -76,7 +76,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
           borderRadius: tourBorderRadius,
           boxShadow,
           position: 'relative',
-          backgroundColor: colorBgContainer,
+          background: colorBgContainer,
           border: 'none',
           backgroundClip: 'padding-box',
 
@@ -96,7 +96,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 
             '&:hover': {
               color: token.colorIconHover,
-              backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+              background: token.wireframe ? 'transparent' : token.colorFillContent,
             },
           },
 
@@ -159,7 +159,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             color: colorTextLightSolid,
             textAlign: 'start',
             textDecoration: 'none',
-            backgroundColor: colorPrimary,
+            background: colorPrimary,
             borderRadius,
             boxShadow,
 
@@ -182,7 +182,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
               borderColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
 
               '&:hover': {
-                backgroundColor: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
+                background: new TinyColor(colorTextLightSolid).setAlpha(0.15).toRgbString(),
                 borderColor: 'transparent',
               },
             },
@@ -236,7 +236,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tour', token => {
+export default genComponentStyleHook('Tour', (token) => {
   const { borderRadiusLG, fontSize, lineHeight } = token;
   const TourToken = mergeToken<TourToken>(token, {
     tourZIndexPopup: token.zIndexPopupBase + 70,

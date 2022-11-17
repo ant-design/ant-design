@@ -3,7 +3,7 @@ import { textEllipsis } from '../../style';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
     stepsNavContentMaxWidth,
@@ -91,7 +91,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           display: 'inline-block',
           width: 0,
           height: token.lineWidthBold,
-          backgroundColor: stepsNavActiveColor,
+          background: stepsNavActiveColor,
           transition: `width ${motionDurationSlow}, inset-inline-start ${motionDurationSlow}`,
           transitionTimingFunction: 'ease-out',
           content: '""',

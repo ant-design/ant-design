@@ -52,7 +52,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
       },
 
       [`${inputCls}[disabled]`]: {
-        backgroundColor: 'transparent',
+        background: 'transparent',
       },
     },
   };
@@ -228,12 +228,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         '&:not(&-disabled)': {
           '&:hover': {
-            backgroundColor: token.controlItemBgHover,
+            background: token.controlItemBgHover,
             cursor: 'pointer',
           },
 
           [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: controlItemBgActiveHover,
+            background: controlItemBgActiveHover,
           },
         },
 
@@ -244,7 +244,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-checked': {
-          backgroundColor: controlItemBgActive,
+          background: controlItemBgActive,
         },
 
         '&-disabled': {
@@ -343,7 +343,7 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Transfer',
-  token => {
+  (token) => {
     const { fontSize, lineHeight, lineWidth, controlHeightLG, controlHeight } = token;
 
     const fontHeight = Math.round(fontSize * lineHeight);

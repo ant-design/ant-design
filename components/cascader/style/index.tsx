@@ -13,7 +13,7 @@ export interface ComponentToken {
 type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<CascaderToken> = token => {
+const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
   const { prefixCls, componentCls, antCls } = token;
   const cascaderMenuItemCls = `${componentCls}-menu-item`;
   const iconCls = `
@@ -121,7 +121,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
                 [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
                   [`&, &:hover`]: {
                     fontWeight: token.fontWeightStrong,
-                    backgroundColor: token.controlItemBgActive,
+                    background: token.controlItemBgActive,
                   },
                 },
 
@@ -156,7 +156,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Cascader', token => [genBaseStyle(token)], {
+export default genComponentStyleHook('Cascader', (token) => [genBaseStyle(token)], {
   controlWidth: 184,
   controlItemWidth: 111,
   dropdownHeight: 180,

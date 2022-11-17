@@ -182,7 +182,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           '&::before': {
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'transparent',
+            background: 'transparent',
             content: '""',
           },
         },
@@ -338,7 +338,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
               position: 'absolute',
               width: menuArrowSize * 0.6,
               height: menuArrowSize * 0.15,
-              backgroundColor: 'currentcolor',
+              background: 'currentcolor',
               borderRadius,
               transition: [
                 `background ${motionDurationSlow} ${motionEaseInOut}`,

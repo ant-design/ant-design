@@ -26,7 +26,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
       // delete overflow: auto
       // overflow: 'auto',
 
-      backgroundColor: 'transparent',
+      background: 'transparent',
 
       [componentCls]: {
         ...resetComponent(token),
@@ -45,7 +45,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             width: lineWidthBold,
             height: '100%',
             margin: '0 auto',
-            backgroundColor: token.colorSplit,
+            background: token.colorSplit,
             content: '" "',
           },
         },
@@ -59,7 +59,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           display: 'none',
           width: anchorBallSize,
           height: anchorBallSize,
-          backgroundColor: token.colorBgContainer,
+          background: token.colorBgContainer,
           border: `${lineWidthBold}px solid ${token.colorPrimary}`,
           borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',
@@ -106,7 +106,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Anchor', token => {
+export default genComponentStyleHook('Anchor', (token) => {
   const { fontSize, fontSizeLG, padding, paddingXXS } = token;
 
   const anchorToken = mergeToken<AnchorToken>(token, {

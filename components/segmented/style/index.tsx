@@ -28,7 +28,7 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
 
 function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
-    backgroundColor: token.bgColorSelected,
+    background: token.bgColorSelected,
     boxShadow: token.boxShadow,
   };
 }
@@ -50,7 +50,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       display: 'inline-block',
       padding: token.segmentedContainerPadding,
       color: token.labelColor,
-      backgroundColor: token.bgColor,
+      background: token.bgColor,
       borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
@@ -105,7 +105,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.labelColorHover,
 
           '&::after': {
-            backgroundColor: token.bgColorHover,
+            background: token.bgColorHover,
           },
         },
 
@@ -176,7 +176,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
           {
-            backgroundColor: 'transparent',
+            background: 'transparent',
           },
       },
 

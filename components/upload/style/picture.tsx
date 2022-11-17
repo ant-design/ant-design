@@ -3,7 +3,7 @@ import type { UploadToken } from '.';
 import type { GenerateStyle } from '../../theme';
 import { clearFix, textEllipsis } from '../../style';
 
-const genPictureStyle: GenerateStyle<UploadToken> = token => {
+const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -77,7 +77,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
   };
 };
 
-const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
+const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -97,7 +97,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
         marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
-        backgroundColor: token.colorFillAlter,
+        background: token.colorFillAlter,
         border: `${token.lineWidth}px dashed ${token.colorBorder}`,
         borderRadius: token.borderRadiusLG,
         cursor: 'pointer',
@@ -140,7 +140,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
-            backgroundColor: token.colorBgMask,
+            background: token.colorBgMask,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
             content: '" "',
@@ -204,7 +204,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
 
         [`${itemCls}-uploading`]: {
           [`&${itemCls}`]: {
-            backgroundColor: token.colorFillAlter,
+            background: token.colorFillAlter,
           },
 
           [`&::before, ${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {

@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme';
 
-const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, inlineDotSize, inlineTitleColor, inlineTailColor } = token;
   const containerPaddingTop = token.paddingXS + token.lineWidth;
   const titleStyle = {
@@ -84,17 +84,17 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         '&-wait': {
           [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
-            backgroundColor: token.colorBorderBg,
+            background: token.colorBorderBg,
             border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
           },
           ...titleStyle,
         },
         '&-finish': {
           [`${componentCls}-item-tail::after`]: {
-            backgroundColor: inlineTailColor,
+            background: inlineTailColor,
           },
           [`${componentCls}-item-icon ${componentCls}-icon ${componentCls}-icon-dot`]: {
-            backgroundColor: inlineTailColor,
+            background: inlineTailColor,
             border: `${token.lineWidth}px ${token.lineType} ${inlineTailColor}`,
           },
           ...titleStyle,

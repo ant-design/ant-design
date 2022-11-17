@@ -2,7 +2,7 @@ import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 import { resetComponent } from '../../style';
 
-const genFilterStyle: GenerateStyle<TableToken> = token => {
+const genFilterStyle: GenerateStyle<TableToken> = (token) => {
   const {
     componentCls,
     antCls,
@@ -74,7 +74,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
           ...resetComponent(token),
 
           minWidth: tableFilterDropdownWidth,
-          backgroundColor: tableFilterDropdownBg,
+          background: tableFilterDropdownBg,
           borderRadius,
           boxShadow,
 
@@ -106,12 +106,12 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
             },
 
             [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
-              backgroundColor: controlItemBgHover,
+              background: controlItemBgHover,
             },
 
             [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
               '&, &:hover': {
-                backgroundColor: colorPrimaryActive,
+                background: colorPrimaryActive,
               },
             },
           },
@@ -142,7 +142,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
             justifyContent: 'space-between',
             padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
             overflow: 'hidden',
-            backgroundColor: 'inherit',
+            background: 'inherit',
             borderTop: tableBorder,
           },
         },

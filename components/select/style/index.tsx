@@ -17,12 +17,12 @@ export interface SelectToken extends FullToken<'Select'> {
 }
 
 // ============================= Selector =============================
-const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
     position: 'relative',
-    backgroundColor: token.colorBgContainer,
+    background: token.colorBgContainer,
     border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
     transition: `all ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
@@ -101,7 +101,7 @@ const genStatusStyle = (
 
 // ============================== Styles ==============================
 // /* Reset search input style */
-const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = token => {
+const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -122,7 +122,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SelectToken> = token => {
+const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
@@ -244,7 +244,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 };
 
 // ============================== Styles ==============================
-const genSelectStyle: GenerateStyle<SelectToken> = token => {
+const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
   const { componentCls } = token;
 
   return [
@@ -252,7 +252,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = token => {
       [componentCls]: {
         // ==================== BorderLess ====================
         [`&-borderless ${componentCls}-selector`]: {
-          backgroundColor: `transparent !important`,
+          background: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
         },
@@ -335,7 +335,7 @@ export default genComponentStyleHook(
 
     return [genSelectStyle(selectToken)];
   },
-  token => ({
+  (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

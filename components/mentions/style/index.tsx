@@ -19,7 +19,7 @@ export interface ComponentToken {
 
 type MentionsToken = InputToken<FullToken<'Mentions'>>;
 
-const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
+const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
     componentCls,
     colorTextDisabled,
@@ -111,7 +111,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         border: 'none',
         outline: 'none',
         resize: 'none',
-        backgroundColor: 'inherit',
+        background: 'inherit',
         ...genPlaceholderStyle(token.colorTextPlaceholder),
       },
 
@@ -143,7 +143,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
-        backgroundColor: colorBgElevated,
+        background: colorBgElevated,
         borderRadius: borderRadiusLG,
         outline: 'none',
         boxShadow: boxShadowSecondary,
@@ -173,7 +173,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             transition: `background ${motionDurationSlow} ease`,
 
             '&:hover': {
-              backgroundColor: controlItemBgHover,
+              background: controlItemBgHover,
             },
 
             '&:first-child': {
@@ -196,7 +196,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 
               '&:hover': {
                 color: colorTextDisabled,
-                backgroundColor: controlItemBgHover,
+                background: controlItemBgHover,
                 cursor: 'not-allowed',
               },
             },
@@ -204,11 +204,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             '&-selected': {
               color: colorText,
               fontWeight: token.fontWeightStrong,
-              backgroundColor: controlItemBgHover,
+              background: controlItemBgHover,
             },
 
             '&-active': {
-              backgroundColor: controlItemBgHover,
+              background: controlItemBgHover,
             },
           },
         },
@@ -220,11 +220,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Mentions',
-  token => {
+  (token) => {
     const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
     return [genMentionsStyle(mentionsToken)];
   },
-  token => ({
+  (token) => ({
     dropdownHeight: 250,
     controlItemWidth: 100,
     zIndexPopup: token.zIndexPopupBase + 50,

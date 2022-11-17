@@ -76,7 +76,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   };
 
   const tagStyle = {
-    backgroundColor: color && !isPresetColor() ? color : undefined,
+    background: color && !isPresetColor() ? color : undefined,
     ...style,
   };
 

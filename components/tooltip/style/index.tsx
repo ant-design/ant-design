@@ -24,14 +24,14 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipRadiusOuter: number;
 }
 
-const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = token => {
+const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return PresetColors.reduce((previousValue: any, currentValue: keyof PresetColorType) => {
     const lightColor = token[`${currentValue}-6`];
     previousValue[`&${componentCls}-${currentValue}`] = {
       [`${componentCls}-inner`]: {
-        backgroundColor: lightColor,
+        background: lightColor,
       },
       [`${componentCls}-arrow`]: {
         '--antd-arrow-background-color': lightColor,
@@ -41,7 +41,7 @@ const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = toke
   }, {});
 };
 
-const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
+const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
     componentCls, // ant-tooltip
     tooltipMaxWidth,
@@ -81,7 +81,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
           textAlign: 'start',
           textDecoration: 'none',
           wordWrap: 'break-word',
-          backgroundColor: tooltipBg,
+          background: tooltipBg,
           borderRadius: tooltipBorderRadius,
           boxShadow: boxShadowSecondary,
         },
@@ -144,7 +144,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
     'Tooltip',
-    token => {
+    (token) => {
       // Popover use Tooltip as internal component. We do not need to handle this.
       if (injectStyle === false) {
         return [];
