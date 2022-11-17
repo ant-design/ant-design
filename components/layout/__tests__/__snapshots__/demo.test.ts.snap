@@ -379,7 +379,7 @@ exports[`renders ./components/layout/demo/fixed.tsx correctly 1`] = `
   </header>
   <main
     class="ant-layout-content site-layout"
-    style="padding:0 50px"
+    style="padding:0 50px;margin-top:64px"
   >
     <nav
       class="ant-breadcrumb"
