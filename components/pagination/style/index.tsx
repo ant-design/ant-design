@@ -404,6 +404,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
 
           width: token.controlHeightLG * 1.25,
           height: token.controlHeight,
+          boxSizing: 'border-box',
           margin: 0,
           marginInlineStart: token.marginXS,
           marginInlineEnd: token.marginXS,
