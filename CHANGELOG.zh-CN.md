@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-18`
 
-- 🏆 Ant Design 5.0.0 已发布！更多内容见[Ant Design 5.0]()
+- 🏆 Ant Design 5.0.0 已发布！欢迎阅读我们的 [发布文档](https://www.yuque.com/ant-design/ant-design/cy5nfvdo8oidvwmz)。
 
 **升级必读**
 
