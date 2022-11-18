@@ -1892,6 +1892,15 @@ const GlobalStyles = () => {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
+.preview-img {
+  max-width: 496px !important;
+  clear: both;
+  float: right;
+  margin: 0 0 70px 64px;
+  background-color: #f2f4f5;
+  padding: 16px;
+}
+
 .image-modal {
   text-align: center;
 

@@ -6,7 +6,7 @@ import { type HastRoot, type UnifiedTransformer, unistUtilVisit } from 'dumi';
  */
 function rehypeAntd(): UnifiedTransformer<HastRoot> {
   return (tree, vFile) => {
-    unistUtilVisit.visit(tree, 'element', node => {
+    unistUtilVisit.visit(tree, 'element', (node) => {
       if (node.tagName === 'DumiDemoGrid') {
         // replace DumiDemoGrid to DemoWrapper, to implement demo toolbar
         node.tagName = 'DemoWrapper';
