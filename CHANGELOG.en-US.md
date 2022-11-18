@@ -19,7 +19,7 @@ timeline: true
 
 `2022-11-18`
 
-- 🏆 Ant Design 5.0.0 is out！For more: [Ant Design 5.0]()
+- 🏆 Ant Design 5.0.0 is out!
 
 **Read it before migration**
 
