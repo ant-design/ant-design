@@ -129,7 +129,7 @@ const Footer = () => {
           openExternal: true,
         },
         {
-          title: 'Dumi',
+          title: 'dumi',
           description: <FormattedMessage id="app.footer.dumi" />,
           url: 'https://d.umijs.org',
           openExternal: true,

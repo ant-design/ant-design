@@ -8,6 +8,7 @@ on:
       - feature
       - 2.x-stable
       - 3.x-stable
+      - 4.x-stable
   create:
 
 permissions:
