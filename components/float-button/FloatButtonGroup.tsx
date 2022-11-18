@@ -11,7 +11,7 @@ import { FloatButtonGroupProvider } from './context';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
-const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
+const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -41,14 +41,14 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = props => {
 
   const [open, setOpen] = useMergedState(false, { value: props.open });
 
-  const clickAction = useRef<React.HTMLAttributes<HTMLDivElement>>({});
+  const clickAction = useRef<React.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>>({});
 
   const hoverAction = useRef<React.HTMLAttributes<HTMLDivElement>>({});
 
   if (trigger === 'click') {
     clickAction.current = {
       onClick() {
-        setOpen(prevState => {
+        setOpen((prevState) => {
           onOpenChange?.(!prevState);
           return !prevState;
         });
