@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tabs/demo/animated.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -21,7 +21,16 @@ Array [
         <span
           class="ant-switch-inner"
         >
-          inkBar
+          <span
+            class="ant-switch-inner-checked"
+          >
+            inkBar
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            inkBar
+          </span>
         </span>
       </button>
     </div>
@@ -40,7 +49,16 @@ Array [
         <span
           class="ant-switch-inner"
         >
-          tabPane
+          <span
+            class="ant-switch-inner-checked"
+          >
+            tabPane
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            tabPane
+          </span>
         </span>
       </button>
     </div>
@@ -176,7 +194,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -306,7 +324,7 @@ exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-card"
 >
@@ -436,7 +454,7 @@ exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/card-top.tsx extend context correctly 1`] = `
 <div
   class="card-container"
 >
@@ -584,7 +602,7 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/centered.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-centered"
 >
@@ -714,7 +732,7 @@ exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-add-trigger.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -898,7 +916,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-tab-bar.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-tabs ant-tabs-top"
@@ -1034,7 +1052,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correct
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/custom-tab-bar-node.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1179,7 +1197,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/deprecated.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/deprecated.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1309,7 +1327,7 @@ exports[`renders ./components/tabs/demo/deprecated.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -1439,7 +1457,7 @@ exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/editable-card.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/editable-card.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card"
 >
@@ -1683,7 +1701,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/extra.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-tabs ant-tabs-top"
@@ -2034,7 +2052,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top"
 >
@@ -2198,7 +2216,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/nest.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -3311,7 +3329,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/position.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3539,7 +3557,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -3862,7 +3880,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = `
+exports[`renders ./components/tabs/demo/slide.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"

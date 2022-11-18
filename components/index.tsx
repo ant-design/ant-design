@@ -1,24 +1,3 @@
-/* @remove-on-es-build-begin */
-// this file is not used if use https://github.com/ant-design/babel-plugin-import
-const ENV = process.env.NODE_ENV;
-if (
-  ENV !== 'production' &&
-  ENV !== 'test' &&
-  typeof console !== 'undefined' &&
-  console.warn && // eslint-disable-line no-console
-  typeof window !== 'undefined'
-) {
-  // eslint-disable-next-line no-console
-  console.warn(
-    'You are using a whole package of antd, ' +
-      'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
-  );
-}
-/* @remove-on-es-build-end */
-
-// Fix vite build error
-export const theme = null;
-
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
 export { default as Alert } from './alert';
@@ -29,6 +8,8 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
+export { default as FloatButton } from './float-button';
+export type { FloatButtonProps } from './float-button/interface';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
@@ -51,8 +32,6 @@ export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
 export type { CollapsePanelProps, CollapseProps } from './collapse';
-export { default as Comment } from './comment';
-export type { CommentProps } from './comment';
 export { default as ConfigProvider } from './config-provider';
 export { default as DatePicker } from './date-picker';
 export type { DatePickerProps } from './date-picker';
@@ -94,14 +73,12 @@ export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
 export type { MentionProps } from './mentions';
 export { default as Menu } from './menu';
-export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps } from './menu';
+export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps, MenuRef } from './menu';
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
 export type { ModalFuncProps, ModalProps } from './modal';
 export { default as notification } from './notification';
-export { default as PageHeader } from './page-header';
-export type { PageHeaderProps } from './page-header';
 export { default as Pagination } from './pagination';
 export type { PaginationProps } from './pagination';
 export { default as Popconfirm } from './popconfirm';
@@ -149,12 +126,15 @@ export { default as Tabs } from './tabs';
 export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
+export { default as theme } from './theme/export';
 export { default as TimePicker } from './time-picker';
 export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';
 export type { TimelineItemProps, TimelineProps } from './timeline';
 export { default as Tooltip } from './tooltip';
 export type { TooltipProps } from './tooltip';
+export { default as Tour } from './tour';
+export type { TourProps, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
 export type { TransferProps } from './transfer';
 export { default as Tree } from './tree';

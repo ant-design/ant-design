@@ -1,19 +1,15 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
-
-import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
-import { convertLegacyProps } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import warning from '../_util/warning';
-import { getConfirmLocale } from './locale';
+import { renderCloseIcon, renderFooter } from './PurePanel';
+import useStyle from './style';
 
 type MousePosition = { x: number; y: number } | null;
 
@@ -40,11 +36,6 @@ if (canUseDocElement()) {
 
 export interface ModalProps {
   /** 对话框是否可见 */
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: boolean;
   open?: boolean;
   /** 确定按钮 loading */
   confirmLoading?: boolean;
@@ -94,6 +85,10 @@ export interface ModalProps {
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
   mousePosition?: MousePosition;
+
+  // Legacy
+  /** @deprecated Please use `open` instead. */
+  visible?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -101,12 +96,9 @@ type getContainerFunc = () => HTMLElement;
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: boolean;
   open?: boolean;
+  /** @deprecated Please use `open` instead. */
+  visible?: boolean;
   title?: React.ReactNode;
   closable?: boolean;
   content?: React.ReactNode;
@@ -148,7 +140,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-const Modal: React.FC<ModalProps> = props => {
+const Modal: React.FC<ModalProps> = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -173,56 +165,36 @@ const Modal: React.FC<ModalProps> = props => {
 
   const {
     prefixCls: customizePrefixCls,
-    footer,
-    visible,
-    open = false,
+    className,
+    open,
     wrapClassName,
     centered,
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
+
+    // Deprecated
+    visible,
+
     width = 520,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-
-  const defaultFooter = (
-    <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {contextLocale => {
-        const { okText, okType = 'primary', cancelText, confirmLoading = false } = props;
-
-        return (
-          <>
-            <Button onClick={handleCancel} {...props.cancelButtonProps}>
-              {cancelText || contextLocale.cancelText}
-            </Button>
-            <Button
-              {...convertLegacyProps(okType)}
-              loading={confirmLoading}
-              onClick={handleOk}
-              {...props.okButtonProps}
-            >
-              {okText ?? contextLocale.okText}
-            </Button>
-          </>
-        );
-      }}
-    </LocaleReceiver>
-  );
-
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
-  return (
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
+  }
+
+  return wrapSSR(
     <NoFormStyle status override>
       <Dialog
         width={width}
@@ -231,17 +203,23 @@ const Modal: React.FC<ModalProps> = props => {
           getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
         }
         prefixCls={prefixCls}
+        rootClassName={hashId}
         wrapClassName={wrapClassNameExtended}
-        footer={footer === undefined ? defaultFooter : footer}
-        visible={open || visible}
+        footer={renderFooter({
+          ...props,
+          onOk: handleOk,
+          onCancel: handleCancel,
+        })}
+        visible={open ?? visible}
         mousePosition={restProps.mousePosition ?? mousePosition}
         onClose={handleCancel}
-        closeIcon={closeIconToRender}
+        closeIcon={renderCloseIcon(prefixCls, closeIcon)}
         focusTriggerAfterClose={focusTriggerAfterClose}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        className={classNames(hashId, className)}
       />
-    </NoFormStyle>
+    </NoFormStyle>,
   );
 };
 

@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Cascader
 cover: https://gw.alipayobjects.com/zos/alicdn/UdS8y8xyZ/Cascader.svg
+demo:
+  cols: 2
 ---
 
 Cascade selection box.
@@ -12,6 +14,28 @@ Cascade selection box.
 - When you need to select from a set of associated data set. Such as province/city/district, company level, things classification.
 - When selecting from a large data set, with multi-stage classification separated for easy selection.
 - Chooses cascade items in one float layer for better user experience.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/default-value.tsx">Default value</code>
+<code src="./demo/custom-trigger.tsx">Custom trigger</code>
+<code src="./demo/hover.tsx">Hover</code>
+<code src="./demo/disabled-option.tsx">Disabled option</code>
+<code src="./demo/change-on-select.tsx">Change on select</code>
+<code src="./demo/multiple.tsx">Multiple</code>
+<code src="./demo/showCheckedStrategy.tsx">ShowCheckedStrategy</code>
+<code src="./demo/size.tsx">Size</code>
+<code src="./demo/custom-render.tsx">Custom render</code>
+<code src="./demo/search.tsx">Search</code>
+<code src="./demo/lazy.tsx">Load Options Lazily</code>
+<code src="./demo/fields-name.tsx">Custom Field Names</code>
+<code src="./demo/suffix.tsx" debug>Custom Icons</code>
+<code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -53,8 +77,8 @@ Cascade selection box.
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
-| showCheckedStrategy | The way show selected item in box. ** `SHOW_CHILD`: ** just show child treeNode. **`Cascader.SHOW_PARENT`:** just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
+| showCheckedStrategy | The way show selected item in box. ** `SHOW_CHILD`: ** just show child treeNode. **`Cascader.SHOW_PARENT`:** just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | searchValue | Set search value，Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |

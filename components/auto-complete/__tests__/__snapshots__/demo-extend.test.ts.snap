@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/auto-complete/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
@@ -95,7 +95,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/auto-complete/demo/certain-category.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:250px"
@@ -474,7 +474,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/custom.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:200px"
@@ -520,7 +520,7 @@ exports[`renders ./components/auto-complete/demo/custom.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/form-debug.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/form-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
   style="margin:0 auto"
@@ -666,7 +666,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                           class="ant-empty-image"
                         >
                           <svg
-                            class="ant-empty-img-simple"
                             height="41"
                             viewBox="0 0 64 41"
                             width="64"
@@ -678,22 +677,22 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                               transform="translate(0 1)"
                             >
                               <ellipse
-                                class="ant-empty-img-simple-ellipse"
                                 cx="32"
                                 cy="33"
+                                fill="#F5F5F5"
                                 rx="32"
                                 ry="7"
                               />
                               <g
-                                class="ant-empty-img-simple-g"
                                 fill-rule="nonzero"
+                                stroke="#D9D9D9"
                               >
                                 <path
                                   d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                 />
                                 <path
-                                  class="ant-empty-img-simple-path"
                                   d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  fill="#FAFAFA"
                                 />
                               </g>
                             </g>
@@ -815,7 +814,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                             class="ant-empty-image"
                           >
                             <svg
-                              class="ant-empty-img-simple"
                               height="41"
                               viewBox="0 0 64 41"
                               width="64"
@@ -827,22 +825,22 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                                 transform="translate(0 1)"
                               >
                                 <ellipse
-                                  class="ant-empty-img-simple-ellipse"
                                   cx="32"
                                   cy="33"
+                                  fill="#F5F5F5"
                                   rx="32"
                                   ry="7"
                                 />
                                 <g
-                                  class="ant-empty-img-simple-g"
                                   fill-rule="nonzero"
+                                  stroke="#D9D9D9"
                                 >
                                   <path
                                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                   />
                                   <path
-                                    class="ant-empty-img-simple-path"
                                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    fill="#FAFAFA"
                                   />
                                 </g>
                               </g>
@@ -1104,7 +1102,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                             class="ant-empty-image"
                           >
                             <svg
-                              class="ant-empty-img-simple"
                               height="41"
                               viewBox="0 0 64 41"
                               width="64"
@@ -1116,22 +1113,22 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                                 transform="translate(0 1)"
                               >
                                 <ellipse
-                                  class="ant-empty-img-simple-ellipse"
                                   cx="32"
                                   cy="33"
+                                  fill="#F5F5F5"
                                   rx="32"
                                   ry="7"
                                 />
                                 <g
-                                  class="ant-empty-img-simple-g"
                                   fill-rule="nonzero"
+                                  stroke="#D9D9D9"
                                 >
                                   <path
                                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                   />
                                   <path
-                                    class="ant-empty-img-simple-path"
                                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    fill="#FAFAFA"
                                   />
                                 </g>
                               </g>
@@ -1322,7 +1319,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                             class="ant-empty-image"
                           >
                             <svg
-                              class="ant-empty-img-simple"
                               height="41"
                               viewBox="0 0 64 41"
                               width="64"
@@ -1334,22 +1330,22 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                                 transform="translate(0 1)"
                               >
                                 <ellipse
-                                  class="ant-empty-img-simple-ellipse"
                                   cx="32"
                                   cy="33"
+                                  fill="#F5F5F5"
                                   rx="32"
                                   ry="7"
                                 />
                                 <g
-                                  class="ant-empty-img-simple-g"
                                   fill-rule="nonzero"
+                                  stroke="#D9D9D9"
                                 >
                                   <path
                                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                   />
                                   <path
-                                    class="ant-empty-img-simple-path"
                                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    fill="#FAFAFA"
                                   />
                                 </g>
                               </g>
@@ -1549,7 +1545,6 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                             class="ant-empty-image"
                           >
                             <svg
-                              class="ant-empty-img-simple"
                               height="41"
                               viewBox="0 0 64 41"
                               width="64"
@@ -1561,22 +1556,22 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                                 transform="translate(0 1)"
                               >
                                 <ellipse
-                                  class="ant-empty-img-simple-ellipse"
                                   cx="32"
                                   cy="33"
+                                  fill="#F5F5F5"
                                   rx="32"
                                   ry="7"
                                 />
                                 <g
-                                  class="ant-empty-img-simple-g"
                                   fill-rule="nonzero"
+                                  stroke="#D9D9D9"
                                 >
                                   <path
                                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                                   />
                                   <path
-                                    class="ant-empty-img-simple-path"
                                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    fill="#FAFAFA"
                                   />
                                 </g>
                               </g>
@@ -1732,7 +1727,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
 </form>
 `;
 
-exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/non-case-sensitive.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1862,7 +1857,7 @@ exports[`renders ./components/auto-complete/demo/non-case-sensitive.md extend co
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/options.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/options.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1909,7 +1904,190 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="display:flex"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
+    >
+      <div
+        class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+        style="width:120px;margin:0"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value="lucy"
+            />
+          </span>
+        </div>
+        <div>
+          <div
+            class="ant-select-dropdown"
+            style="opacity:0"
+          >
+            <div>
+              <div
+                id="undefined_list"
+                role="listbox"
+                style="height:0;width:0;overflow:hidden"
+              >
+                <div
+                  aria-label="Jack"
+                  aria-selected="false"
+                  id="undefined_list_0"
+                  role="option"
+                >
+                  jack
+                </div>
+                <div
+                  aria-label="Lucy"
+                  aria-selected="false"
+                  id="undefined_list_1"
+                  role="option"
+                >
+                  lucy
+                </div>
+              </div>
+              <div
+                class="rc-virtual-list"
+                style="position:relative"
+              >
+                <div
+                  class="rc-virtual-list-holder"
+                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
+                >
+                  <div>
+                    <div
+                      class="rc-virtual-list-holder-inner"
+                      style="display:flex;flex-direction:column"
+                    >
+                      <div
+                        aria-selected="false"
+                        class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                        title="Jack"
+                      >
+                        <div
+                          class="ant-select-item-option-content"
+                        >
+                          Jack
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-item-option-state"
+                          style="user-select:none;-webkit-user-select:none"
+                          unselectable="on"
+                        />
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="ant-select-item ant-select-item-option"
+                        title="Lucy"
+                      >
+                        <div
+                          class="ant-select-item-option-content"
+                        >
+                          Lucy
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-item-option-state"
+                          style="user-select:none;-webkit-user-select:none"
+                          unselectable="on"
+                        />
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="ant-select-item ant-select-item-option"
+                        title="Disabled"
+                      >
+                        <div
+                          class="ant-select-item-option-content"
+                        >
+                          Disabled
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-item-option-state"
+                          style="user-select:none;-webkit-user-select:none"
+                          unselectable="on"
+                        />
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="ant-select-item ant-select-item-option"
+                        title="Bamboo"
+                      >
+                        <div
+                          class="ant-select-item-option-content"
+                        >
+                          Bamboo
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-item-option-state"
+                          style="user-select:none;-webkit-user-select:none"
+                          unselectable="on"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -2010,7 +2188,7 @@ exports[`renders ./components/auto-complete/demo/status.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/auto-complete/demo/uncertain-category.md extend context correctly 1`] = `
+exports[`renders ./components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width:300px"

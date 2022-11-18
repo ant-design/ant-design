@@ -8,11 +8,13 @@ import Menu from '../menu';
 import type { MenuProps } from '../menu';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
+import genPurePanel from '../_util/PurePanel';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
+import useStyle from './style';
 
 const Placements = tuple(
   'topLeft',
@@ -81,9 +83,10 @@ export interface DropdownProps {
 
 interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 }
 
-const Dropdown: DropdownInterface = props => {
+const Dropdown: DropdownInterface = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -151,15 +154,32 @@ const Dropdown: DropdownInterface = props => {
     dropdownRender,
     getPopupContainer,
     overlayClassName,
-    visible,
     open,
-    onVisibleChange,
     onOpenChange,
+
+    // Deprecated
+    visible,
+    onVisibleChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
   } = props;
 
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning(
+        !(deprecatedName in props),
+        'Dropdown',
+        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+      );
+    });
+  }
+
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -179,19 +199,19 @@ const Dropdown: DropdownInterface = props => {
     alignPoint = true;
   }
 
-  // =========================== Visible ============================
+  // =========================== Open ============================
   const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open !== undefined ? open : visible,
+    value: open ?? visible,
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onVisibleChange?.(nextOpen);
     onOpenChange?.(nextOpen);
+    onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, {
+  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -250,7 +270,7 @@ const Dropdown: DropdownInterface = props => {
   };
 
   // ============================ Render ============================
-  return (
+  return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint!}
       {...props}
@@ -269,10 +289,22 @@ const Dropdown: DropdownInterface = props => {
       onVisibleChange={onInnerOpenChange}
     >
       {dropdownTrigger}
-    </RcDropdown>
+    </RcDropdown>,
   );
 };
 
 Dropdown.Button = DropdownButton;
+
+// We don't care debug panel
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
+
+/* istanbul ignore next */
+const WrapPurePanel = (props: DropdownProps) => (
+  <PurePanel {...props}>
+    <span />
+  </PurePanel>
+);
+
+Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
 
 export default Dropdown;

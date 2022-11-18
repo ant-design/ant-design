@@ -97,7 +97,11 @@ describe('Modal', () => {
       const containerRef = React.useRef<HTMLDivElement>(null);
       return (
         <div ref={containerRef}>
-          <Modal open getContainer={() => containerRef.current!} mousePosition={{x: 100, y: 100}} />
+          <Modal
+            open
+            getContainer={() => containerRef.current!}
+            mousePosition={{ x: 100, y: 100 }}
+          />
         </div>
       );
     };
@@ -113,11 +117,16 @@ describe('Modal', () => {
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` will be removed in next major version, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
     );
 
     expect(document.querySelector('.ant-modal')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('should not render footer if null', () => {
+    const { container } = render(<Modal footer={null} />);
+    expect(container.querySelector('.ant-modal-footer')).toBeFalsy();
   });
 });

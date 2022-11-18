@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 分段控制器
-type: 数据展示
+group: 数据展示
 title: Segmented
 cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1612ad.svg
+demo:
+  cols: 2
 ---
 
 分段控制器。自 `antd@4.20.0` 版本开始提供该组件。
@@ -12,6 +14,21 @@ cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1
 
 - 用于展示多个选项并允许用户选择其中单个选项；
 - 当切换选中选项时，关联区域的内容会发生变化。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/block.tsx">Block 分段选择器</code>
+<code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/controlled.tsx">受控模式</code>
+<code src="./demo/custom.tsx">自定义渲染</code>
+<code src="./demo/dynamic.tsx">动态数据</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/with-icon.tsx">设置图标</code>
+<code src="./demo/icon-only.tsx">只设置图标</code>
+<code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
+<code src="./demo/size-consistent.tsx" debug>统一高度</code>
 
 ## API
 

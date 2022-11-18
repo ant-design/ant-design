@@ -146,6 +146,7 @@ export interface UploadListProps<T = any> {
   items?: Array<UploadFile<T>>;
   progress?: UploadListProgressProps;
   prefixCls?: string;
+  className?: string;
   showRemoveIcon?: boolean;
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;

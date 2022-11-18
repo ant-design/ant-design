@@ -57,7 +57,7 @@ describe('DropdownButton', () => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
 
-    rerender(<DropdownButton menu={{ items }} visible />);
+    rerender(<DropdownButton menu={{ items }} open />);
     expect(dropdownProps.open).toBe(true);
   });
 

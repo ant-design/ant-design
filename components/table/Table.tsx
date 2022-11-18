@@ -48,10 +48,13 @@ import type {
   TableCurrentDataSource,
   TableLocale,
   TableRowSelection,
+  ColumnsType,
+  TablePaginationConfig,
 } from './interface';
-import { ColumnsType, TablePaginationConfig } from './interface';
 
-export { ColumnsType, TablePaginationConfig };
+import useStyle from './style';
+
+export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
@@ -139,22 +142,13 @@ function InternalTable<RecordType extends object = any>(
     showSorterTooltip = true,
   } = props;
 
-  warning(
-    !(typeof rowKey === 'function' && rowKey.length > 1),
-    'Table',
-    '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
-  );
-
-  [
-    ['filterDropdownVisible', 'filterDropdownOpen'],
-    ['onFilterDropdownVisibleChange', 'onFilterDropdownOpenChange'],
-  ].forEach(([deprecatedName, newName]) => {
+  if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(deprecatedName in props),
+      !(typeof rowKey === 'function' && rowKey.length > 1),
       'Table',
-      `\`${deprecatedName}\` is deprecated which will be removed in next major version.Please use \`${newName}\` instead. `,
+      '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
-  });
+  }
 
   const baseColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
@@ -512,14 +506,18 @@ function InternalTable<RecordType extends object = any>(
     };
   }
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div ref={ref} className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
@@ -546,7 +544,7 @@ function InternalTable<RecordType extends object = any>(
         />
         {bottomPaginationNode}
       </Spin>
-    </div>
+    </div>,
   );
 }
 

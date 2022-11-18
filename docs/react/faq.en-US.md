@@ -7,10 +7,6 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ---
 
-## Will you provide Sass/Stylus(etc.) style files in addition to the Less style files currently included?
-
-There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
-
 ## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
 **Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
@@ -61,9 +57,9 @@ And which you should avoid to do:
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
 
-## How do I replace Moment.js with Day.js to reduce bundle size？
+## How to use other data-time lib like Moment.js?
 
-Please refer to [Replace Moment.js](/docs/react/replace-moment).
+Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
 ## It doesn't work when I change `defaultValue` dynamically.
 
@@ -126,20 +122,21 @@ type DataSource = TableProps['dataSource'];
 
 ## Date-related components locale is not working?
 
-Please check whether import moment locale correctly.
+Please check whether import dayjs locale correctly.
 
 ```jsx
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+import 'dayjs/locale/zh-cn';
+
+dayjs.locale('zh-cn');
 ```
 
-Please check whether there is two version of moment installed.
+Please check whether there is two version of dayjs installed.
 
 ```jsx
-npm ls moment
+npm ls dayjs
 ```
 
-If you are using a mismatched version of moment with [antd's moment](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
+If you are using a mismatched version of dayjs with [antd's dayjs](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
 
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 

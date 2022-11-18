@@ -840,7 +840,7 @@ describe('Upload', () => {
     const { container: wrapper } = render(
       <Upload fileList={frozenFileList as unknown as UploadProps['fileList']} />,
     );
-    const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-card-actions-btn');
+    const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-action');
     fireEvent.click(rmBtn[rmBtn.length - 1]);
 
     // Wait for Upload async remove
@@ -880,18 +880,18 @@ describe('Upload', () => {
     );
 
     rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveClass(
+    expect(container.querySelector('.ant-upload-select')).toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
       pointerEvents: 'none',
     });
 
     // Motion leave status change: start > active
     await waitFakeTimer();
 
-    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card')!);
-    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveClass(
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select')!);
+    expect(container.querySelector('.ant-upload-select')).not.toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
   });

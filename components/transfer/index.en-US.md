@@ -1,7 +1,6 @@
 ---
 category: Components
-type: Data Entry
-cols: 1
+group: Data Entry
 title: Transfer
 cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 ---
@@ -16,6 +15,20 @@ Double column transfer choice box.
 Transfer the elements between two columns in an intuitive and efficient way.
 
 One or more elements can be selected from either column, one click on the proper `direction` button, and the transfer is done. The left column is considered the `source` and the right column is considered the `target`. As you can see in the API description, these names are reflected in.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/oneWay.tsx">One Way</code>
+<code src="./demo/search.tsx">Search</code>
+<code src="./demo/advanced.tsx">Advanced</code>
+<code src="./demo/custom-item.tsx">Custom datasource</code>
+<code src="./demo/large-data.tsx">Pagination</code>
+<code src="./demo/table-transfer.tsx">Table Transfer</code>
+<code src="./demo/tree-transfer.tsx">Tree Transfer</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/custom-select-all-labels.tsx" debug>Custom Select All Labels</code>
 
 ## API
 

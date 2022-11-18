@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 下拉菜单
-type: 导航
+group: 导航
 title: Dropdown
 cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
+demo:
+  cols: 2
 ---
 
 向下弹出的列表。
@@ -17,10 +19,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
 
 ### 4.24.0 用法升级
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Dropdown menu={{ items: [...] }} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
-```
+<Alert message="在 4.24.0 版本后，我们提供了 &lt;Dropdown menu={{ items: [...] }} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
 
 ```jsx
 // >=4.24.0 可用，推荐的写法 ✅
@@ -47,6 +46,27 @@ return (
   </Dropdown>
 );
 ```
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/arrow.tsx">箭头</code>
+<code src="./demo/item.tsx">其他元素</code>
+<code src="./demo/arrow-center.tsx">箭头指向</code>
+<code src="./demo/trigger.tsx">触发方式</code>
+<code src="./demo/event.tsx">触发事件</code>
+<code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
+<code src="./demo/custom-dropdown.tsx">扩展菜单</code>
+<code src="./demo/sub-menu.tsx">多级菜单</code>
+<code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
+<code src="./demo/context-menu.tsx">右键菜单</code>
+<code src="./demo/loading.tsx">加载中状态</code>
+<code src="./demo/selectable.tsx">菜单可选选择</code>
+<code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import type { FieldDataNode } from 'rc-tree';
 import * as React from 'react';
+import type { MenuProps } from '../../../menu';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
 import Button from '../../../button';
@@ -11,7 +12,6 @@ import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
@@ -28,6 +28,7 @@ import type {
 } from '../../interface';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
+import warning from '../../../_util/warning';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
 
@@ -141,10 +142,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
     filterDropdownOpen,
     onFilterDropdownOpenChange,
-    filterDropdownVisible,
-    onFilterDropdownVisibleChange,
     filterResetToDefaultFilteredValue,
     defaultFilteredValue,
+
+    // Deprecated
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
 
@@ -158,12 +161,25 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     onFilterDropdownVisibleChange?.(newVisible);
   };
 
-  let mergedVisible: boolean;
-  if (typeof filterDropdownOpen === 'boolean') {
-    mergedVisible = filterDropdownOpen;
-  } else {
-    mergedVisible = typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
+  if (process.env.NODE_ENV !== 'production') {
+    [
+      ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
+      [
+        'onFilterDropdownVisibleChange',
+        'onFilterDropdownOpenChange',
+        onFilterDropdownVisibleChange,
+      ],
+    ].forEach(([deprecatedName, newName, prop]) => {
+      warning(
+        prop === undefined || prop === null,
+        'Table',
+        `\`${deprecatedName}\` is deprecated. Please use \`${newName}\` instead.`,
+      );
+    });
   }
+
+  const mergedVisible = filterDropdownOpen ?? filterDropdownVisible ?? visible;
+
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);

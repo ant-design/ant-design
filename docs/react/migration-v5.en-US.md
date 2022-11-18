@@ -1,0 +1,190 @@
+---
+order: 8
+title: V4 to V5
+---
+
+This document will help you upgrade from antd `4.x` version to antd `5.x` version. If you are using `3.x` or older version, please refer to the previous [upgrade document](/docs/react/migration-v4) to 4.x.
+
+## Upgrade preparation
+
+1. Please upgrade to the latest version of 4.x first, and remove / modify related APIs according to the console warning message.
+
+## Incompatible changes in v5
+
+### Design specification
+
+- Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
+- Primary color adjustment, changed from <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1890ff; vertical-align: text-bottom;"></div> `#1890ff` to <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #1677ff; vertical-align: text-bottom;"></div> `#1677ff`.
+- Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
+- Overall reduction in wireframe usage.
+
+### Technology adjustment
+
+- Remove less, adopt CSS-in-JS, for better support of dynamic themes. The bottom layer uses [@ant-design/cssinjs](https://github.com/ant-design/cssinjs) as a solution.
+  - All less files are removed, and less variables are no longer exported.
+  - Css files are no longer included in package. Since CSS-in-JS supports importing on demand, the original `antd/dist/antd.css` has also been abandoned. If you need to reset some basic styles, please import `antd/dist/reset.css`.
+- Remove css variables and dynamic theme built on top of them.
+- Remove `lib`, only provide `dist` and `es` in package, the original `antd/es/locale` has also been abandoned, you can find the packages in `antd/locale`.
+- Replace built-in Moment.js with Dayjs. For more: [Use custom date library](/docs/react/use-custom-date-library/).
+- `babel-plugin-import` is no longer supported. CSS-in-JS itself has the ability to import on demand, and plugin support is no longer required. Umi users can remove related configurations.
+
+  ```diff
+  // config/config.ts
+  export default {
+    antd: {
+  -   import: true,
+    },
+  };
+  ```
+
+### Compatibility
+
+- DO NOT support IE browser anymore.
+
+#### Component API adjustment
+
+- The classname API of the component popup box is unified to `popupClassName`, and `dropdownClassName` and other similar APIs will be replaced.
+
+  - AutoComplete
+  - Cascader
+  - Select
+  - TreeSelect
+  - TimePicker
+  - DatePicker
+  - Mentions
+
+  ```diff
+    import { Select } from 'antd';
+
+    const App: React.FC = () => (
+      <Select
+  -     dropdownClassName="my-select-popup"
+  +     popupClassName="my-select-popup"
+      />
+    );
+
+    export default App;
+  ```
+
+- The controlled visible API of the component popup is unified to `open`, and `visible` and other similar APIs will be replaced.
+
+  - Drawer `visible` changed to `open`.
+  - Modal `visible` changed to `open`.
+  - Dropdown `visible` changed to `open`.
+  - Tooltip `visible` changed to `open`.
+  - Tag `visible` is removed.
+  - Slider `tooltip` related API converged to `tooltip` property.
+  - Table `filterDropdownVisible` changed to `filterDropdownOpen`.
+
+  ```diff
+    import { Modal, Tag, Table, Slider } from 'antd';
+
+    const App: React.FC = () => {
+      const [visible, setVisible] = useState(true);
+
+      return (
+        <>
+  -       <Modal visible={visible}>content</Modal>
+  +       <Modal open={visible}>content</Modal>
+
+  -       <Tag visible={visible}>tag</Tag>
+  +       {visible && <Tag>tag</Tag>}
+
+          <Table
+            data={[]}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+  -             filterDropdownVisible: visible,
+  +             filterDropdownOpen: visible,
+              }
+            ]}
+          />
+
+  -       <Slider tooltipVisible={visible} />
+  +       <Slider tooltip={{ open: visible }} />
+        </>
+      );
+    }
+
+    export default App;
+  ```
+
+- `getPopupContainer`: All `getPopupContainer` are guaranteed to return a unique div. This method will be called repeatedly under React 18 concurrent mode.
+- Upload List structure changes. [#34528](https://github.com/ant-design/ant-design/pull/34528)
+- Notification
+  - Static methods are no longer allowed to dynamically set `prefixCls` `maxCount` `top` `bottom` `getContainer` in `open`, Notification static methods will now have only one instance. If you need a different configuration, use `useNotification`.
+  - `close` was renamed to `destroy` to be consistent with message.
+- Drawer `style` & `className` are migrated to Drawer panel node, the original properties are replaced by `rootClassName` and `rootStyle`.
+
+#### Component refactoring and removal
+
+- Move Comment component into `@ant-design/compatible`.
+- Move PageHeader component into `@ant-design/pro-components`.
+
+  ```diff
+  - import { PageHeader, Comment, Input, Button } from 'antd';
+  + import { Comment } from '@ant-design/compatible';
+  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { Input, Button } from 'antd';
+
+    const App: React.FC = () => (
+      <>
+        <PageHeader />
+        <Comment />
+      </>
+    );
+
+    export default App;
+  ```
+
+- BackTop is deprecated in `5.0.0`, and is merged into FloatButton.
+
+  ```diff
+  - import { BackTop } from 'antd';
+  + import { FloatButton } from 'antd';
+
+    const App: React.FC = () => (
+      <div>
+  -     <BackTop />
+  +     <FloatButton.BackTop />
+      </div>
+    );
+
+    export default App;
+  ```
+
+## Start upgrading
+
+Use git to save your code and install latest version:
+
+```bash
+npm install --save antd@5.x
+```
+
+If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
+
+```jsx
+import { theme } from 'antd';
+import { convertLegacyToken } from '@ant-design/compatible';
+
+const { defaultAlgorithm, defaultSeed } = theme;
+
+const mapToken = defaultAlgorithm(defaultSeed);
+const v4Token = convertLegacyToken(mapToken);
+
+// Webpack Config
+{
+  loader: "less-loader",
+  options: {
+    lessOptions: {
+      modifyVars: v4Token,
+    },
+  },
+}
+```
+
+## Encounter problems
+
+If you encounter problems during the upgrade, please go to [GitHub issues](https://new-issue.ant.design/) for feedback. We will respond and improve this document as soon as possible.

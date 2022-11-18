@@ -1,9 +1,8 @@
 ---
 category: Components
 subtitle: 标签页
-type: 数据展示
+group: 数据展示
 title: Tabs
-cols: 1
 cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 ---
 
@@ -21,10 +20,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 ### 4.23.0 用法升级
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.23.0 版本后，我们提供了 <Tabs items={[...]} /> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
-```
+<Alert message="在 4.23.0 版本后，我们提供了 &lt;Tabs items={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
 
 ```jsx
 // >=4.23.0 可用，推荐的写法 ✅
@@ -44,6 +40,27 @@ return <Tabs items={items} />;
   </Tabs.TabPane>
 </Tabs>;
 ```
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/deprecated.tsx">基础用法（废弃的语法糖）</code>
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/centered.tsx">居中</code>
+<code src="./demo/icon.tsx">图标</code>
+<code src="./demo/slide.tsx">滑动</code>
+<code src="./demo/extra.tsx">附加内容</code>
+<code src="./demo/size.tsx">大小</code>
+<code src="./demo/position.tsx">位置</code>
+<code src="./demo/card.tsx">卡片式页签</code>
+<code src="./demo/editable-card.tsx">新增和关闭页签</code>
+<code src="./demo/card-top.tsx">卡片式页签容器</code>
+<code src="./demo/custom-add-trigger.tsx">自定义新增页签触发器</code>
+<code src="./demo/custom-tab-bar.tsx">自定义页签头</code>
+<code src="./demo/custom-tab-bar-node.tsx">可拖拽标签</code>
+<code src="./demo/animated.tsx" debug>动画</code>
+<code src="./demo/nest.tsx" debug>嵌套</code>
 
 ## API
 

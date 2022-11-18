@@ -230,6 +230,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should close confirm modal when click cancel button', async () => {
     const onCancel = jest.fn();
     Modal.confirm({
+      // test legacy visible
+      visible: true,
       title: 'title',
       content: 'content',
       onCancel,
@@ -450,6 +452,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     warnSpy.mockRestore();
   });
 
+  it('icon can be null to hide icon', async () => {
+    jest.useFakeTimers();
+    confirm({
+      title: 'some title',
+      content: 'some descriptions',
+      icon: null,
+    });
+
+    await waitFakeTimer();
+
+    // We check icon is not exist in the body
+    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(2);
+    expect(
+      document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
+    ).toBeFalsy();
+
+    jest.useRealTimers();
+  });
+
   it('ok button should trigger onOk once when click it many times quickly', async () => {
     const onOk = jest.fn();
     await open({ onOk });
@@ -661,32 +682,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   // https://github.com/ant-design/ant-design/issues/37461
   it('Update should closable', async () => {
     resetWarned();
+    jest.useFakeTimers();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const modal = Modal.confirm({});
 
-    /* eslint-disable no-await-in-loop */
-    for (let i = 0; i < 3; i += 1) {
-      modal.update({
-        visible: true,
-      });
+    modal.update({
+      visible: true,
+    });
 
-      await waitFakeTimer();
+    await waitFakeTimer();
 
-      expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
+    expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
 
-      $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+    $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+    await waitFakeTimer();
 
-      await waitFakeTimer();
+    expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
 
-      expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
-    }
-    /* eslint-enable */
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
-    );
-
+    jest.useRealTimers();
     errSpy.mockRestore();
   });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import Moment from 'moment';
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
 import { render } from '../utils';
 import ConfigProvider from '../../components/config-provider';
@@ -14,7 +14,7 @@ function rtlTest(Component: React.ComponentType, { mockDate, componentName }: Te
     it(`component should be rendered correctly in RTL direction`, () => {
       const isArray = componentName && ['menu'].includes(componentName);
       if (mockDate) {
-        MockDate.set(Moment('2000-09-28').valueOf());
+        MockDate.set(dayjs('2000-09-28').valueOf());
       }
       const { container } = render(
         <ConfigProvider direction="rtl">

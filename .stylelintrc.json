@@ -7,7 +7,7 @@
   "customSyntax": "postcss-less",
   "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "rules": {
-    "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
+    "function-name-case": ["lower"],
     "function-no-unknown": [
       true,
       {
@@ -23,8 +23,7 @@
           "shade",
           "lighten",
           "percentage",
-          "-",
-          "~`colorPalette"
+          "-"
         ]
       }
     ],
@@ -40,6 +39,5 @@
     "selector-class-pattern": null,
     "selector-id-pattern": null,
     "selector-not-notation": null
-  },
-  "ignoreFiles": ["components/style/color/{bezierEasing,colorPalette,tinyColor}.less"]
+  }
 }

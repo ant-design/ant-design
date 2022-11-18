@@ -20,6 +20,9 @@ module.exports = {
       version: 'detect',
     },
     polyfills: ['Promise', 'URL'],
+    'import/resolver': {
+      typescript: {},
+    },
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
@@ -81,6 +84,18 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'react/jsx-no-constructed-context-values': 0,
         'react/no-unstable-nested-components': 0,
+      },
+    },
+    {
+      files: ['components/**/demo/*.tsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+        'no-console': 0,
+        'compat/compat': 0,
+        'react/no-unstable-nested-components': 0,
+        'jsx-a11y/control-has-associated-label': 0,
+        'class-methods-use-this': 0,
+        'react/no-access-state-in-setstate': 0,
       },
     },
   ],

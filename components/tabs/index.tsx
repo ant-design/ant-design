@@ -13,12 +13,14 @@ import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
-import TabPane, { TabPaneProps } from './TabPane';
+import TabPane, { type TabPaneProps } from './TabPane';
+
+import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
-export { TabPaneProps };
+export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;
@@ -38,6 +40,7 @@ function Tabs({
   hideAdd,
   centered,
   addIcon,
+  popupClassName,
   children,
   items,
   animated,
@@ -46,6 +49,7 @@ function Tabs({
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
   const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -70,7 +74,7 @@ function Tabs({
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  return (
+  return wrapSSR(
     <SizeContext.Consumer>
       {contextSize => {
         const size = propSize !== undefined ? propSize : contextSize;
@@ -89,7 +93,9 @@ function Tabs({
                 [`${prefixCls}-centered`]: centered,
               },
               className,
+              hashId,
             )}
+            popupClassName={classNames(popupClassName, hashId)}
             editable={editable}
             moreIcon={moreIcon}
             prefixCls={prefixCls}
@@ -97,7 +103,7 @@ function Tabs({
           />
         );
       }}
-    </SizeContext.Consumer>
+    </SizeContext.Consumer>,
   );
 }
 

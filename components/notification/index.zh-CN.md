@@ -1,10 +1,12 @@
 ---
 category: Components
-type: 反馈
+group: 反馈
 noinstant: true
 title: Notification
 subtitle: 通知提醒框
 cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
+demo:
+  cols: 2
 ---
 
 全局展示通知提醒信息。
@@ -17,6 +19,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 - 带有交互的通知，给出用户下一步的行动点。
 - 系统主动推送。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/duration.tsx">自动关闭的延时</code>
+<code src="./demo/with-icon.tsx">带有图标的通知提醒框</code>
+<code src="./demo/with-btn.tsx">自定义按钮</code>
+<code src="./demo/custom-icon.tsx">自定义图标</code>
+<code src="./demo/placement.tsx">位置</code>
+<code src="./demo/custom-style.tsx">自定义样式</code>
+<code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 - `notification.success(config)`
@@ -25,8 +41,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 - `notification.warning(config)`
 - `notification.warn(config)`
 - `notification.open(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `notification.destroy(key?: String)`
 
 config 参数如下：
 

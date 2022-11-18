@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/transfer/demo/advanced.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/advanced.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -265,7 +265,6 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -277,22 +276,22 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -641,7 +640,6 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -653,22 +651,22 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -699,7 +697,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1644,7 +1642,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-item.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/custom-item.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -1843,7 +1841,6 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -1855,22 +1852,22 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -2134,7 +2131,6 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -2146,22 +2142,22 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -2179,7 +2175,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/custom-select-all-labels.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -2864,7 +2860,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/large-data.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/large-data.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -3103,7 +3099,6 @@ Array [
               class="ant-empty-image"
             >
               <svg
-                class="ant-empty-img-simple"
                 height="41"
                 viewBox="0 0 64 41"
                 width="64"
@@ -3115,22 +3110,22 @@ Array [
                   transform="translate(0 1)"
                 >
                   <ellipse
-                    class="ant-empty-img-simple-ellipse"
                     cx="32"
                     cy="33"
+                    fill="#F5F5F5"
                     rx="32"
                     ry="7"
                   />
                   <g
-                    class="ant-empty-img-simple-g"
                     fill-rule="nonzero"
+                    stroke="#D9D9D9"
                   >
                     <path
                       d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
                     <path
-                      class="ant-empty-img-simple-path"
                       d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#FAFAFA"
                     />
                   </g>
                 </g>
@@ -3433,7 +3428,6 @@ Array [
               class="ant-empty-image"
             >
               <svg
-                class="ant-empty-img-simple"
                 height="41"
                 viewBox="0 0 64 41"
                 width="64"
@@ -3445,22 +3439,22 @@ Array [
                   transform="translate(0 1)"
                 >
                   <ellipse
-                    class="ant-empty-img-simple-ellipse"
                     cx="32"
                     cy="33"
+                    fill="#F5F5F5"
                     rx="32"
                     ry="7"
                   />
                   <g
-                    class="ant-empty-img-simple-g"
                     fill-rule="nonzero"
+                    stroke="#D9D9D9"
                   >
                     <path
                       d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                     />
                     <path
-                      class="ant-empty-img-simple-path"
                       d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#FAFAFA"
                     />
                   </g>
                 </g>
@@ -3489,13 +3483,22 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      one way
+      <span
+        class="ant-switch-inner-checked"
+      >
+        one way
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        one way
+      </span>
     </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/transfer/demo/oneWay.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/oneWay.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer"
@@ -4436,13 +4439,22 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      disabled
+      <span
+        class="ant-switch-inner-checked"
+      >
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
     </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/transfer/demo/search.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer"
 >
@@ -4706,7 +4718,6 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -4718,22 +4729,22 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -5062,7 +5073,6 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -5074,22 +5084,22 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -5107,7 +5117,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/status.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/status.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -5312,7 +5322,6 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 class="ant-empty-image"
               >
                 <svg
-                  class="ant-empty-img-simple"
                   height="41"
                   viewBox="0 0 64 41"
                   width="64"
@@ -5324,22 +5333,22 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                     transform="translate(0 1)"
                   >
                     <ellipse
-                      class="ant-empty-img-simple-ellipse"
                       cx="32"
                       cy="33"
+                      fill="#F5F5F5"
                       rx="32"
                       ry="7"
                     />
                     <g
-                      class="ant-empty-img-simple-g"
                       fill-rule="nonzero"
+                      stroke="#D9D9D9"
                     >
                       <path
                         d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                       />
                       <path
-                        class="ant-empty-img-simple-path"
                         d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
                       />
                     </g>
                   </g>
@@ -5602,7 +5611,6 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 class="ant-empty-image"
               >
                 <svg
-                  class="ant-empty-img-simple"
                   height="41"
                   viewBox="0 0 64 41"
                   width="64"
@@ -5614,22 +5622,22 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                     transform="translate(0 1)"
                   >
                     <ellipse
-                      class="ant-empty-img-simple-ellipse"
                       cx="32"
                       cy="33"
+                      fill="#F5F5F5"
                       rx="32"
                       ry="7"
                     />
                     <g
-                      class="ant-empty-img-simple-g"
                       fill-rule="nonzero"
+                      stroke="#D9D9D9"
                     >
                       <path
                         d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                       />
                       <path
-                        class="ant-empty-img-simple-path"
                         d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
                       />
                     </g>
                   </g>
@@ -5912,7 +5920,6 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 class="ant-empty-image"
               >
                 <svg
-                  class="ant-empty-img-simple"
                   height="41"
                   viewBox="0 0 64 41"
                   width="64"
@@ -5924,22 +5931,22 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                     transform="translate(0 1)"
                   >
                     <ellipse
-                      class="ant-empty-img-simple-ellipse"
                       cx="32"
                       cy="33"
+                      fill="#F5F5F5"
                       rx="32"
                       ry="7"
                     />
                     <g
-                      class="ant-empty-img-simple-g"
                       fill-rule="nonzero"
+                      stroke="#D9D9D9"
                     >
                       <path
                         d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                       />
                       <path
-                        class="ant-empty-img-simple-path"
                         d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
                       />
                     </g>
                   </g>
@@ -6268,7 +6275,6 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                 class="ant-empty-image"
               >
                 <svg
-                  class="ant-empty-img-simple"
                   height="41"
                   viewBox="0 0 64 41"
                   width="64"
@@ -6280,22 +6286,22 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
                     transform="translate(0 1)"
                   >
                     <ellipse
-                      class="ant-empty-img-simple-ellipse"
                       cx="32"
                       cy="33"
+                      fill="#F5F5F5"
                       rx="32"
                       ry="7"
                     />
                     <g
-                      class="ant-empty-img-simple-g"
                       fill-rule="nonzero"
+                      stroke="#D9D9D9"
                     >
                       <path
                         d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                       />
                       <path
-                        class="ant-empty-img-simple-path"
                         d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
                       />
                     </g>
                   </g>
@@ -6315,7 +6321,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/transfer/demo/table-transfer.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-transfer ant-transfer-customize-list"
@@ -7699,7 +7705,16 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      disabled
+      <span
+        class="ant-switch-inner-checked"
+      >
+        disabled
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        disabled
+      </span>
     </span>
   </button>,
   <button
@@ -7715,13 +7730,22 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      showSearch
+      <span
+        class="ant-switch-inner-checked"
+      >
+        showSearch
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        showSearch
+      </span>
     </span>
   </button>,
 ]
 `;
 
-exports[`renders ./components/transfer/demo/tree-transfer.md extend context correctly 1`] = `
+exports[`renders ./components/transfer/demo/tree-transfer.tsx extend context correctly 1`] = `
 <div
   class="ant-transfer ant-transfer-customize-list tree-transfer"
 >
@@ -8057,7 +8081,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md extend context corr
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -8069,22 +8092,22 @@ exports[`renders ./components/transfer/demo/tree-transfer.md extend context corr
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>

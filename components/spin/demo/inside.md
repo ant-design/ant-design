@@ -1,10 +1,3 @@
----
-order: 2
-title:
-  zh-CN: 容器
-  en-US: Inside a container
----
-
 ## zh-CN
 
 放入一个容器中。
@@ -12,19 +5,6 @@ title:
 ## en-US
 
 Spin in a container.
-
-```tsx
-import { Spin } from 'antd';
-import React from 'react';
-
-const App: React.FC = () => (
-  <div className="example">
-    <Spin />
-  </div>
-);
-
-export default App;
-```
 
 ```css
 .example {

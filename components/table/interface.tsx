@@ -122,22 +122,18 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
-  /**
-   * @deprecated `filterDropdownVisible` is deprecated which will be removed in next major version.
-   *   Please use `filterDropdownOpen` instead.
-   */
-  filterDropdownVisible?: boolean;
   filterDropdownOpen?: boolean;
-  /**
-   * @deprecated `onFilterDropdownVisibleChange` is deprecated which will be removed in next major
-   *   version. Please use `onFilterDropdownOpenChange` instead.
-   */
-  onFilterDropdownVisibleChange?: (visible: boolean) => void;
-  onFilterDropdownOpenChange?: (open: boolean) => void;
+  onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
+
+  // Deprecated
+  /** @deprecated Please use `filterDropdownOpen` instead */
+  filterDropdownVisible?: boolean;
+  /** @deprecated Please use `onFilterDropdownOpenChange` instead */
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>, 'dataIndex'> {

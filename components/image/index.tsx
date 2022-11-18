@@ -1,11 +1,14 @@
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import RcImage, { ImageProps } from 'rc-image';
+import classNames from 'classnames';
+import RcImage, { type ImageProps } from 'rc-image';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
 import { getTransitionName } from '../_util/motion';
+// CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
+import useStyle from './style';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -14,6 +17,7 @@ export interface CompositionImage<P> extends React.FC<P> {
 const Image: CompositionImage<ImageProps> = ({
   prefixCls: customizePrefixCls,
   preview,
+  rootClassName,
   ...otherProps
 }) => {
   const {
@@ -26,7 +30,10 @@ const Image: CompositionImage<ImageProps> = ({
   const rootPrefixCls = getPrefixCls();
 
   const imageLocale = contextLocale.Image || defaultLocale.Image;
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const mergedRootClassName = classNames(rootClassName, hashId);
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
@@ -48,7 +55,14 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
-  return <RcImage prefixCls={prefixCls} preview={mergedPreview} {...otherProps} />;
+  return wrapSSR(
+    <RcImage
+      prefixCls={`${prefixCls}`}
+      preview={mergedPreview}
+      rootClassName={mergedRootClassName}
+      {...otherProps}
+    />,
+  );
 };
 
 export { ImageProps };

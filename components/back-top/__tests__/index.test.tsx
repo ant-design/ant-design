@@ -48,4 +48,12 @@ describe('BackTop', () => {
     fireEvent.click(container.querySelector('.ant-back-top')!);
     expect(onClick).toHaveBeenCalled();
   });
+  it('should console Error', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<BackTop />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: BackTop] `BackTop` is deprecated, please use `FloatButton.BackTop` instead.',
+    );
+    errSpy.mockRestore();
+  });
 });

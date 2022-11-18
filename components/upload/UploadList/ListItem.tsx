@@ -94,12 +94,8 @@ const ListItem = React.forwardRef(
       };
     }, []);
 
-    // This is used for legacy span make scrollHeight the wrong value.
-    // We will force these to be `display: block` with non `picture-card`
-    const spanClassName = `${prefixCls}-span`;
-
     const iconNode = iconRender(file);
-    let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
+    let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card') {
       if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
         const uploadingClassName = classNames({
@@ -136,11 +132,10 @@ const ListItem = React.forwardRef(
       }
     }
 
-    const infoUploadingClass = classNames({
-      [`${prefixCls}-list-item`]: true,
-      [`${prefixCls}-list-item-${mergedStatus}`]: true,
-      [`${prefixCls}-list-item-list-type-${listType}`]: true,
-    });
+    const listItemClassName = classNames(
+      `${prefixCls}-list-item`,
+      `${prefixCls}-list-item-${mergedStatus}`,
+    );
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
@@ -169,7 +164,7 @@ const ListItem = React.forwardRef(
     const downloadOrDelete = listType !== 'picture-card' && (
       <span
         key="download-delete"
-        className={classNames(`${prefixCls}-list-item-card-actions`, {
+        className={classNames(`${prefixCls}-list-item-actions`, {
           picture: listType === 'picture',
         })}
       >
@@ -178,7 +173,7 @@ const ListItem = React.forwardRef(
       </span>
     );
     const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
-    const preview = file.url
+    const fileName = file.url
       ? [
           <a
             key="view"
@@ -209,6 +204,7 @@ const ListItem = React.forwardRef(
       pointerEvents: 'none',
       opacity: 0.5,
     };
+
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
@@ -224,7 +220,7 @@ const ListItem = React.forwardRef(
       </a>
     ) : null;
 
-    const actions = listType === 'picture-card' && mergedStatus !== 'uploading' && (
+    const pictureCardActions = listType === 'picture-card' && mergedStatus !== 'uploading' && (
       <span className={`${prefixCls}-list-item-actions`}>
         {previewIcon}
         {mergedStatus === 'done' && downloadIcon}
@@ -232,25 +228,14 @@ const ListItem = React.forwardRef(
       </span>
     );
 
-    let message: string;
-    if (file.response && typeof file.response === 'string') {
-      message = file.response;
-    } else {
-      message = file.error?.statusText || file.error?.message || locale.uploadError;
-    }
-    const iconAndPreview = (
-      <span className={spanClassName}>
-        {icon}
-        {preview}
-      </span>
-    );
     const { getPrefixCls } = React.useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={infoUploadingClass}>
-        <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
-        {actions}
+      <div className={listItemClassName}>
+        {icon}
+        {fileName}
+        {pictureCardActions}
         {showProgress && (
           <CSSMotion
             motionName={`${rootPrefixCls}-fade`}
@@ -274,7 +259,11 @@ const ListItem = React.forwardRef(
         )}
       </div>
     );
-    const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
+
+    const message =
+      file.response && typeof file.response === 'string'
+        ? file.response
+        : file.error?.statusText || file.error?.message || locale.uploadError;
     const item =
       mergedStatus === 'error' ? (
         <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
@@ -285,7 +274,11 @@ const ListItem = React.forwardRef(
       );
 
     return (
-      <div className={listContainerNameClass} style={style} ref={ref}>
+      <div
+        className={classNames(`${prefixCls}-list-item-container`, className)}
+        style={style}
+        ref={ref}
+      >
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),

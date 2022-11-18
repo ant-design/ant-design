@@ -26,7 +26,7 @@ export default function useRemovePasswordTimeout(
     }
 
     return () =>
-      removePasswordTimeoutRef.current.forEach(timer => {
+      removePasswordTimeoutRef.current.forEach((timer) => {
         if (timer) {
           clearTimeout(timer);
         }

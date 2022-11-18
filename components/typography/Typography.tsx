@@ -4,6 +4,7 @@ import * as React from 'react';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
+import useStyle from './style';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   extends React.HTMLAttributes<HTMLElement> {
@@ -51,19 +52,24 @@ const Typography = React.forwardRef<
     }
 
     const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     const componentClassName = classNames(
       prefixCls,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       // @ts-expect-error: Expression produces a union type that is too complex to represent.
       <Component className={componentClassName} ref={mergedRef} {...restProps}>
         {children}
-      </Component>
+      </Component>,
     );
   },
 );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/image/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
   style="width:200px"
@@ -41,7 +41,7 @@ exports[`renders ./components/image/demo/basic.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/image/demo/controlled-preview.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/controlled-preview.tsx extend context correctly 1`] = `
 Array [
   <div>
     scaleStep:
@@ -175,7 +175,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/fallback.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/fallback.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
   style="width:200px;height:200px"
@@ -218,7 +218,7 @@ exports[`renders ./components/image/demo/fallback.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/image/demo/placeholder.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/placeholder.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -295,7 +295,7 @@ exports[`renders ./components/image/demo/placeholder.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/image/demo/preview-group.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/preview-group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-image"
@@ -376,7 +376,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/preview-group-top-progress.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/preview-group-top-progress.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-image"
@@ -495,7 +495,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/preview-group-visible.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/preview-group-visible.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-image"
@@ -650,7 +650,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/preview-mask.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/preview-mask.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
   style="width:96px"
@@ -700,7 +700,7 @@ exports[`renders ./components/image/demo/preview-mask.md extend context correctl
 </div>
 `;
 
-exports[`renders ./components/image/demo/previewSrc.md extend context correctly 1`] = `
+exports[`renders ./components/image/demo/previewSrc.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
   style="width:200px"

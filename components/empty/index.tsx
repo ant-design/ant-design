@@ -5,6 +5,8 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 
+import useStyle from './style';
+
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
 
@@ -39,11 +41,13 @@ const Empty: EmptyType = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  return (
+  const prefixCls = getPrefixCls('empty', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
     <LocaleReceiver componentName="Empty">
-      {contextLocale => {
-        const prefixCls = getPrefixCls('empty', customizePrefixCls);
-        const des = typeof description !== 'undefined' ? description : contextLocale.description;
+      {(locale: TransferLocale) => {
+        const des = typeof description !== 'undefined' ? description : locale.description;
         const alt = typeof des === 'string' ? des : 'empty';
 
         let imageNode: React.ReactNode = null;
@@ -57,6 +61,7 @@ const Empty: EmptyType = ({
         return (
           <div
             className={classNames(
+              hashId,
               prefixCls,
               {
                 [`${prefixCls}-normal`]: image === simpleEmptyImg,
@@ -74,7 +79,7 @@ const Empty: EmptyType = ({
           </div>
         );
       }}
-    </LocaleReceiver>
+    </LocaleReceiver>,
   );
 };
 

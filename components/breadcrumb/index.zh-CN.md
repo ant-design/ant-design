@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 面包屑
-type: 导航
+group: 导航
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+demo:
+  cols: 2
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -16,10 +18,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 
 ### 4.24.0 用法升级
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="在 4.24.0 版本后，我们提供了 <Breadcrumb.Item menu={{ items: [...] }}> 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。" />, mountNode);
-```
+<Alert message="在 4.24.0 版本后，我们提供了 &lt;Breadcrumb.Item menu={{ items: [...] }}&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 4.x 继续使用，但会在控制台看到警告，并会在 5.0 后移除。"></Alert>
 
 ```jsx
 // >=4.24.0 可用，推荐的写法 ✅
@@ -46,6 +45,16 @@ return (
   </Breadcrumb>
 );
 ```
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/withIcon.tsx">带有图标的</code>
+<code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
+<code src="./demo/separator.tsx">分隔符</code>
+<code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
+<code src="./demo/separator-component.tsx">分隔符</code>
 
 ## API
 

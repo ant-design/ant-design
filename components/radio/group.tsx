@@ -8,6 +8,8 @@ import { RadioGroupContextProvider } from './context';
 import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
 import Radio from './radio';
 
+import useStyle from './style';
+
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
@@ -45,6 +47,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   } = props;
   const prefixCls = getPrefixCls('radio', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let childrenToRender = children;
   // 如果存在 options, 优先使用
   if (options && options.length > 0) {
@@ -88,8 +94,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div
       {...getDataOrAriaProps(props)}
       className={classString}
@@ -112,7 +119,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       >
         {childrenToRender}
       </RadioGroupContextProvider>
-    </div>
+    </div>,
   );
 });
 

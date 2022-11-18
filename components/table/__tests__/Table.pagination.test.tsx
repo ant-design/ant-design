@@ -41,7 +41,7 @@ describe('Table.pagination', () => {
     container
       .querySelector('.ant-table-tbody')
       ?.querySelectorAll('tr')
-      ?.forEach(tr => {
+      ?.forEach((tr) => {
         namesList.push(tr.querySelector('td')?.textContent);
       });
     return namesList;
@@ -352,7 +352,7 @@ describe('Table.pagination', () => {
     rerender(
       createTable({
         pagination: { current: 10, pageSize: 10, onChange },
-        dataSource: longData.filter(item => item.key < 60),
+        dataSource: longData.filter((item) => item.key < 60),
       }),
     );
 
@@ -603,7 +603,7 @@ describe('Table.pagination', () => {
     const dataProp = { data: [] } as any;
     const Demo: React.FC = () => {
       const [p, setP] = React.useState<TablePaginationConfig>({
-        showTotal: t => `>${t}<`,
+        showTotal: (t) => `>${t}<`,
         total: 200,
         current: 1,
         pageSize: 10,
@@ -613,7 +613,7 @@ describe('Table.pagination', () => {
           {...dataProp}
           columns={[]}
           pagination={p}
-          onChange={pg => {
+          onChange={(pg) => {
             setP({
               ...pg,
               total: 23,

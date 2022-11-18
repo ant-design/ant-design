@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/typography/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/basic.tsx extend context correctly 1`] = `
 <article
   class="ant-typography"
 >
@@ -216,7 +216,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
 </article>
 `;
 
-exports[`renders ./components/typography/demo/ellipsis.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/ellipsis.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -229,7 +229,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -331,7 +338,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/ellipsis-debug.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/ellipsis-debug.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -345,7 +352,14 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Long Text
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Long Text
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      />
     </span>
   </button>,
   <button
@@ -359,7 +373,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -372,7 +393,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -385,7 +413,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1053,7 +1088,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/ellipsis-middle.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/ellipsis-middle.tsx extend context correctly 1`] = `
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of"
   class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1082,7 +1117,7 @@ exports[`renders ./components/typography/demo/ellipsis-middle.md extend context 
 </span>
 `;
 
-exports[`renders ./components/typography/demo/interactive.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/interactive.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-typography"
@@ -1323,7 +1358,9 @@ Array [
       </div>
     </div>
   </div>,
-  Trigger edit with: ,
+  Trigger edit with:,
+  <!-- -->,
+   ,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -2178,7 +2215,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/paragraph-debug.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/paragraph-debug.tsx extend context correctly 1`] = `
 Array [
   <h1
     class="ant-typography"
@@ -2379,7 +2416,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/suffix.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -2464,7 +2501,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/text.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/text.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
 >
@@ -2627,7 +2664,7 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/typography/demo/title.md extend context correctly 1`] = `
+exports[`renders ./components/typography/demo/title.tsx extend context correctly 1`] = `
 Array [
   <h1
     class="ant-typography"

@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Breadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+demo:
+  cols: 2
 ---
 
 A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -15,10 +17,7 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ### Usage upgrade after 4.24.0
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Breadcrumb.Item menu={{ items: [...] }}> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
-```
+<Alert message="After version 4.24.0, we provide a simpler usage &lt;Breadcrumb.Item menu={{ items: [...] }}&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
 
 ```jsx
 // works when >=4.24.0, recommended ✅
@@ -45,6 +44,16 @@ return (
   </Breadcrumb>
 );
 ```
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/withIcon.tsx">With an Icon</code>
+<code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
+<code src="./demo/separator.tsx">Configuring the Separator</code>
+<code src="./demo/overlay.tsx">Bread crumbs with drop down menu</code>
+<code src="./demo/separator-component.tsx">Configuring the Separator</code>
 
 ## API
 

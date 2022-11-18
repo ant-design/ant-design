@@ -1,7 +1,6 @@
 ---
 category: Components
-cols: 1
-type: Navigation
+group: Navigation
 title: Menu
 cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ---
@@ -21,10 +20,7 @@ More layouts with navigation: [Layout](/components/layout).
 
 ### Usage upgrade after 4.20.0
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage <Menu items={[...]} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
-```
+<Alert message="After version 4.20.0, we provide a simpler usage &lt;Menu items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
 
 ```jsx
 // works when >=4.20.0, recommended ✅
@@ -50,6 +46,21 @@ return <Menu items={items} />;
 ```
 
 The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
+<code src="./demo/horizontal.tsx">Top Navigation</code>
+<code src="./demo/inline.tsx">Inline menu</code>
+<code src="./demo/inline-collapsed.tsx">Collapsed inline menu</code>
+<code src="./demo/sider-current.tsx">Open current submenu only</code>
+<code src="./demo/vertical.tsx">Vertical menu</code>
+<code src="./demo/theme.tsx">Menu Themes</code>
+<code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
+<code src="./demo/switch-mode.tsx">Switch the menu type</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 
 ## API
 

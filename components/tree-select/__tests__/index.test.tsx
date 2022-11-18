@@ -4,6 +4,7 @@ import TreeSelect, { TreeNode } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -52,12 +53,16 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 
-  it('should show warning when use dropdownClassName', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<TreeSelect dropdownClassName="myCustomClassName" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
-    errorSpy.mockRestore();
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

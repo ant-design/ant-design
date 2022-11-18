@@ -5,9 +5,11 @@ import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
+import initCollapseMotion from '../_util/motion';
 import dropIndicatorRender from './utils/dropIndicator';
 import renderSwitcherIcon from './utils/iconUtil';
+
+import useStyle from './style';
 
 export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 export type TreeLeafIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
@@ -51,7 +53,7 @@ export interface AntTreeNodeProps {
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> { }
+export interface AntTreeNode extends React.Component<AntTreeNodeProps, {}> {}
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -144,9 +146,9 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?:
-  | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
-  | React.ReactNode
-  | RcTreeProps<T>['icon'];
+    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
+    | React.ReactNode
+    | RcTreeProps<T>['icon'];
   switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
   prefixCls?: string;
   children?: React.ReactNode;
@@ -166,10 +168,16 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     checkable = false,
     selectable = true,
     draggable,
-    motion = { ...collapseMotion, motionAppear: false },
+    motion: customMotion,
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const motion = customMotion ?? {
+    ...initCollapseMotion(rootPrefixCls),
+    motionAppear: false,
+  };
 
   const newProps = {
     ...props,
@@ -181,6 +189,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {
@@ -207,7 +217,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     return mergedDraggable;
   }, [draggable]);
 
-  return (
+  return wrapSSR(
     <RcTree
       itemHeight={20}
       ref={ref}
@@ -222,6 +232,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
+        hashId,
       )}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
@@ -232,7 +243,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       draggable={draggableConfig}
     >
       {children}
-    </RcTree>
+    </RcTree>,
   );
 });
 

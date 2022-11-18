@@ -2,8 +2,9 @@
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
 import glob from 'glob';
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { excludeWarning } from './excludeWarning';
-// import { render } from '../utils';
+import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 
 require('isomorphic-fetch');
@@ -50,20 +51,44 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.md`);
+  const files = glob.sync(`./components/${component}/demo/*.tsx`);
+
+  let cssinjsTest = false;
 
   files.forEach(file => {
     let testMethod = options.skip === true ? test.skip : test;
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
-    Date.now = jest.fn(() => new Date('2016-11-22').getTime());
-    jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
+    if (!doInject && !cssinjsTest && testMethod !== test.skip) {
+      cssinjsTest = true;
+      testMethod(`cssinjs should not warn in ${component}`, () => {
+        const errSpy = excludeWarning();
+
+        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        // Inject Trigger status unless skipped
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+
+        render(Demo);
+
+        expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
+
+        errSpy.mockRestore();
+      });
+    }
+
+    // function doTest(name: string, openTrigger = false) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
+
+        Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
@@ -79,6 +104,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             </TriggerMockContext.Provider>
           );
         }
+
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
@@ -104,7 +132,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         //   expect(child).toMatchSnapshot();
         // }
 
-        errSpy();
+        errSpy.mockRestore();
       },
     );
     jest.useRealTimers();
