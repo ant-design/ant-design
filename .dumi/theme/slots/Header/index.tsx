@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'dumi';
+import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import classNames from 'classnames';
 import { Button, Col, Modal, Popover, Row, Select } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
@@ -9,13 +10,11 @@ import * as utils from '../../utils';
 import { getThemeConfig, ping } from '../../utils';
 import packageJson from '../../../../package.json';
 import Logo from './Logo';
-import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import { AlgoliaConfig } from './algolia-config';
 import { useLocation, useNavigate } from 'dumi';
 import { ClassNames, css } from '@emotion/react';
 import useSiteToken from '../../../hooks/useSiteToken';
@@ -30,6 +29,7 @@ const antdVersion: string = packageJson.version;
 
 const useStyle = () => {
   const { token } = useSiteToken();
+  const searchIconColor = '#ced4d9';
 
   return {
     header: css`
@@ -41,6 +41,45 @@ const useStyle = () => {
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
+      }
+
+      .dumi-default-search-bar {
+        border-inline-start: 1px solid rgba(0,0,0,.06);
+
+        > svg {
+          width: 14px;
+          fill: ${searchIconColor};
+        }
+
+        > input {
+          height: 22px;
+          border: 0;
+
+          &:focus {
+            box-shadow: none;
+          }
+
+          &::placeholder {
+            color: ${searchIconColor};
+          }
+        }
+
+        .dumi-default-search-shortcut {
+          color: ${searchIconColor};
+          background-color: rgba(150, 150, 150, 0.06);
+          border-color: rgba(100, 100, 100, 0.2);
+          border-radius: 4px;
+        }
+
+        .dumi-default-search-popover {
+          inset-inline-start: 11px;
+          inset-inline-end: unset;
+
+          &::before {
+            inset-inline-start: 100px;
+            inset-inline-end: unset;
+          }
+        }
       }
     `,
     menuRow: css`
@@ -91,35 +130,10 @@ const triggerDocSearchImport = () => {
   }
 
   // @ts-ignore
-  return import('docsearch.js').then(ds => {
+  return import('docsearch.js').then((ds) => {
     docsearch = ds.default;
   });
 };
-
-function initDocSearch({ isZhCN, navigate }: { isZhCN: boolean; navigate: any }) {
-  if (!canUseDom()) {
-    return;
-  }
-
-  triggerDocSearchImport().then(() => {
-    docsearch({
-      appId: AlgoliaConfig.appId,
-      apiKey: AlgoliaConfig.apiKey,
-      indexName: AlgoliaConfig.indexName,
-      inputSelector: '#search-box input',
-      algoliaOptions: AlgoliaConfig.getSearchParams(isZhCN),
-      transformData: AlgoliaConfig.transformData,
-      debug: AlgoliaConfig.debug,
-      // https://docsearch.algolia.com/docs/behavior#handleselected
-      handleSelected(input: any, _$1: unknown, suggestion: any) {
-        navigate(suggestion.url);
-        setTimeout(() => {
-          input.setVal('');
-        });
-      },
-    });
-  });
-}
 
 const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 
@@ -138,7 +152,7 @@ interface HeaderState {
   showTechUIButton: boolean;
 }
 
-const Header: React.FC<HeaderProps> = props => {
+const Header: React.FC<HeaderProps> = (props) => {
   const intl = useIntl();
   const { changeDirection } = props;
   const [, lang] = useLocale();
@@ -160,19 +174,19 @@ const Header: React.FC<HeaderProps> = props => {
   const style = useStyle();
 
   const handleHideMenu = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, menuVisible: false }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: false }));
   }, []);
   const onWindowResize = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, windowWidth: window.innerWidth }));
+    setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
   }, []);
   const onTriggerSearching = useCallback((searching: boolean) => {
-    setHeaderState(prev => ({ ...prev, searching }));
+    setHeaderState((prev) => ({ ...prev, searching }));
   }, []);
   const handleShowMenu = useCallback(() => {
-    setHeaderState(prev => ({ ...prev, menuVisible: true }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: true }));
   }, []);
   const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState(prev => ({ ...prev, menuVisible: visible }));
+    setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
   }, []);
   const onDirectionChange = useCallback(() => {
     changeDirection?.(direction !== 'rtl' ? 'rtl' : 'ltr');
@@ -184,12 +198,11 @@ const Header: React.FC<HeaderProps> = props => {
 
   useEffect(() => {
     setIsClient(typeof window !== 'undefined');
-    initDocSearch({ isZhCN: lang === 'cn', navigate });
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    pingTimer.current = ping(status => {
+    pingTimer.current = ping((status) => {
       if (status !== 'timeout' && status !== 'error') {
-        setHeaderState(prev => ({ ...prev, showTechUIButton: true }));
+        setHeaderState((prev) => ({ ...prev, showTechUIButton: true }));
         if (
           process.env.NODE_ENV === 'production' &&
           window.location.host !== 'ant-design.antgroup.com' &&
@@ -264,7 +277,7 @@ const Header: React.FC<HeaderProps> = props => {
     [antdVersion]: antdVersion,
     ...themeConfig?.docVersions,
   };
-  const versionOptions = Object.keys(docVersions).map(version => (
+  const versionOptions = Object.keys(docVersions).map((version) => (
     <Option value={docVersions[version]} key={version}>
       {version}
     </Option>
@@ -314,7 +327,7 @@ const Header: React.FC<HeaderProps> = props => {
       defaultValue={antdVersion}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      getPopupContainer={trigger => trigger.parentNode}
+      getPopupContainer={(trigger) => trigger.parentNode}
     >
       {versionOptions}
     </Select>,
@@ -370,13 +383,7 @@ const Header: React.FC<HeaderProps> = props => {
           <Logo {...sharedProps} location={location} />
         </Col>
         <Col {...colProps[1]} css={style.menuRow}>
-          <SearchBar
-            key="search"
-            {...sharedProps}
-            algoliaConfig={AlgoliaConfig}
-            responsive={responsive}
-            onTriggerFocus={onTriggerSearching}
-          />
+          <DumiSearchBar />
           {!isMobile && menu}
         </Col>
       </Row>
