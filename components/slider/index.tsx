@@ -24,7 +24,7 @@ export type HandleGeneratorFn = (config: {
 }) => React.ReactElement;
 
 export type Formatter = (value?: number) => React.ReactNode;
-const defaultFormatter: Formatter = val => (typeof val === 'number' ? val.toString() : '');
+const defaultFormatter: Formatter = (val) => (typeof val === 'number' ? val.toString() : '');
 
 export interface SliderTooltipProps {
   prefixCls?: string;
@@ -187,7 +187,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         formatter: tipFormatter,
       } = tooltipProps;
 
-      let mergedTipFormatter = tipFormatter;
+      let mergedTipFormatter;
       if (tipFormatter || tipFormatter === null) {
         mergedTipFormatter = tipFormatter;
       } else if (legacyTipFormatter || legacyTipFormatter === null) {
