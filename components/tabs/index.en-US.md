@@ -1,8 +1,7 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tabs
-cols: 1
 cover: https://gw.alipayobjects.com/zos/antfincdn/lkI2hNEDr2V/Tabs.svg
 ---
 
@@ -18,10 +17,7 @@ Ant Design has 3 types of Tabs for different situations.
 
 ### Usage upgrade after 4.23.0
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.23.0, we provide a simpler usage <Tabs items={[...]} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
-```
+<Alert message="After version 4.23.0, we provide a simpler usage &lt;Tabs items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
 
 ```jsx
 // works when >=4.23.0, recommended ✅
@@ -41,6 +37,27 @@ return <Tabs items={items} />;
   </Tabs.TabPane>
 </Tabs>;
 ```
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/centered.tsx">Centered</code>
+<code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/slide.tsx">Slide</code>
+<code src="./demo/extra.tsx">Extra content</code>
+<code src="./demo/size.tsx">Size</code>
+<code src="./demo/position.tsx">Position</code>
+<code src="./demo/card.tsx">Card type tab</code>
+<code src="./demo/editable-card.tsx">Add & close tab</code>
+<code src="./demo/card-top.tsx">Container of card type Tab</code>
+<code src="./demo/custom-add-trigger.tsx">Customized trigger of new tab</code>
+<code src="./demo/custom-tab-bar.tsx">Customized bar of tab</code>
+<code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
+<code src="./demo/animated.tsx" debug>Animated</code>
+<code src="./demo/nest.tsx" debug>Nest</code>
 
 ## API
 

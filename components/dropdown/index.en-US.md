@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Navigation
+group: Navigation
 title: Dropdown
 cover: https://gw.alipayobjects.com/zos/alicdn/eedWN59yJ/Dropdown.svg
+demo:
+  cols: 2
 ---
 
 A dropdown list.
@@ -13,10 +15,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 ### Usage upgrade after 4.24.0
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.24.0, we provide a simpler usage <Dropdown menu={{ items: [...] }} /> with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
-```
+<Alert message="After version 4.24.0, we provide a simpler usage &lt;Dropdown menu={{ items: [...] }} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0."></Alert>
 
 ```jsx
 // works when >=4.24.0, recommended ✅
@@ -43,6 +42,27 @@ return (
   </Dropdown>
 );
 ```
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/deprecated.tsx">Basic usage (deprecated syntactic sugar)</code>
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/arrow.tsx">Arrow</code>
+<code src="./demo/item.tsx">Other elements</code>
+<code src="./demo/arrow-center.tsx">Arrow pointing at the center</code>
+<code src="./demo/trigger.tsx">Trigger mode</code>
+<code src="./demo/event.tsx">Click event</code>
+<code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
+<code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
+<code src="./demo/sub-menu.tsx">Cascading menu</code>
+<code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
+<code src="./demo/context-menu.tsx">Context Menu</code>
+<code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/selectable.tsx">Selectable Menu</code>
+<code src="./demo/menu-full.tsx" debug>Menu full styles</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

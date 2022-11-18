@@ -29,8 +29,8 @@ const fileList: UploadProps['fileList'] = [
 
 describe('Upload List', () => {
   // Mock for rc-util raf
-  window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
-  window.cancelAnimationFrame = id => window.clearTimeout(id);
+  window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
+  window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
@@ -151,7 +151,7 @@ describe('Upload List', () => {
 
     await waitFakeTimer();
 
-    expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-upload-list-item-container')).toHaveLength(1);
 
     unmount();
   });
@@ -678,7 +678,7 @@ describe('Upload List', () => {
           <Form.Item
             name="file"
             valuePropName="fileList"
-            getValueFromEvent={e => e.fileList}
+            getValueFromEvent={(e) => e.fileList}
             rules={[
               {
                 required: true,
@@ -801,12 +801,12 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('extname should work correctly when url exists', done => {
+  it('extname should work correctly when url exists', (done) => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const { container: wrapper, unmount } = render(
       <UploadList
         listType="picture"
-        onDownload={file => {
+        onDownload={(file) => {
           expect(file.url).toBe('/example');
           unmount();
           done();
@@ -886,7 +886,7 @@ describe('Upload List', () => {
     await waitFor(() => {
       expect(previewFunc).toHaveBeenCalled();
     });
-    await previewFunc(mockFile).then(dataUrl => {
+    await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
     unmount();
@@ -915,7 +915,7 @@ describe('Upload List', () => {
     await waitFor(() => {
       expect(previewFunc).toHaveBeenCalled();
     });
-    await previewFunc(mockFile).then(dataUrl => {
+    await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toEqual('data:image/png;base64,');
     });
     unmount();
@@ -939,7 +939,7 @@ describe('Upload List', () => {
     await waitFor(() => {
       expect(previewFunc).toHaveBeenCalled();
     });
-    await previewFunc(mockFile).then(dataUrl => {
+    await previewFunc(mockFile).then((dataUrl) => {
       expect(dataUrl).toBe('');
     });
 
@@ -1045,7 +1045,7 @@ describe('Upload List', () => {
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
-          const newFileList = files?.map<UploadFile<any>>(item => ({ ...item, thumbUrl }));
+          const newFileList = files?.map<UploadFile<any>>((item) => ({ ...item, thumbUrl }));
 
           wrapper.rerender(
             <Upload
@@ -1139,7 +1139,7 @@ describe('Upload List', () => {
     });
   });
 
-  it('[deprecated] should support transformFile', done => {
+  it('[deprecated] should support transformFile', (done) => {
     jest.useRealTimers();
     let wrapper: ReturnType<typeof render>;
     let lastFile: UploadFile;
@@ -1228,7 +1228,7 @@ describe('Upload List', () => {
           fileList={testFileList}
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           multiple
-          onChange={info => {
+          onChange={(info) => {
             setTestFileList([...info.fileList]);
           }}
         >
@@ -1244,7 +1244,7 @@ describe('Upload List', () => {
 
     await act(() => {
       uploadRef.current.onBatchStart(
-        fileNames.map(fileName => {
+        fileNames.map((fileName) => {
           const file = new File([], fileName);
           (file as any).uid = fileName;
           return { file, parsedFile: file };

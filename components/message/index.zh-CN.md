@@ -1,10 +1,12 @@
 ---
 category: Components
 subtitle: 全局提示
-type: 反馈
+group: 反馈
 noinstant: true
 title: Message
 cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
+demo:
+  cols: 2
 ---
 
 全局展示操作反馈信息。
@@ -13,6 +15,19 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 
 - 可提供成功、警告和错误等反馈信息。
 - 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/hooks.tsx">Hooks 调用（推荐）</code>
+<code src="./demo/other.tsx">其他提示类型</code>
+<code src="./demo/duration.tsx">修改延时</code>
+<code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/thenable.tsx">Promise 接口</code>
+<code src="./demo/custom-style.tsx">自定义样式</code>
+<code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/info.tsx">普通提示</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -25,11 +40,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 提示内容 | ReactNode \| config | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| onClose | 关闭时触发的回调函数 | function | - |
+| 参数     | 说明                                        | 类型                | 默认值 |
+| -------- | ------------------------------------------- | ------------------- | ------ |
+| content  | 提示内容                                    | ReactNode \| config | -      |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number              | 3      |
+| onClose  | 关闭时触发的回调函数                        | function            | -      |
 
 组件同时提供 promise 接口。
 
@@ -121,4 +136,4 @@ return (
 
 ### 静态方法如何设置 prefixCls ？
 
-你可以通过 [`ConfigProvider.config`](/components/config-provider/#ConfigProvider.config()-4.13.0+) 进行设置。
+你可以通过 [`ConfigProvider.config`](</components/config-provider/#ConfigProvider.config()-4.13.0+>) 进行设置。

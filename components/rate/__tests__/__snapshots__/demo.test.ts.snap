@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
+exports[`renders ./components/rate/demo/basic.tsx correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -299,7 +299,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/character.md correctly 1`] = `
+exports[`renders ./components/rate/demo/character.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -835,7 +835,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/character-function.md correctly 1`] = `
+exports[`renders ./components/rate/demo/character-function.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1253,7 +1253,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
+exports[`renders ./components/rate/demo/clear.tsx correctly 1`] = `
 Array [
   <ul
     class="ant-rate"
@@ -1861,7 +1861,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
+exports[`renders ./components/rate/demo/disabled.tsx correctly 1`] = `
 <ul
   class="ant-rate ant-rate-disabled"
   role="radiogroup"
@@ -2160,7 +2160,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/half.md correctly 1`] = `
+exports[`renders ./components/rate/demo/half.tsx correctly 1`] = `
 <ul
   class="ant-rate"
   role="radiogroup"
@@ -2459,7 +2459,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/rate/demo/text.md correctly 1`] = `
+exports[`renders ./components/rate/demo/text.tsx correctly 1`] = `
 <span>
   <ul
     class="ant-rate"

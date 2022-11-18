@@ -8,11 +8,11 @@
 
 <div align="center">
 
-エンタープライズクラスのUI設計言語とReact UIライブラリです。
+エンタープライズクラスの UI 設計言語と React UI ライブラリです。
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
+[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -35,9 +35,7 @@
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/ant-design/ant-design/discussions
 [bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.js?label=antd.min.js&compression=gzip&style=flat-square
-[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/antd/dist/antd.min.css?label=antd.min.css&compression=gzip&style=flat-square
 [unpkg-js-url]: https://unpkg.com/browse/antd/dist/antd.min.js
-[unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
 [renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
@@ -60,13 +58,13 @@
 
 ## 🖥 環境対応
 
-- モダンブラウザ、Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+- モダンブラウザ
 - サーバーサイド レンダリング
 - [Electron](https://www.electronjs.org/)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
-| IE11, Edge | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン |
+| Edge | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン |
 
 ## 📦 インストール
 
@@ -89,12 +87,6 @@ const App = () => (
     <DatePicker placeholder="select date" />
   </>
 );
-```
-
-そして、手動でスタイルをインポートする:
-
-```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### TypeScript

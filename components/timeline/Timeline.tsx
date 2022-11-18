@@ -7,6 +7,9 @@ import { cloneElement } from '../_util/reactNode';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 
+// CSSINJS
+import useStyle from './style';
+
 export interface TimelineProps {
   prefixCls?: string;
   className?: string;
@@ -23,7 +26,7 @@ interface TimelineType extends React.FC<TimelineProps> {
   Item: React.FC<TimelineItemProps>;
 }
 
-const Timeline: TimelineType = props => {
+const Timeline: TimelineType = (props) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
@@ -37,6 +40,9 @@ const Timeline: TimelineType = props => {
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const pendingNode = typeof pending === 'boolean' ? null : pending;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const pendingItem = pending ? (
     <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
@@ -63,7 +69,7 @@ const Timeline: TimelineType = props => {
   };
 
   // Remove falsy items
-  const truthyItems = timeLineItems.filter(item => !!item);
+  const truthyItems = timeLineItems.filter((item) => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
   const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
@@ -92,10 +98,10 @@ const Timeline: TimelineType = props => {
     className,
   );
 
-  return (
-    <ul {...restProps} className={classString}>
+  return wrapSSR(
+    <ul {...restProps} className={classNames(classString, hashId)}>
       {items}
-    </ul>
+    </ul>,
   );
 };
 

@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 滑动输入条
-type: 数据录入
+group: 数据录入
 title: Slider
 cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
+demo:
+  cols: 2
 ---
 
 滑动型输入器，展示当前值和可选范围。
@@ -11,6 +13,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 ## 何时使用
 
 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/input-number.tsx">带输入框的滑块</code>
+<code src="./demo/icon-slider.tsx">带 icon 的滑块</code>
+<code src="./demo/tip-formatter.tsx">自定义提示</code>
+<code src="./demo/event.tsx">事件</code>
+<code src="./demo/mark.tsx">带标签的滑块</code>
+<code src="./demo/vertical.tsx">垂直</code>
+<code src="./demo/show-tooltip.tsx">控制 ToolTip 的显示</code>
+<code src="./demo/reverse.tsx">反向</code>
+<code src="./demo/dragableTrack.tsx">范围可拖拽</code>
 
 ## API
 
@@ -20,7 +36,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/HZ3meFc6W/Silder.svg
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  |
 | dots | 是否只能拖拽到刻度上 | boolean | false |  |
-| getTooltipPopupContainer | Tooltip 渲染父节点，默认渲染到 body 上 | (triggerNode) => HTMLElement | () => document.body |  |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true |  |
 | marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: ReactNode } or { number: { style: CSSProperties, label: ReactNode } } |  |
 | max | 最大值 | number | 100 |  |

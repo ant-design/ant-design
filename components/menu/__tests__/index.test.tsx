@@ -5,15 +5,14 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuMode } from 'rc-menu/lib/interface';
 import React, { useState, useMemo } from 'react';
-import type { MenuProps } from '..';
+import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
 import Layout from '../../layout';
-import collapseMotion from '../../_util/motion';
+import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
@@ -348,7 +347,7 @@ describe('Menu', () => {
   });
 
   describe('allows the overriding of theme at the popup submenu level', () => {
-    const menuModesWithPopupSubMenu: MenuMode[] = ['horizontal', 'vertical'];
+    const menuModesWithPopupSubMenu: MenuProps['mode'][] = ['horizontal', 'vertical'];
     menuModesWithPopupSubMenu.forEach(menuMode => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
@@ -562,7 +561,7 @@ describe('Menu', () => {
 
     it('inline menu collapseMotion should be triggered', async () => {
       const cloneMotion = {
-        ...collapseMotion,
+        ...initCollapseMotion(),
         motionDeadline: 1,
       };
 
@@ -978,7 +977,7 @@ describe('Menu', () => {
   });
 
   it('should support ref', async () => {
-    const ref = React.createRef<Menu>();
+    const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
         <Menu.Item key="1">Option 1</Menu.Item>

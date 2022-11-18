@@ -28,9 +28,9 @@ export interface SubMenuProps {
 }
 
 function SubMenu(props: SubMenuProps) {
-  const { popupClassName, icon, title, theme } = props;
+  const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed, antdMenuTheme } = context;
+  const { prefixCls, inlineCollapsed, theme: contextTheme, mode } = context;
 
   const parentPath = useFullPath();
 
@@ -68,15 +68,18 @@ function SubMenu(props: SubMenuProps) {
     [context],
   );
 
+  const popupOffset = mode === 'horizontal' ? [0, 8] : [10, 0];
+
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
+        popupOffset={popupOffset}
         {...omit(props, ['icon'])}
         title={titleNode}
         popupClassName={classNames(
           prefixCls,
-          `${prefixCls}-${theme || antdMenuTheme}`,
           popupClassName,
+          `${prefixCls}-${customTheme || contextTheme}`,
         )}
       />
     </MenuContext.Provider>

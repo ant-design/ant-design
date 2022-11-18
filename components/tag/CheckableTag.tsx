@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -33,6 +34,9 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const cls = classNames(
     prefixCls,
     {
@@ -40,9 +44,10 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
       [`${prefixCls}-checkable-checked`]: checked,
     },
     className,
+    hashId,
   );
 
-  return <span {...restProps} className={cls} onClick={handleClick} />;
+  return wrapSSR(<span {...restProps} className={cls} onClick={handleClick} />);
 };
 
 export default CheckableTag;

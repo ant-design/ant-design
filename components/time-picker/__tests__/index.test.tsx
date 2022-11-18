@@ -1,12 +1,14 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
-import type { PickerLocale } from 'antd/es/date-picker/generatePicker';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+
+dayjs.extend(customParseFormat);
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -39,7 +41,7 @@ describe('TimePicker', () => {
 
   it('not render clean icon when allowClear is false', () => {
     const { container } = render(
-      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} allowClear={false} />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} allowClear={false} />,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -47,19 +49,17 @@ describe('TimePicker', () => {
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
     const { container } = render(
-      <TimePicker clearIcon={clearIcon} value={moment('00:00:00', 'HH:mm:ss')} />,
+      <TimePicker clearIcon={clearIcon} value={dayjs('00:00:00', 'HH:mm:ss')} />,
     );
     expect(container.querySelector('.test-clear-icon')).toBeTruthy();
   });
 
   it('prop locale should works', () => {
-    const locale = { placeholder: 'Избери дата' };
+    const locale = {
+      placeholder: 'Избери дата',
+    };
     const { container } = render(
-      <TimePicker
-        open
-        defaultValue={moment('2000-01-01 00:00:00')}
-        locale={locale as unknown as PickerLocale}
-      />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} open locale={locale as any} />,
     );
     expect(Array.from(container.children)).toMatchSnapshot();
   });
@@ -69,7 +69,7 @@ describe('TimePicker', () => {
     const { container } = render(
       <TimePicker
         open
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
@@ -81,32 +81,18 @@ describe('TimePicker', () => {
     const { container } = render(
       <TimePicker.RangePicker
         open
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
     expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
-  it('RangePicker should show warning when use dropdownClassName', () => {
-    render(<TimePicker.RangePicker dropdownClassName="myCustomClassName" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: RangePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-  });
-
-  it('TimePicker should show warning when use dropdownClassName', () => {
-    render(<TimePicker dropdownClassName="myCustomClassName" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TimePicker] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-  });
-
   it('should support bordered', () => {
     const { container } = render(
       <TimePicker
         className="custom-class"
-        defaultValue={moment('2000-01-01 00:00:00')}
+        defaultValue={dayjs('2000-01-01 00:00:00')}
         bordered={false}
       />,
     );

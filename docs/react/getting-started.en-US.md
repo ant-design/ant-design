@@ -16,7 +16,7 @@ Finally, if you are working in a local development environment, please refer to 
 Here is a simple online codesandbox demo of an Ant Design component to show the usage of Ant Design React.
 
 <iframe
-  src="https://codesandbox.io/embed/antd-reproduction-template-y9vgcf?autoresize=1&fontsize=14&hidenavigation=1&theme=light"
+  src="https://codesandbox.io/embed/antd-reproduction-template-forked-jyh2k9?autoresize=1&fontsize=14&hidenavigation=1&theme=light"
   style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   title="antd reproduction template"
   allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
@@ -39,7 +39,7 @@ If you have already set things up by following the [Install and Initialization](
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DatePicker, message } from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import './index.css';
 
 const App = () => {

@@ -71,7 +71,7 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
     };
   }
   if (children) {
-    return cloneElement(children, oriProps => ({
+    return cloneElement(children, (oriProps) => ({
       className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }

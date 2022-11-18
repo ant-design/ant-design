@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Popconfirm
 cover: https://gw.alipayobjects.com/zos/alicdn/fjMCD9xRq/Popconfirm.svg
+demo:
+  cols: 2
 ---
 
 A simple and compact confirmation dialog of an action.
@@ -12,6 +14,18 @@ A simple and compact confirmation dialog of an action.
 A simple and compact dialog used for asking for user confirmation.
 
 The difference with the `confirm` modal dialog is that it's more lightweight than the static popped full-screen confirm modal.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/locale.tsx">Locale text</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/dynamic-trigger.tsx">Conditional trigger</code>
+<code src="./demo/icon.tsx">Customize icon</code>
+<code src="./demo/async.tsx">Asynchronously close</code>
+<code src="./demo/promise.tsx">Asynchronously close on Promise</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

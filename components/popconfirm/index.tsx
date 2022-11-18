@@ -9,7 +9,9 @@ import Popover from '../popover';
 import type { AbstractTooltipProps } from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
-import { Overlay } from './PurePanel';
+import PurePanel, { Overlay } from './PurePanel';
+
+import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -23,14 +25,6 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelButtonProps?: ButtonProps;
   showCancel?: boolean;
   icon?: React.ReactNode;
-  /**
-   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
-   *   use `onOpenChange` instead.
-   */
-  onVisibleChange?: (
-    visible: boolean,
-    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
-  ) => void;
   onOpenChange?: (
     open: boolean,
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLDivElement>,
@@ -44,8 +38,8 @@ export interface PopconfirmState {
 const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const [open, setOpen] = useMergedState(false, {
-    value: props.open !== undefined ? props.open : props.visible,
-    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
 
   // const isDestroyed = useDestroyed();
@@ -55,7 +49,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
     setOpen(value, true);
-    props.onVisibleChange?.(value, e);
     props.onOpenChange?.(value, e);
   };
 
@@ -94,15 +87,15 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     overlayClassName,
     ...restProps
   } = props;
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixCls, overlayClassName);
 
-  return (
+  const [wrapSSR] = usePopconfirmStyle(prefixCls);
+
+  return wrapSSR(
     <Popover
       {...restProps}
       trigger={trigger}
-      prefixCls={prefixCls}
       placement={placement}
       onOpenChange={onOpenChange}
       open={open}
@@ -119,6 +112,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onCancel={onCancel}
         />
       }
+      data-popover-inject
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -128,8 +122,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onKeyDown(e);
         },
       })}
-    </Popover>
+    </Popover>,
   );
-});
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+// We don't care debug panel
+/* istanbul ignore next */
+Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popconfirm;

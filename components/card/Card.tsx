@@ -8,6 +8,8 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 
+import useStyle from './style';
+
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
 
@@ -94,6 +96,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   } = props;
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -161,15 +164,16 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>
+    </div>,
   );
 });
 

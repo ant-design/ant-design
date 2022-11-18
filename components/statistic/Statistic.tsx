@@ -8,6 +8,8 @@ import type Countdown from './Countdown';
 import StatisticNumber from './Number';
 import type { FormatConfig, valueType } from './utils';
 
+import useStyle from './style';
+
 interface StatisticComponent {
   Countdown: typeof Countdown;
 }
@@ -53,14 +55,17 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
       value={value}
     />
   );
+  // Style
+  const [wrapSSR, hashId] = useStyle(String(prefixCls));
   const cls = classNames(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
@@ -70,7 +75,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
           {suffix && <span className={`${prefixCls}-content-suffix`}>{suffix}</span>}
         </div>
       </Skeleton>
-    </div>
+    </div>,
   );
 };
 

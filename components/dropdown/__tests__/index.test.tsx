@@ -5,6 +5,7 @@ import type { DropDownProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
 
@@ -203,12 +204,18 @@ describe('Dropdown', () => {
     jest.useRealTimers();
   });
 
-  it('deprecated warning', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('legacy visible', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
 
-    const { rerender } = render(
+    const { container, rerender } = render(
       <Dropdown
         visible
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        trigger={['click']}
         menu={{
           items: [
             {
@@ -218,39 +225,31 @@ describe('Dropdown', () => {
           ],
         }}
       >
-        <a />
+        <a className="little" />
       </Dropdown>,
     );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated which will be removed in next major version, please use `open` instead.',
+
+    expect(document.querySelector('.bamboo')).toBeTruthy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `visible` is deprecated, please use `open` instead.',
     );
-    rerender(
-      <Dropdown
-        onVisibleChange={() => {}}
-        menu={{
-          items: [
-            {
-              label: <div className="bamboo" />,
-              key: 'bamboo',
-            },
-          ],
-        }}
-      >
-        <a />
-      </Dropdown>,
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
     );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated which will be removed in next major version, please use `onOpenChange` instead.',
-    );
+
+    fireEvent.click(container.querySelector('.little')!);
+    expect(onOpenChange).toHaveBeenCalled();
+    expect(onVisibleChange).toHaveBeenCalled();
+
     rerender(
       <Dropdown overlay={<div>menu</div>}>
-        <a />
+        <a className="little" />
       </Dropdown>,
     );
-    expect(errSpy).toHaveBeenCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
     );
 
-    errSpy.mockRestore();
+    errorSpy.mockRestore();
   });
 });

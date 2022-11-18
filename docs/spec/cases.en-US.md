@@ -1,5 +1,5 @@
 ---
-category: Ant Design
+group: Ant Design
 order: 2
 title: Cases
 ---
@@ -24,7 +24,7 @@ Cloud-oriented financial services, used by financial institutions that benefit f
 
 OceanBase Cloud is a distributed relational database in a real sense, and OceanBase Cloud Platform is the OceanBase cloud-based database service that can help users quickly create and use OceanBase service.
 
-[Visit]([http://oceanbase.alipay.com](https://www.oceanbase.com/docs/enterprise/oceanbase-ocp-cn/V3.3.3/10000000000636101))
+[Visit](<[http://oceanbase.alipay.com](https://www.oceanbase.com/docs/enterprise/oceanbase-ocp-cn/V3.3.3/10000000000636101)>)
 
 ![OceanBase Cloud Platform](https://gw.alipayobjects.com/zos/rmsportal/OYGCAlMwSWkdaKfxIDtz.png)
 

@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Mentions
 cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
+demo:
+  cols: 2
 ---
 
 Mention component.
@@ -10,6 +12,19 @@ Mention component.
 ## When To Use
 
 When you need to mention someone or something.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/async.tsx">Asynchronous loading</code>
+<code src="./demo/form.tsx">With Form</code>
+<code src="./demo/prefix.tsx">Customize Trigger Token</code>
+<code src="./demo/readonly.tsx">disabled or readOnly</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/autoSize.tsx">autoSize</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

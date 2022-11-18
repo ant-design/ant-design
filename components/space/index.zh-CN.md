@@ -1,9 +1,8 @@
 ---
 category: Components
-type: 布局
+group: 布局
 subtitle: 间距
 title: Space
-cols: 1
 cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 ---
 
@@ -16,6 +15,24 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/wc6%263gJ0Y8/Space.svg
 - 适合行内元素的水平间距。
 - 可以设置各种水平对齐方式。
 - 需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact（自 antd@4.24.0 版本开始提供该组件。）。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/base.tsx">基本用法</code>
+<code src="./demo/vertical.tsx">垂直间距</code>
+<code src="./demo/size.tsx">间距大小</code>
+<code src="./demo/align.tsx">对齐</code>
+<code src="./demo/customize.tsx">自定义尺寸</code>
+<code src="./demo/wrap.tsx">自动换行</code>
+<code src="./demo/split.tsx">分隔符</code>
+<code src="./demo/compact.tsx">紧凑布局组合</code>
+<code src="./demo/compact-buttons.tsx">Button 紧凑布局</code>
+<code src="./demo/compact-button-vertical.tsx">垂直方向紧凑布局</code>
+<code src="./demo/compact-debug.tsx" debug>调试 Input 前置/后置标签</code>
+<code src="./demo/compact-nested.tsx" debug>紧凑布局嵌套</code>
+<code src="./demo/debug.tsx" debug>多样的 Child</code>
+<code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
 
 ## API
 

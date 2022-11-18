@@ -1,7 +1,6 @@
 ---
 category: Components
-cols: 1
-type: Data Display
+group: Data Display
 title: Table
 cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
 ---
@@ -60,6 +59,49 @@ const columns = [
 - [ProTable - Advanced Tables](https://procomponents.ant.design/en-US/components/table)
 - [S2 - Analytical Tables](https://github.com/antvis/s2/)
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/jsx.tsx">JSX style API</code>
+<code src="./demo/row-selection.tsx">selection</code>
+<code src="./demo/row-selection-and-operation.tsx">Selection and operation</code>
+<code src="./demo/row-selection-custom.tsx">Custom selection</code>
+<code src="./demo/head.tsx">Filter and sorter</code>
+<code src="./demo/filter-in-tree.tsx">Filter in Tree</code>
+<code src="./demo/filter-search.tsx">Filter search</code>
+<code src="./demo/multiple-sorter.tsx">Multiple sorter</code>
+<code src="./demo/reset-filter.tsx">Reset filters and sorters</code>
+<code src="./demo/custom-filter-panel.tsx">Customized filter panel</code>
+<code src="./demo/ajax.tsx">Ajax</code>
+<code src="./demo/size.tsx">size</code>
+<code src="./demo/narrow.tsx" debug>size</code>
+<code src="./demo/bordered.tsx">border, title and footer</code>
+<code src="./demo/expand.tsx">Expandable Row</code>
+<code src="./demo/order-column.tsx">Order Specific Column</code>
+<code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
+<code src="./demo/tree-data.tsx">Tree data</code>
+<code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
+<code src="./demo/fixed-header.tsx">Fixed Header</code>
+<code src="./demo/fixed-columns.tsx">Fixed Columns</code>
+<code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
+<code src="./demo/grouping-columns.tsx">Grouping table head</code>
+<code src="./demo/edit-cell.tsx">Editable Cells</code>
+<code src="./demo/edit-row.tsx">Editable Rows</code>
+<code src="./demo/nested-table.tsx">Nested tables</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/resizable-column.tsx" debug>Resizable column</code>
+<code src="./demo/ellipsis.tsx">ellipsis column</code>
+<code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
+<code src="./demo/summary.tsx">Summary</code>
+<code src="./demo/virtual-list.tsx">Virtual list</code>
+<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
+<code src="./demo/pagination.tsx">Pagination Settings</code>
+<code src="./demo/row-selection-custom-debug.tsx" debug>Custom selection group</code>
+<code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
+<code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
+
 ## API
 
 ### Table
@@ -74,7 +116,7 @@ const columns = [
 | footer | Table footer renderer | function(currentPageData) | - |  |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin/#API) | false |  |
-| locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/default.tsx#L19-L37) |  |
+| locale | The i18n text including filter, sort, empty text, etc | object | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object | - |  |
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` |  |
@@ -130,7 +172,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
-| filterDropdownOpen | Whether `filterDropdown` is visible | boolean | - | 4.23.0 |
+| filterDropdownOpen | Whether `filterDropdown` is visible | boolean | - |  |
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
@@ -151,7 +193,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
-| onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(open) {} | - | 4.23.0 |
+| onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
 | onHeaderCell | Set props on per header cell | function(column) | - |  |
 
 ### ColumnGroup
@@ -237,7 +279,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 interface User {
   key: number;

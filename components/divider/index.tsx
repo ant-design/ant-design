@@ -3,6 +3,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
 
+import useStyle from './style';
+
 export interface DividerProps {
   prefixCls?: string;
   type?: 'horizontal' | 'vertical';
@@ -30,12 +32,15 @@ const Divider: React.FC<DividerProps> = props => {
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;
   const hasCustomMarginLeft = orientation === 'left' && orientationMargin != null;
   const hasCustomMarginRight = orientation === 'right' && orientationMargin != null;
   const classString = classNames(
     prefixCls,
+    hashId,
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
@@ -63,14 +68,14 @@ const Divider: React.FC<DividerProps> = props => {
     );
   }
 
-  return (
+  return wrapSSR(
     <div className={classString} {...restProps} role="separator">
       {children && type !== 'vertical' && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
         </span>
       )}
-    </div>
+    </div>,
   );
 };
 

@@ -36,7 +36,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
   React.useEffect(() => {
     if (actionQueue.length) {
       const cloneQueue = [...actionQueue];
-      cloneQueue.forEach(action => {
+      cloneQueue.forEach((action) => {
         action();
       });
 
@@ -75,7 +75,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               destroyAction();
             } else {
-              setActionQueue(prev => [...prev, destroyAction]);
+              setActionQueue((prev) => [...prev, destroyAction]);
             }
           },
           update: (newConfig: ModalFuncProps) => {
@@ -86,7 +86,7 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
             if (modalRef.current) {
               updateAction();
             } else {
-              setActionQueue(prev => [...prev, updateAction]);
+              setActionQueue((prev) => [...prev, updateAction]);
             }
           },
         };

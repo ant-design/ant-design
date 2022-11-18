@@ -118,7 +118,7 @@ describe('Test utils function', () => {
     });
   });
 
-  it('delayRaf', done => {
+  it('delayRaf', (done) => {
     jest.useRealTimers();
 
     let bamboo = false;

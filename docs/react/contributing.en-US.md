@@ -71,15 +71,10 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
 
-### Switch Theme
+## Development Tools
 
-Use `DEV_THEME` to change start theme:
-
-```bash
-DEV_THEME=dark npm start
-```
-
-Visit [http://127.0.0.1:8001/components/button-cn/?theme=dark](http://127.0.0.1:8001/components/button-cn/?theme=dark).
+- VSCode plugin for CSS in JS: https://marketplace.visualstudio.com/items?itemName=shezhangzhang.antd-design-token
+- Ant Design cheatsheet in VS Code: https://github.com/fi3ework/vscode-antd-rush
 
 ## Being a collaborator
 

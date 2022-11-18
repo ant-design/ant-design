@@ -21,6 +21,8 @@ import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 import warning from '../../_util/warning';
 
+import useStyle from '../style';
+
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
   type DateRangePickerProps = RangePickerProps<DateType> & {
@@ -58,6 +60,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     let additionalOverrideProps: any = {};
     additionalOverrideProps = {
       ...additionalOverrideProps,
@@ -65,11 +69,14 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
     };
 
-    warning(
-      !dropdownClassName,
-      'RangePicker',
-      '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
+    // =================== Warning =====================
+    if (process.env.NODE_ENV !== 'production') {
+      warning(
+        !dropdownClassName,
+        'DatePicker.RangePicker',
+        '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      );
+    }
 
     // ===================== Size =====================
     const size = React.useContext(SizeContext);
@@ -95,7 +102,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       blur: () => innerRef.current?.blur(),
     }));
 
-    return (
+    return wrapSSR(
       <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
         {contextLocale => {
           const locale = { ...contextLocale, ...props.locale };
@@ -109,7 +116,6 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
               }
               disabled={mergedDisabled}
               ref={innerRef}
-              dropdownClassName={popupClassName || dropdownClassName}
               dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
               placeholder={getRangePlaceholder(picker, locale, placeholder)}
               suffixIcon={suffixNode}
@@ -132,6 +138,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
                   getMergedStatus(contextStatus, customStatus),
                   hasFeedback,
                 ),
+                hashId,
                 compactItemClassnames,
                 className,
               )}
@@ -141,10 +148,11 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
               generateConfig={generateConfig}
               components={Components}
               direction={direction}
+              dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
             />
           );
         }}
-      </LocaleReceiver>
+      </LocaleReceiver>,
     );
   });
 

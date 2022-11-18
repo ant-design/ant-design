@@ -1,21 +1,19 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import type { ArgsProps, MessageType } from '..';
-import message, { getInstance } from '..';
+import { triggerMotionEnd } from './util';
+import type { ArgsProps } from '..';
+import message from '..';
 import ConfigProvider from '../../config-provider';
-import { render, fireEvent, pureRender } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('message.hooks', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   afterEach(() => {
-    message.destroy();
+    jest.useRealTimers();
   });
 
   it('should work', () => {
@@ -50,8 +48,8 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelector('.hook-test-result')?.innerHTML).toEqual('bamboo');
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with success', () => {
@@ -86,15 +84,13 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
-    expect(document.querySelector('.hook-test-result')?.innerHTML).toEqual('bamboo');
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with onClose', done => {
-    // if not use real timer, done won't be called
-    jest.useRealTimers();
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <>
@@ -110,15 +106,15 @@ describe('message.hooks', () => {
         </>
       );
     };
+
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-    jest.useFakeTimers();
+
+    triggerMotionEnd();
   });
 
   it('should work with close promise', done => {
-    // if not use real timer, done won't be called
-    jest.useRealTimers();
-    const Demo: React.FC = () => {
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <>
@@ -139,12 +135,13 @@ describe('message.hooks', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-    jest.useFakeTimers();
+
+    triggerMotionEnd();
   });
 
-  it('should work with hide', () => {
-    let hide: MessageType;
-    const Demo: React.FC = () => {
+  it('should work with hide', async () => {
+    let hide: VoidFunction;
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <ConfigProvider prefixCls="my-test">
@@ -164,45 +161,47 @@ describe('message.hooks', () => {
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
 
     act(() => {
-      hide();
-      jest.runAllTimers();
+      hide!();
     });
-    expect(getInstance()?.component.state.notices).toHaveLength(0);
+    await triggerMotionEnd('.my-test-message-move-up-leave');
+
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
 
   it('should be same hook', () => {
-    let count = 0;
+    let cacheAPI: any;
 
     const Demo: React.FC = () => {
       const [, forceUpdate] = React.useState([]);
       const [api] = message.useMessage();
       React.useEffect(() => {
-        count += 1;
-        expect(count).toEqual(1);
+        if (!cacheAPI) {
+          cacheAPI = api;
+        } else {
+          expect(cacheAPI).toBe(api);
+        }
+
         forceUpdate([]);
       }, [api]);
 
       return null;
     };
 
-    pureRender(<Demo />);
+    render(<Demo />);
   });
 
   it("should use ConfigProvider's getPopupContainer as message container", () => {
     const containerId = 'container';
-    const getPopupContainer = () => {
-      const div = document.createElement('div');
-      div.id = containerId;
-      document.body.appendChild(div);
-      return div;
-    };
-    const Demo: React.FC = () => {
+    const div = document.createElement('div');
+    div.id = containerId;
+    document.body.appendChild(div);
+
+    const getPopupContainer = () => div;
+
+    const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
         <ConfigProvider getPopupContainer={getPopupContainer} prefixCls="my-test">
@@ -221,12 +220,40 @@ describe('message.hooks', () => {
         </ConfigProvider>
       );
     };
-    const { container, baseElement } = render(<Demo />);
+
+    const { container } = render(<Demo />);
     fireEvent.click(container.querySelector('button')!);
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
-    expect(document.querySelector('.hook-content')?.innerHTML).toEqual('happy');
-    expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
-    expect(baseElement.querySelectorAll(`#${containerId}`).length).toBe(1);
+
+    expect(div.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(div.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(div.querySelector('.hook-content')!.textContent).toEqual('happy');
+    expect(document.querySelectorAll(`#${containerId}`)).toHaveLength(1);
+  });
+
+  it('warning if user call update in render', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      const calledRef = React.useRef(false);
+
+      if (!calledRef.current) {
+        api.info({
+          content: <div className="bamboo" />,
+        });
+        calledRef.current = true;
+      }
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.bamboo')).toBeFalsy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Message] You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 });

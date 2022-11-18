@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Checkbox
 cover: https://gw.alipayobjects.com/zos/alicdn/8nbVbHEm_/CheckBox.svg
+demo:
+  cols: 2
 ---
 
 Checkbox component.
@@ -11,6 +13,17 @@ Checkbox component.
 
 - Used for selecting multiple values from several options.
 - If you use only one checkbox, it is the same as using Switch to toggle between two states. The difference is that Switch will trigger the state change directly, but Checkbox just marks the state as changed and this needs to be submitted.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/controller.tsx">Controlled Checkbox</code>
+<code src="./demo/group.tsx">Checkbox Group</code>
+<code src="./demo/check-all.tsx">Check all</code>
+<code src="./demo/layout.tsx">Use with Grid</code>
+<code src="./demo/debug-line.tsx" debug>Same line</code>
 
 ## API
 

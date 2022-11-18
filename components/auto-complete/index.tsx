@@ -20,6 +20,7 @@ import type {
   RefSelectProps,
 } from '../select';
 import Select from '../select';
+import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import warning from '../_util/warning';
@@ -41,12 +42,9 @@ export interface AutoCompleteProps<
   > {
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
-  /**
-   * @deprecated `dropdownClassName` is deprecated which will be removed in next major version.
-   *   Please use `popupClassName` instead.
-   */
-  dropdownClassName?: string;
   popupClassName?: string;
+  /** @deprecated Please use `popupClassName` instead */
+  dropdownClassName?: string;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -119,23 +117,25 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       : [];
   }
 
-  warning(
-    !('dataSource' in props),
-    'AutoComplete',
-    '`dataSource` is deprecated, please use `options` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    warning(
+      !('dataSource' in props),
+      'AutoComplete',
+      '`dataSource` is deprecated, please use `options` instead.',
+    );
 
-  warning(
-    !dropdownClassName,
-    'AutoComplete',
-    '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-  );
+    warning(
+      !customizeInput || !('size' in props),
+      'AutoComplete',
+      'You need to control style self instead of setting `size` when using customize input.',
+    );
 
-  warning(
-    !customizeInput || !('size' in props),
-    'AutoComplete',
-    'You need to control style self instead of setting `size` when using customize input.',
-  );
+    warning(
+      !dropdownClassName,
+      'AutoComplete',
+      '`dropdownClassName` is deprecated, please use `popupClassName` instead.',
+    );
+  }
 
   return (
     <ConfigConsumer>
@@ -145,7 +145,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         return (
           <Select
             ref={ref}
-            {...omit(props, ['dataSource'])}
+            {...omit(props, ['dataSource', 'dropdownClassName'])}
             prefixCls={prefixCls}
             popupClassName={popupClassName || dropdownClassName}
             className={classNames(`${prefixCls}-auto-complete`, className)}
@@ -174,8 +174,14 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
   },
 ) => React.ReactElement) & {
   Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(RefAutoComplete);
+
 RefAutoComplete.Option = Option;
+RefAutoComplete._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default RefAutoComplete;

@@ -7,6 +7,8 @@ import { ConfigConsumer, ConfigContext } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 
+import useStyle from './style/index';
+
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
@@ -25,6 +27,7 @@ export interface SpinProps {
 }
 
 export interface SpinClassProps extends SpinProps {
+  hashId: string;
   spinPrefixCls: string;
 }
 
@@ -81,6 +84,7 @@ const Spin: React.FC<SpinClassProps> = props => {
     wrapperClassName,
     style,
     children,
+    hashId,
     ...restProps
   } = props;
 
@@ -111,6 +115,7 @@ const Spin: React.FC<SpinClassProps> = props => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
     // fix https://fb.me/react-unknown-prop
@@ -134,7 +139,10 @@ const Spin: React.FC<SpinClassProps> = props => {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
+        <div
+          {...divProps}
+          className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
+        >
           {spinning && <div key="loading">{spinElement}</div>}
           <div className={containerClassName} key="container">
             {children}
@@ -153,11 +161,14 @@ const SpinFC: SpinFCType = props => {
 
   const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
 
+  const [wrapSSR, hashId] = useStyle(spinPrefixCls);
+
   const spinClassProps: SpinClassProps = {
     ...props,
     spinPrefixCls,
+    hashId,
   };
-  return <Spin {...spinClassProps} />;
+  return wrapSSR(<Spin {...spinClassProps} />);
 };
 
 SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {

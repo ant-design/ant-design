@@ -225,7 +225,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.",
+      'Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
     );
   });
 
@@ -1414,12 +1414,12 @@ describe('Form', () => {
     const Demo: React.FC = () => (
       <Form>
         <Form.Item labelCol={4 as ColProps} validateStatus="error">
-          <Modal visible>
+          <Modal open>
             <Select className="modal-select" />
           </Modal>
         </Form.Item>
         <Form.Item validateStatus="error">
-          <Drawer visible>
+          <Drawer open>
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
@@ -1494,7 +1494,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
+      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
 
     const { container } = render(
       <Form>

@@ -15,6 +15,8 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 
+import useStyle from './style';
+
 type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
@@ -102,6 +104,9 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     const today = generateConfig.getNow();
 
     // ====================== State =======================
@@ -230,7 +235,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       [monthFullCellRender, monthCellRender],
     );
 
-    return (
+    return wrapSSR(
       <LocaleReceiver componentName="Calendar" defaultLocale={getDefaultLocale}>
         {contextLocale => (
           <div
@@ -242,6 +247,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
               },
               className,
+              hashId,
             )}
             style={style}
           >
@@ -281,7 +287,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
             />
           </div>
         )}
-      </LocaleReceiver>
+      </LocaleReceiver>,
     );
   };
 

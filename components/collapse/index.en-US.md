@@ -1,8 +1,7 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Collapse
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 ---
 
@@ -12,6 +11,19 @@ A content area which can be collapsed and expanded.
 
 - Can be used to group or hide complex regions to keep the page clean.
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Collapse</code>
+<code src="./demo/accordion.tsx">Accordion</code>
+<code src="./demo/mix.tsx">Nested panel</code>
+<code src="./demo/borderless.tsx">Borderless</code>
+<code src="./demo/custom.tsx">Custom Panel</code>
+<code src="./demo/noarrow.tsx">No arrow</code>
+<code src="./demo/extra.tsx">Extra node</code>
+<code src="./demo/ghost.tsx">Ghost Collapse</code>
+<code src="./demo/collapsible.tsx">Collapsible</code>
 
 ## API
 

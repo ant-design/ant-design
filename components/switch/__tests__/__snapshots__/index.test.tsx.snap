@@ -12,6 +12,13 @@ exports[`Switch rtl render component should be rendered correctly in RTL directi
   />
   <span
     class="ant-switch-inner"
-  />
+  >
+    <span
+      class="ant-switch-inner-checked"
+    />
+    <span
+      class="ant-switch-inner-unchecked"
+    />
+  </span>
 </button>
 `;

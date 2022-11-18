@@ -4,7 +4,8 @@
     "paths": {
       "antd": ["components/index.tsx"],
       "antd/es/*": ["components/*"],
-      "antd/lib/*": ["components/*"]
+      "antd/lib/*": ["components/*"],
+      "antd/locale/*": ["components/locale/*"]
     },
     "strictNullChecks": true,
     "module": "esnext",
@@ -22,5 +23,5 @@
     "skipLibCheck": true,
     "stripInternal": true
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "exclude": ["node_modules", "lib", "es", "components/*/demo"]
 }

@@ -11,6 +11,9 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
 
+// CSSINJS
+import useStyle from './style';
+
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
   rotateRight: <RotateRightOutlined />,
@@ -27,8 +30,11 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   ...props
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
+  const prefixCls = getPrefixCls('image', customizePrefixCls);
+  const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -40,16 +46,17 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       ..._preview,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      rootClassName: hashId,
     };
   }, [preview]);
 
-  return (
+  return wrapSSR(
     <RcImage.PreviewGroup
       preview={mergedPreview}
-      previewPrefixCls={prefixCls}
+      previewPrefixCls={previewPrefixCls}
       icons={icons}
       {...props}
-    />
+    />,
   );
 };
 

@@ -1,10 +1,12 @@
 ---
 category: Components
 subtitle: 图标
-type: 通用
+group: 通用
 title: Icon
 toc: false
 cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+demo:
+  cols: 2
 ---
 
 语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
@@ -19,10 +21,16 @@ npm install --save @ant-design/icons
 
 ## 图标列表
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/two-tone.tsx">多色图标</code>
+<code src="./demo/custom.tsx">自定义图标</code>
+<code src="./demo/iconfont.tsx">使用 iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">使用 iconfont.cn 的多个资源</code>
 
 ## API
 
@@ -148,10 +156,10 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 计算后的 `svg` 类名 | string | - |  |
-| fill | `svg` 元素填充的颜色 | string | `currentColor` |  |
-| height | `svg` 元素高度 | string \| number | `1em` |  |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  |
-| width | `svg` 元素宽度 | string \| number | `1em` |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
+| height    | `svg` 元素高度          | string \| number | `1em`          |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
+| width     | `svg` 元素宽度          | string \| number | `1em`          |      |

@@ -1,8 +1,7 @@
 ---
 category: Components
 subtitle: 全局化配置
-cols: 1
-type: 其他
+group: 其他
 title: ConfigProvider
 cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
 ---
@@ -35,6 +34,15 @@ export default () => (
 </ConfigProvider>
 ```
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/locale.tsx">国际化</code>
+<code src="./demo/direction.tsx">方向</code>
+<code src="./demo/size.tsx">组件尺寸</code>
+<code src="./demo/theme.tsx">主题</code>
+<code src="./demo/prefixCls.tsx" debug>前缀</code>
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -48,13 +56,13 @@ export default () => (
 | form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional`, colon?: boolean} | - | requiredMark: 4.8.0; colon: 4.18.0 |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | function(triggerNode) | () => document.body |  |
 | getTargetContainer | 配置 Affix、Anchor 滚动监听容器。 | () => HTMLElement | () => window | 4.2.0 |
-| iconPrefixCls | 设置图标统一样式前缀。注意：需要配合 `less` 变量 [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106) 使用 | string | `anticon` | 4.11.0 |
+| iconPrefixCls | 设置图标统一样式前缀 | string | `anticon` | 4.11.0 |
 | input | 设置 Input 组件的通用属性 | { autoComplete?: string } | - | 4.2.0 |
-| locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
-| pageHeader | 统一设置 PageHeader 的 ghost，参考 [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
-| prefixCls | 设置统一样式前缀。注意：需要配合 `less` 变量 [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7) 使用 | string | `ant` |  |
+| locale | 语言包配置，语言包可到 [antd/locale](http://unpkg.com/antd/locale/) 目录下寻找 | object | - |  |
+| prefixCls | 设置统一样式前缀 | string | `ant` |  |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | space | 设置 Space 的 `size`，参考 [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| theme | 设置主题，参考 [定制主题](/docs/react/customize-theme-v5-cn) | - | - | 5.0.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 
 ### ConfigProvider.config() `4.13.0+`

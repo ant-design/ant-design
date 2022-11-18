@@ -1,6 +1,5 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
@@ -11,7 +10,9 @@ import Wave from '../_util/wave';
 import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
 
-export { CheckableTagProps } from './CheckableTag';
+import useStyle from './style';
+
+export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
@@ -57,7 +58,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     warning(
       !('visible' in props),
       'Tag',
-      '`visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+      '`visible` is deprecated, please use `visible && <Tag />` instead.',
     );
   }
 
@@ -81,6 +82,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const presetColor = isPresetColor();
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const tagClassName = classNames(
     prefixCls,
     {
@@ -90,6 +94,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -99,9 +104,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     if (e.defaultPrevented) {
       return;
     }
-    if (!('visible' in props)) {
-      setVisible(false);
-    }
+    setVisible(false);
   };
 
   const renderCloseIcon = () => {
@@ -119,7 +122,6 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const isNeedWave =
     'onClick' in props || (children && (children as React.ReactElement<any>).type === 'a');
-  const tagProps = omit(props, ['visible']);
   const iconNode = icon || null;
   const kids = iconNode ? (
     <>
@@ -131,13 +133,13 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   );
 
   const tagNode = (
-    <span {...tagProps} ref={ref} className={tagClassName} style={tagStyle}>
+    <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {renderCloseIcon()}
     </span>
   );
 
-  return isNeedWave ? <Wave>{tagNode}</Wave> : tagNode;
+  return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
 };
 
 const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;

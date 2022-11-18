@@ -1,8 +1,10 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Timeline
 cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
+demo:
+  cols: 2
 ---
 
 Vertical display timeline.
@@ -11,6 +13,17 @@ Vertical display timeline.
 
 - When a series of information needs to be ordered by time (ascending or descending).
 - When you need a timeline to make a visual connection.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/color.tsx">Color</code>
+<code src="./demo/pending.tsx">Last node and Reversing</code>
+<code src="./demo/alternate.tsx">Alternate</code>
+<code src="./demo/custom.tsx">Custom</code>
+<code src="./demo/right.tsx">Right alternate</code>
+<code src="./demo/label.tsx">Label</code>
 
 ## API
 

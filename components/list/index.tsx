@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import type { RenderEmptyHandler } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -13,7 +14,10 @@ import type { Breakpoint } from '../_util/responsiveObserve';
 import { responsiveArray } from '../_util/responsiveObserve';
 import Item from './Item';
 
-export { ListItemMetaProps, ListItemProps } from './Item';
+// CSSINJS
+import useStyle from './style';
+
+export type { ListItemMetaProps, ListItemProps } from './Item';
 
 export type ColumnCount = number;
 
@@ -145,6 +149,9 @@ function List<T>({
   );
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
     loadingProp = {
@@ -180,6 +187,7 @@ function List<T>({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const paginationProps = {
@@ -214,7 +222,7 @@ function List<T>({
     }
   }
 
-  const needResponsive = Object.keys(grid || {}).some(key =>
+  const needResponsive = Object.keys(grid || {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
@@ -247,7 +255,7 @@ function List<T>({
     const items = splitDataSource.map((item: T, index: number) => renderInnerItem(item, index));
     childrenContent = grid ? (
       <Row gutter={grid.gutter}>
-        {React.Children.map(items, child => (
+        {React.Children.map(items, (child) => (
           <div key={child?.key} style={colStyle}>
             {child}
           </div>
@@ -266,7 +274,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return (
+  return wrapSSR(
     <ListContext.Provider value={contextValue}>
       <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
@@ -279,7 +287,7 @@ function List<T>({
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
-    </ListContext.Provider>
+    </ListContext.Provider>,
   );
 }
 

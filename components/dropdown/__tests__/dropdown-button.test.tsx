@@ -14,7 +14,7 @@ jest.mock('../dropdown', () => {
 
   const MockedDropdown: React.FC<DropdownProps> & {
     Button: typeof ActualDropdownComponent.Button;
-  } = props => {
+  } = (props) => {
     dropdownProps = props;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
@@ -57,7 +57,7 @@ describe('DropdownButton', () => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
 
-    rerender(<DropdownButton menu={{ items }} visible />);
+    rerender(<DropdownButton menu={{ items }} open />);
     expect(dropdownProps.open).toBe(true);
   });
 
@@ -131,7 +131,7 @@ describe('DropdownButton', () => {
       'ant-btn',
     );
   });
-  it('should console Error then `overlay` in props', () => {
+  it('should console Error when `overlay` in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton overlay={<div>test</div>} />);
     expect(errSpy).toHaveBeenCalledWith(
@@ -139,7 +139,7 @@ describe('DropdownButton', () => {
     );
     errSpy.mockRestore();
   });
-  it('should not console Error then `overlay` not in props', () => {
+  it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton />);
     expect(errSpy).not.toHaveBeenCalled();

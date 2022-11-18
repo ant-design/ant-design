@@ -59,15 +59,15 @@ jobs:
             * Ant Motion: https://motion.ant.design
 
             ## 国内镜像
-            * 官方镜像: https://ant-design.antgroup.com/
+            * 官方镜像: https://ant-design.antgroup.com
             * Gitee 镜像: http://ant-design.gitee.io
-            * Ant Design 3.x: http://ant-design-3x.gitee.io
-            * Ant Design 2.x: http://ant-design-2x.gitee.io
-            * Ant Design 1.x: http://ant-design-1x.gitee.io
-            * Ant Design Pro: http://ant-design-pro.gitee.io
-            * Ant Design Mobile: http://antd-mobile.gitee.io
-            * Ant Motion: http://ant-motion.gitee.io
-            * Ant Design Pro Preview : https://prosite.z23.web.core.windows.net
+            * Ant Design 4.x: https://4x-ant-design.antgroup.com
+            * Ant Design 3.x: https://ant-design-3x.gitee.io
+            * Ant Design 2.x: https://ant-design-2x.gitee.io
+            * Ant Design 1.x: https://ant-design-1x.gitee.io
+            * Ant Design Pro: https://ant-design-pro.gitee.io
+            * Ant Design Mobile: https://antd-mobile.gitee.io
+            * Ant Motion: https://ant-motion.gitee.io
 
       - name: check ie
         if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true || contains(github.event.issue.body, 'IE11') == true || contains(github.event.issue.body, 'IE 11') == true || contains(github.event.issue.body, 'Internet Explorer') == true

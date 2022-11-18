@@ -99,43 +99,48 @@ describe('Tag', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(<Tag visible />);
+    const { container } = render(<Tag visible={false} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` will be removed in next major version, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is deprecated, please use `visible && <Tag />` instead.',
     );
+    expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
 
     errSpy.mockRestore();
   });
 
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
-      const { asFragment, rerender } = render(<Tag visible />);
-      expect(asFragment().firstChild).toMatchSnapshot();
+      const { container, rerender } = render(<Tag visible />);
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+
       rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+
       rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
     });
 
     it('can be controlled by visible with hidden as initial value', () => {
-      const { asFragment, rerender } = render(<Tag visible={false} />);
-      expect(asFragment().firstChild).toMatchSnapshot();
+      const { container, rerender } = render(<Tag visible={false} />);
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
+
       rerender(<Tag visible />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeFalsy();
+
       rerender(<Tag visible={false} />);
       act(() => {
         jest.runAllTimers();
       });
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
     });
   });
 

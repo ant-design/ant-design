@@ -62,7 +62,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     }
   };
 
-  const onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
+  const onMouseDown: React.MouseEventHandler<HTMLElement> = (e) => {
     if (document.activeElement === inputRef.current?.input) {
       e.preventDefault();
     }
@@ -75,7 +75,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   };
 
   const onPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (composedRef.current) {
+    if (composedRef.current || loading) {
       return;
     }
     onSearch(e);
@@ -140,12 +140,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
   );
 
-  const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = e => {
+  const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = true;
     onCompositionStart?.(e);
   };
 
-  const handleOnCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = e => {
+  const handleOnCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = false;
     onCompositionEnd?.(e);
   };

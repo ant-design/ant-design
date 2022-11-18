@@ -151,19 +151,23 @@ describe('Drawer', () => {
   });
 
   it('render MultiDrawer is child in unmount', () => {
-    const mask = { mask: false };
-    const { container } = render(<MultiDrawer placement="top" {...mask} />);
-    fireEvent.click(container.querySelector('button#open_drawer')!);
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    fireEvent.click(container.querySelector('button#remove_drawer')!);
+    const { container: wrapper } = render(<MultiDrawer placement="top" />);
+    fireEvent.click(wrapper.querySelector('button#open_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#remove_drawer')!);
 
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({ transform: '' });
+    // Strange, testing-lib get wrong style in next branch.
+    expect((wrapper.querySelector('.ant-drawer-content-wrapper') as any).style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
 
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    expect(wrapper.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({
       transform: 'translateY(180px)',
     });
-    expect(container.querySelectorAll('#two_drawer_text').length).toBe(1);
+    expect(wrapper.querySelectorAll('#two_drawer_text').length).toBe(1);
   });
 
   it('custom MultiDrawer push distance', () => {
@@ -185,9 +189,13 @@ describe('Drawer', () => {
   });
 
   it('custom MultiDrawer push with false', () => {
-    const { container } = render(<MultiDrawer push={false} />);
-    fireEvent.click(container.querySelector('button#open_drawer')!);
-    fireEvent.click(container.querySelector('button#open_two_drawer')!);
-    expect(container.querySelector('.ant-drawer-content-wrapper')).toHaveStyle({ transform: '' });
+    const { container: wrapper } = render(<MultiDrawer push={false} />);
+    fireEvent.click(wrapper.querySelector('button#open_drawer')!);
+    fireEvent.click(wrapper.querySelector('button#open_two_drawer')!);
+    expect((wrapper.querySelector('.ant-drawer-content-wrapper') as any).style).toEqual(
+      expect.objectContaining({
+        transform: '',
+      }),
+    );
   });
 });

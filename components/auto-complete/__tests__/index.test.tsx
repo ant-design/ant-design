@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import Input from '../../input';
+import { resetWarned } from '../../_util/warning';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -99,17 +100,23 @@ describe('AutoComplete', () => {
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 
-  it('should show warning when use dropdownClassName', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(
-      <AutoComplete dropdownClassName="myCustomClassName">
-        <AutoComplete.Option value="111">111</AutoComplete.Option>
-        <AutoComplete.Option value="222">222</AutoComplete.Option>
-      </AutoComplete>,
+  it('deprecated dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <AutoComplete
+        dropdownClassName="legacy"
+        open
+        options={[{ label: 'little', value: 'little' }]}
+        searchValue="l"
+      />,
     );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated, please use `popupClassName` instead.',
     );
-    errorSpy.mockRestore();
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

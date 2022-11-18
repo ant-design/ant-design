@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/divider/demo/customize-style.md extend context correctly 1`] = `
+exports[`renders ./components/divider/demo/customize-style.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal"
@@ -36,7 +36,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/horizontal.md extend context correctly 1`] = `
+exports[`renders ./components/divider/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -58,7 +58,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/plain.md extend context correctly 1`] = `
+exports[`renders ./components/divider/demo/plain.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -105,7 +105,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/vertical.md extend context correctly 1`] = `
+exports[`renders ./components/divider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   Text,
   <div
@@ -129,7 +129,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/divider/demo/with-text.md extend context correctly 1`] = `
+exports[`renders ./components/divider/demo/with-text.tsx extend context correctly 1`] = `
 Array [
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.

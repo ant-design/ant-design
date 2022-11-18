@@ -1,5 +1,5 @@
+import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import moment from 'moment';
 import React from 'react';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -13,7 +13,7 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
+    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
@@ -83,8 +83,13 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms').valueOf();
-
+      const now = dayjs()
+        .add(2, 'd')
+        .add(11, 'h')
+        .add(28, 'm')
+        .add(9, 's')
+        .add(3, 'ms')
+        .toISOString();
       [
         ['H:m:s', '59:28:9'],
         ['HH:mm:ss', '59:28:09'],

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
+exports[`renders ./components/icon/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -151,7 +151,7 @@ exports[`renders ./components/icon/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/icon/demo/custom.md correctly 1`] = `
+exports[`renders ./components/icon/demo/custom.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -286,7 +286,7 @@ exports[`renders ./components/icon/demo/custom.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/icon/demo/iconfont.md correctly 1`] = `
+exports[`renders ./components/icon/demo/iconfont.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -358,7 +358,7 @@ exports[`renders ./components/icon/demo/iconfont.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/icon/demo/scriptUrl.md correctly 1`] = `
+exports[`renders ./components/icon/demo/scriptUrl.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -452,7 +452,7 @@ exports[`renders ./components/icon/demo/scriptUrl.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/icon/demo/two-tone.md correctly 1`] = `
+exports[`renders ./components/icon/demo/two-tone.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >

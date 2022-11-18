@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 时间选择框
-type: 数据录入
+group: 数据录入
 title: TimePicker
 cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
+demo:
+  cols: 2
 ---
 
 输入或选择时间的控件。
@@ -14,13 +16,34 @@ cover: https://gw.alipayobjects.com/zos/alicdn/h04Zsl98I/TimePicker.svg
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/value.tsx">受控组件</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/hide-column.tsx">选择时分</code>
+<code src="./demo/interval-options.tsx">步长选项</code>
+<code src="./demo/addon.tsx">附加内容</code>
+<code src="./demo/12hours.tsx">12 小时制</code>
+<code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
+<code src="./demo/range-picker.tsx">范围选择器</code>
+<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+
 ## API
 
 ---
 
 ```jsx
-import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+
+dayjs.extend(customParseFormat)
+<TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -31,7 +54,7 @@ import moment from 'moment';
 | className | 选择器类名 | string | - |  |
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
-| defaultValue | 默认时间 | [moment](http://momentjs.com/) | - |  |
+| defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
 | disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
@@ -51,14 +74,14 @@ import moment from 'moment';
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
-| value | 当前时间 | [moment](http://momentjs.com/) | - |  |
-| onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | - |  |
+| value | 当前时间 | [dayjs](http://day.js.org/) | - |  |
+| onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
 
 #### DisabledTime
 
 ```typescript
-type DisabledTime = (now: Moment) => {
+type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
@@ -85,7 +108,7 @@ type DisabledTime = (now: Moment) => {
 
 ```typescript
 type RangeDisabledTime = (
-  now: Moment,
+  now: Dayjs,
   type = 'start' | 'end',
 ) => {
   disabledHours?: () => number[];
@@ -101,4 +124,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 Moment.js ）](/docs/react/use-custom-date-library#TimePicker)

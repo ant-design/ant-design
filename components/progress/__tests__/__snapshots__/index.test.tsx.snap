@@ -466,6 +466,62 @@ exports[`Progress render strokeColor 3`] = `
 </div>
 `;
 
+exports[`Progress render strokeWidth of progress 1`] = `
+<div>
+  <div
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="ant-progress-circle"
+        role="presentation"
+        viewBox="-50 -50 100 100"
+      >
+        <circle
+          class="ant-progress-circle-trail"
+          cx="0"
+          cy="0"
+          r="25"
+          stroke-linecap="round"
+          stroke-width="50"
+          style="stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        />
+        <circle
+          class="ant-progress-circle-path"
+          cx="0"
+          cy="0"
+          opacity="1"
+          r="25"
+          stroke-linecap="round"
+          stroke-width="50"
+          style="stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 134.95574287564276; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+        <circle
+          class="ant-progress-circle-path"
+          cx="0"
+          cy="0"
+          opacity="0"
+          r="25"
+          stroke-linecap="round"
+          stroke-width="50"
+          style="stroke: #52C41A; stroke-dasharray: 157.07963267948966px 157.07963267948966; stroke-dashoffset: 157.06963267948967; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+        />
+      </svg>
+      <span
+        class="ant-progress-text"
+        title="30%"
+      >
+        30%
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Progress render successColor progress 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"

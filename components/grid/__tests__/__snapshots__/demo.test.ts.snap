@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
+exports[`renders ./components/grid/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -71,7 +71,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
+exports[`renders ./components/grid/demo/flex.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -280,7 +280,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
+exports[`renders ./components/grid/demo/flex-align.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -435,7 +435,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
+exports[`renders ./components/grid/demo/flex-order.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -508,7 +508,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
+exports[`renders ./components/grid/demo/flex-stretch.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -611,7 +611,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
+exports[`renders ./components/grid/demo/gutter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -821,7 +821,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/offset.md correctly 1`] = `
+exports[`renders ./components/grid/demo/offset.tsx correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -863,7 +863,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
+exports[`renders ./components/grid/demo/playground.tsx correctly 1`] = `
 Array [
   <span>
     Horizontal Gutter (px):
@@ -1287,7 +1287,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
+exports[`renders ./components/grid/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1309,7 +1309,7 @@ exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
+exports[`renders ./components/grid/demo/responsive-more.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1331,7 +1331,7 @@ exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
+exports[`renders ./components/grid/demo/sort.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1348,7 +1348,7 @@ exports[`renders ./components/grid/demo/sort.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.md correctly 1`] = `
+exports[`renders ./components/grid/demo/useBreakpoint.tsx correctly 1`] = `
 Array [
   Current break point:,
   <!-- -->,

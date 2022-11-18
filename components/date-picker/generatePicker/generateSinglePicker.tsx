@@ -22,18 +22,16 @@ import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
+import useStyle from '../style';
+
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
     status?: InputStatus;
-    /**
-     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-     *   version.Please use `popupClassName` instead.
-     */
-    dropdownClassName?: string;
+    hashId?: string;
     popupClassName?: string;
-  }
+  };
   type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
-  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps
+  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -62,6 +60,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
+        const [wrapSSR, hashId] = useStyle(prefixCls);
+
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
           blur: () => innerRef.current?.blur(),
@@ -87,17 +87,20 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const rootPrefixCls = getPrefixCls();
 
         // =================== Warning =====================
-        warning(
-          picker !== 'quarter',
-          displayName!,
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
+        if (process.env.NODE_ENV !== 'production') {
+          warning(
+            picker !== 'quarter',
+            displayName!,
+            `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+          );
 
-        warning(
-          !dropdownClassName,
-          'DatePicker',
-          '`dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-        );
+          warning(
+            !dropdownClassName,
+            displayName || 'DatePicker',
+            '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+          );
+        }
+
         // ===================== Size =====================
         const size = React.useContext(SizeContext);
         const mergedSize = compactSize || customizeSize || size;
@@ -117,7 +120,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        return (
+        return wrapSSR(
           <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
             {contextLocale => {
               const locale = { ...contextLocale, ...props.locale };
@@ -128,7 +131,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
                   suffixIcon={suffixNode}
                   dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                  dropdownClassName={popupClassName || dropdownClassName}
                   clearIcon={<CloseCircleFilled />}
                   prevIcon={<span className={`${prefixCls}-prev-icon`} />}
                   nextIcon={<span className={`${prefixCls}-next-icon`} />}
@@ -150,6 +152,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       getMergedStatus(contextStatus, customStatus),
                       hasFeedback,
                     ),
+                    hashId,
                     compactItemClassnames,
                     className,
                   )}
@@ -159,10 +162,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
+                  dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
                 />
               );
             }}
-          </LocaleReceiver>
+          </LocaleReceiver>,
         );
       },
     );
@@ -179,10 +183,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
   const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
   const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>(
-    'quarter',
-    'QuarterPicker',
-  );
+  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }

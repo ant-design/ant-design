@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/carousel/demo/autoplay.md extend context correctly 1`] = `
+exports[`renders ./components/carousel/demo/autoplay.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
 >
@@ -234,7 +234,7 @@ exports[`renders ./components/carousel/demo/autoplay.md extend context correctly
 </div>
 `;
 
-exports[`renders ./components/carousel/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/carousel/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
 >
@@ -468,7 +468,7 @@ exports[`renders ./components/carousel/demo/basic.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/carousel/demo/fade.md extend context correctly 1`] = `
+exports[`renders ./components/carousel/demo/fade.tsx extend context correctly 1`] = `
 <div
   class="ant-carousel"
 >
@@ -602,7 +602,7 @@ exports[`renders ./components/carousel/demo/fade.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/carousel/demo/position.md extend context correctly 1`] = `
+exports[`renders ./components/carousel/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"

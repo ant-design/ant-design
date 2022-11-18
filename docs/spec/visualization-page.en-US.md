@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Template Document
 order: 2
 title: Visualization Page

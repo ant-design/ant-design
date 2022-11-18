@@ -1,9 +1,11 @@
 ---
 category: Components
 subtitle: 选择器
-type: 数据录入
+group: 数据录入
 title: Select
 cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
+demo:
+  cols: 2
 ---
 
 下拉选择器。
@@ -12,6 +14,34 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/search.tsx">带搜索框</code>
+<code src="./demo/multiple.tsx">多选</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/search-sort.tsx">带排序的搜索</code>
+<code src="./demo/tags.tsx">标签</code>
+<code src="./demo/optgroup.tsx">分组</code>
+<code src="./demo/coordinate.tsx">联动</code>
+<code src="./demo/search-box.tsx">搜索框</code>
+<code src="./demo/label-in-value.tsx">获得选项的文本</code>
+<code src="./demo/automatic-tokenization.tsx">自动分词</code>
+<code src="./demo/select-users.tsx">搜索用户</code>
+<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
+<code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
+<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
+<code src="./demo/responsive.tsx">响应式 maxTagCount</code>
+<code src="./demo/big-data.tsx">大数据</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 
@@ -68,17 +98,17 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
-| onBlur | 失去焦点时的回调 | function | - |  |
+| onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
-| onClear | 清除内容时的回调 | function | - | 4.6.0 |
+| onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(string \| number \| LabeledValue) | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
-| onFocus | 获得焦点时的回调 | function | - |  |
-| onInputKeyDown | 按键按下时的回调 | function | - |  |
-| onMouseEnter | 鼠标移入时的回调 | function | - |  |
-| onMouseLeave | 鼠标移出时的回调 | function | - |  |
+| onFocus | 获得焦点时回调 | function | - |  |
+| onInputKeyDown | 按键按下时回调 | function | - |  |
+| onMouseEnter | 鼠标移入时回调 | function | - |  |
+| onMouseLeave | 鼠标移出时回调 | function | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
-| onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
+| onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(string \| number \| LabeledValue, option: Option) | - |  |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。

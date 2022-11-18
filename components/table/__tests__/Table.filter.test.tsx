@@ -12,6 +12,7 @@ import Tooltip from '../../tooltip';
 import type { SelectProps } from '../../select';
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import type { ColumnFilterItem, FilterDropdownProps, FilterValue } from '../interface';
+import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
@@ -335,6 +336,9 @@ describe('Table.filter', () => {
   });
 
   it('fires change event when visible change', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const onFilterDropdownOpenChange = jest.fn();
     const onFilterDropdownVisibleChange = jest.fn();
     const { container } = render(
@@ -351,6 +355,12 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `onFilterDropdownOpenChange` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   it('can be controlled by filteredValue', () => {

@@ -9,6 +9,7 @@ import { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
 import type { AvatarSize } from './SizeContext';
 import SizeContext from './SizeContext';
+import useStyle from './style';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -136,6 +137,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   );
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -153,6 +155,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     className,
+    hashId,
   );
 
   const sizeStyle: React.CSSProperties =
@@ -220,7 +223,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   delete others.onError;
   delete others.gap;
 
-  return (
+  return wrapSSR(
     <span
       {...others}
       style={{ ...sizeStyle, ...responsiveSizeStyle, ...others.style }}
@@ -228,7 +231,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ref={avatarNodeMergeRef}
     >
       {childrenToRender}
-    </span>
+    </span>,
   );
 };
 

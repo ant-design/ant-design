@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tour Primary 1`] = `
+<button
+  disabled=""
+  type="button"
+>
+  Cover
+</button>
+`;
+
+exports[`Tour basic 1`] = `
+<div>
+  <button
+    type="button"
+  >
+    Show
+  </button>
+  <button
+    disabled=""
+    type="button"
+  >
+    Cover
+  </button>
+  <button
+    disabled=""
+    type="button"
+  >
+    Placement
+  </button>
+</div>
+`;
+
+exports[`Tour rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Tour single 1`] = `
+<button
+  disabled=""
+  type="button"
+>
+  Cover
+</button>
+`;
+
+exports[`Tour steps is empty 1`] = `
+<button
+  disabled=""
+  type="button"
+>
+  Cover
+</button>
+`;
+
+exports[`Tour steps props stepRender 1`] = `
+<button
+  disabled=""
+  type="button"
+>
+  Cover
+</button>
+`;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/avatar/demo/badge.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/badge.tsx extend context correctly 1`] = `
 Array [
   <span
     class="avatar-item"
@@ -85,7 +85,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div>
     <span
@@ -280,7 +280,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/dynamic.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-avatar ant-avatar-lg ant-avatar-circle"
@@ -314,7 +314,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/fallback.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/fallback.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -333,7 +333,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/group.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-avatar-group"
@@ -840,7 +840,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/responsive.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
 >
@@ -866,7 +866,7 @@ exports[`renders ./components/avatar/demo/responsive.md extend context correctly
 </span>
 `;
 
-exports[`renders ./components/avatar/demo/toggle-debug.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-default"
@@ -943,7 +943,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/avatar/demo/type.md extend context correctly 1`] = `
+exports[`renders ./components/avatar/demo/type.tsx extend context correctly 1`] = `
 Array [
   <span
     class="ant-avatar ant-avatar-circle ant-avatar-icon"

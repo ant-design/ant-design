@@ -1,6 +1,71 @@
 /* eslint-disable react/no-multi-comp */
+import dayjs from 'dayjs';
+import 'dayjs/locale/ar';
+import 'dayjs/locale/az';
+import 'dayjs/locale/be';
+import 'dayjs/locale/bg';
+import 'dayjs/locale/bn-bd';
+import 'dayjs/locale/ca';
+import 'dayjs/locale/cs';
+import 'dayjs/locale/da';
+import 'dayjs/locale/de';
+import 'dayjs/locale/el';
+import 'dayjs/locale/en';
+import 'dayjs/locale/en-gb';
+import 'dayjs/locale/es';
+import 'dayjs/locale/et';
+import 'dayjs/locale/fa';
+import 'dayjs/locale/fi';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/fr-ca';
+import 'dayjs/locale/ga';
+import 'dayjs/locale/gl';
+import 'dayjs/locale/he';
+import 'dayjs/locale/hi';
+import 'dayjs/locale/hr';
+import 'dayjs/locale/hu';
+import 'dayjs/locale/hy-am';
+import 'dayjs/locale/id';
+import 'dayjs/locale/is';
+import 'dayjs/locale/it';
+import 'dayjs/locale/ja';
+import 'dayjs/locale/ka';
+import 'dayjs/locale/kk';
+import 'dayjs/locale/km';
+import 'dayjs/locale/kn';
+import 'dayjs/locale/ko';
+import 'dayjs/locale/ku';
+import 'dayjs/locale/lt';
+import 'dayjs/locale/lv';
+import 'dayjs/locale/mk';
+import 'dayjs/locale/ml';
+import 'dayjs/locale/mn';
+import 'dayjs/locale/ms';
+import 'dayjs/locale/nb';
+import 'dayjs/locale/ne';
+import 'dayjs/locale/nl';
+import 'dayjs/locale/nl-be';
+import 'dayjs/locale/pl';
+import 'dayjs/locale/pt';
+import 'dayjs/locale/pt-br';
+import 'dayjs/locale/ro';
+import 'dayjs/locale/ru';
+import 'dayjs/locale/sk';
+import 'dayjs/locale/sl';
+import 'dayjs/locale/sr';
+import 'dayjs/locale/sv';
+import 'dayjs/locale/ta';
+import 'dayjs/locale/th';
+import 'dayjs/locale/tk';
+import 'dayjs/locale/tr';
+import 'dayjs/locale/uk';
+import 'dayjs/locale/ur';
+import 'dayjs/locale/vi';
+import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-hk';
+import 'dayjs/locale/zh-tw';
+import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import MockDate from 'mockdate';
-import moment from 'moment';
 import React from 'react';
 import { render } from '../../../tests/utils';
 import type { Locale } from '..';
@@ -84,6 +149,8 @@ import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
 import zhHK from '../zh_HK';
 import zhTW from '../zh_TW';
+
+dayjs.extend(preParsePostFormat);
 
 const locales = [
   azAZ,
@@ -175,13 +242,13 @@ const App: React.FC = () => (
       <Option value="lucy">lucy</Option>
     </Select>
     <DatePicker open />
-    <TimePicker open defaultOpenValue={moment()} />
+    <TimePicker open defaultOpenValue={dayjs()} />
     <RangePicker open style={{ width: 200 }} />
     <Popconfirm title="Question?" open>
       <a>Click to confirm</a>
     </Popconfirm>
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={(item: any) => item.title} />
-    <Calendar fullscreen={false} value={moment()} />
+    <Calendar fullscreen={false} value={dayjs()} />
     <Table dataSource={[]} columns={columns} />
     <Modal title="Locale Modal" open getContainer={false}>
       <p>Locale Modal</p>
@@ -197,7 +264,7 @@ describe('Locale Provider', () => {
   ));
 
   beforeAll(() => {
-    MockDate.set(moment('2017-09-18T03:30:07.795').valueOf());
+    MockDate.set(dayjs('2017-09-18T03:30:07.795').valueOf());
   });
 
   afterAll(() => {
@@ -219,7 +286,7 @@ describe('Locale Provider', () => {
     locales.forEach(locale => {
       const { container } = render(
         <LocaleProvider locale={locale}>
-          <Modal title="Locale Modal" visible getContainer={false}>
+          <Modal title="Locale Modal" open getContainer={false}>
             Modal
           </Modal>
         </LocaleProvider>,
@@ -235,11 +302,11 @@ describe('Locale Provider', () => {
     });
   });
 
-  it('set moment locale when locale changes', () => {
+  it('set dayjs locale when locale changes', () => {
     const Test: React.FC<{ locale?: Locale }> = ({ locale }) => (
       <LocaleProvider locale={locale!}>
         <div>
-          <DatePicker defaultValue={moment()} open />
+          <DatePicker defaultValue={dayjs()} open />
         </div>
       </LocaleProvider>
     );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/spin/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25,7 +25,7 @@ exports[`renders ./components/spin/demo/basic.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/spin/demo/custom-indicator.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -54,7 +54,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/spin/demo/delayAndDebounce.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -99,13 +99,20 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md extend context corre
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>
 </div>
 `;
 
-exports[`renders ./components/spin/demo/inside.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
 >
@@ -134,7 +141,7 @@ exports[`renders ./components/spin/demo/inside.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -179,13 +186,20 @@ exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] =
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>
 </div>
 `;
 
-exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
 >
@@ -272,7 +286,7 @@ exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/spin/demo/tip.md extend context correctly 1`] = `
+exports[`renders ./components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
   class="ant-spin-nested-loading"
 >

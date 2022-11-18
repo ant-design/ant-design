@@ -1,9 +1,12 @@
 ---
 category: Components
-type: Data Entry
-cols: 2
 title: AutoComplete
 cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
+group:
+  title: Data Entry
+  order: 4
+demo:
+  cols: 2
 ---
 
 Autocomplete function of input field.
@@ -17,6 +20,19 @@ The differences with Select are:
 
 - AutoComplete is an input box with text hints, and users can type freely. The keyword is aiding **input**.
 - Select is selecting among given choices. The keyword is **select**.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Usage</code>
+<code src="./demo/options.tsx">Customized</code>
+<code src="./demo/custom.tsx">Customize Input Component</code>
+<code src="./demo/non-case-sensitive.tsx">Non-case-sensitive AutoComplete</code>
+<code src="./demo/certain-category.tsx">Lookup-Patterns - Certain Category</code>
+<code src="./demo/uncertain-category.tsx">Lookup-Patterns - Uncertain Category</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/form-debug.tsx" debug>Debug in Form</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
 

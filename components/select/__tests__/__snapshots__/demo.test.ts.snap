@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
+exports[`renders ./components/select/demo/automatic-tokenization.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
   style="width:100%"
@@ -46,7 +46,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
 </div>
 `;
 
-exports[`renders ./components/select/demo/basic.md correctly 1`] = `
+exports[`renders ./components/select/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -319,7 +319,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
+exports[`renders ./components/select/demo/big-data.tsx correctly 1`] = `
 Array [
   <h3
     class="ant-typography"
@@ -449,7 +449,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
+exports[`renders ./components/select/demo/bordered.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
@@ -576,7 +576,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
+exports[`renders ./components/select/demo/coordinate.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -701,7 +701,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
+exports[`renders ./components/select/demo/custom-dropdown-menu.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
   style="width:300px"
@@ -763,7 +763,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
+exports[`renders ./components/select/demo/custom-tag-render.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width:100%"
@@ -901,7 +901,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/debug.md correctly 1`] = `
+exports[`renders ./components/select/demo/debug.tsx correctly 1`] = `
 <div
   style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
 >
@@ -1067,7 +1067,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
+exports[`renders ./components/select/demo/hide-selected.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
   style="width:100%"
@@ -1118,7 +1118,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
+exports[`renders ./components/select/demo/label-in-value.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
   style="width:120px"
@@ -1181,7 +1181,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
+exports[`renders ./components/select/demo/multiple.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
@@ -1413,7 +1413,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
+exports[`renders ./components/select/demo/optgroup.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
   style="width:200px"
@@ -1476,7 +1476,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
+exports[`renders ./components/select/demo/option-label-prop.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
   style="width:100%"
@@ -1563,7 +1563,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/placement.md correctly 1`] = `
+exports[`renders ./components/select/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -1711,7 +1711,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
+exports[`renders ./components/select/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -1848,7 +1848,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/search.md correctly 1`] = `
+exports[`renders ./components/select/demo/search.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
 >
@@ -1906,7 +1906,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
+exports[`renders ./components/select/demo/search-box.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-search"
   style="width:200px"
@@ -1939,7 +1939,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
+exports[`renders ./components/select/demo/search-sort.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
   style="width:200px"
@@ -1998,7 +1998,7 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
+exports[`renders ./components/select/demo/select-users.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
   style="width:100%"
@@ -2049,7 +2049,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/size.md correctly 1`] = `
+exports[`renders ./components/select/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
@@ -2426,7 +2426,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/status.md correctly 1`] = `
+exports[`renders ./components/select/demo/status.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
   style="width:100%"
@@ -2557,7 +2557,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
+exports[`renders ./components/select/demo/suffix.tsx correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
@@ -2684,7 +2684,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/select/demo/tags.md correctly 1`] = `
+exports[`renders ./components/select/demo/tags.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
   style="width:100%"

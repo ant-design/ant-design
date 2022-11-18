@@ -1,12 +1,11 @@
 ---
 category: Components
-type: Feedback
+group: Feedback
 title: Skeleton
-cols: 1
 cover: https://gw.alipayobjects.com/zos/alicdn/KpcciCJgv/Skeleton.svg
 ---
 
-Provide a placeholder while you wait for content to load, or to visualise content that doesn't exist yet.
+Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
 
 ## When To Use
 
@@ -14,6 +13,16 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 - When the component contains lots of information, such as List or Card.
 - Only works when loading data for the first time.
 - Could be replaced by Spin in any situation, but can provide a better user experience.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/complex.tsx">Complex combination</code>
+<code src="./demo/active.tsx">Active Animation</code>
+<code src="./demo/element.tsx">Button/Avatar/Input/Image/Node</code>
+<code src="./demo/children.tsx">Contains sub component</code>
+<code src="./demo/list.tsx">List</code>
 
 ## API
 

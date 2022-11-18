@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tree/demo/basic.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
   role="tree"
@@ -318,7 +318,7 @@ exports[`renders ./components/tree/demo/basic.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/tree/demo/basic-controlled.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/basic-controlled.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
   role="tree"
@@ -857,7 +857,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/tree/demo/customized-icon.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/customized-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-tree"
   role="tree"
@@ -1068,7 +1068,7 @@ exports[`renders ./components/tree/demo/customized-icon.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/tree/demo/directory.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/directory.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory"
   role="tree"
@@ -1445,7 +1445,7 @@ exports[`renders ./components/tree/demo/directory.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tree/demo/drag-debug.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/drag-debug.tsx extend context correctly 1`] = `
 Array [
   <div
     style="margin-bottom:16px"
@@ -1462,7 +1462,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -1478,7 +1485,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -1494,7 +1508,14 @@ Array [
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>,
   <div
@@ -2308,7 +2329,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tree/demo/draggable.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/draggable.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
   role="tree"
@@ -2880,7 +2901,7 @@ exports[`renders ./components/tree/demo/draggable.md extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/tree/demo/dynamic.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/dynamic.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide"
   role="tree"
@@ -3034,7 +3055,7 @@ exports[`renders ./components/tree/demo/dynamic.md extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/tree/demo/line.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/line.tsx extend context correctly 1`] = `
 <div>
   <div
     style="margin-bottom:16px"
@@ -3051,7 +3072,14 @@ exports[`renders ./components/tree/demo/line.md extend context correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -3067,7 +3095,14 @@ exports[`renders ./components/tree/demo/line.md extend context correctly 1`] = `
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
     <br />
     <br />
@@ -3674,7 +3709,7 @@ exports[`renders ./components/tree/demo/line.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tree/demo/search.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <span
     class="ant-input-group-wrapper ant-input-search"
@@ -3888,7 +3923,7 @@ exports[`renders ./components/tree/demo/search.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/tree/demo/switcher-icon.md extend context correctly 1`] = `
+exports[`renders ./components/tree/demo/switcher-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-show-line"
   role="tree"

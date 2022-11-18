@@ -1,9 +1,12 @@
 ---
 category: Components
-type: Other
-cols: 2
 title: Anchor
-cover: https://gw.alipayobjects.com/zos/alicdn/_1-C1JwsC/Anchor.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/669b87c5-7b44-4c99-a5ea-4c38f8004788.svg
+demo:
+  cols: 2
+group:
+  title: Navigation
+  order: 3
 ---
 
 Hyperlinks to scroll on one page.
@@ -15,6 +18,16 @@ For displaying anchor hyperlinks on page and jumping between them.
 > Notes for developers
 >
 > After version `4.24.0`, we rewrite Anchor use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/static.tsx">Static Anchor</code>
+<code src="./demo/onClick.tsx">Customize the onClick event</code>
+<code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
+<code src="./demo/targetOffset.tsx">Set Anchor scroll offset</code>
+<code src="./demo/onChange.tsx">Listening for anchor link change</code>
 
 ## API
 
