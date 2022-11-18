@@ -4,7 +4,7 @@ type throttledFn = (...args: any[]) => void;
 
 type throttledCancelFn = { cancel: () => void };
 
-export function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
+function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => void) {
   let requestId: number | null;
 
   const later = (args: T) => () => {
@@ -13,7 +13,7 @@ export function throttleByAnimationFrame<T extends any[]>(fn: (...args: T) => vo
   };
 
   const throttled: throttledFn & throttledCancelFn = (...args: T) => {
-    if (requestId === null) {
+    if (requestId == null) {
       requestId = raf(later(args));
     }
   };

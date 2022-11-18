@@ -9,12 +9,12 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
-import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import FloatButtonGroupContext from './context';
 import type { BackTopProps, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop: React.FC<BackTopProps> = props => {
+const BackTop: React.FC<BackTopProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className = '',
@@ -63,7 +63,7 @@ const BackTop: React.FC<BackTopProps> = props => {
     };
   }, [target]);
 
-  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = e => {
+  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = (e) => {
     scrollTo(0, { getContainer: target || getDefaultTarget, duration });
     if (typeof onClick === 'function') {
       onClick(e);

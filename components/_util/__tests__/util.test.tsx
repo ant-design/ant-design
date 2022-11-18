@@ -6,7 +6,7 @@ import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
 import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
 import { isStyleSupport } from '../styleChecker';
-import { throttleByAnimationFrame } from '../throttleByAnimationFrame';
+import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import TransButton from '../transButton';
 
 describe('Test utils function', () => {

@@ -4,7 +4,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 
 import useStyle from './style';
 import {
