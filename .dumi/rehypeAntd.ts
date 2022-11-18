@@ -52,10 +52,6 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
             ),
           },
         ];
-      } else if (
-        node.tagName === 'img' &&
-        node.properties?.class?.toString().includes('preview-img')
-      ) {
       }
     });
   };
