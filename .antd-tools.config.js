@@ -29,5 +29,4 @@ module.exports = {
     finalize: finalizeDist,
   },
   bail: true,
-  tag: 'next',
 };
