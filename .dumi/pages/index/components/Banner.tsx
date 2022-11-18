@@ -8,14 +8,14 @@ import * as utils from '../../../theme/utils';
 
 const locales = {
   cn: {
-    slogan: '助力设计开发者「更灵活」的搭建出「更美」的产品，让用户「快乐工作」～',
+    slogan: '助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～',
     start: '开始使用',
     designLanguage: '设计语言',
   },
   en: {
     slogan:
-      'Help design developers "more flexible" to build "more beautiful" products, helping users to "work happily"~',
-    start: 'Get Start',
+      'Help designers/developers building beautiful products more flexible and working with happiness',
+    start: 'Getting Started',
     designLanguage: 'Design Language',
   },
 };
