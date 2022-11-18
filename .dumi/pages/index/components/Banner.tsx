@@ -36,7 +36,7 @@ export default function Banner({ children }: BannerProps) {
       {/* Banner Placeholder Motion */}
       <div
         style={{
-          height: 240,
+          height: 320,
           background: '#77C6FF',
           display: 'flex',
           flexWrap: 'nowrap',
@@ -53,12 +53,7 @@ export default function Banner({ children }: BannerProps) {
           }}
         />
 
-        <video
-          style={{ height: '100%', objectFit: 'contain' }}
-          autoPlay
-          muted
-          loop
-        >
+        <video style={{ height: '100%', objectFit: 'contain' }} autoPlay muted loop>
           <source
             src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ"
             type="video/webm"
@@ -91,7 +86,7 @@ export default function Banner({ children }: BannerProps) {
         <GroupMask
           style={{
             textAlign: 'center',
-            paddingTop: token.marginFar,
+            paddingTop: token.marginFar - 16,
             paddingBottom: token.marginFarSM,
           }}
         >
