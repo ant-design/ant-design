@@ -44,7 +44,7 @@ const RoutesPlugin = (api: IApi) => {
 
   api.registerTechStack(() => new AntdReactTechStack());
 
-  api.modifyRoutes(routes => {
+  api.modifyRoutes((routes) => {
     // TODO: append extra routes, such as home, changelog, form-v3
 
     const extraRoutesList: IRoute[] = [
@@ -64,24 +64,24 @@ const RoutesPlugin = (api: IApi) => {
       },
     ];
 
-    extraRoutesList.forEach(itemRoute => {
+    extraRoutesList.forEach((itemRoute) => {
       routes[itemRoute.path] = itemRoute;
     });
 
     return routes;
   });
 
-  api.modifyExportHTMLFiles(files =>
+  api.modifyExportHTMLFiles((files) =>
     files
       // exclude dynamic route path, to avoid deploy failed by `:id` directory
-      .filter(f => !f.path.includes(':'))
+      .filter((f) => !f.path.includes(':'))
       // FIXME: workaround to make emotion support react 18 pipeableStream
       // ref: https://github.com/emotion-js/emotion/issues/2800#issuecomment-1221296308
-      .map(file => {
+      .map((file) => {
         let styles = '';
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, s => {
+        file.content = file.content.replace(/<style data-emotion[\s\S\n]+?<\/style>/g, (s) => {
           styles += s;
 
           return '';
@@ -95,7 +95,7 @@ const RoutesPlugin = (api: IApi) => {
   );
 
   // add ssr css file to html
-  api.modifyConfig(memo => {
+  api.modifyConfig((memo) => {
     memo.styles ??= [];
     memo.styles.push(`/${ssrCssFileName}`);
 
