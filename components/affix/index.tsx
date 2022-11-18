@@ -4,7 +4,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
+import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 
 import useStyle from './style';
 import {
@@ -228,14 +228,11 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     }
   };
 
-  // Handle realign logic
-  @throttleByAnimationFrameDecorator()
-  updatePosition() {
+  updatePosition = throttleByAnimationFrame(() => {
     this.prepareMeasure();
-  }
+  });
 
-  @throttleByAnimationFrameDecorator()
-  lazyUpdatePosition() {
+  lazyUpdatePosition = throttleByAnimationFrame(() => {
     const targetFunc = this.getTargetFunc();
     const { affixStyle } = this.state;
 
@@ -262,7 +259,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 
     // Directly call prepare measure since it's already throttled.
     this.prepareMeasure();
-  }
+  });
 
   // =================== Render ===================
   render() {
