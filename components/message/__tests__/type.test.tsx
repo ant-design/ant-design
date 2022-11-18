@@ -24,10 +24,16 @@ describe('message.typescript', () => {
     );
   });
 
-  it('hide', () => {
+  it('hide', (done) => {
     const onClose = jest.fn();
+    const onClose2 = jest.fn();
     const hide = message.loading('doing...', 0, onClose);
     hide();
     expect(onClose).toHaveBeenCalled();
+    message.loading('doing', 0.1, onClose2);
+    setTimeout(() => {
+      expect(onClose2).toHaveBeenCalled();
+      done();
+    }, 110);
   });
 });
