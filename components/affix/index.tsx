@@ -126,9 +126,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   componentWillUnmount() {
     clearTimeout(this.timeout);
     removeObserveTarget(this);
-    (this.updatePosition as any).cancel();
+    this.updatePosition.cancel();
     // https://github.com/ant-design/ant-design/issues/22683
-    (this.lazyUpdatePosition as any).cancel();
+    this.lazyUpdatePosition.cancel();
   }
 
   getOffsetTop = () => {
@@ -285,21 +285,11 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     }
 
     return (
-      <ResizeObserver
-        onResize={() => {
-          this.updatePosition();
-        }}
-      >
+      <ResizeObserver onResize={this.updatePosition}>
         <div {...props} ref={this.savePlaceholderNode}>
           {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
           <div className={className} ref={this.saveFixedNode} style={affixStyle}>
-            <ResizeObserver
-              onResize={() => {
-                this.updatePosition();
-              }}
-            >
-              {children}
-            </ResizeObserver>
+            <ResizeObserver onResize={this.updatePosition}>{children}</ResizeObserver>
           </div>
         </div>
       </ResizeObserver>
@@ -318,7 +308,6 @@ const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
 
   const AffixProps: InternalAffixProps = {
     ...props,
-
     affixPrefixCls,
     rootClassName: hashId,
   };
