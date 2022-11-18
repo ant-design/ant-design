@@ -29,14 +29,14 @@ title: 从 v4 到 v5
 - 内置的时间库使用 Dayjs 替代 Moment.js，具体请查看 [使用自定义日期库](/docs/react/use-custom-date-library-cn/)。
 - 不再支持 `babel-plugin-import`，CSS-in-JS 本身具有按需加载的能力，不再需要插件支持。Umi 用户可以移除相关配置。
 
-```diff
-// config/config.ts
-export default {
-  antd: {
--   import: true,
-  },
-};
-```
+  ```diff
+  // config/config.ts
+  export default {
+    antd: {
+  -   import: true,
+    },
+  };
+  ```
 
 ### 兼容性调整
 
@@ -45,6 +45,7 @@ export default {
 #### 组件 API 调整
 
 - 组件弹框的 classname API 统一为 `popupClassName`，`dropdownClassName` 等类似 API 都会被替换。
+
   - AutoComplete 组件
   - Cascader 组件
   - Select 组件
@@ -53,20 +54,21 @@ export default {
   - DatePicker 组件
   - Mentions 组件
 
-```diff
-  import { Select } from 'antd';
+  ```diff
+    import { Select } from 'antd';
 
-  const App: React.FC = () => (
-    <Select
--     dropdownClassName="my-select-popup"
-+     popupClassName="my-select-popup"
-    />
-  );
+    const App: React.FC = () => (
+      <Select
+  -     dropdownClassName="my-select-popup"
+  +     popupClassName="my-select-popup"
+      />
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 - 组件弹框的受控可见 API 统一为 `open`，`visible` 等类似 API 都会被替换。
+
   - Drawer 组件 `visible` 变为 `open`。
   - Modal 组件 `visible` 变为 `open`。
   - Dropdown 组件 `visible` 变为 `open`。
@@ -75,88 +77,84 @@ export default {
   - Slider 组件 `tooltip` 相关 API 收敛到 `tooltip` 属性中。
   - Table 组件 `filterDropdownVisible` 变为 `filterDropdownOpen`。
 
-```diff
-  import { Modal, Tag, Table, Slider } from 'antd';
+  ```diff
+    import { Modal, Tag, Table, Slider } from 'antd';
 
-  const App: React.FC = () => {
-    const [visible, setVisible] = useState(true);
+    const App: React.FC = () => {
+      const [visible, setVisible] = useState(true);
 
-    return (
-      <>
--       <Modal visible={visible}>content</Modal>
-+       <Modal open={visible}>content</Modal>
+      return (
+        <>
+  -       <Modal visible={visible}>content</Modal>
+  +       <Modal open={visible}>content</Modal>
 
--       <Tag visible={visible}>tag</Tag>
-+       {visible && <Tag>tag</Tag>}
+  -       <Tag visible={visible}>tag</Tag>
+  +       {visible && <Tag>tag</Tag>}
 
-        <Table
-          data={[]}
-          columns={[
-            {
-              title: 'Name',
-              dataIndex: 'name',
--             filterDropdownVisible: visible,
-+             filterDropdownOpen: visible,
-            }
-          ]}
-        />
+          <Table
+            data={[]}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+  -             filterDropdownVisible: visible,
+  +             filterDropdownOpen: visible,
+              }
+            ]}
+          />
 
--       <Slider tooltipVisible={visible} />
-+       <Slider tooltip={{ open: visible }} />
-      </>
-    );
-  }
+  -       <Slider tooltipVisible={visible} />
+  +       <Slider tooltip={{ open: visible }} />
+        </>
+      );
+    }
 
-  export default App;
-```
+    export default App;
+  ```
 
 - `getPopupContainer`: 所有的 `getPopupContainer` 都需要保证返回的是唯一的 div。React 18 concurrent 下会反复调用该方法。
-- Dropdown
-  - 魔改包裹元素样式移除，请使用 Space 组件。
-  - Dropdown.Button 的 `prefixCls` 改为 `dropdown`。
-- Upload List 结构变化。
+- Upload List dom 结构变化。[#34528](https://github.com/ant-design/ant-design/pull/34528)
 - Notification
   - 静态方法不在允许在 `open` 中动态设置 `prefixCls` `maxCount` `top` `bottom` `getContainer`，Notification 静态方法现在将只有一个实例。如果需要不同配置，请使用 `useNotification`。
-  - `close` 改名为 `destroy` 和 message 保持一致。
-- Drawer
-  - `style` & `className` 迁移至 Drawer Panel 中，原属性替换为 `rootClassName` 和 `rootStyle`。
+  - `close` 改名为 `destroy`，和 message 保持一致。
+- Drawer `style` 和 `className` 迁移至 Drawer 弹层区域上，原属性替换为 `rootClassName` 和 `rootStyle`。
 
 #### 组件重构与移除
 
 - 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
-```diff
-- import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { Comment } from '@ant-design/compatible';
-+ import { PageHeader } from '@ant-design/pro-layout';
-+ import { Input, Button } from 'antd';
+  ```diff
+  - import { PageHeader, Comment, Input, Button } from 'antd';
+  + import { Comment } from '@ant-design/compatible';
+  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { Input, Button } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
-      <PageHeader />
-      <Comment />
-    </div>
-  );
+    const App: React.FC = () => (
+      <>
+        <PageHeader />
+        <Comment />
+      </>
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 - BackTop 组件在 `5.0.0` 中废弃，移至 FloatButton 悬浮按钮中。如需使用，可以从 FloatButton 中引入。
 
-```diff
-- import { BackTop } from 'antd';
-+ import { FloatButton } from 'antd';
+  ```diff
+  - import { BackTop } from 'antd';
+  + import { FloatButton } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
--     <BackTop />
-+     <FloatButton.BackTop />
-    </div>
-  );
+    const App: React.FC = () => (
+      <>
+  -     <BackTop />
+  +     <FloatButton.BackTop />
+      </>
+    );
 
-  export default App;
-```
+    export default App;
+  ```
 
 ## 开始升级
 
@@ -171,7 +169,6 @@ npm install --save antd@5.x
 ```jsx
 import { theme } from 'antd';
 import { convertLegacyToken } from '@ant-design/compatible';
-
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
@@ -191,4 +188,4 @@ const v4Token = convertLegacyToken(mapToken);
 
 ## 遇到问题
 
-如果您在升级过程中遇到了问题，请到 [GitHub issues](http://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。
+如果您在升级过程中遇到了问题，请到 [GitHub issues](https://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。
