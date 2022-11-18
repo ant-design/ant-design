@@ -62,7 +62,7 @@
     "compile": "npm run clean && antd-tools run compile-experimental",
     "changelog": "node ./scripts/print-changelog",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
-    "deploy": "gh-pages -d _site -r git@github.com:ant-design/next.ant.design.git -b gh-pages",
+    "deploy": "gh-pages -d _site -b gh-pages",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
     "dist:esbuild": "ESBUILD=true npm run dist",
