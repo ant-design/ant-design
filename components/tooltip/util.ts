@@ -15,7 +15,7 @@ export function parseColor(prefixCls: string, color?: string) {
   const arrowStyle: React.CSSProperties = {};
 
   if (color && !PresetColorRegex.test(color)) {
-    overlayStyle.backgroundColor = color;
+    overlayStyle.background = color;
     // @ts-ignore
     arrowStyle['--antd-arrow-background-color'] = color;
   }
