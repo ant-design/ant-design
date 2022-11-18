@@ -54,6 +54,11 @@ const useStyle = () => {
         text-align: center;
       }
 
+      .nav-search-wrapper {
+        flex: auto;
+        display: flex;
+      }
+
       .dumi-default-search-bar {
         border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
 
@@ -462,7 +467,9 @@ const Header: React.FC<HeaderProps> = (props) => {
           <Logo {...sharedProps} location={location} />
         </Col>
         <Col {...colProps[1]} css={style.menuRow}>
-          <DumiSearchBar />
+          <div className="nav-search-wrapper">
+            <DumiSearchBar />
+          </div>
           {!isMobile && menu}
         </Col>
       </Row>
