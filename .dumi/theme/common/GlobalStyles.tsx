@@ -1154,9 +1154,9 @@ const GlobalStyles = () => {
               margin: 0;
 
               code {
-                background: ${token.colorBgContainer};
-                border: none;
-                box-shadow: unset;
+                background: ${token.colorBgContainer} !important;
+                border: none !important;
+                box-shadow: unset !important;
               }
             }
 
