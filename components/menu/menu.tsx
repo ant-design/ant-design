@@ -16,8 +16,7 @@ import OverrideContext from './OverrideContext';
 import useItems from './hooks/useItems';
 import type { ItemType } from './hooks/useItems';
 import MenuContext from './MenuContext';
-import type { MenuContextProps } from './MenuContext';
-import type { MenuTheme } from './MenuContext';
+import type { MenuTheme, MenuContextProps } from './MenuContext';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
