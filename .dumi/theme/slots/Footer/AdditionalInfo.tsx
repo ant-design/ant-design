@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Modal, Button, Typography, Row, Col } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
-import { isLocalStorageNameSupported } from '../../../theme/utils';
+import { isLocalStorageNameSupported, ping } from '../../utils';
 import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 
@@ -16,32 +16,74 @@ const locales = {
   },
 };
 
+const V5_NOTIFICATION = 'antd@4.0.0-notification-sent';
+const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+
+function disableAntdMirrorModal() {
+  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
+}
+
+function shouldOpenAntdMirrorModal() {
+  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
+}
+
 export default function InfoNewVersion() {
   const [locale, lang] = useLocale(locales);
-  const [notify, setNotify] = React.useState(false);
+  const [notify, setNotify] = React.useState<null | boolean>(null);
 
   const { token } = useSiteToken();
 
   function onClose() {
     setNotify(false);
-    localStorage.setItem('antd@4.0.0-notification-sent', 'true');
+    localStorage.setItem(V5_NOTIFICATION, 'true');
   }
 
   React.useEffect(() => {
-    if (!isLocalStorageNameSupported()) {
-      return;
+    if (isLocalStorageNameSupported()) {
+      // 大版本发布后全局弹窗提示
+      //   1. 点击『知道了』之后不再提示
+      //   2. 超过截止日期后不再提示
+      if (
+        localStorage.getItem(V5_NOTIFICATION) !== 'true' &&
+        Date.now() < new Date('2022/12/31').getTime()
+      ) {
+        setNotify(true);
+        return;
+      }
     }
 
-    // 大版本发布后全局弹窗提示
-    //   1. 点击『知道了』之后不再提示
-    //   2. 超过截止日期后不再提示
-    if (
-      localStorage.getItem('antd@4.0.0-notification-sent') !== 'true' &&
-      Date.now() < new Date('2022/12/31').getTime()
-    ) {
-      setNotify(true);
-    }
+    setNotify(false);
   }, []);
+
+  React.useEffect(() => {
+    const timeout = ping((status) => {
+      if (status !== 'timeout' && status !== 'error') {
+        if (
+          // process.env.NODE_ENV === 'production' &&
+          notify === false &&
+          window.location.host !== 'ant-design.antgroup.com' &&
+          shouldOpenAntdMirrorModal()
+        ) {
+          Modal.confirm({
+            title: '提示',
+            content: '内网用户推荐访问国内镜像以获得极速体验～',
+            okText: '🚀 立刻前往',
+            cancelText: '不再弹出',
+            closable: true,
+            onOk() {
+              window.open('https://ant-design.antgroup.com', '_self');
+              disableAntdMirrorModal();
+            },
+            onCancel() {
+              disableAntdMirrorModal();
+            },
+          });
+        }
+      }
+    });
+
+    return clearTimeout(timeout);
+  }, [notify]);
 
   return (
     <Modal

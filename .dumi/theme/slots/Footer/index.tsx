@@ -23,7 +23,7 @@ import useLocale from '../../../hooks/useLocale';
 import useSiteToken from '../../../hooks/useSiteToken';
 import { TinyColor } from '@ctrl/tinycolor';
 import getAlphaColor from 'antd/es/theme/util/getAlphaColor';
-import InfoNewVersion from './InfoNewVersion';
+import AdditionalInfo from './AdditionalInfo';
 
 const locales = {
   cn: {
@@ -369,7 +369,7 @@ const Footer = () => {
           </>
         }
       />
-      <InfoNewVersion />
+      <AdditionalInfo />
     </>
   );
 };
