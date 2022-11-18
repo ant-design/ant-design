@@ -66,7 +66,7 @@ const Steps: StepsType = (props) => {
   const { xs } = useBreakpoint(responsive);
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
-  const _direction = React.useMemo<RcStepsProps['direction']>(
+  const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
     () => (responsive && xs ? 'vertical' : direction),
     [xs, direction],
   );
@@ -126,7 +126,7 @@ const Steps: StepsType = (props) => {
       items={mergedItems}
       itemRender={isInline ? itemRender : undefined}
       stepIcon={stepIconRender}
-      direction={_direction}
+      direction={realDirectionValue}
       prefixCls={prefixCls}
       iconPrefix={iconPrefix}
       className={stepsClassName}
