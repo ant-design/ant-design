@@ -2,7 +2,7 @@
 
 echo "[TEST ALL] test changlog"
 echo "[TEST ALL] test changlog" > ~test-all.txt
-node ./scripts/check-version-md.js
+# node ./scripts/check-version-md.js
 
 echo "[TEST ALL] check-commit"
 echo "[TEST ALL] check-commit" > ~test-all.txt
