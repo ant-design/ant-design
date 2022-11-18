@@ -114,49 +114,49 @@ export default {
 - Dropdown
   - 魔改包裹元素样式移除，请使用 Space 组件。
   - Dropdown.Button 的 `prefixCls` 改为 `dropdown`。
-- Upload List 结构变化。
+- Upload List dom 结构变化。
 - Notification
   - 静态方法不在允许在 `open` 中动态设置 `prefixCls` `maxCount` `top` `bottom` `getContainer`，Notification 静态方法现在将只有一个实例。如果需要不同配置，请使用 `useNotification`。
   - `close` 改名为 `destroy` 和 message 保持一致。
 - Drawer
-  - `style` & `className` 迁移至 Drawer Panel 中，原属性替换为 `rootClassName` 和 `rootStyle`。
+  - `style` 和 `className` 迁移至 Drawer 弹层区域上，原属性替换为 `rootClassName` 和 `rootStyle`。
 
 #### 组件重构与移除
 
 - 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
-```diff
-- import { PageHeader, Comment, Input, Button } from 'antd';
-+ import { Comment } from '@ant-design/compatible';
-+ import { PageHeader } from '@ant-design/pro-layout';
-+ import { Input, Button } from 'antd';
+   ```diff
+   - import { PageHeader, Comment, Input, Button } from 'antd';
+   + import { Comment } from '@ant-design/compatible';
+   + import { PageHeader } from '@ant-design/pro-layout';
+   + import { Input, Button } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
-      <PageHeader />
-      <Comment />
-    </div>
-  );
+     const App: React.FC = () => (
+       <div>
+         <PageHeader />
+         <Comment />
+       </div>
+     );
 
-  export default App;
-```
+     export default App;
+   ```
 
 - BackTop 组件在 `5.0.0` 中废弃，移至 FloatButton 悬浮按钮中。如需使用，可以从 FloatButton 中引入。
 
-```diff
-- import { BackTop } from 'antd';
-+ import { FloatButton } from 'antd';
+   ```diff
+   - import { BackTop } from 'antd';
+   + import { FloatButton } from 'antd';
 
-  const App: React.FC = () => (
-    <div>
--     <BackTop />
-+     <FloatButton.BackTop />
-    </div>
-  );
+     const App: React.FC = () => (
+       <div>
+   -     <BackTop />
+   +     <FloatButton.BackTop />
+       </div>
+     );
 
-  export default App;
-```
+     export default App;
+   ```
 
 ## 开始升级
 
@@ -191,4 +191,4 @@ const v4Token = convertLegacyToken(mapToken);
 
 ## 遇到问题
 
-如果您在升级过程中遇到了问题，请到 [GitHub issues](http://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。
+如果您在升级过程中遇到了问题，请到 [GitHub issues](https://new-issue.ant.design/) 进行反馈。我们会尽快响应和相应改进这篇文档。
