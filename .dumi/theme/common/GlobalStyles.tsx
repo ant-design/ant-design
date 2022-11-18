@@ -1156,6 +1156,7 @@ const GlobalStyles = () => {
               code {
                 background: ${token.colorBgContainer};
                 border: none;
+                box-shadow: unset;
               }
             }
 
